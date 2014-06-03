@@ -9,6 +9,8 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -32,11 +34,8 @@ define( function( require ) {
       }
     } );
 
-    var underConstruction = new Text( 'Integers: under construction',
-      { font: new PhetFont( 24 ), center: this.layoutBounds.center } );
-
     var rootNode = new Node( { children: [
-      underConstruction,
+      new Text( 'Integers: under construction', { font: new GQFont( 24 ), center: this.layoutBounds.center } ),
       resetAllButton
     ] } );
 
@@ -46,5 +45,5 @@ define( function( require ) {
     thisView.addChild( rootNode );
   }
 
-  return inherit( ScreenView, IntegersView );
+  return inherit( ScreenView, IntegersView, { layoutBounds: GQConstants.LAYOUT_BOUNDS } );
 } );

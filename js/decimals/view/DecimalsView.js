@@ -9,9 +9,10 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -32,11 +33,8 @@ define( function( require ) {
       }
     } );
 
-    var underConstruction = new Text( 'Decimals: under construction',
-      { font: new PhetFont( 24 ), center: this.layoutBounds.center } );
-
     var rootNode = new Node( { children: [
-      underConstruction,
+      new Text( 'Decimals: under construction', { font: new GQFont( 24 ), center: this.layoutBounds.center } ), //TODO
       resetAllButton
     ] } );
 
@@ -46,5 +44,5 @@ define( function( require ) {
     thisView.addChild( rootNode );
   }
 
-  return inherit( ScreenView, DecimalsView );
+  return inherit( ScreenView, DecimalsView, { layoutBounds: GQConstants.LAYOUT_BOUNDS } );
 } );

@@ -1,3 +1,4 @@
+6/3/14 encapsulate font requirements in GQFont
 6/3/14 add all strings shown in the design doc
 6/3/14 set up simulation skeleton
 6/3/14 create github repository
