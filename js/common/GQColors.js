@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   return {
-    SCREEN_BACKGROUND: 'rgb(238,252,252)'
+    SCREEN_BACKGROUND: 'rgb(238,252,252)',
+    CONTROL_PANEL_BACKGROUND: 'rgb(255,255,226)'
   };
 } );
