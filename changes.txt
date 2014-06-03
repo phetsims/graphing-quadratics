@@ -1,0 +1,2 @@
+6/2/14 set up simulation skeleton
+6/2/14 create github repository
