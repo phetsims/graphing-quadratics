@@ -14,7 +14,6 @@ define( function( require ) {
 
   return {
     RENDERER: 'svg',
-    FONT_FAMILY: 'Tahoma',
     LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ),
     X_AXIS_RANGE: new Range( -10, 10 ),
     Y_AXIS_RANGE: new Range( -10, 10 ),
