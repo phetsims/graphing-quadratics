@@ -1,1 +1,4 @@
 TODO list for graphing-quadratics
+
+Design doc: https://docs.google.com/document/d/1jjXg9YPQhw51IU6OS5oXZDitIKlJW-n1GLOYE3xeYp8/edit
+
