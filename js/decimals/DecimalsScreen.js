@@ -12,7 +12,6 @@ define( function( require ) {
   var DecimalsModel = require( 'GRAPHING_QUADRATICS/decimals/model/DecimalsModel' );
   var DecimalsView = require( 'GRAPHING_QUADRATICS/decimals/view/DecimalsView' );
   var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );

@@ -10,7 +10,6 @@ define( function( require ) {
 
   // modules
   var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var IntegersModel = require( 'GRAPHING_QUADRATICS/integers/model/IntegersModel' );
   var IntegersView = require( 'GRAPHING_QUADRATICS/integers/view/IntegersView' );
