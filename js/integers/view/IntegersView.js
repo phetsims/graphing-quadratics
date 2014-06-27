@@ -19,10 +19,10 @@ define( function( require ) {
 
   /**
    * @param {IntegersModel} model
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function IntegersView( model, mvt ) {
+  function IntegersView( model, modelViewTransform ) {
 
     var thisView = this;
     ScreenView.call( thisView, { renderer: 'svg' } );

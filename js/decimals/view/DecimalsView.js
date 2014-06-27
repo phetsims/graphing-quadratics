@@ -19,10 +19,10 @@ define( function( require ) {
 
   /**
    * @param {DecimalsModel} model
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function DecimalsView( model, mvt ) {
+  function DecimalsView( model, modelViewTransform ) {
 
     var thisView = this;
     ScreenView.call( thisView, { renderer: 'svg' } );

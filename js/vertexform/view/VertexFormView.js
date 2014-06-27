@@ -19,10 +19,10 @@ define( function( require ) {
 
   /**
    * @param {VertexFormModel} model
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function VertexFormView( model, mvt ) {
+  function VertexFormView( model, modelViewTransform ) {
 
     var thisView = this;
     ScreenView.call( thisView, { renderer: 'svg' } );
