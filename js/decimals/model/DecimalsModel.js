@@ -8,14 +8,16 @@
 define( function( require ) {
   'use strict';
 
+  // modules
+  var inherit = require( 'PHET_CORE/inherit' );
+
   function DecimalsModel() {
   }
 
-  DecimalsModel.prototype = {
+  return inherit( Object, DecimalsModel, {
+
     reset: function() {
       //TODO
     }
-  };
-
-  return DecimalsModel;
+  } );
 } );

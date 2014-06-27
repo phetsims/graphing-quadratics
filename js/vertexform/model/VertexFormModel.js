@@ -8,14 +8,16 @@
 define( function( require ) {
   'use strict';
 
+  // modules
+  var inherit = require( 'PHET_CORE/inherit' );
+
   function VertexFormModel() {
   }
 
-  VertexFormModel.prototype = {
+  return inherit( Object, VertexFormModel, {
+
     reset: function() {
       //TODO
     }
-  };
-
-  return VertexFormModel;
+  } );
 } );
