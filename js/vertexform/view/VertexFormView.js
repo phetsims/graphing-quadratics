@@ -25,7 +25,7 @@ define( function( require ) {
   function VertexFormView( model, modelViewTransform ) {
 
     var thisView = this;
-    ScreenView.call( thisView, { renderer: 'svg' } );
+    ScreenView.call( thisView, GQConstants.SCREEN_VIEW_OPTIONS );
 
     var resetAllButton = new ResetAllButton( {
       listener: function() {
@@ -44,5 +44,5 @@ define( function( require ) {
     thisView.addChild( rootNode );
   }
 
-  return inherit( ScreenView, VertexFormView, { layoutBounds: GQConstants.LAYOUT_BOUNDS } );
+  return inherit( ScreenView, VertexFormView );
 } );
