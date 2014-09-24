@@ -24,7 +24,7 @@ define( function( require ) {
     credits: {
       leadDesign: 'Karina Hensberry',
       softwareDevelopment: 'Chris Malley',
-      designTeam: 'Mike Dubson, Patricia Loeblein, Ariel Paul, Kathy Perkins'
+      team: 'Mike Dubson, Patricia Loeblein, Ariel Paul, Kathy Perkins'
     }
   };
 
