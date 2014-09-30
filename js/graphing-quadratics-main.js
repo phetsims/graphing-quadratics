@@ -22,7 +22,7 @@ define( function( require ) {
 
   var options = {
     credits: {
-      leadDesign: 'Karina Hensberry',
+      leadDesign: 'Karina K. R. Hensberry',
       softwareDevelopment: 'Chris Malley',
       team: 'Mike Dubson, Patricia Loeblein, Ariel Paul, Kathy Perkins'
     }
