@@ -33,10 +33,12 @@ define( function( require ) {
       }
     } );
 
-    var rootNode = new Node( { children: [
-      new Text( 'Vertex Form: under construction', { font: new GQFont( 24 ), center: this.layoutBounds.center } ), //TODO
-      resetAllButton
-    ] } );
+    var rootNode = new Node( {
+      children: [
+        new Text( 'Vertex Form: under construction', { font: new GQFont( 24 ), center: this.layoutBounds.center } ), //TODO
+        resetAllButton
+      ]
+    } );
 
     resetAllButton.right = this.layoutBounds.right - 30;
     resetAllButton.bottom = this.layoutBounds.bottom - 30;

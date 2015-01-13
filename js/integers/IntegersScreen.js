@@ -21,18 +21,18 @@ define( function( require ) {
   var screenTitle = require( 'string!GRAPHING_QUADRATICS/integers' );
 
   var createIcon = function() {
-     return new Rectangle( 0, 0, 100, 100, { fill: 'red' } ); //TODO
+    return new Rectangle( 0, 0, 100, 100, { fill: 'red' } ); //TODO
   };
 
   function IntegersScreen() {
-      Screen.call( this,
-        screenTitle,
-        createIcon(),
-        function() { return new IntegersModel(); },
-        function( model ) { return new IntegersView( model, ModelViewTransform2.createIdentity() ); },
-        { backgroundColor: GQColors.SCREEN_BACKGROUND }
-      );
-    }
+    Screen.call( this,
+      screenTitle,
+      createIcon(),
+      function() { return new IntegersModel(); },
+      function( model ) { return new IntegersView( model, ModelViewTransform2.createIdentity() ); },
+      { backgroundColor: GQColors.SCREEN_BACKGROUND }
+    );
+  }
 
-    return inherit( Screen, IntegersScreen );
+  return inherit( Screen, IntegersScreen );
 } );

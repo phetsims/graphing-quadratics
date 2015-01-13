@@ -9,7 +9,7 @@
 
 require.config( {
 
-  deps: ['graphing-quadratics-main'],
+  deps: [ 'graphing-quadratics-main' ],
 
   paths: {
 

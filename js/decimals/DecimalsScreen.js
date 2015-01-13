@@ -21,18 +21,18 @@ define( function( require ) {
   var screenTitle = require( 'string!GRAPHING_QUADRATICS/decimals' );
 
   var createIcon = function() {
-     return new Rectangle( 0, 0, 100, 100, { fill: 'yellow' } ); //TODO
+    return new Rectangle( 0, 0, 100, 100, { fill: 'yellow' } ); //TODO
   };
 
   function DecimalsScreen() {
-      Screen.call( this,
-        screenTitle,
-        createIcon(),
-        function() { return new DecimalsModel(); },
-        function( model ) { return new DecimalsView( model, ModelViewTransform2.createIdentity() ); },
-        { backgroundColor: GQColors.SCREEN_BACKGROUND }
-      );
-    }
+    Screen.call( this,
+      screenTitle,
+      createIcon(),
+      function() { return new DecimalsModel(); },
+      function( model ) { return new DecimalsView( model, ModelViewTransform2.createIdentity() ); },
+      { backgroundColor: GQColors.SCREEN_BACKGROUND }
+    );
+  }
 
-    return inherit( Screen, DecimalsScreen );
+  return inherit( Screen, DecimalsScreen );
 } );

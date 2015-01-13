@@ -33,10 +33,12 @@ define( function( require ) {
       }
     } );
 
-    var rootNode = new Node( { children: [
-      new Text( 'Integers: under construction', { font: new GQFont( 24 ), center: this.layoutBounds.center } ),
-      resetAllButton
-    ] } );
+    var rootNode = new Node( {
+      children: [
+        new Text( 'Integers: under construction', { font: new GQFont( 24 ), center: this.layoutBounds.center } ),
+        resetAllButton
+      ]
+    } );
 
     resetAllButton.right = this.layoutBounds.right - 30;
     resetAllButton.bottom = this.layoutBounds.bottom - 30;
