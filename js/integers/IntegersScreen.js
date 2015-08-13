@@ -21,7 +21,7 @@ define( function( require ) {
   var screenTitle = require( 'string!GRAPHING_QUADRATICS/integers' );
 
   var createIcon = function() {
-    return new Rectangle( 0, 0, 100, 100, { fill: 'red' } ); //TODO
+    return new Rectangle( 0, 0, Screen.HOME_SCREEN_ICON_SIZE.width, Screen.HOME_SCREEN_ICON_SIZE.height, { fill: 'red' } ); //TODO
   };
 
   function IntegersScreen() {

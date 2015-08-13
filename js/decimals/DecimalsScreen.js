@@ -21,7 +21,7 @@ define( function( require ) {
   var screenTitle = require( 'string!GRAPHING_QUADRATICS/decimals' );
 
   var createIcon = function() {
-    return new Rectangle( 0, 0, 100, 100, { fill: 'yellow' } ); //TODO
+    return new Rectangle( 0, 0, Screen.HOME_SCREEN_ICON_SIZE.width, Screen.HOME_SCREEN_ICON_SIZE.height, { fill: 'yellow' } ); //TODO
   };
 
   function DecimalsScreen() {
