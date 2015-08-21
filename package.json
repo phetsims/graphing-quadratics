@@ -15,7 +15,6 @@
   },
   "phet": {
     "requirejsNamespace": "GRAPHING_QUADRATICS",
-    "simTitleStringKey": "GRAPHING_QUADRATICS/graphing-quadratics.name",
     "phetLibs": [
       "vegas",
       "vibe"
