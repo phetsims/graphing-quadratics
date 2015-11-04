@@ -18,7 +18,7 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
 
   // strings
-  var screenTitle = require( 'string!GRAPHING_QUADRATICS/integers' );
+  var integersString = require( 'string!GRAPHING_QUADRATICS/integers' );
 
   var createIcon = function() {
     return new Rectangle( 0, 0, Screen.HOME_SCREEN_ICON_SIZE.width, Screen.HOME_SCREEN_ICON_SIZE.height, { fill: 'red' } ); //TODO
@@ -26,7 +26,7 @@ define( function( require ) {
 
   function IntegersScreen() {
     Screen.call( this,
-      screenTitle,
+      integersString,
       createIcon(),
       function() { return new IntegersModel(); },
       function( model ) { return new IntegersView( model, ModelViewTransform2.createIdentity() ); },

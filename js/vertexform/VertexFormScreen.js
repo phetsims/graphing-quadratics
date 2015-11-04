@@ -18,7 +18,7 @@ define( function( require ) {
   var VertexFormView = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormView' );
 
   // strings
-  var screenTitle = require( 'string!GRAPHING_QUADRATICS/vertexForm' );
+  var vertexFormString = require( 'string!GRAPHING_QUADRATICS/vertexForm' );
 
   var createIcon = function() {
     return new Rectangle( 0, 0, Screen.HOME_SCREEN_ICON_SIZE.width, Screen.HOME_SCREEN_ICON_SIZE.height, { fill: 'green' } ); //TODO
@@ -26,7 +26,7 @@ define( function( require ) {
 
   function VertexFormScreen() {
     Screen.call( this,
-      screenTitle,
+      vertexFormString,
       createIcon(),
       function() { return new VertexFormModel(); },
       function( model ) { return new VertexFormView( model, ModelViewTransform2.createIdentity() ); },

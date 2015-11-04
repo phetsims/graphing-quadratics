@@ -16,7 +16,7 @@ define( function( require ) {
   var VertexFormScreen = require( 'GRAPHING_QUADRATICS/vertexform/VertexFormScreen' );
 
   // strings
-  var title = require( 'string!GRAPHING_QUADRATICS/graphing-quadratics.title' );
+  var graphingQuadraticsTitleString = require( 'string!GRAPHING_QUADRATICS/graphing-quadratics.title' );
 
   var screens = [ new IntegersScreen(), new DecimalsScreen(), new VertexFormScreen() ];
 
@@ -29,7 +29,7 @@ define( function( require ) {
   };
 
   SimLauncher.launch( function() {
-    var sim = new Sim( title, screens, options );
+    var sim = new Sim( graphingQuadraticsTitleString, screens, options );
     sim.start();
   } );
 } );

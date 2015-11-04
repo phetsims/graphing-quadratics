@@ -18,7 +18,7 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
 
   // strings
-  var screenTitle = require( 'string!GRAPHING_QUADRATICS/decimals' );
+  var decimalsString = require( 'string!GRAPHING_QUADRATICS/decimals' );
 
   var createIcon = function() {
     return new Rectangle( 0, 0, Screen.HOME_SCREEN_ICON_SIZE.width, Screen.HOME_SCREEN_ICON_SIZE.height, { fill: 'yellow' } ); //TODO
@@ -26,7 +26,7 @@ define( function( require ) {
 
   function DecimalsScreen() {
     Screen.call( this,
-      screenTitle,
+      decimalsString,
       createIcon(),
       function() { return new DecimalsModel(); },
       function( model ) { return new DecimalsView( model, ModelViewTransform2.createIdentity() ); },
