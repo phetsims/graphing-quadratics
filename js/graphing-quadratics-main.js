@@ -18,8 +18,6 @@ define( function( require ) {
   // strings
   var graphingQuadraticsTitleString = require( 'string!GRAPHING_QUADRATICS/graphing-quadratics.title' );
 
-  var screens = [ new IntegersScreen(), new DecimalsScreen(), new VertexFormScreen() ];
-
   var options = {
     credits: {
       leadDesign: 'Karina K. R. Hensberry',
@@ -29,6 +27,11 @@ define( function( require ) {
   };
 
   SimLauncher.launch( function() {
+    var screens = [
+      new IntegersScreen(),
+      new DecimalsScreen(),
+      new VertexFormScreen()
+    ];
     var sim = new Sim( graphingQuadraticsTitleString, screens, options );
     sim.start();
   } );
