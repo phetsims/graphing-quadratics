@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
@@ -30,6 +31,8 @@ define( function( require ) {
 
     PhetFont.call( this, options );
   }
+
+  graphingQuadratics.register( 'GQFont', GQFont );
 
   return inherit( PhetFont, GQFont );
 } );

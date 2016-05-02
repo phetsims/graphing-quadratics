@@ -8,8 +8,15 @@
 define( function( require ) {
   'use strict';
 
-  return {
+  // modules
+  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+
+  var GQColors = {
     SCREEN_BACKGROUND: 'rgb(238,252,252)',
     CONTROL_PANEL_BACKGROUND: 'rgb(255,255,226)'
   };
+
+  graphingQuadratics.register( 'GQColors', GQColors );
+
+  return GQColors;
 } );

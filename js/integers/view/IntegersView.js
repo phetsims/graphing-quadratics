@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
@@ -45,6 +46,8 @@ define( function( require ) {
 
     thisView.addChild( rootNode );
   }
+
+  graphingQuadratics.register( 'IntegersView', IntegersView );
 
   return inherit( ScreenView, IntegersView );
 } );

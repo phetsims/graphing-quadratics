@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -33,6 +34,8 @@ define( function( require ) {
       { backgroundColor: GQColors.SCREEN_BACKGROUND }
     );
   }
+
+  graphingQuadratics.register( 'VertexFormScreen', VertexFormScreen );
 
   return inherit( Screen, VertexFormScreen );
 } );
