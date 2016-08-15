@@ -22,7 +22,7 @@ define( function( require ) {
     credits: {
       leadDesign: 'Karina K. R. Hensberry',
       softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
-      team: 'Mike Dubson, Patricia Loeblein, Ariel Paul, Kathy Perkins'
+      team: 'Michael Dubson, Patricia Loeblein, Ariel Paul, Kathy Perkins'
     }
   };
 
