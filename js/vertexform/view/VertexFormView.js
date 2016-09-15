@@ -25,8 +25,7 @@ define( function( require ) {
    */
   function VertexFormView( model, modelViewTransform ) {
 
-    var thisView = this;
-    ScreenView.call( thisView, GQConstants.SCREEN_VIEW_OPTIONS );
+    ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
 
     var resetAllButton = new ResetAllButton( {
       listener: function() {
@@ -44,7 +43,7 @@ define( function( require ) {
     resetAllButton.right = this.layoutBounds.right - 30;
     resetAllButton.bottom = this.layoutBounds.bottom - 30;
 
-    thisView.addChild( rootNode );
+    this.addChild( rootNode );
   }
 
   graphingQuadratics.register( 'VertexFormView', VertexFormView );
