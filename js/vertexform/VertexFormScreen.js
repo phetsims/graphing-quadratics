@@ -16,6 +16,8 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
   var VertexFormModel = require( 'GRAPHING_QUADRATICS/vertexform/model/VertexFormModel' );
   var VertexFormView = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormView' );
+  var Property = require( 'AXON/Property' );
+  var Color = require( 'SCENERY/util/Color' );
 
   // strings
   var vertexFormString = require( 'string!GRAPHING_QUADRATICS/vertexForm' );
@@ -24,7 +26,7 @@ define( function( require ) {
 
     var options = {
       name: vertexFormString,
-      backgroundColor: GQColors.SCREEN_BACKGROUND
+      backgroundColorProperty: new Property( Color.toColor( GQColors.SCREEN_BACKGROUND ) )
     };
 
     Screen.call( this,

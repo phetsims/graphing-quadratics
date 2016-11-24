@@ -16,6 +16,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Screen = require( 'JOIST/Screen' );
+  var Property = require( 'AXON/Property' );
+  var Color = require( 'SCENERY/util/Color' );
 
   // strings
   var decimalsString = require( 'string!GRAPHING_QUADRATICS/decimals' );
@@ -27,7 +29,7 @@ define( function( require ) {
 
     var options = {
       name: decimalsString,
-      backgroundColor: GQColors.SCREEN_BACKGROUND
+      backgroundColorProperty: new Property( Color.toColor( GQColors.SCREEN_BACKGROUND ) )
       //TODO add homeScreenIcon
     };
 
