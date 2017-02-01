@@ -15,9 +15,8 @@ define( function( require ) {
   var IntegersModel = require( 'GRAPHING_QUADRATICS/integers/model/IntegersModel' );
   var IntegersView = require( 'GRAPHING_QUADRATICS/integers/view/IntegersView' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Screen = require( 'JOIST/Screen' );
   var Property = require( 'AXON/Property' );
-  var Color = require( 'SCENERY/util/Color' );
+  var Screen = require( 'JOIST/Screen' );
 
   // strings
   var integersString = require( 'string!GRAPHING_QUADRATICS/integers' );
@@ -29,7 +28,7 @@ define( function( require ) {
 
     var options = {
       name: integersString,
-      backgroundColorProperty: new Property( Color.toColor( GQColors.SCREEN_BACKGROUND ) )
+      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
     };
 
     Screen.call( this,

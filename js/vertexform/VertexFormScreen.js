@@ -13,11 +13,10 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  var Property = require( 'AXON/Property' );
   var Screen = require( 'JOIST/Screen' );
   var VertexFormModel = require( 'GRAPHING_QUADRATICS/vertexform/model/VertexFormModel' );
   var VertexFormView = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormView' );
-  var Property = require( 'AXON/Property' );
-  var Color = require( 'SCENERY/util/Color' );
 
   // strings
   var vertexFormString = require( 'string!GRAPHING_QUADRATICS/vertexForm' );
@@ -26,7 +25,7 @@ define( function( require ) {
 
     var options = {
       name: vertexFormString,
-      backgroundColorProperty: new Property( Color.toColor( GQColors.SCREEN_BACKGROUND ) )
+      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
     };
 
     Screen.call( this,
