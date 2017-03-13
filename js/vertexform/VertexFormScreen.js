@@ -16,7 +16,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Screen = require( 'JOIST/Screen' );
   var VertexFormModel = require( 'GRAPHING_QUADRATICS/vertexform/model/VertexFormModel' );
-  var VertexFormView = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormView' );
+  var VertexFormScreenView = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormScreenView' );
 
   // strings
   var vertexFormString = require( 'string!GRAPHING_QUADRATICS/vertexForm' );
@@ -30,7 +30,7 @@ define( function( require ) {
 
     Screen.call( this,
       function() { return new VertexFormModel(); },
-      function( model ) { return new VertexFormView( model, ModelViewTransform2.createIdentity() ); },
+      function( model ) { return new VertexFormScreenView( model, ModelViewTransform2.createIdentity() ); },
       options
     );
   }

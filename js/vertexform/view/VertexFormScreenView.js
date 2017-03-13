@@ -23,7 +23,7 @@ define( function( require ) {
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function VertexFormView( model, modelViewTransform ) {
+  function VertexFormScreenView( model, modelViewTransform ) {
 
     ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
 
@@ -46,7 +46,7 @@ define( function( require ) {
     this.addChild( rootNode );
   }
 
-  graphingQuadratics.register( 'VertexFormView', VertexFormView );
+  graphingQuadratics.register( 'VertexFormScreenView', VertexFormScreenView );
 
-  return inherit( ScreenView, VertexFormView );
+  return inherit( ScreenView, VertexFormScreenView );
 } );

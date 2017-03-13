@@ -13,7 +13,7 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var IntegersModel = require( 'GRAPHING_QUADRATICS/integers/model/IntegersModel' );
-  var IntegersView = require( 'GRAPHING_QUADRATICS/integers/view/IntegersView' );
+  var IntegersScreenView = require( 'GRAPHING_QUADRATICS/integers/view/IntegersScreenView' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Property = require( 'AXON/Property' );
   var Screen = require( 'JOIST/Screen' );
@@ -33,7 +33,7 @@ define( function( require ) {
 
     Screen.call( this,
       function() { return new IntegersModel(); },
-      function( model ) { return new IntegersView( model, ModelViewTransform2.createIdentity() ); },
+      function( model ) { return new IntegersScreenView( model, ModelViewTransform2.createIdentity() ); },
       options
     );
   }

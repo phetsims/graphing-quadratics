@@ -23,7 +23,7 @@ define( function( require ) {
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function DecimalsView( model, modelViewTransform ) {
+  function DecimalsScreenView( model, modelViewTransform ) {
 
     ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
 
@@ -46,7 +46,7 @@ define( function( require ) {
     this.addChild( rootNode );
   }
 
-  graphingQuadratics.register( 'DecimalsView', DecimalsView );
+  graphingQuadratics.register( 'DecimalsScreenView', DecimalsScreenView );
 
-  return inherit( ScreenView, DecimalsView );
+  return inherit( ScreenView, DecimalsScreenView );
 } );

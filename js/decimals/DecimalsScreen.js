@@ -10,7 +10,7 @@ define( function( require ) {
 
   // modules
   var DecimalsModel = require( 'GRAPHING_QUADRATICS/decimals/model/DecimalsModel' );
-  var DecimalsView = require( 'GRAPHING_QUADRATICS/decimals/view/DecimalsView' );
+  var DecimalsScreenView = require( 'GRAPHING_QUADRATICS/decimals/view/DecimalsScreenView' );
   var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -34,7 +34,7 @@ define( function( require ) {
 
     Screen.call( this,
       function() { return new DecimalsModel(); },
-      function( model ) { return new DecimalsView( model, ModelViewTransform2.createIdentity() ); },
+      function( model ) { return new DecimalsScreenView( model, ModelViewTransform2.createIdentity() ); },
       options
     );
   }

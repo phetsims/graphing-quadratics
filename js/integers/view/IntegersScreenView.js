@@ -23,7 +23,7 @@ define( function( require ) {
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function IntegersView( model, modelViewTransform ) {
+  function IntegersScreenView( model, modelViewTransform ) {
 
     ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
 
@@ -46,7 +46,7 @@ define( function( require ) {
     this.addChild( rootNode );
   }
 
-  graphingQuadratics.register( 'IntegersView', IntegersView );
+  graphingQuadratics.register( 'IntegersScreenView', IntegersScreenView );
 
-  return inherit( ScreenView, IntegersView );
+  return inherit( ScreenView, IntegersScreenView );
 } );
