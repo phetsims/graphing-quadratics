@@ -1,7 +1,7 @@
 // Copyright 2014-2017, University of Colorado Boulder
 
 /**
- * View for the 'Integers' screen.
+ * View for the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -19,11 +19,11 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   /**
-   * @param {IntegersModel} model
+   * @param {StandardFormModel} model
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function IntegersScreenView( model, modelViewTransform ) {
+  function StandardFormScreenView( model, modelViewTransform ) {
 
     ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
 
@@ -35,7 +35,7 @@ define( function( require ) {
 
     var rootNode = new Node( {
       children: [
-        new Text( 'Integers: under construction', { font: new GQFont( 24 ), center: this.layoutBounds.center } ),
+        new Text( 'Standard Form: under construction', { font: new GQFont( 24 ), center: this.layoutBounds.center } ), //TODO
         resetAllButton
       ]
     } );
@@ -46,7 +46,7 @@ define( function( require ) {
     this.addChild( rootNode );
   }
 
-  graphingQuadratics.register( 'IntegersScreenView', IntegersScreenView );
+  graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
 
-  return inherit( ScreenView, IntegersScreenView );
+  return inherit( ScreenView, StandardFormScreenView );
 } );

@@ -19,12 +19,12 @@ define( function( require ) {
   var VertexFormScreenView = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormScreenView' );
 
   // strings
-  var vertexFormString = require( 'string!GRAPHING_QUADRATICS/vertexForm' );
+  var screenVertexFormString = require( 'string!GRAPHING_QUADRATICS/screen.vertexForm' );
 
   function VertexFormScreen() {
 
     var options = {
-      name: vertexFormString,
+      name: screenVertexFormString,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
     };
 

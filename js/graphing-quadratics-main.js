@@ -9,10 +9,9 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var DecimalsScreen = require( 'GRAPHING_QUADRATICS/decimals/DecimalsScreen' );
-  var IntegersScreen = require( 'GRAPHING_QUADRATICS/integers/IntegersScreen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
+  var StandardFormScreen = require( 'GRAPHING_QUADRATICS/standardform/StandardFormScreen' );
   var VertexFormScreen = require( 'GRAPHING_QUADRATICS/vertexform/VertexFormScreen' );
 
   // strings
@@ -26,8 +25,7 @@ define( function( require ) {
 
   SimLauncher.launch( function() {
     var screens = [
-      new IntegersScreen(),
-      new DecimalsScreen(),
+      new StandardFormScreen(),
       new VertexFormScreen()
     ];
     var sim = new Sim( graphingQuadraticsTitleString, screens, options );

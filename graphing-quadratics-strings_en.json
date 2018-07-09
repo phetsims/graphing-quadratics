@@ -2,40 +2,10 @@
   "graphing-quadratics.title": {
     "value": "Graphing Quadratics"
   },
-  "integers": {
-    "value": "Integers"
+  "screen.standardForm": {
+    "value": "Standard Form"
   },
-  "decimals": {
-    "value": "Decimals"
-  },
-  "vertexForm": {
+  "screen.vertexForm": {
     "value": "Vertex Form"
-  },
-  "hideCurves": {
-    "value": "Hide Curves"
-  },
-  "showRoots": {
-    "value": "Show Roots"
-  },
-  "x": {
-    "value": "x"
-  },
-  "y": {
-    "value": "y"
-  },
-  "a": {
-    "value": "a"
-  },
-  "b": {
-    "value": "b"
-  },
-  "c": {
-    "value": "c"
-  },
-  "h": {
-    "value": "h"
-  },
-  "k": {
-    "value": "k"
   }
 }
