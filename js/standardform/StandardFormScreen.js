@@ -15,8 +15,8 @@ define( function( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Property = require( 'AXON/Property' );
   var Screen = require( 'JOIST/Screen' );
-  var StandardFormModel = require( 'GRAPHING_QUADRATICS/standardForm/model/StandardFormModel' );
-  var StandardFormScreenView = require( 'GRAPHING_QUADRATICS/standardForm/view/StandardFormScreenView' );
+  var StandardFormModel = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormModel' );
+  var StandardFormScreenView = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormScreenView' );
 
   // strings
   var screenStandardFormString = require( 'string!GRAPHING_QUADRATICS/screen.standardForm' );
