@@ -38,9 +38,18 @@ define( function( require ) {
       yMargin: 15
     }, options );
 
-    var vertexCheckbox = Checkbox.createTextCheckbox( vertexString, TEXT_OPTIONS, new BooleanProperty( false ) );
-    var axisOfSymmetryCheckbox = Checkbox.createTextCheckbox( axisOfSymmetryString, TEXT_OPTIONS, new BooleanProperty( false ) );
-    var rootsCheckbox = Checkbox.createTextCheckbox( rootsString, TEXT_OPTIONS, new BooleanProperty( false ) );
+    // TODO: temporary. will be passed in as parameters.
+    var vertexVisibleProperty = new BooleanProperty( false );
+    var axisOfSymmetryVisibleProperty = new BooleanProperty( false );
+    var rootsVisibleProperty = new BooleanProperty( false );
+
+    var vertexCheckbox = Checkbox.createTextCheckbox( vertexString, TEXT_OPTIONS, vertexVisibleProperty );
+    var axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
+      axisOfSymmetryString,
+      TEXT_OPTIONS,
+      axisOfSymmetryVisibleProperty
+    );
+    var rootsCheckbox = Checkbox.createTextCheckbox( rootsString, TEXT_OPTIONS, rootsVisibleProperty );
 
     // vertical layout
     var contentNode = new VBox( {
