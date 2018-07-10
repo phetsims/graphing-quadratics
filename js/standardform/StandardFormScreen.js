@@ -12,7 +12,6 @@ define( function( require ) {
   var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Property = require( 'AXON/Property' );
   var Screen = require( 'JOIST/Screen' );
   var StandardFormModel = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormModel' );
@@ -34,7 +33,7 @@ define( function( require ) {
 
     Screen.call( this,
       function() { return new StandardFormModel(); },
-      function( model ) { return new StandardFormScreenView( model, ModelViewTransform2.createIdentity() ); },
+      function( model ) { return new StandardFormScreenView( model, model.modelViewTransform ); },
       options
     );
   }

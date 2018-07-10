@@ -13,6 +13,7 @@ define( function( require ) {
   var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
   var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
@@ -35,6 +36,10 @@ define( function( require ) {
     resetAllButton.right = this.layoutBounds.right - 30;
     resetAllButton.bottom = this.layoutBounds.bottom - 30;
     this.addChild( resetAllButton );
+
+    // Graph Node - the cartesian coordinates graph
+    var graphNode = new GraphNode( model.graph, modelViewTransform );
+    this.addChild( graphNode );
 
     // Equation Controls Panel
     var equationControls = new EquationControls();
