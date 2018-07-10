@@ -29,6 +29,7 @@ require.config( {
     AXON: '../../axon/js',
     BRAND: '../../brand/' + phet.chipper.brand + '/js',
     DOT: '../../dot/js',
+    GRAPHING_LINES: '../../graphing-lines/js',
     GRAPHING_QUADRATICS: '.',
     JOIST: '../../joist/js',
     KITE: '../../kite/js',
@@ -39,9 +40,7 @@ require.config( {
     SCENERY: '../../scenery/js',
     SCENERY_PHET: '../../scenery-phet/js',
     SUN: '../../sun/js',
-    TANDEM: '../../tandem/js',
-    VEGAS: '../../vegas/js',
-    VIBE: '../../vibe/js'
+    TANDEM: '../../tandem/js'
   },
 
   // optional cache buster to make browser refresh load all included scripts, can be disabled with ?cacheBuster=false
