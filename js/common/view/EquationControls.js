@@ -45,7 +45,7 @@ define( function( require ) {
 
     // Hide Lines checkbox
     var hideLinesIcon = new FontAwesomeNode( 'eye_close' );
-    var hideLinesCheckbox = new Checkbox( hideLinesIcon, new BooleanProperty( true ) );
+    var hideLinesCheckbox = new Checkbox( hideLinesIcon, new BooleanProperty( false ) );
 
     // horizontal layout of buttons
     var buttons = new HBox( {
