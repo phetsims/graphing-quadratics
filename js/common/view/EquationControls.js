@@ -22,6 +22,9 @@ define( function( require ) {
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var RectangularPushButton = require( 'SUN/buttons/RectangularPushButton' );
 
+  // constants
+  var ICON_WIDTh = 30;
+
   /**
    * @constructor
    */
@@ -34,23 +37,23 @@ define( function( require ) {
     }, options );
 
     // Save Line button
-    var saveLineIcon = new FontAwesomeNode( 'camera' );
+    var saveLineIcon = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTh } );
     var saveLineButton = new RectangularPushButton( {
       content: saveLineIcon,
-      baseColor: PhetColorScheme.BUTTON_YELLOW
+      baseColor: PhetColorScheme.BUTTON_YELLOW,
     } );
 
     // Erase Lines button
-    var eraseLinesButton = new EraserButton();
+    var eraseLinesButton = new EraserButton( { iconWidth: ICON_WIDTh } );
 
     // Hide Lines checkbox
-    var hideLinesIcon = new FontAwesomeNode( 'eye_close' );
+    var hideLinesIcon = new FontAwesomeNode( 'eye_close', { maxWidth: ICON_WIDTh } );
     var hideLinesCheckbox = new Checkbox( hideLinesIcon, new BooleanProperty( false ) );
 
     // horizontal layout of buttons
     var buttons = new HBox( {
       children: [ saveLineButton, eraseLinesButton, hideLinesCheckbox ],
-      spacing: 20
+      spacing: 40
     } );
 
     Panel.call( this, buttons, options );
