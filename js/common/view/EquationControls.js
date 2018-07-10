@@ -40,7 +40,7 @@ define( function( require ) {
     var saveLineIcon = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTh } );
     var saveLineButton = new RectangularPushButton( {
       content: saveLineIcon,
-      baseColor: PhetColorScheme.BUTTON_YELLOW,
+      baseColor: PhetColorScheme.BUTTON_YELLOW
     } );
 
     // Erase Lines button
