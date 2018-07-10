@@ -16,6 +16,7 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
 
@@ -32,23 +33,57 @@ define( function( require ) {
     var resetAllButton = new ResetAllButton( {
       listener: function() {
         model.reset();
-      }
+      },
+      right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
+      bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN
     } );
-    resetAllButton.right = this.layoutBounds.right - 30;
-    resetAllButton.bottom = this.layoutBounds.bottom - 30;
-    this.addChild( resetAllButton );
 
     // Graph Node - the cartesian coordinates graph
     var graphNode = new GraphNode( model.graph, modelViewTransform );
-    this.addChild( graphNode );
 
     // Equation Controls Panel
     var equationControls = new EquationControls();
-    this.addChild( equationControls );
 
     // Graph Controls Panel
     var graphControls = new GraphControls();
-    this.addChild( graphControls );
+
+    // Parent for all controls, to simplify layout
+    var controlsParent = new Node();
+    controlsParent.addChild( equationControls );
+    controlsParent.addChild( graphControls );
+
+    // rendering order
+    this.addChild( controlsParent );
+    this.addChild( graphNode );
+    this.addChild( resetAllButton );
+
+    // layout - position of graphNode is determined by model
+
+    // position of control panels:
+    var xMargin = 10;
+    var yMargin = 20;
+    var ySpacing = 15;
+
+    // get the amount of canvas width that's available for the control panels
+    var availableControlPanelWidth = this.layoutBounds.width - graphNode.right - ( 2 * xMargin );
+
+    // if either control panel is too wide, scale it
+    if ( equationControls.width > availableControlPanelWidth ) {
+      equationControls.scale = availableControlPanelWidth / equationControls.width;
+    }
+    if ( graphControls.width > availableControlPanelWidth ) {
+      graphControls.scale = availableControlPanelWidth / graphControls.width;
+    }
+
+    // vertically stack controls, horizontally align centers
+    equationControls.centerX = availableControlPanelWidth / 2;
+    equationControls.y = 0;
+    graphControls.centerX = equationControls.centerX;
+    graphControls.top = equationControls.bottom + ySpacing;
+
+    // center controls in the space to the right of the graph
+    controlsParent.centerX = graphNode.right + xMargin + ( availableControlPanelWidth / 2 );
+    controlsParent.top = yMargin;
   }
 
   graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );

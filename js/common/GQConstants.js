@@ -15,6 +15,8 @@ define( function( require ) {
 
   var GQConstants = {
     SCREEN_VIEW_OPTIONS: { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) },
+    SCREEN_VIEW_X_MARGIN: 20,
+    SCREEN_VIEW_Y_MARGIN: 16,
     X_AXIS_RANGE: new RangeWithValue( -10, 10 ),
     Y_AXIS_RANGE: new RangeWithValue( -10, 10 ),
     INTERACTIVE_EQUATION_FONT_SIZE: 34, PICKER_TOUCH_AREA_X_DILATION: 30,
