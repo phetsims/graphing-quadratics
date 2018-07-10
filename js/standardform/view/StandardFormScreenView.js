@@ -12,6 +12,7 @@ define( function( require ) {
   // modules
   var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
   var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  var GraphControls = require( 'GRAPHING_QUADRATICS/common/view/GraphControls' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -44,6 +45,10 @@ define( function( require ) {
     // Equation Controls Panel
     var equationControls = new EquationControls();
     this.addChild( equationControls );
+
+    // Graph Controls Panel
+    var graphControls = new GraphControls();
+    this.addChild( graphControls );
   }
 
   graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );

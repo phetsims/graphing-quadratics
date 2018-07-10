@@ -7,5 +7,14 @@
   },
   "screen.vertexForm": {
     "value": "Vertex Form"
+  },
+  "vertex": {
+    "value": "Vertex"
+  },
+  "axisOfSymmetry": {
+    "value": "Axis of Symmetry"
+  },
+  "roots": {
+    "value": "Roots"
   }
 }
