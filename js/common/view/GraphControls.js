@@ -33,7 +33,9 @@ define( function( require ) {
   function GraphControls( options ) {
 
     options = _.extend( {
-      fill: GQColors.CONTROL_PANEL_BACKGROUND
+      fill: GQColors.CONTROL_PANEL_BACKGROUND,
+      xMargin: 20,
+      yMargin: 15
     }, options );
 
     var vertexCheckbox = Checkbox.createTextCheckbox( vertexString, TEXT_OPTIONS, new BooleanProperty( false ) );
@@ -46,7 +48,9 @@ define( function( require ) {
         vertexCheckbox,
         axisOfSymmetryCheckbox,
         rootsCheckbox
-      ]
+      ],
+      spacing: 20,
+      align: 'left'
     } );
 
     Panel.call( this, contentNode, options );

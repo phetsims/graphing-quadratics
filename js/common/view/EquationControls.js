@@ -28,7 +28,9 @@ define( function( require ) {
   function EquationControls( options ) {
 
     options = _.extend( {
-      fill: GQColors.CONTROL_PANEL_BACKGROUND
+      fill: GQColors.CONTROL_PANEL_BACKGROUND,
+      xMargin: 10,
+      yMargin: 10
     }, options );
 
     // Save Line button
@@ -47,7 +49,8 @@ define( function( require ) {
 
     // horizontal layout of buttons
     var buttons = new HBox( {
-      children: [ saveLineButton, eraseLinesButton, hideLinesCheckbox ]
+      children: [ saveLineButton, eraseLinesButton, hideLinesCheckbox ],
+      spacing: 20
     } );
 
     Panel.call( this, buttons, options );
