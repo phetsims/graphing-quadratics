@@ -12,14 +12,14 @@ define( function( require ) {
   var GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var VertexScene = require( 'GRAPHING_QUADRATICS/vertexform/model/VertexScene' );
+  var GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
 
   /**
    * @constructor
    */
   function VertexFormModel() {
     // @public
-    this.vertexScene = new VertexScene();
+    this.vertexScene = new GQScene();
     
     GQModel.call( this, [ this.vertexScene ] );
   }
