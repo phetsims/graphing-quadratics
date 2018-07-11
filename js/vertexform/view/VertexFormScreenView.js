@@ -17,11 +17,10 @@ define( function( require ) {
 
   /**
    * @param {VertexFormModel} model
-   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function VertexFormScreenView( model, modelViewTransform ) {
-    GQScreenView.call( this, model, modelViewTransform );
+  function VertexFormScreenView( model ) {
+    GQScreenView.call( this, model );
   }
 
   graphingQuadratics.register( 'VertexFormScreenView', VertexFormScreenView );
@@ -36,7 +35,7 @@ define( function( require ) {
      * @abstract
      */
     createSceneNode: function( scene ) {
-      return new GQSceneNode( scene, scene.modelViewTransform, this.layoutBounds, new Text( 'under construction ' ) );
+      return new GQSceneNode( scene, this.layoutBounds, new Text( 'under construction ' ) );
     }
   } );
 } );

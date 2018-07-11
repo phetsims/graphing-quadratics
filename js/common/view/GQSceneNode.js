@@ -20,12 +20,11 @@ define( function( require ) {
 
   /**
    * @param {GQScene} model
-   * @param {ModelViewTransform2} modelViewTransform
    * @param {Bounds2} layoutBounds
    * @param {Node} equationNode
    * @constructor
    */
-  function GQSceneNode( model, modelViewTransform, layoutBounds, equationNode, options ) {
+  function GQSceneNode( model, layoutBounds, equationNode, options ) {
 
     // @public
     this.scene = model;
@@ -33,7 +32,7 @@ define( function( require ) {
     Node.call( this, options );
 
     // Graph Node - the cartesian coordinates graph
-    var graphNode = new GraphNode( model.graph, modelViewTransform );
+    var graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
     // Equation Controls Panel
     var equationControls = new EquationControls(

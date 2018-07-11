@@ -17,11 +17,10 @@ define( function( require ) {
 
   /**
    * @param {StandardFormModel} model
-   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function StandardFormScreenView( model, modelViewTransform ) {
-    GQScreenView.call( this, model, modelViewTransform );
+  function StandardFormScreenView( model ) {
+    GQScreenView.call( this, model );
   }
 
   graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
@@ -36,7 +35,7 @@ define( function( require ) {
      * @abstract
      */
     createSceneNode: function( scene ) {
-      return new GQSceneNode( scene, scene.modelViewTransform, this.layoutBounds, new StandardFormEquationNode() );
+      return new GQSceneNode( scene, this.layoutBounds, new StandardFormEquationNode() );
     }
   } );
 } );

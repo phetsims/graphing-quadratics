@@ -33,7 +33,7 @@ define( function( require ) {
 
     Screen.call( this,
       function() { return new StandardFormModel(); },
-      function( model ) { return new StandardFormScreenView( model, model.modelViewTransform ); },
+      function( model ) { return new StandardFormScreenView( model ); },
       options
     );
   }

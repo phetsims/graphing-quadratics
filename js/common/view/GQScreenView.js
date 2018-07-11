@@ -18,10 +18,9 @@ define( function( require ) {
 
   /**
    * @param {GQModel} model
-   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function GQScreenView( model, modelViewTransform ) {
+  function GQScreenView( model ) {
     var self = this;
 
     ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
