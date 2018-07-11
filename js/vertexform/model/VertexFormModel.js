@@ -1,4 +1,4 @@
-// Copyright 2014-2017, University of Colorado Boulder
+// Copyright 2014-2018, University of Colorado Boulder
 
 /**
  * Model for the 'Vertex Form' screen.
@@ -9,18 +9,18 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
 
+  /**
+   * @constructor
+   */
   function VertexFormModel() {
+    GQModel.call( this );
   }
 
   graphingQuadratics.register( 'VertexFormModel', VertexFormModel );
 
-  return inherit( Object, VertexFormModel, {
-
-    reset: function() {
-      //TODO
-    }
-  } );
+  return inherit( GQModel, VertexFormModel );
 } );
