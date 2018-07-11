@@ -13,12 +13,13 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var IntegerCoefficientsScene = require( 'GRAPHING_QUADRATICS/standardform/model/IntegerCoefficientsScene' );
+  var DecimalCoefficientsScene = require( 'GRAPHING_QUADRATICS/standardform/model/DecimalCoefficientsScene' );
 
   /**
    * @constructor
    */
   function StandardFormModel() {
-    GQModel.call( this, [ new IntegerCoefficientsScene ] );
+    GQModel.call( this, [ new IntegerCoefficientsScene, new DecimalCoefficientsScene() ] );
   }
 
   graphingQuadratics.register( 'StandardFormModel', StandardFormModel );

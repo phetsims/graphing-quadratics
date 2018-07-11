@@ -48,6 +48,9 @@ define( function( require ) {
     controlsParent.addChild( equationControls );
     controlsParent.addChild( graphControls );
 
+    // @public
+    this.controlsParent = controlsParent;
+
     // rendering order
     this.addChild( controlsParent );
     this.addChild( graphNode );

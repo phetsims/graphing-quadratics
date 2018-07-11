@@ -15,6 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
+  var SceneControl = require( 'GRAPHING_QUADRATICS/common/view/SceneControl' );
 
   /**
    * @param {GQModel} model
@@ -42,6 +43,20 @@ define( function( require ) {
       self.sceneNodes.push( sceneNode );
       self.addChild( sceneNode );
     } );
+
+    // If the model has more than 1 scene, create a control for scene selection.
+    if ( model.scenes.length > 1 ) {
+
+      // Get the bounds of the Snapshot accordion box, relative to this ScreenView
+      var controlsParent = this.sceneNodes[ 0 ].controlsParent;
+
+      // Center the scene control in the space below the Snapshots accordion box
+      var sceneControl = new SceneControl( model.sceneProperty, model.scenes, {
+        centerX: controlsParent.centerX,
+        centerY: controlsParent.bottom + ( resetAllButton.top - controlsParent.bottom ) / 2
+      } );
+      this.addChild( sceneControl );
+    }
 
     // Make the selected scene visible. unlink not needed.
     model.sceneProperty.link( function( scene ) {
