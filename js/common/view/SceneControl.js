@@ -39,7 +39,7 @@ define( function( require ) {
     scenes.forEach( function( scene ) {
       content.push( {
         value: scene,
-        node: new Text( scene.toString() )
+        node: new Text( 'under construction' )
       } );
     } );
 
