@@ -33,7 +33,10 @@ define( function( require ) {
     PhetFont.call( this, options );
   }
 
-  GQFont.MATH_SYMBOL_FONT = new MathSymbolFont( 24 );
+  GQFont.MATH_SYMBOL_FONT = new MathSymbolFont( {
+    size: 24,
+    weight: 'bold'
+  } );
 
   graphingQuadratics.register( 'GQFont', GQFont );
 
