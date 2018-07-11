@@ -22,6 +22,7 @@ define( function( require ) {
    * @constructor
    */
   function GQScreenView( model, modelViewTransform ) {
+    var self = this;
 
     ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
 
@@ -35,9 +36,35 @@ define( function( require ) {
     } );
     this.addChild( resetAllButton );
 
+    // @private {EqualityExplorerScene[]} create the view for each scene
+    this.sceneNodes = [];
+    model.scenes.forEach( function( scene ) {
+      var sceneNode = self.createSceneNode( scene );
+      self.sceneNodes.push( sceneNode );
+      self.addChild( sceneNode );
+    } );
+
+    // Make the selected scene visible. unlink not needed.
+    model.sceneProperty.link( function( scene ) {
+      for ( var i = 0; i < self.sceneNodes.length; i++ ) {
+        self.sceneNodes[ i ].visible = ( self.sceneNodes[ i ].scene === scene );
+      }
+    } );
   }
 
-  graphingQuadratics.register( 'GQScreenView', GQScreenView );
+  graphingQuadratics.register( 'GQScreenView', GQScreenView, {
+
+    /**
+     * Creates the Node for this scene.
+     * @param {GQScene} scene
+     * @returns {Node}
+     * @protected
+     * @abstract
+     */
+    createSceneNode: function( scene ) {
+      throw new Error( 'createSceneNode must be implemented by subtype' );
+    }
+  } );
 
   return inherit( ScreenView, GQScreenView );
 } );

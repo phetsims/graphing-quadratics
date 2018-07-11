@@ -21,10 +21,14 @@ define( function( require ) {
   /**
    * @param {GQScene} model
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Bounds2} layoutBounds
    * @param {Node} equationNode
    * @constructor
    */
-  function GQSceneNode( model, modelViewTransform, equationNode, options ) {
+  function GQSceneNode( model, modelViewTransform, layoutBounds, equationNode, options ) {
+
+    // @public
+    this.scene = model;
 
     Node.call( this, options );
 
@@ -57,7 +61,7 @@ define( function( require ) {
     var ySpacing = 15;
 
     // get the amount of canvas width that's available for the control panels
-    var availableControlPanelWidth = this.layoutBounds.width - graphNode.right - ( 2 * xMargin );
+    var availableControlPanelWidth = layoutBounds.width - graphNode.right - ( 2 * xMargin );
 
     // if either control panel is too wide, scale it
     if ( equationControls.width > availableControlPanelWidth ) {

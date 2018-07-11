@@ -10,7 +10,9 @@ define( function( require ) {
 
   // modules
   var GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
+  var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
@@ -24,5 +26,17 @@ define( function( require ) {
 
   graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
 
-  return inherit( GQScreenView, StandardFormScreenView );
+  return inherit( GQScreenView, StandardFormScreenView, {
+
+    /**
+     * Creates the Node for this scene.
+     * @param {GQScene} scene
+     * @returns {Node}
+     * @protected
+     * @abstract
+     */
+    createSceneNode: function( scene ) {
+      return new GQSceneNode( scene, scene.modelViewTransform, this.layoutBounds, new StandardFormEquationNode() );
+    }
+  } );
 } );
