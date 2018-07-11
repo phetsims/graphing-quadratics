@@ -16,9 +16,11 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IntegerCoefficientsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegerCoefficientsInteractiveEquationNode' );
   var Node = require( 'SCENERY/nodes/Node' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
+  var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
 
   /**
    * @param {StandardFormModel} model
@@ -42,7 +44,10 @@ define( function( require ) {
     var graphNode = new GraphNode( model.graph, modelViewTransform );
 
     // Equation Controls Panel
-    var equationControls = new EquationControls();
+    var equationControls = new EquationControls(
+      new StandardFormEquationNode(),
+      new IntegerCoefficientsInteractiveEquationNode()
+    );
 
     // Graph Controls Panel
     var graphControls = new GraphControls();

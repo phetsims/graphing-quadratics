@@ -25,7 +25,6 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   var RectangularPushButton = require( 'SUN/buttons/RectangularPushButton' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
@@ -34,9 +33,11 @@ define( function( require ) {
   var TITLE_X_SPACING = 5;
 
   /**
+   * @param {Node} titleNode - a display of the general form of the equation
+   * @param {Node} interactiveEquationNode - interactive equation
    * @constructor
    */
-  function EquationControls( options ) {
+  function EquationControls( titleNode, interactiveEquationNode, options ) {
 
     options = _.extend( {
       fill: GQColors.CONTROL_PANEL_BACKGROUND,
@@ -46,8 +47,6 @@ define( function( require ) {
 
     // TODO: temporary. will be passed in as parameters.
     var maximizedProperty = new BooleanProperty( true );
-    var titleNode = new Text( 'titleNode' );
-    var interactiveEquationNode = new Text( 'interactiveEquationNode');
     var hideLinesProperty = new BooleanProperty( false );
 
     // Expand/collapse button
