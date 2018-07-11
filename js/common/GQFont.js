@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var MathSymbolFont = require( 'SCENERY_PHET/MathSymbolFont' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   /**
@@ -31,6 +32,8 @@ define( function( require ) {
 
     PhetFont.call( this, options );
   }
+
+  GQFont.MATH_SYMBOL_FONT = new MathSymbolFont( 24 );
 
   graphingQuadratics.register( 'GQFont', GQFont );
 

@@ -17,14 +17,17 @@ define( function( require ) {
   var NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
+  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   var RichText = require( 'SCENERY/nodes/RichText' );
+  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
 
   // strings
-  var y = 'y';
-  var equalsSign = '=';
-  var xSquared = 'x<sup>2</sup>';
-  var plusSign = '+';
-  var x = 'x';
+  var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
+  var xString = require( 'string!GRAPHING_QUADRATICS/x' );
+  var yString = require( 'string!GRAPHING_QUADRATICS/y' );
+
+  // constants
+  var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
 
   /**
    * @constructor
@@ -44,14 +47,14 @@ define( function( require ) {
 
     var equationNode = new HBox( {
       children: [
-        new RichText( y ),
-        new RichText( equalsSign ),
+        new RichText( yString, TEXT_OPTIONS ),
+        new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS ),
         aNumberPicker,
-        new RichText( xSquared ),
-        new RichText( plusSign ),
+        new RichText( xSquaredString, TEXT_OPTIONS ),
+        new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
         bNumberPicker,
-        new RichText( x ),
-        new RichText( plusSign ),
+        new RichText( xString, TEXT_OPTIONS ),
+        new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
         cNumberPicker
       ],
       align: 'center',

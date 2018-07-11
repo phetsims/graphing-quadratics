@@ -16,5 +16,23 @@
   },
   "roots": {
     "value": "Roots"
+  },
+  "xSquared": {
+    "value": "x<sup>2</sup>"
+  },
+  "x": {
+    "value": "x"
+  },
+  "y": {
+    "value": "y"
+  },
+  "a": {
+    "value": "a"
+  },
+  "b": {
+    "value": "b"
+  },
+  "c": {
+    "value": "c"
   }
 }
