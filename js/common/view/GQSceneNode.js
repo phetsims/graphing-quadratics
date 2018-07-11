@@ -15,16 +15,16 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IntegerCoefficientsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegerCoefficientsInteractiveEquationNode' );
   var Node = require( 'SCENERY/nodes/Node' );
 
   /**
    * @param {GQScene} model
    * @param {Bounds2} layoutBounds
    * @param {Node} equationNode
+   * @param {Node} interactiveEquationNode - interactive equation
    * @constructor
    */
-  function GQSceneNode( model, layoutBounds, equationNode, options ) {
+  function GQSceneNode( model, layoutBounds, equationNode, interactiveEquationNode, options ) {
 
     // @public
     this.scene = model;
@@ -37,7 +37,7 @@ define( function( require ) {
     // Equation Controls Panel
     var equationControls = new EquationControls(
       equationNode,
-      new IntegerCoefficientsInteractiveEquationNode()
+      interactiveEquationNode
     );
 
     // Graph Controls Panel

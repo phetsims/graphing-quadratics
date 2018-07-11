@@ -23,7 +23,7 @@ define( function( require ) {
     var self = this;
     GQScreenView.call( this, model );
 
-    this.addChild( new GQSceneNode( model.vertexScene, self.layoutBounds, new Text( 'under construction' ) ) );
+    this.addChild( new GQSceneNode( model.vertexScene, self.layoutBounds, new Text( 'under construction' ), new Text( 'under construction' ) ) );
   }
 
   graphingQuadratics.register( 'VertexFormScreenView', VertexFormScreenView );

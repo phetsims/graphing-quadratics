@@ -9,12 +9,14 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
+  var GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IntegerCoefficientsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegerCoefficientsInteractiveEquationNode' );
   var SceneControl = require( 'GRAPHING_QUADRATICS/common/view/SceneControl' );
+  var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * @param {StandardFormModel} model
@@ -26,8 +28,18 @@ define( function( require ) {
     GQScreenView.call( this, model );
 
     var sceneNodes = [
-      new GQSceneNode( model.integerCoefficientsScene, this.layoutBounds, new StandardFormEquationNode() ),
-      new GQSceneNode( model.decimalCoefficientsScene, this.layoutBounds, new StandardFormEquationNode() )
+      new GQSceneNode(
+        model.integerCoefficientsScene,
+        this.layoutBounds,
+        new StandardFormEquationNode(),
+        new IntegerCoefficientsInteractiveEquationNode()
+      ),
+      new GQSceneNode(
+        model.decimalCoefficientsScene,
+        this.layoutBounds,
+        new StandardFormEquationNode(),
+        new Text( 'under construction' )
+      )
     ];
 
     sceneNodes.forEach( function( sceneNode ) {
