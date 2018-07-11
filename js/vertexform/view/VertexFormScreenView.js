@@ -20,22 +20,13 @@ define( function( require ) {
    * @constructor
    */
   function VertexFormScreenView( model ) {
+    var self = this;
     GQScreenView.call( this, model );
+
+    this.addChild( new GQSceneNode( model.vertexScene, self.layoutBounds, new Text( 'under construction' ) ) );
   }
 
   graphingQuadratics.register( 'VertexFormScreenView', VertexFormScreenView );
 
-  return inherit( GQScreenView, VertexFormScreenView, {
-
-    /**
-     * Creates the Node for this scene.
-     * @param {GQScene} scene
-     * @returns {Node}
-     * @protected
-     * @abstract
-     */
-    createSceneNode: function( scene ) {
-      return new GQSceneNode( scene, this.layoutBounds, new Text( 'under construction ' ) );
-    }
-  } );
+  return inherit( GQScreenView, VertexFormScreenView );
 } );

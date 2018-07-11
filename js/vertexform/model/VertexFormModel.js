@@ -18,7 +18,10 @@ define( function( require ) {
    * @constructor
    */
   function VertexFormModel() {
-    GQModel.call( this, [ new VertexScene() ] );
+    // @public
+    this.vertexScene = new VertexScene();
+    
+    GQModel.call( this, [ this.vertexScene ] );
   }
 
   graphingQuadratics.register( 'VertexFormModel', VertexFormModel );

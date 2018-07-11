@@ -19,7 +19,12 @@ define( function( require ) {
    * @constructor
    */
   function StandardFormModel() {
-    GQModel.call( this, [ new IntegerCoefficientsScene, new DecimalCoefficientsScene() ] );
+
+    // @public
+    this.integerCoefficientsScene = new IntegerCoefficientsScene();
+    this.decimalCoefficientsScene = new DecimalCoefficientsScene();
+
+    GQModel.call( this, [ this.integerCoefficientsScene, this.decimalCoefficientsScene ] );
   }
 
   graphingQuadratics.register( 'StandardFormModel', StandardFormModel );
