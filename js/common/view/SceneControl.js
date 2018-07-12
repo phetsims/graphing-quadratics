@@ -12,7 +12,6 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
-  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * @param {Property.<Scene>} selectedSceneProperty
