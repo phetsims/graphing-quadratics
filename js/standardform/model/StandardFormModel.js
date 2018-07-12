@@ -13,6 +13,7 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
+  var GQIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQIconFactory' );
 
   /**
    * @constructor
@@ -21,7 +22,9 @@ define( function( require ) {
 
     // @public
     this.integerCoefficientsScene = new GQScene();
+    this.integerCoefficientsScene.icon = GQIconFactory.createIntegerCoefficientsIcon();
     this.decimalCoefficientsScene = new GQScene();
+    this.decimalCoefficientsScene.icon = GQIconFactory.createDecimalCoefficientsIcon();
 
     GQModel.call( this, [ this.integerCoefficientsScene, this.decimalCoefficientsScene ] );
   }
