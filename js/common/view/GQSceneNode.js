@@ -33,7 +33,7 @@ define( function( require ) {
 
     // Graph Node - the cartesian coordinates graph
     var graphNode = new GraphNode( model.graph, model.modelViewTransform );
-    var quadraticNode = new QuadraticNode( model.quadratic, model.graph, model.modelViewTransform );
+    var quadraticNode = new QuadraticNode( model.quadraticProperty, model.graph, model.modelViewTransform );
     var clipArea = Shape.rectangle(
       model.graph.xRange.min,
       model.graph.yRange.min,

@@ -20,6 +20,7 @@ define( function( require ) {
   var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   var RichText = require( 'SCENERY/nodes/RichText' );
   var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  var Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
 
   // strings
   var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
@@ -30,15 +31,20 @@ define( function( require ) {
   var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
 
   /**
+   * @param {Property.<Quadratic>} quadraticProperty
    * @constructor
    */
-  function IntegersInteractiveEquationNode( options ) {
+  function IntegersInteractiveEquationNode( quadraticProperty, options ) {
     Node.call( this, options );
 
     // TODO: temporary variables, will be passed in as parameters
     var aProperty = new NumberProperty( 1, { range: { min:-6, max: 6 } } );
     var bProperty = new NumberProperty( 0, { range: { min:-6, max: 6 } } );
     var cProperty = new NumberProperty( 0, { range: { min:-6, max: 6 } } );
+
+    Property.multilink( [ aProperty, bProperty, cProperty ], function( a, b, c ) {
+      quadraticProperty.set( new Quadratic( a, b, c ) );
+    } );
 
     // interactive components of the equation
     var aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ) );
