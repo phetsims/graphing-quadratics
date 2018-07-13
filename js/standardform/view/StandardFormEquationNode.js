@@ -1,8 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renderer for standard form equation.
- * General form is y = ax^2 + bx + c
+ * Renderer for general equation in standard form.
+ * Standard form is y = ax^2 + bx + c
  *
  * @author Andrea Lin
  */
@@ -26,6 +26,7 @@ define( function( require ) {
   var cString = require( 'string!GRAPHING_QUADRATICS/c' );
 
   /**
+   * @param {Object} [options]
    * @constructor
    */
   function StandardFormEquationNode( options ) {

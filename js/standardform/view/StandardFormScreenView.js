@@ -3,7 +3,7 @@
 /**
  * View for the 'Standard Form' screen.
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Andrea Lin
  */
 define( function( require ) {
   'use strict';
@@ -72,7 +72,7 @@ define( function( require ) {
     } );
     this.addChild( sceneControl );
 
-    // Make the selected scene visible. unlink not needed.
+    // Make the selected scene visible. unlink not needed, as scenes last for the entire life of the sim.
     model.sceneProperty.link( function( scene ) {
       for ( var i = 0; i < sceneNodes.length; i++ ) {
         sceneNodes[ i ].visible = ( sceneNodes[ i ].scene === scene );
