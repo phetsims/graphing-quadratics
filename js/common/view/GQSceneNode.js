@@ -12,6 +12,7 @@ define( function( require ) {
   // modules
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
+  var QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
 
@@ -31,6 +32,7 @@ define( function( require ) {
 
     // Graph Node - the cartesian coordinates graph
     var graphNode = new GraphNode( model.graph, model.modelViewTransform );
+    var quadraticNode = new QuadraticNode( model.quadratic, model.graph, model.modelViewTransform );
 
     // Parent for all controls, to simplify layout
     var controlsParent = new Node();
@@ -43,6 +45,7 @@ define( function( require ) {
     // rendering order
     this.addChild( controlsParent );
     this.addChild( graphNode );
+    this.addChild( quadraticNode );
 
     // layout - position of graphNode is determined by model
 

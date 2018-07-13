@@ -16,6 +16,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
 
   // constants
   var GRID_VIEW_UNITS = 530; // max dimension (width or height) of the grid in view coordinates
@@ -29,6 +30,7 @@ define( function( require ) {
 
     // @public graph
     this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
+    this.quadratic = new Quadratic( 1, 0, 0 );
 
     // view units / model units
     var modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
