@@ -12,9 +12,10 @@ define( function( require ) {
   // modules
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
-  var QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
+  var Shape = require( 'KITE/Shape' );
 
   /**
    * @param {GQScene} model
@@ -33,6 +34,16 @@ define( function( require ) {
     // Graph Node - the cartesian coordinates graph
     var graphNode = new GraphNode( model.graph, model.modelViewTransform );
     var quadraticNode = new QuadraticNode( model.quadratic, model.graph, model.modelViewTransform );
+    var clipArea = Shape.rectangle(
+      model.graph.xRange.min,
+      model.graph.yRange.min,
+      model.graph.xRange.getLength(),
+      model.graph.yRange.getLength()
+    ).transformed( model.modelViewTransform.getMatrix() );
+    var quadraticsLayer = new Node( {
+      children: [ quadraticNode ],
+      clipArea: clipArea
+    } );
 
     // Parent for all controls, to simplify layout
     var controlsParent = new Node();
@@ -45,7 +56,7 @@ define( function( require ) {
     // rendering order
     this.addChild( controlsParent );
     this.addChild( graphNode );
-    this.addChild( quadraticNode );
+    this.addChild( quadraticsLayer );
 
     // layout - position of graphNode is determined by model
 
