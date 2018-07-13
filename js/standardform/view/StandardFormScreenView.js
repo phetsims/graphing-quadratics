@@ -14,7 +14,7 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var IntegerCoefficientsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegerCoefficientsInteractiveEquationNode' );
-  var SceneControl = require( 'GRAPHING_QUADRATICS/common/view/SceneControl' );
+  var SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
   var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   var Text = require( 'SCENERY/nodes/Text' );
 
