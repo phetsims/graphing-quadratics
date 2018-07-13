@@ -33,6 +33,7 @@ define( function( require ) {
     PhetFont.call( this, options );
   }
 
+  // @static @public for use in equations
   GQFont.MATH_SYMBOL_FONT = new MathSymbolFont( {
     size: 24,
     weight: 'bold'

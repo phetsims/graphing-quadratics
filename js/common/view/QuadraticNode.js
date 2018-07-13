@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Visual representation of a quadratic.
+ * Visual representation of a quadratic curve.
  *
  * @author Andrea Lin
  */
@@ -29,10 +29,6 @@ define( function( require ) {
 
     Node.call( this, options );
 
-    this.quadratic = quadraticProperty.get(); // @public
-    this.graph = graph; // @private
-    this.modelViewTransform = modelViewTransform; // @private
-
     var quadraticPath = new Path( null, {
       stroke: 'red',
       lineWidth: 3
@@ -40,6 +36,8 @@ define( function( require ) {
 
     this.addChild( quadraticPath );
 
+    // Update the view of the curve when the quadratic model changes
+    // TODO: dispose
     quadraticProperty.link( function( quadratic ) {
 
       // given coefficients, calculate control points for the quadratic bezier curve

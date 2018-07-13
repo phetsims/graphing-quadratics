@@ -35,6 +35,7 @@ define( function( require ) {
   /**
    * @param {Node} titleNode - a display of the general form of the equation
    * @param {Node} interactiveEquationNode - interactive equation
+   * @param {Object} [options]
    * @constructor
    */
   function EquationControls( titleNode, interactiveEquationNode, options ) {

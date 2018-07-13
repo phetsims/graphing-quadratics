@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Common view for a scene.
+ * Common view for a scene. Base type for each of the two scenes on the standard form screen, as well as the single
+ * scene in the vertex form screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Andrea Lin
@@ -22,6 +23,7 @@ define( function( require ) {
    * @param {Bounds2} layoutBounds
    * @param {Panel} equationControls
    * @param {Panel} graphControls
+   * @param {Object} [options] - optional configuration, see constructor
    * @constructor
    */
   function GQSceneNode( model, layoutBounds, equationControls, graphControls, options ) {
@@ -33,6 +35,8 @@ define( function( require ) {
 
     // Graph Node - the cartesian coordinates graph
     var graphNode = new GraphNode( model.graph, model.modelViewTransform );
+
+    // Creating the view for the quadratics
     var quadraticNode = new QuadraticNode( model.quadraticProperty, model.graph, model.modelViewTransform );
     var clipArea = Shape.rectangle(
       model.graph.xRange.min,
@@ -40,12 +44,14 @@ define( function( require ) {
       model.graph.xRange.getLength(),
       model.graph.yRange.getLength()
     ).transformed( model.modelViewTransform.getMatrix() );
+
+    // A layer to contain the quadratics and clip them to the graph area
     var quadraticsLayer = new Node( {
       children: [ quadraticNode ],
       clipArea: clipArea
     } );
 
-    // Parent for all controls, to simplify layout
+    // Parent for all control panels, to simplify layout
     var controlsParent = new Node();
     controlsParent.addChild( equationControls );
     controlsParent.addChild( graphControls );
