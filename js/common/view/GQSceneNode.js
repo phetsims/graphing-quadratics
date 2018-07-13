@@ -23,7 +23,7 @@ define( function( require ) {
    * @param {Bounds2} layoutBounds
    * @param {Panel} equationControls
    * @param {Panel} graphControls
-   * @param {Object} [options] - optional configuration, see constructor
+   * @param {Object} [options]
    * @constructor
    */
   function GQSceneNode( model, layoutBounds, equationControls, graphControls, options ) {

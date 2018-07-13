@@ -13,7 +13,6 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var HBox = require( 'SCENERY/nodes/HBox' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
   var NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   var Property = require( 'AXON/Property' );
   var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
@@ -29,20 +28,20 @@ define( function( require ) {
   var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
 
   /**
-   * @param {Property.<Number>} aProperty
-   * @param {Property.<Number>} bProperty
-   * @param {Property.<Number>} cProperty
+   * @param {Property.<Number>} aProperty - the coefficient for x^2 in the quadratic
+   * @param {Property.<Number>} bProperty - the coefficient for x in the quadratic
+   * @param {Property.<Number>} cProperty - the constant term in the quadratic
+   * @param {Object} [options]
    * @constructor
    */
   function IntegersInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
-    Node.call( this, options );
 
     // interactive components of the equation
     var aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ) );
     var bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ) );
     var cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ) );
 
-    var equationNode = new HBox( {
+    HBox.call( this, {
       children: [
         new RichText( yString, TEXT_OPTIONS ),
         new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS ),
@@ -57,10 +56,9 @@ define( function( require ) {
       align: 'center',
       spacing: 10
     } );
-    this.addChild( equationNode );
   }
 
   graphingQuadratics.register( 'IntegersInteractiveEquationNode', IntegersInteractiveEquationNode );
 
-  return inherit( Node, IntegersInteractiveEquationNode );
+  return inherit( HBox, IntegersInteractiveEquationNode );
 } );

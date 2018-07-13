@@ -27,6 +27,7 @@ define( function( require ) {
   var TEXT_OPTIONS = { font: new GQFont( 18 ) };
 
   /**
+   * @param {Object} [options]
    * @constructor
    */
   function IntegersGraphControls( options ) {
@@ -42,6 +43,7 @@ define( function( require ) {
     var axisOfSymmetryVisibleProperty = new BooleanProperty( false );
     var rootsVisibleProperty = new BooleanProperty( false );
 
+    // checkboxes that control visibility of vertex, axis of symmetry, and roots
     var vertexCheckbox = Checkbox.createTextCheckbox( vertexString, TEXT_OPTIONS, vertexVisibleProperty );
     var axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
       axisOfSymmetryString,
