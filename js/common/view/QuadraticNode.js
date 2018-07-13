@@ -10,9 +10,11 @@ define( function( require ) {
 
   // modules
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PlottedPointNode = require( 'GRAPHING_LINES/common/view/PlottedPointNode' );
   var Shape = require( 'KITE/Shape' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -34,7 +36,22 @@ define( function( require ) {
       lineWidth: 3
     } );
 
+    var pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
+
+    var vertexPoint = new PlottedPointNode( pointRadius, 'red' );
+    var focusPoint = new PlottedPointNode( pointRadius, 'green' );
+
+    // the left most root if there are two roots, and the root if there is one root
+    var root0Point = new PlottedPointNode( pointRadius, 'red' );
+
+    // the right most root if there are two roots
+    var root1Point = new PlottedPointNode( pointRadius, 'red' );
+
     this.addChild( quadraticPath );
+    this.addChild( vertexPoint );
+    this.addChild( focusPoint );
+    this.addChild( root0Point );
+    this.addChild( root1Point );
 
     // Update the view of the curve when the quadratic model changes
     // TODO: dispose
@@ -66,6 +83,36 @@ define( function( require ) {
 
       quadraticPath.setShape( quadraticShape );
 
+      // update other information about the quadratic curve
+      if ( a !== 0 ) {
+        vertexPoint.center = modelViewTransform.modelToViewPosition( quadratic.vertex );
+        focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
+        vertexPoint.visible = true;
+        focusPoint.visible = true;
+
+        if ( quadratic.roots.length === 2 ) { // two real roots
+          root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
+          root1Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 1 ] );
+          root0Point.visible = true;
+          root1Point.visible = true;
+        }
+        else if ( quadratic.roots.length === 1 ) { // two real roots
+          root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
+          root0Point.visible = true;
+          root1Point.visible = false;
+
+        }
+        else { // no real roots
+          root0Point.visible = false;
+          root1Point.visible = false;
+        }
+      }
+      else { // not quadratic
+        vertexPoint.visible = false;
+        focusPoint.visible = false;
+        root0Point.visible = false;
+        root1Point.visible = false;
+      }
     } );
 
   }
