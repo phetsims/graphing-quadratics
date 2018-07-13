@@ -14,7 +14,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
   var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
-  var GraphControls = require( 'GRAPHING_QUADRATICS/common/view/GraphControls' );
+  var IntegersGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersGraphControls' );
+  var DecimalsGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsGraphControls' );
   var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   var IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
   var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
@@ -38,7 +39,7 @@ define( function( require ) {
       model.integersScene,
       this.layoutBounds,
       new EquationControls( equationNode, integersInteractiveEquationNode ),
-      new GraphControls()
+      new IntegersGraphControls()
     );
 
     // view for the decimals scene
@@ -47,7 +48,7 @@ define( function( require ) {
       model.decimalsScene,
       this.layoutBounds,
       new EquationControls( equationNode, decimalsInteractiveEquationNode ),
-      new GraphControls()
+      new DecimalsGraphControls()
     );
 
     // managing the scene nodes
