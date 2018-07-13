@@ -25,14 +25,14 @@ define( function( require ) {
   var ORIGIN_OFFSET = new Vector2( 315, 330 ); // offset of the graph's origin in view coordinates
 
   /**
-   * @param {Line} interactiveLine
    * @constructor
    */
-  function GQScene( interactiveLine ) {
+  function GQScene() {
 
     // @public graph
     this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
+    // @public properties relating to the quadratic. // TODO: move into something like a QuadraticFormsGraphNode
     this.aProperty = new NumberProperty( 1, { range: { min:-6, max: 6 } } );
     this.bProperty = new NumberProperty( 0, { range: { min:-6, max: 6 } } );
     this.cProperty = new NumberProperty( 0, { range: { min:-6, max: 6 } } );
@@ -61,6 +61,11 @@ define( function( require ) {
 
   return inherit( Object, GQScene, {
 
+    /**
+     * Resets this scene by resetting each of its properties
+     *
+     * @public
+     */
     reset: function() {
       this.aProperty.reset();
       this.bProperty.reset();

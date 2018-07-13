@@ -32,6 +32,7 @@ define( function( require ) {
   graphingQuadratics.register( 'GQModel', GQModel );
 
   return inherit( Object, GQModel, {
+
     /**
      * Resets this model by resetting each of its scenes
      *
