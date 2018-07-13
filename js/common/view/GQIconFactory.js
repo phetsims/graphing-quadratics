@@ -13,10 +13,10 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   var GQIconFactory = {
-    createIntegerCoefficientsIcon : function() {
+    createIntegersIcon : function() {
       return new Text( 'Integers' );
     },
-    createDecimalCoefficientsIcon : function() {
+    createDecimalsIcon : function() {
       return new Text( 'Decimals' );
     }
   };

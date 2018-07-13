@@ -10,8 +10,6 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
-  var GraphControls = require( 'GRAPHING_QUADRATICS/common/view/GraphControls' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -20,11 +18,11 @@ define( function( require ) {
   /**
    * @param {GQScene} model
    * @param {Bounds2} layoutBounds
-   * @param {Node} equationNode
-   * @param {Node} interactiveEquationNode - interactive equation
+   * @param {Panel} equationControls
+   * @param {Panel} graphControls
    * @constructor
    */
-  function GQSceneNode( model, layoutBounds, equationNode, interactiveEquationNode, options ) {
+  function GQSceneNode( model, layoutBounds, equationControls, graphControls, options ) {
 
     // @public
     this.scene = model;
@@ -33,15 +31,6 @@ define( function( require ) {
 
     // Graph Node - the cartesian coordinates graph
     var graphNode = new GraphNode( model.graph, model.modelViewTransform );
-
-    // Equation Controls Panel
-    var equationControls = new EquationControls(
-      equationNode,
-      interactiveEquationNode
-    );
-
-    // Graph Controls Panel
-    var graphControls = new GraphControls();
 
     // Parent for all controls, to simplify layout
     var controlsParent = new Node();

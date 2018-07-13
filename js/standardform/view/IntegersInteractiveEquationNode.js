@@ -32,7 +32,7 @@ define( function( require ) {
   /**
    * @constructor
    */
-  function IntegerCoefficientsInteractiveEquationNode( options ) {
+  function IntegersInteractiveEquationNode( options ) {
     Node.call( this, options );
 
     // TODO: temporary variables, will be passed in as parameters
@@ -63,7 +63,7 @@ define( function( require ) {
     this.addChild( equationNode );
   }
 
-  graphingQuadratics.register( 'IntegerCoefficientsInteractiveEquationNode', IntegerCoefficientsInteractiveEquationNode );
+  graphingQuadratics.register( 'IntegersInteractiveEquationNode', IntegersInteractiveEquationNode );
 
-  return inherit( Node, IntegerCoefficientsInteractiveEquationNode );
+  return inherit( Node, IntegersInteractiveEquationNode );
 } );

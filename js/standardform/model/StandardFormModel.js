@@ -21,12 +21,12 @@ define( function( require ) {
   function StandardFormModel() {
 
     // @public
-    this.integerCoefficientsScene = new GQScene();
-    this.integerCoefficientsScene.icon = GQIconFactory.createIntegerCoefficientsIcon();
-    this.decimalCoefficientsScene = new GQScene();
-    this.decimalCoefficientsScene.icon = GQIconFactory.createDecimalCoefficientsIcon();
+    this.integersScene = new GQScene();
+    this.integersScene.icon = GQIconFactory.createIntegersIcon();
+    this.decimalsScene = new GQScene();
+    this.decimalsScene.icon = GQIconFactory.createDecimalsIcon();
 
-    GQModel.call( this, [ this.integerCoefficientsScene, this.decimalCoefficientsScene ] );
+    GQModel.call( this, [ this.integersScene, this.decimalsScene ] );
   }
 
   graphingQuadratics.register( 'StandardFormModel', StandardFormModel );

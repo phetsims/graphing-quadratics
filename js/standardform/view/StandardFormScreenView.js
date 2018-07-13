@@ -9,12 +9,14 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   var GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IntegerCoefficientsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegerCoefficientsInteractiveEquationNode' );
   var SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
+  var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
+  var GraphControls = require( 'GRAPHING_QUADRATICS/common/view/GraphControls' );
+  var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
+  var IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
   var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -27,20 +29,29 @@ define( function( require ) {
 
     GQScreenView.call( this, model );
 
-    var sceneNodes = [
-      new GQSceneNode(
-        model.integerCoefficientsScene,
-        this.layoutBounds,
-        new StandardFormEquationNode(),
-        new IntegerCoefficientsInteractiveEquationNode()
-      ),
-      new GQSceneNode(
-        model.decimalCoefficientsScene,
-        this.layoutBounds,
-        new StandardFormEquationNode(),
-        new Text( 'under construction' )
-      )
-    ];
+    // view of the general form equation, common to both scenes
+    var equationNode = new StandardFormEquationNode();
+
+    // view for the integers scene
+    var integersInteractiveEquationNode = new IntegersInteractiveEquationNode();
+    var integersSceneNode = new GQSceneNode(
+      model.integersScene,
+      this.layoutBounds,
+      new EquationControls( equationNode, integersInteractiveEquationNode ),
+      new GraphControls()
+    );
+
+    // view for the decimals scene
+    var decimalsInteractiveEquationNode = new Text( 'under construction' );
+    var decimalsSceneNode = new GQSceneNode(
+      model.decimalsScene,
+      this.layoutBounds,
+      new EquationControls( equationNode, decimalsInteractiveEquationNode ),
+      new GraphControls()
+    );
+
+    // managing the scene nodes
+    var sceneNodes = [ integersSceneNode, decimalsSceneNode ];
 
     sceneNodes.forEach( function( sceneNode ) {
       self.addChild( sceneNode );
