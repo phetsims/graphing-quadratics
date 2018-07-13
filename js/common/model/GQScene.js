@@ -2,9 +2,8 @@
 
 /**
  * Base type for scenes in Graphing Quadratics
- * Copied from graphing-lines/common/model/LineFormsModel.js
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Andrea Lin
  */
 define( function( require ) {
   'use strict';

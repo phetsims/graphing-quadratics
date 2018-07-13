@@ -3,7 +3,7 @@
 /**
  * An immutable quadratic, described by coefficients a, b, and c of x^2, x^1, and x^0, respectively.
  *
- * @author Andrea
+ * @author Andrea Lin
  */
 define( function( require ) {
   'use strict';
@@ -30,8 +30,8 @@ define( function( require ) {
 
   inherit( Object, Quadratic );
 
-  // @static @public y = x (a standard line)
-  Quadratic.NORMAL = new Quadratic( 1, 0, 0 );
+  // @static @public y = x^2
+  Quadratic.Y_EQUALS_X_SQUARED = new Quadratic( 1, 0, 0 );
 
   return Quadratic;
 } );
