@@ -34,7 +34,11 @@ define( function( require ) {
     var equationNode = new StandardFormEquationNode();
 
     // view for the integers scene
-    var integersInteractiveEquationNode = new IntegersInteractiveEquationNode( model.integersScene.quadraticProperty );
+    var integersInteractiveEquationNode = new IntegersInteractiveEquationNode(
+      model.integersScene.aProperty,
+      model.integersScene.bProperty,
+      model.integersScene.cProperty
+    );
     var integersSceneNode = new GQSceneNode(
       model.integersScene,
       this.layoutBounds,

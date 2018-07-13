@@ -34,7 +34,7 @@ define( function( require ) {
   return inherit( Object, GQModel, {
 
     reset: function() {
-      //TODO
+      this.scenes.forEach( function( scene ) { scene.reset(); } );
     }
   } );
 } );

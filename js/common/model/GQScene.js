@@ -10,12 +10,13 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   var Graph = require( 'GRAPHING_LINES/common/model/Graph' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Property = require( 'AXON/Property' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -31,7 +32,16 @@ define( function( require ) {
 
     // @public graph
     this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
-    this.quadraticProperty = new Property( new Quadratic( 1, 0, 0 ) );
+
+    this.aProperty = new NumberProperty( 1, { range: { min:-6, max: 6 } } );
+    this.bProperty = new NumberProperty( 0, { range: { min:-6, max: 6 } } );
+    this.cProperty = new NumberProperty( 0, { range: { min:-6, max: 6 } } );
+
+    this.quadraticProperty = new DerivedProperty( [
+        this.aProperty,
+        this.bProperty,
+        this.cProperty
+    ], function( a, b, c ) { return new Quadratic( a, b, c ); } );
 
     // view units / model units
     var modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
@@ -52,7 +62,9 @@ define( function( require ) {
   return inherit( Object, GQScene, {
 
     reset: function() {
-      //TODO
+      this.aProperty.reset();
+      this.bProperty.reset();
+      this.cProperty.reset();
     }
   } );
 } );
