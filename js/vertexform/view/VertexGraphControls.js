@@ -17,6 +17,7 @@ define( function( require ) {
   var VBox = require( 'SCENERY/nodes/VBox' );
 
   /**
+   * @param {Object} [options]
    * @constructor
    */
   function VertexGraphControls( options ) {

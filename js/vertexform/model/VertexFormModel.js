@@ -4,6 +4,7 @@
  * Model for the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
+ * @author Andrea Lin
  */
 define( function( require ) {
   'use strict';
@@ -18,6 +19,7 @@ define( function( require ) {
    * @constructor
    */
   function VertexFormModel() {
+
     // @public
     this.vertexScene = new GQScene();
     
