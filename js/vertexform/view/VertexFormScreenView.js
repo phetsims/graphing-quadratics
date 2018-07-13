@@ -15,6 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Text = require( 'SCENERY/nodes/Text' );
   var VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
+  var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
 
   /**
    * @param {VertexFormModel} model
@@ -25,7 +26,7 @@ define( function( require ) {
     GQScreenView.call( this, model );
 
     this.addChild( new GQSceneNode( model.vertexScene, self.layoutBounds,
-      new Text( 'under construction' ),
+      new EquationControls( new Text( 'under construction' ), new Text( 'under construction' ) ),
       new VertexGraphControls()
     ) );
   }
