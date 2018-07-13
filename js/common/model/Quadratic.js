@@ -28,10 +28,5 @@ define( function( require ) {
 
   graphingQuadratics.register( 'Quadratic', Quadratic );
 
-  inherit( Object, Quadratic );
-
-  // @static @public y = x^2
-  Quadratic.Y_EQUALS_X_SQUARED = new Quadratic( 1, 0, 0 );
-
-  return Quadratic;
+  return inherit( Object, Quadratic );
 } );
