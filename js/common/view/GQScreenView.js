@@ -18,9 +18,10 @@ define( function( require ) {
 
   /**
    * @param {GQModel} model
+   * @param {LineFormViewProperties[]} viewPropertiess
    * @constructor
    */
-  function GQScreenView( model ) {
+  function GQScreenView( model, viewPropertiess ) {
 
     ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
 
@@ -28,6 +29,7 @@ define( function( require ) {
     var resetAllButton = new ResetAllButton( {
       listener: function() {
         model.reset();
+        viewPropertiess.forEach( function( viewProperties ) { viewProperties.reset(); } );
       },
       right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
       bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN

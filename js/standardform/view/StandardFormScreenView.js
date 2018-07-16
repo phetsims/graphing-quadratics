@@ -29,7 +29,11 @@ define( function( require ) {
   function StandardFormScreenView( model ) {
     var self = this;
 
-    GQScreenView.call( this, model );
+    var integersViewProperties = new LineFormsViewProperties();
+
+    var decimalsViewProperties = new LineFormsViewProperties();
+
+    GQScreenView.call( this, model, [ integersViewProperties, decimalsViewProperties ] );
 
     // view of the general form equation, common to both scenes
     var equationNode = new StandardFormEquationNode();
@@ -40,8 +44,6 @@ define( function( require ) {
       model.integersScene.bProperty,
       model.integersScene.cProperty
     );
-
-    var integersViewProperties = new LineFormsViewProperties();
 
     var integersSceneNode = new GQSceneNode(
       model.integersScene,
@@ -57,8 +59,6 @@ define( function( require ) {
 
     // view for the decimals scene
     var decimalsInteractiveEquationNode = new Text( 'under construction' );
-
-    var decimalsViewProperties = new LineFormsViewProperties();
 
     var decimalsSceneNode = new GQSceneNode(
       model.decimalsScene,

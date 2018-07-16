@@ -24,9 +24,10 @@ define( function( require ) {
    */
   function VertexFormScreenView( model ) {
     var self = this;
-    GQScreenView.call( this, model );
 
     var vertexViewProperties = new LineFormsViewProperties();
+
+    GQScreenView.call( this, model, [ vertexViewProperties ] );
 
     this.addChild( new GQSceneNode(
       model.vertexScene,
