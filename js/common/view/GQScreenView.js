@@ -34,8 +34,11 @@ define( function( require ) {
       right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
       bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN
     } );
+
     this.addChild( resetAllButton );
 
+    // @protected
+    this.resetAllButton = resetAllButton;
   }
 
   graphingQuadratics.register( 'GQScreenView', GQScreenView );
