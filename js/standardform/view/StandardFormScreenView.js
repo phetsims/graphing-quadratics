@@ -18,8 +18,8 @@ define( function( require ) {
   var DecimalsGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsGraphControls' );
   var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   var IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
+  var DecimalsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsInteractiveEquationNode' );
   var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
-  var Text = require( 'SCENERY/nodes/Text' );
   var LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
 
   /**
@@ -35,9 +35,6 @@ define( function( require ) {
 
     GQScreenView.call( this, model, [ integersViewProperties, decimalsViewProperties ] );
 
-    // view of the general form equation, common to both scenes
-    var equationNode = new StandardFormEquationNode();
-
     // view for the integers scene
     var integersInteractiveEquationNode = new IntegersInteractiveEquationNode(
       model.integersScene.aProperty,
@@ -48,7 +45,7 @@ define( function( require ) {
     var integersSceneNode = new GQSceneNode(
       model.integersScene,
       this.layoutBounds,
-      new EquationControls( equationNode, integersInteractiveEquationNode ),
+      new EquationControls( new StandardFormEquationNode(), integersInteractiveEquationNode ),
       new IntegersGraphControls(
         integersViewProperties.vertexVisibleProperty,
         integersViewProperties.axisOfSymmetryVisibleProperty,
@@ -58,12 +55,16 @@ define( function( require ) {
     );
 
     // view for the decimals scene
-    var decimalsInteractiveEquationNode = new Text( 'under construction' );
+    var decimalsInteractiveEquationNode = new DecimalsInteractiveEquationNode(
+      model.decimalsScene.aProperty,
+      model.decimalsScene.bProperty,
+      model.decimalsScene.cProperty
+    );
 
     var decimalsSceneNode = new GQSceneNode(
       model.decimalsScene,
       this.layoutBounds,
-      new EquationControls( equationNode, decimalsInteractiveEquationNode ),
+      new EquationControls( new StandardFormEquationNode(), decimalsInteractiveEquationNode ),
       new DecimalsGraphControls(),
       decimalsViewProperties
     );
