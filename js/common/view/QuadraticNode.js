@@ -64,10 +64,26 @@ define( function( require ) {
       }
     } );
 
+    // make a property out of quadraticProperty.get().directrix in order to pass into LineNode
+    var directrixLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
+      return quadratic.directrix;
+    } );
+
+    // use the double headed arrow node from graphing-lines as a guide
+    var directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
+      lineNotArrow: true,
+      lineOptions: {
+        stroke: 'green',
+        lineDash: [ 8, 8 ],
+        lineDashOffset: 10
+      }
+    } );
+
     // rendering order
     this.addChild( quadraticPath );
     this.addChild( axisOfSymmetryLine );
     this.addChild( vertexPoint );
+    this.addChild( directrixLine );
     this.addChild( focusPoint );
     this.addChild( root0Point );
     this.addChild( root1Point );
