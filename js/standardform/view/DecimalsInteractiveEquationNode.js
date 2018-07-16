@@ -10,13 +10,15 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const Line = require( 'SCENERY/nodes/Line' );
+  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var HBox = require( 'SCENERY/nodes/HBox' );
-  var inherit = require( 'PHET_CORE/inherit' );
   var HSlider = require( 'SUN/HSlider' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   var RichText = require( 'SCENERY/nodes/RichText' );
-  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
 
   // strings
   var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
@@ -25,6 +27,9 @@ define( function( require ) {
 
   // constants
   var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
+  var TICK_COLOR = 'black';
+  var TICK_LENGTH = 10;
+  var TICK_WIDTH = 2;
 
   /**
    * @param {Property.<Number>} aProperty - the coefficient for x^2 in the quadratic
@@ -36,11 +41,11 @@ define( function( require ) {
   function DecimalsInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
       // interactive components of the equation
-      var aSlider = new HSlider( aProperty, aProperty.range );
-      var bSlider = new HSlider( bProperty, bProperty.range );
-      var cSlider = new HSlider( cProperty, cProperty.range );
+      var aSlider = new VerticalSlider( aProperty );
+      var bSlider = new VerticalSlider( bProperty );
+      var cSlider = new VerticalSlider( cProperty );
 
-      HBox.call( this, {
+    HBox.call( this, {
         children: [
           new RichText( yString, TEXT_OPTIONS ),
           new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS ),
@@ -59,5 +64,46 @@ define( function( require ) {
 
   graphingQuadratics.register( 'DecimalsInteractiveEquationNode', DecimalsInteractiveEquationNode );
 
-  return inherit( HBox, DecimalsInteractiveEquationNode );
+  inherit( HBox, DecimalsInteractiveEquationNode );
+
+  /**
+   * Create a vertical slider with a central tick
+   * @param {NumberProperty} property parameter to track.
+   * @param {Object} [options] for slider node.
+   * @constructor
+   */
+  function VerticalSlider( property, options ) {
+
+    options = _.extend( {
+      trackFill: 'black',
+      trackSize: new Dimension2( 190, 1 ),
+      thumbSize: new Dimension2( 15, 30 ),
+      thumbTouchAreaYDilation: 8
+    }, options );
+
+    HSlider.call( this, property, property.range, options );
+
+    // HSlider does not support a tick that is centered on the track.  We need to use our own tick node here.
+    var trackCenterX = options.trackSize.width / 2;
+    var tickYOffset = options.trackSize.height / 2;
+
+    var tickNode = new Line( trackCenterX, -TICK_LENGTH, trackCenterX, TICK_LENGTH + tickYOffset, {
+      stroke: TICK_COLOR,
+      lineWidth: TICK_WIDTH
+    } );
+
+    // add the tick as a child and move it behind the slider thumb
+    this.addChild( tickNode );
+    tickNode.moveToBack();
+
+    // make vertical slider by rotating it
+    this.rotate( -Math.PI / 2 );
+
+  }
+
+  graphingQuadratics.register( 'VerticalSlider', VerticalSlider );
+
+  inherit( HSlider, VerticalSlider );
+
+  return DecimalsInteractiveEquationNode;
 } );
