@@ -9,9 +9,11 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
   var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
+  const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PlottedPointNode = require( 'GRAPHING_LINES/common/view/PlottedPointNode' );
@@ -47,7 +49,22 @@ define( function( require ) {
     // the right most root if there are two roots
     var root1Point = new PlottedPointNode( pointRadius, 'red' );
 
+    // make a property out of quadraticProperty.get().axisOfSymmetry in order to pass into LineNode
+    var axisOfSymmetryLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
+      return quadratic.axisOfSymmetry;
+    } );
+
+    var axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
+      stroke: 'purple',
+      lineWidth: 3,
+      lineDash: [ 5, 5 ]
+    } );
+
+    // TODO: create an options in graphing-lines/Line-Node so that the above options are passed through
+
+    // rendering order
     this.addChild( quadraticPath );
+    this.addChild( axisOfSymmetryLine );
     this.addChild( vertexPoint );
     this.addChild( focusPoint );
     this.addChild( root0Point );

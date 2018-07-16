@@ -12,6 +12,7 @@ define( function( require ) {
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Line = require( 'GRAPHING_LINES/common/model/Line' );
+  var NotALine = require( 'GRAPHING_LINES/linegame/model/NotALine' );
   var Vector2 = require( 'DOT/Vector2' );
   var Util = require( 'DOT/Util' );
 
@@ -32,7 +33,7 @@ define( function( require ) {
     // http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
     // https://www.geeksforgeeks.org/finding-vertex-focus-directrix-parabola/
 
-    if ( a !== 0 ) {
+    if ( a !== 0 ) { // is a quadratic
 
       // turn ax^2 + bx + c into:
       // 4p(y-k)=(x-h)^2
@@ -47,6 +48,9 @@ define( function( require ) {
       this.directrix = new Line( 0, k - p, 1, k - p ); // y = k - p
       this.roots = Util.solveQuadraticRootsReal( a, b, c )
         .map( function( root ) { return new Vector2( root, 0 ); } );
+    }
+    else { // not a quadratic
+      this.axisOfSymmetry = NotALine();
     }
 
   }
