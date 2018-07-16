@@ -12,6 +12,10 @@ define( function( require ) {
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
   const Line = require( 'SCENERY/nodes/Line' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const NumberBackgroundNode = require( 'GRAPHING_LINES/common/view/NumberBackgroundNode' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
   var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var HBox = require( 'SCENERY/nodes/HBox' );
@@ -24,12 +28,22 @@ define( function( require ) {
   var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
   var xString = require( 'string!GRAPHING_QUADRATICS/x' );
   var yString = require( 'string!GRAPHING_QUADRATICS/y' );
+  var aString = require( 'string!GRAPHING_QUADRATICS/a' );
+  var bString = require( 'string!GRAPHING_QUADRATICS/b' );
+  var cString = require( 'string!GRAPHING_QUADRATICS/c' );
 
   // constants
   var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
   var TICK_COLOR = 'black';
   var TICK_LENGTH = 10;
   var TICK_WIDTH = 2;
+  var READOUT_OPTIONS = {
+    backgroundFill: null,
+    minWidth: 60,
+    font: new GQFont( 24 ),
+    decimalPlaces: 1,
+    textFill: 'red'
+  };
 
   /**
    * @param {Property.<Number>} aProperty - the coefficient for x^2 in the quadratic
@@ -40,26 +54,58 @@ define( function( require ) {
    */
   function DecimalsInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
-      // interactive components of the equation
-      var aSlider = new VerticalSlider( aProperty );
-      var bSlider = new VerticalSlider( bProperty );
-      var cSlider = new VerticalSlider( cProperty );
+    var aReadout = new NumberBackgroundNode( aProperty, READOUT_OPTIONS );
+    var bReadout = new NumberBackgroundNode( bProperty, READOUT_OPTIONS );
+    var cReadout = new NumberBackgroundNode( cProperty, READOUT_OPTIONS );
 
-    HBox.call( this, {
-        children: [
-          new RichText( yString, TEXT_OPTIONS ),
-          new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS ),
-          aSlider,
-          new RichText( xSquaredString, TEXT_OPTIONS ),
-          new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
-          bSlider,
-          new RichText( xString, TEXT_OPTIONS ),
-          new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
-          cSlider
-        ],
-        align: 'center',
-        spacing: 10
-      } );
+    var readout = new HBox( {
+      children: [
+        new RichText( yString, TEXT_OPTIONS ),
+        new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS ),
+        aReadout,
+        new RichText( xSquaredString, TEXT_OPTIONS ),
+        new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
+        bReadout,
+        new RichText( xString, TEXT_OPTIONS ),
+        new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
+        cReadout
+      ],
+      align: 'center',
+      spacing: 10
+    } );
+
+    var aControl = new VBox( {
+      children: [
+        new Text( aString, TEXT_OPTIONS ),
+        new VerticalSlider( aProperty )
+      ],
+      align: 'center',
+      centerX: aReadout.centerX,
+      top: aReadout.bottom
+    } );
+
+    var bControl = new VBox( {
+      children: [
+        new Text( bString, TEXT_OPTIONS ),
+        new VerticalSlider( bProperty )
+      ],
+      align: 'center',
+      centerX: bReadout.centerX,
+      top: bReadout.bottom
+    } );
+
+    var cControl = new VBox( {
+      children: [
+        new Text( cString, TEXT_OPTIONS ),
+        new VerticalSlider( cProperty )
+      ],
+      align: 'center',
+      centerX: cReadout.centerX,
+      top: cReadout.bottom
+    } );
+
+    Node.call( this, { children: [ readout, aControl, bControl, cControl ] } );
+
   }
 
   graphingQuadratics.register( 'DecimalsInteractiveEquationNode', DecimalsInteractiveEquationNode );
