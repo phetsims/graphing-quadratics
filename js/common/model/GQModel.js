@@ -40,6 +40,7 @@ define( function( require ) {
      */
     reset: function() {
       this.scenes.forEach( function( scene ) { scene.reset(); } );
+      this.sceneProperty.reset();
     }
   } );
 } );
