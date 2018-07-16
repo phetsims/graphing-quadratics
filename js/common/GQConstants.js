@@ -22,7 +22,7 @@ define( function( require ) {
     INTERACTIVE_EQUATION_FONT_SIZE: 34, // TODO: use?
     PICKER_TOUCH_AREA_X_DILATION: 30,
     MANIPULATOR_RADIUS: 0.425,
-    POINT_RADIUS: 0.425
+    POINT_RADIUS: 0.25
   };
 
   graphingQuadratics.register( 'GQConstants', GQConstants );
