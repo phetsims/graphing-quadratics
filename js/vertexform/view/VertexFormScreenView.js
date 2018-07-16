@@ -13,6 +13,7 @@ define( function( require ) {
   var GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
   var Text = require( 'SCENERY/nodes/Text' );
   var VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
   var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
@@ -25,9 +26,14 @@ define( function( require ) {
     var self = this;
     GQScreenView.call( this, model );
 
-    this.addChild( new GQSceneNode( model.vertexScene, self.layoutBounds,
+    var vertexViewProperties = new LineFormsViewProperties();
+
+    this.addChild( new GQSceneNode(
+      model.vertexScene,
+      self.layoutBounds,
       new EquationControls( new Text( 'under construction' ), new Text( 'under construction' ) ),
-      new VertexGraphControls()
+      new VertexGraphControls(),
+      vertexViewProperties
     ) );
   }
 

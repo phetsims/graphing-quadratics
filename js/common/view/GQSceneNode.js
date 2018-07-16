@@ -23,10 +23,11 @@ define( function( require ) {
    * @param {Bounds2} layoutBounds
    * @param {Panel} equationControls
    * @param {Panel} graphControls
+   * @param {LineFormsViewProperties} viewProperties
    * @param {Object} [options]
    * @constructor
    */
-  function GQSceneNode( model, layoutBounds, equationControls, graphControls, options ) {
+  function GQSceneNode( model, layoutBounds, equationControls, graphControls, viewProperties, options ) {
 
     // @public
     this.scene = model;
@@ -37,7 +38,12 @@ define( function( require ) {
     var graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
     // Creating the view for the quadratics
-    var quadraticNode = new QuadraticNode( model.quadraticProperty, model.graph, model.modelViewTransform );
+    var quadraticNode = new QuadraticNode(
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties
+    );
     var clipArea = Shape.rectangle(
       model.graph.xRange.min,
       model.graph.yRange.min,

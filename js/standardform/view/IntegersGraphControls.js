@@ -9,7 +9,6 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var Checkbox = require( 'SUN/Checkbox' );
   var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
@@ -27,21 +26,24 @@ define( function( require ) {
   var TEXT_OPTIONS = { font: new GQFont( 18 ) };
 
   /**
+   * @param {BooleanProperty} vertexVisibleProperty
+   * @param {BooleanProperty} axisOfSymmetryVisibleProperty
+   * @param {BooleanProperty} rootsVisibleProperty
    * @param {Object} [options]
    * @constructor
    */
-  function IntegersGraphControls( options ) {
+  function IntegersGraphControls(
+    vertexVisibleProperty,
+    axisOfSymmetryVisibleProperty,
+    rootsVisibleProperty,
+    options
+  ) {
 
     options = _.extend( {
       fill: GQColors.CONTROL_PANEL_BACKGROUND,
       xMargin: 20,
       yMargin: 15
     }, options );
-
-    // TODO: temporary. will be passed in as parameters.
-    var vertexVisibleProperty = new BooleanProperty( false );
-    var axisOfSymmetryVisibleProperty = new BooleanProperty( false );
-    var rootsVisibleProperty = new BooleanProperty( false );
 
     // checkboxes that control visibility of vertex, axis of symmetry, and roots
     var vertexCheckbox = Checkbox.createTextCheckbox( vertexString, TEXT_OPTIONS, vertexVisibleProperty );

@@ -20,6 +20,7 @@ define( function( require ) {
   var IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
   var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
 
   /**
    * @param {StandardFormModel} model
@@ -39,20 +40,32 @@ define( function( require ) {
       model.integersScene.bProperty,
       model.integersScene.cProperty
     );
+
+    var integersViewProperties = new LineFormsViewProperties();
+
     var integersSceneNode = new GQSceneNode(
       model.integersScene,
       this.layoutBounds,
       new EquationControls( equationNode, integersInteractiveEquationNode ),
-      new IntegersGraphControls()
+      new IntegersGraphControls(
+        integersViewProperties.vertexVisibleProperty,
+        integersViewProperties.axisOfSymmetryVisibleProperty,
+        integersViewProperties.rootsVisibleProperty
+      ),
+      integersViewProperties
     );
 
     // view for the decimals scene
     var decimalsInteractiveEquationNode = new Text( 'under construction' );
+
+    var decimalsViewProperties = new LineFormsViewProperties();
+
     var decimalsSceneNode = new GQSceneNode(
       model.decimalsScene,
       this.layoutBounds,
       new EquationControls( equationNode, decimalsInteractiveEquationNode ),
-      new DecimalsGraphControls()
+      new DecimalsGraphControls(),
+      decimalsViewProperties
     );
 
     // managing the scene nodes

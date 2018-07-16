@@ -24,10 +24,11 @@ define( function( require ) {
    * @param {Property.<Quadratic>} quadratic
    * @param {Graph} graph
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {LineFormsScreenView} viewProperties
    * @param {Object} [options]
    * @constructor
    */
-  function QuadraticNode( quadraticProperty, graph, modelViewTransform, options ) {
+  function QuadraticNode( quadraticProperty, graph, modelViewTransform, viewProperties, options ) {
 
     options = _.extend( {}, options );
 
@@ -40,14 +41,27 @@ define( function( require ) {
 
     var pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
+    // vertex of the quadratic
     var vertexPoint = new PlottedPointNode( pointRadius, 'red' );
-    var focusPoint = new PlottedPointNode( pointRadius, 'green' );
+    var vertexPointParentNode = new Node( { children: [ vertexPoint ] } );
+
+    // link vertex point visibility to view property
+    viewProperties.vertexVisibleProperty.link( function( visible ) {
+      vertexPointParentNode.visible = visible;
+    } );
 
     // the left most root if there are two roots, and the root if there is one root
     var root0Point = new PlottedPointNode( pointRadius, 'red' );
 
     // the right most root if there are two roots
     var root1Point = new PlottedPointNode( pointRadius, 'red' );
+
+    var rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
+
+    // link roots points to view property
+    viewProperties.rootsVisibleProperty.link( function( visible ) {
+      rootPointsParentNode.visible = visible;
+    } );
 
     // make a property out of quadraticProperty.get().axisOfSymmetry in order to pass into LineNode
     var axisOfSymmetryLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
@@ -64,6 +78,16 @@ define( function( require ) {
       }
     } );
 
+    var axisOfSymmetryLineParentNode = new Node( { children: [ axisOfSymmetryLine ] } );
+
+    // link axis of symmetry line visibility to view property
+    viewProperties.axisOfSymmetryVisibleProperty.link( function( visible ) {
+      axisOfSymmetryLineParentNode.visible = visible;
+    } );
+
+    // focus of the quadratic
+    var focusPoint = new PlottedPointNode( pointRadius, 'green' );
+
     // make a property out of quadraticProperty.get().directrix in order to pass into LineNode
     var directrixLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
       return quadratic.directrix;
@@ -79,14 +103,19 @@ define( function( require ) {
       }
     } );
 
+    var directrixParentNode = new Node( { children: [ directrixLine, focusPoint ] } );
+
+    // link focus point and directrix line visibility to view property
+    viewProperties.directrixVisibleProperty.link( function( visible ) {
+      directrixParentNode.visible = visible;
+    } );
+
     // rendering order
     this.addChild( quadraticPath );
-    this.addChild( axisOfSymmetryLine );
-    this.addChild( vertexPoint );
-    this.addChild( directrixLine );
-    this.addChild( focusPoint );
-    this.addChild( root0Point );
-    this.addChild( root1Point );
+    this.addChild( axisOfSymmetryLineParentNode );
+    this.addChild( vertexPointParentNode );
+    this.addChild( directrixParentNode );
+    this.addChild( rootPointsParentNode );
 
     // Update the view of the curve when the quadratic model changes
     // TODO: dispose
