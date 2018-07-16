@@ -10,10 +10,10 @@ define( function( require ) {
 
   // modules
   const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
   var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
-  const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PlottedPointNode = require( 'GRAPHING_LINES/common/view/PlottedPointNode' );
@@ -54,13 +54,15 @@ define( function( require ) {
       return quadratic.axisOfSymmetry;
     } );
 
+    // use the double headed arrow node from graphing-lines as a guide
     var axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
-      stroke: 'purple',
-      lineWidth: 3,
-      lineDash: [ 5, 5 ]
+      lineNotArrow: true,
+      lineOptions: {
+        stroke: 'purple',
+        lineDash: [ 8, 8 ],
+        lineDashOffset: 10
+      }
     } );
-
-    // TODO: create an options in graphing-lines/Line-Node so that the above options are passed through
 
     // rendering order
     this.addChild( quadraticPath );
