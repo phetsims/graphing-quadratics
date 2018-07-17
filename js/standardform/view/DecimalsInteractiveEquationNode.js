@@ -39,7 +39,7 @@ define( function( require ) {
   var TICK_WIDTH = 2;
   var READOUT_OPTIONS = {
     backgroundFill: null,
-    minWidth: 60,
+    minWidth: 70,
     font: new GQFont( 24 ),
     decimalPlaces: 1,
     textFill: 'red'
@@ -54,7 +54,7 @@ define( function( require ) {
    */
   function DecimalsInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
-    var aReadout = new NumberBackgroundNode( aProperty, READOUT_OPTIONS );
+    var aReadout = new NumberBackgroundNode( aProperty, _.extend( {}, READOUT_OPTIONS, { decimalPlaces: 2 } ) );
     var bReadout = new NumberBackgroundNode( bProperty, READOUT_OPTIONS );
     var cReadout = new NumberBackgroundNode( cProperty, READOUT_OPTIONS );
 
