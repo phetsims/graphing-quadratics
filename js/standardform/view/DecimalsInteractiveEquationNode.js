@@ -40,7 +40,7 @@ define( function( require ) {
   var TICK_LENGTH = 20;
   var TICK_WIDTH = 1;
   var READOUT_OPTIONS = {
-    font: new GQFont( { size: 21, weight: 'bold' } ),
+    font: GQFont.NUMBER_FONT,
     numberFill: 'red',
     backgroundFill: null,
     backgroundStroke: null,

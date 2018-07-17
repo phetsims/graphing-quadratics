@@ -26,6 +26,11 @@ define( function( require ) {
 
   // constants
   var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
+  var NUMBER_PICKER_OPTIONS = {
+    font: GQFont.NUMBER_FONT,
+    color: 'red',
+    xMargin: 5
+  };
 
   /**
    * @param {Property.<Number>} aProperty - the coefficient for x^2 in the quadratic
@@ -37,9 +42,9 @@ define( function( require ) {
   function IntegersInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
     // interactive components of the equation
-    var aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), { color: 'red' } );
-    var bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), { color: 'red' } );
-    var cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), { color: 'red' } );
+    var aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );
+    var bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), NUMBER_PICKER_OPTIONS );
+    var cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), NUMBER_PICKER_OPTIONS );
 
     var yText = new RichText( yString, TEXT_OPTIONS );
     var equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
