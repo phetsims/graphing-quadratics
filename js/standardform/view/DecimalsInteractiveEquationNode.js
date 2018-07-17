@@ -14,7 +14,9 @@ define( function( require ) {
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberBackgroundNode = require( 'GRAPHING_LINES/common/view/NumberBackgroundNode' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
   const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -25,12 +27,12 @@ define( function( require ) {
   var RichText = require( 'SCENERY/nodes/RichText' );
 
   // strings
-  var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
-  var xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  var yString = require( 'string!GRAPHING_QUADRATICS/y' );
   var aString = require( 'string!GRAPHING_QUADRATICS/a' );
   var bString = require( 'string!GRAPHING_QUADRATICS/b' );
   var cString = require( 'string!GRAPHING_QUADRATICS/c' );
+  var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
+  var xString = require( 'string!GRAPHING_QUADRATICS/x' );
+  var yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
   // constants
   var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
@@ -84,11 +86,23 @@ define( function( require ) {
       align: 'bottom',
       spacing: 10
     } );
+    //
+    // var aLinearProperty = new NumberProperty( 0, { range: aProperty.range } );
+    // aProperty.link( function( a ) {
+    //   aLinearProperty.set( Util.cubeRoot( a / 6 ) * 6 );
+    // } );
+    // aLinearProperty.link( function( aLinear ) {
+    //   aProperty.set( Math.pow( aLinear / 6, 3 ) * 6 );
+    // } );
 
     var aControl = new VBox( {
       children: [
         new Text( aString, TEXT_OPTIONS ),
-        new VerticalSlider( aProperty )
+        new VerticalSlider( aProperty, {
+          constrainValue: function( value ) {
+            return Util.toFixedNumber( value, 2 ); // two decimal places
+          }
+        } )
       ],
       align: 'center',
       centerX: aReadout.parentToGlobalPoint( aReadout.center ).x,
@@ -98,7 +112,11 @@ define( function( require ) {
     var bControl = new VBox( {
       children: [
         new Text( bString, TEXT_OPTIONS ),
-        new VerticalSlider( bProperty )
+        new VerticalSlider( bProperty, {
+          constrainValue: function( value ) {
+            return Util.toFixedNumber( value, 1 ); // one decimal place
+          }
+        } )
       ],
       align: 'center',
       centerX: bReadout.parentToGlobalPoint( bReadout.center ).x,
@@ -108,7 +126,11 @@ define( function( require ) {
     var cControl = new VBox( {
       children: [
         new Text( cString, TEXT_OPTIONS ),
-        new VerticalSlider( cProperty )
+        new VerticalSlider( cProperty, {
+          constrainValue: function( value ) {
+            return Util.toFixedNumber( value, 1 ); // one decimal place
+          }
+        } )
       ],
       align: 'center',
       centerX: cReadout.centerX,
