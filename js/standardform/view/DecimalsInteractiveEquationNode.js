@@ -36,8 +36,8 @@ define( function( require ) {
   // constants
   var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
   var TICK_COLOR = 'black';
-  var TICK_LENGTH = 10;
-  var TICK_WIDTH = 2;
+  var TICK_LENGTH = 20;
+  var TICK_WIDTH = 1;
   var READOUT_OPTIONS = {
     backgroundFill: null,
     minWidth: 55,
@@ -154,8 +154,8 @@ define( function( require ) {
 
     options = _.extend( {
       trackFill: 'black',
-      trackSize: new Dimension2( 190, 1 ),
-      thumbSize: new Dimension2( 15, 30 ),
+      trackSize: new Dimension2( 160, 1 ),
+      thumbSize: new Dimension2( 15, 25 ),
       thumbTouchAreaYDilation: 8
     }, options );
 
@@ -169,6 +169,10 @@ define( function( require ) {
       stroke: TICK_COLOR,
       lineWidth: TICK_WIDTH
     } );
+
+    // label the zero tick mark
+    var tickText = new Text( '0', { bottom: tickNode.top - 5, centerX: tickNode.centerX + 1, rotation: Math.PI / 2 } );
+    this.addChild( tickText );
 
     // add the tick as a child and move it behind the slider thumb
     this.addChild( tickNode );
