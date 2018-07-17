@@ -13,7 +13,7 @@ define( function( require ) {
   const Dimension2 = require( 'DOT/Dimension2' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const NumberBackgroundNode = require( 'GRAPHING_LINES/common/view/NumberBackgroundNode' );
+  const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
   const VBox = require( 'SCENERY/nodes/VBox' );
@@ -40,12 +40,13 @@ define( function( require ) {
   var TICK_LENGTH = 20;
   var TICK_WIDTH = 1;
   var READOUT_OPTIONS = {
+    font: new GQFont( { size: 21, weight: 'bold' } ),
+    numberFill: 'red',
     backgroundFill: null,
-    minWidth: 55,
-    yMargin: 0,
-    font: new GQFont( 24 ),
+    backgroundStroke: null,
     decimalPlaces: 1,
-    textFill: 'red'
+    xMargin: 0,
+    yMargin: 0
   };
 
   /**
@@ -57,35 +58,21 @@ define( function( require ) {
    */
   function DecimalsInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
-    var aReadout = new NumberBackgroundNode(
+    var aReadout = new NumberDisplay(
       aProperty,
-      _.extend( {}, READOUT_OPTIONS, { decimalPlaces: 2, minWidth: 70  } )
+      aProperty.range,
+      _.extend( {}, READOUT_OPTIONS, { decimalPlaces: 2 } )
     );
-    var bReadout = new NumberBackgroundNode( bProperty, READOUT_OPTIONS );
-    var cReadout = new NumberBackgroundNode( cProperty, READOUT_OPTIONS );
+    var bReadout = new NumberDisplay( bProperty, bProperty.range, READOUT_OPTIONS );
+    var cReadout = new NumberDisplay( cProperty, bProperty.range, READOUT_OPTIONS );
 
-    var aXSquared = new HBox( {
-      children: [ aReadout, new RichText( xSquaredString, TEXT_OPTIONS ) ],
-      align: 'bottom'
-    } );
-    var bX = new HBox( {
-      children: [ bReadout, new RichText( xString, TEXT_OPTIONS ) ],
-      align: 'bottom'
-    } );
+    var yText = new RichText( yString, TEXT_OPTIONS );
+    var equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
+    var xSquaredText = new RichText( xSquaredString, TEXT_OPTIONS );
+    var plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+    var xText = new RichText( xString, TEXT_OPTIONS );
+    var secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-    var readout = new HBox( {
-      children: [
-        new RichText( yString, TEXT_OPTIONS ),
-        new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS ),
-        aXSquared,
-        new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
-        bX,
-        new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
-        cReadout
-      ],
-      align: 'bottom',
-      spacing: 10
-    } );
     //
     // var aLinearProperty = new NumberProperty( 0, { range: aProperty.range } );
     // aProperty.link( function( a ) {
@@ -104,9 +91,7 @@ define( function( require ) {
           }
         } )
       ],
-      align: 'center',
-      centerX: aReadout.parentToGlobalPoint( aReadout.center ).x,
-      top: aReadout.bottom
+      align: 'center'
     } );
 
     var bControl = new VBox( {
@@ -118,9 +103,7 @@ define( function( require ) {
           }
         } )
       ],
-      align: 'center',
-      centerX: bReadout.parentToGlobalPoint( bReadout.center ).x,
-      top: bReadout.bottom
+      align: 'center'
     } );
 
     var cControl = new VBox( {
@@ -132,13 +115,49 @@ define( function( require ) {
           }
         } )
       ],
-      align: 'center',
-      centerX: cReadout.centerX,
-      top: cReadout.bottom
+      align: 'center'
     } );
 
-    Node.call( this, { children: [ readout, aControl, bControl, cControl ] } );
+    Node.call( this, {
+      children: [
+        yText,
+        equalToText,
+        aReadout,
+        xSquaredText,
+        plusText,
+        bReadout,
+        xText,
+        secondPlusText,
+        cReadout,
+        aControl,
+        bControl,
+        cControl
+      ]
+    } );
 
+    // alignment
+    equalToText.left = yText.right + 10;
+    aReadout.left = equalToText.right + 10;
+    xSquaredText.left = aReadout.right + 5;
+    plusText.left = xSquaredText.right + 10;
+    bReadout.left = plusText.right + 10;
+    xText.left = bReadout.right + 5;
+    secondPlusText.left = xText.right + 10;
+    cReadout.left = secondPlusText.right + 10;
+    equalToText.bottom = yText.bottom;
+    xSquaredText.bottom = yText.bottom;
+    plusText.bottom = yText.bottom;
+    xText.bottom = yText.bottom;
+    secondPlusText.bottom = yText.bottom;
+    aReadout.bottom = yText.bottom;
+    bReadout.bottom = yText.bottom;
+    cReadout.bottom = yText.bottom;
+    aControl.centerX = aReadout.centerX;
+    bControl.centerX = bReadout.centerX;
+    cControl.centerX = cReadout.centerX;
+    aControl.top = aReadout.bottom + 5;
+    bControl.top = bReadout.bottom + 5;
+    cControl.top = cReadout.bottom + 5;
   }
 
   graphingQuadratics.register( 'DecimalsInteractiveEquationNode', DecimalsInteractiveEquationNode );
