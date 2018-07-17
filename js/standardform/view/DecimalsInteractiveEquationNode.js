@@ -39,7 +39,8 @@ define( function( require ) {
   var TICK_WIDTH = 2;
   var READOUT_OPTIONS = {
     backgroundFill: null,
-    minWidth: 70,
+    minWidth: 55,
+    yMargin: 0,
     font: new GQFont( 24 ),
     decimalPlaces: 1,
     textFill: 'red'
@@ -54,23 +55,33 @@ define( function( require ) {
    */
   function DecimalsInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
-    var aReadout = new NumberBackgroundNode( aProperty, _.extend( {}, READOUT_OPTIONS, { decimalPlaces: 2 } ) );
+    var aReadout = new NumberBackgroundNode(
+      aProperty,
+      _.extend( {}, READOUT_OPTIONS, { decimalPlaces: 2, minWidth: 70  } )
+    );
     var bReadout = new NumberBackgroundNode( bProperty, READOUT_OPTIONS );
     var cReadout = new NumberBackgroundNode( cProperty, READOUT_OPTIONS );
+
+    var aXSquared = new HBox( {
+      children: [ aReadout, new RichText( xSquaredString, TEXT_OPTIONS ) ],
+      align: 'bottom'
+    } );
+    var bX = new HBox( {
+      children: [ bReadout, new RichText( xString, TEXT_OPTIONS ) ],
+      align: 'bottom'
+    } );
 
     var readout = new HBox( {
       children: [
         new RichText( yString, TEXT_OPTIONS ),
         new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS ),
-        aReadout,
-        new RichText( xSquaredString, TEXT_OPTIONS ),
+        aXSquared,
         new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
-        bReadout,
-        new RichText( xString, TEXT_OPTIONS ),
+        bX,
         new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
         cReadout
       ],
-      align: 'center',
+      align: 'bottom',
       spacing: 10
     } );
 
@@ -80,7 +91,7 @@ define( function( require ) {
         new VerticalSlider( aProperty )
       ],
       align: 'center',
-      centerX: aReadout.centerX,
+      centerX: aReadout.parentToGlobalPoint( aReadout.center ).x,
       top: aReadout.bottom
     } );
 
@@ -90,7 +101,7 @@ define( function( require ) {
         new VerticalSlider( bProperty )
       ],
       align: 'center',
-      centerX: bReadout.centerX,
+      centerX: bReadout.parentToGlobalPoint( bReadout.center ).x,
       top: bReadout.bottom
     } );
 
