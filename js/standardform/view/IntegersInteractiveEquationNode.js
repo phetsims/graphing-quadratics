@@ -13,7 +13,6 @@ define( function( require ) {
   const Node = require( 'SCENERY/nodes/Node' );
   var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var HBox = require( 'SCENERY/nodes/HBox' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   var NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
@@ -80,10 +79,9 @@ define( function( require ) {
     aNumberPicker.centerY = xText.centerY;
     bNumberPicker.centerY = xText.centerY;
     cNumberPicker.centerY = xText.centerY;
-
   }
 
   graphingQuadratics.register( 'IntegersInteractiveEquationNode', IntegersInteractiveEquationNode );
 
-  return inherit( HBox, IntegersInteractiveEquationNode );
+  return inherit( Node, IntegersInteractiveEquationNode );
 } );
