@@ -38,9 +38,9 @@ define( function( require ) {
   function IntegersInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
     // interactive components of the equation
-    var aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ) );
-    var bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ) );
-    var cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ) );
+    var aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), { color: 'red' } );
+    var bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), { color: 'red' } );
+    var cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), { color: 'red' } );
 
     var yText = new RichText( yString, TEXT_OPTIONS );
     var equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
