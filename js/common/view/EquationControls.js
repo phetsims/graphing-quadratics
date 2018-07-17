@@ -35,10 +35,11 @@ define( function( require ) {
   /**
    * @param {Node} titleNode - a display of the general form of the equation
    * @param {Node} interactiveEquationNode - interactive equation
+   * @param {function}
    * @param {Object} [options]
    * @constructor
    */
-  function EquationControls( titleNode, interactiveEquationNode, options ) {
+  function EquationControls( titleNode, interactiveEquationNode, saveFunction, eraseFunction, options ) {
 
     options = _.extend( {
       fill: GQColors.CONTROL_PANEL_BACKGROUND,

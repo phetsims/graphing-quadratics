@@ -17,17 +17,19 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   var Shape = require( 'KITE/Shape' );
+  var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
 
   /**
    * @param {GQScene} model
    * @param {Bounds2} layoutBounds
-   * @param {Panel} equationControls
+   * @param {Node} equationControlsTitleNode - a display of the general form of the equation
+   * @param {Node} interactiveEquationNode - interactive equation
    * @param {Panel} graphControls
    * @param {LineFormsViewProperties} viewProperties
    * @param {Object} [options]
    * @constructor
    */
-  function GQSceneNode( model, layoutBounds, equationControls, graphControls, viewProperties, options ) {
+  function GQSceneNode( model, layoutBounds, equationControlsTitleNode, interactiveEquationNode, graphControls, viewProperties, options ) {
 
     // @public
     this.scene = model;
@@ -59,6 +61,16 @@ define( function( require ) {
       children: [ savedQuadraticsLayer, quadraticNode ],
       clipArea: clipArea
     } );
+
+    var equationControls = new EquationControls(
+      equationControlsTitleNode,
+      interactiveEquationNode,
+      function() {
+        savedQuadraticsLayer.removeAllChildren();
+        savedQuadraticsLayer.addChild( quadraticfonNode.withColor() );
+        },
+      function() { savedQuadraticsLayer.removeAllChildren(); }
+    );
 
     // Parent for all control panels, to simplify layout
     var controlsParent = new Node();
