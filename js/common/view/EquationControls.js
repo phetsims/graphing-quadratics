@@ -28,14 +28,15 @@ define( function( require ) {
   var VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
-  var ICON_WIDTh = 30;
+  var ICON_WIDTH = 30;
   var Y_SPACING = 10;
   var TITLE_X_SPACING = 5;
 
   /**
    * @param {Node} titleNode - a display of the general form of the equation
    * @param {Node} interactiveEquationNode - interactive equation
-   * @param {function}
+   * @param {function} saveFunction
+   * @param {function} eraseFunction
    * @param {Object} [options]
    * @constructor
    */
@@ -55,17 +56,18 @@ define( function( require ) {
     var expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
 
     // Save Line button
-    var saveLineIcon = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTh } );
+    var saveLineIcon = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
     var saveLineButton = new RectangularPushButton( {
       content: saveLineIcon,
-      baseColor: PhetColorScheme.BUTTON_YELLOW
+      baseColor: PhetColorScheme.BUTTON_YELLOW,
+      listener: saveFunction
     } );
 
     // Erase Lines button
-    var eraseLinesButton = new EraserButton( { iconWidth: ICON_WIDTh } );
+    var eraseLinesButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
 
     // Hide Lines checkbox
-    var hideLinesIcon = new FontAwesomeNode( 'eye_close', { maxWidth: ICON_WIDTh } );
+    var hideLinesIcon = new FontAwesomeNode( 'eye_close', { maxWidth: ICON_WIDTH } );
     var hideLinesCheckbox = new Checkbox( hideLinesIcon, hideLinesProperty );
 
     // horizontal layout of buttons

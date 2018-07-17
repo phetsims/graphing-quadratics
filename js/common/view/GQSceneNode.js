@@ -67,8 +67,8 @@ define( function( require ) {
       interactiveEquationNode,
       function() {
         savedQuadraticsLayer.removeAllChildren();
-        savedQuadraticsLayer.addChild( quadraticfonNode.withColor() );
-        },
+        savedQuadraticsLayer.addChild( quadraticNode.withColor( 'blue' ) );
+      },
       function() { savedQuadraticsLayer.removeAllChildren(); }
     );
 

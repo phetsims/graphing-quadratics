@@ -45,6 +45,9 @@ define( function( require ) {
       lineWidth: 3
     } );
 
+    // @private
+    this.quadraticPath = quadraticPath;
+
     var pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
     // vertex of the quadratic
