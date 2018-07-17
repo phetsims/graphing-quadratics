@@ -17,6 +17,7 @@ define( function( require ) {
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
   const VBox = require( 'SCENERY/nodes/VBox' );
+  const VStrut = require( 'SCENERY/nodes/VStrut' );
   var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var HBox = require( 'SCENERY/nodes/HBox' );
@@ -173,6 +174,10 @@ define( function( require ) {
     // label the zero tick mark
     var tickText = new Text( '0', { bottom: tickNode.top - 5, centerX: tickNode.centerX + 1, rotation: Math.PI / 2 } );
     this.addChild( tickText );
+
+    // to balance out the zero label
+    var strutForSymmetry = new VStrut( tickText.width - 3, { top: tickNode.bottom + 5 } );
+    this.addChild( strutForSymmetry );
 
     // add the tick as a child and move it behind the slider thumb
     this.addChild( tickNode );
