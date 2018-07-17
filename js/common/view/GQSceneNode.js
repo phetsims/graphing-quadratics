@@ -51,9 +51,12 @@ define( function( require ) {
       model.graph.yRange.getLength()
     ).transformed( model.modelViewTransform.getMatrix() );
 
+    // Create view for the saved quadratics
+    var savedQuadraticsLayer = new Node();
+
     // A layer to contain the quadratics and clip them to the graph area
-    var quadraticsLayer = new Node( {
-      children: [ quadraticNode ],
+    var quadraticsNode = new Node( {
+      children: [ savedQuadraticsLayer, quadraticNode ],
       clipArea: clipArea
     } );
 
@@ -68,7 +71,7 @@ define( function( require ) {
     // rendering order
     this.addChild( controlsParent );
     this.addChild( graphNode );
-    this.addChild( quadraticsLayer );
+    this.addChild( quadraticsNode );
 
     // layout - position of graphNode is determined by model
 

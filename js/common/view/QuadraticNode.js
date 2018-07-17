@@ -181,5 +181,19 @@ define( function( require ) {
 
   graphingQuadratics.register( 'QuadraticNode', QuadraticNode );
 
-  return inherit( Node, QuadraticNode );
+  return inherit( Node, QuadraticNode, {
+
+    /**
+     * Convenience method for creating a quadratic path with a different color.
+     * @param {Color|String}
+     *
+     * @public
+     */
+    withColor: function( color ) {
+      return new Path( this.quadraticPath.getShape(), {
+        stroke: color,
+        lineWidth: 3
+      } );
+    }
+  });
 } );
