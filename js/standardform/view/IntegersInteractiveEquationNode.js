@@ -10,14 +10,15 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const Node = require( 'SCENERY/nodes/Node' );
+  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var HBox = require( 'SCENERY/nodes/HBox' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   var NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   var Property = require( 'AXON/Property' );
-  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   var RichText = require( 'SCENERY/nodes/RichText' );
-  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
 
   // strings
   var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
@@ -41,21 +42,45 @@ define( function( require ) {
     var bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ) );
     var cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ) );
 
-    HBox.call( this, {
+    var yText = new RichText( yString, TEXT_OPTIONS );
+    var equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
+    var xSquaredText = new RichText( xSquaredString, TEXT_OPTIONS );
+    var plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+    var xText = new RichText( xString, TEXT_OPTIONS );
+    var secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+
+    Node.call( this, {
       children: [
-        new RichText( yString, TEXT_OPTIONS ),
-        new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS ),
+        yText,
+        equalToText,
         aNumberPicker,
-        new RichText( xSquaredString, TEXT_OPTIONS ),
-        new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
+        xSquaredText,
+        plusText,
         bNumberPicker,
-        new RichText( xString, TEXT_OPTIONS ),
-        new RichText( MathSymbols.PLUS, TEXT_OPTIONS ),
+        xText,
+        secondPlusText,
         cNumberPicker
-      ],
-      align: 'center',
-      spacing: 10
+      ]
     } );
+
+    // alignment
+    equalToText.left = yText.right + 10;
+    aNumberPicker.left = equalToText.right + 10;
+    xSquaredText.left = aNumberPicker.right + 10;
+    plusText.left = xSquaredText.right + 10;
+    bNumberPicker.left = plusText.right + 10;
+    xText.left = bNumberPicker.right + 10;
+    secondPlusText.left = xText.right + 10;
+    cNumberPicker.left = secondPlusText.right + 10;
+    equalToText.bottom = yText.bottom;
+    xSquaredText.bottom = yText.bottom;
+    plusText.bottom = yText.bottom;
+    xText.bottom = yText.bottom;
+    secondPlusText.bottom = yText.bottom;
+    aNumberPicker.centerY = xText.centerY;
+    bNumberPicker.centerY = xText.centerY;
+    cNumberPicker.centerY = xText.centerY;
+
   }
 
   graphingQuadratics.register( 'IntegersInteractiveEquationNode', IntegersInteractiveEquationNode );
