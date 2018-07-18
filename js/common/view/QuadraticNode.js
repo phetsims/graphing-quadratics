@@ -35,6 +35,8 @@ define( function( require ) {
    * @constructor
    */
   function QuadraticNode( quadraticProperty, graph, modelViewTransform, viewProperties, options ) {
+    var self = this;
+
     options = _.extend( {}, options );
 
     Node.call( this, options );
@@ -46,6 +48,8 @@ define( function( require ) {
 
     // @private
     this.quadraticPath = quadraticPath;
+    this.graph = graph;
+    this.modelViewTransform = modelViewTransform;
 
     var pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
@@ -121,7 +125,7 @@ define( function( require ) {
     // TODO: dispose
     quadraticProperty.link( function( quadratic ) {
 
-      quadraticPath.setShape( QuadraticNode.createQuadraticShape( quadratic, graph, modelViewTransform ) );
+      quadraticPath.setShape( self.createQuadraticShape( quadratic ) );
 
       // update other information about the quadratic curve
       if ( quadratic.a !== 0 ) {
@@ -159,42 +163,24 @@ define( function( require ) {
 
   graphingQuadratics.register( 'QuadraticNode', QuadraticNode );
 
-  return inherit( Node, QuadraticNode, {}, {
+  return inherit( Node, QuadraticNode, {
 
     /**
-     * Create a quadratic path with a certain color.
+     * Create a quadratic shape. Assumes same graph and modelViewTransform as this one.
      * @param {Quadratic} quadratic
-     * @param {Graph} graph
-     * @param {ModelViewTransform2} modelViewTransform
-     * @param {Color|String} color - default 'red
-     *
-     * @public
-     */
-    createPathWithColor: function( quadratic, graph, modelViewTransform, color ) {
-      return new Path( this.createShape( quadratic, graph ), {
-        stroke: color || 'red',
-        lineWidth: 3
-      } );
-    },
-
-    /**
-     * Create a quadratic shape
-     * @param {Quadratic} quadratic
-     * @param {Graph} graph
-     * @param {ModelViewTransform2} modelViewTransform
      *
      * @private
      */
-    createQuadraticShape: function( quadratic, graph, modelViewTransform ) {
+    createQuadraticShape: function( quadratic ) {
 
       // given coefficients, calculate control points for the quadratic bezier curve
       // see https://github.com/phetsims/graphing-quadratics/issues/1
       var a = quadratic.a;
       var b = quadratic.b;
       var c = quadratic.c;
-      var minX = graph.xRange.min;
-      var maxX = graph.xRange.max;
-      var xRange = graph.xRange.getLength();
+      var minX = this.graph.xRange.min;
+      var maxX = this.graph.xRange.max;
+      var xRange = this.graph.xRange.getLength();
 
       var aPrime = a * xRange * xRange;
       var bPrime = 2 * a * minX * xRange + b * xRange;
@@ -208,7 +194,21 @@ define( function( require ) {
       return new Shape()
         .moveToPoint( startPoint)
         .quadraticCurveToPoint( controlPoint, endPoint )
-        .transformed( modelViewTransform.getMatrix() );
+        .transformed( this.modelViewTransform.getMatrix() );
+    },
+
+    /**
+     * Create a quadratic path with a certain color.
+     * @param {Quadratic} quadratic
+     * @param {Color|String} color - default 'red
+     *
+     * @public
+     */
+    createPathWithColor: function( quadratic, color ) {
+      return new Path( this.createQuadraticShape( quadratic ), {
+        stroke: color || 'red',
+        lineWidth: 3
+      } );
     }
   });
 } );

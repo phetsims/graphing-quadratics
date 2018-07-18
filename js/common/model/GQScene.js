@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const ObservableArray = require( 'AXON/ObservableArray' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   var Graph = require( 'GRAPHING_LINES/common/model/Graph' );
@@ -42,6 +43,9 @@ define( function( require ) {
         this.cProperty
     ], function( a, b, c ) { return new Quadratic( a, b, c ); } );
 
+    // @public
+    this.savedQuadratics = new ObservableArray( [] );
+
     // view units / model units
     var modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
       this.graph.xRange.getLength(),
@@ -61,6 +65,25 @@ define( function( require ) {
   return inherit( Object, GQScene, {
 
     /**
+     * Clears the list of saved Quadratics
+     *
+     * @public
+     */
+    clearQuadratics: function() {
+      this.savedQuadratics.clear();
+    },
+
+    /**
+     * Saves the current quadratic into the list
+     *
+     * @public
+     */
+    saveQuadratic: function() {
+      this.clearQuadratics();
+      this.savedQuadratics.add( this.quadraticProperty.get().getCopy() );
+    },
+
+    /**
      * Resets this scene by resetting each of its properties
      *
      * @public
@@ -69,6 +92,7 @@ define( function( require ) {
       this.aProperty.reset();
       this.bProperty.reset();
       this.cProperty.reset();
+      this.clearQuadratics();
     }
   } );
 } );

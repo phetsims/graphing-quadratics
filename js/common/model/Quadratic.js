@@ -61,9 +61,18 @@ define( function( require ) {
   return inherit( Object, Quadratic, {
 
     /**
+     * Get a copy of this quadratic
+     *
+     * @returns {Quadratic}
+     */
+    getCopy: function() {
+      return new Quadratic( this.a, this.b, this.c );
+    },
+
+    /**
      * Get a quadratic of just the ax^2 term
      *
-     * @returns {Quadratics}
+     * @returns {Quadratic}
      * @public
      */
     getQuadraticTerm: function() {

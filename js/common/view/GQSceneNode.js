@@ -56,6 +56,17 @@ define( function( require ) {
     // Create view for the saved quadratics
     var savedQuadraticsLayer = new Node();
 
+    model.savedQuadratics.addItemAddedListener( function( addedQuadratic ) {
+      var newQuadraticNode = quadraticNode.createPathWithColor( addedQuadratic, 'blue' );
+      savedQuadraticsLayer.addChild( newQuadraticNode );
+
+      model.savedQuadratics.addItemRemovedListener( ( function( removedQuadratic ) {
+        if ( removedQuadratic === addedQuadratic ){
+          savedQuadraticsLayer.removeChild( newQuadraticNode );
+        }
+      } ) );
+    } );
+
     // A layer to contain the quadratics and clip them to the graph area
     var quadraticsNode = new Node( {
       children: [ savedQuadraticsLayer, quadraticNode ],
@@ -65,11 +76,8 @@ define( function( require ) {
     var equationControls = new EquationControls(
       equationControlsTitleNode,
       interactiveEquationNode,
-      function() {
-        savedQuadraticsLayer.removeAllChildren();
-        savedQuadraticsLayer.addChild( quadraticNode.withColor( 'blue' ) );
-      },
-      function() { savedQuadraticsLayer.removeAllChildren(); }
+      model.saveQuadratic.bind( model ),
+      model.clearQuadratics.bind( model )
     );
 
     // Parent for all control panels, to simplify layout
