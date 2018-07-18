@@ -30,7 +30,7 @@ define( function( require ) {
   var ICON_WIDTH = 30;
   var Y_SPACING = 10;
   var TITLE_X_SPACING = 5;
-  var SAVE_LINE_ICON = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
+  var SAVE_ICON = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
 
   /**
    * @param {Node} titleNode - a display of the general form of the equation
@@ -55,18 +55,18 @@ define( function( require ) {
     var expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
 
     // Save line button
-    var saveLineButton = new RectangularPushButton( {
-      content: SAVE_LINE_ICON,
+    var saveButton = new RectangularPushButton( {
+      content: SAVE_ICON,
       baseColor: PhetColorScheme.BUTTON_YELLOW,
       listener: saveFunction
     } );
 
     // Erase lines button
-    var eraseLinesButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
+    var eraseButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
 
     // horizontal layout of buttons
     var buttons = new HBox( {
-      children: [ saveLineButton, eraseLinesButton ],
+      children: [ saveButton, eraseButton ],
       spacing: 40
     } );
 
