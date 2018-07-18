@@ -66,7 +66,11 @@ define( function( require ) {
       this.layoutBounds,
       new StandardFormEquationNode(),
       decimalsInteractiveEquationNode,
-      new DecimalsGraphControls(),
+      new DecimalsGraphControls(
+        decimalsViewProperties.quadraticTermVisibleProperty,
+        decimalsViewProperties.linearTermVisibleProperty,
+        decimalsViewProperties.constantTermVisibleProperty
+      ),
       decimalsViewProperties
     );
 
