@@ -20,6 +20,12 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // constants
+  var LINE_OPTIONS = {
+    lineDash: [ 8, 8 ],
+    lineDashOffset: 10
+  };
+
   /**
    * @param {Property.<Quadratic>} quadratic
    * @param {Graph} graph
@@ -70,12 +76,8 @@ define( function( require ) {
 
     // use the double headed arrow node from graphing-lines as a guide
     var axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
-      lineNotArrow: true,
-      lineOptions: {
-        stroke: 'purple',
-        lineDash: [ 8, 8 ],
-        lineDashOffset: 10
-      }
+      hasArrows: false,
+      lineOptions: LINE_OPTIONS
     } );
 
     var axisOfSymmetryLineParentNode = new Node( { children: [ axisOfSymmetryLine ] } );
@@ -95,12 +97,8 @@ define( function( require ) {
 
     // use the double headed arrow node from graphing-lines as a guide
     var directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
-      lineNotArrow: true,
-      lineOptions: {
-        stroke: 'green',
-        lineDash: [ 8, 8 ],
-        lineDashOffset: 10
-      }
+      hasArrows: false,
+      lineOptions: LINE_OPTIONS
     } );
 
     var directrixParentNode = new Node( { children: [ directrixLine, focusPoint ] } );

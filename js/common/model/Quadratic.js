@@ -43,9 +43,9 @@ define( function( require ) {
 
       // @public
       this.vertex = new Vector2 ( h, k );
-      this.axisOfSymmetry = new Line( h, 0, h, 1 ); // x = h;
+      this.axisOfSymmetry = new Line( h, 0, h, 1, 'purple' ); // x = h;
       this.focus = new Vector2( h, k + p );
-      this.directrix = new Line( 0, k - p, 1, k - p ); // y = k - p
+      this.directrix = new Line( 0, k - p, 1, k - p, 'green' ); // y = k - p
       this.roots = Util.solveQuadraticRootsReal( a, b, c )
         .map( function( root ) { return new Vector2( root, 0 ); } );
     }
