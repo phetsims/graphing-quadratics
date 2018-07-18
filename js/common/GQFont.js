@@ -40,7 +40,7 @@ define( function( require ) {
   // @static @public for use in equations
   GQFont.NUMBER_FONT = new GQFont( {
     size: 21,
-    weight: 'bold',
+    weight: 'bold'
   } );
   GQFont.MATH_SYMBOL_FONT = new MathSymbolFont( {
     size: 24,
