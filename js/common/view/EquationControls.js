@@ -11,7 +11,6 @@ define( function( require ) {
 
   // modules
   var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var Checkbox = require( 'SUN/Checkbox' );
   var EraserButton = require( 'SCENERY_PHET/buttons/EraserButton' );
   var ExpandCollapseButton = require( 'SUN/ExpandCollapseButton' );
   var FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
@@ -50,7 +49,6 @@ define( function( require ) {
 
     // TODO: temporary. will be passed in as parameters.
     var maximizedProperty = new BooleanProperty( true );
-    var hideLinesProperty = new BooleanProperty( false );
 
     // Expand/collapse button
     var expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
@@ -66,13 +64,9 @@ define( function( require ) {
     // Erase Lines button
     var eraseLinesButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
 
-    // Hide Lines checkbox
-    var hideLinesIcon = new FontAwesomeNode( 'eye_close', { maxWidth: ICON_WIDTH } );
-    var hideLinesCheckbox = new Checkbox( hideLinesIcon, hideLinesProperty );
-
     // horizontal layout of buttons
     var buttons = new HBox( {
-      children: [ saveLineButton, eraseLinesButton, hideLinesCheckbox ],
+      children: [ saveLineButton, eraseLinesButton ],
       spacing: 40
     } );
 
