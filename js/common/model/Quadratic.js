@@ -29,14 +29,12 @@ define( function( require ) {
     this.b = b;
     this.c = c;
 
-    // calculate more information about the quadratic. See:
-    // http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
-    // https://www.geeksforgeeks.org/finding-vertex-focus-directrix-parabola/
+    // calculate more information about the quadratic
+    // see http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
 
     if ( a !== 0 ) { // is a quadratic
 
-      // turn ax^2 + bx + c into:
-      // 4p(y-k)=(x-h)^2
+      // turn ax^2 + bx + c into 4p(y-k)=(x-h)^2
       var h = -b / ( 2 * a );
       var k = c - b * b / ( 4 * a );
       var p = 1 / ( 4 * a );
@@ -53,7 +51,6 @@ define( function( require ) {
       this.axisOfSymmetry = NotALine();
       this.directrix = NotALine();
     }
-
   }
 
   graphingQuadratics.register( 'Quadratic', Quadratic );
@@ -64,6 +61,7 @@ define( function( require ) {
      * Get a copy of this quadratic
      *
      * @returns {Quadratic}
+     * @public
      */
     getCopy: function() {
       return new Quadratic( this.a, this.b, this.c );
