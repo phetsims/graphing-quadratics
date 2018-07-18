@@ -33,22 +33,24 @@ define( function( require ) {
     PhetFont.call( this, options );
   }
 
+  graphingQuadratics.register( 'GQFont', GQFont );
+
+  inherit( PhetFont, GQFont );
+
   // @static @public for use in equations
+  GQFont.NUMBER_FONT = new GQFont( {
+    size: 21,
+    weight: 'bold',
+  } );
   GQFont.MATH_SYMBOL_FONT = new MathSymbolFont( {
     size: 24,
     weight: 'bold'
   } );
+
   GQFont.SMALLER_MATH_SYMBOL_FONT = new MathSymbolFont( {
     size: 18,
     weight: 'bold'
   } );
-  GQFont.NUMBER_FONT = new PhetFont( {
-    size: 21,
-    weight: 'bold',
-    family: 'Tahoma'
-  } );
 
-  graphingQuadratics.register( 'GQFont', GQFont );
-
-  return inherit( PhetFont, GQFont );
+  return GQFont;
 } );
