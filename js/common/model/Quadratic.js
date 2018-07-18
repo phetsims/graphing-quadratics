@@ -51,6 +51,7 @@ define( function( require ) {
     }
     else { // not a quadratic
       this.axisOfSymmetry = NotALine();
+      this.directrix = NotALine();
     }
 
   }
