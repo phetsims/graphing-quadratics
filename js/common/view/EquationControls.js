@@ -30,6 +30,7 @@ define( function( require ) {
   var ICON_WIDTH = 30;
   var Y_SPACING = 10;
   var TITLE_X_SPACING = 5;
+  var SAVE_LINE_ICON = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
 
   /**
    * @param {Node} titleNode - a display of the general form of the equation
@@ -53,15 +54,14 @@ define( function( require ) {
     // Expand/collapse button
     var expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
 
-    // Save Line button
-    var saveLineIcon = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
+    // Save line button
     var saveLineButton = new RectangularPushButton( {
-      content: saveLineIcon,
+      content: SAVE_LINE_ICON,
       baseColor: PhetColorScheme.BUTTON_YELLOW,
       listener: saveFunction
     } );
 
-    // Erase Lines button
+    // Erase lines button
     var eraseLinesButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
 
     // horizontal layout of buttons
