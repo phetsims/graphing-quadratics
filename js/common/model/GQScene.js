@@ -37,13 +37,14 @@ define( function( require ) {
     this.bProperty = new NumberProperty( 0, { range: { min:-6, max: 6 } } );
     this.cProperty = new NumberProperty( 0, { range: { min:-6, max: 6 } } );
 
+    // @public contains the active quadratic that updates based on coefficients a, b, and c
     this.quadraticProperty = new DerivedProperty( [
         this.aProperty,
         this.bProperty,
         this.cProperty
     ], function( a, b, c ) { return new Quadratic( a, b, c ); } );
 
-    // @public
+    // @public observable array of saved quadratics
     this.savedQuadratics = new ObservableArray( [] );
 
     // view units / model units
@@ -65,12 +66,15 @@ define( function( require ) {
   return inherit( Object, GQScene, {
 
     /**
-     * Clears the list of saved Quadratics
+     * Resets this scene by resetting each of its properties
      *
      * @public
      */
-    clearQuadratics: function() {
-      this.savedQuadratics.clear();
+    reset: function() {
+      this.aProperty.reset();
+      this.bProperty.reset();
+      this.cProperty.reset();
+      this.clearQuadratics();
     },
 
     /**
@@ -84,15 +88,12 @@ define( function( require ) {
     },
 
     /**
-     * Resets this scene by resetting each of its properties
+     * Clears the list of saved Quadratics
      *
      * @public
      */
-    reset: function() {
-      this.aProperty.reset();
-      this.bProperty.reset();
-      this.cProperty.reset();
-      this.clearQuadratics();
+    clearQuadratics: function() {
+      this.savedQuadratics.clear();
     }
   } );
 } );

@@ -166,6 +166,20 @@ define( function( require ) {
   return inherit( Node, QuadraticNode, {
 
     /**
+     * Create a quadratic path with a certain color.
+     * @param {Quadratic} quadratic
+     * @param {Color|String} color - default 'red
+     *
+     * @public
+     */
+    createPathWithColor: function( quadratic, color ) {
+      return new Path( this.createQuadraticShape( quadratic ), {
+        stroke: color || 'red',
+        lineWidth: 3
+      } );
+    },
+
+    /**
      * Create a quadratic shape. Assumes same graph and modelViewTransform as this one.
      * @param {Quadratic} quadratic
      *
@@ -195,20 +209,6 @@ define( function( require ) {
         .moveToPoint( startPoint)
         .quadraticCurveToPoint( controlPoint, endPoint )
         .transformed( this.modelViewTransform.getMatrix() );
-    },
-
-    /**
-     * Create a quadratic path with a certain color.
-     * @param {Quadratic} quadratic
-     * @param {Color|String} color - default 'red
-     *
-     * @public
-     */
-    createPathWithColor: function( quadratic, color ) {
-      return new Path( this.createQuadraticShape( quadratic ), {
-        stroke: color || 'red',
-        lineWidth: 3
-      } );
     }
   });
 } );
