@@ -169,6 +169,7 @@ define( function( require ) {
      * Create a quadratic path with a certain color.
      * @param {Quadratic} quadratic
      * @param {Color|String} color - default 'red
+     * @returns {Path}
      *
      * @public
      */
@@ -182,6 +183,7 @@ define( function( require ) {
     /**
      * Create a quadratic shape. Assumes same graph and modelViewTransform as this one.
      * @param {Quadratic} quadratic
+     * @returns {Shape}
      *
      * @private
      */
