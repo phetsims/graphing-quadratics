@@ -35,7 +35,6 @@ define( function( require ) {
    * @constructor
    */
   function QuadraticNode( quadraticProperty, graph, modelViewTransform, viewProperties, options ) {
-
     options = _.extend( {}, options );
 
     Node.call( this, options );
@@ -122,34 +121,10 @@ define( function( require ) {
     // TODO: dispose
     quadraticProperty.link( function( quadratic ) {
 
-      // given coefficients, calculate control points for the quadratic bezier curve
-      // see https://github.com/phetsims/graphing-quadratics/issues/1
-      var a = quadratic.a;
-      var b = quadratic.b;
-      var c = quadratic.c;
-      var minX = graph.xRange.min;
-      var maxX = graph.xRange.max;
-      var xRange = graph.xRange.getLength();
-
-      var aPrime = a * xRange * xRange;
-      var bPrime = 2 * a * minX * xRange + b * xRange;
-      var cPrime = a * minX * minX + b * minX + c;
-
-      var startPoint = new Vector2( minX, cPrime );
-      var controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
-      var endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
-
-      // draw the quadratic
-      var quadraticShape = new Shape()
-        .moveToPoint( startPoint)
-        .quadraticCurveToPoint( controlPoint, endPoint )
-        .transformed( modelViewTransform.getMatrix() )
-      ;
-
-      quadraticPath.setShape( quadraticShape );
+      quadraticPath.setShape( QuadraticNode.createQuadraticShape( quadratic, graph, modelViewTransform ) );
 
       // update other information about the quadratic curve
-      if ( a !== 0 ) {
+      if ( quadratic.a !== 0 ) {
         vertexPoint.center = modelViewTransform.modelToViewPosition( quadratic.vertex );
         focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
         vertexPoint.visible = true;
@@ -184,19 +159,56 @@ define( function( require ) {
 
   graphingQuadratics.register( 'QuadraticNode', QuadraticNode );
 
-  return inherit( Node, QuadraticNode, {
+  return inherit( Node, QuadraticNode, {}, {
 
     /**
-     * Convenience method for creating a quadratic path with a different color.
-     * @param {Color|String}
+     * Create a quadratic path with a certain color.
+     * @param {Quadratic} quadratic
+     * @param {Graph} graph
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {Color|String} color - default 'red
      *
      * @public
      */
-    withColor: function( color ) {
-      return new Path( this.quadraticPath.getShape(), {
-        stroke: color,
+    createPathWithColor: function( quadratic, graph, modelViewTransform, color ) {
+      return new Path( this.createShape( quadratic, graph ), {
+        stroke: color || 'red',
         lineWidth: 3
       } );
+    },
+
+    /**
+     * Create a quadratic shape
+     * @param {Quadratic} quadratic
+     * @param {Graph} graph
+     * @param {ModelViewTransform2} modelViewTransform
+     *
+     * @private
+     */
+    createQuadraticShape: function( quadratic, graph, modelViewTransform ) {
+
+      // given coefficients, calculate control points for the quadratic bezier curve
+      // see https://github.com/phetsims/graphing-quadratics/issues/1
+      var a = quadratic.a;
+      var b = quadratic.b;
+      var c = quadratic.c;
+      var minX = graph.xRange.min;
+      var maxX = graph.xRange.max;
+      var xRange = graph.xRange.getLength();
+
+      var aPrime = a * xRange * xRange;
+      var bPrime = 2 * a * minX * xRange + b * xRange;
+      var cPrime = a * minX * minX + b * minX + c;
+
+      var startPoint = new Vector2( minX, cPrime );
+      var controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
+      var endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
+
+      // draw the quadratic
+      return new Shape()
+        .moveToPoint( startPoint)
+        .quadraticCurveToPoint( controlPoint, endPoint )
+        .transformed( modelViewTransform.getMatrix() );
     }
   });
 } );
