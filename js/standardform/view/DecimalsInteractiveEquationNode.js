@@ -207,7 +207,7 @@ define( function( require ) {
 
   }
 
-  graphingQuadratics.register( 'VerticalSlider', VerticalSlider );
+  graphingQuadratics.register( 'DecimalsInteractiveEquationNode.VerticalSlider', VerticalSlider );
 
   inherit( HSlider, VerticalSlider );
 
