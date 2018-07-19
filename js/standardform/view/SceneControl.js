@@ -26,8 +26,8 @@ define( function( require ) {
       spacing: 20,
       baseColor: 'white',
       selectedLineWidth: 2,
-      buttonContentXMargin: 10,
-      buttonContentYMargin: 16
+      buttonContentXMargin: 20,
+      buttonContentYMargin: 8
     }, options );
 
     // touchArea optimized for spacing
