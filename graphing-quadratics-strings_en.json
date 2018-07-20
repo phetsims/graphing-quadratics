@@ -17,6 +17,9 @@
   "roots": {
     "value": "Roots"
   },
+  "directrix": {
+    "value": "Directrix"
+  },
   "xSquared": {
     "value": "x<sup>2</sup>"
   },

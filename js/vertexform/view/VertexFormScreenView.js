@@ -39,7 +39,10 @@ define( function( require ) {
         new NumberProperty( 0, { range: { min: -6, max: 6 } } ),
         new NumberProperty( 0, { range: { min: -6, max: 6 } } )
       ),
-      new VertexGraphControls(),
+      new VertexGraphControls(
+        vertexViewProperties.axisOfSymmetryVisibleProperty,
+        vertexViewProperties.directrixVisibleProperty
+      ),
       vertexViewProperties
     ) );
   }
