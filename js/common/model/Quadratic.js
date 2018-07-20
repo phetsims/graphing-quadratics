@@ -84,7 +84,7 @@ define( function( require ) {
      * @public
      */
     getLinearTerm: function() {
-      return new Line( 0, 0, 1, this.b ); // y = bx
+      return new Line( 0, 0, 1, this.b, 'green' ); // y = bx
     },
 
     /**

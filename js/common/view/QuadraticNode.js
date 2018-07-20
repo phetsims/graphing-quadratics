@@ -62,6 +62,21 @@ define( function( require ) {
     this.graph = graph;
     this.modelViewTransform = modelViewTransform;
 
+    // make a property out of quadraticProperty.get().axisOfSymmetry in order to pass into LineNode
+    var linearTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
+      return quadratic.getLinearTerm();
+    } );
+
+    // use the double headed arrow node from graphing-lines as a guide
+    var linearTermPath = new LineNode( linearTermProperty, graph, modelViewTransform, { hasArrows: false } );
+
+    var linearTermParentNode = new Node( { children: [ linearTermPath ] } );
+
+    // link linear term line visibility to view property
+    viewProperties.linearTermVisibleProperty.link( function( visible ) {
+      linearTermParentNode.visible = visible;
+    } );
+
     var pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
     // vertex of the quadratic
@@ -128,6 +143,7 @@ define( function( require ) {
     // rendering order
     this.addChild( quadraticPath );
     this.addChild( quadraticTermParentNode );
+    this.addChild( linearTermParentNode );
     this.addChild( axisOfSymmetryLineParentNode );
     this.addChild( vertexPointParentNode );
     this.addChild( directrixParentNode );
