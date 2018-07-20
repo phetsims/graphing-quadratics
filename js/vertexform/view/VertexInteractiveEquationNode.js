@@ -20,7 +20,6 @@ define( function( require ) {
   var RichText = require( 'SCENERY/nodes/RichText' );
 
   // strings
-  var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
   var xString = require( 'string!GRAPHING_QUADRATICS/x' );
   var yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
