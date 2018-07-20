@@ -36,6 +36,7 @@ define( function( require ) {
 
   // constants
   var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
+  var RED_TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' };
   var TICK_COLOR = 'black';
   var TICK_LENGTH = 20;
   var TICK_WIDTH = 1;
@@ -84,7 +85,7 @@ define( function( require ) {
 
     var aControl = new VBox( {
       children: [
-        new Text( aString, TEXT_OPTIONS ),
+        new Text( aString, RED_TEXT_OPTIONS ),
         new VerticalSlider( aProperty, {
           constrainValue: function( value ) {
             return Util.toFixedNumber( value, 2 ); // two decimal places
@@ -96,7 +97,7 @@ define( function( require ) {
 
     var bControl = new VBox( {
       children: [
-        new Text( bString, TEXT_OPTIONS ),
+        new Text( bString, RED_TEXT_OPTIONS ),
         new VerticalSlider( bProperty, {
           constrainValue: function( value ) {
             return Util.toFixedNumber( value, 1 ); // one decimal place
@@ -108,7 +109,7 @@ define( function( require ) {
 
     var cControl = new VBox( {
       children: [
-        new Text( cString, TEXT_OPTIONS ),
+        new Text( cString, RED_TEXT_OPTIONS ),
         new VerticalSlider( cProperty, {
           constrainValue: function( value ) {
             return Util.toFixedNumber( value, 1 ); // one decimal place

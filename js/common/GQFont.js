@@ -42,6 +42,7 @@ define( function( require ) {
     size: 21,
     weight: 'bold'
   } );
+
   GQFont.MATH_SYMBOL_FONT = new MathSymbolFont( {
     size: 24,
     weight: 'bold'
