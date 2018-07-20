@@ -16,6 +16,7 @@ define( function( require ) {
   var LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
   var Text = require( 'SCENERY/nodes/Text' );
   var VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
+  var VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
 
   /**
    * @param {VertexFormModel} model
@@ -31,7 +32,7 @@ define( function( require ) {
     this.addChild( new GQSceneNode(
       model.vertexScene,
       self.layoutBounds,
-      new Text( 'under construction' ),
+      new VertexFormEquationNode(),
       new Text( 'under construction' ),
       new VertexGraphControls(),
       vertexViewProperties
