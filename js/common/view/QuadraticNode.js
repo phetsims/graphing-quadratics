@@ -46,6 +46,17 @@ define( function( require ) {
       lineWidth: 3
     } );
 
+    // a curve representing y=ax^2 for this quadratic
+    var quadraticTermPath = new Path( null, {
+      stroke: 'hotpink',
+      lineWidth: 3
+    } );
+    var quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
+
+    viewProperties.quadraticTermVisibleProperty.link( function( visible ) {
+      quadraticTermParentNode.visible = visible;
+    } );
+
     // @private
     this.quadraticPath = quadraticPath;
     this.graph = graph;
@@ -116,6 +127,7 @@ define( function( require ) {
 
     // rendering order
     this.addChild( quadraticPath );
+    this.addChild( quadraticTermParentNode );
     this.addChild( axisOfSymmetryLineParentNode );
     this.addChild( vertexPointParentNode );
     this.addChild( directrixParentNode );
@@ -128,9 +140,12 @@ define( function( require ) {
       quadraticPath.setShape( self.createQuadraticShape( quadratic ) );
 
       // update other information about the quadratic curve
+
       if ( quadratic.a !== 0 ) {
+        quadraticTermPath.setShape( self.createQuadraticShape( quadratic.getQuadraticTerm() ) );
         vertexPoint.center = modelViewTransform.modelToViewPosition( quadratic.vertex );
         focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
+        quadraticTermPath.visible = true;
         vertexPoint.visible = true;
         focusPoint.visible = true;
 
@@ -152,6 +167,7 @@ define( function( require ) {
         }
       }
       else { // not quadratic
+        quadraticTermPath.visible = false;
         vertexPoint.visible = false;
         focusPoint.visible = false;
         root0Point.visible = false;
