@@ -47,10 +47,10 @@ define( function( require ) {
 
     var yText = new RichText( yString, TEXT_OPTIONS );
     var equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-    var openParenthesesText = new RichText( '(', TEXT_OPTIONS );
+    var openParenthesisText = new RichText( '(', TEXT_OPTIONS );
     var xText = new RichText( xString, TEXT_OPTIONS );
     var minusText = new RichText( MathSymbols.MINUS, TEXT_OPTIONS );
-    var closeParentheseAndSquaredText = new RichText( ')<sup>2</sup>', TEXT_OPTIONS );
+    var closeParenthesisAndSquaredText = new RichText( ')<sup>2</sup>', TEXT_OPTIONS );
     var plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
     Node.call( this, {
@@ -58,11 +58,11 @@ define( function( require ) {
         yText,
         equalToText,
         aNumberPicker,
-        openParenthesesText,
+        openParenthesisText,
         xText,
         minusText,
         hNumberPicker,
-        closeParentheseAndSquaredText,
+        closeParenthesisAndSquaredText,
         plusText,
         kNumberPicker
       ]
@@ -71,18 +71,18 @@ define( function( require ) {
     // alignment
     equalToText.left = yText.right + 10;
     aNumberPicker.left = equalToText.right + 10;
-    openParenthesesText.left = aNumberPicker.right + 5;
-    xText.left = openParenthesesText.right + 5;
+    openParenthesisText.left = aNumberPicker.right + 5;
+    xText.left = openParenthesisText.right + 5;
     minusText.left = xText.right + 10;
     hNumberPicker.left = minusText.right + 10;
-    closeParentheseAndSquaredText.left = hNumberPicker.right + 5;
-    plusText.left = closeParentheseAndSquaredText.right + 10;
+    closeParenthesisAndSquaredText.left = hNumberPicker.right + 5;
+    plusText.left = closeParenthesisAndSquaredText.right + 10;
     kNumberPicker.left = plusText.right + 10;
     equalToText.bottom = yText.bottom;
-    openParenthesesText.bottom = yText.bottom;
+    openParenthesisText.bottom = yText.bottom;
     xText.bottom = yText.bottom;
     minusText.bottom = yText.bottom;
-    closeParentheseAndSquaredText.bottom = yText.bottom;
+    closeParenthesisAndSquaredText.bottom = yText.bottom;
     plusText.bottom = yText.bottom;
     aNumberPicker.centerY = xText.centerY;
     hNumberPicker.centerY = xText.centerY;
