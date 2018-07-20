@@ -62,7 +62,7 @@ define( function( require ) {
     this.graph = graph;
     this.modelViewTransform = modelViewTransform;
 
-    // make a property out of quadraticProperty.get().axisOfSymmetry in order to pass into LineNode
+    // make a property out of quadraticProperty.get().getLinearTerm() in order to pass into LineNode
     var linearTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
       return quadratic.getLinearTerm();
     } );
@@ -75,6 +75,21 @@ define( function( require ) {
     // link linear term line visibility to view property
     viewProperties.linearTermVisibleProperty.link( function( visible ) {
       linearTermParentNode.visible = visible;
+    } );
+
+    // make a property out of quadraticProperty.get().getConstantTerm() in order to pass into LineNode
+    var constantTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
+      return quadratic.getConstantTerm();
+    } );
+
+    // use the double headed arrow node from graphing-lines as a guide
+    var constantTermPath = new LineNode( constantTermProperty, graph, modelViewTransform, { hasArrows: false } );
+
+    var constantTermParentNode = new Node( { children: [ constantTermPath ] } );
+
+    // link constant term line visibility to view property
+    viewProperties.constantTermVisibleProperty.link( function( visible ) {
+      constantTermParentNode.visible = visible;
     } );
 
     var pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
@@ -144,6 +159,7 @@ define( function( require ) {
     this.addChild( quadraticPath );
     this.addChild( quadraticTermParentNode );
     this.addChild( linearTermParentNode );
+    this.addChild( constantTermParentNode );
     this.addChild( axisOfSymmetryLineParentNode );
     this.addChild( vertexPointParentNode );
     this.addChild( directrixParentNode );
