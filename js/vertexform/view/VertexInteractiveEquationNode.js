@@ -71,11 +71,11 @@ define( function( require ) {
     // alignment
     equalToText.left = yText.right + 10;
     aNumberPicker.left = equalToText.right + 10;
-    openParenthesesText.left = aNumberPicker.right + 10;
-    xText.left = openParenthesesText.right + 10;
+    openParenthesesText.left = aNumberPicker.right + 5;
+    xText.left = openParenthesesText.right + 5;
     minusText.left = xText.right + 10;
     hNumberPicker.left = minusText.right + 10;
-    closeParentheseAndSquaredText.left = hNumberPicker.right + 10;
+    closeParentheseAndSquaredText.left = hNumberPicker.right + 5;
     plusText.left = closeParentheseAndSquaredText.right + 10;
     kNumberPicker.left = plusText.right + 10;
     equalToText.bottom = yText.bottom;
