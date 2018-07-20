@@ -9,14 +9,15 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const NumberProperty = require( 'AXON/NumberProperty' );
   var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   var GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
   var VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
+  var VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
+  var VertexInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexInteractiveEquationNode' );
 
   /**
    * @param {VertexFormModel} model
@@ -33,7 +34,11 @@ define( function( require ) {
       model.vertexScene,
       self.layoutBounds,
       new VertexFormEquationNode(),
-      new Text( 'under construction' ),
+      new VertexInteractiveEquationNode(
+        new NumberProperty( 1, { range: { min: -6, max: 6 } } ),
+        new NumberProperty( 0, { range: { min: -6, max: 6 } } ),
+        new NumberProperty( 0, { range: { min: -6, max: 6 } } )
+      ),
       new VertexGraphControls(),
       vertexViewProperties
     ) );
