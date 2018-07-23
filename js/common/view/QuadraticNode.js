@@ -16,7 +16,7 @@ define( function( require ) {
   const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
-  const PlottedPointNode = require( 'GRAPHING_LINES/common/view/PlottedPointNode' );
+  const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const Shape = require( 'KITE/Shape' );
   const Vector2 = require( 'DOT/Vector2' );
 
