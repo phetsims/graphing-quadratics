@@ -41,17 +41,17 @@ define( function( require ) {
   function VertexInteractiveEquationNode( aProperty, hProperty, kProperty, options ) {
 
     // interactive components of the equation
-    var aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );
-    var hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ), NUMBER_PICKER_OPTIONS );
-    var kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ), NUMBER_PICKER_OPTIONS );
+    const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );
+    const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ), NUMBER_PICKER_OPTIONS );
+    const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ), NUMBER_PICKER_OPTIONS );
 
-    var yText = new RichText( yString, TEXT_OPTIONS );
-    var equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-    var openParenthesisText = new RichText( '(', TEXT_OPTIONS );
-    var xText = new RichText( xString, TEXT_OPTIONS );
-    var minusText = new RichText( MathSymbols.MINUS, TEXT_OPTIONS );
-    var closeParenthesisAndSquaredText = new RichText( ')<sup>2</sup>', TEXT_OPTIONS );
-    var plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+    const yText = new RichText( yString, TEXT_OPTIONS );
+    const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
+    const openParenthesisText = new RichText( '(', TEXT_OPTIONS );
+    const xText = new RichText( xString, TEXT_OPTIONS );
+    const minusText = new RichText( MathSymbols.MINUS, TEXT_OPTIONS );
+    const closeParenthesisAndSquaredText = new RichText( ')<sup>2</sup>', TEXT_OPTIONS );
+    const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
     Node.call( this, {
       children: [

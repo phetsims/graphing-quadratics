@@ -35,9 +35,9 @@ define( function( require ) {
     if ( a !== 0 ) { // is a quadratic
 
       // turn ax^2 + bx + c into 4p(y-k)=(x-h)^2
-      var h = -b / ( 2 * a );
-      var k = c - b * b / ( 4 * a );
-      var p = 1 / ( 4 * a );
+      const h = -b / ( 2 * a );
+      const k = c - b * b / ( 4 * a );
+      const p = 1 / ( 4 * a );
 
       // @public
       this.vertex = new Vector2 ( h, k );

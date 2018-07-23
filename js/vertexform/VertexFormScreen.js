@@ -22,7 +22,7 @@ define( function( require ) {
 
   function VertexFormScreen() {
 
-    var options = {
+    const options = {
       name: screenVertexFormString,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
     };

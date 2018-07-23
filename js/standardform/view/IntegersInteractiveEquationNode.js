@@ -42,16 +42,16 @@ define( function( require ) {
   function IntegersInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
     // interactive components of the equation
-    var aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );
-    var bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), NUMBER_PICKER_OPTIONS );
-    var cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), NUMBER_PICKER_OPTIONS );
+    const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );
+    const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), NUMBER_PICKER_OPTIONS );
+    const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), NUMBER_PICKER_OPTIONS );
 
-    var yText = new RichText( yString, TEXT_OPTIONS );
-    var equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-    var xSquaredText = new RichText( xSquaredString, TEXT_OPTIONS );
-    var plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
-    var xText = new RichText( xString, TEXT_OPTIONS );
-    var secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+    const yText = new RichText( yString, TEXT_OPTIONS );
+    const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
+    const xSquaredText = new RichText( xSquaredString, TEXT_OPTIONS );
+    const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+    const xText = new RichText( xString, TEXT_OPTIONS );
+    const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
     Node.call( this, {
       children: [

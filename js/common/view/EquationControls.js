@@ -49,36 +49,36 @@ define( function( require ) {
     }, options );
 
     // TODO: temporary. will be passed in as parameters.
-    var maximizedProperty = new BooleanProperty( true );
+    const maximizedProperty = new BooleanProperty( true );
 
     // Expand/collapse button
-    var expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
+    const expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
 
     // Save line button
-    var saveButton = new RectangularPushButton( {
+    const saveButton = new RectangularPushButton( {
       content: SAVE_ICON,
       baseColor: PhetColorScheme.BUTTON_YELLOW,
       listener: saveFunction
     } );
 
     // Erase lines button
-    var eraseButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
+    const eraseButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
 
     // horizontal layout of buttons
-    var buttons = new HBox( {
+    const buttons = new HBox( {
       children: [ saveButton, eraseButton ],
       spacing: 40
     } );
 
-    var contentWidth = Math.max(
+    const contentWidth = Math.max(
       buttons.width,
       interactiveEquationNode.width,
       ( expandCollapseButton.width + titleNode.width + TITLE_X_SPACING )
     );
 
     // Stuff that is hidden when minimized must be attached to this node.
-    var separatorColor = 'rgb( 212, 212, 212 )';
-    var subContent = new VBox( {
+    const separatorColor = 'rgb( 212, 212, 212 )';
+    const subContent = new VBox( {
       spacing: Y_SPACING,
       align: 'center',
       children: [
@@ -90,7 +90,7 @@ define( function( require ) {
     } );
 
     // Top-level content, with strut to prevent panel from resizing
-    var content = new Node( {
+    const content = new Node( {
       children: [ new HStrut( contentWidth ), expandCollapseButton, titleNode, subContent  ]
     } );
     titleNode.centerX = contentWidth / 2;

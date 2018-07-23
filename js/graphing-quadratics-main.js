@@ -17,18 +17,18 @@ define( function( require ) {
   // strings
   const graphingQuadraticsTitleString = require( 'string!GRAPHING_QUADRATICS/graphing-quadratics.title' );
 
-  var options = {
+  const options = {
     credits: {
       //TODO
     }
   };
 
   SimLauncher.launch( function() {
-    var screens = [
+    const screens = [
       new StandardFormScreen(),
       new VertexFormScreen()
     ];
-    var sim = new Sim( graphingQuadraticsTitleString, screens, options );
+    const sim = new Sim( graphingQuadraticsTitleString, screens, options );
     sim.start();
   } );
 } );

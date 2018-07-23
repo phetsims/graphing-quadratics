@@ -39,15 +39,15 @@ define( function( require ) {
     }, options );
 
     // checkboxes that control visibility of vertex, axis of symmetry, and roots
-    var axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
+    const axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
       axisOfSymmetryString,
       TEXT_OPTIONS,
       axisOfSymmetryVisibleProperty
     );
-    var directrixCheckbox = Checkbox.createTextCheckbox( directrixString, TEXT_OPTIONS, directrixVisibleProperty );
+    const directrixCheckbox = Checkbox.createTextCheckbox( directrixString, TEXT_OPTIONS, directrixVisibleProperty );
 
     // vertical layout
-    var contentNode = new VBox( {
+    const contentNode = new VBox( {
       children: [
         axisOfSymmetryCheckbox,
         directrixCheckbox

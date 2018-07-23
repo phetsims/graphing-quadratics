@@ -37,16 +37,16 @@ define( function( require ) {
     Node.call( this, options );
 
     // Graph Node - the cartesian coordinates graph
-    var graphNode = new GraphNode( model.graph, model.modelViewTransform );
+    const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
     // Creating the view for the quadratics
-    var quadraticNode = new QuadraticNode(
+    const quadraticNode = new QuadraticNode(
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
       viewProperties
     );
-    var clipArea = Shape.rectangle(
+    const clipArea = Shape.rectangle(
       model.graph.xRange.min,
       model.graph.yRange.min,
       model.graph.xRange.getLength(),
@@ -54,10 +54,10 @@ define( function( require ) {
     ).transformed( model.modelViewTransform.getMatrix() );
 
     // Create view for the saved quadratics
-    var savedQuadraticsLayer = new Node();
+    const savedQuadraticsLayer = new Node();
 
     model.savedQuadratics.addItemAddedListener( function( addedQuadratic ) {
-      var newQuadraticNode = quadraticNode.createPathWithColor( addedQuadratic, 'blue' );
+      const newQuadraticNode = quadraticNode.createPathWithColor( addedQuadratic, 'blue' );
       savedQuadraticsLayer.addChild( newQuadraticNode );
 
       model.savedQuadratics.addItemRemovedListener( ( function( removedQuadratic ) {
@@ -68,12 +68,12 @@ define( function( require ) {
     } );
 
     // A layer to contain the quadratics and clip them to the graph area
-    var quadraticsNode = new Node( {
+    const quadraticsNode = new Node( {
       children: [ savedQuadraticsLayer, quadraticNode ],
       clipArea: clipArea
     } );
 
-    var equationControls = new EquationControls(
+    const equationControls = new EquationControls(
       equationControlsTitleNode,
       interactiveEquationNode,
       model.saveQuadratic.bind( model ),
@@ -81,7 +81,7 @@ define( function( require ) {
     );
 
     // Parent for all control panels, to simplify layout
-    var controlsParent = new Node();
+    const controlsParent = new Node();
     controlsParent.addChild( equationControls );
     controlsParent.addChild( graphControls );
 
@@ -96,12 +96,12 @@ define( function( require ) {
     // layout - position of graphNode is determined by model
 
     // position of control panels:
-    var xMargin = 10;
-    var yMargin = 20;
-    var ySpacing = 15;
+    const xMargin = 10;
+    const yMargin = 20;
+    const ySpacing = 15;
 
     // get the amount of canvas width that's available for the control panels
-    var availableControlPanelWidth = layoutBounds.width - graphNode.right - ( 2 * xMargin );
+    const availableControlPanelWidth = layoutBounds.width - graphNode.right - ( 2 * xMargin );
 
     // if either control panel is too wide, scale it
     if ( equationControls.width > availableControlPanelWidth ) {

@@ -24,10 +24,10 @@ define( function( require ) {
     xMargin: 5
   };
 
-  var GQIconFactory = {
+  const GQIconFactory = {
     createIntegersIcon: function() {
-      var numberProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
-      var numberPicker = new NumberPicker(
+      const numberProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
+      const numberPicker = new NumberPicker(
         numberProperty,
         new Property( numberProperty.range ),
         NUMBER_PICKER_OPTIONS

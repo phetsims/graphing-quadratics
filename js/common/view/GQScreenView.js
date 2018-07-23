@@ -26,7 +26,7 @@ define( function( require ) {
     ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
 
     // Reset All Button
-    var resetAllButton = new ResetAllButton( {
+    const resetAllButton = new ResetAllButton( {
       listener: function() {
         model.reset();
         viewPropertiess.forEach( function( viewProperties ) { viewProperties.reset(); } );

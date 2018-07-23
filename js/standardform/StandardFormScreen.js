@@ -25,7 +25,7 @@ define( function( require ) {
    */
   function StandardFormScreen() {
 
-    var options = {
+    const options = {
       name: screenStandardFormString,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
       //TODO add homeScreenIcon

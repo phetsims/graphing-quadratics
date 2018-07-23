@@ -51,33 +51,33 @@ define( function( require ) {
       yMargin: 15
     }, options );
 
-    var quadraticTermEquation = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
+    const quadraticTermEquation = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
       xSquared: xSquaredString,
       y: yString,
       a: aString,
       equals: MathSymbols.EQUAL_TO
     } ), _.extend( {}, TEXT_OPTIONS, { fill: 'hotpink' } ) );
 
-    var linearTermEquation = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
+    const linearTermEquation = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
       x: xString,
       y: yString,
       b: bString,
       equals: MathSymbols.EQUAL_TO
     } ), _.extend( {}, TEXT_OPTIONS, { fill: 'green' } ) );
 
-    var constantTermEquation = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
+    const constantTermEquation = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
       y: yString,
       c: cString,
       equals: MathSymbols.EQUAL_TO
     } ), _.extend( {}, TEXT_OPTIONS, { fill: 'black' } ) );
 
     // checkboxes that control visibility
-    var quadraticTermCheckbox = new Checkbox( quadraticTermEquation, quadraticTermVisibleProperty );
-    var linearTermCheckbox = new Checkbox( linearTermEquation, linearTermVisibleProperty );
-    var constantTermCheckbox = new Checkbox( constantTermEquation, constantTermVisibleProperty );
+    const quadraticTermCheckbox = new Checkbox( quadraticTermEquation, quadraticTermVisibleProperty );
+    const linearTermCheckbox = new Checkbox( linearTermEquation, linearTermVisibleProperty );
+    const constantTermCheckbox = new Checkbox( constantTermEquation, constantTermVisibleProperty );
 
     // vertical layout
-    var contentNode = new VBox( {
+    const contentNode = new VBox( {
       children: [
         quadraticTermCheckbox,
         linearTermCheckbox,

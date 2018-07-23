@@ -24,9 +24,9 @@ define( function( require ) {
    * @constructor
    */
   function VertexFormScreenView( model ) {
-    var self = this;
+    const self = this;
 
-    var vertexViewProperties = new LineFormsViewProperties();
+    const vertexViewProperties = new LineFormsViewProperties();
 
     GQScreenView.call( this, model, [ vertexViewProperties ] );
 

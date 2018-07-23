@@ -34,7 +34,7 @@ define( function( require ) {
       font: GQFont.MATH_SYMBOL_FONT
     } );
 
-    var equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
+    const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
       x: xString,
       y: yString,
       a: aString,

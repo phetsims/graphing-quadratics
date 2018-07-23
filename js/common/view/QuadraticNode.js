@@ -35,23 +35,23 @@ define( function( require ) {
    * @constructor
    */
   function QuadraticNode( quadraticProperty, graph, modelViewTransform, viewProperties, options ) {
-    var self = this;
+    const self = this;
 
     options = _.extend( {}, options );
 
     Node.call( this, options );
 
-    var quadraticPath = new Path( null, {
+    const quadraticPath = new Path( null, {
       stroke: 'red',
       lineWidth: 3
     } );
 
     // a curve representing y=ax^2 for this quadratic
-    var quadraticTermPath = new Path( null, {
+    const quadraticTermPath = new Path( null, {
       stroke: 'hotpink',
       lineWidth: 3
     } );
-    var quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
+    const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
     viewProperties.quadraticTermVisibleProperty.link( function( visible ) {
       quadraticTermParentNode.visible = visible;
@@ -63,14 +63,14 @@ define( function( require ) {
     this.modelViewTransform = modelViewTransform;
 
     // make a property out of quadraticProperty.get().getLinearTerm() in order to pass into LineNode
-    var linearTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
+    const linearTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
       return quadratic.getLinearTerm();
     } );
 
     // use the double headed arrow node from graphing-lines as a guide
-    var linearTermPath = new LineNode( linearTermProperty, graph, modelViewTransform, { hasArrows: false } );
+    const linearTermPath = new LineNode( linearTermProperty, graph, modelViewTransform, { hasArrows: false } );
 
-    var linearTermParentNode = new Node( { children: [ linearTermPath ] } );
+    const linearTermParentNode = new Node( { children: [ linearTermPath ] } );
 
     // link linear term line visibility to view property
     viewProperties.linearTermVisibleProperty.link( function( visible ) {
@@ -78,25 +78,25 @@ define( function( require ) {
     } );
 
     // make a property out of quadraticProperty.get().getConstantTerm() in order to pass into LineNode
-    var constantTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
+    const constantTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
       return quadratic.getConstantTerm();
     } );
 
     // use the double headed arrow node from graphing-lines as a guide
-    var constantTermPath = new LineNode( constantTermProperty, graph, modelViewTransform, { hasArrows: false } );
+    const constantTermPath = new LineNode( constantTermProperty, graph, modelViewTransform, { hasArrows: false } );
 
-    var constantTermParentNode = new Node( { children: [ constantTermPath ] } );
+    const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
 
     // link constant term line visibility to view property
     viewProperties.constantTermVisibleProperty.link( function( visible ) {
       constantTermParentNode.visible = visible;
     } );
 
-    var pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
+    const pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
     // vertex of the quadratic
-    var vertexPoint = new PlottedPointNode( pointRadius, 'red' );
-    var vertexPointParentNode = new Node( { children: [ vertexPoint ] } );
+    const vertexPoint = new PlottedPointNode( pointRadius, 'red' );
+    const vertexPointParentNode = new Node( { children: [ vertexPoint ] } );
 
     // link vertex point visibility to view property
     viewProperties.vertexVisibleProperty.link( function( visible ) {
@@ -104,12 +104,12 @@ define( function( require ) {
     } );
 
     // the left most root if there are two roots, and the root if there is one root
-    var root0Point = new PlottedPointNode( pointRadius, 'red' );
+    const root0Point = new PlottedPointNode( pointRadius, 'red' );
 
     // the right most root if there are two roots
-    var root1Point = new PlottedPointNode( pointRadius, 'red' );
+    const root1Point = new PlottedPointNode( pointRadius, 'red' );
 
-    var rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
+    const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
 
     // link roots points to view property
     viewProperties.rootsVisibleProperty.link( function( visible ) {
@@ -117,17 +117,17 @@ define( function( require ) {
     } );
 
     // make a property out of quadraticProperty.get().axisOfSymmetry in order to pass into LineNode
-    var axisOfSymmetryLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
+    const axisOfSymmetryLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
       return quadratic.axisOfSymmetry;
     } );
 
     // use the double headed arrow node from graphing-lines as a guide
-    var axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
+    const axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
       hasArrows: false,
       lineOptions: LINE_OPTIONS
     } );
 
-    var axisOfSymmetryLineParentNode = new Node( { children: [ axisOfSymmetryLine ] } );
+    const axisOfSymmetryLineParentNode = new Node( { children: [ axisOfSymmetryLine ] } );
 
     // link axis of symmetry line visibility to view property
     viewProperties.axisOfSymmetryVisibleProperty.link( function( visible ) {
@@ -135,20 +135,20 @@ define( function( require ) {
     } );
 
     // focus of the quadratic
-    var focusPoint = new PlottedPointNode( pointRadius, 'green' );
+    const focusPoint = new PlottedPointNode( pointRadius, 'green' );
 
     // make a property out of quadraticProperty.get().directrix in order to pass into LineNode
-    var directrixLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
+    const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
       return quadratic.directrix;
     } );
 
     // use the double headed arrow node from graphing-lines as a guide
-    var directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
+    const directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
       hasArrows: false,
       lineOptions: LINE_OPTIONS
     } );
 
-    var directrixParentNode = new Node( { children: [ directrixLine, focusPoint ] } );
+    const directrixParentNode = new Node( { children: [ directrixLine, focusPoint ] } );
 
     // link focus point and directrix line visibility to view property
     viewProperties.directrixVisibleProperty.link( function( visible ) {
@@ -239,20 +239,20 @@ define( function( require ) {
 
       // given coefficients, calculate control points for the quadratic bezier curve
       // see https://github.com/phetsims/graphing-quadratics/issues/1
-      var a = quadratic.a;
-      var b = quadratic.b;
-      var c = quadratic.c;
-      var minX = this.graph.xRange.min;
-      var maxX = this.graph.xRange.max;
-      var xRange = this.graph.xRange.getLength();
+      const a = quadratic.a;
+      const b = quadratic.b;
+      const c = quadratic.c;
+      const minX = this.graph.xRange.min;
+      const maxX = this.graph.xRange.max;
+      const xRange = this.graph.xRange.getLength();
 
-      var aPrime = a * xRange * xRange;
-      var bPrime = 2 * a * minX * xRange + b * xRange;
-      var cPrime = a * minX * minX + b * minX + c;
+      const aPrime = a * xRange * xRange;
+      const bPrime = 2 * a * minX * xRange + b * xRange;
+      const cPrime = a * minX * minX + b * minX + c;
 
-      var startPoint = new Vector2( minX, cPrime );
-      var controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
-      var endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
+      const startPoint = new Vector2( minX, cPrime );
+      const controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
+      const endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
 
       // draw the quadratic
       return new Shape()

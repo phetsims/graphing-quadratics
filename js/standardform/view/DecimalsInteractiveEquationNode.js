@@ -59,23 +59,23 @@ define( function( require ) {
    */
   function DecimalsInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
 
-    var aReadout = new NumberDisplay(
+    const aReadout = new NumberDisplay(
       aProperty,
       aProperty.range,
       _.extend( {}, READOUT_OPTIONS, { decimalPlaces: 2 } )
     );
-    var bReadout = new NumberDisplay( bProperty, bProperty.range, READOUT_OPTIONS );
-    var cReadout = new NumberDisplay( cProperty, bProperty.range, READOUT_OPTIONS );
+    const bReadout = new NumberDisplay( bProperty, bProperty.range, READOUT_OPTIONS );
+    const cReadout = new NumberDisplay( cProperty, bProperty.range, READOUT_OPTIONS );
 
-    var yText = new RichText( yString, TEXT_OPTIONS );
-    var equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-    var xSquaredText = new RichText( xSquaredString, TEXT_OPTIONS );
-    var plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
-    var xText = new RichText( xString, TEXT_OPTIONS );
-    var secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+    const yText = new RichText( yString, TEXT_OPTIONS );
+    const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
+    const xSquaredText = new RichText( xSquaredString, TEXT_OPTIONS );
+    const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+    const xText = new RichText( xString, TEXT_OPTIONS );
+    const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
     //
-    // var aLinearProperty = new NumberProperty( 0, { range: aProperty.range } );
+    // const aLinearProperty = new NumberProperty( 0, { range: aProperty.range } );
     // aProperty.link( function( a ) {
     //   aLinearProperty.set( Util.cubeRoot( a / 6 ) * 6 );
     // } );
@@ -83,7 +83,7 @@ define( function( require ) {
     //   aProperty.set( Math.pow( aLinear / 6, 3 ) * 6 );
     // } );
 
-    var aControl = new VBox( {
+    const aControl = new VBox( {
       children: [
         new Text( aString, RED_TEXT_OPTIONS ),
         new VerticalSlider( aProperty, {
@@ -95,7 +95,7 @@ define( function( require ) {
       align: 'center'
     } );
 
-    var bControl = new VBox( {
+    const bControl = new VBox( {
       children: [
         new Text( bString, RED_TEXT_OPTIONS ),
         new VerticalSlider( bProperty, {
@@ -107,7 +107,7 @@ define( function( require ) {
       align: 'center'
     } );
 
-    var cControl = new VBox( {
+    const cControl = new VBox( {
       children: [
         new Text( cString, RED_TEXT_OPTIONS ),
         new VerticalSlider( cProperty, {
@@ -183,20 +183,20 @@ define( function( require ) {
     HSlider.call( this, property, property.range, options );
 
     // HSlider does not support a tick that is centered on the track.  We need to use our own tick node here.
-    var trackCenterX = options.trackSize.width / 2;
-    var tickYOffset = options.trackSize.height / 2;
+    const trackCenterX = options.trackSize.width / 2;
+    const tickYOffset = options.trackSize.height / 2;
 
-    var tickNode = new Line( trackCenterX, -TICK_LENGTH, trackCenterX, TICK_LENGTH + tickYOffset, {
+    const tickNode = new Line( trackCenterX, -TICK_LENGTH, trackCenterX, TICK_LENGTH + tickYOffset, {
       stroke: TICK_COLOR,
       lineWidth: TICK_WIDTH
     } );
 
     // label the zero tick mark
-    var tickText = new Text( '0', { bottom: tickNode.top - 5, centerX: tickNode.centerX + 1, rotation: Math.PI / 2 } );
+    const tickText = new Text( '0', { bottom: tickNode.top - 5, centerX: tickNode.centerX + 1, rotation: Math.PI / 2 } );
     this.addChild( tickText );
 
     // to balance out the zero label
-    var strutForSymmetry = new VStrut( tickText.width - 3, { top: tickNode.bottom + 5 } );
+    const strutForSymmetry = new VStrut( tickText.width - 3, { top: tickNode.bottom + 5 } );
     this.addChild( strutForSymmetry );
 
     // add the tick as a child and move it behind the slider thumb

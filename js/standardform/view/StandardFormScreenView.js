@@ -26,22 +26,22 @@ define( function( require ) {
    * @constructor
    */
   function StandardFormScreenView( model ) {
-    var self = this;
+    const self = this;
 
-    var integersViewProperties = new LineFormsViewProperties();
+    const integersViewProperties = new LineFormsViewProperties();
 
-    var decimalsViewProperties = new LineFormsViewProperties();
+    const decimalsViewProperties = new LineFormsViewProperties();
 
     GQScreenView.call( this, model, [ integersViewProperties, decimalsViewProperties ] );
 
     // view for the integers scene
-    var integersInteractiveEquationNode = new IntegersInteractiveEquationNode(
+    const integersInteractiveEquationNode = new IntegersInteractiveEquationNode(
       model.integersScene.aProperty,
       model.integersScene.bProperty,
       model.integersScene.cProperty
     );
 
-    var integersSceneNode = new GQSceneNode(
+    const integersSceneNode = new GQSceneNode(
       model.integersScene,
       this.layoutBounds,
       new StandardFormEquationNode(),
@@ -55,13 +55,13 @@ define( function( require ) {
     );
 
     // view for the decimals scene
-    var decimalsInteractiveEquationNode = new DecimalsInteractiveEquationNode(
+    const decimalsInteractiveEquationNode = new DecimalsInteractiveEquationNode(
       model.decimalsScene.aProperty,
       model.decimalsScene.bProperty,
       model.decimalsScene.cProperty
     );
 
-    var decimalsSceneNode = new GQSceneNode(
+    const decimalsSceneNode = new GQSceneNode(
       model.decimalsScene,
       this.layoutBounds,
       new StandardFormEquationNode(),
@@ -75,17 +75,17 @@ define( function( require ) {
     );
 
     // managing the scene nodes
-    var sceneNodes = [ integersSceneNode, decimalsSceneNode ];
+    const sceneNodes = [ integersSceneNode, decimalsSceneNode ];
 
     sceneNodes.forEach( function( sceneNode ) {
       self.addChild( sceneNode );
     } );
 
     // Get the bounds of the control panels
-    var controlsParent = sceneNodes[ 0 ].controlsParent;
+    const controlsParent = sceneNodes[ 0 ].controlsParent;
 
     // Center the scene control in the space below the Snapshots accordion box
-    var sceneControl = new SceneControl( model.sceneProperty, model.scenes, {
+    const sceneControl = new SceneControl( model.sceneProperty, model.scenes, {
       centerX: controlsParent.centerX,
       bottom: this.resetAllButton.bottom
     } );
@@ -93,7 +93,7 @@ define( function( require ) {
 
     // Make the selected scene visible. unlink not needed, as scenes last for the entire life of the sim.
     model.sceneProperty.link( function( scene ) {
-      for ( var i = 0; i < sceneNodes.length; i++ ) {
+      for ( let i = 0; i < sceneNodes.length; i++ ) {
         sceneNodes[ i ].visible = ( sceneNodes[ i ].scene === scene );
       }
     } );

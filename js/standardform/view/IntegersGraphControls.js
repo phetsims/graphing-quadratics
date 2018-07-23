@@ -46,16 +46,16 @@ define( function( require ) {
     }, options );
 
     // checkboxes that control visibility of vertex, axis of symmetry, and roots
-    var vertexCheckbox = Checkbox.createTextCheckbox( vertexString, TEXT_OPTIONS, vertexVisibleProperty );
-    var axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
+    const vertexCheckbox = Checkbox.createTextCheckbox( vertexString, TEXT_OPTIONS, vertexVisibleProperty );
+    const axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
       axisOfSymmetryString,
       TEXT_OPTIONS,
       axisOfSymmetryVisibleProperty
     );
-    var rootsCheckbox = Checkbox.createTextCheckbox( rootsString, TEXT_OPTIONS, rootsVisibleProperty );
+    const rootsCheckbox = Checkbox.createTextCheckbox( rootsString, TEXT_OPTIONS, rootsVisibleProperty );
 
     // vertical layout
-    var contentNode = new VBox( {
+    const contentNode = new VBox( {
       children: [
         vertexCheckbox,
         axisOfSymmetryCheckbox,

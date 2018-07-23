@@ -48,7 +48,7 @@ define( function( require ) {
     this.savedQuadratics = new ObservableArray( [] );
 
     // view units / model units
-    var modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
+    const modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
       this.graph.xRange.getLength(),
       this.graph.yRange.getLength()
     );

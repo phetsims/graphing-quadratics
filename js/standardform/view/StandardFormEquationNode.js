@@ -35,7 +35,7 @@ define( function( require ) {
       font: GQFont.MATH_SYMBOL_FONT
     } );
 
-    var equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
+    const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
       xSquared: xSquaredString,
       x: xString,
       y: yString,

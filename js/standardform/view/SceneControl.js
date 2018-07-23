@@ -34,7 +34,7 @@ define( function( require ) {
     options.touchAreaXDilation = ( options.spacing / 2 ) - 1;
     options.touchAreaYDilation = 5;
 
-    var content = [];
+    const content = [];
     scenes.forEach( function( scene ) {
       content.push( {
         value: scene,

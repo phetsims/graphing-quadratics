@@ -12,7 +12,7 @@ define( function( require ) {
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
-  var GQColors = {
+  const GQColors = {
     SCREEN_BACKGROUND: 'rgb( 238, 252, 252 )',
     CONTROL_PANEL_BACKGROUND: 'rgb( 238, 238, 238 )'
   };
