@@ -26,7 +26,6 @@ define( function( require ) {
    * @constructor
    */
   function StandardFormScreenView( model ) {
-    const self = this;
 
     const integersViewProperties = new LineFormsViewProperties();
 
@@ -77,9 +76,7 @@ define( function( require ) {
     // managing the scene nodes
     const sceneNodes = [ integersSceneNode, decimalsSceneNode ];
 
-    sceneNodes.forEach( function( sceneNode ) {
-      self.addChild( sceneNode );
-    } );
+    sceneNodes.forEach( sceneNode => { this.addChild( sceneNode ); } );
 
     // Get the bounds of the control panels
     const controlsParent = sceneNodes[ 0 ].controlsParent;

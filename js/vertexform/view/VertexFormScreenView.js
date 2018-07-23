@@ -24,7 +24,6 @@ define( function( require ) {
    * @constructor
    */
   function VertexFormScreenView( model ) {
-    const self = this;
 
     const vertexViewProperties = new LineFormsViewProperties();
 
@@ -32,7 +31,7 @@ define( function( require ) {
 
     this.addChild( new GQSceneNode(
       model.vertexScene,
-      self.layoutBounds,
+      this.layoutBounds,
       new VertexFormEquationNode(),
       new VertexInteractiveEquationNode(
         new NumberProperty( 1, { range: { min: -6, max: 6 } } ),

@@ -35,7 +35,6 @@ define( function( require ) {
    * @constructor
    */
   function QuadraticNode( quadraticProperty, graph, modelViewTransform, viewProperties, options ) {
-    const self = this;
 
     options = _.extend( {}, options );
 
@@ -167,14 +166,14 @@ define( function( require ) {
 
     // Update the view of the curve when the quadratic model changes
     // TODO: dispose
-    quadraticProperty.link( function( quadratic ) {
+    quadraticProperty.link( quadratic => {
 
-      quadraticPath.setShape( self.createQuadraticShape( quadratic ) );
+      quadraticPath.setShape( this.createQuadraticShape( quadratic ) );
 
       // update other information about the quadratic curve
 
       if ( quadratic.a !== 0 ) {
-        quadraticTermPath.setShape( self.createQuadraticShape( quadratic.getQuadraticTerm() ) );
+        quadraticTermPath.setShape( this.createQuadraticShape( quadratic.getQuadraticTerm() ) );
         vertexPoint.center = modelViewTransform.modelToViewPosition( quadratic.vertex );
         focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
         quadraticTermPath.visible = true;
