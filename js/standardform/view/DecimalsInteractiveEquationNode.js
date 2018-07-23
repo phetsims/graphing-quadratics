@@ -32,7 +32,6 @@ define( function( require ) {
   const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
   const TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
-  const RED_TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' };
   const READOUT_OPTIONS = {
     font: GQFont.NUMBER_FONT,
     numberFill: 'red',
@@ -67,50 +66,32 @@ define( function( require ) {
     const xText = new RichText( xString, TEXT_OPTIONS );
     const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-    //
-    // const aLinearProperty = new NumberProperty( 0, { range: aProperty.range } );
-    // aProperty.link( function( a ) {
-    //   aLinearProperty.set( Util.cubeRoot( a / 6 ) * 6 );
-    // } );
-    // aLinearProperty.link( function( aLinear ) {
-    //   aProperty.set( Math.pow( aLinear / 6, 3 ) * 6 );
-    // } );
+    /**
+     * Create slider and text
+     *
+     * @param {string} string
+     * @param {NumberProperty} property
+     * @param {number} decimalPlaces
+     *
+     * @returns {VBox}
+     */
+    function createControlBox( string, property, decimalPlaces ) {
+      return new VBox( {
+        children: [
+          new Text( string, { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' } ),
+          new VerticalSlider( property, {
+            constrainValue: function( value ) {
+              return Util.toFixedNumber( value, decimalPlaces );
+            }
+          } )
+        ],
+        align: 'center'
+      } );
+    }
 
-    const aControl = new VBox( {
-      children: [
-        new Text( aString, RED_TEXT_OPTIONS ),
-        new VerticalSlider( aProperty, {
-          constrainValue: function( value ) {
-            return Util.toFixedNumber( value, 2 ); // two decimal places
-          }
-        } )
-      ],
-      align: 'center'
-    } );
-
-    const bControl = new VBox( {
-      children: [
-        new Text( bString, RED_TEXT_OPTIONS ),
-        new VerticalSlider( bProperty, {
-          constrainValue: function( value ) {
-            return Util.toFixedNumber( value, 1 ); // one decimal place
-          }
-        } )
-      ],
-      align: 'center'
-    } );
-
-    const cControl = new VBox( {
-      children: [
-        new Text( cString, RED_TEXT_OPTIONS ),
-        new VerticalSlider( cProperty, {
-          constrainValue: function( value ) {
-            return Util.toFixedNumber( value, 1 ); // one decimal place
-          }
-        } )
-      ],
-      align: 'center'
-    } );
+    const aControl = createControlBox( aString, aProperty, 2 );
+    const bControl = createControlBox( bString, bProperty, 1 );
+    const cControl = createControlBox( cString, cProperty, 1 );
 
     Node.call( this, {
       children: [
