@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const inherit = require( 'PHET_CORE/inherit' );
   const Panel = require( 'SUN/Panel' );
   const VBox = require( 'SCENERY/nodes/VBox' );
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
-  const Checkbox = require( 'SUN/Checkbox' );
 
   // strings
   const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );

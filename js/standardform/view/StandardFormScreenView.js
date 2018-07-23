@@ -9,17 +9,17 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const DecimalsGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsGraphControls' );
+  const DecimalsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsInteractiveEquationNode' );
+  const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const inherit = require( 'PHET_CORE/inherit' );
-  const SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
   const IntegersGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersGraphControls' );
-  const DecimalsGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsGraphControls' );
-  const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
-  const DecimalsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsInteractiveEquationNode' );
-  const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   const LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
+  const SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
+  const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
 
   /**
    * @param {StandardFormModel} model

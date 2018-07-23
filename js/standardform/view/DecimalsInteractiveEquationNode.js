@@ -11,20 +11,20 @@ define( function( require ) {
 
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
-  const Line = require( 'SCENERY/nodes/Line' );
-  const Node = require( 'SCENERY/nodes/Node' );
-  const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
-  const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
-  const VStrut = require( 'SCENERY/nodes/VStrut' );
   const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const HSlider = require( 'SUN/HSlider' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const Line = require( 'SCENERY/nodes/Line' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
+  const VStrut = require( 'SCENERY/nodes/VStrut' );
 
   // strings
   const aString = require( 'string!GRAPHING_QUADRATICS/a' );

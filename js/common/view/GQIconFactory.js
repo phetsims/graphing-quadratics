@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const Property = require( 'AXON/Property' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
 
   // constants
   const NUMBER_PICKER_OPTIONS = {

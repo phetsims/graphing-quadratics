@@ -11,9 +11,9 @@ define( function( require ) {
 
   // modules
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
+  const GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const inherit = require( 'PHET_CORE/inherit' );
-  const GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
 
   /**
    * @constructor

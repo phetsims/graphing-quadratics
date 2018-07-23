@@ -9,27 +9,27 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const inherit = require( 'PHET_CORE/inherit' );
-  const Panel = require( 'SUN/Panel' );
-  const Checkbox = require( 'SUN/Checkbox' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const Panel = require( 'SUN/Panel' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
   const TEXT_OPTIONS = { font: GQFont.SMALLER_MATH_SYMBOL_FONT };
 
   // strings
-  const xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
-  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
   const aString = require( 'string!GRAPHING_QUADRATICS/a' );
   const bString = require( 'string!GRAPHING_QUADRATICS/b' );
   const cString = require( 'string!GRAPHING_QUADRATICS/c' );
+  const xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
+  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
+  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
   /**
    * @param {BooleanProperty} quadraticTermVisibleProperty

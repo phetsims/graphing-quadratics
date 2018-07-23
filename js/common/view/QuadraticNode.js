@@ -10,10 +10,10 @@ define( function( require ) {
 
   // modules
   const DerivedProperty = require( 'AXON/DerivedProperty' );
-  const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PlottedPointNode = require( 'GRAPHING_LINES/common/view/PlottedPointNode' );

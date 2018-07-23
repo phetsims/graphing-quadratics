@@ -9,7 +9,6 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const ObservableArray = require( 'AXON/ObservableArray' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
@@ -17,6 +16,7 @@ define( function( require ) {
   const inherit = require( 'PHET_CORE/inherit' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const ObservableArray = require( 'AXON/ObservableArray' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const Vector2 = require( 'DOT/Vector2' );
 
