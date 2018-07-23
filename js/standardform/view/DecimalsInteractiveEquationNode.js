@@ -10,13 +10,10 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const Dimension2 = require( 'DOT/Dimension2' );
   const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
-  const HSlider = require( 'SUN/HSlider' );
   const inherit = require( 'PHET_CORE/inherit' );
-  const Line = require( 'SCENERY/nodes/Line' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
@@ -24,7 +21,7 @@ define( function( require ) {
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
   const VBox = require( 'SCENERY/nodes/VBox' );
-  const VStrut = require( 'SCENERY/nodes/VStrut' );
+  const VerticalSlider = require( 'GRAPHING_QUADRATICS/common/view/VerticalSlider' );
 
   // strings
   const aString = require( 'string!GRAPHING_QUADRATICS/a' );
@@ -34,12 +31,8 @@ define( function( require ) {
   const xString = require( 'string!GRAPHING_QUADRATICS/x' );
   const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
-  // constants
   const TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
   const RED_TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' };
-  const TICK_COLOR = 'black';
-  const TICK_LENGTH = 20;
-  const TICK_WIDTH = 1;
   const READOUT_OPTIONS = {
     font: GQFont.NUMBER_FONT,
     numberFill: 'red',
@@ -163,54 +156,5 @@ define( function( require ) {
 
   graphingQuadratics.register( 'DecimalsInteractiveEquationNode', DecimalsInteractiveEquationNode );
 
-  inherit( HBox, DecimalsInteractiveEquationNode );
-
-  /**
-   * Create a vertical slider with a central tick
-   * @param {NumberProperty} property parameter to track.
-   * @param {Object} [options] for slider node.
-   * @constructor
-   */
-  function VerticalSlider( property, options ) {
-
-    options = _.extend( {
-      trackFill: 'black',
-      trackSize: new Dimension2( 160, 1 ),
-      thumbSize: new Dimension2( 15, 25 ),
-      thumbTouchAreaYDilation: 8
-    }, options );
-
-    HSlider.call( this, property, property.range, options );
-
-    // HSlider does not support a tick that is centered on the track.  We need to use our own tick node here.
-    const trackCenterX = options.trackSize.width / 2;
-    const tickYOffset = options.trackSize.height / 2;
-
-    const tickNode = new Line( trackCenterX, -TICK_LENGTH, trackCenterX, TICK_LENGTH + tickYOffset, {
-      stroke: TICK_COLOR,
-      lineWidth: TICK_WIDTH
-    } );
-
-    // label the zero tick mark
-    const tickText = new Text( '0', { bottom: tickNode.top - 5, centerX: tickNode.centerX + 1, rotation: Math.PI / 2 } );
-    this.addChild( tickText );
-
-    // to balance out the zero label
-    const strutForSymmetry = new VStrut( tickText.width - 3, { top: tickNode.bottom + 5 } );
-    this.addChild( strutForSymmetry );
-
-    // add the tick as a child and move it behind the slider thumb
-    this.addChild( tickNode );
-    tickNode.moveToBack();
-
-    // make vertical slider by rotating it
-    this.rotate( -Math.PI / 2 );
-
-  }
-
-  graphingQuadratics.register( 'DecimalsInteractiveEquationNode.VerticalSlider', VerticalSlider );
-
-  inherit( HSlider, VerticalSlider );
-
-  return DecimalsInteractiveEquationNode;
+  return inherit( HBox, DecimalsInteractiveEquationNode );
 } );
