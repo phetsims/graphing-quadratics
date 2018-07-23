@@ -84,7 +84,8 @@ define( function( require ) {
     // Center the scene control in the space below the Snapshots accordion box
     const sceneControl = new SceneControl( model.sceneProperty, model.scenes, {
       centerX: controlsParent.centerX,
-      bottom: this.resetAllButton.bottom
+      bottom: this.resetAllButton.bottom,
+      buttonContentYMargin: 0
     } );
     this.addChild( sceneControl );
 

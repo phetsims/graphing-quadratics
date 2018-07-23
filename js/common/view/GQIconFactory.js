@@ -9,33 +9,40 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const Dimension2 = require( 'DOT/Dimension2' );
   const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const Property = require( 'AXON/Property' );
-  const Text = require( 'SCENERY/nodes/Text' );
+  const VerticalSlider = require( 'GRAPHING_QUADRATICS/common/view/VerticalSlider' );
 
   // constants
-  const NUMBER_PICKER_OPTIONS = {
-    font: GQFont.NUMBER_FONT,
-    color: 'black',
-    xMargin: 5
-  };
+  const NUMBER_PROPERTY = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
 
   const GQIconFactory = {
     createIntegersIcon: function() {
-      const numberProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
       const numberPicker = new NumberPicker(
-        numberProperty,
-        new Property( numberProperty.range ),
-        NUMBER_PICKER_OPTIONS
+        NUMBER_PROPERTY,
+        new Property( NUMBER_PROPERTY.range ),
+        {
+          font: GQFont.NUMBER_FONT,
+          color: 'black',
+          xMargin: 5,
+          scale: 0.8
+        }
       );
       return new Node( { children: [ numberPicker ], pickable: false } );
     },
     createDecimalsIcon: function() {
-      return new Text( 'Decimals' );
+      const verticalSlider = new VerticalSlider( NUMBER_PROPERTY, {
+        trackSize: new Dimension2( 50, 0.5 ),
+        thumbSize: new Dimension2( 15, 25 ),
+        centralTick: false,
+        scale: 0.8
+      } );
+      return new Node( { children: [ verticalSlider ], pickable: false } );
     }
   };
 
