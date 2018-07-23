@@ -9,12 +9,12 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Line = require( 'GRAPHING_LINES/common/model/Line' );
-  var NotALine = require( 'GRAPHING_LINES/linegame/model/NotALine' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var Util = require( 'DOT/Util' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Line = require( 'GRAPHING_LINES/common/model/Line' );
+  const NotALine = require( 'GRAPHING_LINES/linegame/model/NotALine' );
+  const Vector2 = require( 'DOT/Vector2' );
+  const Util = require( 'DOT/Util' );
 
   /**
    * @param a

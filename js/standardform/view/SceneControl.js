@@ -9,9 +9,9 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
 
   /**
    * @param {Property.<Scene>} selectedSceneProperty

@@ -9,17 +9,17 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
-  var IntegersGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersGraphControls' );
-  var DecimalsGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsGraphControls' );
-  var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
-  var IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
-  var DecimalsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsInteractiveEquationNode' );
-  var StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
-  var LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
+  const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
+  const IntegersGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersGraphControls' );
+  const DecimalsGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsGraphControls' );
+  const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
+  const IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
+  const DecimalsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsInteractiveEquationNode' );
+  const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
+  const LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
 
   /**
    * @param {StandardFormModel} model

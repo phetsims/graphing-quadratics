@@ -10,19 +10,19 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  var RichText = require( 'SCENERY/nodes/RichText' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
 
   // strings
-  var xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  var yString = require( 'string!GRAPHING_QUADRATICS/y' );
-  var aString = require( 'string!GRAPHING_QUADRATICS/a' );
-  var hString = require( 'string!GRAPHING_QUADRATICS/h' );
-  var kString = require( 'string!GRAPHING_QUADRATICS/k' );
+  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
+  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
+  const aString = require( 'string!GRAPHING_QUADRATICS/a' );
+  const hString = require( 'string!GRAPHING_QUADRATICS/h' );
+  const kString = require( 'string!GRAPHING_QUADRATICS/k' );
 
   /**
    * @param {Object} [options]

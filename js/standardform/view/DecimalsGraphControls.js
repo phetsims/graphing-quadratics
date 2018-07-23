@@ -9,27 +9,27 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Panel = require( 'SUN/Panel' );
-  var Checkbox = require( 'SUN/Checkbox' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
-  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  var RichText = require( 'SCENERY/nodes/RichText' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Panel = require( 'SUN/Panel' );
+  const Checkbox = require( 'SUN/Checkbox' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
 
   // constants
-  var TEXT_OPTIONS = { font: GQFont.SMALLER_MATH_SYMBOL_FONT };
+  const TEXT_OPTIONS = { font: GQFont.SMALLER_MATH_SYMBOL_FONT };
 
   // strings
-  var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
-  var xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  var yString = require( 'string!GRAPHING_QUADRATICS/y' );
-  var aString = require( 'string!GRAPHING_QUADRATICS/a' );
-  var bString = require( 'string!GRAPHING_QUADRATICS/b' );
-  var cString = require( 'string!GRAPHING_QUADRATICS/c' );
+  const xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
+  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
+  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
+  const aString = require( 'string!GRAPHING_QUADRATICS/a' );
+  const bString = require( 'string!GRAPHING_QUADRATICS/b' );
+  const cString = require( 'string!GRAPHING_QUADRATICS/c' );
 
   /**
    * @param {BooleanProperty} quadraticTermVisibleProperty

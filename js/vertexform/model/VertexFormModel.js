@@ -10,10 +10,10 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
+  const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
 
   /**
    * @constructor

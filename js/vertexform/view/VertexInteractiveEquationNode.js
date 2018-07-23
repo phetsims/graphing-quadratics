@@ -11,21 +11,21 @@ define( function( require ) {
 
   // modules
   const Node = require( 'SCENERY/nodes/Node' );
-  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  var NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
-  var Property = require( 'AXON/Property' );
-  var RichText = require( 'SCENERY/nodes/RichText' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
+  const Property = require( 'AXON/Property' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
 
   // strings
-  var xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  var yString = require( 'string!GRAPHING_QUADRATICS/y' );
+  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
+  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
   // constants
-  var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
-  var NUMBER_PICKER_OPTIONS = {
+  const TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
+  const NUMBER_PICKER_OPTIONS = {
     font: GQFont.NUMBER_FONT,
     color: 'red',
     xMargin: 5

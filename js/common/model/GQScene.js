@@ -10,19 +10,19 @@ define( function( require ) {
 
   // modules
   const ObservableArray = require( 'AXON/ObservableArray' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  var Graph = require( 'GRAPHING_LINES/common/model/Graph' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var GRID_VIEW_UNITS = 530; // max dimension (width or height) of the grid in view coordinates
-  var ORIGIN_OFFSET = new Vector2( 315, 330 ); // offset of the graph's origin in view coordinates
+  const GRID_VIEW_UNITS = 530; // max dimension (width or height) of the grid in view coordinates
+  const ORIGIN_OFFSET = new Vector2( 315, 330 ); // offset of the graph's origin in view coordinates
 
   /**
    * @constructor

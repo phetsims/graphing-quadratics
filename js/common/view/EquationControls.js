@@ -10,27 +10,27 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var EraserButton = require( 'SCENERY_PHET/buttons/EraserButton' );
-  var ExpandCollapseButton = require( 'SUN/ExpandCollapseButton' );
-  var FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
-  var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var HBox = require( 'SCENERY/nodes/HBox' );
-  var HStrut = require( 'SCENERY/nodes/HStrut' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Line = require( 'SCENERY/nodes/Line' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Panel = require( 'SUN/Panel' );
-  var PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
-  var RectangularPushButton = require( 'SUN/buttons/RectangularPushButton' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const EraserButton = require( 'SCENERY_PHET/buttons/EraserButton' );
+  const ExpandCollapseButton = require( 'SUN/ExpandCollapseButton' );
+  const FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
+  const HStrut = require( 'SCENERY/nodes/HStrut' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Line = require( 'SCENERY/nodes/Line' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Panel = require( 'SUN/Panel' );
+  const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
+  const RectangularPushButton = require( 'SUN/buttons/RectangularPushButton' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
-  var ICON_WIDTH = 30;
-  var Y_SPACING = 10;
-  var TITLE_X_SPACING = 5;
-  var SAVE_ICON = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
+  const ICON_WIDTH = 30;
+  const Y_SPACING = 10;
+  const TITLE_X_SPACING = 5;
+  const SAVE_ICON = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
 
   /**
    * @param {Node} titleNode - a display of the general form of the equation

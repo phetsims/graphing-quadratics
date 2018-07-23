@@ -9,10 +9,10 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MathSymbolFont = require( 'SCENERY_PHET/MathSymbolFont' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const MathSymbolFont = require( 'SCENERY_PHET/MathSymbolFont' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
   /**
    * @param {number|*} options font size or font options

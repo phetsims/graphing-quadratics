@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
   var GQColors = {
     SCREEN_BACKGROUND: 'rgb( 238, 252, 252 )',

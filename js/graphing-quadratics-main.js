@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Sim = require( 'JOIST/Sim' );
-  var SimLauncher = require( 'JOIST/SimLauncher' );
-  var StandardFormScreen = require( 'GRAPHING_QUADRATICS/standardform/StandardFormScreen' );
-  var VertexFormScreen = require( 'GRAPHING_QUADRATICS/vertexform/VertexFormScreen' );
+  const Sim = require( 'JOIST/Sim' );
+  const SimLauncher = require( 'JOIST/SimLauncher' );
+  const StandardFormScreen = require( 'GRAPHING_QUADRATICS/standardform/StandardFormScreen' );
+  const VertexFormScreen = require( 'GRAPHING_QUADRATICS/vertexform/VertexFormScreen' );
 
   // strings
-  var graphingQuadraticsTitleString = require( 'string!GRAPHING_QUADRATICS/graphing-quadratics.title' );
+  const graphingQuadraticsTitleString = require( 'string!GRAPHING_QUADRATICS/graphing-quadratics.title' );
 
   var options = {
     credits: {

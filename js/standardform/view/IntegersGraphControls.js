@@ -9,21 +9,21 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Checkbox = require( 'SUN/Checkbox' );
-  var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Panel = require( 'SUN/Panel' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
+  const Checkbox = require( 'SUN/Checkbox' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Panel = require( 'SUN/Panel' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
-  var axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
-  var rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
-  var vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
+  const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
+  const rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
+  const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
 
   // constants
-  var TEXT_OPTIONS = { font: new GQFont( 18 ) };
+  const TEXT_OPTIONS = { font: new GQFont( 18 ) };
 
   /**
    * @param {BooleanProperty} vertexVisibleProperty

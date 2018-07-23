@@ -11,13 +11,13 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
-  var Shape = require( 'KITE/Shape' );
-  var EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
+  const Shape = require( 'KITE/Shape' );
+  const EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
 
   /**
    * @param {GQScene} model

@@ -10,14 +10,14 @@ define( function( require ) {
 
   // modules
   const NumberProperty = require( 'AXON/NumberProperty' );
-  var GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
-  var GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
-  var VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
-  var VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
-  var VertexInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexInteractiveEquationNode' );
+  const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
+  const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
+  const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
+  const VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
+  const VertexInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexInteractiveEquationNode' );
 
   /**
    * @param {VertexFormModel} model

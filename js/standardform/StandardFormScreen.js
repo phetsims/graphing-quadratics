@@ -9,16 +9,16 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-  var Screen = require( 'JOIST/Screen' );
-  var StandardFormModel = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormModel' );
-  var StandardFormScreenView = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormScreenView' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Property = require( 'AXON/Property' );
+  const Screen = require( 'JOIST/Screen' );
+  const StandardFormModel = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormModel' );
+  const StandardFormScreenView = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormScreenView' );
 
   // strings
-  var screenStandardFormString = require( 'string!GRAPHING_QUADRATICS/screen.standardForm' );
+  const screenStandardFormString = require( 'string!GRAPHING_QUADRATICS/screen.standardForm' );
 
   /**
    * @constructor

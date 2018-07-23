@@ -9,20 +9,20 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Panel = require( 'SUN/Panel' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
-  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
-  var Checkbox = require( 'SUN/Checkbox' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Panel = require( 'SUN/Panel' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const Checkbox = require( 'SUN/Checkbox' );
 
   // strings
-  var axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
-  var directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
+  const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
+  const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
 
   // constants
-  var TEXT_OPTIONS = { font: new GQFont( 18 ) };
+  const TEXT_OPTIONS = { font: new GQFont( 18 ) };
 
   /**
    * @param {BooleanProperty} axisOfSymmetryVisibleProperty

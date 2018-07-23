@@ -10,11 +10,11 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var ScreenView = require( 'JOIST/ScreenView' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
+  const ScreenView = require( 'JOIST/ScreenView' );
 
   /**
    * @param {GQModel} model

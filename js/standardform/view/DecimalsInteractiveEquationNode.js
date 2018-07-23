@@ -18,29 +18,29 @@ define( function( require ) {
   const Util = require( 'DOT/Util' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VStrut = require( 'SCENERY/nodes/VStrut' );
-  var GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var HBox = require( 'SCENERY/nodes/HBox' );
-  var HSlider = require( 'SUN/HSlider' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  var RichText = require( 'SCENERY/nodes/RichText' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
+  const HSlider = require( 'SUN/HSlider' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
 
   // strings
-  var aString = require( 'string!GRAPHING_QUADRATICS/a' );
-  var bString = require( 'string!GRAPHING_QUADRATICS/b' );
-  var cString = require( 'string!GRAPHING_QUADRATICS/c' );
-  var xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
-  var xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  var yString = require( 'string!GRAPHING_QUADRATICS/y' );
+  const aString = require( 'string!GRAPHING_QUADRATICS/a' );
+  const bString = require( 'string!GRAPHING_QUADRATICS/b' );
+  const cString = require( 'string!GRAPHING_QUADRATICS/c' );
+  const xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
+  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
+  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
   // constants
-  var TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
-  var RED_TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' };
-  var TICK_COLOR = 'black';
-  var TICK_LENGTH = 20;
-  var TICK_WIDTH = 1;
-  var READOUT_OPTIONS = {
+  const TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
+  const RED_TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' };
+  const TICK_COLOR = 'black';
+  const TICK_LENGTH = 20;
+  const TICK_WIDTH = 1;
+  const READOUT_OPTIONS = {
     font: GQFont.NUMBER_FONT,
     numberFill: 'red',
     backgroundFill: null,

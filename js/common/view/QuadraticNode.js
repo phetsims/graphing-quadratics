@@ -11,17 +11,17 @@ define( function( require ) {
   // modules
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
-  var GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
-  var PlottedPointNode = require( 'GRAPHING_LINES/common/view/PlottedPointNode' );
-  var Shape = require( 'KITE/Shape' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Path = require( 'SCENERY/nodes/Path' );
+  const PlottedPointNode = require( 'GRAPHING_LINES/common/view/PlottedPointNode' );
+  const Shape = require( 'KITE/Shape' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var LINE_OPTIONS = {
+  const LINE_OPTIONS = {
     lineDash: [ 8, 8 ],
     lineDashOffset: 10
   };

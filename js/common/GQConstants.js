@@ -9,9 +9,9 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var RangeWithValue = require( 'DOT/RangeWithValue' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const RangeWithValue = require( 'DOT/RangeWithValue' );
 
   var GQConstants = {
     SCREEN_VIEW_OPTIONS: { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) },
