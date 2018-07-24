@@ -40,9 +40,9 @@ define( function( require ) {
    */
   function VertexInteractiveEquationNode( quadraticProperty, options ) {
 
-    var aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
-    var hProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } ) ;
-    var kProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } ) ;
+    const aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+    const hProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } ) ;
+    const kProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } ) ;
 
     quadraticProperty.link( function( quadratic ) {
       aProperty.set( quadratic.a );

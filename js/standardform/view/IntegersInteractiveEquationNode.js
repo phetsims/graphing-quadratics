@@ -41,9 +41,9 @@ define( function( require ) {
    */
   function IntegersInteractiveEquationNode( quadraticProperty, options ) {
 
-    var aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
-    var bProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
-    var cProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+    const aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+    const bProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+    const cProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
 
     quadraticProperty.link( function( quadratic ) {
       aProperty.set( quadratic.a );
