@@ -16,7 +16,9 @@ define( function( require ) {
   const inherit = require( 'PHET_CORE/inherit' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Text = require( 'SCENERY/nodes/Text' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
   const VStrut = require( 'SCENERY/nodes/VStrut' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
 
   // constants
   const TICK_COLOR = 'black';
@@ -25,21 +27,31 @@ define( function( require ) {
 
   /**
    * Create a vertical slider with a central tick
-   * @param {NumberProperty} property parameter to track.
+   * @param {string} string
+   * @param {NumberProperty} property
+   * @param {number} decimalPlaces
    * @param {Object} [options] for slider node.
    * @constructor
    */
-  function VerticalSlider( property, options ) {
+  function SliderUnit( string, property, decimalPlaces, options ) {
 
     options = _.extend( {
+      align: 'center',
+      centralTick: true,
       trackFill: 'black',
       trackSize: new Dimension2( 160, 1 ),
       thumbSize: new Dimension2( 15, 25 ),
-      thumbTouchAreaYDilation: 8,
-      centralTick: true
+      thumbTouchAreaYDilation: 8
     }, options );
 
-    HSlider.call( this, property, property.range, options );
+    VBox.call( this, options );
+
+    var slider = new HSlider( property, property.range, {
+      trackFill: options.trackFill,
+      trackSize: options.trackSize,
+      thumbSize: options.thumbSize,
+      thumbTouchAreaYDilation: options.thumbTouchAreaYDilation
+    } );
 
     if ( options.centralTick ) {
 
@@ -54,22 +66,26 @@ define( function( require ) {
 
       // label the zero tick mark
       const tickText = new Text( '0', { bottom: tickNode.top - 5, centerX: tickNode.centerX + 1, rotation: Math.PI / 2 } );
-      this.addChild( tickText );
+      slider.addChild( tickText );
 
       // to balance out the zero label
       const strutForSymmetry = new VStrut( tickText.width - 3, { top: tickNode.bottom + 5 } );
-      this.addChild( strutForSymmetry );
+      slider.addChild( strutForSymmetry );
 
       // add the tick as a child and move it behind the slider thumb
-      this.addChild( tickNode );
+      slider.addChild( tickNode );
       tickNode.moveToBack();
+
+      this.addChild( new Text( string, { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' } ) );
     }
 
+    this.addChild( slider );
+
     // make vertical slider by rotating it
-    this.rotate( -Math.PI / 2 );
+    slider.rotate( -Math.PI / 2 );
   }
 
-  graphingQuadratics.register( 'VerticalSlider', VerticalSlider );
+  graphingQuadratics.register( 'SliderUnit', SliderUnit );
 
-  return inherit( HSlider, VerticalSlider );
+  return inherit( VBox, SliderUnit );
 } );

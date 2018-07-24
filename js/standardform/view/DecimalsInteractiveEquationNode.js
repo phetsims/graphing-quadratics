@@ -21,10 +21,7 @@ define( function( require ) {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
-  const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
-  const VerticalSlider = require( 'GRAPHING_QUADRATICS/common/view/VerticalSlider' );
+  const SliderUnit = require( 'GRAPHING_QUADRATICS/common/view/SliderUnit' );
 
   // strings
   const aString = require( 'string!GRAPHING_QUADRATICS/a' );
@@ -81,32 +78,9 @@ define( function( require ) {
     const xText = new RichText( xString, TEXT_OPTIONS );
     const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-    /**
-     * Create slider and text
-     *
-     * @param {string} string
-     * @param {NumberProperty} property
-     * @param {number} decimalPlaces
-     *
-     * @returns {VBox}
-     */
-    function createControlBox( string, property, decimalPlaces ) {
-      return new VBox( {
-        children: [
-          new Text( string, { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' } ),
-          new VerticalSlider( property, {
-            constrainValue: function( value ) {
-              return Util.toFixedNumber( value, decimalPlaces );
-            }
-          } )
-        ],
-        align: 'center'
-      } );
-    }
-
-    const aControl = createControlBox( aString, aProperty, 2 );
-    const bControl = createControlBox( bString, bProperty, 1 );
-    const cControl = createControlBox( cString, cProperty, 1 );
+    const aControl = new SliderUnit( aString, aProperty, 2 );
+    const bControl = new SliderUnit( bString, bProperty, 1 );
+    const cControl = new SliderUnit( cString, cProperty, 1 );
 
     Node.call( this, {
       children: [

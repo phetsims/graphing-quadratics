@@ -16,7 +16,7 @@ define( function( require ) {
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const Property = require( 'AXON/Property' );
-  const VerticalSlider = require( 'GRAPHING_QUADRATICS/common/view/VerticalSlider' );
+  const SliderUnit = require( 'GRAPHING_QUADRATICS/common/view/SliderUnit' );
 
   // constants
   const NUMBER_PROPERTY = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
@@ -36,7 +36,7 @@ define( function( require ) {
       return new Node( { children: [ numberPicker ], pickable: false } );
     },
     createDecimalsIcon: function() {
-      const verticalSlider = new VerticalSlider( NUMBER_PROPERTY, {
+      const verticalSlider = new SliderUnit( '', NUMBER_PROPERTY, 1, {
         trackSize: new Dimension2( 50, 0.5 ),
         thumbSize: new Dimension2( 15, 25 ),
         centralTick: false,
