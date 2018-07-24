@@ -1,4 +1,4 @@
-// Copyright 2013-2017, University of Colorado Boulder
+// Copyright 2018, University of Colorado Boulder
 
 /**
  * Drag handler for the vertex. Copied from GRAPHING_LINES/common/view/manipulator/PointManipulator
