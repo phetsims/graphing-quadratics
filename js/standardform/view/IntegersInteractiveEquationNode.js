@@ -18,6 +18,8 @@ define( function( require ) {
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
 
   // strings
   const xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
@@ -33,13 +35,25 @@ define( function( require ) {
   };
 
   /**
-   * @param {Property.<Number>} aProperty - the coefficient for x^2 in the quadratic
-   * @param {Property.<Number>} bProperty - the coefficient for x in the quadratic
-   * @param {Property.<Number>} cProperty - the constant term in the quadratic
+   * @param {Property.<Quadratic|undefined>} quadraticProperty
    * @param {Object} [options]
    * @constructor
    */
-  function IntegersInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
+  function IntegersInteractiveEquationNode( quadraticProperty, options ) {
+
+    var aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+    var bProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+    var cProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+
+    quadraticProperty.link( function( quadratic ) {
+      aProperty.set( quadratic.a );
+      bProperty.set( quadratic.b );
+      cProperty.set( quadratic.c );
+    } );
+
+    Property.multilink( [ aProperty, bProperty, cProperty ], function( a, b, c ) {
+      quadraticProperty.set( new Quadratic( a, b, c ) );
+    } );
 
     // interactive components of the equation
     const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );

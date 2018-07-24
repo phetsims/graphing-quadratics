@@ -34,17 +34,11 @@ define( function( require ) {
     GQScreenView.call( this, model, [ integersViewProperties, decimalsViewProperties ] );
 
     // view for the integers scene
-    const integersInteractiveEquationNode = new IntegersInteractiveEquationNode(
-      model.integersScene.aProperty,
-      model.integersScene.bProperty,
-      model.integersScene.cProperty
-    );
-
     const integersSceneNode = new GQSceneNode(
       model.integersScene,
       this.layoutBounds,
       new StandardFormEquationNode(),
-      integersInteractiveEquationNode,
+      new IntegersInteractiveEquationNode( model.integersScene.quadraticProperty ),
       new IntegersGraphControls(
         integersViewProperties.vertexVisibleProperty,
         integersViewProperties.axisOfSymmetryVisibleProperty,
@@ -54,17 +48,11 @@ define( function( require ) {
     );
 
     // view for the decimals scene
-    const decimalsInteractiveEquationNode = new DecimalsInteractiveEquationNode(
-      model.decimalsScene.aProperty,
-      model.decimalsScene.bProperty,
-      model.decimalsScene.cProperty
-    );
-
     const decimalsSceneNode = new GQSceneNode(
       model.decimalsScene,
       this.layoutBounds,
       new StandardFormEquationNode(),
-      decimalsInteractiveEquationNode,
+      new DecimalsInteractiveEquationNode( model.decimalsScene.quadraticProperty ),
       new DecimalsGraphControls(
         decimalsViewProperties.quadraticTermVisibleProperty,
         decimalsViewProperties.linearTermVisibleProperty,

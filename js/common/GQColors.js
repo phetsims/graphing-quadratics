@@ -22,10 +22,19 @@ define( function( require ) {
     LINEAR_TERM: 'green',
     CONSTANT_TERM: 'black',
     DIRECTRIX: 'green',
-    VERTEX: 'purple',
+    VERTEX: 'rgb( 128, 0, 128 )', // purple
     ROOTS: PhetColorScheme.RED_COLORBLIND,
     A_SYMBOL: 'green',
-    INTERACTIVE_DIRECTRIX: PhetColorScheme.RED_COLORBLIND
+    INTERACTIVE_DIRECTRIX: PhetColorScheme.RED_COLORBLIND,
+
+    // alpha channel (0-1) of the halo around the various manipulators, manually tuned for above colors
+    HALO_ALPHA: {
+      slope: 0.3,
+      intercept: 0.15,
+      x1y1: 0.15,
+      x2y2: 0.35,
+      point: 0.15
+    }
   };
 
   graphingQuadratics.register( 'GQColors', GQColors );

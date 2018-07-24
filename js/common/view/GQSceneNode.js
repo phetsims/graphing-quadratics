@@ -13,11 +13,13 @@ define( function( require ) {
   // modules
   const EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   const inherit = require( 'PHET_CORE/inherit' );
   const Node = require( 'SCENERY/nodes/Node' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Shape = require( 'KITE/Shape' );
+  const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
 
   /**
    * @param {GQScene} model
@@ -30,6 +32,10 @@ define( function( require ) {
    * @constructor
    */
   function GQSceneNode( model, layoutBounds, equationControlsTitleNode, interactiveEquationNode, graphControls, viewProperties, options ) {
+
+    options = _.extend( {
+      hasVertexManipulator: false // only vertex scene has vertex manipulator
+    }, options );
 
     // @public
     this.scene = model;
@@ -53,6 +59,17 @@ define( function( require ) {
       model.graph.yRange.getLength()
     ).transformed( model.modelViewTransform.getMatrix() );
 
+    let vertexManipulator;
+    if ( options.hasVertexManipulator ) {
+      vertexManipulator = new VertexManipulator(
+        GQConstants.MANIPULATOR_RADIUS,
+        model.quadraticProperty,
+        model.graph.xRange,
+        model.graph.yRange,
+        model.modelViewTransform
+      );
+    }
+
     // Create view for the saved quadratics
     const savedQuadraticsLayer = new Node();
 
@@ -68,10 +85,11 @@ define( function( require ) {
     } );
 
     // A layer to contain the quadratics and clip them to the graph area
-    const quadraticsNode = new Node( {
-      children: [ savedQuadraticsLayer, quadraticNode ],
-      clipArea: clipArea
-    } );
+    const quadraticsNode = new Node( { clipArea: clipArea } );
+
+    quadraticsNode.addChild( savedQuadraticsLayer );
+    quadraticsNode.addChild( quadraticNode );
+    if ( options.hasVertexManipulator ) { quadraticsNode.addChild( vertexManipulator ); }
 
     const equationControls = new EquationControls(
       equationControlsTitleNode,

@@ -18,6 +18,8 @@ define( function( require ) {
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
 
   // strings
   const xString = require( 'string!GRAPHING_QUADRATICS/x' );
@@ -32,13 +34,27 @@ define( function( require ) {
   };
 
   /**
-   * @param {Property.<Number>} aProperty - the coefficient for x^2 in the quadratic
-   * @param {Property.<Number>} hProperty - the coefficient for x in the quadratic
-   * @param {Property.<Number>} kProperty - the constant term in the quadratic
+   * @param {Property.<Quadratic|undefined>} quadraticProperty
    * @param {Object} [options]
    * @constructor
    */
-  function VertexInteractiveEquationNode( aProperty, hProperty, kProperty, options ) {
+  function VertexInteractiveEquationNode( quadraticProperty, options ) {
+
+    var aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+    var hProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } ) ;
+    var kProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } ) ;
+
+    quadraticProperty.link( function( quadratic ) {
+      aProperty.set( quadratic.a );
+      if ( quadratic.vertex ) { // if a is zero, there is no vertex
+        hProperty.set( quadratic.vertex.x );
+        kProperty.set( quadratic.vertex.y );
+      }
+    } );
+
+    Property.multilink( [ aProperty, hProperty, kProperty ], function( a, h, k ) {
+      quadraticProperty.set( Quadratic.createFromVertexForm( a, h, k ) );
+    } );
 
     // interactive components of the equation
     const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );

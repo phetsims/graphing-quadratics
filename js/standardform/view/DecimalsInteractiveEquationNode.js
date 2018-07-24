@@ -17,6 +17,9 @@ define( function( require ) {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const Property = require( 'AXON/Property' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
@@ -43,13 +46,25 @@ define( function( require ) {
   };
 
   /**
-   * @param {Property.<Number>} aProperty - the coefficient for x^2 in the quadratic
-   * @param {Property.<Number>} bProperty - the coefficient for x in the quadratic
-   * @param {Property.<Number>} cProperty - the constant term in the quadratic
+   * @param {Property.<Quadratic|undefined>} quadraticProperty
    * @param {Object} [options]
    * @constructor
    */
-  function DecimalsInteractiveEquationNode( aProperty, bProperty, cProperty, options ) {
+  function DecimalsInteractiveEquationNode( quadraticProperty, options ) {
+
+    var aProperty = new NumberProperty( 1, { range: { min: -6, max: 6 } } ) ;
+    var bProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+    var cProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
+
+    quadraticProperty.link( function( quadratic ) {
+      aProperty.set( quadratic.a );
+      bProperty.set( quadratic.b );
+      cProperty.set( quadratic.c );
+    } );
+
+    Property.multilink( [ aProperty, bProperty, cProperty ], function( a, b, c ) {
+      quadraticProperty.set( new Quadratic( a, b, c ) );
+    } );
 
     const aReadout = new NumberDisplay(
       aProperty,

@@ -96,5 +96,22 @@ define( function( require ) {
     getConstantTerm: function() {
       return new Line( 0, this.c, 1, this.c ); // y = c
     }
+  }, {
+
+    /**
+     * Create a quadratic given a, h, and k from y = a(x - h)^2 + k
+     * @param {number} a
+     * @param {number} h
+     * @param {number} k
+     * @returns {Quadratic}
+     *
+     * @public
+     * @static
+     */
+    createFromVertexForm( a, h, k ) {
+      const b = -2 * a * h;
+      const c = a * h * h + k;
+      return new Quadratic( a, b, c );
+    }
   } );
 } );
