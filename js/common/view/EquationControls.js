@@ -73,7 +73,7 @@ define( function( require ) {
       const contentWidth = Math.max(
         buttons.width,
         interactiveEquationNode.width,
-        ( expandCollapseButton.width + titleNode.width + TITLE_X_SPACING )
+        expandCollapseButton.width + titleNode.width + TITLE_X_SPACING
       );
 
       // Stuff that is hidden when minimized must be attached to this node.
