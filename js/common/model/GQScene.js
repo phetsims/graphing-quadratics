@@ -12,7 +12,6 @@ define( function( require ) {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const ObservableArray = require( 'AXON/ObservableArray' );
   const Property = require( 'AXON/Property' );
@@ -23,65 +22,65 @@ define( function( require ) {
   const GRID_VIEW_UNITS = 530; // max dimension (width or height) of the grid in view coordinates
   const ORIGIN_OFFSET = new Vector2( 315, 330 ); // offset of the graph's origin in view coordinates
 
-  /**
-   * @constructor
-   */
-  function GQScene() {
+  class GQScene {
 
-    // @public graph
-    this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
+    /**
+     * @constructor
+     */
+    constructor() {
 
-    // @public
-    this.quadraticProperty = new Property( new Quadratic( 1, 0, 0 ) );
+      // @public graph
+      this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
-    // @public observable array of saved quadratics
-    this.savedQuadratics = new ObservableArray( [] );
+      // @public
+      this.quadraticProperty = new Property( new Quadratic( 1, 0, 0 ) );
 
-    // view units / model units
-    const modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
-      this.graph.xRange.getLength(),
-      this.graph.yRange.getLength()
-    );
+      // @public observable array of saved quadratics
+      this.savedQuadratics = new ObservableArray( [] );
 
-    // @public model-view transform, created in the model because it's dependent on graph axes ranges.
-    this.modelViewTransform = ModelViewTransform2.createOffsetXYScaleMapping(
-      ORIGIN_OFFSET,
-      modelViewTransformScale,
-      -modelViewTransformScale // y is inverted
-    );
-  }
+      // view units / model units
+      const modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
+        this.graph.xRange.getLength(),
+        this.graph.yRange.getLength()
+      );
 
-  graphingQuadratics.register( 'GQScene', GQScene );
-
-  return inherit( Object, GQScene, {
+      // @public model-view transform, created in the model because it's dependent on graph axes ranges.
+      this.modelViewTransform = ModelViewTransform2.createOffsetXYScaleMapping(
+        ORIGIN_OFFSET,
+        modelViewTransformScale,
+        -modelViewTransformScale // y is inverted
+      );
+    }
 
     /**
      * Resets this scene by resetting each of its properties
      *
      * @public
      */
-    reset: function() {
+    reset() {
       this.quadraticProperty.reset();
       this.clearQuadratics();
-    },
+    }
 
     /**
      * Saves the current quadratic into the list
      *
      * @public
      */
-    saveQuadratic: function() {
+    saveQuadratic() {
       this.clearQuadratics();
       this.savedQuadratics.add( this.quadraticProperty.get().getCopy() );
-    },
+    }
 
     /**
      * Clears the list of saved Quadratics
      *
      * @public
      */
-    clearQuadratics: function() {
+    clearQuadratics() {
       this.savedQuadratics.clear();
     }
-  } );
+  }
+
+  return graphingQuadratics.register( 'GQScene', GQScene );
 } );
