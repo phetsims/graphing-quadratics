@@ -45,15 +45,22 @@ define( function( require ) {
     const kProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } ) ;
 
     quadraticProperty.link( function( quadratic ) {
-      aProperty.set( quadratic.a );
-      if ( quadratic.vertex ) { // if a is zero, there is no vertex
+      if ( quadratic.a !== aProperty.get() ) {
+        aProperty.set( quadratic.a );
+      }
+      if ( quadratic.vertex && quadratic.vertex.x !== hProperty.get() ) {
         hProperty.set( quadratic.vertex.x );
+      }
+      if ( quadratic.vertex && quadratic.vertex.y !== kProperty.get() ) {
         kProperty.set( quadratic.vertex.y );
       }
     } );
 
     Property.multilink( [ aProperty, hProperty, kProperty ], function( a, h, k ) {
-      quadraticProperty.set( Quadratic.createFromVertexForm( a, h, k ) );
+      const newQuadratic = Quadratic.createFromVertexForm( a, h, k );
+      if ( !newQuadratic.equals( quadraticProperty.get() ) ) {
+        quadraticProperty.set( newQuadratic );
+      }
     } );
 
     // interactive components of the equation

@@ -54,13 +54,22 @@ define( function( require ) {
     const cProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } ) ;
 
     quadraticProperty.link( function( quadratic ) {
-      aProperty.set( quadratic.a );
-      bProperty.set( quadratic.b );
-      cProperty.set( quadratic.c );
+      if ( quadratic.a !== aProperty.get() ) {
+        aProperty.set( quadratic.a );
+      }
+      if ( quadratic.b !== bProperty.get() ) {
+        bProperty.set( quadratic.b );
+      }
+      if ( quadratic.c !== cProperty.get() ) {
+        cProperty.set( quadratic.c );
+      }
     } );
 
     Property.multilink( [ aProperty, bProperty, cProperty ], function( a, b, c ) {
-      quadraticProperty.set( new Quadratic( a, b, c ) );
+      const newQuadratic = new Quadratic( a, b, c );
+      if ( !newQuadratic.equals( quadraticProperty.get() ) ) {
+        quadraticProperty.set( new Quadratic( a, b, c ) );
+      }
     } );
 
     const aReadout = new NumberDisplay(

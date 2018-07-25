@@ -42,7 +42,7 @@ define( function( require ) {
     quadraticProperty.link( quadratic => {
       if ( quadratic.vertex) {
         this.visible = true;
-        if ( !quadratic.vertex.equals( vertexProperty.get() ) ) { // Vector2 equality is not recognized by Property
+        if ( !quadratic.vertex.equals( vertexProperty.get() ) ) {
           vertexProperty.set( quadratic.vertex );
         }
       }
@@ -52,8 +52,10 @@ define( function( require ) {
     } );
 
     vertexProperty.link( function( vertex ) {
-      const a = quadraticProperty.get().a;
-      quadraticProperty.set( Quadratic.createFromVertexForm( a, vertex.x, vertex.y ) );
+      const quadratic = quadraticProperty.get();
+      if ( vertex.x !== quadratic.vertex.x || vertex.y !== quadratic.vertex.y ) {
+        quadraticProperty.set( Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y ) );
+      }
     } );
 
     // move the manipulator to match the point

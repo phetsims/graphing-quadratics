@@ -68,6 +68,17 @@ define( function( require ) {
     },
 
     /**
+     * Tests whether this quadratic is equal to the given
+     * @param quadratic
+     * @returns {boolean}
+     *
+     * @public
+     */
+    equals: function( quadratic ) {
+      return this.a === quadratic.a && this.b === quadratic.b && this.c === quadratic.c;
+    },
+
+    /**
      * Get a quadratic of just the ax^2 term
      *
      * @returns {Quadratic}
