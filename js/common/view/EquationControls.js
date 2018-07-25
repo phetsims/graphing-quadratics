@@ -97,7 +97,7 @@ define( function( require ) {
       titleNode.centerY = expandCollapseButton.centerY;
       subContent.top = Math.max( expandCollapseButton.bottom, titleNode.bottom ) + Y_SPACING;
 
-      maximizedProperty.link( function( maximized ) {
+      maximizedProperty.link( maximized => {
         if ( maximized && content.indexOfChild( subContent ) === -1 ) {
           content.addChild( subContent );
         }
