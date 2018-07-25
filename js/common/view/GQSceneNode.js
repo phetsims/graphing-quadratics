@@ -31,7 +31,15 @@ define( function( require ) {
      * @param {LineFormsViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( model, layoutBounds, equationControlsTitleNode, interactiveEquationNode, graphControls, viewProperties, options ) {
+    constructor(
+      model,
+      layoutBounds,
+      equationControlsTitleNode,
+      interactiveEquationNode,
+      graphControls,
+      viewProperties,
+      options
+    ) {
 
       options = _.extend( {
         hasVertexManipulator: false // only vertex scene has vertex manipulator
@@ -73,15 +81,15 @@ define( function( require ) {
       // Create view for the saved quadratics
       const savedQuadraticsLayer = new Node();
 
-      model.savedQuadratics.addItemAddedListener( function( addedQuadratic ) {
+      model.savedQuadratics.addItemAddedListener( addedQuadratic => {
         const newQuadraticNode = quadraticNode.createPathWithColor( addedQuadratic, 'blue' );
         savedQuadraticsLayer.addChild( newQuadraticNode );
 
-        model.savedQuadratics.addItemRemovedListener( ( function( removedQuadratic ) {
+        model.savedQuadratics.addItemRemovedListener( removedQuadratic => {
           if ( removedQuadratic === addedQuadratic ) {
             savedQuadraticsLayer.removeChild( newQuadraticNode );
           }
-        } ) );
+        } );
       } );
 
       // A layer to contain the quadratics and clip them to the graph area
