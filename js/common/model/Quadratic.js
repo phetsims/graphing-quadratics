@@ -46,7 +46,7 @@ define( function( require ) {
         this.focus = new Vector2( h, k + p );
         this.directrix = new Line( 0, k - p, 1, k - p, 'green' ); // y = k - p
         this.roots = Util.solveQuadraticRootsReal( a, b, c )
-          .map( function( root ) { return new Vector2( root, 0 ); } );
+          .map( root => new Vector2( root, 0 ) );
       }
       else { // not a quadratic
         this.axisOfSymmetry = NotALine();
