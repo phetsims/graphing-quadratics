@@ -10,52 +10,49 @@ define( function( require ) {
 
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Line = require( 'GRAPHING_LINES/common/model/Line' );
   const NotALine = require( 'GRAPHING_LINES/linegame/model/NotALine' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
 
-  /**
-   * @param a
-   * @param b
-   * @param c
-   * @constructor
-   */
-  function Quadratic( a, b, c ) {
+  class Quadratic {
 
-    // @public
-    this.a = a;
-    this.b = b;
-    this.c = c;
-
-    // calculate more information about the quadratic
-    // see http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
-
-    if ( a !== 0 ) { // is a quadratic
-
-      // turn ax^2 + bx + c into 4p(y-k)=(x-h)^2
-      const h = -b / ( 2 * a );
-      const k = c - b * b / ( 4 * a );
-      const p = 1 / ( 4 * a );
+    /**
+     * @param a
+     * @param b
+     * @param c
+     * @constructor
+     */
+    constructor( a, b, c ) {
 
       // @public
-      this.vertex = new Vector2 ( h, k );
-      this.axisOfSymmetry = new Line( h, 0, h, 1, 'purple' ); // x = h;
-      this.focus = new Vector2( h, k + p );
-      this.directrix = new Line( 0, k - p, 1, k - p, 'green' ); // y = k - p
-      this.roots = Util.solveQuadraticRootsReal( a, b, c )
-        .map( function( root ) { return new Vector2( root, 0 ); } );
-    }
-    else { // not a quadratic
-      this.axisOfSymmetry = NotALine();
-      this.directrix = NotALine();
-    }
-  }
+      this.a = a;
+      this.b = b;
+      this.c = c;
 
-  graphingQuadratics.register( 'Quadratic', Quadratic );
+      // calculate more information about the quadratic
+      // see http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
 
-  return inherit( Object, Quadratic, {
+      if ( a !== 0 ) { // is a quadratic
+
+        // turn ax^2 + bx + c into 4p(y-k)=(x-h)^2
+        const h = -b / ( 2 * a );
+        const k = c - b * b / ( 4 * a );
+        const p = 1 / ( 4 * a );
+
+        // @public
+        this.vertex = new Vector2( h, k );
+        this.axisOfSymmetry = new Line( h, 0, h, 1, 'purple' ); // x = h;
+        this.focus = new Vector2( h, k + p );
+        this.directrix = new Line( 0, k - p, 1, k - p, 'green' ); // y = k - p
+        this.roots = Util.solveQuadraticRootsReal( a, b, c )
+          .map( function( root ) { return new Vector2( root, 0 ); } );
+      }
+      else { // not a quadratic
+        this.axisOfSymmetry = NotALine();
+        this.directrix = NotALine();
+      }
+    }
 
     /**
      * Get a copy of this quadratic
@@ -63,9 +60,9 @@ define( function( require ) {
      * @returns {Quadratic}
      * @public
      */
-    getCopy: function() {
+    getCopy() {
       return new Quadratic( this.a, this.b, this.c );
-    },
+    }
 
     /**
      * Tests whether this quadratic is equal to the given
@@ -74,9 +71,9 @@ define( function( require ) {
      *
      * @public
      */
-    equals: function( quadratic ) {
+    equals( quadratic ) {
       return this.a === quadratic.a && this.b === quadratic.b && this.c === quadratic.c;
-    },
+    }
 
     /**
      * Get a quadratic of just the ax^2 term
@@ -84,9 +81,9 @@ define( function( require ) {
      * @returns {Quadratic}
      * @public
      */
-    getQuadraticTerm: function() {
+    getQuadraticTerm() {
       return new Quadratic( this.a, 0, 0 ); // y = ax^2
-    },
+    }
 
     /**
      * Get a quadratic of just the bx term
@@ -94,9 +91,9 @@ define( function( require ) {
      * @returns {Line}
      * @public
      */
-    getLinearTerm: function() {
+    getLinearTerm() {
       return new Line( 0, 0, 1, this.b, 'green' ); // y = bx
-    },
+    }
 
     /**
      * Get a quadratic of just c term
@@ -104,10 +101,9 @@ define( function( require ) {
      * @returns {Line}
      * @public
      */
-    getConstantTerm: function() {
+    getConstantTerm() {
       return new Line( 0, this.c, 1, this.c ); // y = c
     }
-  }, {
 
     /**
      * Create a quadratic given a, h, and k from y = a(x - h)^2 + k
@@ -119,10 +115,12 @@ define( function( require ) {
      * @public
      * @static
      */
-    createFromVertexForm( a, h, k ) {
+    static createFromVertexForm( a, h, k ) {
       const b = -2 * a * h;
       const c = a * h * h + k;
       return new Quadratic( a, b, c );
     }
-  } );
+  }
+
+  return graphingQuadratics.register( 'Quadratic', Quadratic );
 } );
