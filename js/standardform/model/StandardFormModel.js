@@ -13,23 +13,26 @@ define( function( require ) {
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
 
-  /**
-   * @constructor
-   */
-  function StandardFormModel() {
+  class StandardFormModel extends GQModel {
 
-    // @public
-    this.integersScene = new GQScene();
-    this.integersScene.icon = GQIconFactory.createIntegersIcon();
-    this.decimalsScene = new GQScene();
-    this.decimalsScene.icon = GQIconFactory.createDecimalsIcon();
+    /**
+     * @constructor
+     */
+    constructor() {
 
-    GQModel.call( this, [ this.integersScene, this.decimalsScene ] );
+      const integersScene = new GQScene();
+      const decimalsScene = new GQScene();
+
+      super( [ integersScene, decimalsScene ] );
+
+      // @public
+      this.integersScene = integersScene;
+      this.integersScene.icon = GQIconFactory.createIntegersIcon();
+      this.decimalsScene = decimalsScene;
+      this.decimalsScene.icon = GQIconFactory.createDecimalsIcon();
+    }
   }
 
-  graphingQuadratics.register( 'StandardFormModel', StandardFormModel );
-
-  return inherit( GQModel, StandardFormModel );
+  return graphingQuadratics.register( 'StandardFormModel', StandardFormModel );
 } );

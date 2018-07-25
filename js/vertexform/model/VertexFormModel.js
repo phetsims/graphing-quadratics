@@ -13,20 +13,21 @@ define( function( require ) {
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
 
-  /**
-   * @constructor
-   */
-  function VertexFormModel() {
+  class VertexFormModel extends GQModel {
+    /**
+     * @constructor
+     */
+    constructor() {
 
-    // @public
-    this.vertexScene = new GQScene();
-    
-    GQModel.call( this, [ this.vertexScene ] );
+      const vertexScene = new GQScene();
+
+      super( [ vertexScene ] );
+
+      // @public
+      this.vertexScene = vertexScene;
+    }
   }
 
-  graphingQuadratics.register( 'VertexFormModel', VertexFormModel );
-
-  return inherit( GQModel, VertexFormModel );
+  return graphingQuadratics.register( 'VertexFormModel', VertexFormModel );
 } );

@@ -11,36 +11,34 @@ define( function( require ) {
 
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Property = require( 'AXON/Property' );
 
-  /**
-   * @param {GQScene[]} scenes
-   * @constructor
-   */
-  function GQModel( scenes ) {
+  class GQModel {
 
-    // @public {GQScene[]} scenes, in the order that they appear from left-to-right as radio buttons
-    this.scenes = scenes;
+    /**
+     * @param {GQScene[]} scenes
+     */
+    constructor( scenes ) {
 
-    // @public {Property.<Scene>} the selected scene
-    this.sceneProperty = new Property( scenes[ 0 ], {
-      validValues: scenes
-    } );
-  }
+      // @public {GQScene[]} scenes, in the order that they appear from left-to-right as radio buttons
+      this.scenes = scenes;
 
-  graphingQuadratics.register( 'GQModel', GQModel );
-
-  return inherit( Object, GQModel, {
+      // @public {Property.<Scene>} the selected scene
+      this.sceneProperty = new Property( scenes[ 0 ], {
+        validValues: scenes
+      } );
+    }
 
     /**
      * Resets this model by resetting each of its scenes
      *
      * @public
      */
-    reset: function() {
+    reset() {
       this.scenes.forEach( function( scene ) { scene.reset(); } );
       this.sceneProperty.reset();
     }
-  } );
+  }
+
+  return graphingQuadratics.register( 'GQModel', GQModel );
 } );
