@@ -16,9 +16,6 @@ define( function( require ) {
 
   class StandardFormModel extends GQModel {
 
-    /**
-     * @constructor
-     */
     constructor() {
 
       const integersScene = new GQScene();

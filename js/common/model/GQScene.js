@@ -24,9 +24,6 @@ define( function( require ) {
 
   class GQScene {
 
-    /**
-     * @constructor
-     */
     constructor() {
 
       // @public graph

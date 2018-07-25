@@ -15,9 +15,7 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
   class VertexFormModel extends GQModel {
-    /**
-     * @constructor
-     */
+
     constructor() {
 
       const vertexScene = new GQScene();

@@ -18,10 +18,10 @@ define( function( require ) {
   class Quadratic {
 
     /**
-     * @param a
-     * @param b
-     * @param c
-     * @constructor
+     *
+     * @param {number} a
+     * @param {number} b
+     * @param {number} c
      */
     constructor( a, b, c ) {
 
@@ -113,7 +113,6 @@ define( function( require ) {
      * @returns {Quadratic}
      *
      * @public
-     * @static
      */
     static createFromVertexForm( a, h, k ) {
       const b = -2 * a * h;
