@@ -28,7 +28,7 @@ define( function( require ) {
 
       // @public
       this.integersScene = integersScene;
-      this.integersScene.icon = GQIconFactory.createIntegersIcon();
+      this.integersScene.icon = GQIconFactory.createIntegersIcon(); // TODO, maybe create another way to store icon
       this.decimalsScene = decimalsScene;
       this.decimalsScene.icon = GQIconFactory.createDecimalsIcon();
     }
