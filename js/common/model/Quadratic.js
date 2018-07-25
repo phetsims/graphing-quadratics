@@ -18,7 +18,6 @@ define( function( require ) {
   class Quadratic {
 
     /**
-     *
      * @param {number} a
      * @param {number} b
      * @param {number} c
@@ -55,63 +54,41 @@ define( function( require ) {
     }
 
     /**
-     * Get a copy of this quadratic
-     *
-     * @returns {Quadratic}
-     * @public
-     */
-    getCopy() {
-      return new Quadratic( this.a, this.b, this.c );
-    }
-
-    /**
      * Tests whether this quadratic is equal to the given
      * @param quadratic
      * @returns {boolean}
-     *
      * @public
      */
     equals( quadratic ) {
       return this.a === quadratic.a && this.b === quadratic.b && this.c === quadratic.c;
     }
 
-    /**
-     * Get a quadratic of just the ax^2 term
-     *
-     * @returns {Quadratic}
-     * @public
-     */
+    // @public Creates a {Quadratic} copy of this
+    getCopy() {
+      return new Quadratic( this.a, this.b, this.c );
+    }
+
+    // @public Creates a new {Quadratic} quadratic based on just the ax^2 term of y=ax^2 + bx + c
     getQuadraticTerm() {
       return new Quadratic( this.a, 0, 0 ); // y = ax^2
     }
 
-    /**
-     * Get a quadratic of just the bx term
-     *
-     * @returns {Line}
-     * @public
-     */
+    // @public Creates a {Line} line based on just the bx term of y=ax^2 + bx + c
     getLinearTerm() {
       return new Line( 0, 0, 1, this.b, 'green' ); // y = bx
     }
 
-    /**
-     * Get a quadratic of just c term
-     *
-     * @returns {Line}
-     * @public
-     */
+    // @public Creates a {Line} line based on just the c term of y=ax^2 + bx + c
     getConstantTerm() {
       return new Line( 0, this.c, 1, this.c ); // y = c
     }
 
     /**
-     * Create a quadratic given a, h, and k from y = a(x - h)^2 + k
+     * Creates a quadratic given a, h, and k based on the equation y = a(x - h)^2 + k
      * @param {number} a
      * @param {number} h
      * @param {number} k
      * @returns {Quadratic}
-     *
      * @public
      */
     static createFromVertexForm( a, h, k ) {
