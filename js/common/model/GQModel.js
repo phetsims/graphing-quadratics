@@ -35,7 +35,9 @@ define( function( require ) {
      * @public
      */
     reset() {
-      this.scenes.forEach( function( scene ) { scene.reset(); } );
+      this.scenes.forEach( scene => {
+        scene.reset();
+      } );
       this.sceneProperty.reset();
     }
   }
