@@ -29,12 +29,11 @@ define( function( require ) {
       this.b = b;
       this.c = c;
 
-      // calculate more information about the quadratic
-      // see http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
+      // This is a quadratic because a is nonzero. Determine more information about it.
+      if ( a !== 0 ) {
 
-      if ( a !== 0 ) { // is a quadratic
-
-        // turn ax^2 + bx + c into 4p(y-k)=(x-h)^2
+        // turn y = ax^2 + bx + c into 4p(y - k) = (x - h)^2
+        // see http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
         const h = -b / ( 2 * a );
         const k = c - b * b / ( 4 * a );
         const p = 1 / ( 4 * a );
@@ -44,10 +43,9 @@ define( function( require ) {
         this.axisOfSymmetry = new Line( h, 0, h, 1, 'purple' ); // x = h;
         this.focus = new Vector2( h, k + p );
         this.directrix = new Line( 0, k - p, 1, k - p, 'green' ); // y = k - p
-        this.roots = Util.solveQuadraticRootsReal( a, b, c )
-          .map( root => new Vector2( root, 0 ) );
+        this.roots = Util.solveQuadraticRootsReal( a, b, c ).map( root => new Vector2( root, 0 ) );
       }
-      else { // not a quadratic
+      else { // This is not a quadratic because a is zero.
         this.axisOfSymmetry = NotALine();
         this.directrix = NotALine();
       }
