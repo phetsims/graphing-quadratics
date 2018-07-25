@@ -18,7 +18,6 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const HStrut = require( 'SCENERY/nodes/HStrut' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Panel = require( 'SUN/Panel' );
@@ -32,84 +31,84 @@ define( function( require ) {
   const TITLE_X_SPACING = 5;
   const SAVE_ICON = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
 
-  /**
-   * @param {Node} titleNode - a display of the general form of the equation
-   * @param {Node} interactiveEquationNode - interactive equation
-   * @param {function} saveFunction
-   * @param {function} eraseFunction
-   * @param {Object} [options]
-   * @constructor
-   */
-  function EquationControls( titleNode, interactiveEquationNode, saveFunction, eraseFunction, options ) {
+  class EquationControls extends Panel {
 
-    options = _.extend( {
-      fill: GQColors.CONTROL_PANEL_BACKGROUND,
-      xMargin: 10,
-      yMargin: 10
-    }, options );
+    /**
+     * @param {Node} titleNode - a display of the general form of the equation
+     * @param {Node} interactiveEquationNode - interactive equation
+     * @param {function} saveFunction
+     * @param {function} eraseFunction
+     * @param {Object} [options]
+     */
+    constructor( titleNode, interactiveEquationNode, saveFunction, eraseFunction, options ) {
 
-    // TODO: temporary. will be passed in as parameters.
-    const maximizedProperty = new BooleanProperty( true );
+      options = _.extend( {
+        fill: GQColors.CONTROL_PANEL_BACKGROUND,
+        xMargin: 10,
+        yMargin: 10
+      }, options );
 
-    // Expand/collapse button
-    const expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
+      // TODO: temporary. will be passed in as parameters.
+      const maximizedProperty = new BooleanProperty( true );
 
-    // Save line button
-    const saveButton = new RectangularPushButton( {
-      content: SAVE_ICON,
-      baseColor: PhetColorScheme.BUTTON_YELLOW,
-      listener: saveFunction
-    } );
+      // Expand/collapse button
+      const expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
 
-    // Erase lines button
-    const eraseButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
+      // Save line button
+      const saveButton = new RectangularPushButton( {
+        content: SAVE_ICON,
+        baseColor: PhetColorScheme.BUTTON_YELLOW,
+        listener: saveFunction
+      } );
 
-    // horizontal layout of buttons
-    const buttons = new HBox( {
-      children: [ saveButton, eraseButton ],
-      spacing: 40
-    } );
+      // Erase lines button
+      const eraseButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
 
-    const contentWidth = Math.max(
-      buttons.width,
-      interactiveEquationNode.width,
-      ( expandCollapseButton.width + titleNode.width + TITLE_X_SPACING )
-    );
+      // horizontal layout of buttons
+      const buttons = new HBox( {
+        children: [ saveButton, eraseButton ],
+        spacing: 40
+      } );
 
-    // Stuff that is hidden when minimized must be attached to this node.
-    const separatorColor = 'rgb( 212, 212, 212 )';
-    const subContent = new VBox( {
-      spacing: Y_SPACING,
-      align: 'center',
-      children: [
-        new Line( 0, 0, contentWidth, 0, { stroke: separatorColor } ),
-        interactiveEquationNode,
-        new Line( 0, 0, contentWidth, 0, { stroke: separatorColor } ),
-        buttons
-      ]
-    } );
+      const contentWidth = Math.max(
+        buttons.width,
+        interactiveEquationNode.width,
+        ( expandCollapseButton.width + titleNode.width + TITLE_X_SPACING )
+      );
 
-    // Top-level content, with strut to prevent panel from resizing
-    const content = new Node( {
-      children: [ new HStrut( contentWidth ), expandCollapseButton, titleNode, subContent  ]
-    } );
-    titleNode.centerX = contentWidth / 2;
-    titleNode.centerY = expandCollapseButton.centerY;
-    subContent.top = Math.max( expandCollapseButton.bottom, titleNode.bottom ) + Y_SPACING;
+      // Stuff that is hidden when minimized must be attached to this node.
+      const separatorColor = 'rgb( 212, 212, 212 )';
+      const subContent = new VBox( {
+        spacing: Y_SPACING,
+        align: 'center',
+        children: [
+          new Line( 0, 0, contentWidth, 0, { stroke: separatorColor } ),
+          interactiveEquationNode,
+          new Line( 0, 0, contentWidth, 0, { stroke: separatorColor } ),
+          buttons
+        ]
+      } );
 
-    maximizedProperty.link( function( maximized ) {
-      if ( maximized && content.indexOfChild( subContent ) === -1 ) {
-        content.addChild( subContent );
-      }
-      else if ( !maximized && content.indexOfChild( subContent ) !== -1 ) {
-        content.removeChild( subContent );
-      }
-    } );
+      // Top-level content, with strut to prevent panel from resizing
+      const content = new Node( {
+        children: [ new HStrut( contentWidth ), expandCollapseButton, titleNode, subContent ]
+      } );
+      titleNode.centerX = contentWidth / 2;
+      titleNode.centerY = expandCollapseButton.centerY;
+      subContent.top = Math.max( expandCollapseButton.bottom, titleNode.bottom ) + Y_SPACING;
 
-    Panel.call( this, content, options );
+      maximizedProperty.link( function( maximized ) {
+        if ( maximized && content.indexOfChild( subContent ) === -1 ) {
+          content.addChild( subContent );
+        }
+        else if ( !maximized && content.indexOfChild( subContent ) !== -1 ) {
+          content.removeChild( subContent );
+        }
+      } );
+
+      super( content, options );
+    }
   }
 
-  graphingQuadratics.register( 'EquationControls', EquationControls );
-
-  return inherit( Panel, EquationControls );
+  return graphingQuadratics.register( 'EquationControls', EquationControls );
 } );
