@@ -22,7 +22,8 @@ define( function( require ) {
   const NUMBER_PROPERTY = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
 
   const GQIconFactory = {
-    createIntegersIcon: function() {
+
+    createIntegersIcon() {
       const numberPicker = new NumberPicker(
         NUMBER_PROPERTY,
         new Property( NUMBER_PROPERTY.range ),
@@ -35,7 +36,8 @@ define( function( require ) {
       );
       return new Node( { children: [ numberPicker ], pickable: false } );
     },
-    createDecimalsIcon: function() {
+
+    createDecimalsIcon() {
       const verticalSlider = new SliderUnit( '', NUMBER_PROPERTY, 1, {
         trackSize: new Dimension2( 50, 0.5 ),
         thumbSize: new Dimension2( 15, 25 ),
@@ -46,7 +48,5 @@ define( function( require ) {
     }
   };
 
-  graphingQuadratics.register( 'GQIconFactory', GQIconFactory );
-
-  return GQIconFactory;
+  return graphingQuadratics.register( 'GQIconFactory', GQIconFactory );
 } );
