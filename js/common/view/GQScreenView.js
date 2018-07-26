@@ -29,7 +29,7 @@ define( function( require ) {
       const resetAllButton = new ResetAllButton( {
         listener: function() {
           model.reset();
-          viewPropertiess.forEach( function( viewProperties ) { viewProperties.reset(); } );
+          viewPropertiess.forEach( viewProperties => { viewProperties.reset(); } );
         },
         right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
         bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN
