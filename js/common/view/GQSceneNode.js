@@ -43,9 +43,6 @@ define( function( require ) {
 
       super( options );
 
-      // @public
-      this.scene = model;
-
       // the graph and quadratics and lines and draggable point manipulator
       const graphAndLinesNode = new GraphAndLinesNode(
         model,
@@ -68,6 +65,7 @@ define( function( require ) {
 
       // @public
       this.controlsParent = controlsParent;
+      this.scene = model;
 
       // rendering order
       this.addChild( controlsParent );
