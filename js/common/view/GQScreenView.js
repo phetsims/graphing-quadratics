@@ -12,36 +12,35 @@ define( function( require ) {
   // modules
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   const ScreenView = require( 'JOIST/ScreenView' );
 
-  /**
-   * @param {GQModel} model
-   * @param {LineFormViewProperties[]} viewPropertiess
-   * @constructor
-   */
-  function GQScreenView( model, viewPropertiess ) {
+  class GQScreenView extends ScreenView {
 
-    ScreenView.call( this, GQConstants.SCREEN_VIEW_OPTIONS );
+    /**
+     * @param {GQModel} model
+     * @param {LineFormViewProperties[]} viewPropertiess
+     */
+    constructor( model, viewPropertiess ) {
 
-    // Reset All Button
-    const resetAllButton = new ResetAllButton( {
-      listener: function() {
-        model.reset();
-        viewPropertiess.forEach( function( viewProperties ) { viewProperties.reset(); } );
-      },
-      right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
-      bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN
-    } );
+      super( GQConstants.SCREEN_VIEW_OPTIONS );
 
-    this.addChild( resetAllButton );
+      // Reset All Button
+      const resetAllButton = new ResetAllButton( {
+        listener: function() {
+          model.reset();
+          viewPropertiess.forEach( function( viewProperties ) { viewProperties.reset(); } );
+        },
+        right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
+        bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN
+      } );
 
-    // @protected
-    this.resetAllButton = resetAllButton;
+      this.addChild( resetAllButton );
+
+      // @protected
+      this.resetAllButton = resetAllButton;
+    }
   }
 
-  graphingQuadratics.register( 'GQScreenView', GQScreenView );
-
-  return inherit( ScreenView, GQScreenView );
+  return graphingQuadratics.register( 'GQScreenView', GQScreenView );
 } );

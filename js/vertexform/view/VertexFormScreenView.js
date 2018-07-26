@@ -12,37 +12,36 @@ define( function( require ) {
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
   const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
   const VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
   const VertexInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexInteractiveEquationNode' );
 
-  /**
-   * @param {VertexFormModel} model
-   * @constructor
-   */
-  function VertexFormScreenView( model ) {
+  class VertexFormScreenView extends GQScreenView{
 
-    const vertexViewProperties = new LineFormsViewProperties();
+    /**
+     * @param {VertexFormModel} model
+     */
+    constructor( model ) {
 
-    GQScreenView.call( this, model, [ vertexViewProperties ] );
+      const vertexViewProperties = new LineFormsViewProperties();
 
-    this.addChild( new GQSceneNode(
-      model.vertexScene,
-      this.layoutBounds,
-      new VertexFormEquationNode(),
-      new VertexInteractiveEquationNode( model.vertexScene.quadraticProperty ),
-      new VertexGraphControls(
-        vertexViewProperties.axisOfSymmetryVisibleProperty,
-        vertexViewProperties.directrixVisibleProperty
-      ),
-      vertexViewProperties,
-      { hasVertexManipulator: true }
-    ) );
+      super( model, [ vertexViewProperties ] );
+
+      this.addChild( new GQSceneNode(
+        model.vertexScene,
+        this.layoutBounds,
+        new VertexFormEquationNode(),
+        new VertexInteractiveEquationNode( model.vertexScene.quadraticProperty ),
+        new VertexGraphControls(
+          vertexViewProperties.axisOfSymmetryVisibleProperty,
+          vertexViewProperties.directrixVisibleProperty
+        ),
+        vertexViewProperties,
+        { hasVertexManipulator: true }
+      ) );
+    }
   }
 
-  graphingQuadratics.register( 'VertexFormScreenView', VertexFormScreenView );
-
-  return inherit( GQScreenView, VertexFormScreenView );
+  return graphingQuadratics.register( 'VertexFormScreenView', VertexFormScreenView );
 } );

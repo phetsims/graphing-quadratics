@@ -14,78 +14,77 @@ define( function( require ) {
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const IntegersGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersGraphControls' );
   const IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
   const LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
   const SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
   const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
 
-  /**
-   * @param {StandardFormModel} model
-   * @constructor
-   */
-  function StandardFormScreenView( model ) {
+  class StandardFormScreenView extends GQScreenView {
 
-    const integersViewProperties = new LineFormsViewProperties();
+    /**
+     * @param {StandardFormModel} model
+     */
+    constructor( model ) {
 
-    const decimalsViewProperties = new LineFormsViewProperties();
+      const integersViewProperties = new LineFormsViewProperties();
 
-    GQScreenView.call( this, model, [ integersViewProperties, decimalsViewProperties ] );
+      const decimalsViewProperties = new LineFormsViewProperties();
 
-    // view for the integers scene
-    const integersSceneNode = new GQSceneNode(
-      model.integersScene,
-      this.layoutBounds,
-      new StandardFormEquationNode(),
-      new IntegersInteractiveEquationNode( model.integersScene.quadraticProperty ),
-      new IntegersGraphControls(
-        integersViewProperties.vertexVisibleProperty,
-        integersViewProperties.axisOfSymmetryVisibleProperty,
-        integersViewProperties.rootsVisibleProperty
-      ),
-      integersViewProperties
-    );
+      super( model, [ integersViewProperties, decimalsViewProperties ] );
 
-    // view for the decimals scene
-    const decimalsSceneNode = new GQSceneNode(
-      model.decimalsScene,
-      this.layoutBounds,
-      new StandardFormEquationNode(),
-      new DecimalsInteractiveEquationNode( model.decimalsScene.quadraticProperty ),
-      new DecimalsGraphControls(
-        decimalsViewProperties.quadraticTermVisibleProperty,
-        decimalsViewProperties.linearTermVisibleProperty,
-        decimalsViewProperties.constantTermVisibleProperty
-      ),
-      decimalsViewProperties
-    );
+      // view for the integers scene
+      const integersSceneNode = new GQSceneNode(
+        model.integersScene,
+        this.layoutBounds,
+        new StandardFormEquationNode(),
+        new IntegersInteractiveEquationNode( model.integersScene.quadraticProperty ),
+        new IntegersGraphControls(
+          integersViewProperties.vertexVisibleProperty,
+          integersViewProperties.axisOfSymmetryVisibleProperty,
+          integersViewProperties.rootsVisibleProperty
+        ),
+        integersViewProperties
+      );
 
-    // managing the scene nodes
-    const sceneNodes = [ integersSceneNode, decimalsSceneNode ];
+      // view for the decimals scene
+      const decimalsSceneNode = new GQSceneNode(
+        model.decimalsScene,
+        this.layoutBounds,
+        new StandardFormEquationNode(),
+        new DecimalsInteractiveEquationNode( model.decimalsScene.quadraticProperty ),
+        new DecimalsGraphControls(
+          decimalsViewProperties.quadraticTermVisibleProperty,
+          decimalsViewProperties.linearTermVisibleProperty,
+          decimalsViewProperties.constantTermVisibleProperty
+        ),
+        decimalsViewProperties
+      );
 
-    sceneNodes.forEach( sceneNode => { this.addChild( sceneNode ); } );
+      // managing the scene nodes
+      const sceneNodes = [ integersSceneNode, decimalsSceneNode ];
 
-    // Get the bounds of the control panels
-    const controlsParent = sceneNodes[ 0 ].controlsParent;
+      sceneNodes.forEach( sceneNode => { this.addChild( sceneNode ); } );
 
-    // Center the scene control in the space below the Snapshots accordion box
-    const sceneControl = new SceneControl( model.sceneProperty, model.scenes, {
-      centerX: controlsParent.centerX,
-      bottom: this.resetAllButton.bottom,
-      buttonContentYMargin: 0
-    } );
-    this.addChild( sceneControl );
+      // Get the bounds of the control panels
+      const controlsParent = sceneNodes[ 0 ].controlsParent;
 
-    // Make the selected scene visible. unlink not needed, as scenes last for the entire life of the sim.
-    model.sceneProperty.link( function( scene ) {
-      for ( let i = 0; i < sceneNodes.length; i++ ) {
-        sceneNodes[ i ].visible = ( sceneNodes[ i ].scene === scene );
-      }
-    } );
+      // Center the scene control in the space below the Snapshots accordion box
+      const sceneControl = new SceneControl( model.sceneProperty, model.scenes, {
+        centerX: controlsParent.centerX,
+        bottom: this.resetAllButton.bottom,
+        buttonContentYMargin: 0
+      } );
+      this.addChild( sceneControl );
+
+      // Make the selected scene visible. unlink not needed, as scenes last for the entire life of the sim.
+      model.sceneProperty.link( function( scene ) {
+        for ( let i = 0; i < sceneNodes.length; i++ ) {
+          sceneNodes[ i ].visible = ( sceneNodes[ i ].scene === scene );
+        }
+      } );
+    }
   }
 
-  graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
-
-  return inherit( GQScreenView, StandardFormScreenView );
+  return graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
 } );
