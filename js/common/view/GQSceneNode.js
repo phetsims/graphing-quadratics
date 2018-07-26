@@ -13,12 +13,8 @@ define( function( require ) {
   // modules
   const EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
-  const Shape = require( 'KITE/Shape' );
-  const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
+  const GraphAndLinesNode = require( 'GRAPHING_QUADRATICS/common/view/GraphAndLinesNode' );
 
   class GQSceneNode extends Node {
 
@@ -50,54 +46,13 @@ define( function( require ) {
       // @public
       this.scene = model;
 
-      // Graph Node - the cartesian coordinates graph
-      const graphNode = new GraphNode( model.graph, model.modelViewTransform );
-
-      // Creating the view for the quadratics
-      const quadraticNode = new QuadraticNode(
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties
+      // the graph and quadratics and lines and draggable point manipulator
+      const graphAndLinesNode = new GraphAndLinesNode(
+        model,
+        layoutBounds,
+        viewProperties,
+        { hasVertexManipulator: options.hasVertexManipulator }
       );
-      const clipArea = Shape.rectangle(
-        model.graph.xRange.min,
-        model.graph.yRange.min,
-        model.graph.xRange.getLength(),
-        model.graph.yRange.getLength()
-      ).transformed( model.modelViewTransform.getMatrix() );
-
-      let vertexManipulator;
-      if ( options.hasVertexManipulator ) {
-        vertexManipulator = new VertexManipulator(
-          GQConstants.MANIPULATOR_RADIUS,
-          model.quadraticProperty,
-          model.graph.xRange,
-          model.graph.yRange,
-          model.modelViewTransform
-        );
-      }
-
-      // Create view for the saved quadratics
-      const savedQuadraticsLayer = new Node();
-
-      model.savedQuadratics.addItemAddedListener( addedQuadratic => {
-        const newQuadraticNode = quadraticNode.createPathWithColor( addedQuadratic, 'blue' );
-        savedQuadraticsLayer.addChild( newQuadraticNode );
-
-        model.savedQuadratics.addItemRemovedListener( removedQuadratic => {
-          if ( removedQuadratic === addedQuadratic ) {
-            savedQuadraticsLayer.removeChild( newQuadraticNode );
-          }
-        } );
-      } );
-
-      // A layer to contain the quadratics and clip them to the graph area
-      const quadraticsNode = new Node( { clipArea: clipArea } );
-
-      quadraticsNode.addChild( savedQuadraticsLayer );
-      quadraticsNode.addChild( quadraticNode );
-      if ( options.hasVertexManipulator ) { quadraticsNode.addChild( vertexManipulator ); }
 
       const equationControls = new EquationControls(
         equationControlsTitleNode,
@@ -116,10 +71,9 @@ define( function( require ) {
 
       // rendering order
       this.addChild( controlsParent );
-      this.addChild( graphNode );
-      this.addChild( quadraticsNode );
+      this.addChild( graphAndLinesNode );
 
-      // layout - position of graphNode is determined by model
+      // layout - position of graphAndLinesNode is determined by model
 
       // position of control panels:
       const xMargin = 10;
@@ -127,7 +81,7 @@ define( function( require ) {
       const ySpacing = 15;
 
       // get the amount of canvas width that's available for the control panels
-      const availableControlPanelWidth = layoutBounds.width - graphNode.right - ( 2 * xMargin );
+      const availableControlPanelWidth = layoutBounds.width - graphAndLinesNode.right - ( 2 * xMargin );
 
       // if either control panel is too wide, scale it
       if ( equationControls.width > availableControlPanelWidth ) {
@@ -144,7 +98,7 @@ define( function( require ) {
       graphControls.top = equationControls.bottom + ySpacing;
 
       // center controls in the space to the right of the graph
-      controlsParent.centerX = graphNode.right + xMargin + ( availableControlPanelWidth / 2 );
+      controlsParent.centerX = graphAndLinesNode.right + xMargin + ( availableControlPanelWidth / 2 );
       controlsParent.top = yMargin;
     }
   }
