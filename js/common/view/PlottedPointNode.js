@@ -3,34 +3,34 @@
 /**
  * A plotted point on a graph, not interactive.
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Andrea Lin
  */
 define( function( require ) {
   'use strict';
 
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Circle = require( 'SCENERY/nodes/Circle' );
 
-  /**
-   * @param {number} radius
-   * @param {Color|String} color
-   * @param {Object} [options]
-   * @constructor
-   */
-  function PlottedPointNode( radius, color, options ) {
+  class PlottedPointNode extends Circle{
 
-    options = _.extend( {
-      fill: color,
-      stroke: color,
-      lineWidth: 1
-    }, options );
+    /**
+     * @param {number} radius
+     * @param {Color|String} color
+     * @param {Object} [options]
+     * @constructor
+     */
+    constructor( radius, color, options ) {
 
-    Circle.call( this, radius, options );
+      options = _.extend( {
+        fill: color,
+        stroke: color,
+        lineWidth: 1
+      }, options );
+
+      super( radius, options );
+    }
   }
 
-  graphingQuadratics.register( 'PlottedPointNode', PlottedPointNode );
-
-  return inherit( Circle, PlottedPointNode );
+  return graphingQuadratics.register( 'PlottedPointNode', PlottedPointNode );
 } );
