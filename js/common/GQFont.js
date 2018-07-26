@@ -10,32 +10,32 @@ define( function( require ) {
 
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const MathSymbolFont = require( 'SCENERY_PHET/MathSymbolFont' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
 
-  /**
-   * @param {number|*} options font size or font options
-   * @constructor
-   */
-  function GQFont( options ) {
+  class GQFont extends PhetFont {
 
-    // convenience for specifying font size only, e.g. new GQFont(24)
-    if ( typeof options === 'number' ) {
-      options = { size: options };
+    /**
+     * @param {number|*} options font size or font options
+     * @constructor
+     */
+    constructor( options ) {
+
+      // convenience for specifying font size only, e.g. new GQFont(24)
+      if ( typeof options === 'number' ) {
+        options = { size: options };
+      }
+
+      // font attributes, as specified in the design document
+      options = _.extend( {
+        family: 'Tahoma'
+      }, options );
+
+      super( options );
     }
-
-    // font attributes, as specified in the design document
-    options = _.extend( {
-      family: 'Tahoma'
-    }, options );
-
-    PhetFont.call( this, options );
   }
 
   graphingQuadratics.register( 'GQFont', GQFont );
-
-  inherit( PhetFont, GQFont );
 
   // @static @public for use in equations
   GQFont.NUMBER_FONT = new GQFont( {
