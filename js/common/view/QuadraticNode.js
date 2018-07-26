@@ -51,9 +51,7 @@ define( function( require ) {
       } );
       const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
-      viewProperties.quadraticTermVisibleProperty.link( function( visible ) {
-        quadraticTermParentNode.visible = visible;
-      } );
+      viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermParentNode.visible = visible; } );
 
       // @private
       this.quadraticPath = quadraticPath;
@@ -61,9 +59,7 @@ define( function( require ) {
       this.modelViewTransform = modelViewTransform;
 
       // make a property out of quadraticProperty.get().getLinearTerm() in order to pass into LineNode
-      const linearTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
-        return quadratic.getLinearTerm();
-      } );
+      const linearTermProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.getLinearTerm() );
 
       // use the double headed arrow node from graphing-lines as a guide
       const linearTermPath = new LineNode( linearTermProperty, graph, modelViewTransform, { hasArrows: false } );
@@ -71,14 +67,13 @@ define( function( require ) {
       const linearTermParentNode = new Node( { children: [ linearTermPath ] } );
 
       // link linear term line visibility to view property
-      viewProperties.linearTermVisibleProperty.link( function( visible ) {
-        linearTermParentNode.visible = visible;
-      } );
+      viewProperties.linearTermVisibleProperty.link( visible => { linearTermParentNode.visible = visible; } );
 
       // make a property out of quadraticProperty.get().getConstantTerm() in order to pass into LineNode
-      const constantTermProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
-        return quadratic.getConstantTerm();
-      } );
+      const constantTermProperty = new DerivedProperty(
+        [ quadraticProperty ],
+        quadratic => quadratic.getConstantTerm()
+      );
 
       // use the double headed arrow node from graphing-lines as a guide
       const constantTermPath = new LineNode( constantTermProperty, graph, modelViewTransform, { hasArrows: false } );
@@ -86,9 +81,7 @@ define( function( require ) {
       const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
 
       // link constant term line visibility to view property
-      viewProperties.constantTermVisibleProperty.link( function( visible ) {
-        constantTermParentNode.visible = visible;
-      } );
+      viewProperties.constantTermVisibleProperty.link( visible => { constantTermParentNode.visible = visible; } );
 
       const pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
@@ -97,9 +90,7 @@ define( function( require ) {
       const vertexPointParentNode = new Node( { children: [ vertexPoint ] } );
 
       // link vertex point visibility to view property
-      viewProperties.vertexVisibleProperty.link( function( visible ) {
-        vertexPointParentNode.visible = visible;
-      } );
+      viewProperties.vertexVisibleProperty.link( visible => { vertexPointParentNode.visible = visible; } );
 
       // the left most root if there are two roots, and the root if there is one root
       const root0Point = new PlottedPointNode( pointRadius, 'red' );
@@ -110,14 +101,13 @@ define( function( require ) {
       const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
 
       // link roots points to view property
-      viewProperties.rootsVisibleProperty.link( function( visible ) {
-        rootPointsParentNode.visible = visible;
-      } );
+      viewProperties.rootsVisibleProperty.link( visible => { rootPointsParentNode.visible = visible; } );
 
       // make a property out of quadraticProperty.get().axisOfSymmetry in order to pass into LineNode
-      const axisOfSymmetryLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
-        return quadratic.axisOfSymmetry;
-      } );
+      const axisOfSymmetryLineProperty = new DerivedProperty(
+        [ quadraticProperty ],
+        quadratic => quadratic.axisOfSymmetry
+      );
 
       // use the double headed arrow node from graphing-lines as a guide
       const axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
@@ -128,7 +118,7 @@ define( function( require ) {
       const axisOfSymmetryLineParentNode = new Node( { children: [ axisOfSymmetryLine ] } );
 
       // link axis of symmetry line visibility to view property
-      viewProperties.axisOfSymmetryVisibleProperty.link( function( visible ) {
+      viewProperties.axisOfSymmetryVisibleProperty.link( visible => {
         axisOfSymmetryLineParentNode.visible = visible;
       } );
 
@@ -136,9 +126,7 @@ define( function( require ) {
       const focusPoint = new PlottedPointNode( pointRadius, 'green' );
 
       // make a property out of quadraticProperty.get().directrix in order to pass into LineNode
-      const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], function( quadratic ) {
-        return quadratic.directrix;
-      } );
+      const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.directrix );
 
       // use the double headed arrow node from graphing-lines as a guide
       const directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
@@ -149,9 +137,7 @@ define( function( require ) {
       const directrixParentNode = new Node( { children: [ directrixLine, focusPoint ] } );
 
       // link focus point and directrix line visibility to view property
-      viewProperties.directrixVisibleProperty.link( function( visible ) {
-        directrixParentNode.visible = visible;
-      } );
+      viewProperties.directrixVisibleProperty.link( visible => { directrixParentNode.visible = visible; } );
 
       // rendering order
       this.addChild( quadraticPath );
