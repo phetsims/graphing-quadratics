@@ -35,6 +35,14 @@ define( function( require ) {
       // @public observable array of saved quadratics
       this.savedQuadratics = new ObservableArray( [] );
 
+      // @public observable array of active and saved quadratics
+      this.lines = new ObservableArray();
+      Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
+        this.lines.clear();
+        this.lines.add( quadratic );
+        this.lines.addAll( this.savedQuadratics.getArray() );
+      } );
+
       // view units / model units
       const modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
         this.graph.xRange.getLength(),
