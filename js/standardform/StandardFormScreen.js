@@ -11,7 +11,6 @@ define( function( require ) {
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Property = require( 'AXON/Property' );
   const Screen = require( 'JOIST/Screen' );
   const StandardFormModel = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormModel' );
@@ -20,25 +19,23 @@ define( function( require ) {
   // strings
   const screenStandardFormString = require( 'string!GRAPHING_QUADRATICS/screen.standardForm' );
 
-  /**
-   * @constructor
-   */
-  function StandardFormScreen() {
+  class StandardFormScreen extends Screen {
 
-    const options = {
-      name: screenStandardFormString,
-      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
-      //TODO add homeScreenIcon
-    };
+    constructor() {
 
-    Screen.call( this,
-      function() { return new StandardFormModel(); },
-      function( model ) { return new StandardFormScreenView( model ); },
-      options
-    );
+      const options = {
+        name: screenStandardFormString,
+        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
+        //TODO add homeScreenIcon
+      };
+
+      super(
+        function() { return new StandardFormModel(); },
+        function( model ) { return new StandardFormScreenView( model ); },
+        options
+      );
+    }
   }
 
-  graphingQuadratics.register( 'StandardFormScreen', StandardFormScreen );
-
-  return inherit( Screen, StandardFormScreen );
+  return graphingQuadratics.register( 'StandardFormScreen', StandardFormScreen );
 } );

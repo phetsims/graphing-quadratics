@@ -11,7 +11,6 @@ define( function( require ) {
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Property = require( 'AXON/Property' );
   const Screen = require( 'JOIST/Screen' );
   const VertexFormModel = require( 'GRAPHING_QUADRATICS/vertexform/model/VertexFormModel' );
@@ -20,21 +19,22 @@ define( function( require ) {
   // strings
   const screenVertexFormString = require( 'string!GRAPHING_QUADRATICS/screen.vertexForm' );
 
-  function VertexFormScreen() {
+  class VertexFormScreen extends Screen {
 
-    const options = {
-      name: screenVertexFormString,
-      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
-    };
+    constructor() {
 
-    Screen.call( this,
-      function() { return new VertexFormModel(); },
-      function( model ) { return new VertexFormScreenView( model ); },
-      options
-    );
+      const options = {
+        name: screenVertexFormString,
+        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
+      };
+
+      super(
+        function() { return new VertexFormModel(); },
+        function( model ) { return new VertexFormScreenView( model ); },
+        options
+      );
+    }
   }
 
-  graphingQuadratics.register( 'VertexFormScreen', VertexFormScreen );
-
-  return inherit( Screen, VertexFormScreen );
+  return graphingQuadratics.register( 'VertexFormScreen', VertexFormScreen );
 } );
