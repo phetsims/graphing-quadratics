@@ -24,42 +24,42 @@ define( function( require ) {
   // constants
   const TEXT_OPTIONS = { font: new GQFont( 18 ) };
 
-  /**
-   * @param {BooleanProperty} axisOfSymmetryVisibleProperty
-   * @param {BooleanProperty} directrixVisibleProperty
-   * @param options
-   * @constructor
-   */
-  function VertexGraphControls( axisOfSymmetryVisibleProperty, directrixVisibleProperty, options ) {
+  class VertexGraphControls extends Panel {
 
-    options = _.extend( {
-      fill: GQColors.CONTROL_PANEL_BACKGROUND,
-      xMargin: 20,
-      yMargin: 15
-    }, options );
+    /**
+     * @param {BooleanProperty} axisOfSymmetryVisibleProperty
+     * @param {BooleanProperty} directrixVisibleProperty
+     * @param options
+     */
+    constructor( axisOfSymmetryVisibleProperty, directrixVisibleProperty, options ) {
 
-    // checkboxes that control visibility of vertex, axis of symmetry, and roots
-    const axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
-      axisOfSymmetryString,
-      TEXT_OPTIONS,
-      axisOfSymmetryVisibleProperty
-    );
-    const directrixCheckbox = Checkbox.createTextCheckbox( directrixString, TEXT_OPTIONS, directrixVisibleProperty );
+      options = _.extend( {
+        fill: GQColors.CONTROL_PANEL_BACKGROUND,
+        xMargin: 20,
+        yMargin: 15
+      }, options );
 
-    // vertical layout
-    const contentNode = new VBox( {
-      children: [
-        axisOfSymmetryCheckbox,
-        directrixCheckbox
-      ],
-      spacing: 20,
-      align: 'left'
-    } );
+      // checkboxes that control visibility of vertex, axis of symmetry, and roots
+      const axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
+        axisOfSymmetryString,
+        TEXT_OPTIONS,
+        axisOfSymmetryVisibleProperty
+      );
+      const directrixCheckbox = Checkbox.createTextCheckbox( directrixString, TEXT_OPTIONS, directrixVisibleProperty );
 
-    Panel.call( this, contentNode, options );
+      // vertical layout
+      const contentNode = new VBox( {
+        children: [
+          axisOfSymmetryCheckbox,
+          directrixCheckbox
+        ],
+        spacing: 20,
+        align: 'left'
+      } );
+
+      super( contentNode, options );
+    }
   }
 
-  graphingQuadratics.register( 'VertexGraphControls', VertexGraphControls );
-
-  return inherit( Panel, VertexGraphControls );
+  return graphingQuadratics.register( 'VertexGraphControls', VertexGraphControls );
 } );
