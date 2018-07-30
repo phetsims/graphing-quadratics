@@ -12,7 +12,6 @@ define( function( require ) {
   // modules
   const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -24,32 +23,31 @@ define( function( require ) {
   const xString = require( 'string!GRAPHING_QUADRATICS/x' );
   const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
-  /**
-   * @param {Object} [options]
-   * @constructor
-   */
-  function VertexFormEquationNode( options ) {
+  class VertexFormEquationNode extends RichText {
 
-    options = _.extend( {
-      font: GQFont.MATH_SYMBOL_FONT
-    } );
+    /**
+     * @param {Object} [options]
+     */
+    constructor( options ) {
 
-    const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
-      x: xString,
-      y: yString,
-      a: aString,
-      h: hString,
-      k: kString,
-      equals: MathSymbols.EQUAL_TO,
-      minus: MathSymbols.MINUS,
-      plus: MathSymbols.PLUS
-    } );
+      options = _.extend( {
+        font: GQFont.MATH_SYMBOL_FONT
+      } );
 
-    RichText.call( this, equation, options );
+      const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
+        x: xString,
+        y: yString,
+        a: aString,
+        h: hString,
+        k: kString,
+        equals: MathSymbols.EQUAL_TO,
+        minus: MathSymbols.MINUS,
+        plus: MathSymbols.PLUS
+      } );
 
+      super( equation, options );
+    }
   }
 
-  graphingQuadratics.register( 'VertexFormEquationNode', VertexFormEquationNode );
-
-  return inherit( RichText, VertexFormEquationNode );
+  return graphingQuadratics.register( 'VertexFormEquationNode', VertexFormEquationNode );
 } );
