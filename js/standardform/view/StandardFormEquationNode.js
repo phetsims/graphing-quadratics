@@ -25,32 +25,32 @@ define( function( require ) {
   const xString = require( 'string!GRAPHING_QUADRATICS/x' );
   const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
-  /**
-   * @param {Object} [options]
-   * @constructor
-   */
-  function StandardFormEquationNode( options ) {
+  class StandardFormEquationNode extends RichText {
 
-    options = _.extend( {
-      font: GQFont.MATH_SYMBOL_FONT
-    } );
+    /**
+     * @param {Object} [options]
+     */
+    constructor( options ) {
 
-    const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
-      xSquared: xSquaredString,
-      x: xString,
-      y: yString,
-      a: aString,
-      b: bString,
-      c: cString,
-      equals: MathSymbols.EQUAL_TO,
-      plus: MathSymbols.PLUS
-    } );
+      options = _.extend( {
+        font: GQFont.MATH_SYMBOL_FONT
+      } );
 
-    RichText.call( this, equation, options );
+      const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
+        xSquared: xSquaredString,
+        x: xString,
+        y: yString,
+        a: aString,
+        b: bString,
+        c: cString,
+        equals: MathSymbols.EQUAL_TO,
+        plus: MathSymbols.PLUS
+      } );
 
+      super( equation, options );
+
+    }
   }
 
-  graphingQuadratics.register( 'StandardFormEquationNode', StandardFormEquationNode );
-
-  return inherit( RichText, StandardFormEquationNode );
+  return graphingQuadratics.register( 'StandardFormEquationNode', StandardFormEquationNode );
 } );
