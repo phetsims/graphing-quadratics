@@ -10,42 +10,41 @@ define( function( require ) {
 
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const RadioButtonGroup = require( 'SUN/buttons/RadioButtonGroup' );
 
-  /**
-   * @param {Property.<Scene>} selectedSceneProperty
-   * @param {Scene[]} scenes
-   * @param {Object} [options]
-   * @constructor
-   */
-  function SceneControl( selectedSceneProperty, scenes, options ) {
+  class SceneControl extends RadioButtonGroup {
 
-    options = _.extend( {
-      orientation: 'horizontal',
-      spacing: 20,
-      baseColor: 'white',
-      selectedLineWidth: 2,
-      buttonContentXMargin: 20,
-      buttonContentYMargin: 8
-    }, options );
+    /**
+     * @param {Property.<Scene>} selectedSceneProperty
+     * @param {Scene[]} scenes
+     * @param {Object} [options]
+     */
+    constructor( selectedSceneProperty, scenes, options ) {
 
-    // touchArea optimized for spacing
-    options.touchAreaXDilation = ( options.spacing / 2 ) - 1;
-    options.touchAreaYDilation = 5;
+      options = _.extend( {
+        orientation: 'horizontal',
+        spacing: 20,
+        baseColor: 'white',
+        selectedLineWidth: 2,
+        buttonContentXMargin: 20,
+        buttonContentYMargin: 8
+      }, options );
 
-    const content = [];
-    scenes.forEach( function( scene ) {
-      content.push( {
-        value: scene,
-        node: scene.icon
+      // touchArea optimized for spacing
+      options.touchAreaXDilation = ( options.spacing / 2 ) - 1;
+      options.touchAreaYDilation = 5;
+
+      const content = [];
+      scenes.forEach( function( scene ) {
+        content.push( {
+          value: scene,
+          node: scene.icon
+        } );
       } );
-    } );
 
-    RadioButtonGroup.call( this, selectedSceneProperty, content, options );
+      super( selectedSceneProperty, content, options );
+    }
   }
 
-  graphingQuadratics.register( 'SceneControl', SceneControl );
-
-  return inherit( RadioButtonGroup, SceneControl );
+  return graphingQuadratics.register( 'SceneControl', SceneControl );
 } );
