@@ -81,6 +81,21 @@ define( function( require ) {
       return new Line( 0, this.c, 1, this.c ); // y = c
     }
 
+    // @private Given {number} x, solve y = ax^2 + bx + c
+    solveY( x ) {
+      return this.a * x * x + this.b * x + this.c;
+    }
+
+    // @public Whether {Vector2} point lies on this quadratics
+    onLinePoint( point ) {
+      return this.onLineXY( point.x, point.y );
+    }
+
+    // @private
+    onLineXY( x, y ) {
+      return this.solveY( x ) === y;
+    }
+
     /**
      * Creates a quadratic given a, h, and k based on the equation y = a(x - h)^2 + k
      * @param {number} a
