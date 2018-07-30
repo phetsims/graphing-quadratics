@@ -15,6 +15,7 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const GraphAndLinesNode = require( 'GRAPHING_QUADRATICS/common/view/GraphAndLinesNode' );
+  const PointToolNode = require( 'GRAPHING_QUADRATICS/common/view/PointToolNode' );
 
   class GQSceneNode extends Node {
 
@@ -43,6 +44,13 @@ define( function( require ) {
 
       super( options );
 
+      // Create point tool nodes
+      var pointTool1 = new PointToolNode( model.pointTool1, model.modelViewTransform, model.graph, viewProperties.linesVisibleProperty );
+      var pointTool2 = new PointToolNode( model.pointTool2, model.modelViewTransform, model.graph, viewProperties.linesVisibleProperty );
+      var pointToolParent = new Node(); // Point tools moveToFront when dragged, so we give them a common parent to preserve rendering order.
+      pointToolParent.addChild( pointTool1 );
+      pointToolParent.addChild( pointTool2 );
+
       // the graph and quadratics and lines and draggable point manipulator
       const graphAndLinesNode = new GraphAndLinesNode(
         model,
@@ -70,6 +78,7 @@ define( function( require ) {
       // rendering order
       this.addChild( controlsParent );
       this.addChild( graphAndLinesNode );
+      this.addChild( pointToolParent );
 
       // layout - position of graphAndLinesNode is determined by model
 
