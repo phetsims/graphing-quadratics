@@ -12,12 +12,15 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const Circle = require( 'SCENERY/nodes/Circle' );
   const GLFont = require( 'GRAPHING_LINES/common/GLFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const Path = require( 'SCENERY/nodes/Path' );
   const Property = require( 'AXON/Property' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const Shape = require( 'KITE/Shape' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -30,11 +33,12 @@ define( function( require ) {
 
   // images
   const bodyImage = require( 'image!GRAPHING_LINES/point_tool_body.png' );
-  const tipImage = require( 'image!GRAPHING_LINES/point_tool_tip.png' );
 
   // constants
   const NUMBER_OF_DECIMAL_PLACES = 0;
   const VALUE_WINDOW_CENTER_X = 44; // center of the value window relative to the left edge of point_tool_body.png
+  const CIRCLE_AROUND_CROSSHAIR_RADIUS = 15; // view units, will not be transformed
+  const TRANSPARENT_WHITE = 'rgba( 255, 255, 255, 0.2 )';
 
   class PointToolNode extends Node {
 
@@ -55,15 +59,39 @@ define( function( require ) {
         foregroundHighlightColor: 'white'
       }, options );
 
-      const bodyNode = new Image( bodyImage ); // body of the tool
+      const bodyNode = new Image( bodyImage, { centerY: 0 } ); // body of the tool
+
+      // crosshair view
+      const crosshairShape = new Shape()
+        .moveTo( -CIRCLE_AROUND_CROSSHAIR_RADIUS, 0 )
+        .lineTo( CIRCLE_AROUND_CROSSHAIR_RADIUS * 2, 0 )
+        .moveTo( 0, -CIRCLE_AROUND_CROSSHAIR_RADIUS )
+        .lineTo( 0, CIRCLE_AROUND_CROSSHAIR_RADIUS );
+
+      const crosshair = new Path( crosshairShape, { stroke: 'black' } );
+      const circle = new Circle( CIRCLE_AROUND_CROSSHAIR_RADIUS, {
+        lineWidth: 2,
+        stroke: 'black',
+        fill: TRANSPARENT_WHITE,
+        centerX: 0,
+        centerY: 0
+      } );
 
       /*
-       * Pointy tip, separate from the body and not pickable.
+       * Tip, separate from the body and not pickable.
        * Because picking bounds are rectangular, making the tip pickable made it difficult
        * to pick a line manipulator when the tip and manipulator were on the same grid point.
        * Making the tip non-pickable was determined to be an acceptable and 'natural feeling' solution.
        */
-      const tipNode = new Image( tipImage, { pickable: false } );
+      const tipNode = new Node( {
+        children: [
+          crosshair,
+          circle
+        ],
+        pickable: false,
+        x: 0,
+        y: 0
+      } );
 
       // background behind the displayed value, shows through a transparent hole in the display area portion of the body image
       const BACKGROUND_MARGIN = 5;
@@ -79,21 +107,15 @@ define( function( require ) {
       } );
 
       // orientation
-      if ( pointTool.orientation === 'down' ) {
-        tipNode.centerX = 0;
-        tipNode.bottom = 0;
-        bodyNode.left = tipNode.left - ( 0.1 * bodyNode.width );
-        bodyNode.bottom = tipNode.top;
+      if ( pointTool.orientation === 'left' ) {
+        bodyNode.left = tipNode.right;
         backgroundNode.centerX = bodyNode.centerX;
         backgroundNode.top = bodyNode.top + BACKGROUND_MARGIN;
         valueNode.centerY = backgroundNode.centerY;
       }
-      else if ( pointTool.orientation === 'up' ) {
-        tipNode.setScaleMagnitude( 1, -1 ); // reflect around x-axis, so that lighting will be correct
-        tipNode.centerX = 0;
-        tipNode.top = 0;
-        bodyNode.left = tipNode.left - ( 0.1 * bodyNode.width );
-        bodyNode.top = tipNode.bottom;
+      else if ( pointTool.orientation === 'right' ) {
+        tipNode.setScaleMagnitude( -1, 1 ); // reflect around y-axis
+        bodyNode.right = tipNode.left;
         backgroundNode.centerX = bodyNode.centerX;
         backgroundNode.top = bodyNode.top + BACKGROUND_MARGIN;
         valueNode.centerY = backgroundNode.centerY;
