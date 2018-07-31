@@ -9,16 +9,14 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const Bounds2 = require( 'DOT/Bounds2' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const ObservableArray = require( 'AXON/ObservableArray' );
-  const PointTool = require( 'GRAPHING_LINES/common/model/PointTool' );
   const Property = require( 'AXON/Property' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const Vector2 = require( 'DOT/Vector2' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
 
   // constants
   const GRID_VIEW_UNITS = 530; // max dimension (width or height) of the grid in view coordinates
@@ -57,14 +55,6 @@ define( function( require ) {
         modelViewTransformScale,
         -modelViewTransformScale // y is inverted
       );
-
-
-      // @public point tools, drag bounds determined by 'eye balling' so that the point tool nodes remain on screen.
-      this.pointTool1 = new PointTool( new Vector2( -5, -10.5 ), 'up', this.graph.lines,
-        new Bounds2( this.graph.xRange.min - 1, this.graph.yRange.min - 1, this.graph.xRange.max + 3, this.graph.yRange.max + 3 ) );
-      this.pointTool2 = new PointTool( new Vector2( 3, -13 ), 'down', this.graph.lines,
-        new Bounds2( this.graph.xRange.min - 1, this.graph.yRange.min - 3, this.graph.xRange.max + 3, this.graph.yRange.max + 1 ) );
-
     }
 
     /**
@@ -75,8 +65,6 @@ define( function( require ) {
     reset() {
       this.quadraticProperty.reset();
       this.clearQuadratics();
-      this.pointTool1.reset();
-      this.pointTool2.reset();
     }
 
     /**
