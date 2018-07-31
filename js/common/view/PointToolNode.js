@@ -47,10 +47,11 @@ define( function( require ) {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
      * @param {Property.<Boolean>} linesVisibleProperty
+     * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would be rendered
      * @param {Object} [options]
      * @constructor
      */
-    constructor( pointTool, modelViewTransform, graph, linesVisibleProperty, options ) {
+    constructor( pointTool, modelViewTransform, graph, linesVisibleProperty, lines, options ) {
 
       options = _.extend( {
         cursor: 'pointer',
@@ -171,7 +172,7 @@ define( function( require ) {
         } );
 
       // interactivity
-      this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph ) );
+      this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph, lines ) );
 
       // @private called by dispose
       this.disposePointToolNode = function() {
@@ -218,9 +219,10 @@ define( function( require ) {
      * Drag handler for the pointer tool.
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would be rendered
      * @param {Graph} graph
      */
-    constructor( pointTool, modelViewTransform, graph ) {
+    constructor( pointTool, modelViewTransform, graph, lines ) {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
@@ -251,9 +253,22 @@ define( function( require ) {
           let location = modelViewTransform.viewToModelPosition( parentPoint );
           location = constrainBounds( location, pointTool.dragBounds );
           if ( graph.contains( location ) ) {
-            // snap to the graph's grid
-            location = new Vector2( Util.toFixedNumber( location.x, 0 ), Util.toFixedNumber( location.y, 0 ) );
+            let onALine = false;
+            let line;
+            for ( let i = 0; i < lines.length; i ++ ) {
+              // snap to line if near
+              line = lines.get( i );
+              if ( line.nearLinePoint( location ) ) {
+                location = line.nearestPointOnLineToPoint( location );
+                onALine = true;
+               }
+            }
+            if ( !onALine ) {
+              // snap to the graph's grid
+              location = new Vector2( Util.toFixedNumber( location.x, 0 ), Util.toFixedNumber( location.y, 0 ) );
+            }
           }
+
           pointTool.locationProperty.set( location );
         }
       } );

@@ -96,6 +96,37 @@ define( function( require ) {
       return this.solveY( x ) === y;
     }
 
+    // @public Whether {Vector2} point lies near on this quadratics
+    nearLinePoint( point ) {
+      return this.nearestPointOnLineToPoint( point ).distance( point ) <= 1; // max distance empirically chosen
+    }
+
+    // @public Nearest point {Vector2} on this line to given {Vector2} point
+    nearestPointOnLineToPoint( point ) {
+
+      // http://mathworld.wolfram.com/Point-QuadraticDistance.html
+      const x = point.x;
+      const y = point.y;
+      const a = this.a; // a2
+      const b = this.b; // a1
+      const c = this.c; // a0
+      const roots = Util.solveCubicRootsReal(
+        2 * a,
+        3 * a * b,
+        b * b + 2 * a * c - 2 * a * y + 1/2, // should be 1 not 1/2
+        b * c - b * y - x
+      );
+      let rootPoint;
+      let nearestPoint = new Vector2( roots[ 0 ], this.solveY( roots[ 0 ] ) );
+      for ( let i = 1; i < roots.length; i ++ ) {
+        rootPoint = new Vector2( roots[ i ], this.solveY( roots[ i ] ) );
+        if ( rootPoint.distance( point ) < nearestPoint.distance( point ) ) {
+          nearestPoint = rootPoint;
+        }
+      }
+      return nearestPoint;
+    }
+
     /**
      * Creates a quadratic given a, h, and k based on the equation y = a(x - h)^2 + k
      * @param {number} a
