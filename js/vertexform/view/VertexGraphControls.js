@@ -18,7 +18,7 @@ define( function( require ) {
 
   // strings
   const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
-  const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
+  // const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
 
   // constants
   const TEXT_OPTIONS = { font: new GQFont( 18 ) };
@@ -44,13 +44,13 @@ define( function( require ) {
         TEXT_OPTIONS,
         axisOfSymmetryVisibleProperty
       );
-      const directrixCheckbox = Checkbox.createTextCheckbox( directrixString, TEXT_OPTIONS, directrixVisibleProperty );
+      // const directrixCheckbox = Checkbox.createTextCheckbox( directrixString, TEXT_OPTIONS, directrixVisibleProperty );
 
       // vertical layout
       const contentNode = new VBox( {
         children: [
-          axisOfSymmetryCheckbox,
-          directrixCheckbox
+          axisOfSymmetryCheckbox
+          // directrixCheckbox
         ],
         spacing: 20,
         align: 'left'
