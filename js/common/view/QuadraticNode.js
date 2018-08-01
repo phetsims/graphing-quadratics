@@ -57,7 +57,6 @@ define( function( require ) {
       viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermParentNode.visible = visible; } );
 
       // @private
-      this.quadraticPath = quadraticPath;
       this.graph = graph;
       this.modelViewTransform = modelViewTransform;
 
