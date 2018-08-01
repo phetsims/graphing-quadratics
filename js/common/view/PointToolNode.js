@@ -254,15 +254,15 @@ define( function( require ) {
           location = constrainBounds( location, pointTool.dragBounds );
           if ( graph.contains( location ) ) {
             let onALine = false;
-            let line;
-            for ( let i = 0; i < lines.length; i ++ ) {
-              // snap to line if near
-              line = lines.get( i );
-              if ( line.nearLinePoint( location, graph ) ) {
-                location = line.nearestPointOnLineToPoint( location, graph );
-                onALine = true;
-               }
-            }
+            // let line;
+            // for ( let i = 0; i < lines.length; i ++ ) {
+            //   // snap to line if near
+            //   line = lines.get( i );
+            //   if ( line.nearLinePoint( location, graph ) ) {
+            //     location = line.nearestPointOnLineToPoint( location, graph );
+            //     onALine = true;
+            //    }
+            // }
             if ( !onALine ) {
               // snap to the graph's grid
               location = new Vector2( Util.toFixedNumber( location.x, 0 ), Util.toFixedNumber( location.y, 0 ) );
