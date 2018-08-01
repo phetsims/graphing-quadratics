@@ -258,8 +258,8 @@ define( function( require ) {
             for ( let i = 0; i < lines.length; i ++ ) {
               // snap to line if near
               line = lines.get( i );
-              if ( line.nearLinePoint( location ) ) {
-                location = line.solvePoint( location.x );
+              if ( line.nearLinePoint( location, graph ) ) {
+                location = line.nearestPointOnLineToPoint( location, graph );
                 onALine = true;
                }
             }

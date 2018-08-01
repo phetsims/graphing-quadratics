@@ -14,6 +14,7 @@ define( function( require ) {
   const NotALine = require( 'GRAPHING_LINES/linegame/model/NotALine' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
+  const KiteQuadratic = require( 'KITE/segments/Quadratic' ); // eslint-disable-line require-statement-match
 
   class Quadratic {
 
@@ -130,33 +131,58 @@ define( function( require ) {
     }
 
     // @public Whether {Vector2} point lies near on this quadratics
-    nearLinePoint( point ) {
-      return this.solveY( point.x )- point.y <= 0.5; // max distance empirically chosen
+    nearLinePoint( point, graph ) {
+      return this.nearestPointOnLineToPoint( point, graph ).distance( point ) <= 0.5; // max distance empirically chosen
     }
 
     // @public Nearest point {Vector2} on this line to given {Vector2} point
-    nearestPointOnLineToPoint( point ) {
+    nearestPointOnLineToPoint( point, graph ) {
 
-      // http://mathworld.wolfram.com/Point-QuadraticDistance.html
-      const x = point.x;
-      const y = point.y;
-      const a = this.a; // a2
-      const b = this.b; // a1
-      const c = this.c; // a0
-      const roots = Util.solveCubicRootsReal(
-        2 * a,
-        3 * a * b,
-        b * b + 2 * a * c - 2 * a * y + 1/2, // should be 1 not 1/2
-        b * c - b * y - x
-      );
-      let rootPoint;
-      let nearestPoint = new Vector2( roots[ 0 ], this.solveY( roots[ 0 ] ) );
-      for ( let i = 1; i < roots.length; i ++ ) {
-        rootPoint = new Vector2( roots[ i ], this.solveY( roots[ i ] ) );
-        if ( rootPoint.distance( point ) < nearestPoint.distance( point ) ) {
-          nearestPoint = rootPoint;
-        }
-      }
+      const bezierControlPoints = this.getControlPoints( graph.xRange );
+
+      const { startPoint, controlPoint, endPoint } = bezierControlPoints;
+
+      const x0 = startPoint.x;
+      const y0 = startPoint.y;
+      const x1 = controlPoint.x;
+      const y1 = controlPoint.y;
+      const x2 = endPoint.x;
+      const y2 = endPoint.y;
+
+      const kiteQuadratic = new KiteQuadratic( startPoint, controlPoint, endPoint );
+
+      // http://www.imedpub.com/articles/an-algorithm-for-computing-the-shortest-distance-between-a-point-and-quadratic-bezier-curve.php?aid=20779
+      const d4 = ( x0 - 2 * x1 + x2 ) * ( x0 - 2 * x1 + x2 ) + ( y0 - 2 * y1 + y2 ) * ( y0 - 2 * y1 + y2 );
+      const d3 = ( x0 - 2 * x1 + x2 ) * ( x1 - x0 ) + ( y0 - 2 * y1 + y2 ) * ( y1 - y0 );
+      const d2 = ( x0 - 2 * x1 + x2 ) * ( x0 - point.x )
+                 + ( y0 - 2 * y1 + y2 ) * ( y0 - point.y )
+                 + 2 * ( x1 - x0 ) * ( x1 - x0 )
+                 + 2 * ( y1 - y0 ) * ( y1 - y0 );
+      const d1 = ( x0 - point.x ) * ( x0 - point.x ) + ( y0 - point.y ) * ( y0 - point.y );
+
+      const roots = Util.solveCubicRootsReal( d4, 3 * d3, d2, d1 );
+      // // http://mathworld.wolfram.com/Point-QuadraticDistance.html
+      // const x = point.x;
+      // const y = point.y;
+      // const a = this.a; // a2
+      // const b = this.b; // a1
+      // const c = this.c; // a0
+      // const roots = Util.solveCubicRootsReal(
+      //   2 * a,
+      //   3 * a * b,
+      //   b * b + 2 * a * c - 2 * a * y + 1/2, // should be 1 not 1/2
+      //   b * c - b * y - x
+      // );
+      // let rootPoint;
+      // let nearestPoint = new Vector2( roots[ 0 ], this.solveY( roots[ 0 ] ) );
+      // for ( let i = 1; i < roots.length; i ++ ) {
+      //   rootPoint = new Vector2( roots[ i ], this.solveY( roots[ i ] ) );
+      //   if ( rootPoint.distance( point ) < nearestPoint.distance( point ) ) {
+      //     nearestPoint = rootPoint;
+      //   }
+      // }
+
+      const nearestPoint = kiteQuadratic.positionAt( -roots[ 0 ] );
       return nearestPoint;
     }
 
