@@ -213,6 +213,7 @@ define( function( require ) {
      */
     createQuadraticShape( quadratic ) {
 
+      // have model calculate the control points to draw a bezier curve shape
       const bezierControlPoints = quadratic.getControlPoints( this.graph.xRange );
 
       // draw the quadratic
