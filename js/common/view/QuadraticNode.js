@@ -48,6 +48,9 @@ define( function( require ) {
         stroke: 'hotpink',
         lineWidth: 3
       } );
+
+      // visibility of the parent node is determined by viewProperties
+      // visibility of quadraticTermPath is determined by whether the quadratic is non degenerate
       const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
       viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermParentNode.visible = visible; } );
@@ -108,7 +111,7 @@ define( function( require ) {
         quadratic => quadratic.axisOfSymmetry
       );
 
-      // use the double headed arrow node from graphing-lines as a guide
+      // view for the axis of symmetry of the quadratic
       const axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
         hasArrows: false,
         lineOptions: LINE_OPTIONS
@@ -121,13 +124,13 @@ define( function( require ) {
         axisOfSymmetryLineParentNode.visible = visible;
       } );
 
-      // focus of the quadratic
+      // view for the focus of the quadratic
       const focusPoint = new PlottedPointNode( pointRadius, 'green' );
 
       // make a property out of quadraticProperty.get().directrix in order to pass into LineNode
       const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.directrix );
 
-      // use the double headed arrow node from graphing-lines as a guide
+      // view for the directrix of the quadratic
       const directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
         hasArrows: false,
         lineOptions: LINE_OPTIONS
@@ -156,7 +159,7 @@ define( function( require ) {
 
         // update other information about the quadratic curve
 
-        if ( quadratic.a !== 0 ) {
+        if ( quadratic.a !== 0 ) { // is a quadratic
           quadraticTermPath.setShape( this.createQuadraticShape( quadratic.getQuadraticTerm() ) );
           vertexPoint.center = modelViewTransform.modelToViewPosition( quadratic.vertex );
           focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
