@@ -38,12 +38,13 @@ define( function( require ) {
 
       super( options );
 
+      // view for the quadratic
       const quadraticPath = new Path( null, {
         stroke: 'red',
         lineWidth: 3
       } );
 
-      // a curve representing y=ax^2 for this quadratic
+      // a curve representing just the ax^2 term for this quadratic
       const quadraticTermPath = new Path( null, {
         stroke: 'hotpink',
         lineWidth: 3
