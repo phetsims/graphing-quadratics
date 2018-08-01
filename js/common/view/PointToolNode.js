@@ -259,7 +259,7 @@ define( function( require ) {
               // snap to line if near
               line = lines.get( i );
               if ( line.nearLinePoint( location ) ) {
-                location = line.nearestPointOnLineToPoint( location );
+                location = line.solvePoint( location.x );
                 onALine = true;
                }
             }

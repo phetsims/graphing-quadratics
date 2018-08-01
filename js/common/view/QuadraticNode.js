@@ -17,7 +17,6 @@ define( function( require ) {
   const Path = require( 'SCENERY/nodes/Path' );
   const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const Shape = require( 'KITE/Shape' );
-  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
   const LINE_OPTIONS = {
@@ -214,27 +213,12 @@ define( function( require ) {
      */
     createQuadraticShape( quadratic ) {
 
-      // given coefficients, calculate control points for the quadratic bezier curve
-      // see https://github.com/phetsims/graphing-quadratics/issues/1
-      const a = quadratic.a;
-      const b = quadratic.b;
-      const c = quadratic.c;
-      const minX = this.graph.xRange.min;
-      const maxX = this.graph.xRange.max;
-      const xRange = this.graph.xRange.getLength();
-
-      const aPrime = a * xRange * xRange;
-      const bPrime = 2 * a * minX * xRange + b * xRange;
-      const cPrime = a * minX * minX + b * minX + c;
-
-      const startPoint = new Vector2( minX, cPrime );
-      const controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
-      const endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
+      const bezierControlPoints = quadratic.getControlPoints( this.graph.xRange );
 
       // draw the quadratic
       return new Shape()
-        .moveToPoint( startPoint)
-        .quadraticCurveToPoint( controlPoint, endPoint )
+        .moveToPoint( bezierControlPoints.startPoint)
+        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
         .transformed( this.modelViewTransform.getMatrix() );
     }
   }

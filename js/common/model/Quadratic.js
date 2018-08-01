@@ -81,6 +81,39 @@ define( function( require ) {
       return new Line( 0, this.c, 1, this.c ); // y = c
     }
 
+    /**
+     * Given a graph for ranges, get control points for a bezier curve representing this quadratic
+     * @param {Range} xRange
+     * @returns {Object}
+     * @public
+     */
+    getControlPoints( xRange ) {
+
+      // given coefficients, calculate control points for the quadratic bezier curve
+      // see https://github.com/phetsims/graphing-quadratics/issues/1
+      const a = this.a;
+      const b = this.b;
+      const c = this.c;
+      const minX = xRange.min;
+      const maxX = xRange.max;
+      const range = xRange.getLength();
+
+      const aPrime = a * range * range;
+      const bPrime = 2 * a * minX * range + b * range;
+      const cPrime = a * minX * minX + b * minX + c;
+
+      const startPoint = new Vector2( minX, cPrime );
+      const controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
+      const endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
+
+      return { startPoint, controlPoint, endPoint };
+    }
+
+    // @public Given {number} x, return the corresponding point on the quadratic
+    solvePoint( x ) {
+      return new Vector2( x, this.solveY(x ) );
+    }
+
     // @private Given {number} x, solve y = ax^2 + bx + c
     solveY( x ) {
       return this.a * x * x + this.b * x + this.c;
@@ -98,7 +131,7 @@ define( function( require ) {
 
     // @public Whether {Vector2} point lies near on this quadratics
     nearLinePoint( point ) {
-      return this.nearestPointOnLineToPoint( point ).distance( point ) <= 1; // max distance empirically chosen
+      return this.solveY( point.x )- point.y <= 0.5; // max distance empirically chosen
     }
 
     // @public Nearest point {Vector2} on this line to given {Vector2} point
