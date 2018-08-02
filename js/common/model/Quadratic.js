@@ -129,11 +129,6 @@ define( function( require ) {
       return this.solveY( x ) === y;
     }
 
-    // @public Whether {Vector2} point lies near on this quadratics
-    nearLinePoint( point ) {
-      return this.nearestPointOnLineToPoint( point ).distance( point ) <= 1; // max distance empirically chosen
-    }
-
     // @public Nearest point {Vector2} on this line to given {Vector2} point
     nearestPointOnLineToPoint( point ) {
 
