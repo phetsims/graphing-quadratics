@@ -41,8 +41,8 @@ define( function( require ) {
       this.lines = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
         this.lines.clear();
-        this.lines.add( quadratic );
         this.lines.addAll( this.savedQuadratics.getArray() );
+        this.lines.add( quadratic );
       } );
 
       // view units / model units

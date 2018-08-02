@@ -253,17 +253,19 @@ define( function( require ) {
           let location = modelViewTransform.viewToModelPosition( parentPoint );
           location = constrainBounds( location, pointTool.dragBounds );
           if ( graph.contains( location ) ) {
-            let onALine = false;
             let line;
+            let nearestPoint;
+            let distance = 1; // empirically chosen
             for ( let i = 0; i < lines.length; i ++ ) {
               // snap to line if near
               line = lines.get( i );
-              if ( line.nearLinePoint( location ) ) {
-                location = line.nearestPointOnLineToPoint( location );
-                onALine = true;
-               }
+              nearestPoint = line.nearestPointOnLineToPoint( location );
+              if ( nearestPoint.distance( location ) < distance ) {
+                distance = nearestPoint.distance( location );
+                location = nearestPoint;
+              }
             }
-            if ( !onALine ) {
+            if ( distance === 1 ) { // didn't find a quadratic nearby
               // snap to the graph's grid
               location = new Vector2( Util.toFixedNumber( location.x, 0 ), Util.toFixedNumber( location.y, 0 ) );
             }
