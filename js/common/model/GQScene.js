@@ -31,7 +31,7 @@ define( function( require ) {
       // @public graph
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
-      // @public
+      // @public property that stores the active quadratic
       this.quadraticProperty = new Property( new Quadratic( 1, 0, 0 ) );
 
       // @public observable array of saved quadratics
