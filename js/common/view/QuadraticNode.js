@@ -77,7 +77,7 @@ define( function( require ) {
         quadratic => quadratic.getConstantTerm()
       );
 
-      // use the double headed arrow node from graphing-lines as a guide
+      // line representing just the bx term of this quadratic
       const constantTermPath = new LineNode( constantTermProperty, graph, modelViewTransform, { hasArrows: false } );
 
       const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
