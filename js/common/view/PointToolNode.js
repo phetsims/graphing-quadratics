@@ -35,7 +35,7 @@ define( function( require ) {
   const bodyImage = require( 'image!GRAPHING_LINES/point_tool_body.png' );
 
   // constants
-  const NUMBER_OF_DECIMAL_PLACES = 0;
+  const NUMBER_OF_DECIMAL_PLACES = 1;
   const VALUE_WINDOW_CENTER_X = 44; // center of the value window relative to the left edge of point_tool_body.png
   const CIRCLE_AROUND_CROSSHAIR_RADIUS = 15; // view units, will not be transformed
   const TRANSPARENT_WHITE = 'rgba( 255, 255, 255, 0.2 )';
