@@ -24,7 +24,7 @@ define( function( require ) {
     lineDashOffset: 10
   };
 
-  class QuadraticNode extends Node{
+  class QuadraticNode extends Node {
     /**
      * @param {Property.<Quadratic>} quadratic
      * @param {Graph} graph
