@@ -48,7 +48,7 @@ define( function( require ) {
         yMargin: 10
       }, options );
 
-      // TODO: temporary. will be passed in as parameters.
+      // TODO: temporary. will be passed in as a parameter.
       const maximizedProperty = new BooleanProperty( true );
 
       // Expand/collapse button
