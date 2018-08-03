@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Control panel for interactive-equation. Copied from graphing-lines.
+ * Control panel for interactive-equation. Copied from GRAPHING_LINES/common/view/EquationControls
  *
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Andrea Lin

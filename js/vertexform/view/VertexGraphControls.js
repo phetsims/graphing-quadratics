@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Controls for various features related to the graph on the vertex screen. Copied from graphing-lines.
+ * Controls for various features related to the graph on the vertex screen.
  *
  * @author Andrea Lin
  */
