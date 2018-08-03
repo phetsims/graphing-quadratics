@@ -61,9 +61,18 @@ define( function( require ) {
 
       // @public point tools, drag bounds determined by 'eye balling' so that the point tool nodes remain on screen.
       this.pointTool1 = new PointTool( new Vector2( -2, -12 ), 'right', this.graph.lines,
-        new Bounds2( this.graph.xRange.min - 1, this.graph.yRange.min - 1, this.graph.xRange.max + 3, this.graph.yRange.max + 3 ) );
+        new Bounds2(
+          this.graph.xRange.min - 1,
+          this.graph.yRange.min - 1,
+          this.graph.xRange.max + 3,
+          this.graph.yRange.max + 3
+        ) );
       this.pointTool2 = new PointTool( new Vector2( 2, -12 ), 'left', this.graph.lines,
-        new Bounds2( this.graph.xRange.min - 1, this.graph.yRange.min - 3, this.graph.xRange.max + 3, this.graph.yRange.max + 1 ) );
+        new Bounds2( this.graph.xRange.min - 1,
+          this.graph.yRange.min - 3,
+          this.graph.xRange.max + 3,
+          this.graph.yRange.max + 1
+        ) );
 
     }
 

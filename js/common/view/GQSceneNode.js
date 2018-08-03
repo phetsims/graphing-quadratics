@@ -59,7 +59,9 @@ define( function( require ) {
         viewProperties.linesVisibleProperty,
         model.lines
       );
-      var pointToolParent = new Node(); // Point tools moveToFront when dragged, so we give them a common parent to preserve rendering order.
+
+      // Point tools moveToFront when dragged, so we give them a common parent to preserve rendering order.
+      var pointToolParent = new Node();
       pointToolParent.addChild( pointTool1 );
       pointToolParent.addChild( pointTool2 );
 

@@ -47,7 +47,8 @@ define( function( require ) {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
      * @param {Property.<Boolean>} linesVisibleProperty
-     * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would be rendered
+     * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would
+     * be rendered
      * @param {Object} [options]
      * @constructor
      */
@@ -94,7 +95,8 @@ define( function( require ) {
         y: 0
       } );
 
-      // background behind the displayed value, shows through a transparent hole in the display area portion of the body image
+      // background behind the displayed value, shows through a transparent hole in the display area portion of the body
+      // image
       const BACKGROUND_MARGIN = 5;
       const backgroundNode = new Rectangle( 0, 0,
         bodyNode.width - ( 2 * BACKGROUND_MARGIN ), bodyNode.height - ( 2 * BACKGROUND_MARGIN ),
@@ -144,7 +146,11 @@ define( function( require ) {
       this.setBackground( options.backgroundNormalColor );
 
       // location and display, unmultilink in dispose
-      const updateMultilink = Property.multilink( [ pointTool.locationProperty, pointTool.onLineProperty, linesVisibleProperty ],
+      const updateMultilink = Property.multilink( [
+          pointTool.locationProperty,
+          pointTool.onLineProperty,
+          linesVisibleProperty
+        ],
         () => {
 
           // move to location
@@ -156,8 +162,10 @@ define( function( require ) {
             this.setCoordinatesVector2( location );
             if ( linesVisibleProperty.get() ) {
               // use the line's color to highlight
-              this.setForeground( !pointTool.onLineProperty.get() ? options.foregroundNormalColor : options.foregroundHighlightColor );
-              this.setBackground( !pointTool.onLineProperty.get() ? options.backgroundNormalColor : pointTool.onLineProperty.get().color );
+              this.setForeground( !pointTool.onLineProperty.get() ?
+                                  options.foregroundNormalColor : options.foregroundHighlightColor );
+              this.setBackground( !pointTool.onLineProperty.get() ?
+                                  options.backgroundNormalColor : pointTool.onLineProperty.get().color );
             }
             else {
               this.setForeground( options.foregroundNormalColor );
@@ -191,7 +199,11 @@ define( function( require ) {
 
     // @private Sets the displayed value to a point
     setCoordinatesVector2( p ) {
-      this.setCoordinatesString( StringUtils.format( pointXYString, Util.toFixed( p.x, NUMBER_OF_DECIMAL_PLACES ), Util.toFixed( p.y, NUMBER_OF_DECIMAL_PLACES ) ) );
+      this.setCoordinatesString( StringUtils.format(
+        pointXYString,
+        Util.toFixed( p.x, NUMBER_OF_DECIMAL_PLACES ),
+        Util.toFixed( p.y, NUMBER_OF_DECIMAL_PLACES )
+      ) );
     }
 
     // @private Sets the displayed value to an arbitrary string
@@ -219,7 +231,8 @@ define( function( require ) {
      * Drag handler for the pointer tool.
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would be rendered
+     * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would
+     * be rendered
      * @param {Graph} graph
      */
     constructor( pointTool, modelViewTransform, graph, lines ) {
@@ -231,7 +244,10 @@ define( function( require ) {
           return point;
         }
         else {
-          return new Vector2( Util.clamp( point.x, bounds.minX, bounds.maxX ), Util.clamp( point.y, bounds.minY, bounds.maxY ) );
+          return new Vector2(
+            Util.clamp( point.x, bounds.minX, bounds.maxX ),
+            Util.clamp( point.y, bounds.minY, bounds.maxY )
+          );
         }
       };
 

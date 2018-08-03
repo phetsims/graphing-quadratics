@@ -12,7 +12,7 @@ define( function( require ) {
   const Circle = require( 'SCENERY/nodes/Circle' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
-  class PlottedPointNode extends Circle{
+  class PlottedPointNode extends Circle {
 
     /**
      * @param {number} radius
