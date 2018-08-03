@@ -27,7 +27,13 @@ define( function( require ) {
 
   class GQScene {
 
-    constructor() {
+    /**
+     * @param {Node} icon - only necessary for standard screen which has two scenes
+     */
+    constructor( icon ) {
+
+      // @public view for the icon representing this scene
+      this.icon = icon;
 
       // @public graph
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
