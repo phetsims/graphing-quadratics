@@ -139,6 +139,7 @@ define( function( require ) {
     nearestPointOnLineToPoint( point ) {
 
       // http://mathworld.wolfram.com/Point-QuadraticDistance.html
+      // TODO: math does not work well for cases of -1 < a < 1
       const x = point.x;
       const y = point.y;
       const a = this.a; // a2
