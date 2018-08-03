@@ -16,19 +16,24 @@ define( function( require ) {
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
 
+  // constants
+  const EPSILON = 1e-8;
+
   class Quadratic {
 
     /**
      * @param {number} a
      * @param {number} b
      * @param {number} c
+     * @param {Color|String} [color] - default to colorblind red assigned to GQColors.ACTIVE_CURVE
      */
-    constructor( a, b, c ) {
+    constructor( a, b, c, color ) {
 
       // @public
       this.a = a;
       this.b = b;
       this.c = c;
+      this.color = color || GQColors.ACTIVE_CURVE;
 
       // This is a quadratic because a is nonzero. Determine more information about it.
       if ( a !== 0 ) {
@@ -62,9 +67,9 @@ define( function( require ) {
       return this.a === quadratic.a && this.b === quadratic.b && this.c === quadratic.c;
     }
 
-    // @public Creates a {Quadratic} copy of this
-    getCopy() {
-      return new Quadratic( this.a, this.b, this.c );
+    // @public Creates a {Quadratic} copy of this given a certain {Color} color
+    withColor( color ) {
+      return new Quadratic( this.a, this.b, this.c, color );
     }
 
     // @public Creates a new {Quadratic} quadratic based on just the ax^2 term of y=ax^2 + bx + c
@@ -127,7 +132,7 @@ define( function( require ) {
 
     // @private
     onLineXY( x, y ) {
-      return this.solveY( x ) === y;
+      return Math.abs( this.solveY( x ) - y ) < EPSILON;
     }
 
     // @public Nearest point {Vector2} on this line to given {Vector2} point

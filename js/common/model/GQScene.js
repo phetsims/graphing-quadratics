@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   const Bounds2 = require( 'DOT/Bounds2' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -60,14 +61,14 @@ define( function( require ) {
 
 
       // @public point tools, drag bounds determined by 'eye balling' so that the point tool nodes remain on screen.
-      this.pointTool1 = new PointTool( new Vector2( -2, -12 ), 'right', this.graph.lines,
+      this.pointTool1 = new PointTool( new Vector2( -2, -12 ), 'right', this.lines,
         new Bounds2(
           this.graph.xRange.min - 1,
           this.graph.yRange.min - 1,
           this.graph.xRange.max + 3,
           this.graph.yRange.max + 3
         ) );
-      this.pointTool2 = new PointTool( new Vector2( 2, -12 ), 'left', this.graph.lines,
+      this.pointTool2 = new PointTool( new Vector2( 2, -12 ), 'left', this.lines,
         new Bounds2( this.graph.xRange.min - 1,
           this.graph.yRange.min - 3,
           this.graph.xRange.max + 3,
@@ -95,7 +96,7 @@ define( function( require ) {
      */
     saveQuadratic() {
       this.clearQuadratics();
-      this.savedQuadratics.add( this.quadraticProperty.get().getCopy() );
+      this.savedQuadratics.add( this.quadraticProperty.get().withColor( GQColors.SAVED_CURVE ) );
     }
 
     /**
