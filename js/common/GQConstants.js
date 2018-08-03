@@ -19,7 +19,6 @@ define( function( require ) {
     SCREEN_VIEW_Y_MARGIN: 16,
     X_AXIS_RANGE: new RangeWithValue( -10, 10 ),
     Y_AXIS_RANGE: new RangeWithValue( -10, 10 ),
-    INTERACTIVE_EQUATION_FONT_SIZE: 34, // TODO: use?
     PICKER_TOUCH_AREA_X_DILATION: 30,
     MANIPULATOR_RADIUS: 0.425,
     POINT_RADIUS: 0.25
