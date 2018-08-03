@@ -10,14 +10,14 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
+  const Property = require( 'AXON/Property' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const Property = require( 'AXON/Property' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
 
   class VertexManipulator extends Manipulator {
 

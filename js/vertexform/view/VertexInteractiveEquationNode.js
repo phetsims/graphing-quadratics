@@ -15,10 +15,10 @@ define( function( require ) {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
-  const Property = require( 'AXON/Property' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
 
   // strings
   const xString = require( 'string!GRAPHING_QUADRATICS/x' );

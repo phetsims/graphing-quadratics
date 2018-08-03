@@ -11,8 +11,8 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   const Node = require( 'SCENERY/nodes/Node' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );

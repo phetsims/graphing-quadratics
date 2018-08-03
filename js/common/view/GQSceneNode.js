@@ -12,9 +12,9 @@ define( function( require ) {
 
   // modules
   const EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
+  const GraphAndLinesNode = require( 'GRAPHING_QUADRATICS/common/view/GraphAndLinesNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const GraphAndLinesNode = require( 'GRAPHING_QUADRATICS/common/view/GraphAndLinesNode' );
   const PointToolNode = require( 'GRAPHING_QUADRATICS/common/view/PointToolNode' );
 
   class GQSceneNode extends Node {

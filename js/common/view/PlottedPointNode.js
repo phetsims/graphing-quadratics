@@ -9,8 +9,8 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Circle = require( 'SCENERY/nodes/Circle' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
   class PlottedPointNode extends Circle{
 
