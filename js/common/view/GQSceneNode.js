@@ -45,14 +45,14 @@ define( function( require ) {
       super( options );
 
       // Create point tool nodes
-      var pointTool1 = new PointToolNode(
+      const pointTool1 = new PointToolNode(
         model.pointTool1,
         model.modelViewTransform,
         model.graph,
         viewProperties.linesVisibleProperty,
         model.lines
       );
-      var pointTool2 = new PointToolNode(
+      const pointTool2 = new PointToolNode(
         model.pointTool2,
         model.modelViewTransform,
         model.graph,
@@ -61,7 +61,7 @@ define( function( require ) {
       );
 
       // Point tools moveToFront when dragged, so we give them a common parent to preserve rendering order.
-      var pointToolParent = new Node();
+      const pointToolParent = new Node();
       pointToolParent.addChild( pointTool1 );
       pointToolParent.addChild( pointTool2 );
 
