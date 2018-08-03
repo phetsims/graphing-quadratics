@@ -1,4 +1,4 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2018, University of Colorado Boulder
 
 /**
  * A plotted point on a graph, not interactive.

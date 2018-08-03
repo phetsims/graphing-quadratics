@@ -1,4 +1,4 @@
-// Copyright 2018, University of Colorado Boulder
+// Copyright 2014-2018, University of Colorado Boulder
 
 /**
  * Common view for a scene. Base type for each of the two scenes on the standard form screen, as well as the single
