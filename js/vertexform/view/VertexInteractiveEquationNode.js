@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
@@ -28,7 +29,7 @@ define( function( require ) {
   const TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
   const NUMBER_PICKER_OPTIONS = {
     font: GQFont.NUMBER_FONT,
-    color: 'red',
+    color: GQColors.VERTEX,
     xMargin: 5
   };
 
@@ -64,7 +65,11 @@ define( function( require ) {
       } );
 
       // interactive components of the equation
-      const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );
+      const aNumberPicker = new NumberPicker(
+        aProperty,
+        new Property( aProperty.range ),
+        _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.A_SYMBOL } )
+      );
       const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ), NUMBER_PICKER_OPTIONS );
       const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ), NUMBER_PICKER_OPTIONS );
 
