@@ -273,6 +273,7 @@ define( function( require ) {
             let nearestPoint;
             let distance = 1; // empirically chosen
             for ( let i = 0; i < lines.length; i ++ ) {
+
               // snap to line if near
               line = lines.get( i );
               nearestPoint = line.nearestPointOnLineToPoint( location );
