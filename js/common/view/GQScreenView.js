@@ -19,7 +19,7 @@ define( function( require ) {
 
     /**
      * @param {GQModel} model
-     * @param {LineFormViewProperties[]} viewPropertiess
+     * @param {LineFormViewProperties[]} viewPropertiess - an array that holds elements of type LineFormViewProperties
      */
     constructor( model, viewPropertiess ) {
 
