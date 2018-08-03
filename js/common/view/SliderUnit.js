@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSlider = require( 'SUN/HSlider' );
@@ -78,7 +79,7 @@ define( function( require ) {
         slider.addChild( tickNode );
         tickNode.moveToBack();
 
-        this.addChild( new Text( string, { font: GQFont.MATH_SYMBOL_FONT, fill: 'red' } ) );
+        this.addChild( new Text( string, { font: GQFont.MATH_SYMBOL_FONT, fill: GQColors.ACTIVE_CURVE } ) );
       }
 
       this.addChild( slider );

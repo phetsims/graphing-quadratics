@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const Line = require( 'GRAPHING_LINES/common/model/Line' );
   const NotALine = require( 'GRAPHING_LINES/linegame/model/NotALine' );
   const Util = require( 'DOT/Util' );
@@ -40,9 +41,9 @@ define( function( require ) {
 
         // @public
         this.vertex = new Vector2( h, k );
-        this.axisOfSymmetry = new Line( h, 0, h, 1, 'purple' ); // x = h;
+        this.axisOfSymmetry = new Line( h, 0, h, 1, GQColors.VERTEX ); // x = h;
         this.focus = new Vector2( h, k + p );
-        this.directrix = new Line( 0, k - p, 1, k - p, 'green' ); // y = k - p
+        this.directrix = new Line( 0, k - p, 1, k - p, GQColors.DIRECTRIX ); // y = k - p
         this.roots = Util.solveQuadraticRootsReal( a, b, c ).map( root => new Vector2( root, 0 ) );
       }
       else { // This is not a quadratic because a is zero.
@@ -73,12 +74,12 @@ define( function( require ) {
 
     // @public Creates a {Line} line based on just the bx term of y=ax^2 + bx + c
     getLinearTerm() {
-      return new Line( 0, 0, 1, this.b, 'green' ); // y = bx
+      return new Line( 0, 0, 1, this.b, GQColors.LINEAR_TERM ); // y = bx
     }
 
     // @public Creates a {Line} line based on just the c term of y=ax^2 + bx + c
     getConstantTerm() {
-      return new Line( 0, this.c, 1, this.c ); // y = c
+      return new Line( 0, this.c, 1, this.c, GQColors.CONSTANT_TERM ); // y = c
     }
 
     /**

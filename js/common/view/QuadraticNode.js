@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
@@ -40,13 +41,13 @@ define( function( require ) {
 
       // view for the quadratic
       const quadraticPath = new Path( null, {
-        stroke: 'red',
+        stroke: GQColors.ACTIVE_CURVE,
         lineWidth: 3
       } );
 
       // a curve representing just the ax^2 term for this quadratic
       const quadraticTermPath = new Path( null, {
-        stroke: 'hotpink',
+        stroke: GQColors.QUADRATIC_TERM,
         lineWidth: 3
       } );
 
@@ -88,17 +89,17 @@ define( function( require ) {
       const pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
       // vertex of the quadratic
-      const vertexPoint = new PlottedPointNode( pointRadius, 'red' );
+      const vertexPoint = new PlottedPointNode( pointRadius, GQColors.VERTEX );
       const vertexPointParentNode = new Node( { children: [ vertexPoint ] } );
 
       // link vertex point visibility to view property
       viewProperties.vertexVisibleProperty.link( visible => { vertexPointParentNode.visible = visible; } );
 
       // the left most root if there are two roots, and the root if there is one root
-      const root0Point = new PlottedPointNode( pointRadius, 'red' );
+      const root0Point = new PlottedPointNode( pointRadius, GQColors.ROOTS );
 
       // the right most root if there are two roots
-      const root1Point = new PlottedPointNode( pointRadius, 'red' );
+      const root1Point = new PlottedPointNode( pointRadius, GQColors.ROOTS );
 
       const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
 
@@ -125,7 +126,7 @@ define( function( require ) {
       } );
 
       // view for the focus of the quadratic
-      const focusPoint = new PlottedPointNode( pointRadius, 'green' );
+      const focusPoint = new PlottedPointNode( pointRadius, GQColors.DIRECTRIX );
 
       // make a property out of quadraticProperty.get().directrix in order to pass into LineNode
       const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.directrix );
@@ -197,13 +198,13 @@ define( function( require ) {
     /**
      * Create a quadratic path with a certain color.
      * @param {Quadratic} quadratic
-     * @param {Color|String} color - default 'red
+     * @param {Color|String} color - default colorblind red in GQColors.ACTIVE_CURVE
      * @returns {Path}
      * @public
      */
     createPathWithColor( quadratic, color ) {
       return new Path( this.createQuadraticShape( quadratic ), {
-        stroke: color || 'red',
+        stroke: color || GQColors.ACTIVE_CURVE,
         lineWidth: 3
       } );
     }

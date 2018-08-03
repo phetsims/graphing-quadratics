@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
@@ -32,7 +33,7 @@ define( function( require ) {
   const TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
   const READOUT_OPTIONS = {
     font: GQFont.NUMBER_FONT,
-    numberFill: 'red',
+    numberFill: GQColors.ACTIVE_CURVE,
     backgroundFill: null,
     backgroundStroke: null,
     decimalPlaces: 1,
