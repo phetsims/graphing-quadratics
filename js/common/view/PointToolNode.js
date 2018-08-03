@@ -66,7 +66,7 @@ define( function( require ) {
       // crosshair view
       const crosshairShape = new Shape()
         .moveTo( -CIRCLE_AROUND_CROSSHAIR_RADIUS, 0 )
-        .lineTo( CIRCLE_AROUND_CROSSHAIR_RADIUS * 2, 0 )
+        .lineTo( CIRCLE_AROUND_CROSSHAIR_RADIUS * 1.5, 0 )
         .moveTo( 0, -CIRCLE_AROUND_CROSSHAIR_RADIUS )
         .lineTo( 0, CIRCLE_AROUND_CROSSHAIR_RADIUS );
 
