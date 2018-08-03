@@ -13,7 +13,7 @@ define( function( require ) {
 
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
-  const GLFont = require( 'GRAPHING_LINES/common/GLFont' );
+  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -103,7 +103,7 @@ define( function( require ) {
 
       // displayed value
       const valueNode = new Text( '?', {
-        font: new GLFont( { size: 15, weight: 'bold' } ),
+        font: new GQFont( { size: 15, weight: 'bold' } ),
         pickable: false,
         maxWidth: 60 // constrain width, determined empirically, dependent on bodyImage
       } );
