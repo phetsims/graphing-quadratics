@@ -18,7 +18,6 @@ define( function( require ) {
      * @param {number} radius
      * @param {Color|String} color
      * @param {Object} [options]
-     * @constructor
      */
     constructor( radius, color, options ) {
 

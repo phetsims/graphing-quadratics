@@ -89,7 +89,6 @@ define( function( require ) {
      * @param {Range} xRange
      * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
-     * @constructor
      */
     constructor( pointProperty, xRange, yRange, modelViewTransform ) {
 

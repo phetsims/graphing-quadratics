@@ -50,7 +50,6 @@ define( function( require ) {
      * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would
      * be rendered
      * @param {Object} [options]
-     * @constructor
      */
     constructor( pointTool, modelViewTransform, graph, linesVisibleProperty, lines, options ) {
 

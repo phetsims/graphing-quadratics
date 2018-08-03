@@ -17,7 +17,6 @@ define( function( require ) {
 
     /**
      * @param {number|*} options font size or font options
-     * @constructor
      */
     constructor( options ) {
 

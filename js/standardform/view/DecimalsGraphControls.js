@@ -37,7 +37,6 @@ define( function( require ) {
      * @param {BooleanProperty} linearTermVisibleProperty
      * @param {BooleanProperty} constantTermVisibleProperty
      * @param {Object} [options]
-     * @constructor
      */
     constructor(
       quadraticTermVisibleProperty,
