@@ -18,16 +18,16 @@ define( function( require ) {
 
     constructor() {
 
-      const integersScene = new GQScene();
       const decimalsScene = new GQScene();
+      const integersScene = new GQScene();
 
-      super( [ integersScene, decimalsScene ] );
+      super( [ decimalsScene, integersScene  ] );
 
       // @public
-      this.integersScene = integersScene;
-      this.integersScene.icon = GQIconFactory.createIntegersIcon(); // TODO, maybe create another way to store icon
       this.decimalsScene = decimalsScene;
       this.decimalsScene.icon = GQIconFactory.createDecimalsIcon();
+      this.integersScene = integersScene;
+      this.integersScene.icon = GQIconFactory.createIntegersIcon(); // TODO, maybe create another way to store icon
     }
   }
 
