@@ -19,9 +19,9 @@ define( function( require ) {
 
     /**
      * @param {GQModel} model
-     * @param {LineFormViewProperties[]} viewPropertiess - an array that holds elements of type LineFormViewProperties
+     * @param {LineFormViewProperties[]} viewPropertiesArray - an array that holds elements of type LineFormViewProperties
      */
-    constructor( model, viewPropertiess ) {
+    constructor( model, viewPropertiesArray ) {
 
       super( GQConstants.SCREEN_VIEW_OPTIONS );
 
@@ -29,7 +29,7 @@ define( function( require ) {
       const resetAllButton = new ResetAllButton( {
         listener: function() {
           model.reset();
-          viewPropertiess.forEach( viewProperties => { viewProperties.reset(); } );
+          viewPropertiesArray.forEach( viewProperties => { viewProperties.reset(); } );
         },
         right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
         bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN
