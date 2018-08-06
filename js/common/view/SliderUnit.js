@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSlider = require( 'SUN/HSlider' );
   const Line = require( 'SCENERY/nodes/Line' );
@@ -24,8 +25,8 @@ define( function( require ) {
   const TICK_COLOR = 'black';
   const TICK_LENGTH = 30;
   const TICK_WIDTH = 1;
-  const TICK_LABEL_FONT = new PhetFont( 16 );
-  const SYMBOL_FONT = new PhetFont( { size: 28, weight: 'bold' } );
+  const TICK_LABEL_FONT = new PhetFont( GQConstants.SLIDER_TICK_LABEL_FONT_SIZE );
+  const SYMBOL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
 
   class SliderUnit extends VBox {
 

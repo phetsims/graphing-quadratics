@@ -27,8 +27,11 @@ define( function( require ) {
     POINT_RADIUS: 0.25,
 
     // font sizes
-    STANDARD_EQUATION_FONT_SIZE: 24,
-    INTERACTIVE_EQUATION_FONT_SIZE: 28
+    STANDARD_EQUATION_FONT_SIZE: 22,
+    INTERACTIVE_EQUATION_FONT_SIZE: 26,
+    SLIDER_TICK_LABEL_FONT_SIZE: 16,
+    CHECKBOX_LABEL_FONT_SIZE: 20,
+    CHECKBOX_EQUATION_FONT_SIZE: 22
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );

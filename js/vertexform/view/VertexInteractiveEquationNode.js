@@ -67,7 +67,10 @@ define( function( require ) {
       const aNumberPicker = new NumberPicker(
         aProperty,
         new Property( aProperty.range ),
-        _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.A_SYMBOL } )
+        _.extend( {}, NUMBER_PICKER_OPTIONS, {
+          color: GQColors.A_SYMBOL,
+          xMargin: 14 // h and k pickers have more digits, so make the a picker a bit wider
+        } )
       );
       const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ), NUMBER_PICKER_OPTIONS );
       const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ), NUMBER_PICKER_OPTIONS );

@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
@@ -21,7 +22,7 @@ define( function( require ) {
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
-  const TEXT_OPTIONS = { font: new PhetFont( { size: 24, weight: 'bold' } ) };
+  const CHECKBOX_EQUATION_FONT = new PhetFont( GQConstants.CHECKBOX_EQUATION_FONT_SIZE );
 
   class DecimalsGraphControls extends Panel {
 
@@ -53,7 +54,10 @@ define( function( require ) {
         a: GQSymbols.a,
         x: GQSymbols.x,
         xSquared: GQSymbols.xSquared
-      } ), _.extend( {}, TEXT_OPTIONS, { fill: GQColors.QUADRATIC_TERM } ) );
+      } ), {
+        font: CHECKBOX_EQUATION_FONT,
+        fill: GQColors.QUADRATIC_TERM
+      } );
 
       // y = bx
       const linearTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
@@ -61,14 +65,20 @@ define( function( require ) {
         equals: MathSymbols.EQUAL_TO,
         b: GQSymbols.b,
         x: GQSymbols.x
-      } ), _.extend( {}, TEXT_OPTIONS, { fill: GQColors.LINEAR_TERM } ) );
+      } ), {
+        font: CHECKBOX_EQUATION_FONT,
+        fill: GQColors.LINEAR_TERM
+      } );
 
       // y = c
       const constantTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
         y: GQSymbols.y,
         equals: MathSymbols.EQUAL_TO,
         c: GQSymbols.c
-      } ), _.extend( {}, TEXT_OPTIONS, { fill: GQColors.CONSTANT_TERM } ) );
+      } ), {
+        font: CHECKBOX_EQUATION_FONT,
+        fill: GQColors.CONSTANT_TERM
+      } );
 
       // checkboxes that control visibility
       const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, quadraticTermVisibleProperty );

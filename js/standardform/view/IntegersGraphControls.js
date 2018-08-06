@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -22,7 +23,7 @@ define( function( require ) {
   const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
 
   // constants
-  const TEXT_OPTIONS = { font: new PhetFont( 18 ) };
+  const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
 
   class IntegersGraphControls extends Panel {
 
@@ -43,13 +44,13 @@ define( function( require ) {
       }, options );
 
       // checkboxes that control visibility of vertex, axis of symmetry, and roots
-      const vertexCheckbox = Checkbox.createTextCheckbox( vertexString, TEXT_OPTIONS, vertexVisibleProperty );
+      const vertexCheckbox = Checkbox.createTextCheckbox( vertexString, CHECKBOX_LABEL_OPTIONS, vertexVisibleProperty );
       const axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
         axisOfSymmetryString,
-        TEXT_OPTIONS,
+        CHECKBOX_LABEL_OPTIONS,
         axisOfSymmetryVisibleProperty
       );
-      const rootsCheckbox = Checkbox.createTextCheckbox( rootsString, TEXT_OPTIONS, rootsVisibleProperty );
+      const rootsCheckbox = Checkbox.createTextCheckbox( rootsString, CHECKBOX_LABEL_OPTIONS, rootsVisibleProperty );
 
       // vertical layout
       const contentNode = new VBox( {
