@@ -4,8 +4,8 @@
 /**
  * Control panel for interactive-equation.
  *
- * @author Chris Malley (PixelZoom, Inc.)
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';
@@ -44,6 +44,8 @@ define( function( require ) {
     constructor( titleNode, interactiveEquationNode, saveFunction, eraseFunction, options ) {
 
       options = _.extend( {
+        
+        // superclass options
         fill: GQColors.CONTROL_PANEL_BACKGROUND,
         xMargin: 10,
         yMargin: 10

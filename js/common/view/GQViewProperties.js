@@ -49,7 +49,10 @@ define( function( require ) {
 
   return inherit( LineFormsViewProperties, GQViewProperties, {
 
-    // @public
+    /**
+     * @public
+     * @override
+     */
     reset: function() {
       LineFormsViewProperties.prototype.reset.call( this );
       this.vertexVisibleProperty.reset();

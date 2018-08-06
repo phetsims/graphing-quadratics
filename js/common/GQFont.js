@@ -3,6 +3,7 @@
 /**
  * Font used throughout this simulation.
  *
+ * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {

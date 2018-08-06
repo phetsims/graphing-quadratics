@@ -3,8 +3,8 @@
 /**
  * Common view for a screen.
  *
- * @author Chris Malley (PixelZoom, Inc.)
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';
@@ -19,7 +19,7 @@ define( function( require ) {
 
     /**
      * @param {GQModel} model
-     * @param {LineFormViewProperties[]} viewPropertiesArray - an array that holds elements of type LineFormViewProperties
+     * @param {GQViewProperties[]} viewPropertiesArray - view Properties for each scene
      */
     constructor( model, viewPropertiesArray ) {
 

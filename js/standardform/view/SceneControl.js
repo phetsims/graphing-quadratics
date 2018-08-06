@@ -22,6 +22,8 @@ define( function( require ) {
     constructor( selectedSceneProperty, scenes, options ) {
 
       options = _.extend( {
+
+        // superclass options
         orientation: 'horizontal',
         spacing: 20,
         baseColor: 'white',
@@ -31,7 +33,9 @@ define( function( require ) {
       }, options );
 
       // touchArea optimized for spacing
+      assert && assert( options.touchAreaXDilation === undefined, 'SceneControl sets touchAreaXDilation' );
       options.touchAreaXDilation = ( options.spacing / 2 ) - 1;
+      assert && assert( options.touchAreaYDilation === undefined, 'SceneControl sets touchAreaYDilation' );
       options.touchAreaYDilation = 5;
 
       const content = [];

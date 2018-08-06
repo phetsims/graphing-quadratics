@@ -33,6 +33,8 @@ define( function( require ) {
     constructor( axisOfSymmetryVisibleProperty, directrixVisibleProperty, options ) {
 
       options = _.extend( {
+
+        // superclass options
         fill: GQColors.CONTROL_PANEL_BACKGROUND,
         xMargin: 20,
         yMargin: 15

@@ -24,6 +24,8 @@ define( function( require ) {
     constructor() {
 
       const options = {
+
+        // superclass options
         name: screenVertexFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
       };

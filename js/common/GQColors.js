@@ -3,7 +3,6 @@
 /**
  * Colors used throughout this project.
  *
- * @author Chris Malley (PixelZoom, Inc.)
  * @author Andrea Lin
  */
 define( function( require ) {
@@ -37,7 +36,5 @@ define( function( require ) {
     }
   };
 
-  graphingQuadratics.register( 'GQColors', GQColors );
-
-  return GQColors;
+  return graphingQuadratics.register( 'GQColors', GQColors );
 } );

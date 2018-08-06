@@ -3,7 +3,7 @@
 /**
  * Constants that are global to this sim.
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Andrea Lin
  */
 define( function( require ) {
   'use strict';
@@ -24,7 +24,5 @@ define( function( require ) {
     POINT_RADIUS: 0.25
   };
 
-  graphingQuadratics.register( 'GQConstants', GQConstants );
-
-  return GQConstants;
+  return graphingQuadratics.register( 'GQConstants', GQConstants );
 } );

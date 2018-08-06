@@ -30,17 +30,22 @@ define( function( require ) {
      * @param {string} string
      * @param {NumberProperty} property
      * @param {number} decimalPlaces
-     * @param {Object} [options] for slider node.
+     * @param {Object} [options]
      */
     constructor( string, property, decimalPlaces, options ) {
 
       options = _.extend( {
-        align: 'center',
+
         centralTick: true,
+
+        // HSlider options
         trackFill: 'black',
         trackSize: new Dimension2( 160, 1 ),
         thumbSize: new Dimension2( 15, 25 ),
-        thumbTouchAreaYDilation: 8
+        thumbTouchAreaYDilation: 8,
+
+        // superclass options
+        align: 'center'
       }, options );
 
       super( options );

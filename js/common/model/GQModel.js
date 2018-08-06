@@ -3,8 +3,8 @@
 /**
  * Common model (base type) for Graphing Quadratics.
  *
- * @author Chris Malley (PixelZoom, Inc.)
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';

@@ -43,6 +43,7 @@ define( function( require ) {
 
   class DecimalsInteractiveEquationNode extends Node {
 
+    //TODO options not used
     /**
      * @param {Property.<Quadratic|undefined>} quadraticProperty
      * @param {Object} [options]

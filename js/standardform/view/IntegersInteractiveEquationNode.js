@@ -36,6 +36,7 @@ define( function( require ) {
 
   class IntegersInteractiveEquationNode extends Node {
 
+    //TODO option not used
     /**
      * @param {Property.<Quadratic|undefined>} quadraticProperty
      * @param {Object} [options]

@@ -3,7 +3,7 @@
 /**
  * The 'Standard Form' screen.
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Andrea Lin
  */
 define( function( require ) {
   'use strict';
@@ -24,6 +24,8 @@ define( function( require ) {
     constructor() {
 
       const options = {
+
+        // superclass options
         name: screenStandardFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
         //TODO add homeScreenIcon

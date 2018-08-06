@@ -32,14 +32,11 @@ define( function( require ) {
      * @param {BooleanProperty} rootsVisibleProperty
      * @param {Object} [options]
      */
-    constructor(
-      vertexVisibleProperty,
-      axisOfSymmetryVisibleProperty,
-      rootsVisibleProperty,
-      options
-    ) {
+    constructor( vertexVisibleProperty, axisOfSymmetryVisibleProperty, rootsVisibleProperty, options ) {
 
       options = _.extend( {
+
+        // superclass options
         fill: GQColors.CONTROL_PANEL_BACKGROUND,
         xMargin: 20,
         yMargin: 15

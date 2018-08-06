@@ -46,6 +46,8 @@ define( function( require ) {
     ) {
 
       options = _.extend( {
+
+        // superclass options
         fill: GQColors.CONTROL_PANEL_BACKGROUND,
         xMargin: 20,
         yMargin: 15

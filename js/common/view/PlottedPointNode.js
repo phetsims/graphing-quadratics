@@ -22,10 +22,14 @@ define( function( require ) {
     constructor( radius, color, options ) {
 
       options = _.extend( {
+
+        // superclass options
         fill: color,
         stroke: color,
         lineWidth: 1
       }, options );
+
+      //TODO assert that options fill and stroke are undefined, then assign constructor args
 
       super( radius, options );
     }

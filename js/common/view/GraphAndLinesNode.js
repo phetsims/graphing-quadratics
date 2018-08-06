@@ -1,11 +1,12 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
+//TODO consider a better name for this class
 /**
  * Common view for a scene. Base type for each of the two scenes on the standard form screen, as well as the single
  * scene in the vertex form screen.
  *
- * @author Chris Malley (PixelZoom, Inc.)
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';
@@ -27,12 +28,7 @@ define( function( require ) {
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor(
-      model,
-      layoutBounds,
-      viewProperties,
-      options
-    ) {
+    constructor( model, layoutBounds, viewProperties, options ) {
 
       options = _.extend( {
         hasVertexManipulator: false // only vertex scene has vertex manipulator

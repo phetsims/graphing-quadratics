@@ -32,6 +32,8 @@ define( function( require ) {
     constructor( options ) {
 
       options = _.extend( {
+
+        // superclass options
         font: GQFont.MATH_SYMBOL_FONT
       } );
 
