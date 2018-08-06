@@ -3,7 +3,7 @@
 /**
  * Main entry point for the 'Graphing Quadratics' sim.
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Andrea Lin
  */
 define( function( require ) {
   'use strict';
@@ -19,7 +19,10 @@ define( function( require ) {
 
   const options = {
     credits: {
-      //TODO
+      leadDesign: 'Amanda McGarry',
+      softwareDevelopment: 'Andrea Lin, Chris Malley (PixelZoom, Inc.)',
+      team: 'Karina K. R. Hensberry, Ariel Paul, Kathy Perkins, Trish Loeblein, Mike Dubson',
+      qualityAssurance: '?'
     }
   };
 
