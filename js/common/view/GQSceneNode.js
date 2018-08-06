@@ -77,7 +77,8 @@ define( function( require ) {
         equationControlsTitleNode,
         interactiveEquationNode,
         model.saveQuadratic.bind( model ),
-        model.clearQuadratics.bind( model )
+        model.clearQuadratics.bind( model ),
+        viewProperties.interactiveEquationVisibleProperty
       );
 
       // Parent for all control panels, to simplify layout

@@ -17,6 +17,9 @@
   "roots": {
     "value": "Roots"
   },
+  "hideCurves": {
+    "value": "Hide curves"
+  },
   "directrix": {
     "value": "Directrix"
   },

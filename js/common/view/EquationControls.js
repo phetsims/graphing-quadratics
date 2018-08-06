@@ -1,6 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 //TODO Copied from GRAPHING_LINES/common/view/EquationControls
+//TODO extend AccordionBox, not Panel
 /**
  * Control panel for interactive-equation.
  *
@@ -11,7 +12,6 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const BooleanProperty = require( 'AXON/BooleanProperty' );
   const EraserButton = require( 'SCENERY_PHET/buttons/EraserButton' );
   const ExpandCollapseButton = require( 'SUN/ExpandCollapseButton' );
   const FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
@@ -41,7 +41,7 @@ define( function( require ) {
      * @param {function} eraseFunction
      * @param {Object} [options]
      */
-    constructor( titleNode, interactiveEquationNode, saveFunction, eraseFunction, options ) {
+    constructor( titleNode, interactiveEquationNode, saveFunction, eraseFunction, expandedProperty, options ) {
 
       options = _.extend( {
         
@@ -51,11 +51,8 @@ define( function( require ) {
         yMargin: 10
       }, options );
 
-      // TODO: temporary. will be passed in as a parameter.
-      const maximizedProperty = new BooleanProperty( true );
-
       // Expand/collapse button
-      const expandCollapseButton = new ExpandCollapseButton( maximizedProperty );
+      const expandCollapseButton = new ExpandCollapseButton( expandedProperty );
 
       // Save line button
       const saveButton = new RectangularPushButton( {
@@ -100,11 +97,11 @@ define( function( require ) {
       titleNode.centerY = expandCollapseButton.centerY;
       subContent.top = Math.max( expandCollapseButton.bottom, titleNode.bottom ) + Y_SPACING;
 
-      maximizedProperty.link( maximized => {
-        if ( maximized && content.indexOfChild( subContent ) === -1 ) {
+      expandedProperty.link( expanded => {
+        if ( expanded && content.indexOfChild( subContent ) === -1 ) {
           content.addChild( subContent );
         }
-        else if ( !maximized && content.indexOfChild( subContent ) !== -1 ) {
+        else if ( !expanded && content.indexOfChild( subContent ) !== -1 ) {
           content.removeChild( subContent );
         }
       } );
