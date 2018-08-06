@@ -11,9 +11,9 @@ define( function( require ) {
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
@@ -21,7 +21,7 @@ define( function( require ) {
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
 
   // constants
-  const TEXT_OPTIONS = { font: new GQFont( 18 ) };
+  const TEXT_OPTIONS = { font: new PhetFont( 18 ) };
 
   class VertexGraphControls extends Panel {
 

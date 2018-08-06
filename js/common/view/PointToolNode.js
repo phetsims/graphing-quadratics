@@ -13,11 +13,11 @@ define( function( require ) {
 
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
@@ -103,7 +103,7 @@ define( function( require ) {
 
       // displayed value
       const valueNode = new Text( '?', {
-        font: new GQFont( { size: 15, weight: 'bold' } ),
+        font: new PhetFont( { size: 15, weight: 'bold' } ),
         pickable: false,
         maxWidth: 60 // constrain width, determined empirically, dependent on bodyImage
       } );

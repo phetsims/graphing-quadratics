@@ -10,7 +10,7 @@ define( function( require ) {
 
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
@@ -28,7 +28,7 @@ define( function( require ) {
         NUMBER_PROPERTY,
         new Property( NUMBER_PROPERTY.range ),
         {
-          font: GQFont.NUMBER_FONT,
+          font: GQConstants.NUMBER_FONT,
           color: 'black',
           xMargin: 5,
           scale: 0.8

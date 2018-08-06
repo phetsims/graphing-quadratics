@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const RichText = require( 'SCENERY/nodes/RichText' );
@@ -34,7 +34,7 @@ define( function( require ) {
       options = _.extend( {
 
         // superclass options
-        font: GQFont.MATH_SYMBOL_FONT
+        font: GQConstants.MATH_SYMBOL_FONT
       } );
 
       const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {

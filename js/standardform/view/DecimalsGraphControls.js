@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Panel = require( 'SUN/Panel' );
@@ -20,7 +20,7 @@ define( function( require ) {
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
-  const TEXT_OPTIONS = { font: GQFont.SMALLER_MATH_SYMBOL_FONT };
+  const TEXT_OPTIONS = { font: GQConstants.SMALLER_MATH_SYMBOL_FONT };
 
   // strings
   const aString = require( 'string!GRAPHING_QUADRATICS/a' );

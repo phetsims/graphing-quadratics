@@ -11,7 +11,7 @@ define( function( require ) {
 
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQFont = require( 'GRAPHING_QUADRATICS/common/GQFont' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -27,9 +27,9 @@ define( function( require ) {
   const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
   // constants
-  const TEXT_OPTIONS = { font: GQFont.MATH_SYMBOL_FONT };
+  const TEXT_OPTIONS = { font: GQConstants.MATH_SYMBOL_FONT };
   const NUMBER_PICKER_OPTIONS = {
-    font: GQFont.NUMBER_FONT,
+    font: GQConstants.NUMBER_FONT,
     color: GQColors.ACTIVE_CURVE,
     xMargin: 5
   };

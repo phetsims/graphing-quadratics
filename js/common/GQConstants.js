@@ -11,6 +11,8 @@ define( function( require ) {
   // modules
   const Bounds2 = require( 'DOT/Bounds2' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const MathSymbolFont = require( 'SCENERY_PHET/MathSymbolFont' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
   const GQConstants = {
@@ -21,7 +23,11 @@ define( function( require ) {
     Y_AXIS_RANGE: new RangeWithValue( -10, 10 ),
     PICKER_TOUCH_AREA_X_DILATION: 30,
     MANIPULATOR_RADIUS: 0.425,
-    POINT_RADIUS: 0.25
+    POINT_RADIUS: 0.25,
+    NUMBER_FONT: new PhetFont( { size: 21, weight: 'bold' } ),
+    MATH_SYMBOL_FONT: new MathSymbolFont( { size: 24, weight: 'bold' } ),
+    SMALLER_MATH_SYMBOL_FONT: new MathSymbolFont( { size: 18, weight: 'bold' } ),
+    SLIDER_TICK_FONT: new PhetFont( 16 )
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );
