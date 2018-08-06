@@ -28,7 +28,7 @@ define( function( require ) {
   class GQScene {
 
     /**
-     * @param {Node} icon - only necessary for standard screen which has two scenes
+     * @param {Node} [icon] - optional icon, used on radio button to select the scene
      */
     constructor( icon ) {
 
@@ -65,7 +65,6 @@ define( function( require ) {
         -modelViewTransformScale // y is inverted
       );
 
-
       // @public point tools, drag bounds determined by 'eye balling' so that the point tool nodes remain on screen.
       this.pointTool1 = new PointTool( new Vector2( -2, -12 ), 'right', this.lines,
         new Bounds2(
@@ -80,12 +79,10 @@ define( function( require ) {
           this.graph.xRange.max + 3,
           this.graph.yRange.max + 1
         ) );
-
     }
 
     /**
-     * Resets this scene by resetting each of its properties
-     *
+     * Resets this scene by resetting each of its properties.
      * @public
      */
     reset() {
@@ -96,8 +93,7 @@ define( function( require ) {
     }
 
     /**
-     * Saves the current quadratic into the list
-     *
+     * Saves the current quadratic into the list.
      * @public
      */
     saveQuadratic() {
@@ -106,8 +102,7 @@ define( function( require ) {
     }
 
     /**
-     * Clears the list of saved Quadratics
-     *
+     * Clears the list of saved Quadratics.
      * @public
      */
     clearQuadratics() {

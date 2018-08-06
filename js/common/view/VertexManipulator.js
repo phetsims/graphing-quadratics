@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
+//TODO Copied from GRAPHING_LINES/common/view/manipulator/PointManipulator
 /**
- * Drag handler for the vertex. Copied from GRAPHING_LINES/common/view/manipulator/PointManipulator
+ * Drag handler for the vertex.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Andrea Lin

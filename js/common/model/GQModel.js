@@ -31,7 +31,6 @@ define( function( require ) {
 
     /**
      * Resets this model by resetting each of its scenes
-     *
      * @public
      */
     reset() {
