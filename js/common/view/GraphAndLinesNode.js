@@ -24,7 +24,7 @@ define( function( require ) {
     /**
      * @param {GQScene} model
      * @param {Bounds2} layoutBounds
-     * @param {LineFormsViewProperties} viewProperties
+     * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor(

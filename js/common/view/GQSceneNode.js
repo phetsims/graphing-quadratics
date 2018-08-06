@@ -25,7 +25,7 @@ define( function( require ) {
      * @param {Node} equationControlsTitleNode - a display of the general form of the equation
      * @param {Node} interactiveEquationNode - interactive equation
      * @param {Panel} graphControls
-     * @param {LineFormsViewProperties} viewProperties
+     * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor(

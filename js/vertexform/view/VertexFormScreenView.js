@@ -11,8 +11,8 @@ define( function( require ) {
   // modules
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
+  const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
   const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
   const VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
   const VertexInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexInteractiveEquationNode' );
@@ -24,7 +24,7 @@ define( function( require ) {
      */
     constructor( model ) {
 
-      const vertexViewProperties = new LineFormsViewProperties();
+      const vertexViewProperties = new GQViewProperties();
 
       super( model, [ vertexViewProperties ] );
 

@@ -13,10 +13,10 @@ define( function( require ) {
   const DecimalsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsInteractiveEquationNode' );
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
+  const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const IntegersGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersGraphControls' );
   const IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
-  const LineFormsViewProperties = require( 'GRAPHING_LINES/common/view/LineFormsViewProperties' );
   const SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
   const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
 
@@ -27,9 +27,9 @@ define( function( require ) {
      */
     constructor( model ) {
 
-      const integersViewProperties = new LineFormsViewProperties();
+      const integersViewProperties = new GQViewProperties();
 
-      const decimalsViewProperties = new LineFormsViewProperties();
+      const decimalsViewProperties = new GQViewProperties();
 
       super( model, [ integersViewProperties, decimalsViewProperties ] );
 
