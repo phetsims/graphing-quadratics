@@ -10,19 +10,12 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-
-  // strings
-  const aString = require( 'string!GRAPHING_QUADRATICS/a' );
-  const bString = require( 'string!GRAPHING_QUADRATICS/b' );
-  const cString = require( 'string!GRAPHING_QUADRATICS/c' );
-  const xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
-  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
   class StandardFormEquationNode extends RichText {
 
@@ -34,22 +27,21 @@ define( function( require ) {
       options = _.extend( {
 
         // superclass options
-        font: GQConstants.MATH_SYMBOL_FONT
+        font: new PhetFont( 26 )
       } );
 
-      const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
-        xSquared: xSquaredString,
-        x: xString,
-        y: yString,
-        a: aString,
-        b: bString,
-        c: cString,
-        equals: MathSymbols.EQUAL_TO,
-        plus: MathSymbols.PLUS
-      } );
+      const equation = StringUtils.fillIn(
+        '{{y}} {{equals}} {{a}}{{x}}<sup>2</sup> {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
+          y: GQSymbols.y,
+          equals: MathSymbols.EQUAL_TO,
+          a: GQSymbols.a,
+          x: GQSymbols.x,
+          plus: MathSymbols.PLUS,
+          b: GQSymbols.b,
+          c: GQSymbols.c
+        } );
 
       super( equation, options );
-
     }
   }
 

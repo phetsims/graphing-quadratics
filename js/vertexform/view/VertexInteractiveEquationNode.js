@@ -12,23 +12,21 @@ define( function( require ) {
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
 
-  // strings
-  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
-
   // constants
-  const TEXT_OPTIONS = { font: GQConstants.MATH_SYMBOL_FONT };
+  const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
   const NUMBER_PICKER_OPTIONS = {
-    font: GQConstants.NUMBER_FONT,
+    font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
     color: GQColors.VERTEX,
     xMargin: 5
   };
@@ -74,11 +72,12 @@ define( function( require ) {
       const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ), NUMBER_PICKER_OPTIONS );
       const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ), NUMBER_PICKER_OPTIONS );
 
-      const yText = new RichText( yString, TEXT_OPTIONS );
+      const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
       const openParenthesisText = new RichText( '(', TEXT_OPTIONS );
-      const xText = new RichText( xString, TEXT_OPTIONS );
+      const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const minusText = new RichText( MathSymbols.MINUS, TEXT_OPTIONS );
+      //TODO separate out subscript
       const closeParenthesisAndSquaredText = new RichText( ')<sup>2</sup>', TEXT_OPTIONS );
       const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 

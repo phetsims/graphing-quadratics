@@ -10,11 +10,11 @@ define( function( require ) {
 
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const SliderUnit = require( 'GRAPHING_QUADRATICS/common/view/SliderUnit' );
 
@@ -28,7 +28,7 @@ define( function( require ) {
         NUMBER_PROPERTY,
         new Property( NUMBER_PROPERTY.range ),
         {
-          font: GQConstants.NUMBER_FONT,
+          font: new PhetFont( { size: 21, weight: 'bold' } ),
           color: 'black',
           xMargin: 5,
           scale: 0.8

@@ -11,28 +11,31 @@ define( function( require ) {
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSlider = require( 'SUN/HSlider' );
   const Line = require( 'SCENERY/nodes/Line' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VStrut = require( 'SCENERY/nodes/VStrut' );
 
   // constants
   const TICK_COLOR = 'black';
-  const TICK_LENGTH = 20;
+  const TICK_LENGTH = 30;
   const TICK_WIDTH = 1;
+  const TICK_LABEL_FONT = new PhetFont( 16 );
+  const SYMBOL_FONT = new PhetFont( { size: 28, weight: 'bold' } );
 
   class SliderUnit extends VBox {
 
     /**
-     * @param {string} string
+     * @param {string} symbol
      * @param {NumberProperty} property
      * @param {number} decimalPlaces
      * @param {Object} [options]
      */
-    constructor( string, property, decimalPlaces, options ) {
+    constructor( symbol, property, decimalPlaces, options ) {
 
       options = _.extend( {
 
@@ -41,7 +44,7 @@ define( function( require ) {
         // HSlider options
         trackFill: 'black',
         trackSize: new Dimension2( 160, 1 ),
-        thumbSize: new Dimension2( 15, 25 ),
+        thumbSize: new Dimension2( 20, 45 ),
         thumbTouchAreaYDilation: 8,
 
         // superclass options
@@ -70,7 +73,7 @@ define( function( require ) {
 
         // label the zero tick mark
         const tickText = new Text( '0', {
-          font: GQConstants.SLIDER_TICK_FONT,
+          font: TICK_LABEL_FONT,
           bottom: tickNode.top - 5,
           centerX: tickNode.centerX + 1,
           rotation: Math.PI / 2
@@ -85,7 +88,10 @@ define( function( require ) {
         slider.addChild( tickNode );
         tickNode.moveToBack();
 
-        this.addChild( new Text( string, { font: GQConstants.MATH_SYMBOL_FONT, fill: GQColors.ACTIVE_CURVE } ) );
+        this.addChild( new RichText( symbol, {
+          font: SYMBOL_FONT,
+          fill: GQColors.ACTIVE_CURVE
+        } ) );
       }
 
       this.addChild( slider );

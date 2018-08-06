@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renderer for standard form equation with integer cofficients that can be changed.
+ * Renderer for standard form equation with integer coefficients that can be changed.
  * Form is y = ax^2 + bx + c, where a, b, and c can be changed with number pickers
  *
  * @author Andrea Lin
@@ -12,27 +12,22 @@ define( function( require ) {
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const SliderUnit = require( 'GRAPHING_QUADRATICS/common/view/SliderUnit' );
 
-  // strings
-  const aString = require( 'string!GRAPHING_QUADRATICS/a' );
-  const bString = require( 'string!GRAPHING_QUADRATICS/b' );
-  const cString = require( 'string!GRAPHING_QUADRATICS/c' );
-  const xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
-  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
-
-  const TEXT_OPTIONS = { font: GQConstants.MATH_SYMBOL_FONT };
-  const READOUT_OPTIONS = {
-    font: GQConstants.NUMBER_FONT,
+  // constants
+  const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
+  const NUMBER_DISPLAY_OPTIONS = {
+    font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
     numberFill: GQColors.ACTIVE_CURVE,
     backgroundFill: null,
     backgroundStroke: null,
@@ -73,65 +68,65 @@ define( function( require ) {
         }
       } );
 
-      const aReadout = new NumberDisplay(
+      const aDisplay = new NumberDisplay(
         aProperty,
         aProperty.range,
-        _.extend( {}, READOUT_OPTIONS, { decimalPlaces: 2 } )
+        _.extend( {}, NUMBER_DISPLAY_OPTIONS, { decimalPlaces: 2 } )
       );
-      const bReadout = new NumberDisplay( bProperty, bProperty.range, READOUT_OPTIONS );
-      const cReadout = new NumberDisplay( cProperty, bProperty.range, READOUT_OPTIONS );
+      const bDisplay = new NumberDisplay( bProperty, bProperty.range, NUMBER_DISPLAY_OPTIONS );
+      const cDisplay = new NumberDisplay( cProperty, bProperty.range, NUMBER_DISPLAY_OPTIONS );
 
-      const yText = new RichText( yString, TEXT_OPTIONS );
+      const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-      const xSquaredText = new RichText( xSquaredString, TEXT_OPTIONS );
+      const xSquaredText = new RichText( GQSymbols.xSquared, TEXT_OPTIONS );
       const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
-      const xText = new RichText( xString, TEXT_OPTIONS );
+      const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-      const aControl = new SliderUnit( aString, aProperty, 2 );
-      const bControl = new SliderUnit( bString, bProperty, 1 );
-      const cControl = new SliderUnit( cString, cProperty, 1 );
+      const aControl = new SliderUnit( GQSymbols.a, aProperty, 2 );
+      const bControl = new SliderUnit( GQSymbols.b, bProperty, 1 );
+      const cControl = new SliderUnit( GQSymbols.c, cProperty, 1 );
 
       super( {
         children: [
           yText,
           equalToText,
-          aReadout,
+          aDisplay,
           xSquaredText,
           plusText,
-          bReadout,
+          bDisplay,
           xText,
           secondPlusText,
-          cReadout,
+          cDisplay,
           aControl,
           bControl,
           cControl
         ]
       } );
 
-      // alignment
+      // layout
       equalToText.left = yText.right + 10;
-      aReadout.left = equalToText.right + 10;
-      xSquaredText.left = aReadout.right + 5;
+      aDisplay.left = equalToText.right + 10;
+      xSquaredText.left = aDisplay.right + 5;
       plusText.left = xSquaredText.right + 10;
-      bReadout.left = plusText.right + 10;
-      xText.left = bReadout.right + 5;
+      bDisplay.left = plusText.right + 10;
+      xText.left = bDisplay.right + 5;
       secondPlusText.left = xText.right + 10;
-      cReadout.left = secondPlusText.right + 10;
+      cDisplay.left = secondPlusText.right + 10;
       equalToText.bottom = yText.bottom;
       xSquaredText.bottom = yText.bottom;
       plusText.bottom = yText.bottom;
       xText.bottom = yText.bottom;
       secondPlusText.bottom = yText.bottom;
-      aReadout.bottom = yText.bottom;
-      bReadout.bottom = yText.bottom;
-      cReadout.bottom = yText.bottom;
-      aControl.centerX = aReadout.centerX;
-      bControl.centerX = bReadout.centerX;
-      cControl.centerX = cReadout.centerX;
-      aControl.top = aReadout.bottom + 5;
-      bControl.top = bReadout.bottom + 5;
-      cControl.top = cReadout.bottom + 5;
+      aDisplay.bottom = yText.bottom;
+      bDisplay.bottom = yText.bottom;
+      cDisplay.bottom = yText.bottom;
+      aControl.centerX = aDisplay.centerX;
+      bControl.centerX = bDisplay.centerX;
+      cControl.centerX = cDisplay.centerX;
+      aControl.top = aDisplay.bottom + 5;
+      bControl.top = bDisplay.bottom + 5;
+      cControl.top = cDisplay.bottom + 5;
     }
   }
 

@@ -10,18 +10,12 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-
-  // strings
-  const aString = require( 'string!GRAPHING_QUADRATICS/a' );
-  const hString = require( 'string!GRAPHING_QUADRATICS/h' );
-  const kString = require( 'string!GRAPHING_QUADRATICS/k' );
-  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
   class VertexFormEquationNode extends RichText {
 
@@ -33,15 +27,15 @@ define( function( require ) {
       options = _.extend( {
 
         // superclass options
-        font: GQConstants.MATH_SYMBOL_FONT
+        font: new PhetFont( 26 )
       } );
 
       const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
-        x: xString,
-        y: yString,
-        a: aString,
-        h: hString,
-        k: kString,
+        x: GQSymbols.x,
+        y: GQSymbols.y,
+        a: GQSymbols.a,
+        h: GQSymbols.h,
+        k: GQSymbols.k,
         equals: MathSymbols.EQUAL_TO,
         minus: MathSymbols.MINUS,
         plus: MathSymbols.PLUS

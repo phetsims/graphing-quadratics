@@ -12,24 +12,21 @@ define( function( require ) {
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
 
-  // strings
-  const xSquaredString = require( 'string!GRAPHING_QUADRATICS/xSquared' );
-  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
-
   // constants
-  const TEXT_OPTIONS = { font: GQConstants.MATH_SYMBOL_FONT };
+  const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
   const NUMBER_PICKER_OPTIONS = {
-    font: GQConstants.NUMBER_FONT,
+    font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
     color: GQColors.ACTIVE_CURVE,
     xMargin: 5
   };
@@ -71,11 +68,11 @@ define( function( require ) {
       const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), NUMBER_PICKER_OPTIONS );
       const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), NUMBER_PICKER_OPTIONS );
 
-      const yText = new RichText( yString, TEXT_OPTIONS );
+      const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-      const xSquaredText = new RichText( xSquaredString, TEXT_OPTIONS );
+      const xSquaredText = new RichText( GQSymbols.xSquared, TEXT_OPTIONS );
       const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
-      const xText = new RichText( xString, TEXT_OPTIONS );
+      const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
       super ( {
@@ -92,7 +89,7 @@ define( function( require ) {
         ]
       } );
 
-      // alignment
+      // layout
       equalToText.left = yText.right + 10;
       aNumberPicker.left = equalToText.right + 10;
       xSquaredText.left = aNumberPicker.right + 10;
