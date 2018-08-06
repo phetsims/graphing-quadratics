@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * An immutable quadratic, described by coefficients a, b, and c of x^2, x^1, and x^0, respectively.
+ * An immutable quadratic, described by the equation ax^2 + bx + c.
  *
  * @author Andrea Lin
  */
@@ -22,18 +22,22 @@ define( function( require ) {
   class Quadratic {
 
     /**
-     * @param {number} a
-     * @param {number} b
-     * @param {number} c
-     * @param {Color|String} [color] - default to colorblind red assigned to GQColors.ACTIVE_CURVE
+     * @param {number} a - quadratic coefficient in the quadratic equation
+     * @param {number} b - linear coefficient in the quadratic equation
+     * @param {number} c - constant term in the quadratic equation
+     * @param {Object} [options]
      */
-    constructor( a, b, c, color ) {
+    constructor( a, b, c, options ) {
+
+      options = _.extend( {
+        color: GQColors.ACTIVE_CURVE // {Color|String} color used to render the curve
+      }, options );
 
       // @public
       this.a = a;
       this.b = b;
       this.c = c;
-      this.color = color || GQColors.ACTIVE_CURVE;
+      this.color = options.color;
 
       // This is a quadratic because a is nonzero. Determine more information about it.
       if ( a !== 0 ) {
@@ -69,7 +73,7 @@ define( function( require ) {
 
     // @public Creates a {Quadratic} copy of this given a certain {Color} color
     withColor( color ) {
-      return new Quadratic( this.a, this.b, this.c, color );
+      return new Quadratic( this.a, this.b, this.c, { color: color } );
     }
 
     // @public Creates a new {Quadratic} quadratic based on just the ax^2 term of y=ax^2 + bx + c
