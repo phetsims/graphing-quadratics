@@ -104,7 +104,7 @@ define( function( require ) {
     saveQuadratic() {
 
       // The implementation supports N saved quadratics, but the requirements specify that N=1.
-      // So before saving the quadratic, erase any saved quadratics.
+      // So before saving the quadratic, perform an erase.
       this.eraseQuadratics();
       this.savedQuadratics.add( this.quadraticProperty.value.withColor( GQColors.SAVED_CURVE ) );
     }
