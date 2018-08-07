@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Integers scene controls for various features related to the graph.
+ * Controls for various features related to the graph on the 'Integers' scene of the 'Standard Form' screen.
  *
  * @author Andrea Lin
  */
@@ -15,6 +15,7 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
@@ -43,24 +44,27 @@ define( function( require ) {
         yMargin: 15
       }, options );
 
-      // checkboxes that control visibility of vertex, axis of symmetry, and roots
-      const vertexCheckbox = Checkbox.createTextCheckbox( vertexString, CHECKBOX_LABEL_OPTIONS, vertexVisibleProperty );
-      const axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
-        axisOfSymmetryString,
-        CHECKBOX_LABEL_OPTIONS,
-        axisOfSymmetryVisibleProperty
-      );
-      const rootsCheckbox = Checkbox.createTextCheckbox( rootsString, CHECKBOX_LABEL_OPTIONS, rootsVisibleProperty );
+      // Vertex
+      const vertexLabel = new Text( vertexString, CHECKBOX_LABEL_OPTIONS );
+      const vertexCheckbox = new Checkbox( vertexLabel, vertexVisibleProperty );
+
+      // Axis of Symmetry
+      const axisOfSymmetryLabel = new Text( axisOfSymmetryString, CHECKBOX_LABEL_OPTIONS );
+      const axisOfSymmetryCheckbox = new Checkbox( axisOfSymmetryLabel, axisOfSymmetryVisibleProperty );
+
+      // Roots
+      const rootsLabel = new Text( rootsString, CHECKBOX_LABEL_OPTIONS );
+      const rootsCheckbox = new Checkbox( rootsLabel, rootsVisibleProperty );
 
       // vertical layout
       const contentNode = new VBox( {
+        align: 'left',
+        spacing: 20,
         children: [
           vertexCheckbox,
           axisOfSymmetryCheckbox,
           rootsCheckbox
-        ],
-        spacing: 20,
-        align: 'left'
+        ]
       } );
 
       super( contentNode, options );

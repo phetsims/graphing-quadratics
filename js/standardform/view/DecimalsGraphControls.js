@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Decimals scene controls for various features related to the graph.
+ * Controls for various features related to the graph on the 'Decimals' scene of the 'Standard Form' screen.
  *
  * @author Andrea Lin
  */
@@ -53,6 +53,7 @@ define( function( require ) {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.QUADRATIC_TERM
       } );
+      const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, quadraticTermVisibleProperty );
 
       // y = bx
       const linearTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
@@ -64,6 +65,7 @@ define( function( require ) {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.LINEAR_TERM
       } );
+      const linearTermCheckbox = new Checkbox( linearTermLabel, linearTermVisibleProperty );
 
       // y = c
       const constantTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
@@ -74,21 +76,17 @@ define( function( require ) {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.CONSTANT_TERM
       } );
-
-      // checkboxes that control visibility
-      const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, quadraticTermVisibleProperty );
-      const linearTermCheckbox = new Checkbox( linearTermLabel, linearTermVisibleProperty );
       const constantTermCheckbox = new Checkbox( constantTermLabel, constantTermVisibleProperty );
 
       // vertical layout
       const contentNode = new VBox( {
+        align: 'left',
+        spacing: 20,
         children: [
           quadraticTermCheckbox,
           linearTermCheckbox,
           constantTermCheckbox
-        ],
-        spacing: 20,
-        align: 'left'
+        ]
       } );
 
       super( contentNode, options );

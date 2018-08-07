@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Controls for various features related to the graph on the vertex screen.
+ * Controls for various features related to the graph on the 'Vertex' screen.
  *
  * @author Andrea Lin
  */
@@ -15,6 +15,7 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
@@ -41,22 +42,22 @@ define( function( require ) {
         yMargin: 15
       }, options );
 
-      // checkboxes that control visibility of vertex, axis of symmetry, and roots
-      const axisOfSymmetryCheckbox = Checkbox.createTextCheckbox(
-        axisOfSymmetryString,
-        CHECKBOX_LABEL_OPTIONS,
-        axisOfSymmetryVisibleProperty
-      );
-      const directrixCheckbox = Checkbox.createTextCheckbox( directrixString, CHECKBOX_LABEL_OPTIONS, directrixVisibleProperty );
+      // Axis of Symmetry
+      const axisOfSymmetryLabel = new Text( axisOfSymmetryString, CHECKBOX_LABEL_OPTIONS );
+      const axisOfSymmetryCheckbox = new Checkbox( axisOfSymmetryLabel, axisOfSymmetryVisibleProperty );
+
+      // Directrix
+      const directrixLabel = new Text( directrixString, CHECKBOX_LABEL_OPTIONS );
+      const directrixCheckbox = new Checkbox( directrixLabel, directrixVisibleProperty );
 
       // vertical layout
       const contentNode = new VBox( {
+        align: 'left',
+        spacing: 20,
         children: [
           axisOfSymmetryCheckbox,
           directrixCheckbox
-        ],
-        spacing: 20,
-        align: 'left'
+        ]
       } );
 
       super( contentNode, options );
