@@ -13,8 +13,10 @@ define( function( require ) {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VStrut = require( 'SCENERY/nodes/VStrut' );
@@ -27,6 +29,7 @@ define( function( require ) {
 
   // constants
   const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
+  const POINT_RADIUS = 6;
 
   class IntegersGraphControls extends Panel {
 
@@ -49,7 +52,14 @@ define( function( require ) {
       }, options );
 
       // Vertex
-      const vertexLabel = new Text( vertexString, CHECKBOX_LABEL_OPTIONS );
+      const vertexLabel = new HBox( {
+        align: 'center',
+        spacing: 10,
+        children: [
+          new Text( vertexString, CHECKBOX_LABEL_OPTIONS ),
+          new PlottedPointNode( POINT_RADIUS, GQColors.VERTEX )
+        ]
+      } );
       const vertexCheckbox = new Checkbox( vertexLabel, vertexVisibleProperty );
 
       // Axis of Symmetry
@@ -57,7 +67,20 @@ define( function( require ) {
       const axisOfSymmetryCheckbox = new Checkbox( axisOfSymmetryLabel, axisOfSymmetryVisibleProperty );
 
       // Roots
-      const rootsLabel = new Text( rootsString, CHECKBOX_LABEL_OPTIONS );
+      const rootsLabel = new HBox( {
+        align: 'center',
+        spacing: 10,
+        children: [
+          new Text( rootsString, CHECKBOX_LABEL_OPTIONS ),
+          new HBox( {
+            align: 'center',
+            spacing: 5,
+            children: [
+              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS ),
+              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS )
+            ]
+          } )
+        ] } );
       const rootsCheckbox = new Checkbox( rootsLabel, rootsVisibleProperty );
 
       // Hide curves
