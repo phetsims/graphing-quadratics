@@ -14,6 +14,8 @@ define( function( require ) {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
+  const Line = require( 'SCENERY/nodes/Line' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -49,7 +51,18 @@ define( function( require ) {
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty );
 
       // Directrix
-      const directrixLabel = new Text( directrixString, CHECKBOX_LABEL_OPTIONS );
+      const directrixLabel = new HBox( {
+        align: 'center',
+        spacing: 10,
+        children: [
+          new Text( directrixString, CHECKBOX_LABEL_OPTIONS ),
+          new Line( 0, 0, 35, 0, {
+            stroke: GQColors.DIRECTRIX,
+            lineWidth: 3,
+            lineDash: [ 5, 5 ]
+          } )
+        ]
+      } );
       const directrixCheckbox = new Checkbox( directrixLabel, directrixVisibleProperty );
 
       // Hide curves
