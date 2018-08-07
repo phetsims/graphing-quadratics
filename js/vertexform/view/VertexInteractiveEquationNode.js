@@ -82,7 +82,8 @@ define( function( require ) {
       const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const minusText = new RichText( MathSymbols.MINUS, TEXT_OPTIONS );
       //TODO separate out subscript
-      const closeParenthesisAndSquaredText = new RichText( ')<sup>2</sup>', TEXT_OPTIONS );
+      const closeParenthesisAndSquaredText = new RichText( ')', TEXT_OPTIONS );
+      const exponentText = new RichText( '<sup>2</sup>', TEXT_OPTIONS );
       const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
       assert && assert( !options.children, 'VertexInteractiveEquationNode sets children' );
@@ -95,6 +96,7 @@ define( function( require ) {
         minusText,
         hNumberPicker,
         closeParenthesisAndSquaredText,
+        exponentText,
         plusText,
         kNumberPicker
       ];
@@ -109,17 +111,12 @@ define( function( require ) {
       minusText.left = xText.right + 10;
       hNumberPicker.left = minusText.right + 10;
       closeParenthesisAndSquaredText.left = hNumberPicker.right + 5;
-      plusText.left = closeParenthesisAndSquaredText.right + 10;
+      exponentText.left = closeParenthesisAndSquaredText.right + 5;
+      plusText.left = exponentText.right + 10;
       kNumberPicker.left = plusText.right + 10;
-      equalToText.bottom = yText.bottom;
-      openParenthesisText.bottom = yText.bottom;
-      xText.bottom = yText.bottom;
-      minusText.bottom = yText.bottom;
-      closeParenthesisAndSquaredText.bottom = yText.bottom;
-      plusText.bottom = yText.bottom;
-      aNumberPicker.centerY = xText.centerY;
-      hNumberPicker.centerY = xText.centerY;
-      kNumberPicker.centerY = xText.centerY;
+      aNumberPicker.centerY = equalToText.centerY;
+      hNumberPicker.centerY = equalToText.centerY;
+      kNumberPicker.centerY = equalToText.centerY;
     }
   }
 
