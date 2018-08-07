@@ -59,7 +59,7 @@ define( function( require ) {
       const equationAccordionBox = new EquationAccordionBox(
         interactiveEquationNode,
         scene.saveQuadratic.bind( scene ),
-        scene.clearQuadratics.bind( scene ),
+        scene.eraseQuadratics.bind( scene ),
         scene.savedQuadratics.lengthProperty, {
           titleNode: equationAccordionBoxTitleNode,
           expandedProperty: viewProperties.interactiveEquationVisibleProperty

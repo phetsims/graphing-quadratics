@@ -93,7 +93,7 @@ define( function( require ) {
     // @public
     reset() {
       this.quadraticProperty.reset();
-      this.clearQuadratics();
+      this.eraseQuadratics();
       this.pointTools.forEach( pointTool => { pointTool.reset(); } );
     }
 
@@ -105,15 +105,15 @@ define( function( require ) {
 
       // The implementation supports N saved quadratics, but the requirements specify that N=1.
       // So before saving the quadratic, erase any saved quadratics.
-      this.clearQuadratics();
+      this.eraseQuadratics();
       this.savedQuadratics.add( this.quadraticProperty.value.withColor( GQColors.SAVED_CURVE ) );
     }
 
     /**
-     * Clears the list of saved quadratics.
+     * Erases the saved quadratics.
      * @public
      */
-    clearQuadratics() {
+    eraseQuadratics() {
       this.savedQuadratics.clear();
     }
   }
