@@ -1,7 +1,5 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO Copied from GRAPHING_LINES/common/view/EquationAccordionBox
-//TODO extend AccordionBox, not Panel
 /**
  * Accordion box that contains the interactive equation and associated controls.
  *
