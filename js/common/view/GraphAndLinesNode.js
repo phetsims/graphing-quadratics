@@ -1,9 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
-//TODO consider a better name for this class
 /**
- * Common view for a scene. Base type for each of the two scenes on the standard form screen, as well as the single
- * scene in the vertex form screen.
+ * Displays the graph and everything that appears on it (aka, it's content).
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
