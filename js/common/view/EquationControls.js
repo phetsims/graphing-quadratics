@@ -47,7 +47,7 @@ define( function( require ) {
         
         // superclass options
         fill: GQColors.CONTROL_PANEL_BACKGROUND,
-        xMargin: 10,
+        xMargin: 20,
         yMargin: 10
       }, options );
 
