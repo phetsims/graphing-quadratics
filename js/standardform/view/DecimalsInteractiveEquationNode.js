@@ -84,21 +84,21 @@ define( function( require ) {
       const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-      const aControl = new CoefficientSlider( GQSymbols.a, aProperty, 2 );
-      const bControl = new CoefficientSlider( GQSymbols.b, bProperty, 1 );
-      const cControl = new CoefficientSlider( GQSymbols.c, cProperty, 1 );
+      const aSlider = new CoefficientSlider( GQSymbols.a, aProperty, 2 );
+      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, 1 );
+      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, 1 );
 
       assert && assert( !options.children, 'DecimalsInteractiveEquationNode sets children' );
       options.children = [
         yText, equalToText, aDisplay, xSquaredText, plusText, bDisplay, xText, secondPlusText, cDisplay,
-        aControl,
-        bControl,
-        cControl
+        aSlider,
+        bSlider,
+        cSlider
       ];
 
       super( options );
 
-      // layout, spacing determined empirically
+      // equation layout, spacing determined empirically
       equalToText.left = yText.right + 10;
       aDisplay.left = equalToText.right + 10;
       xSquaredText.left = aDisplay.right + 5;
@@ -107,20 +107,18 @@ define( function( require ) {
       xText.left = bDisplay.right + 5;
       secondPlusText.left = xText.right + 10;
       cDisplay.left = secondPlusText.right + 10;
-      equalToText.bottom = yText.bottom;
-      xSquaredText.bottom = yText.bottom;
-      plusText.bottom = yText.bottom;
-      xText.bottom = yText.bottom;
-      secondPlusText.bottom = yText.bottom;
       aDisplay.bottom = yText.bottom;
       bDisplay.bottom = yText.bottom;
       cDisplay.bottom = yText.bottom;
-      aControl.centerX = aDisplay.centerX;
-      bControl.centerX = bDisplay.centerX;
-      cControl.centerX = cDisplay.centerX;
-      aControl.top = aDisplay.bottom + 5;
-      bControl.top = bDisplay.bottom + 5;
-      cControl.top = cDisplay.bottom + 5;
+      
+      // sliders below equation
+      var ySpacing = 5;
+      aSlider.centerX = aDisplay.centerX;
+      bSlider.centerX = bDisplay.centerX;
+      cSlider.centerX = cDisplay.centerX;
+      aSlider.top = aDisplay.bottom + ySpacing;
+      bSlider.top = bDisplay.bottom + ySpacing;
+      cSlider.top = cDisplay.bottom + ySpacing;
     }
   }
 

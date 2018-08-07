@@ -103,7 +103,7 @@ define( function( require ) {
 
       super( options );
 
-      // layout, spacing determined empirically
+      // equation layout, spacing determined empirically
       equalToText.left = yText.right + 10;
       aNumberPicker.left = equalToText.right + 10;
       openParenthesisText.left = aNumberPicker.right + 5;
@@ -114,6 +114,8 @@ define( function( require ) {
       exponentText.left = closeParenthesisAndSquaredText.right + 5;
       plusText.left = exponentText.right + 10;
       kNumberPicker.left = plusText.right + 10;
+
+      // vertically center pickers on equals
       aNumberPicker.centerY = equalToText.centerY;
       hNumberPicker.centerY = equalToText.centerY;
       kNumberPicker.centerY = equalToText.centerY;
