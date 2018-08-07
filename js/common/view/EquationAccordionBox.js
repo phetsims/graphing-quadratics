@@ -14,6 +14,7 @@ define( function( require ) {
   const EraserButton = require( 'SCENERY_PHET/buttons/EraserButton' );
   const FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const HSeparator = require( 'SUN/HSeparator' );
@@ -36,16 +37,7 @@ define( function( require ) {
      */
     constructor( interactiveEquationNode, saveFunction, eraseFunction, numberOfSavedLinesProperty, options ) {
 
-      options = _.extend( {
-        
-        // superclass options
-        fill: GQColors.CONTROL_PANEL_BACKGROUND,
-        titleYMargin: 10,
-        buttonLength: 25,
-        buttonXMargin: 10,
-        contentXMargin: 20,
-        contentYMargin: 10
-      }, options );
+      options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
       // Save button
       const saveButton = new RectangularPushButton( {

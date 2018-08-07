@@ -41,13 +41,7 @@ define( function( require ) {
     constructor( quadraticTermVisibleProperty, linearTermVisibleProperty,
                  constantTermVisibleProperty, hideCurvesProperty, options ) {
 
-      options = _.extend( {
-
-        // superclass options
-        fill: GQColors.CONTROL_PANEL_BACKGROUND,
-        xMargin: 20,
-        yMargin: 15
-      }, options );
+      options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
       // y = ax^2
       const quadraticTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {

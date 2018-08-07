@@ -44,7 +44,7 @@ define( function( require ) {
 
         // HSlider options
         trackFill: 'black',
-        trackSize: new Dimension2( 160, 1 ),
+        trackSize: new Dimension2( 150, 1 ),
         thumbSize: new Dimension2( 20, 45 ),
         thumbTouchAreaYDilation: 8,
 

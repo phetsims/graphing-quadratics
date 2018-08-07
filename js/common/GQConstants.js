@@ -10,8 +10,12 @@ define( function( require ) {
 
   // modules
   const Bounds2 = require( 'DOT/Bounds2' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
+
+  // constants
+  const PANEL_CORNER_RADIUS = 5;
 
   const GQConstants = {
 
@@ -20,6 +24,23 @@ define( function( require ) {
     SCREEN_VIEW_Y_MARGIN: 16,
     X_AXIS_RANGE: new RangeWithValue( -10, 10 ),
     Y_AXIS_RANGE: new RangeWithValue( -10, 10 ),
+
+    ACCORDION_BOX_OPTIONS: {
+      fill: GQColors.CONTROL_PANEL_BACKGROUND,
+      cornerRadius: PANEL_CORNER_RADIUS,
+      titleYMargin: 10,
+      buttonLength: 25,
+      buttonXMargin: 10,
+      contentXMargin: 20,
+      contentYMargin: 10
+    },
+
+    PANEL_OPTIONS: {
+      fill: GQColors.CONTROL_PANEL_BACKGROUND,
+      cornerRadius: PANEL_CORNER_RADIUS,
+      xMargin: 20,
+      yMargin: 15
+    },
 
     PICKER_TOUCH_AREA_X_DILATION: 30,
 

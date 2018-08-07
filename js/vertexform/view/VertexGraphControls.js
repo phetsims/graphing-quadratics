@@ -40,13 +40,7 @@ define( function( require ) {
      */
     constructor( axisOfSymmetryVisibleProperty, directrixVisibleProperty, hideCurvesProperty, options ) {
 
-      options = _.extend( {
-
-        // superclass options
-        fill: GQColors.CONTROL_PANEL_BACKGROUND,
-        xMargin: 20,
-        yMargin: 15
-      }, options );
+      options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
       // Axis of Symmetry
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty );
