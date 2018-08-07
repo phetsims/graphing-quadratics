@@ -2,7 +2,7 @@
 
 /**
  * Renderer for standard form equation with integer coefficients that can be changed.
- * Form is y = ax^2 + bx + c, where a, b, and c can be changed with number pickers
+ * Form is y = ax^2 + bx + c, where a, b, and c can be changed with number pickers.
  *
  * @author Andrea Lin
  */
