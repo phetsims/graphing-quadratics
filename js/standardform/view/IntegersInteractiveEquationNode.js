@@ -83,7 +83,7 @@ define( function( require ) {
 
       super ( options );
 
-      // layout
+      // layout, spacing determined empirically
       equalToText.left = yText.right + 10;
       aNumberPicker.left = equalToText.right + 10;
       xSquaredText.left = aNumberPicker.right + 10;
@@ -92,14 +92,9 @@ define( function( require ) {
       xText.left = bNumberPicker.right + 10;
       secondPlusText.left = xText.right + 10;
       cNumberPicker.left = secondPlusText.right + 10;
-      equalToText.bottom = yText.bottom;
-      xSquaredText.bottom = yText.bottom;
-      plusText.bottom = yText.bottom;
-      xText.bottom = yText.bottom;
-      secondPlusText.bottom = yText.bottom;
-      aNumberPicker.centerY = xText.centerY;
-      bNumberPicker.centerY = xText.centerY;
-      cNumberPicker.centerY = xText.centerY;
+      aNumberPicker.centerY = equalToText.centerY;
+      bNumberPicker.centerY = equalToText.centerY;
+      cNumberPicker.centerY = equalToText.centerY;
     }
   }
 

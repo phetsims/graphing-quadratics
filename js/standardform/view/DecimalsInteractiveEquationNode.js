@@ -98,7 +98,7 @@ define( function( require ) {
 
       super( options );
 
-      // layout
+      // layout, spacing determined empirically
       equalToText.left = yText.right + 10;
       aDisplay.left = equalToText.right + 10;
       xSquaredText.left = aDisplay.right + 5;

@@ -103,7 +103,7 @@ define( function( require ) {
 
       super( options );
 
-      // layout
+      // layout, spacing determined empirically
       equalToText.left = yText.right + 10;
       aNumberPicker.left = equalToText.right + 10;
       openParenthesisText.left = aNumberPicker.right + 5;
