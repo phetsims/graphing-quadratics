@@ -11,32 +11,27 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const EquationControls = require( 'GRAPHING_QUADRATICS/common/view/EquationControls' );
+  const EquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/EquationAccordionBox' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GraphAndLinesNode = require( 'GRAPHING_QUADRATICS/common/view/GraphAndLinesNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PointToolNode = require( 'GRAPHING_QUADRATICS/common/view/PointToolNode' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
 
   class GQSceneNode extends Node {
 
     /**
-     * @param {GQScene} model
+     * @param {GQScene} scene
      * @param {Bounds2} layoutBounds
-     * @param {Node} equationControlsTitleNode - a display of the general form of the equation
+     * @param {Node} equationAccordionBoxTitleNode - a display of the general form of the equation
      * @param {Node} interactiveEquationNode - interactive equation
      * @param {Panel} graphControls
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor(
-      model,
-      layoutBounds,
-      equationControlsTitleNode,
-      interactiveEquationNode,
-      graphControls,
-      viewProperties,
-      options
-    ) {
+    constructor( scene, layoutBounds, equationAccordionBoxTitleNode, interactiveEquationNode,
+                 graphControls, viewProperties, options ) {
 
       options = _.extend( {
         hasVertexManipulator: false // only vertex scene has vertex manipulator
@@ -44,20 +39,21 @@ define( function( require ) {
 
       super( options );
 
-      // Create point tool nodes
+      //TODO generalize to N point tools
+      // Point tools
       const pointTool1 = new PointToolNode(
-        model.pointTool1,
-        model.modelViewTransform,
-        model.graph,
+        scene.pointTool1,
+        scene.modelViewTransform,
+        scene.graph,
         viewProperties.linesVisibleProperty,
-        model.lines
+        scene.lines
       );
       const pointTool2 = new PointToolNode(
-        model.pointTool2,
-        model.modelViewTransform,
-        model.graph,
+        scene.pointTool2,
+        scene.modelViewTransform,
+        scene.graph,
         viewProperties.linesVisibleProperty,
-        model.lines
+        scene.lines
       );
 
       // Point tools moveToFront when dragged, so we give them a common parent to preserve rendering order.
@@ -65,64 +61,48 @@ define( function( require ) {
       pointToolParent.addChild( pointTool1 );
       pointToolParent.addChild( pointTool2 );
 
-      // the graph and quadratics and lines and draggable point manipulator
-      const graphAndLinesNode = new GraphAndLinesNode(
-        model,
-        layoutBounds,
-        viewProperties,
-        { hasVertexManipulator: options.hasVertexManipulator }
-      );
+      // The graph and everything on it -- position is determined by the model!
+      const graphAndLinesNode = new GraphAndLinesNode( scene, layoutBounds, viewProperties, {
+        hasVertexManipulator: options.hasVertexManipulator
+      } );
 
-      const equationControls = new EquationControls(
-        equationControlsTitleNode,
+      // Interactive equation and associated controls
+      const equationAccordionBox = new EquationAccordionBox(
+        equationAccordionBoxTitleNode,
         interactiveEquationNode,
-        model.saveQuadratic.bind( model ),
-        model.clearQuadratics.bind( model ),
-        model.savedQuadratics.lengthProperty,
+        scene.saveQuadratic.bind( scene ),
+        scene.clearQuadratics.bind( scene ),
+        scene.savedQuadratics.lengthProperty,
         viewProperties.interactiveEquationVisibleProperty
       );
 
       // Parent for all control panels, to simplify layout
-      const controlsParent = new Node();
-      controlsParent.addChild( equationControls );
-      controlsParent.addChild( graphControls );
-
-      // @public
-      this.controlsParent = controlsParent;
-      this.scene = model;
+      const controlsParent = new VBox( {
+        resize: false,
+        align: 'center',
+        spacing: 15,
+        children: [
+          equationAccordionBox,
+          graphControls
+        ]
+      });
 
       // rendering order
       this.addChild( controlsParent );
       this.addChild( graphAndLinesNode );
       this.addChild( pointToolParent );
 
-      // layout - position of graphAndLinesNode is determined by model
+      // Constrain control panels to amount of horizontal space available.
+      const availableControlPanelWidth = layoutBounds.width - graphAndLinesNode.right - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN );
+      controlsParent.maxWidth = 0.9 * availableControlPanelWidth;
 
-      // position of control panels:
-      const xMargin = 10;
-      const yMargin = 20;
-      const ySpacing = 15;
+      // Horizontally center controls in the space to the right of the graph.
+      controlsParent.centerX = graphAndLinesNode.right + GQConstants.SCREEN_VIEW_X_MARGIN + ( availableControlPanelWidth / 2 );
+      controlsParent.top = GQConstants.SCREEN_VIEW_Y_MARGIN;
 
-      // get the amount of canvas width that's available for the control panels
-      const availableControlPanelWidth = layoutBounds.width - graphAndLinesNode.right - ( 2 * xMargin );
-
-      // if either control panel is too wide, scale it
-      if ( equationControls.width > availableControlPanelWidth ) {
-        equationControls.scale = availableControlPanelWidth / equationControls.width;
-      }
-      if ( graphControls.width > availableControlPanelWidth ) {
-        graphControls.scale = availableControlPanelWidth / graphControls.width;
-      }
-
-      // vertically stack controls, horizontally align centers
-      equationControls.centerX = availableControlPanelWidth / 2;
-      equationControls.y = 0;
-      graphControls.centerX = equationControls.centerX;
-      graphControls.top = equationControls.bottom + ySpacing;
-
-      // center controls in the space to the right of the graph
-      controlsParent.centerX = graphAndLinesNode.right + xMargin + ( availableControlPanelWidth / 2 );
-      controlsParent.top = yMargin;
+      // @public
+      this.controlsParent = controlsParent;
+      this.scene = scene;
     }
   }
 

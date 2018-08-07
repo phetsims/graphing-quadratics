@@ -1,9 +1,9 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO Copied from GRAPHING_LINES/common/view/EquationControls
+//TODO Copied from GRAPHING_LINES/common/view/EquationAccordionBox
 //TODO extend AccordionBox, not Panel
 /**
- * Control panel for interactive-equation.
+ * Accordion box that contains the interactive equation and associated controls.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -32,7 +32,7 @@ define( function( require ) {
   const TITLE_X_SPACING = 5;
   const SAVE_ICON = new FontAwesomeNode( 'camera', { maxWidth: ICON_WIDTH } );
 
-  class EquationControls extends Panel {
+  class EquationAccordionBox extends Panel {
 
     /**
      * @param {Node} titleNode - a display of the general form of the equation
@@ -117,5 +117,5 @@ define( function( require ) {
     }
   }
 
-  return graphingQuadratics.register( 'EquationControls', EquationControls );
+  return graphingQuadratics.register( 'EquationAccordionBox', EquationAccordionBox );
 } );
