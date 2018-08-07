@@ -28,7 +28,7 @@ define( function( require ) {
         // superclass options
         name: screenStandardFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
-        //TODO add homeScreenIcon
+        //TODO #11 homeScreenIcon:
       };
 
       super(
