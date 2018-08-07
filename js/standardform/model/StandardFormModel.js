@@ -18,8 +18,8 @@ define( function( require ) {
 
     constructor() {
 
-      const decimalsScene = new GQScene( GQIconFactory.createDecimalsIcon() );
-      const integersScene = new GQScene( GQIconFactory.createIntegersIcon() );
+      const decimalsScene = new GQScene( { icon: GQIconFactory.createDecimalsIcon() } );
+      const integersScene = new GQScene( { icon: GQIconFactory.createIntegersIcon() } );
 
       super( [ decimalsScene, integersScene  ] );
 

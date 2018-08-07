@@ -28,18 +28,23 @@ define( function( require ) {
   class GQScene {
 
     /**
-     * @param {Node} [icon] - optional icon, used on radio button to select the scene
+     * @param {Object} [options]
      */
-    constructor( icon ) {
+    constructor( options ) {
 
-      // @public view for the icon representing this scene
-      this.icon = icon;
+      options = _.extend( {
+        quadratic: new Quadratic( 1, 0, 0 ), // initial interactive quadratic
+        icon: null // used on radio button to select the scene
+      }, options );
+
+      // @public icon that represents this scene
+      this.icon = options.icon;
 
       // @public graph
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
       // @public the interactive quadratic
-      this.quadraticProperty = new Property( new Quadratic( 1, 0, 0 ) );
+      this.quadraticProperty = new Property( options.quadratic );
 
       // @public saved quadratics
       this.savedQuadratics = new ObservableArray( [] );
