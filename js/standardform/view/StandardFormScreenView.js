@@ -42,7 +42,8 @@ define( function( require ) {
         new IntegersGraphControls(
           integersViewProperties.vertexVisibleProperty,
           integersViewProperties.axisOfSymmetryVisibleProperty,
-          integersViewProperties.rootsVisibleProperty
+          integersViewProperties.rootsVisibleProperty,
+          integersViewProperties.hideCurvesProperty
         ),
         integersViewProperties
       );
@@ -56,7 +57,8 @@ define( function( require ) {
         new DecimalsGraphControls(
           decimalsViewProperties.quadraticTermVisibleProperty,
           decimalsViewProperties.linearTermVisibleProperty,
-          decimalsViewProperties.constantTermVisibleProperty
+          decimalsViewProperties.constantTermVisibleProperty,
+          decimalsViewProperties.hideCurvesProperty
         ),
         decimalsViewProperties
       );

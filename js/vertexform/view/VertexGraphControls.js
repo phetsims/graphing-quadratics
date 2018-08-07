@@ -17,10 +17,12 @@ define( function( require ) {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
+  const VStrut = require( 'SCENERY/nodes/VStrut' );
 
   // strings
   const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
+  const hideCurvesString = require( 'string!GRAPHING_QUADRATICS/hideCurves' );
 
   // constants
   const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
@@ -30,9 +32,10 @@ define( function( require ) {
     /**
      * @param {BooleanProperty} axisOfSymmetryVisibleProperty
      * @param {BooleanProperty} directrixVisibleProperty
+     * @param {BooleanProperty} hideCurvesProperty
      * @param options
      */
-    constructor( axisOfSymmetryVisibleProperty, directrixVisibleProperty, options ) {
+    constructor( axisOfSymmetryVisibleProperty, directrixVisibleProperty, hideCurvesProperty, options ) {
 
       options = _.extend( {
 
@@ -50,13 +53,19 @@ define( function( require ) {
       const directrixLabel = new Text( directrixString, CHECKBOX_LABEL_OPTIONS );
       const directrixCheckbox = new Checkbox( directrixLabel, directrixVisibleProperty );
 
+      // Hide curves
+      const hideCurvesLabel = new Text( hideCurvesString, CHECKBOX_LABEL_OPTIONS );
+      const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty );
+
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
         spacing: 20,
         children: [
           axisOfSymmetryCheckbox,
-          directrixCheckbox
+          directrixCheckbox,
+          new VStrut( 1 ),
+          hideCurvesCheckbox
         ]
       } );
 

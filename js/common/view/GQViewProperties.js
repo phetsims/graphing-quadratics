@@ -43,6 +43,9 @@ define( function( require ) {
 
     // @public determines whether a point and a line are displayed to mark the focus and directrix
     this.directrixVisibleProperty = new BooleanProperty( false );
+
+    // @public determines whether curves are hidden on the graph
+    this.hideCurvesProperty = new BooleanProperty( false );
   }
 
   graphingQuadratics.register( 'GQViewProperties', GQViewProperties );
@@ -62,6 +65,7 @@ define( function( require ) {
       this.linearTermVisibleProperty.reset();
       this.constantTermVisibleProperty.reset();
       this.directrixVisibleProperty.reset();
+      this.hideCurvesProperty.reset();
     }
   } );
 } );

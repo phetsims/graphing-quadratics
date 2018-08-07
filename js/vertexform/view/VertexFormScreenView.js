@@ -35,7 +35,8 @@ define( function( require ) {
         new VertexInteractiveEquationNode( model.vertexScene.quadraticProperty ),
         new VertexGraphControls(
           vertexViewProperties.axisOfSymmetryVisibleProperty,
-          vertexViewProperties.directrixVisibleProperty
+          vertexViewProperties.directrixVisibleProperty,
+          vertexViewProperties.hideCurvesProperty
         ),
         vertexViewProperties,
         { hasVertexManipulator: true }

@@ -19,10 +19,15 @@ define( function( require ) {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
   const CHECKBOX_EQUATION_FONT = new PhetFont( GQConstants.CHECKBOX_EQUATION_FONT_SIZE );
+  const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
+
+  // strings
+  const hideCurvesString = require( 'string!GRAPHING_QUADRATICS/hideCurves' );
 
   class DecimalsGraphControls extends Panel {
 
@@ -30,9 +35,11 @@ define( function( require ) {
      * @param {BooleanProperty} quadraticTermVisibleProperty
      * @param {BooleanProperty} linearTermVisibleProperty
      * @param {BooleanProperty} constantTermVisibleProperty
+     * @param {BooleanProperty} hideCurvesProperty
      * @param {Object} [options]
      */
-    constructor( quadraticTermVisibleProperty, linearTermVisibleProperty, constantTermVisibleProperty, options ) {
+    constructor( quadraticTermVisibleProperty, linearTermVisibleProperty,
+                 constantTermVisibleProperty, hideCurvesProperty, options ) {
 
       options = _.extend( {
 
@@ -78,6 +85,10 @@ define( function( require ) {
       } );
       const constantTermCheckbox = new Checkbox( constantTermLabel, constantTermVisibleProperty );
 
+      // Hide curves
+      const hideCurvesLabel = new Text( hideCurvesString, CHECKBOX_LABEL_OPTIONS );
+      const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty );
+
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
@@ -85,7 +96,8 @@ define( function( require ) {
         children: [
           quadraticTermCheckbox,
           linearTermCheckbox,
-          constantTermCheckbox
+          constantTermCheckbox,
+          hideCurvesCheckbox
         ]
       } );
 

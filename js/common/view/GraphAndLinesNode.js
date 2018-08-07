@@ -12,6 +12,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
@@ -36,23 +37,18 @@ define( function( require ) {
 
       super( options );
 
-      // Graph Node - the cartesian coordinates graph
+      // Cartesian coordinates graph
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
-      // Creating the view for the quadratics
+      // Primary quadratic curve
       const quadraticNode = new QuadraticNode(
         model.quadraticProperty,
         model.graph,
         model.modelViewTransform,
         viewProperties
       );
-      const clipArea = Shape.rectangle(
-        model.graph.xRange.min,
-        model.graph.yRange.min,
-        model.graph.xRange.getLength(),
-        model.graph.yRange.getLength()
-      ).transformed( model.modelViewTransform.getMatrix() );
 
+      // Vertex manipulator
       let vertexManipulator;
       if ( options.hasVertexManipulator ) {
         vertexManipulator = new VertexManipulator(
@@ -64,30 +60,45 @@ define( function( require ) {
         );
       }
 
-      // Create view for the saved quadratics
-      const savedQuadraticsLayer = new Node();
+      // Parent for saved curves
+      const savedCurvesLayer = new Node();
 
-      model.savedQuadratics.addItemAddedListener( addedQuadratic => {
-        const newQuadraticNode = quadraticNode.createPathWithColor( addedQuadratic, 'blue' );
-        savedQuadraticsLayer.addChild( newQuadraticNode );
+      // When a quadratic is saved...
+      model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
+        // create Node for the new quadratic
+        const newQuadraticNode = quadraticNode.createPathWithColor( savedQuadratic, GQColors.SAVED_CURVE );
+        savedCurvesLayer.addChild( newQuadraticNode );
+
+        //TODO memory leak?
+        // add listener for when the quadratic is eventually removed
         model.savedQuadratics.addItemRemovedListener( removedQuadratic => {
-          if ( removedQuadratic === addedQuadratic ) {
-            savedQuadraticsLayer.removeChild( newQuadraticNode );
+          if ( removedQuadratic === savedQuadratic ) {
+            savedCurvesLayer.removeChild( newQuadraticNode );
           }
         } );
       } );
 
-      // A layer to contain the quadratics and clip them to the graph area
-      const quadraticsNode = new Node( { clipArea: clipArea } );
+      // Clip content to the graph
+      const clipArea = Shape.rectangle(
+        model.graph.xRange.min,
+        model.graph.yRange.min,
+        model.graph.xRange.getLength(),
+        model.graph.yRange.getLength()
+      ).transformed( model.modelViewTransform.getMatrix() );
 
-      quadraticsNode.addChild( savedQuadraticsLayer );
-      quadraticsNode.addChild( quadraticNode );
-      if ( options.hasVertexManipulator ) { quadraticsNode.addChild( vertexManipulator ); }
+      // Everything that's on the graph, clipped to the graph
+      const contentNode = new Node( { clipArea: clipArea } );
+      contentNode.addChild( savedCurvesLayer );
+      contentNode.addChild( quadraticNode );
+      if ( options.hasVertexManipulator ) { contentNode.addChild( vertexManipulator ); }
 
       // rendering order
       this.addChild( graphNode );
-      this.addChild( quadraticsNode );
+      this.addChild( contentNode );
+
+      // Show/hide the graph content
+      viewProperties.hideCurvesProperty.link( hideCurves => {contentNode.visible = !hideCurves; } );
     }
   }
 
