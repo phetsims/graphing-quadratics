@@ -22,6 +22,7 @@ define( function( require ) {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  // const Util = require( 'DOT/Util' );
 
   // constants
   const NUMBER_PICKER_OPTIONS = {
@@ -50,10 +51,11 @@ define( function( require ) {
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
 
-      //TODO change requested by AM, causes a stack overflow
+      //TODO Change requested by AM. Causes stack overflow if you change h or k before changing a.
       // a picker
-      // So that the focus point is not occluded, 'a' is constrained to the following values:
+      // So that the focus point is not occluded by the vertex manipulator, constrain 'a' to the following values:
       // [ -0.10, -0.09, -0.08, -0.07, -0.06, -0.05, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10 ]
+      // assert && assert( aRange.min === -0.1 && aRange.max === 0.1, 'unexpected aRange: ' + aRange );
       // const aDecimalPlaces = 2;
       // const aIncrement = 0.01;
       // const aAbsoluteMin = 0.05;
@@ -71,8 +73,8 @@ define( function( require ) {
       // );
 
       // a picker
-      const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
-        _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.A_SYMBOL } ) );
+       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
+         _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.A_SYMBOL } ) );
 
       // h picker
       const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
