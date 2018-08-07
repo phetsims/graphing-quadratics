@@ -67,12 +67,13 @@ define( function( require ) {
 
       // Interactive equation and associated controls
       const equationAccordionBox = new EquationAccordionBox(
-        equationAccordionBoxTitleNode,
         interactiveEquationNode,
         scene.saveQuadratic.bind( scene ),
         scene.clearQuadratics.bind( scene ),
-        scene.savedQuadratics.lengthProperty,
-        viewProperties.interactiveEquationVisibleProperty
+        scene.savedQuadratics.lengthProperty, {
+          titleNode: equationAccordionBoxTitleNode,
+          expandedProperty: viewProperties.interactiveEquationVisibleProperty
+        }
       );
 
       // Parent for all control panels, to simplify layout
@@ -84,7 +85,7 @@ define( function( require ) {
           equationAccordionBox,
           graphControls
         ]
-      });
+      } );
 
       // rendering order
       this.addChild( controlsParent );
