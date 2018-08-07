@@ -28,16 +28,12 @@ define( function( require ) {
      * @returns {Node}
      */
     createIntegersIcon() {
-      const numberPicker = new NumberPicker(
-        NUMBER_PROPERTY,
-        new Property( NUMBER_PROPERTY.range ),
-        {
-          font: new PhetFont( { size: 21, weight: 'bold' } ),
-          color: 'black',
-          xMargin: 5,
-          scale: 0.8
-        }
-      );
+      const numberPicker = new NumberPicker( NUMBER_PROPERTY, new Property( NUMBER_PROPERTY.range ), {
+        font: new PhetFont( { size: 21, weight: 'bold' } ),
+        color: 'black',
+        xMargin: 5,
+        scale: 0.8
+      } );
       return new Node( { children: [ numberPicker ], pickable: false } );
     },
 
@@ -49,7 +45,7 @@ define( function( require ) {
       const verticalSlider = new SliderUnit( '', NUMBER_PROPERTY, 1, {
         trackSize: new Dimension2( 50, 0.5 ),
         thumbSize: new Dimension2( 15, 25 ),
-        centralTick: false,
+        showTicks: false,
         scale: 0.8
       } );
       return new Node( { children: [ verticalSlider ], pickable: false } );

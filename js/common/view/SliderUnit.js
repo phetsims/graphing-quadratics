@@ -40,7 +40,7 @@ define( function( require ) {
 
       options = _.extend( {
 
-        centralTick: true,
+        showTicks: true,
 
         // HSlider options
         trackFill: 'black',
@@ -61,7 +61,7 @@ define( function( require ) {
         thumbTouchAreaYDilation: options.thumbTouchAreaYDilation
       } );
 
-      if ( options.centralTick ) {
+      if ( options.showTicks ) {
 
         // HSlider does not support a tick that is centered on the track.  We need to use our own tick node here.
         const trackCenterX = options.trackSize.width / 2;
