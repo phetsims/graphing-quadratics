@@ -24,12 +24,13 @@ define( function( require ) {
       options = _.extend( {
 
         // superclass options
-        fill: color,
-        stroke: color,
         lineWidth: 1
       }, options );
 
-      //TODO assert that options fill and stroke are undefined, then assign constructor args
+      assert && assert( options.fill === undefined, 'PlottedPointNode sets fill' );
+      options.fill = color;
+      assert && assert( options.stroke === undefined, 'PlottedPointNode sets stroke' );
+      options.stroke = color;
 
       super( radius, options );
     }
