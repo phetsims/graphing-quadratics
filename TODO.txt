@@ -2,3 +2,4 @@ TODO list for graphing-quadratics
 
 Roots hide vertex on graph for y = 1x^2
 Document unlink, removeListener, etc. requirements
+Add validation options to 'new Property' call sites
