@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Common view for a screen.
+ * Abstract base type for ScreenViews in this sim.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -20,6 +20,7 @@ define( function( require ) {
     /**
      * @param {GQModel} model
      * @param {GQViewProperties[]} viewPropertiesArray - view Properties for each scene
+     * @abstract
      */
     constructor( model, viewPropertiesArray ) {
 
