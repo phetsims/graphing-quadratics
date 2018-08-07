@@ -38,13 +38,13 @@ define( function( require ) {
       // @public graph
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
-      // @public property that stores the active quadratic
+      // @public the interactive quadratic
       this.quadraticProperty = new Property( new Quadratic( 1, 0, 0 ) );
 
-      // @public observable array of saved quadratics
+      // @public saved quadratics
       this.savedQuadratics = new ObservableArray( [] );
 
-      // @public observable array of active and saved quadratics
+      // @public interactive and saved quadratics
       this.lines = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
         this.lines.clear();
@@ -52,7 +52,7 @@ define( function( require ) {
         this.lines.addAll( this.savedQuadratics.getArray() );
       } );
 
-      // view units / model units
+      // transform between model and view coordinate frames
       const modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
         this.graph.xRange.getLength(),
         this.graph.yRange.getLength()
@@ -66,34 +66,32 @@ define( function( require ) {
       );
 
       // @public point tools, drag bounds determined by 'eye balling' so that the point tool nodes remain on screen.
-      this.pointTool1 = new PointTool( new Vector2( -2, -12 ), 'right', this.lines,
-        new Bounds2(
-          this.graph.xRange.min - 1,
-          this.graph.yRange.min - 1,
-          this.graph.xRange.max + 3,
-          this.graph.yRange.max + 3
-        ) );
-      this.pointTool2 = new PointTool( new Vector2( 2, -12 ), 'left', this.lines,
-        new Bounds2( this.graph.xRange.min - 1,
-          this.graph.yRange.min - 3,
-          this.graph.xRange.max + 3,
-          this.graph.yRange.max + 1
-        ) );
+      this.pointTools = [
+        new PointTool( new Vector2( -2, -12 ), 'right', this.lines,
+          new Bounds2(
+            this.graph.xRange.min - 1,
+            this.graph.yRange.min - 1,
+            this.graph.xRange.max + 3,
+            this.graph.yRange.max + 3
+          ) ),
+        new PointTool( new Vector2( 2, -12 ), 'left', this.lines,
+          new Bounds2( this.graph.xRange.min - 1,
+            this.graph.yRange.min - 3,
+            this.graph.xRange.max + 3,
+            this.graph.yRange.max + 1
+          ) )
+      ];
     }
 
-    /**
-     * Resets this scene by resetting each of its properties.
-     * @public
-     */
+    // @public
     reset() {
       this.quadraticProperty.reset();
       this.clearQuadratics();
-      this.pointTool1.reset();
-      this.pointTool2.reset();
+      this.pointTools.forEach( pointTool => { pointTool.reset(); } );
     }
 
     /**
-     * Saves the current quadratic into the list.
+     * Saves the current quadratic.
      * @public
      */
     saveQuadratic() {
@@ -102,7 +100,7 @@ define( function( require ) {
     }
 
     /**
-     * Clears the list of saved Quadratics.
+     * Clears the list of saved quadratics.
      * @public
      */
     clearQuadratics() {

@@ -33,32 +33,22 @@ define( function( require ) {
                  graphControls, viewProperties, options ) {
 
       options = _.extend( {
-        hasVertexManipulator: false // only vertex scene has vertex manipulator
+        hasVertexManipulator: false
       }, options );
 
       super( options );
 
-      //TODO generalize to N point tools
-      // Point tools
-      const pointTool1 = new PointToolNode(
-        scene.pointTool1,
-        scene.modelViewTransform,
-        scene.graph,
-        viewProperties.linesVisibleProperty,
-        scene.lines
-      );
-      const pointTool2 = new PointToolNode(
-        scene.pointTool2,
-        scene.modelViewTransform,
-        scene.graph,
-        viewProperties.linesVisibleProperty,
-        scene.lines
-      );
-
-      // Point tools moveToFront when dragged, so we give them a common parent to preserve rendering order.
-      const pointToolParent = new Node();
-      pointToolParent.addChild( pointTool1 );
-      pointToolParent.addChild( pointTool2 );
+      // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
+      const pointToolsParent = new Node();
+      scene.pointTools.forEach( pointTool => {
+        pointToolsParent.addChild( new PointToolNode(
+          pointTool,
+          scene.modelViewTransform,
+          scene.graph,
+          viewProperties.linesVisibleProperty,
+          scene.lines
+        ) );
+      } );
 
       // The graph and everything on it -- position is determined by the model!
       const graphNode = new GQGraphNode( scene, layoutBounds, viewProperties, {
@@ -90,7 +80,7 @@ define( function( require ) {
       // rendering order
       this.addChild( controlsParent );
       this.addChild( graphNode );
-      this.addChild( pointToolParent );
+      this.addChild( pointToolsParent );
 
       // Constrain control panels to amount of horizontal space available.
       const availableControlPanelWidth = layoutBounds.width - graphNode.right - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN );
