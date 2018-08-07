@@ -1,7 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
 /**
- * Base type for scenes in Graphing Quadratics
+ * A scene in Graphing Quadratics
  *
  * @author Andrea Lin
  */

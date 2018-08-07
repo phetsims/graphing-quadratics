@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * An immutable quadratic, described by the equation ax^2 + bx + c.
+ * An immutable quadratic, described by the equation y = ax^2 + bx + c.
  *
  * @author Andrea Lin
  */

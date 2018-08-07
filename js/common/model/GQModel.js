@@ -1,7 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
 /**
- * Common model (base type) for Graphing Quadratics.
+ * Abstract base type for model in Graphing Quadratics.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -17,6 +17,7 @@ define( function( require ) {
 
     /**
      * @param {GQScene[]} scenes
+     * @abstract
      */
     constructor( scenes ) {
 
