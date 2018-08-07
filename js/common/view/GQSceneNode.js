@@ -78,6 +78,7 @@ define( function( require ) {
         interactiveEquationNode,
         model.saveQuadratic.bind( model ),
         model.clearQuadratics.bind( model ),
+        model.savedQuadratics.lengthProperty,
         viewProperties.interactiveEquationVisibleProperty
       );
 

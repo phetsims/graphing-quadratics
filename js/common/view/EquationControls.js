@@ -39,9 +39,11 @@ define( function( require ) {
      * @param {Node} interactiveEquationNode - interactive equation
      * @param {function} saveFunction
      * @param {function} eraseFunction
+     * @param {NumberProperty} numberOfSavedLinesProperty
      * @param {Object} [options]
      */
-    constructor( titleNode, interactiveEquationNode, saveFunction, eraseFunction, expandedProperty, options ) {
+    constructor( titleNode, interactiveEquationNode, saveFunction,
+                 eraseFunction, numberOfSavedLinesProperty, expandedProperty, options ) {
 
       options = _.extend( {
         
@@ -63,6 +65,11 @@ define( function( require ) {
 
       // Erase lines button
       const eraseButton = new EraserButton( { iconWidth: ICON_WIDTH, listener: eraseFunction } );
+
+      // Disable the erase button when there are no saved lines.
+      numberOfSavedLinesProperty.link( numberOfSavedLines => {
+        eraseButton.enabled = ( numberOfSavedLines > 0 );
+      } );
 
       // horizontal layout of buttons
       const buttons = new HBox( {
