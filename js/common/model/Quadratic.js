@@ -22,9 +22,9 @@ define( function( require ) {
   class Quadratic {
 
     /**
-     * @param {number} a - quadratic coefficient in the quadratic equation
-     * @param {number} b - linear coefficient in the quadratic equation
-     * @param {number} c - constant term in the quadratic equation
+     * @param {number} a - coefficient for the quadratic term
+     * @param {number} b - coefficient for the linear term
+     * @param {number} c - constant term
      * @param {Object} [options]
      */
     constructor( a, b, c, options ) {
