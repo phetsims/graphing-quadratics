@@ -33,7 +33,7 @@ define( function( require ) {
         color: GQColors.INTERACTIVE_CURVE // {Color|String} color used to render the curve
       }, options );
 
-      // @public
+      // @public (read-only)
       this.a = a;
       this.b = b;
       this.c = c;
@@ -48,14 +48,16 @@ define( function( require ) {
         const k = c - b * b / ( 4 * a );
         const p = 1 / ( 4 * a );
 
-        // @public
+        // @public (read-only)
         this.vertex = new Vector2( h, k );
         this.axisOfSymmetry = new Line( h, 0, h, 1, GQColors.VERTEX ); // x = h;
         this.focus = new Vector2( h, k + p );
         this.directrix = new Line( 0, k - p, 1, k - p, GQColors.DIRECTRIX ); // y = k - p
         this.roots = Util.solveQuadraticRootsReal( a, b, c ).map( root => new Vector2( root, 0 ) );
       }
-      else { // This is not a quadratic because a is zero.
+      else {
+
+        // This is not a quadratic because a is zero.
         this.axisOfSymmetry = NotALine();
         this.directrix = NotALine();
       }
@@ -63,32 +65,33 @@ define( function( require ) {
 
     /**
      * Tests whether this quadratic is equal to the given
-     * @param quadratic
+     * @param {*} quadratic
      * @returns {boolean}
      * @public
      */
     equals( quadratic ) {
-      return this.a === quadratic.a && this.b === quadratic.b && this.c === quadratic.c;
+      return ( quadratic instanceof Quadratic ) &&
+             ( this.a === quadratic.a ) && ( this.b === quadratic.b ) && ( this.c === quadratic.c );
     }
 
-    // @public Creates a {Quadratic} copy of this given a certain {Color} color
+    // @public Creates {Quadratic} copy, with a specified {Color} color
     withColor( color ) {
       return new Quadratic( this.a, this.b, this.c, { color: color } );
     }
 
-    // @public Creates a new {Quadratic} quadratic based on just the ax^2 term of y=ax^2 + bx + c
+    // @public Creates the {Quadratic} y = ax^2, using the quadratic term
     getQuadraticTerm() {
-      return new Quadratic( this.a, 0, 0 ); // y = ax^2
+      return new Quadratic( this.a, 0, 0 );
     }
 
-    // @public Creates a {Line} line based on just the bx term of y=ax^2 + bx + c
+    // @public Creates the {Line} y = bx, using the linear term
     getLinearTerm() {
-      return new Line( 0, 0, 1, this.b, GQColors.LINEAR_TERM ); // y = bx
+      return new Line( 0, 0, 1, this.b, GQColors.LINEAR_TERM );
     }
 
-    // @public Creates a {Line} line based on just the c term of y=ax^2 + bx + c
+    // @public Creates the {Line} y = c, using the constant term
     getConstantTerm() {
-      return new Line( 0, this.c, 1, this.c, GQColors.CONSTANT_TERM ); // y = c
+      return new Line( 0, this.c, 1, this.c, GQColors.CONSTANT_TERM );
     }
 
     /**
