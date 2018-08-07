@@ -38,10 +38,10 @@ define( function( require ) {
         icon: null // used on radio button to select the scene
       }, options );
 
-      // @public icon that represents this scene
+      // @public (read-only) icon that represents this scene
       this.icon = options.icon;
 
-      // @public graph
+      // @public (read-only) graph
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
       // @public the interactive quadratic
@@ -50,7 +50,7 @@ define( function( require ) {
       // @public saved quadratics
       this.savedQuadratics = new ObservableArray( [] );
 
-      // @public interactive and saved quadratics
+      // @public (read-only) interactive and saved quadratics
       this.lines = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
         this.lines.clear();
@@ -64,14 +64,14 @@ define( function( require ) {
         this.graph.yRange.getLength()
       );
 
-      // @public model-view transform, created in the model because it's dependent on graph axes ranges.
+      // @public (read-only) model-view transform, created in the model because it's dependent on graph axes ranges.
       this.modelViewTransform = ModelViewTransform2.createOffsetXYScaleMapping(
         ORIGIN_OFFSET,
         modelViewTransformScale,
         -modelViewTransformScale // y is inverted
       );
 
-      // @public point tools, drag bounds determined by 'eye balling' so that the point tool nodes remain on screen.
+      // @public (read-only) point tools, drag bounds determined empirically
       this.pointTools = [
         new PointTool( new Vector2( -2, -12 ), 'right', this.lines,
           new Bounds2(
@@ -81,7 +81,8 @@ define( function( require ) {
             this.graph.yRange.max + 3
           ) ),
         new PointTool( new Vector2( 2, -12 ), 'left', this.lines,
-          new Bounds2( this.graph.xRange.min - 1,
+          new Bounds2(
+            this.graph.xRange.min - 1,
             this.graph.yRange.min - 3,
             this.graph.xRange.max + 3,
             this.graph.yRange.max + 1
