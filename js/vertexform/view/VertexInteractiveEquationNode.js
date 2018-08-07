@@ -33,12 +33,13 @@ define( function( require ) {
 
   class VertexInteractiveEquationNode extends Node {
 
-    //TODO options not used
     /**
      * @param {Property.<Quadratic|undefined>} quadraticProperty
      * @param {Object} [options]
      */
     constructor( quadraticProperty, options ) {
+
+      options = options || {};
 
       const aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
       const hProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } );
@@ -84,22 +85,23 @@ define( function( require ) {
       const closeParenthesisAndSquaredText = new RichText( ')<sup>2</sup>', TEXT_OPTIONS );
       const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-      super( {
-        children: [
-          yText,
-          equalToText,
-          aNumberPicker,
-          openParenthesisText,
-          xText,
-          minusText,
-          hNumberPicker,
-          closeParenthesisAndSquaredText,
-          plusText,
-          kNumberPicker
-        ]
-      } );
+      assert && assert( !options.children, 'VertexInteractiveEquationNode sets children' );
+      options.children = [
+        yText,
+        equalToText,
+        aNumberPicker,
+        openParenthesisText,
+        xText,
+        minusText,
+        hNumberPicker,
+        closeParenthesisAndSquaredText,
+        plusText,
+        kNumberPicker
+      ];
 
-      // alignment
+      super( options );
+
+      // layout
       equalToText.left = yText.right + 10;
       aNumberPicker.left = equalToText.right + 10;
       openParenthesisText.left = aNumberPicker.right + 5;

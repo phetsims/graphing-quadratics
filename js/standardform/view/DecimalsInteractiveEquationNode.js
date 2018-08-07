@@ -38,12 +38,13 @@ define( function( require ) {
 
   class DecimalsInteractiveEquationNode extends Node {
 
-    //TODO options not used
     /**
      * @param {Property.<Quadratic|undefined>} quadraticProperty
      * @param {Object} [options]
      */
     constructor( quadraticProperty, options ) {
+
+      options = options || {};
 
       const aProperty = new NumberProperty( 1, { range: { min: -6, max: 6 } } );
       const bProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
@@ -87,22 +88,15 @@ define( function( require ) {
       const bControl = new SliderUnit( GQSymbols.b, bProperty, 1 );
       const cControl = new SliderUnit( GQSymbols.c, cProperty, 1 );
 
-      super( {
-        children: [
-          yText,
-          equalToText,
-          aDisplay,
-          xSquaredText,
-          plusText,
-          bDisplay,
-          xText,
-          secondPlusText,
-          cDisplay,
-          aControl,
-          bControl,
-          cControl
-        ]
-      } );
+      assert && assert( !options.children, 'DecimalsInteractiveEquationNode sets children' );
+      options.children = [
+        yText, equalToText, aDisplay, xSquaredText, plusText, bDisplay, xText, secondPlusText, cDisplay,
+        aControl,
+        bControl,
+        cControl
+      ];
+
+      super( options );
 
       // layout
       equalToText.left = yText.right + 10;

@@ -33,12 +33,13 @@ define( function( require ) {
 
   class IntegersInteractiveEquationNode extends Node {
 
-    //TODO option not used
     /**
      * @param {Property.<Quadratic|undefined>} quadraticProperty
      * @param {Object} [options]
      */
     constructor( quadraticProperty, options ) {
+
+      options = options || {};
 
       const aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
       const bProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
@@ -75,19 +76,12 @@ define( function( require ) {
       const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-      super ( {
-        children: [
-          yText,
-          equalToText,
-          aNumberPicker,
-          xSquaredText,
-          plusText,
-          bNumberPicker,
-          xText,
-          secondPlusText,
-          cNumberPicker
-        ]
-      } );
+      assert && assert( !options.children, 'IntegersInteractiveEquationNode sets children' );
+      options.children = [
+        yText, equalToText, aNumberPicker, xSquaredText, plusText, bNumberPicker, xText, secondPlusText, cNumberPicker
+      ];
+
+      super ( options );
 
       // layout
       equalToText.left = yText.right + 10;
