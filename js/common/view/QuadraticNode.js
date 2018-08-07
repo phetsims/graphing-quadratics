@@ -61,7 +61,7 @@ define( function( require ) {
       this.graph = graph;
       this.modelViewTransform = modelViewTransform;
 
-      // make a property out of quadraticProperty.get().getLinearTerm() in order to pass into LineNode
+      // make a Property out of quadraticProperty.value.getLinearTerm() in order to pass into LineNode
       const linearTermProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.getLinearTerm() );
 
       // use the double headed arrow node from graphing-lines as a guide
@@ -72,7 +72,7 @@ define( function( require ) {
       // link linear term line visibility to view property
       viewProperties.linearTermVisibleProperty.link( visible => { linearTermParentNode.visible = visible; } );
 
-      // make a property out of quadraticProperty.get().getConstantTerm() in order to pass into LineNode
+      // make a Property out of quadraticProperty.value.getConstantTerm() in order to pass into LineNode
       const constantTermProperty = new DerivedProperty(
         [ quadraticProperty ],
         quadratic => quadratic.getConstantTerm()
@@ -106,11 +106,8 @@ define( function( require ) {
       // link roots points to view property
       viewProperties.rootsVisibleProperty.link( visible => { rootPointsParentNode.visible = visible; } );
 
-      // make a property out of quadraticProperty.get().axisOfSymmetry in order to pass into LineNode
-      const axisOfSymmetryLineProperty = new DerivedProperty(
-        [ quadraticProperty ],
-        quadratic => quadratic.axisOfSymmetry
-      );
+      // make a Property out of quadraticProperty.value.axisOfSymmetry in order to pass into LineNode
+      const axisOfSymmetryLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.axisOfSymmetry );
 
       // view for the axis of symmetry of the quadratic
       const axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
@@ -128,7 +125,7 @@ define( function( require ) {
       // view for the focus of the quadratic
       const focusPoint = new PlottedPointNode( pointRadius, GQColors.DIRECTRIX );
 
-      // make a property out of quadraticProperty.get().directrix in order to pass into LineNode
+      // make a property out of quadraticProperty.value.directrix in order to pass into LineNode
       const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.directrix );
 
       // view for the directrix of the quadratic

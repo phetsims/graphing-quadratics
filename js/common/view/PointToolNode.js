@@ -141,7 +141,7 @@ define( function( require ) {
       this.valueNode = valueNode;
 
       // initial state
-      this.setCoordinatesVector2( pointTool.locationProperty.get() );
+      this.setCoordinatesVector2( pointTool.locationProperty.value );
       this.setBackground( options.backgroundNormalColor );
 
       // location and display, unmultilink in dispose
@@ -153,18 +153,18 @@ define( function( require ) {
         () => {
 
           // move to location
-          let location = pointTool.locationProperty.get();
+          let location = pointTool.locationProperty.value;
           this.translation = modelViewTransform.modelToViewPosition( location );
 
           // display value and highlighting
           if ( graph.contains( location ) ) {
             this.setCoordinatesVector2( location );
-            if ( linesVisibleProperty.get() ) {
+            if ( linesVisibleProperty.value ) {
               // use the line's color to highlight
-              this.setForeground( !pointTool.onLineProperty.get() ?
+              this.setForeground( !pointTool.onLineProperty.value ?
                                   options.foregroundNormalColor : options.foregroundHighlightColor );
-              this.setBackground( !pointTool.onLineProperty.get() ?
-                                  options.backgroundNormalColor : pointTool.onLineProperty.get().color );
+              this.setBackground( !pointTool.onLineProperty.value ?
+                                  options.backgroundNormalColor : pointTool.onLineProperty.value.color );
             }
             else {
               this.setForeground( options.foregroundNormalColor );
@@ -257,7 +257,7 @@ define( function( require ) {
         // note where the drag started
         start: function( event ) {
           // Note the mouse-click offset when dragging starts.
-          let location = modelViewTransform.modelToViewPosition( pointTool.locationProperty.get() );
+          let location = modelViewTransform.modelToViewPosition( pointTool.locationProperty.value );
           startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
           // Move the tool that we're dragging to the foreground.
           event.currentTarget.moveToFront();
@@ -287,7 +287,7 @@ define( function( require ) {
             }
           }
 
-          pointTool.locationProperty.set( location );
+          pointTool.locationProperty.value = location;
         }
       } );
     }

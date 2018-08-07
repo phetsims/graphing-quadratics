@@ -102,7 +102,7 @@ define( function( require ) {
      */
     saveQuadratic() {
       this.clearQuadratics();
-      this.savedQuadratics.add( this.quadraticProperty.get().withColor( GQColors.SAVED_CURVE ) );
+      this.savedQuadratics.add( this.quadraticProperty.value.withColor( GQColors.SAVED_CURVE ) );
     }
 
     /**

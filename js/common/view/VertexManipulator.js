@@ -42,8 +42,8 @@ define( function( require ) {
       quadraticProperty.link( quadratic => {
         if ( quadratic.vertex ) {
           this.visible = true;
-          if ( !quadratic.vertex.equals( vertexProperty.get() ) ) {
-            vertexProperty.set( quadratic.vertex );
+          if ( !quadratic.vertex.equals( vertexProperty.value ) ) {
+            vertexProperty.value = quadratic.vertex;
           }
         }
         else { // quadratic does not have a vertex
@@ -52,9 +52,9 @@ define( function( require ) {
       } );
 
       vertexProperty.link( function( vertex ) {
-        const quadratic = quadraticProperty.get();
+        const quadratic = quadraticProperty.value;
         if ( vertex.x !== quadratic.vertex.x || vertex.y !== quadratic.vertex.y ) {
-          quadraticProperty.set( Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y ) );
+          quadraticProperty.value = Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y );
         }
       } );
 
@@ -101,7 +101,7 @@ define( function( require ) {
 
         // note where the drag started
         start: function( event ) {
-          const location = modelViewTransform.modelToViewPosition( pointProperty.get() );
+          const location = modelViewTransform.modelToViewPosition( pointProperty.value );
           startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
@@ -115,7 +115,7 @@ define( function( require ) {
           const y = Util.roundSymmetric( Util.clamp( location.y, yRange.min, yRange.max ) );
           const p = new Vector2( x, y );
 
-          pointProperty.set( p );
+          pointProperty.value = p;
         }
       } );
     }

@@ -49,21 +49,21 @@ define( function( require ) {
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
       quadraticProperty.link( function( quadratic ) {
-        if ( quadratic.a !== aProperty.get() ) {
-          aProperty.set( quadratic.a );
+        if ( quadratic.a !== aProperty.value ) {
+          aProperty.value = quadratic.a;
         }
-        if ( quadratic.b !== bProperty.get() ) {
-          bProperty.set( quadratic.b );
+        if ( quadratic.b !== bProperty.value ) {
+          bProperty.value = quadratic.b;
         }
-        if ( quadratic.c !== cProperty.get() ) {
-          cProperty.set( quadratic.c );
+        if ( quadratic.c !== cProperty.value ) {
+          cProperty.value = quadratic.c;
         }
       } );
 
       Property.multilink( [ aProperty, bProperty, cProperty ], function( a, b, c ) {
         const newQuadratic = new Quadratic( a, b, c );
-        if ( !newQuadratic.equals( quadraticProperty.get() ) ) {
-          quadraticProperty.set( new Quadratic( a, b, c ) );
+        if ( !newQuadratic.equals( quadraticProperty.value ) ) {
+          quadraticProperty.value = new Quadratic( a, b, c );
         }
       } );
 

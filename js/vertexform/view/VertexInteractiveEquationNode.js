@@ -127,22 +127,22 @@ define( function( require ) {
 
       // When the quadratic changes, update the coefficients
       quadraticProperty.link( function( quadratic ) {
-        if ( quadratic.a !== aProperty.get() ) {
-          aProperty.set( quadratic.a );
+        if ( quadratic.a !== aProperty.value ) {
+          aProperty.value = quadratic.a;
         }
-        if ( quadratic.vertex && quadratic.vertex.x !== hProperty.get() ) {
-          hProperty.set( quadratic.vertex.x );
+        if ( quadratic.vertex && ( quadratic.vertex.x !== hProperty.value ) ) {
+          hProperty.value = quadratic.vertex.x;
         }
-        if ( quadratic.vertex && quadratic.vertex.y !== kProperty.get() ) {
-          kProperty.set( quadratic.vertex.y );
+        if ( quadratic.vertex && ( quadratic.vertex.y !== kProperty.value ) ) {
+          kProperty.value = quadratic.vertex.y;
         }
       } );
 
       // When the coefficient Properties change, update the quadratic
       Property.multilink( [ aProperty, hProperty, kProperty ], function( a, h, k ) {
         const newQuadratic = Quadratic.createFromVertexForm( a, h, k );
-        if ( !newQuadratic.equals( quadraticProperty.get() ) ) {
-          quadraticProperty.set( newQuadratic );
+        if ( !newQuadratic.equals( quadraticProperty.value ) ) {
+          quadraticProperty.value = newQuadratic;
         }
       } );
     }
