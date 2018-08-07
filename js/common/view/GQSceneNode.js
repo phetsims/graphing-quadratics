@@ -12,7 +12,7 @@ define( function( require ) {
   // modules
   const EquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/EquationAccordionBox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GraphAndLinesNode = require( 'GRAPHING_QUADRATICS/common/view/GraphAndLinesNode' );
+  const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PointToolNode = require( 'GRAPHING_QUADRATICS/common/view/PointToolNode' );
@@ -61,7 +61,7 @@ define( function( require ) {
       pointToolParent.addChild( pointTool2 );
 
       // The graph and everything on it -- position is determined by the model!
-      const graphAndLinesNode = new GraphAndLinesNode( scene, layoutBounds, viewProperties, {
+      const graphNode = new GQGraphNode( scene, layoutBounds, viewProperties, {
         hasVertexManipulator: options.hasVertexManipulator
       } );
 
@@ -88,15 +88,15 @@ define( function( require ) {
 
       // rendering order
       this.addChild( controlsParent );
-      this.addChild( graphAndLinesNode );
+      this.addChild( graphNode );
       this.addChild( pointToolParent );
 
       // Constrain control panels to amount of horizontal space available.
-      const availableControlPanelWidth = layoutBounds.width - graphAndLinesNode.right - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN );
+      const availableControlPanelWidth = layoutBounds.width - graphNode.right - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN );
       controlsParent.maxWidth = 0.9 * availableControlPanelWidth;
 
       // Horizontally center controls in the space to the right of the graph.
-      controlsParent.centerX = graphAndLinesNode.right + GQConstants.SCREEN_VIEW_X_MARGIN + ( availableControlPanelWidth / 2 );
+      controlsParent.centerX = graphNode.right + GQConstants.SCREEN_VIEW_X_MARGIN + ( availableControlPanelWidth / 2 );
       controlsParent.top = GQConstants.SCREEN_VIEW_Y_MARGIN;
 
       // @public

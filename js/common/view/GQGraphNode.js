@@ -19,7 +19,7 @@ define( function( require ) {
   const Shape = require( 'KITE/Shape' );
   const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
 
-  class GraphAndLinesNode extends Node {
+  class GQGraphNode extends Node {
 
     /**
      * @param {GQScene} model
@@ -100,5 +100,5 @@ define( function( require ) {
     }
   }
 
-  return graphingQuadratics.register( 'GraphAndLinesNode', GraphAndLinesNode );
+  return graphingQuadratics.register( 'GQGraphNode', GQGraphNode );
 } );
