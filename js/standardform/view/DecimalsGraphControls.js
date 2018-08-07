@@ -32,12 +32,7 @@ define( function( require ) {
      * @param {BooleanProperty} constantTermVisibleProperty
      * @param {Object} [options]
      */
-    constructor(
-      quadraticTermVisibleProperty,
-      linearTermVisibleProperty,
-      constantTermVisibleProperty,
-      options
-    ) {
+    constructor( quadraticTermVisibleProperty, linearTermVisibleProperty, constantTermVisibleProperty, options ) {
 
       options = _.extend( {
 
