@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
   const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
@@ -20,7 +21,6 @@ define( function( require ) {
   const VStrut = require( 'SCENERY/nodes/VStrut' );
 
   // strings
-  const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
   const hideCurvesString = require( 'string!GRAPHING_QUADRATICS/hideCurves' );
 
@@ -46,8 +46,7 @@ define( function( require ) {
       }, options );
 
       // Axis of Symmetry
-      const axisOfSymmetryLabel = new Text( axisOfSymmetryString, CHECKBOX_LABEL_OPTIONS );
-      const axisOfSymmetryCheckbox = new Checkbox( axisOfSymmetryLabel, axisOfSymmetryVisibleProperty );
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty );
 
       // Directrix
       const directrixLabel = new Text( directrixString, CHECKBOX_LABEL_OPTIONS );
