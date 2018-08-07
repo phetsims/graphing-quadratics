@@ -32,7 +32,12 @@ define( function( require ) {
         model.vertexScene,
         this.layoutBounds,
         new VertexFormEquationNode(),
-        new VertexInteractiveEquationNode( model.vertexScene.quadraticProperty ),
+        new VertexInteractiveEquationNode(
+          model.vertexScene.quadraticProperty,
+          model.vertexScene.aRange,
+          model.vertexScene.hRange,
+          model.vertexScene.kRange
+        ),
         new VertexGraphControls(
           vertexViewProperties.axisOfSymmetryVisibleProperty,
           vertexViewProperties.directrixVisibleProperty,

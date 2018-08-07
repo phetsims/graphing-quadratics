@@ -11,19 +11,19 @@ define( function( require ) {
   // modules
   const GQIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQIconFactory' );
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
-  const GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const StandardFormScene = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormScene' );
 
   class StandardFormModel extends GQModel {
 
     constructor() {
 
-      const decimalsScene = new GQScene( { icon: GQIconFactory.createDecimalsIcon() } );
-      const integersScene = new GQScene( { icon: GQIconFactory.createIntegersIcon() } );
+      const decimalsScene = new StandardFormScene( GQIconFactory.createDecimalsIcon() );
+      const integersScene = new StandardFormScene( GQIconFactory.createIntegersIcon() );
 
       super( [ decimalsScene, integersScene  ] );
 
-      // @public
+      // @public (read-only)
       this.decimalsScene = decimalsScene;
       this.integersScene = integersScene;
     }

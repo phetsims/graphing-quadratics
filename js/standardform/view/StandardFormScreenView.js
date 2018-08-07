@@ -38,7 +38,12 @@ define( function( require ) {
         model.integersScene,
         this.layoutBounds,
         new StandardFormEquationNode(),
-        new IntegersInteractiveEquationNode( model.integersScene.quadraticProperty ),
+        new IntegersInteractiveEquationNode(
+          model.integersScene.quadraticProperty,
+          model.integersScene.aRange,
+          model.integersScene.bRange,
+          model.integersScene.cRange
+        ),
         new IntegersGraphControls(
           integersViewProperties.vertexVisibleProperty,
           integersViewProperties.axisOfSymmetryVisibleProperty,
@@ -53,7 +58,12 @@ define( function( require ) {
         model.decimalsScene,
         this.layoutBounds,
         new StandardFormEquationNode(),
-        new DecimalsInteractiveEquationNode( model.decimalsScene.quadraticProperty ),
+        new DecimalsInteractiveEquationNode(
+          model.decimalsScene.quadraticProperty,
+          model.decimalsScene.aRange,
+          model.decimalsScene.bRange,
+          model.decimalsScene.cRange
+        ),
         new DecimalsGraphControls(
           decimalsViewProperties.quadraticTermVisibleProperty,
           decimalsViewProperties.linearTermVisibleProperty,

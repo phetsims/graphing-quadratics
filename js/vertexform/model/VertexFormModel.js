@@ -10,18 +10,18 @@ define( function( require ) {
 
   // modules
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
-  const GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const VertexFormScene = require( 'GRAPHING_QUADRATICS/vertexform/model/VertexFormScene' );
 
   class VertexFormModel extends GQModel {
 
     constructor() {
 
-      const vertexScene = new GQScene();
+      const vertexScene = new VertexFormScene();
 
       super( [ vertexScene ] );
 
-      // @public
+      // @public (read-only)
       this.vertexScene = vertexScene;
     }
   }

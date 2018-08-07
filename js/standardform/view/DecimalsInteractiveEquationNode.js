@@ -40,15 +40,18 @@ define( function( require ) {
 
     /**
      * @param {Property.<Quadratic|undefined>} quadraticProperty
+     * @param {RangeWithValue} aRange
+     * @param {RangeWithValue} bRange
+     * @param {RangeWithValue} cRange
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, options ) {
+    constructor( quadraticProperty, aRange, bRange, cRange, options ) {
 
       options = options || {};
 
-      const aProperty = new NumberProperty( 1, { range: { min: -6, max: 6 } } );
-      const bProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
-      const cProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
+      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange } );
+      const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
+      const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
       quadraticProperty.link( function( quadratic ) {
         if ( quadratic.a !== aProperty.get() ) {

@@ -24,64 +24,69 @@ define( function( require ) {
   const RichText = require( 'SCENERY/nodes/RichText' );
 
   // constants
-  const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
   const NUMBER_PICKER_OPTIONS = {
     font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
-    color: GQColors.VERTEX,
     xMargin: 5
+  };
+  const TEXT_OPTIONS = {
+    font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
   };
 
   class VertexInteractiveEquationNode extends Node {
 
     /**
      * @param {Property.<Quadratic|undefined>} quadraticProperty
+     * @param {RangeWithValue} aRange
+     * @param {RangeWithValue} hRange
+     * @param {RangeWithValue} kRange
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, options ) {
+    constructor( quadraticProperty, aRange, hRange, kRange, options ) {
 
       options = options || {};
 
-      const aProperty = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
-      const hProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } );
-      const kProperty = new NumberProperty( 0, { range: { min: -10, max: 10 } } );
+      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange } );
+      const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
+      const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
 
-      quadraticProperty.link( function( quadratic ) {
-        if ( quadratic.a !== aProperty.get() ) {
-          aProperty.set( quadratic.a );
-        }
-        if ( quadratic.vertex && quadratic.vertex.x !== hProperty.get() ) {
-          hProperty.set( quadratic.vertex.x );
-        }
-        if ( quadratic.vertex && quadratic.vertex.y !== kProperty.get() ) {
-          kProperty.set( quadratic.vertex.y );
-        }
-      } );
+      //TODO change requested by AM, causes a stack overflow
+      // a picker
+      // So that the focus point is not occluded, 'a' is constrained to the following values:
+      // [ -0.10, -0.09, -0.08, -0.07, -0.06, -0.05, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10 ]
+      // const aDecimalPlaces = 2;
+      // const aIncrement = 0.01;
+      // const aAbsoluteMin = 0.05;
+      // const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
+      //   _.extend( {}, NUMBER_PICKER_OPTIONS, {
+      //     color: GQColors.A_SYMBOL,
+      //     decimalPlaces: aDecimalPlaces,
+      //     upFunction: function( value ) {
+      //       return ( value === -aAbsoluteMin ) ? aAbsoluteMin : Util.toFixedNumber( value + aIncrement, aDecimalPlaces );
+      //     },
+      //     downFunction: function( value ) {
+      //       return ( value === aAbsoluteMin) ? -aAbsoluteMin : Util.toFixedNumber( value - aIncrement, aDecimalPlaces );
+      //     }
+      //   } )
+      // );
 
-      Property.multilink( [ aProperty, hProperty, kProperty ], function( a, h, k ) {
-        const newQuadratic = Quadratic.createFromVertexForm( a, h, k );
-        if ( !newQuadratic.equals( quadraticProperty.get() ) ) {
-          quadraticProperty.set( newQuadratic );
-        }
-      } );
+      // a picker
+      const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
+        _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.A_SYMBOL } ) );
 
-      // interactive components of the equation
-      const aNumberPicker = new NumberPicker(
-        aProperty,
-        new Property( aProperty.range ),
-        _.extend( {}, NUMBER_PICKER_OPTIONS, {
-          color: GQColors.A_SYMBOL,
-          xMargin: 14 // h and k pickers have more digits, so make the a picker a bit wider
-        } )
-      );
-      const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ), NUMBER_PICKER_OPTIONS );
-      const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ), NUMBER_PICKER_OPTIONS );
+      // h picker
+      const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
+        _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.VERTEX } ) );
 
+      // k picker
+      const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
+        _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.VERTEX } ) );
+
+      // non-interactive parts of the equation
       const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
       const openParenthesisText = new RichText( '(', TEXT_OPTIONS );
       const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const minusText = new RichText( MathSymbols.MINUS, TEXT_OPTIONS );
-      //TODO separate out subscript
       const closeParenthesisAndSquaredText = new RichText( ')', TEXT_OPTIONS );
       const exponentText = new RichText( '<sup>2</sup>', TEXT_OPTIONS );
       const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
@@ -119,6 +124,27 @@ define( function( require ) {
       aNumberPicker.centerY = equalToText.centerY;
       hNumberPicker.centerY = equalToText.centerY;
       kNumberPicker.centerY = equalToText.centerY;
+
+      // When the quadratic changes, update the coefficients
+      quadraticProperty.link( function( quadratic ) {
+        if ( quadratic.a !== aProperty.get() ) {
+          aProperty.set( quadratic.a );
+        }
+        if ( quadratic.vertex && quadratic.vertex.x !== hProperty.get() ) {
+          hProperty.set( quadratic.vertex.x );
+        }
+        if ( quadratic.vertex && quadratic.vertex.y !== kProperty.get() ) {
+          kProperty.set( quadratic.vertex.y );
+        }
+      } );
+
+      // When the coefficient Properties change, update the quadratic
+      Property.multilink( [ aProperty, hProperty, kProperty ], function( a, h, k ) {
+        const newQuadratic = Quadratic.createFromVertexForm( a, h, k );
+        if ( !newQuadratic.equals( quadraticProperty.get() ) ) {
+          quadraticProperty.set( newQuadratic );
+        }
+      } );
     }
   }
 

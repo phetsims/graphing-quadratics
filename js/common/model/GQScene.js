@@ -1,7 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
 /**
- * A scene in Graphing Quadratics
+ * Abstract base type for scenes.
  *
  * @author Andrea Lin
  */
@@ -29,6 +29,7 @@ define( function( require ) {
 
     /**
      * @param {Object} [options]
+     * @abstract
      */
     constructor( options ) {
 
