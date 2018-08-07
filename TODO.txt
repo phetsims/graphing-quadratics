@@ -1,3 +1,4 @@
 TODO list for graphing-quadratics
 
 Roots hide vertex on graph for y = 1x^2
+Convert from Property.set/get to Property.value
