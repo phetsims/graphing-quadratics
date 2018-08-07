@@ -61,7 +61,7 @@ define( function( require ) {
         thumbTouchAreaYDilation: options.thumbTouchAreaYDilation
       } );
 
-      //TODO this assumes that zero is in the middle of the range, and zero is the only tick
+      //TODO generalize - this assumes that zero is in the middle of the range, and zero is the only tick
       if ( options.showTicks ) {
 
         // HSlider does not support a tick that is centered on the track.  We need to use our own tick node here.
