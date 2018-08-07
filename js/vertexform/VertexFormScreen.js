@@ -28,6 +28,7 @@ define( function( require ) {
         // superclass options
         name: screenVertexFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
+        //TODO #11 homeScreenIcon:
       };
 
       super(
