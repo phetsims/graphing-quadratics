@@ -27,7 +27,7 @@ define( function( require ) {
   const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
   const NUMBER_PICKER_OPTIONS = {
     font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
-    color: GQColors.ACTIVE_CURVE,
+    color: GQColors.INTERACTIVE_CURVE,
     xMargin: 5
   };
 

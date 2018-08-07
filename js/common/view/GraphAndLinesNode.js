@@ -40,7 +40,7 @@ define( function( require ) {
       // Cartesian coordinates graph
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
-      // Primary quadratic curve
+      // Interactive quadratic curve
       const quadraticNode = new QuadraticNode(
         model.quadraticProperty,
         model.graph,

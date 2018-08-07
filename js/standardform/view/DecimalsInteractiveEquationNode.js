@@ -28,7 +28,7 @@ define( function( require ) {
   const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
   const NUMBER_DISPLAY_OPTIONS = {
     font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
-    numberFill: GQColors.ACTIVE_CURVE,
+    numberFill: GQColors.INTERACTIVE_CURVE,
     backgroundFill: null,
     backgroundStroke: null,
     decimalPlaces: 1,

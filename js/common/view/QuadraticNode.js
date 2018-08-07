@@ -41,7 +41,7 @@ define( function( require ) {
 
       // view for the quadratic
       const quadraticPath = new Path( null, {
-        stroke: GQColors.ACTIVE_CURVE,
+        stroke: GQColors.INTERACTIVE_CURVE,
         lineWidth: 3
       } );
 
@@ -204,7 +204,7 @@ define( function( require ) {
      */
     createPathWithColor( quadratic, color ) {
       return new Path( this.createQuadraticShape( quadratic ), {
-        stroke: color || GQColors.ACTIVE_CURVE,
+        stroke: color || GQColors.INTERACTIVE_CURVE,
         lineWidth: 3
       } );
     }

@@ -30,7 +30,7 @@ define( function( require ) {
     constructor( a, b, c, options ) {
 
       options = _.extend( {
-        color: GQColors.ACTIVE_CURVE // {Color|String} color used to render the curve
+        color: GQColors.INTERACTIVE_CURVE // {Color|String} color used to render the curve
       }, options );
 
       // @public

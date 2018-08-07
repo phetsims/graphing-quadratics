@@ -91,7 +91,7 @@ define( function( require ) {
 
         this.addChild( new RichText( symbol, {
           font: SYMBOL_FONT,
-          fill: GQColors.ACTIVE_CURVE
+          fill: GQColors.INTERACTIVE_CURVE
         } ) );
       }
 

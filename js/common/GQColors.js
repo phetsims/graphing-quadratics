@@ -15,7 +15,7 @@ define( function( require ) {
   const GQColors = {
     SCREEN_BACKGROUND: 'rgb( 238, 252, 252 )',
     CONTROL_PANEL_BACKGROUND: 'rgb( 238, 238, 238 )',
-    ACTIVE_CURVE: PhetColorScheme.RED_COLORBLIND,
+    INTERACTIVE_CURVE: PhetColorScheme.RED_COLORBLIND,
     SAVED_CURVE: 'blue',
     QUADRATIC_TERM: 'hotpink',
     LINEAR_TERM: 'green',
