@@ -23,6 +23,10 @@ define( function( require ) {
 
   const GQIconFactory = {
 
+    /**
+     * Creates the icon for the 'Integers' scene in the 'Standard Form' screen.
+     * @returns {Node}
+     */
     createIntegersIcon() {
       const numberPicker = new NumberPicker(
         NUMBER_PROPERTY,
@@ -37,6 +41,10 @@ define( function( require ) {
       return new Node( { children: [ numberPicker ], pickable: false } );
     },
 
+    /**
+     * Creates the icon for the 'Decimals' scene in the 'Standard Form' screen.
+     * @returns {Node}
+     */
     createDecimalsIcon() {
       const verticalSlider = new SliderUnit( '', NUMBER_PROPERTY, 1, {
         trackSize: new Dimension2( 50, 0.5 ),
