@@ -40,6 +40,7 @@ define( function( require ) {
 
       const content = [];
       scenes.forEach( function( scene ) {
+        assert && assert( scene.icon, 'scene is missing icon' );
         content.push( {
           value: scene,
           node: scene.icon
