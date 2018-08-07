@@ -25,6 +25,7 @@ define( function( require ) {
     ROOTS: PhetColorScheme.RED_COLORBLIND,
     A_SYMBOL: 'green',
     INTERACTIVE_DIRECTRIX: PhetColorScheme.RED_COLORBLIND,
+    SEPARATOR: 'rgb( 212, 212, 212 )',
 
     // alpha channel (0-1) of the halo around the various manipulators, manually tuned for above colors
     HALO_ALPHA: {

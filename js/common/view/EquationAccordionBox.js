@@ -25,7 +25,7 @@ define( function( require ) {
 
   // constants
   const BUTTON_ICON_WIDTH = 30;
-  const SEPARATOR_OPTIONS = { stroke: 'rgb( 212, 212, 212 )' };
+  const SEPARATOR_OPTIONS = { stroke: GQColors.SEPARATOR };
   
   class EquationAccordionBox extends AccordionBox {
 

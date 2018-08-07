@@ -15,12 +15,12 @@ define( function( require ) {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const HSeparator = require( 'SUN/HSeparator' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
-  const VStrut = require( 'SCENERY/nodes/VStrut' );
 
   // strings
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
@@ -28,6 +28,7 @@ define( function( require ) {
 
   // constants
   const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
+  const DASH_LENGTH = 5;
 
   class VertexGraphControls extends Panel {
 
@@ -53,13 +54,13 @@ define( function( require ) {
       // Directrix
       const directrixLabel = new HBox( {
         align: 'center',
-        spacing: 10,
+        spacing: 15,
         children: [
           new Text( directrixString, CHECKBOX_LABEL_OPTIONS ),
-          new Line( 0, 0, 35, 0, {
+          new Line( 0, 0, 7 * DASH_LENGTH, 0, {
             stroke: GQColors.DIRECTRIX,
             lineWidth: 3,
-            lineDash: [ 5, 5 ]
+            lineDash: [ DASH_LENGTH, DASH_LENGTH ]
           } )
         ]
       } );
@@ -69,6 +70,10 @@ define( function( require ) {
       const hideCurvesLabel = new Text( hideCurvesString, CHECKBOX_LABEL_OPTIONS );
       const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty );
 
+      const separatorWidth = _.maxBy(
+        [ axisOfSymmetryCheckbox, directrixCheckbox, hideCurvesCheckbox ],
+        function( node ) {return node.width; } ).width;
+
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
@@ -76,7 +81,7 @@ define( function( require ) {
         children: [
           axisOfSymmetryCheckbox,
           directrixCheckbox,
-          new VStrut( 1 ),
+          new HSeparator( separatorWidth, { stroke: GQColors.SEPARATOR } ),
           hideCurvesCheckbox
         ]
       } );
