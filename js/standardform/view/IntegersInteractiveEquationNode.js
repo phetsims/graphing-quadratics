@@ -44,34 +44,17 @@ define( function( require ) {
 
       options = options || {};
 
+      // coefficient Properties
       const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange } );
       const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
-      quadraticProperty.link( function( quadratic ) {
-        if ( quadratic.a !== aProperty.value ) {
-          aProperty.value = quadratic.a;
-        }
-        if ( quadratic.b !== bProperty.value ) {
-          bProperty.value = quadratic.b;
-        }
-        if ( quadratic.c !== cProperty.value ) {
-          cProperty.value = quadratic.c;
-        }
-      } );
-
-      Property.multilink( [ aProperty, bProperty, cProperty ], function( a, b, c ) {
-        const newQuadratic = new Quadratic( a, b, c );
-        if ( !newQuadratic.equals( quadraticProperty.value ) ) {
-          quadraticProperty.value = new Quadratic( a, b, c );
-        }
-      } );
-
-      // interactive components of the equation
+      // coefficient pickers
       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );
       const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), NUMBER_PICKER_OPTIONS );
       const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), NUMBER_PICKER_OPTIONS );
 
+      // static parts of the equation
       const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
       const xSquaredText = new RichText( GQSymbols.xSquared, TEXT_OPTIONS );
@@ -100,6 +83,27 @@ define( function( require ) {
       aNumberPicker.centerY = equalToText.centerY;
       bNumberPicker.centerY = equalToText.centerY;
       cNumberPicker.centerY = equalToText.centerY;
+
+      // When the quadratic changes, update the coefficients.
+      quadraticProperty.link( function( quadratic ) {
+        if ( quadratic.a !== aProperty.value ) {
+          aProperty.value = quadratic.a;
+        }
+        if ( quadratic.b !== bProperty.value ) {
+          bProperty.value = quadratic.b;
+        }
+        if ( quadratic.c !== cProperty.value ) {
+          cProperty.value = quadratic.c;
+        }
+      } );
+
+      // When the coefficients change, update the quadratic.
+      Property.multilink( [ aProperty, bProperty, cProperty ], function( a, b, c ) {
+        const newQuadratic = new Quadratic( a, b, c );
+        if ( !newQuadratic.equals( quadraticProperty.value ) ) {
+          quadraticProperty.value = new Quadratic( a, b, c );
+        }
+      } );
     }
   }
 

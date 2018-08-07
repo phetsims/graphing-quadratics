@@ -45,6 +45,7 @@ define( function( require ) {
 
       options = options || {};
 
+      // Properties for the variables in vertex form
       const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange } );
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
@@ -81,7 +82,7 @@ define( function( require ) {
       const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
         _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.VERTEX } ) );
 
-      // non-interactive parts of the equation
+      // static parts of the equation
       const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
       const openParenthesisText = new RichText( '(', TEXT_OPTIONS );
@@ -125,7 +126,7 @@ define( function( require ) {
       hNumberPicker.centerY = equalToText.centerY;
       kNumberPicker.centerY = equalToText.centerY;
 
-      // When the quadratic changes, update the coefficients
+      // When the quadratic changes, update the coefficients.
       quadraticProperty.link( function( quadratic ) {
         if ( quadratic.a !== aProperty.value ) {
           aProperty.value = quadratic.a;
@@ -138,7 +139,7 @@ define( function( require ) {
         }
       } );
 
-      // When the coefficient Properties change, update the quadratic
+      // When the coefficients change, update the quadratic.
       Property.multilink( [ aProperty, hProperty, kProperty ], function( a, h, k ) {
         const newQuadratic = Quadratic.createFromVertexForm( a, h, k );
         if ( !newQuadratic.equals( quadraticProperty.value ) ) {
