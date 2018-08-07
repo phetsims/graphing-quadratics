@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Create a vertical slider with a central tick
+ * Vertical slider for changing one of the coefficients in a quadratic equation.
  *
  * @author Andrea Lin
  */
@@ -28,7 +28,7 @@ define( function( require ) {
   const TICK_LABEL_FONT = new PhetFont( GQConstants.SLIDER_TICK_LABEL_FONT_SIZE );
   const SYMBOL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
 
-  class SliderUnit extends VBox {
+  class CoefficientSlider extends VBox {
 
     /**
      * @param {string} symbol
@@ -103,5 +103,5 @@ define( function( require ) {
     }
   }
 
-  return graphingQuadratics.register( 'SliderUnit', SliderUnit );
+  return graphingQuadratics.register( 'CoefficientSlider', CoefficientSlider );
 } );

@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
   const Dimension2 = require( 'DOT/Dimension2' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -16,7 +17,6 @@ define( function( require ) {
   const NumberProperty = require( 'AXON/NumberProperty' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
-  const SliderUnit = require( 'GRAPHING_QUADRATICS/common/view/SliderUnit' );
 
   // constants
   const NUMBER_PROPERTY = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
@@ -42,7 +42,7 @@ define( function( require ) {
      * @returns {Node}
      */
     createDecimalsIcon() {
-      const verticalSlider = new SliderUnit( '', NUMBER_PROPERTY, 1, {
+      const verticalSlider = new CoefficientSlider( '', NUMBER_PROPERTY, 1, {
         trackSize: new Dimension2( 50, 0.5 ),
         thumbSize: new Dimension2( 15, 25 ),
         showTicks: false,

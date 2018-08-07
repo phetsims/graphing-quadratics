@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
@@ -22,7 +23,6 @@ define( function( require ) {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
-  const SliderUnit = require( 'GRAPHING_QUADRATICS/common/view/SliderUnit' );
 
   // constants
   const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
@@ -84,9 +84,9 @@ define( function( require ) {
       const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-      const aControl = new SliderUnit( GQSymbols.a, aProperty, 2 );
-      const bControl = new SliderUnit( GQSymbols.b, bProperty, 1 );
-      const cControl = new SliderUnit( GQSymbols.c, cProperty, 1 );
+      const aControl = new CoefficientSlider( GQSymbols.a, aProperty, 2 );
+      const bControl = new CoefficientSlider( GQSymbols.b, bProperty, 1 );
+      const cControl = new CoefficientSlider( GQSymbols.c, cProperty, 1 );
 
       assert && assert( !options.children, 'DecimalsInteractiveEquationNode sets children' );
       options.children = [
