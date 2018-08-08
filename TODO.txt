@@ -1,6 +1,6 @@
 TODO list for graphing-quadratics
 
-VertexInteractiveEquationNode picker for 'a'
 Roots hide vertex on graph for y = 1x^2
 Document unlink, removeListener, etc. requirements
 Add validation options to 'new Property' call sites
+Move directrix & focus point to a new screen, or delete entirely
