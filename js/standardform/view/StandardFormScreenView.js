@@ -45,8 +45,8 @@ define( function( require ) {
           model.integersScene.cRange
         ),
         new IntegersGraphControls(
-          integersViewProperties.vertexVisibleProperty,
           integersViewProperties.axisOfSymmetryVisibleProperty,
+          integersViewProperties.vertexVisibleProperty,
           integersViewProperties.rootsVisibleProperty,
           integersViewProperties.hideCurvesProperty
         ),

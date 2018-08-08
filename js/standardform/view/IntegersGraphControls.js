@@ -34,16 +34,19 @@ define( function( require ) {
   class IntegersGraphControls extends Panel {
 
     /**
-     * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} axisOfSymmetryVisibleProperty
+     * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} rootsVisibleProperty
      * @param {BooleanProperty} hideCurvesProperty
      * @param {Object} [options]
      */
-    constructor( vertexVisibleProperty, axisOfSymmetryVisibleProperty,
+    constructor( axisOfSymmetryVisibleProperty, vertexVisibleProperty,
                  rootsVisibleProperty, hideCurvesProperty, options ) {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
+
+      // Axis of Symmetry
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty );
 
       // Vertex
       const vertexLabel = new HBox( {
@@ -55,9 +58,6 @@ define( function( require ) {
         ]
       } );
       const vertexCheckbox = new Checkbox( vertexLabel, vertexVisibleProperty );
-
-      // Axis of Symmetry
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty );
 
       // Roots
       const rootsLabel = new HBox( {
@@ -89,8 +89,8 @@ define( function( require ) {
         align: 'left',
         spacing: 20,
         children: [
-          vertexCheckbox,
           axisOfSymmetryCheckbox,
+          vertexCheckbox,
           rootsCheckbox,
           new HSeparator( separatorWidth, { stroke: GQColors.SEPARATOR } ),
           hideCurvesCheckbox
