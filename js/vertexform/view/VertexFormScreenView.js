@@ -9,13 +9,10 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
-  const VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
-  const VertexInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexInteractiveEquationNode' );
+  const VertexSceneNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexSceneNode' );
 
   class VertexFormScreenView extends GQScreenView{
 
@@ -28,24 +25,9 @@ define( function( require ) {
 
       super( model, [ vertexViewProperties ] );
 
-      this.addChild( new GQSceneNode(
-        model.vertexScene,
-        this.layoutBounds,
-        new VertexFormEquationNode(),
-        new VertexInteractiveEquationNode(
-          model.vertexScene.quadraticProperty,
-          model.vertexScene.aRange,
-          model.vertexScene.hRange,
-          model.vertexScene.kRange
-        ),
-        new VertexGraphControls(
-          vertexViewProperties.axisOfSymmetryVisibleProperty,
-          vertexViewProperties.directrixVisibleProperty,
-          vertexViewProperties.hideCurvesProperty
-        ),
-        vertexViewProperties,
-        { hasVertexManipulator: true }
-      ) );
+      this.addChild( new VertexSceneNode( model.vertexScene, this.layoutBounds, vertexViewProperties, {
+        hasVertexManipulator: true
+      } ) );
     }
   }
 

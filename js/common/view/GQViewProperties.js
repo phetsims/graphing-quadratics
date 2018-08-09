@@ -1,5 +1,6 @@
 // Copyright 2018, University of Colorado Boulder
 
+//TODO does this really need to extend LineFormsViewProperties?
 /**
  * View-specific Properties.
  * This extends LineFormsViewProperties in order to leverage view components from graphing-lines.

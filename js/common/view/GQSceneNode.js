@@ -1,7 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
 /**
- * Displays a GQScene.
+ * Abstract base type for displaying a GQScene.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -23,14 +23,15 @@ define( function( require ) {
     /**
      * @param {GQScene} scene
      * @param {Bounds2} layoutBounds
-     * @param {Node} equationAccordionBoxTitleNode - a display of the general form of the equation
-     * @param {Node} interactiveEquationNode - interactive equation
-     * @param {Panel} graphControls
      * @param {GQViewProperties} viewProperties
+     * @param {Node} accordionBoxTitleNode
+     * @param {Node} interactiveEquationNode
+     * @param {Panel} graphControls
      * @param {Object} [options]
+     * @abstract
      */
-    constructor( scene, layoutBounds, equationAccordionBoxTitleNode, interactiveEquationNode,
-                 graphControls, viewProperties, options ) {
+    constructor( scene, layoutBounds, viewProperties,
+                 accordionBoxTitleNode, interactiveEquationNode, graphControls, options ) {
 
       options = _.extend( {
         hasVertexManipulator: false
@@ -62,7 +63,7 @@ define( function( require ) {
         scene.saveQuadratic.bind( scene ),
         scene.eraseQuadratics.bind( scene ),
         scene.savedQuadratics.lengthProperty, {
-          titleNode: equationAccordionBoxTitleNode,
+          titleNode: accordionBoxTitleNode,
           expandedProperty: viewProperties.interactiveEquationVisibleProperty
         }
       );
