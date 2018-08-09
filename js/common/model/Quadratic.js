@@ -53,7 +53,7 @@ define( function( require ) {
         this.axisOfSymmetry = new Line( h, 0, h, 1, GQColors.VERTEX ); // x = h;
         this.focus = new Vector2( h, k + p );
         this.directrix = new Line( 0, k - p, 1, k - p, GQColors.DIRECTRIX ); // y = k - p
-        this.roots = Util.solveQuadraticRootsReal( a, b, c ).map( root => new Vector2( root, 0 ) );
+        this.roots = Util.solveQuadraticRootsReal( a, b, c ).map( root => new Vector2( root, 0 ) ); // {Vector[]}
       }
       else {
 
@@ -61,6 +61,15 @@ define( function( require ) {
         this.axisOfSymmetry = NotALine();
         this.directrix = NotALine();
       }
+    }
+
+    /**
+     * Does this quadratic have roots?
+     * @returns {boolean}
+     * @public
+     */
+    hasRoots() {
+     return this.roots && ( this.roots.length > 0 );
     }
 
     /**
