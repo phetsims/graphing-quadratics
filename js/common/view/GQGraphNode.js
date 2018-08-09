@@ -111,16 +111,17 @@ define( function( require ) {
       model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
         // create Node for the new quadratic
-        const newQuadraticNode = quadraticNode.createPathWithColor( savedQuadratic, GQColors.SAVED_CURVE );
-        savedQuadraticsLayer.addChild( newQuadraticNode );
+        const path = quadraticNode.createPathWithColor( savedQuadratic, GQColors.SAVED_CURVE );
+        savedQuadraticsLayer.addChild( path );
 
-        //TODO memory leak?
         // add listener for when the quadratic is eventually removed
-        model.savedQuadratics.addItemRemovedListener( removedQuadratic => {
+        const itemRemovedListener = function( removedQuadratic ) {
           if ( removedQuadratic === savedQuadratic ) {
-            savedQuadraticsLayer.removeChild( newQuadraticNode );
+            savedQuadraticsLayer.removeChild( path );
+            model.savedQuadratics.removeItemRemovedListener( itemRemovedListener );
           }
-        } );
+        };
+        model.savedQuadratics.addItemRemovedListener( itemRemovedListener );
       } );
 
       // Show/hide the graph content
