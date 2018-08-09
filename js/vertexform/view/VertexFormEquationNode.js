@@ -26,16 +26,22 @@ define( function( require ) {
 
       options = _.extend( {
 
+        // {string|number} defaults display the general form y = a(x - h)^2 + k
+        a: GQSymbols.a,
+        h: GQSymbols.h,
+        k: GQSymbols.k,
+
         // superclass options
-        font: new PhetFont( 26 )
+        font: new PhetFont( 26 ),
+        fill: 'black'
       } );
 
       const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
         x: GQSymbols.x,
         y: GQSymbols.y,
-        a: GQSymbols.a,
-        h: GQSymbols.h,
-        k: GQSymbols.k,
+        a: options.a,
+        h: options.h,
+        k: options.k,
         equals: MathSymbols.EQUAL_TO,
         minus: MathSymbols.MINUS,
         plus: MathSymbols.PLUS
