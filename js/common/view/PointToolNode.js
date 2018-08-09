@@ -145,7 +145,7 @@ define( function( require ) {
       this.setBackground( options.backgroundNormalColor );
 
       // location and display
-      const updateMultilink = Property.multilink( [
+      Property.multilink( [
           pointTool.locationProperty,
           pointTool.onLineProperty,
           linesVisibleProperty
