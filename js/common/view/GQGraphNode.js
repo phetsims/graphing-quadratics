@@ -121,7 +121,7 @@ define( function( require ) {
             model.savedQuadratics.removeItemRemovedListener( itemRemovedListener );
           }
         };
-        model.savedQuadratics.addItemRemovedListener( itemRemovedListener );
+        model.savedQuadratics.addItemRemovedListener( itemRemovedListener ); // removeItemRemovedListener above
       } );
 
       // Show/hide the graph content
