@@ -6,7 +6,6 @@ Focus & Directrix screen
 
 From https://github.com/phetsims/graphing-quadratics/issues/10
 Equations for each line on the graph
-"NO REAL ROOTS” text on Integers scene of Standard Form screen, when appropriate
 Sliders: snap to zero
 Sliders: logarithmic-like scale
 TODOs in the code
