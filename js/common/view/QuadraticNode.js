@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Visual representation of a quadratic curve.
+ * Visual representation of a quadratic curve, its individual terms, and all of it's related decorations.
  *
  * @author Andrea Lin
  */
