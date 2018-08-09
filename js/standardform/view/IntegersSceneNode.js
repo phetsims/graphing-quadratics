@@ -33,12 +33,7 @@ define( function( require ) {
         new IntegersInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange ),
 
         // controls related to the graph
-        new IntegersGraphControls(
-          viewProperties.axisOfSymmetryVisibleProperty,
-          viewProperties.vertexVisibleProperty,
-          viewProperties.rootsVisibleProperty,
-          viewProperties.hideCurvesProperty
-        ),
+        new IntegersGraphControls( viewProperties ),
         options
       );
     }

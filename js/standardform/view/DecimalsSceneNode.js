@@ -33,12 +33,7 @@ define( function( require ) {
         new DecimalsInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange ),
 
         // controls related to the graph
-        new DecimalsGraphControls(
-          viewProperties.quadraticTermVisibleProperty,
-          viewProperties.linearTermVisibleProperty,
-          viewProperties.constantTermVisibleProperty,
-          viewProperties.hideCurvesProperty
-        ),
+        new DecimalsGraphControls( viewProperties ),
         options
       );
     }

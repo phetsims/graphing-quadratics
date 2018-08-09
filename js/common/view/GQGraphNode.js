@@ -125,7 +125,7 @@ define( function( require ) {
       } );
 
       // Show/hide the graph content. unlink not needed.
-      viewProperties.hideCurvesProperty.link( hideCurves => {contentNode.visible = !hideCurves; } );
+      viewProperties.linesVisibleProperty.link( linesVisible => { contentNode.visible = linesVisible; } );
 
       // If the quadratic has no roots, indicate so on the x axis. dispose not needed.
       Property.multilink( [ model.quadraticProperty, viewProperties.rootsVisibleProperty ],

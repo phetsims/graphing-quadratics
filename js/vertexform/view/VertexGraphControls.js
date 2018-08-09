@@ -4,6 +4,7 @@
  * Controls for various features related to the graph on the 'Vertex' screen.
  *
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';
@@ -15,6 +16,7 @@ define( function( require ) {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const HSeparator = require( 'SUN/HSeparator' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Panel = require( 'SUN/Panel' );
@@ -24,7 +26,6 @@ define( function( require ) {
 
   // strings
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
-  const hideCurvesString = require( 'string!GRAPHING_QUADRATICS/hideCurves' );
 
   // constants
   const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
@@ -33,19 +34,17 @@ define( function( require ) {
   class VertexGraphControls extends Panel {
 
     /**
-     * @param {BooleanProperty} axisOfSymmetryVisibleProperty
-     * @param {BooleanProperty} directrixVisibleProperty
-     * @param {BooleanProperty} hideCurvesProperty
+     * @param {GQViewProperties} viewProperties
      * @param options
      */
-    constructor( axisOfSymmetryVisibleProperty, directrixVisibleProperty, hideCurvesProperty, options ) {
+    constructor( viewProperties, options ) {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
-      // Axis of Symmetry
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty ); // dispose not needed
+      // Axis of Symmetry, dispose not needed
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
 
-      // Directrix
+      // Directrix, dispose not needed
       const directrixLabel = new HBox( {
         align: 'center',
         spacing: 15,
@@ -58,11 +57,10 @@ define( function( require ) {
           } )
         ]
       } );
-      const directrixCheckbox = new Checkbox( directrixLabel, directrixVisibleProperty ); // dispose not needed
+      const directrixCheckbox = new Checkbox( directrixLabel, viewProperties.directrixVisibleProperty );
 
-      // Hide curves
-      const hideCurvesLabel = new Text( hideCurvesString, CHECKBOX_LABEL_OPTIONS );
-      const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty );
+      // Hide curves, dispose not needed
+      const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.linesVisibleProperty );
 
       const separatorWidth = _.maxBy(
         [ axisOfSymmetryCheckbox, directrixCheckbox, hideCurvesCheckbox ],

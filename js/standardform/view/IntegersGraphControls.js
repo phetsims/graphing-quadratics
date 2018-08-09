@@ -4,6 +4,7 @@
  * Controls for various features related to the graph on the 'Integers' scene of the 'Standard Form' screen.
  *
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';
@@ -15,6 +16,7 @@ define( function( require ) {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const HSeparator = require( 'SUN/HSeparator' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -23,7 +25,6 @@ define( function( require ) {
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
-  const hideCurvesString = require( 'string!GRAPHING_QUADRATICS/hideCurves' );
   const rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
   const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
 
@@ -34,21 +35,17 @@ define( function( require ) {
   class IntegersGraphControls extends Panel {
 
     /**
-     * @param {BooleanProperty} axisOfSymmetryVisibleProperty
-     * @param {BooleanProperty} vertexVisibleProperty
-     * @param {BooleanProperty} rootsVisibleProperty
-     * @param {BooleanProperty} hideCurvesProperty
+     * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( axisOfSymmetryVisibleProperty, vertexVisibleProperty,
-                 rootsVisibleProperty, hideCurvesProperty, options ) {
+    constructor( viewProperties, options ) {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
-      // Axis of Symmetry
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty ); // dispose not needed
+      // Axis of Symmetry, dispose not needed
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
 
-      // Vertex
+      // Vertex, dispose not needed
       const vertexLabel = new HBox( {
         align: 'center',
         spacing: 10,
@@ -57,9 +54,9 @@ define( function( require ) {
           new PlottedPointNode( POINT_RADIUS, GQColors.VERTEX )
         ]
       } );
-      const vertexCheckbox = new Checkbox( vertexLabel, vertexVisibleProperty ); // dispose not needed
+      const vertexCheckbox = new Checkbox( vertexLabel, viewProperties.vertexVisibleProperty );
 
-      // Roots
+      // Roots, dispose not needed
       const rootsLabel = new HBox( {
         align: 'center',
         spacing: 10,
@@ -74,11 +71,10 @@ define( function( require ) {
             ]
           } )
         ] } );
-      const rootsCheckbox = new Checkbox( rootsLabel, rootsVisibleProperty ); // dispose not needed
+      const rootsCheckbox = new Checkbox( rootsLabel, viewProperties.rootsVisibleProperty );
 
-      // Hide curves
-      const hideCurvesLabel = new Text( hideCurvesString, CHECKBOX_LABEL_OPTIONS );
-      const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty ); // dispose not needed
+      // Hide curves, dispose not needed
+      const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.linesVisibleProperty );
 
       const separatorWidth = _.maxBy(
         [ vertexCheckbox, axisOfSymmetryCheckbox, rootsCheckbox, hideCurvesCheckbox ],

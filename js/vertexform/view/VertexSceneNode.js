@@ -33,11 +33,7 @@ define( function( require ) {
         new VertexInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.hRange, scene.kRange ),
 
         // controls related to the graph
-        new VertexGraphControls(
-          viewProperties.axisOfSymmetryVisibleProperty,
-          viewProperties.directrixVisibleProperty,
-          viewProperties.hideCurvesProperty
-        ),
+        new VertexGraphControls( viewProperties ),
         options
       );
     }
