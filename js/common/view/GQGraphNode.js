@@ -18,6 +18,7 @@ define( function( require ) {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
   const Text = require( 'SCENERY/nodes/Text' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -69,9 +70,19 @@ define( function( require ) {
       }
 
       // 'no real roots' label
-      const noRealRootsNode = new Text( noRealRootsString, {
+      const noRealRootsLabel = new Text( noRealRootsString, {
         font: new PhetFont( { size: 18, weight: 'bold' } ),
-        fill: GQColors.ROOTS
+        fill: 'white'
+      } );
+      const noRealRootsBackground = new Rectangle( noRealRootsLabel.bounds.dilatedXY( 5, 2 ), {
+        fill: GQColors.ROOTS,
+        opacity: 0.75,
+        cornerRadius: 2,
+        center: noRealRootsLabel.center
+      } );
+      const noRealRootsNode = new Node( {
+        children: [ noRealRootsBackground, noRealRootsLabel ],
+        center: origin
       } );
 
       // Parent for saved curves
@@ -115,25 +126,11 @@ define( function( require ) {
       // Show/hide the graph content
       viewProperties.hideCurvesProperty.link( hideCurves => {contentNode.visible = !hideCurves; } );
 
-      // If the quadratic has no roots, indicate on the x axis
+      // If the quadratic has no roots, indicate so on the x axis
       Property.multilink( [ model.quadraticProperty, viewProperties.rootsVisibleProperty ],
         ( quadratic, rootsVisible ) => {
-
-          noRealRootsNode.visible = ( !quadratic.hasRoots() && viewProperties.rootsVisibleProperty.value );
-
-          // Position above or below the x axis, depending on sign of 'a'
-          if ( noRealRootsNode.visible ) {
-            noRealRootsNode.centerX = origin.x;
-            if ( quadratic.a >= 0 ) {
-              noRealRootsNode.top = origin.y + 2;
-            }
-            else {
-              noRealRootsNode.bottom = origin.y - 2;
-            }
-          }
-        }
-      )
-      ;
+          noRealRootsNode.visible = ( !quadratic.hasRoots() && rootsVisible );
+        } );
     }
   }
 
