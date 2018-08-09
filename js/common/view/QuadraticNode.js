@@ -27,7 +27,7 @@ define( function( require ) {
 
   class QuadraticNode extends Node {
     /**
-     * @param {Property.<Quadratic>} quadratic
+     * @param {Property.<Quadratic>} quadraticProperty
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {LineFormsScreenView} viewProperties
