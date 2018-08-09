@@ -40,105 +40,71 @@ define( function( require ) {
 
       super( options );
 
-      // view for the quadratic
+      // @private
+      this.graph = graph;
+      this.modelViewTransform = modelViewTransform;
+
+      // quadratic curve, y = ax^2 + bx + c
       const quadraticPath = new Path( null, {
         stroke: GQColors.INTERACTIVE_CURVE,
         lineWidth: 3
       } );
 
-      // a curve representing just the ax^2 term for this quadratic
+      // quadratic term, y = ax^2
       const quadraticTermPath = new Path( null, {
         stroke: GQColors.QUADRATIC_TERM,
         lineWidth: 3
       } );
-
-      // visibility of the parent node is determined by viewProperties
-      // visibility of quadraticTermPath is determined by whether the quadratic is non degenerate
+      //TODO why is this parent node pattern used throughout?
       const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
-      viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermParentNode.visible = visible; } );
-
-      // @private
-      this.graph = graph;
-      this.modelViewTransform = modelViewTransform;
-
+      // linear term, y = bx
       // make a Property out of quadraticProperty.value.getLinearTerm() in order to pass into LineNode
       const linearTermProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.getLinearTerm() );
-
-      // use the double headed arrow node from graphing-lines as a guide
       const linearTermPath = new LineNode( linearTermProperty, graph, modelViewTransform, { hasArrows: false } );
-
       const linearTermParentNode = new Node( { children: [ linearTermPath ] } );
 
-      // link linear term line visibility to view property
-      viewProperties.linearTermVisibleProperty.link( visible => { linearTermParentNode.visible = visible; } );
-
+      // constant term, y = c
       // make a Property out of quadraticProperty.value.getConstantTerm() in order to pass into LineNode
       const constantTermProperty = new DerivedProperty(
         [ quadraticProperty ],
         quadratic => quadratic.getConstantTerm()
       );
-
-      // line representing just the bx term of this quadratic
       const constantTermPath = new LineNode( constantTermProperty, graph, modelViewTransform, { hasArrows: false } );
-
       const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
 
-      // link constant term line visibility to view property
-      viewProperties.constantTermVisibleProperty.link( visible => { constantTermParentNode.visible = visible; } );
-
-      const pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
-
-      // vertex of the quadratic
-      const vertexPoint = new PlottedPointNode( pointRadius, GQColors.VERTEX );
-      const vertexPointParentNode = new Node( { children: [ vertexPoint ] } );
-
-      // link vertex point visibility to view property
-      viewProperties.vertexVisibleProperty.link( visible => { vertexPointParentNode.visible = visible; } );
-
-      // the left most root if there are two roots, and the root if there is one root
-      const root0Point = new PlottedPointNode( pointRadius, GQColors.ROOTS );
-
-      // the right most root if there are two roots
-      const root1Point = new PlottedPointNode( pointRadius, GQColors.ROOTS );
-
-      const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
-
-      // link roots points to view property
-      viewProperties.rootsVisibleProperty.link( visible => { rootPointsParentNode.visible = visible; } );
-
+      // axis of symmetry
       // make a Property out of quadraticProperty.value.axisOfSymmetry in order to pass into LineNode
       const axisOfSymmetryLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.axisOfSymmetry );
-
-      // view for the axis of symmetry of the quadratic
       const axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
         hasArrows: false,
         lineOptions: LINE_OPTIONS
       } );
-
       const axisOfSymmetryLineParentNode = new Node( { children: [ axisOfSymmetryLine ] } );
 
-      // link axis of symmetry line visibility to view property
-      viewProperties.axisOfSymmetryVisibleProperty.link( visible => {
-        axisOfSymmetryLineParentNode.visible = visible;
-      } );
+      // Radius of plotted points, in view coordinate frame
+      const pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
-      // view for the focus of the quadratic
+      // vertex
+      const vertexPoint = new PlottedPointNode( pointRadius, GQColors.VERTEX );
+      const vertexPointParentNode = new Node( { children: [ vertexPoint ] } );
+
+      // roots
+      const root0Point = new PlottedPointNode( pointRadius, GQColors.ROOTS ); // left root, or single root
+      const root1Point = new PlottedPointNode( pointRadius, GQColors.ROOTS ); // right root
+      const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
+
+      // focus point
       const focusPoint = new PlottedPointNode( pointRadius, GQColors.DIRECTRIX );
 
+      // directrix
       // make a property out of quadraticProperty.value.directrix in order to pass into LineNode
       const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.directrix );
-
-      // view for the directrix of the quadratic
       const directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
         hasArrows: false,
         lineOptions: LINE_OPTIONS
       } );
-
       const directrixParentNode = new Node( { children: [ directrixLine, focusPoint ] } );
-
-      // link focus point and directrix line visibility to view property
-      viewProperties.directrixVisibleProperty.link( visible => { directrixParentNode.visible = visible; } );
 
       // rendering order
       this.addChild( quadraticPath );
@@ -150,14 +116,25 @@ define( function( require ) {
       this.addChild( directrixParentNode );
       this.addChild( rootPointsParentNode );
 
+      // Control visibility of terms
+      viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermParentNode.visible = visible; } );
+      viewProperties.linearTermVisibleProperty.link( visible => { linearTermParentNode.visible = visible; } );
+      viewProperties.constantTermVisibleProperty.link( visible => { constantTermParentNode.visible = visible; } );
+
+      // Control visibility of decorations
+      viewProperties.axisOfSymmetryVisibleProperty.link( visible => {axisOfSymmetryLineParentNode.visible = visible; } );
+      viewProperties.vertexVisibleProperty.link( visible => { vertexPointParentNode.visible = visible; } );
+      viewProperties.rootsVisibleProperty.link( visible => { rootPointsParentNode.visible = visible; } );
+      viewProperties.directrixVisibleProperty.link( visible => { directrixParentNode.visible = visible; } );
+
       // Update the view of the curve when the quadratic model changes. dispose not needed.
       quadraticProperty.link( quadratic => {
 
         quadraticPath.setShape( this.createQuadraticShape( quadratic ) );
 
-        // update other information about the quadratic curve
+        if ( quadratic.a !== 0 ) {
 
-        if ( quadratic.a !== 0 ) { // is a quadratic
+          // is a quadratic
           quadraticTermPath.setShape( this.createQuadraticShape( quadratic.getQuadraticTerm() ) );
           vertexPoint.center = modelViewTransform.modelToViewPosition( quadratic.vertex );
           focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
@@ -165,24 +142,28 @@ define( function( require ) {
           vertexPoint.visible = true;
           focusPoint.visible = true;
 
-          if ( quadratic.roots.length === 2 ) { // two real roots
+          // roots
+          if ( quadratic.roots.length === 2 ) {
+            // two roots
             root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
             root1Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 1 ] );
             root0Point.visible = true;
             root1Point.visible = true;
           }
-          else if ( quadratic.roots.length === 1 ) { // two real roots
+          else if ( quadratic.roots.length === 1 ) {
+            // one root
             root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
             root0Point.visible = true;
             root1Point.visible = false;
-
           }
-          else { // no real roots
+          else {
+            // no roots
             root0Point.visible = false;
             root1Point.visible = false;
           }
         }
-        else { // not quadratic
+        else {
+          // not a quadratic
           quadraticTermPath.visible = false;
           vertexPoint.visible = false;
           focusPoint.visible = false;
