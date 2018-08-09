@@ -17,7 +17,7 @@ define( function( require ) {
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
-  const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
+  const QuadraticCurveNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCurveNode' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -50,7 +50,7 @@ define( function( require ) {
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
       // Interactive quadratic curve
-      const quadraticNode = new QuadraticNode(
+      const quadraticNode = new QuadraticCurveNode(
         model.quadraticProperty,
         model.graph,
         model.modelViewTransform,
@@ -111,14 +111,14 @@ define( function( require ) {
       model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
         // create Node for the new quadratic
-        const newQuadraticNode = quadraticNode.createPathWithColor( savedQuadratic, GQColors.SAVED_CURVE );
-        savedCurvesLayer.addChild( newQuadraticNode );
+        const newQuadraticCurveNode = quadraticNode.createPathWithColor( savedQuadratic, GQColors.SAVED_CURVE );
+        savedCurvesLayer.addChild( newQuadraticCurveNode );
 
         //TODO memory leak?
         // add listener for when the quadratic is eventually removed
         model.savedQuadratics.addItemRemovedListener( removedQuadratic => {
           if ( removedQuadratic === savedQuadratic ) {
-            savedCurvesLayer.removeChild( newQuadraticNode );
+            savedCurvesLayer.removeChild( newQuadraticCurveNode );
           }
         } );
       } );
