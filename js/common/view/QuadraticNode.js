@@ -30,7 +30,7 @@ define( function( require ) {
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {LineFormsScreenView} viewProperties
+     * @param {GCViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( quadraticProperty, graph, modelViewTransform, viewProperties, options ) {
