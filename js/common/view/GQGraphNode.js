@@ -85,8 +85,8 @@ define( function( require ) {
         center: origin
       } );
 
-      // Parent for saved curves
-      const savedCurvesLayer = new Node();
+      // Parent for saved quadratics
+      const savedQuadraticsLayer = new Node();
 
       // Clip content to the graph
       const clipArea = Shape.rectangle(
@@ -98,7 +98,7 @@ define( function( require ) {
 
       // Everything that's on the graph, clipped to the graph
       const contentNode = new Node( { clipArea: clipArea } );
-      contentNode.addChild( savedCurvesLayer );
+      contentNode.addChild( savedQuadraticsLayer );
       contentNode.addChild( quadraticNode );
       contentNode.addChild( noRealRootsNode );
       if ( options.hasVertexManipulator ) { contentNode.addChild( vertexManipulator ); }
@@ -112,13 +112,13 @@ define( function( require ) {
 
         // create Node for the new quadratic
         const newQuadraticNode = quadraticNode.createPathWithColor( savedQuadratic, GQColors.SAVED_CURVE );
-        savedCurvesLayer.addChild( newQuadraticNode );
+        savedQuadraticsLayer.addChild( newQuadraticNode );
 
         //TODO memory leak?
         // add listener for when the quadratic is eventually removed
         model.savedQuadratics.addItemRemovedListener( removedQuadratic => {
           if ( removedQuadratic === savedQuadratic ) {
-            savedCurvesLayer.removeChild( newQuadraticNode );
+            savedQuadraticsLayer.removeChild( newQuadraticNode );
           }
         } );
       } );
