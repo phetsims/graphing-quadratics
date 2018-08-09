@@ -74,9 +74,9 @@ define( function( require ) {
         font: new PhetFont( { size: 18, weight: 'bold' } ),
         fill: 'white'
       } );
-      const noRealRootsBackground = new Rectangle( noRealRootsLabel.bounds.dilatedXY( 5, 2 ), {
+      const noRealRootsBackground = new Rectangle( noRealRootsLabel.bounds.dilatedXY( 5, 1 ), {
         fill: GQColors.ROOTS,
-        opacity: 0.75,
+        opacity: 0.8,
         cornerRadius: 2,
         center: noRealRootsLabel.center
       } );
@@ -129,7 +129,7 @@ define( function( require ) {
       // If the quadratic has no roots, indicate so on the x axis
       Property.multilink( [ model.quadraticProperty, viewProperties.rootsVisibleProperty ],
         ( quadratic, rootsVisible ) => {
-          noRealRootsNode.visible = ( !quadratic.hasRoots() && rootsVisible );
+          noRealRootsNode.visible = ( quadratic.a !== 0 && !quadratic.hasRoots() && rootsVisible );
         } );
     }
   }
