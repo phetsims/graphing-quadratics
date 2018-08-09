@@ -39,6 +39,7 @@ define( function( require ) {
       super( options );
 
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
+      // dispose not needed.
       const pointToolsParent = new Node();
       scene.pointTools.forEach( pointTool => {
         pointToolsParent.addChild( new PointToolNode(
@@ -50,12 +51,12 @@ define( function( require ) {
         ) );
       } );
 
-      // The graph and everything on it -- position is determined by the model!
+      // The graph and everything on it -- position is determined by the model! dispose not needed.
       const graphNode = new GQGraphNode( scene, layoutBounds, viewProperties, {
         hasVertexManipulator: options.hasVertexManipulator
       } );
 
-      // Interactive equation and associated controls
+      // Interactive equation and associated controls. dispose not needed.
       const equationAccordionBox = new EquationAccordionBox(
         interactiveEquationNode,
         scene.saveQuadratic.bind( scene ),

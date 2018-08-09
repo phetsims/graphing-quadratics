@@ -54,7 +54,7 @@ define( function( require ) {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.QUADRATIC_TERM
       } );
-      const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, quadraticTermVisibleProperty );
+      const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, quadraticTermVisibleProperty ); // dispose not needed
 
       // y = bx
       const linearTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
@@ -66,7 +66,7 @@ define( function( require ) {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.LINEAR_TERM
       } );
-      const linearTermCheckbox = new Checkbox( linearTermLabel, linearTermVisibleProperty );
+      const linearTermCheckbox = new Checkbox( linearTermLabel, linearTermVisibleProperty ); // dispose not needed
 
       // y = c
       const constantTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
@@ -77,11 +77,11 @@ define( function( require ) {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.CONSTANT_TERM
       } );
-      const constantTermCheckbox = new Checkbox( constantTermLabel, constantTermVisibleProperty );
+      const constantTermCheckbox = new Checkbox( constantTermLabel, constantTermVisibleProperty ); // dispose not needed
 
       // Hide curves
       const hideCurvesLabel = new Text( hideCurvesString, CHECKBOX_LABEL_OPTIONS );
-      const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty );
+      const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty ); // dispose not needed
 
       // vertical layout
       const contentNode = new VBox( {

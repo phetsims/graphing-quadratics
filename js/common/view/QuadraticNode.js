@@ -150,8 +150,7 @@ define( function( require ) {
       this.addChild( directrixParentNode );
       this.addChild( rootPointsParentNode );
 
-      // Update the view of the curve when the quadratic model changes
-      // TODO: dispose
+      // Update the view of the curve when the quadratic model changes. dispose not needed.
       quadraticProperty.link( quadratic => {
 
         quadraticPath.setShape( this.createQuadraticShape( quadratic ) );

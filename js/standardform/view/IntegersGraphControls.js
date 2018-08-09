@@ -46,7 +46,7 @@ define( function( require ) {
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
       // Axis of Symmetry
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty );
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty ); // dispose not needed
 
       // Vertex
       const vertexLabel = new HBox( {
@@ -57,7 +57,7 @@ define( function( require ) {
           new PlottedPointNode( POINT_RADIUS, GQColors.VERTEX )
         ]
       } );
-      const vertexCheckbox = new Checkbox( vertexLabel, vertexVisibleProperty );
+      const vertexCheckbox = new Checkbox( vertexLabel, vertexVisibleProperty ); // dispose not needed
 
       // Roots
       const rootsLabel = new HBox( {
@@ -74,11 +74,11 @@ define( function( require ) {
             ]
           } )
         ] } );
-      const rootsCheckbox = new Checkbox( rootsLabel, rootsVisibleProperty );
+      const rootsCheckbox = new Checkbox( rootsLabel, rootsVisibleProperty ); // dispose not needed
 
       // Hide curves
       const hideCurvesLabel = new Text( hideCurvesString, CHECKBOX_LABEL_OPTIONS );
-      const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty );
+      const hideCurvesCheckbox = new Checkbox( hideCurvesLabel, hideCurvesProperty ); // dispose not needed
 
       const separatorWidth = _.maxBy(
         [ vertexCheckbox, axisOfSymmetryCheckbox, rootsCheckbox, hideCurvesCheckbox ],

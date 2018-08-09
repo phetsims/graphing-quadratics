@@ -2,7 +2,6 @@ TODO list for graphing-quadratics
 
 QuadraticNode should not be responsible for creating separate nodes for each quadratic term
 Roots hide vertex on graph for y = 1x^2
-Document unlink, removeListener, etc. requirements
 Focus & Directrix screen
 
 From https://github.com/phetsims/graphing-quadratics/issues/10

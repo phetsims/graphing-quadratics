@@ -43,7 +43,7 @@ define( function( require ) {
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
       // Axis of Symmetry
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty );
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( axisOfSymmetryVisibleProperty ); // dispose not needed
 
       // Directrix
       const directrixLabel = new HBox( {
@@ -58,7 +58,7 @@ define( function( require ) {
           } )
         ]
       } );
-      const directrixCheckbox = new Checkbox( directrixLabel, directrixVisibleProperty );
+      const directrixCheckbox = new Checkbox( directrixLabel, directrixVisibleProperty ); // dispose not needed
 
       // Hide curves
       const hideCurvesLabel = new Text( hideCurvesString, CHECKBOX_LABEL_OPTIONS );

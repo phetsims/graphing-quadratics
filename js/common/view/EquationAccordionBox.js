@@ -71,7 +71,7 @@ define( function( require ) {
 
       super( content, options );
       
-      // Disable the erase button when there are no saved lines.
+      // Disable the erase button when there are no saved lines. unlink not needed.
       numberOfSavedLinesProperty.link( numberOfSavedLines => {
         eraseButton.enabled = ( numberOfSavedLines > 0 );
       } );

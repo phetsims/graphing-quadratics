@@ -49,7 +49,7 @@ define( function( require ) {
       // Cartesian coordinates graph
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
-      // Interactive quadratic curve
+      // Interactive quadratic curve. dispose not needed.
       const quadraticNode = new QuadraticNode(
         model.quadraticProperty,
         model.graph,
@@ -57,7 +57,7 @@ define( function( require ) {
         viewProperties
       );
 
-      // Vertex manipulator
+      // Vertex manipulator. dispose not needed.
       let vertexManipulator;
       if ( options.hasVertexManipulator ) {
         vertexManipulator = new VertexManipulator(
@@ -107,7 +107,7 @@ define( function( require ) {
       this.addChild( graphNode );
       this.addChild( contentNode );
 
-      // When a quadratic is saved...
+      // When a quadratic is saved...  removeItemAddedListener not needed.
       model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
         // create Node for the new quadratic
@@ -124,10 +124,10 @@ define( function( require ) {
         model.savedQuadratics.addItemRemovedListener( itemRemovedListener ); // removeItemRemovedListener above
       } );
 
-      // Show/hide the graph content
+      // Show/hide the graph content. unlink not needed.
       viewProperties.hideCurvesProperty.link( hideCurves => {contentNode.visible = !hideCurves; } );
 
-      // If the quadratic has no roots, indicate so on the x axis
+      // If the quadratic has no roots, indicate so on the x axis. dispose not needed.
       Property.multilink( [ model.quadraticProperty, viewProperties.rootsVisibleProperty ],
         ( quadratic, rootsVisible ) => {
           noRealRootsNode.visible = ( quadratic.a !== 0 && !quadratic.hasRoots() && rootsVisible );
