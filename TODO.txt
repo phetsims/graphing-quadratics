@@ -12,4 +12,3 @@ TODOs in the code
 Draggable point connected to the focus and the directrix on Vertex Form screen
 Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
 Internationalization (stringTest, maxWidth, etc.)
-Implement disposal
