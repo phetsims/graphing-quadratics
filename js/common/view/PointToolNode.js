@@ -28,9 +28,10 @@ define( function( require ) {
   const Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  const pointUnknownString = require( 'string!GRAPHING_LINES/point.unknown' );
-  const pointXYString = require( 'string!GRAPHING_LINES/point.XY' );
+  const pointUnknownString = require( 'string!GRAPHING_QUADRATICS/pointUnknown' );
+  const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
+  //TODO copy image to graphing-quadratics?
   // images
   const bodyImage = require( 'image!GRAPHING_LINES/point_tool_body.png' );
 
@@ -47,8 +48,7 @@ define( function( require ) {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
      * @param {Property.<Boolean>} linesVisibleProperty
-     * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would
-     * be rendered
+     * @param {ObservableArray.<Line>} lines - lines that the tool might intersect, in the order that they are rendered
      * @param {Object} [options]
      */
     constructor( pointTool, modelViewTransform, graph, linesVisibleProperty, lines, options ) {
@@ -144,7 +144,7 @@ define( function( require ) {
       this.setCoordinatesVector2( pointTool.locationProperty.value );
       this.setBackground( options.backgroundNormalColor );
 
-      // location and display, unmultilink in dispose
+      // location and display
       const updateMultilink = Property.multilink( [
           pointTool.locationProperty,
           pointTool.onLineProperty,
@@ -184,11 +184,10 @@ define( function( require ) {
 
     // @private Sets the displayed value to a point
     setCoordinatesVector2( p ) {
-      this.setCoordinatesString( StringUtils.format(
-        pointXYString,
-        Util.toFixed( p.x, NUMBER_OF_DECIMAL_PLACES ),
-        Util.toFixed( p.y, NUMBER_OF_DECIMAL_PLACES )
-      ) );
+      this.setCoordinatesString( StringUtils.fillIn( pointXYString, {
+        x: Util.toFixed( p.x, NUMBER_OF_DECIMAL_PLACES ),
+        y: Util.toFixed( p.y, NUMBER_OF_DECIMAL_PLACES )
+      } ) );
     }
 
     // @private Sets the displayed value to an arbitrary string
@@ -202,7 +201,7 @@ define( function( require ) {
       this.valueNode.fill = color;
     }
 
-    // @private Sets the background, the color of the display area behind the value
+    // @private Sets the background, the color of the rectangle behind the value
     setBackground( color ) {
       this.backgroundNode.fill = color;
     }
@@ -213,11 +212,10 @@ define( function( require ) {
   class PointToolDragHandler extends SimpleDragHandler {
 
     /**
-     * Drag handler for the pointer tool.
+     * Drag handler for the point tool.
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {ObservableArray.<Line>} lines Lines that the tool might intersect, provided in the order that they would
-     * be rendered
+     * @param {ObservableArray.<Line>} lines - Lines that the tool might intersect, in the order that they are rendered
      * @param {Graph} graph
      */
     constructor( pointTool, modelViewTransform, graph, lines ) {
