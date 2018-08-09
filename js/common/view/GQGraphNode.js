@@ -77,22 +77,6 @@ define( function( require ) {
       // Parent for saved curves
       const savedCurvesLayer = new Node();
 
-      // When a quadratic is saved...
-      model.savedQuadratics.addItemAddedListener( savedQuadratic => {
-
-        // create Node for the new quadratic
-        const newQuadraticNode = quadraticNode.createPathWithColor( savedQuadratic, GQColors.SAVED_CURVE );
-        savedCurvesLayer.addChild( newQuadraticNode );
-
-        //TODO memory leak?
-        // add listener for when the quadratic is eventually removed
-        model.savedQuadratics.addItemRemovedListener( removedQuadratic => {
-          if ( removedQuadratic === savedQuadratic ) {
-            savedCurvesLayer.removeChild( newQuadraticNode );
-          }
-        } );
-      } );
-
       // Clip content to the graph
       const clipArea = Shape.rectangle(
         model.graph.xRange.min,
@@ -112,10 +96,26 @@ define( function( require ) {
       this.addChild( graphNode );
       this.addChild( contentNode );
 
+      // When a quadratic is saved...
+      model.savedQuadratics.addItemAddedListener( savedQuadratic => {
+
+        // create Node for the new quadratic
+        const newQuadraticNode = quadraticNode.createPathWithColor( savedQuadratic, GQColors.SAVED_CURVE );
+        savedCurvesLayer.addChild( newQuadraticNode );
+
+        //TODO memory leak?
+        // add listener for when the quadratic is eventually removed
+        model.savedQuadratics.addItemRemovedListener( removedQuadratic => {
+          if ( removedQuadratic === savedQuadratic ) {
+            savedCurvesLayer.removeChild( newQuadraticNode );
+          }
+        } );
+      } );
+
       // Show/hide the graph content
       viewProperties.hideCurvesProperty.link( hideCurves => {contentNode.visible = !hideCurves; } );
 
-      // If the quadratic has no roots, indicate that on the x axis
+      // If the quadratic has no roots, indicate on the x axis
       Property.multilink( [ model.quadraticProperty, viewProperties.rootsVisibleProperty ],
         ( quadratic, rootsVisible ) => {
 
