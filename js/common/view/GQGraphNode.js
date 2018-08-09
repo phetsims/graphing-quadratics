@@ -15,9 +15,16 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Property = require( 'AXON/Property' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Shape = require( 'KITE/Shape' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Vector2 = require( 'DOT/Vector2' );
   const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
+
+  // strings
+  const noRealRootsString = require( 'string!GRAPHING_QUADRATICS/noRealRoots' );
 
   class GQGraphNode extends Node {
 
@@ -34,6 +41,9 @@ define( function( require ) {
       }, options );
 
       super( options );
+
+      // Location of the origin in view coordinate frame, for layout
+      const origin = model.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) );
 
       // Cartesian coordinates graph
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
@@ -57,6 +67,12 @@ define( function( require ) {
           model.modelViewTransform
         );
       }
+
+      // 'no real roots' label
+      const noRealRootsNode = new Text( noRealRootsString, {
+        font: new PhetFont( { size: 18, weight: 'bold' } ),
+        fill: GQColors.ROOTS
+      } );
 
       // Parent for saved curves
       const savedCurvesLayer = new Node();
@@ -89,6 +105,7 @@ define( function( require ) {
       const contentNode = new Node( { clipArea: clipArea } );
       contentNode.addChild( savedCurvesLayer );
       contentNode.addChild( quadraticNode );
+      contentNode.addChild( noRealRootsNode );
       if ( options.hasVertexManipulator ) { contentNode.addChild( vertexManipulator ); }
 
       // rendering order
@@ -97,6 +114,26 @@ define( function( require ) {
 
       // Show/hide the graph content
       viewProperties.hideCurvesProperty.link( hideCurves => {contentNode.visible = !hideCurves; } );
+
+      // If the quadratic has no roots, indicate that on the x axis
+      Property.multilink( [ model.quadraticProperty, viewProperties.rootsVisibleProperty ],
+        ( quadratic, rootsVisible ) => {
+
+          noRealRootsNode.visible = ( !quadratic.hasRoots() && viewProperties.rootsVisibleProperty.value );
+
+          // Position above or below the x axis, depending on sign of 'a'
+          if ( noRealRootsNode.visible ) {
+            noRealRootsNode.centerX = origin.x;
+            if ( quadratic.a >= 0 ) {
+              noRealRootsNode.top = origin.y + 2;
+            }
+            else {
+              noRealRootsNode.bottom = origin.y - 2;
+            }
+          }
+        }
+      )
+      ;
     }
   }
 
