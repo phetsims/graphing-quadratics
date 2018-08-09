@@ -180,20 +180,6 @@ define( function( require ) {
 
       // interactivity
       this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph, lines ) );
-
-      // @private called by dispose
-      this.disposePointToolNode = function() {
-        Property.unmultilink( updateMultilink );
-      };
-    }
-
-    /**
-     * @public
-     * @override
-     */
-    dispose() {
-      this.disposePointToolNode();
-      Node.prototype.dispose.call( this );
     }
 
     // @private Sets the displayed value to a point
