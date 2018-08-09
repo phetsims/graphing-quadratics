@@ -37,7 +37,9 @@ define( function( require ) {
         { haloAlpha: GQColors.HALO_ALPHA.point }
       );
 
-      const vertexProperty = new Property( new Vector2() );
+      const vertexProperty = new Property( new Vector2(), {
+        valueType: Vector2
+      } );
 
       quadraticProperty.link( quadratic => {
         if ( quadratic.vertex ) {

@@ -45,7 +45,9 @@ define( function( require ) {
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
       // @public the interactive quadratic
-      this.quadraticProperty = new Property( options.quadratic );
+      this.quadraticProperty = new Property( options.quadratic, {
+        valueType: Quadratic
+      } );
 
       // @public saved quadratics
       this.savedQuadratics = new ObservableArray( [] );
