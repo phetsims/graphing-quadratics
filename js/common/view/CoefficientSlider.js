@@ -58,7 +58,12 @@ define( function( require ) {
         trackFill: options.trackFill,
         trackSize: options.trackSize,
         thumbSize: options.thumbSize,
-        thumbTouchAreaYDilation: options.thumbTouchAreaYDilation
+        thumbTouchAreaYDilation: options.thumbTouchAreaYDilation,
+
+        // snap to zero
+        constrainValue: function( value ) {
+          return ( Math.abs( value ) < 0.01 ) ? 0 : value;
+        }
       } );
 
       //TODO generalize - this assumes that zero is in the middle of the range, and zero is the only tick

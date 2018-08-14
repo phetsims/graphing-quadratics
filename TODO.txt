@@ -5,7 +5,6 @@ Point tool doesn't work on term-specific lines
 
 From https://github.com/phetsims/graphing-quadratics/issues/10
 Equations for each line on the graph
-Sliders: snap to zero
 Sliders: logarithmic-like scale
 TODOs in the code
 Draggable point connected to the focus and the directrix on Vertex Form screen
