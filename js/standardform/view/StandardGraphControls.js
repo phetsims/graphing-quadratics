@@ -137,6 +137,16 @@ define( function( require ) {
       } );
 
       super( contentNode, options );
+
+      // Disable other controls when 'Hide curves' is checked
+      viewProperties.linesVisibleProperty.link( ( linesVisible ) => {
+        axisOfSymmetryCheckbox.enabled = linesVisible;
+        vertexCheckbox.enabled = linesVisible;
+        rootsCheckbox.enabled = linesVisible;
+        quadraticTermCheckbox.enabled = linesVisible;
+        linearTermCheckbox.enabled = linesVisible;
+        constantTermCheckbox.enabled = linesVisible;
+      } );
     }
   }
 
