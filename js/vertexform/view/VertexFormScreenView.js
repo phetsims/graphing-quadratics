@@ -12,7 +12,7 @@ define( function( require ) {
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const VertexSceneNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexSceneNode' );
+  const VertexFormSceneNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormSceneNode' );
 
   class VertexFormScreenView extends GQScreenView{
 
@@ -25,7 +25,7 @@ define( function( require ) {
 
       super( model, [ viewProperties ] );
 
-      this.addChild( new VertexSceneNode( model.scene, this.layoutBounds, viewProperties, {
+      this.addChild( new VertexFormSceneNode( model.scene, this.layoutBounds, viewProperties, {
         hasVertexManipulator: true
       } ) );
     }

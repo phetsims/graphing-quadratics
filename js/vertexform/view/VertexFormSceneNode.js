@@ -12,10 +12,10 @@ define( function( require ) {
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
-  const VertexGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexGraphControls' );
-  const VertexInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexInteractiveEquationNode' );
+  const VertexFormGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphControls' );
+  const VertexFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormInteractiveEquationNode' );
 
-  class VertexSceneNode extends GQSceneNode {
+  class VertexFormSceneNode extends GQSceneNode {
 
     /**
      * @param {VertexFormScene} scene
@@ -30,14 +30,14 @@ define( function( require ) {
         new VertexFormEquationNode(),
 
         // interactive equation, in the accordion box
-        new VertexInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.hRange, scene.kRange ),
+        new VertexFormInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.hRange, scene.kRange ),
 
         // controls related to the graph
-        new VertexGraphControls( viewProperties ),
+        new VertexFormGraphControls( viewProperties ),
         options
       );
     }
   }
 
-  return graphingQuadratics.register( 'VertexSceneNode', VertexSceneNode );
+  return graphingQuadratics.register( 'VertexFormSceneNode', VertexFormSceneNode );
 } );

@@ -14,7 +14,7 @@ define( function( require ) {
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const IntegersSceneNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersSceneNode' );
-  const SceneControl = require( 'GRAPHING_QUADRATICS/standardform/view/SceneControl' );
+  const SceneControl = require( 'GRAPHING_QUADRATICS/common/view/SceneControl' );
 
   class StandardFormScreenView extends GQScreenView {
 

@@ -33,7 +33,7 @@ define( function( require ) {
     font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
   };
 
-  class VertexInteractiveEquationNode extends Node {
+  class VertexFormInteractiveEquationNode extends Node {
 
     /**
      * @param {Property.<Quadratic|undefined>} quadraticProperty
@@ -73,7 +73,7 @@ define( function( require ) {
       const exponentText = new RichText( '<sup>2</sup>', TEXT_OPTIONS );
       const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-      assert && assert( !options.children, 'VertexInteractiveEquationNode sets children' );
+      assert && assert( !options.children, 'VertexFormInteractiveEquationNode sets children' );
       options.children = [
         yText,
         equalToText,
@@ -130,5 +130,5 @@ define( function( require ) {
     }
   }
 
-  return graphingQuadratics.register( 'VertexInteractiveEquationNode', VertexInteractiveEquationNode );
+  return graphingQuadratics.register( 'VertexFormInteractiveEquationNode', VertexFormInteractiveEquationNode );
 } );

@@ -13,7 +13,7 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const DecimalsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsInteractiveEquationNode' );
   const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
-  const StandardGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardGraphControls' );
+  const StandardFormGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControls' );
 
   class DecimalsSceneNode extends GQSceneNode {
 
@@ -33,7 +33,7 @@ define( function( require ) {
         new DecimalsInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange ),
 
         // controls related to the graph
-        new StandardGraphControls( viewProperties ),
+        new StandardFormGraphControls( viewProperties ),
         options
       );
     }

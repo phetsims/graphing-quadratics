@@ -36,7 +36,7 @@ define( function( require ) {
   const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
   const POINT_RADIUS = 6;
 
-  class StandardGraphControls extends Panel {
+  class StandardFormGraphControls extends Panel {
 
     /**
      * @param {GQViewProperties} viewProperties
@@ -150,5 +150,5 @@ define( function( require ) {
     }
   }
 
-  return graphingQuadratics.register( 'StandardGraphControls', StandardGraphControls );
+  return graphingQuadratics.register( 'StandardFormGraphControls', StandardFormGraphControls );
 } );

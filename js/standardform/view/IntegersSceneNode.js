@@ -13,7 +13,7 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
   const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
-  const StandardGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardGraphControls' );
+  const StandardFormGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControls' );
 
   class IntegersSceneNode extends GQSceneNode {
 
@@ -33,7 +33,7 @@ define( function( require ) {
         new IntegersInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange ),
 
         // controls related to the graph
-        new StandardGraphControls( viewProperties ),
+        new StandardFormGraphControls( viewProperties ),
         options
       );
     }
