@@ -21,11 +21,11 @@ define( function( require ) {
      */
     constructor( model ) {
 
-      const vertexViewProperties = new GQViewProperties();
+      const viewProperties = new GQViewProperties();
 
-      super( model, [ vertexViewProperties ] );
+      super( model, [ viewProperties ] );
 
-      this.addChild( new VertexSceneNode( model.vertexScene, this.layoutBounds, vertexViewProperties, {
+      this.addChild( new VertexSceneNode( model.scene, this.layoutBounds, viewProperties, {
         hasVertexManipulator: true
       } ) );
     }

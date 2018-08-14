@@ -16,13 +16,9 @@ define( function( require ) {
   class VertexFormModel extends GQModel {
 
     constructor() {
-
       const vertexScene = new VertexFormScene();
-
       super( [ vertexScene ] );
-
-      // @public (read-only)
-      this.vertexScene = vertexScene;
+      this.scene = vertexScene; // @public (read-only)
     }
   }
 
