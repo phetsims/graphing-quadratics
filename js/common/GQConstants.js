@@ -51,8 +51,8 @@ define( function( require ) {
     STANDARD_EQUATION_FONT_SIZE: 22,
     INTERACTIVE_EQUATION_FONT_SIZE: 26,
     SLIDER_TICK_LABEL_FONT_SIZE: 16,
-    CHECKBOX_LABEL_FONT_SIZE: 20,
-    CHECKBOX_EQUATION_FONT_SIZE: 22
+    CHECKBOX_LABEL_FONT_SIZE: 18,
+    CHECKBOX_EQUATION_FONT_SIZE: 18
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );
