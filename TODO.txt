@@ -1,7 +1,6 @@
 TODO list for graphing-quadratics
 
 Line[] in PointTool and PointToolNode is actually Quadratic[]
-Focus & Directrix screen
 Point tool doesn't work on term-specific lines
 
 From https://github.com/phetsims/graphing-quadratics/issues/10
