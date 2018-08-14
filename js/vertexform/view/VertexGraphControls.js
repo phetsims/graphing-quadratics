@@ -17,19 +17,18 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
-  const HSeparator = require( 'SUN/HSeparator' );
-  const Line = require( 'SCENERY/nodes/Line' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
-  const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
+  const rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
 
   // constants
   const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
-  const DASH_LENGTH = 5;
+  const POINT_RADIUS = 6;
 
   class VertexGraphControls extends Panel {
 
@@ -44,27 +43,26 @@ define( function( require ) {
       // Axis of Symmetry, dispose not needed
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
 
-      // Directrix, dispose not needed
-      const directrixLabel = new HBox( {
+      // Roots, dispose not needed
+      const rootsLabel = new HBox( {
         align: 'center',
-        spacing: 15,
+        spacing: 10,
         children: [
-          new Text( directrixString, CHECKBOX_LABEL_OPTIONS ),
-          new Line( 0, 0, 7 * DASH_LENGTH, 0, {
-            stroke: GQColors.DIRECTRIX,
-            lineWidth: 3,
-            lineDash: [ DASH_LENGTH, DASH_LENGTH ]
+          new Text( rootsString, CHECKBOX_LABEL_OPTIONS ),
+          new HBox( {
+            align: 'center',
+            spacing: 5,
+            children: [
+              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS ),
+              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS )
+            ]
           } )
         ]
       } );
-      const directrixCheckbox = new Checkbox( directrixLabel, viewProperties.directrixVisibleProperty );
+      const rootsCheckbox = new Checkbox( rootsLabel, viewProperties.rootsVisibleProperty );
 
       // Hide curves, dispose not needed
       const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.linesVisibleProperty );
-
-      const separatorWidth = _.maxBy(
-        [ axisOfSymmetryCheckbox, directrixCheckbox, hideCurvesCheckbox ],
-        function( node ) {return node.width; } ).width;
 
       // vertical layout
       const contentNode = new VBox( {
@@ -72,13 +70,18 @@ define( function( require ) {
         spacing: 20,
         children: [
           axisOfSymmetryCheckbox,
-          directrixCheckbox,
-          new HSeparator( separatorWidth, { stroke: GQColors.SEPARATOR } ),
+          rootsCheckbox,
           hideCurvesCheckbox
         ]
       } );
 
       super( contentNode, options );
+
+      // Disable other controls when 'Hide curves' is checked
+      viewProperties.linesVisibleProperty.link( ( linesVisible ) => {
+        axisOfSymmetryCheckbox.enabled = linesVisible;
+        rootsCheckbox.enabled = linesVisible;
+      } );
     }
   }
 
