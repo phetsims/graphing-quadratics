@@ -9,9 +9,9 @@ define( function( require ) {
   'use strict';
 
   // modules
-  const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
   const Dimension2 = require( 'DOT/Dimension2' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HSlider = require( 'SUN/HSlider' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
@@ -42,12 +42,12 @@ define( function( require ) {
      * @returns {Node}
      */
     createDecimalsIcon() {
-      const verticalSlider = new CoefficientSlider( '', NUMBER_PROPERTY, 1, {
+      const verticalSlider = new HSlider( NUMBER_PROPERTY, NUMBER_PROPERTY.range, {
         trackSize: new Dimension2( 50, 0.5 ),
         thumbSize: new Dimension2( 15, 25 ),
-        showTicks: false,
         scale: 0.8
       } );
+      verticalSlider.rotate( -Math.PI / 2 );
       return new Node( { children: [ verticalSlider ], pickable: false } );
     }
   };
