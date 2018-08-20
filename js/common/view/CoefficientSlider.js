@@ -23,6 +23,8 @@ define( function( require ) {
   // constants
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
   const TICK_LABEL_FONT = new PhetFont( GQConstants.SLIDER_TICK_LABEL_FONT_SIZE );
+  const DEFAULT_TRACK_SIZE = new Dimension2( 130, 1 );
+  const DEFAULT_THUMB_SIZE = new Dimension2( 20, 45 );
 
   class CoefficientSlider extends Node {
 
@@ -39,8 +41,8 @@ define( function( require ) {
         tickValues: [ 0 ],
 
         // HSlider options
-        trackSize: new Dimension2( 130, 1 ),
-        thumbSize: new Dimension2( 20, 45 ),
+        trackSize: DEFAULT_TRACK_SIZE,
+        thumbSize: DEFAULT_THUMB_SIZE,
 
         // superclass options
         align: 'center'
