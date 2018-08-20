@@ -15,97 +15,76 @@ define( function( require ) {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSlider = require( 'SUN/HSlider' );
-  const Line = require( 'SCENERY/nodes/Line' );
+  const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
-  const VStrut = require( 'SCENERY/nodes/VStrut' );
 
   // constants
-  const TICK_COLOR = 'black';
-  const TICK_LENGTH = 30;
-  const TICK_WIDTH = 1;
+  const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
   const TICK_LABEL_FONT = new PhetFont( GQConstants.SLIDER_TICK_LABEL_FONT_SIZE );
-  const SYMBOL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
 
-  class CoefficientSlider extends VBox {
+  class CoefficientSlider extends Node {
 
     /**
      * @param {string} symbol
      * @param {NumberProperty} property
-     * @param {number} decimalPlaces
      * @param {Object} [options]
      */
-    constructor( symbol, property, decimalPlaces, options ) {
+    constructor( symbol, property, options ) {
 
       options = _.extend( {
 
-        showTicks: true,
+        // {Array.<number>|null} values where tick marks will be placed
+        tickValues: [ 0 ],
 
         // HSlider options
-        trackFill: 'black',
         trackSize: new Dimension2( 130, 1 ),
         thumbSize: new Dimension2( 20, 45 ),
-        thumbTouchAreaYDilation: 8,
 
         // superclass options
         align: 'center'
       }, options );
 
-      super( options );
-
+      // We don't have a vertical slider, so use a rotated HSlider.
       const slider = new HSlider( property, property.range, {
-        trackFill: options.trackFill,
+
+        majorTickLength: 28,
+        trackFill: 'black',
         trackSize: options.trackSize,
         thumbSize: options.thumbSize,
-        thumbTouchAreaYDilation: options.thumbTouchAreaYDilation,
+        thumbTouchAreaYDilation: 8,
 
         // snap to zero
         constrainValue: function( value ) {
           return ( Math.abs( value ) < 0.01 ) ? 0 : value;
         }
       } );
+      slider.rotate( -Math.PI / 2 );
 
-      //TODO generalize - this assumes that zero is in the middle of the range, and zero is the only tick
-      if ( options.showTicks ) {
+      // Coefficient label that appears above the slider. Position this after rotating the slider,
+      // but before adding ticks, so that the label is horizontally centered on the track.
+      const label = new RichText( symbol, {
+        font: COEFFICIENT_LABEL_FONT,
+        fill: GQColors.INTERACTIVE_CURVE,
+        centerX: slider.centerX,
+        bottom: slider.top - 5
+      } );
 
-        // HSlider does not support a tick that is centered on the track.  We need to use our own tick node here.
-        const trackCenterX = options.trackSize.width / 2;
-        const tickYOffset = options.trackSize.height / 2;
-
-        const tickNode = new Line( trackCenterX, -TICK_LENGTH, trackCenterX, TICK_LENGTH + tickYOffset, {
-          stroke: TICK_COLOR,
-          lineWidth: TICK_WIDTH
+      // Create the tick labels, rotated opposite the HSlider, so that they'll look correct on the rotated HSlider.
+      if ( options.tickValues ) {
+        options.tickValues.forEach( tickValue => {
+          slider.addMajorTick( tickValue, new Text( tickValue, {
+            font: TICK_LABEL_FONT,
+            rotation: -slider.rotation
+          } ) );
         } );
-
-        // label the zero tick mark
-        const tickText = new Text( '0', {
-          font: TICK_LABEL_FONT,
-          bottom: tickNode.top - 5,
-          centerX: tickNode.centerX + 1,
-          rotation: Math.PI / 2
-        } );
-        slider.addChild( tickText );
-
-        // to balance out the zero label
-        const strutForSymmetry = new VStrut( tickText.width - 3, { top: tickNode.bottom + 5 } );
-        slider.addChild( strutForSymmetry );
-
-        // add the tick as a child and move it behind the slider thumb
-        slider.addChild( tickNode );
-        tickNode.moveToBack();
-
-        this.addChild( new RichText( symbol, {
-          font: SYMBOL_FONT,
-          fill: GQColors.INTERACTIVE_CURVE
-        } ) );
       }
 
-      this.addChild( slider );
+      assert && assert( !options.children, 'CoefficientSlider sets children' );
+      options.children = [ label, slider ];
 
-      // make vertical slider by rotating it
-      slider.rotate( -Math.PI / 2 );
+      super( options );
     }
   }
 

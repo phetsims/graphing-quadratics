@@ -72,9 +72,9 @@ define( function( require ) {
       const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
       // coefficient sliders
-      const aSlider = new CoefficientSlider( GQSymbols.a, aProperty, 2 );
-      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, 1 );
-      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, 1 );
+      const aSlider = new CoefficientSlider( GQSymbols.a, aProperty );
+      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty );
+      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty );
 
       assert && assert( !options.children, 'DecimalsInteractiveEquationNode sets children' );
       options.children = [
