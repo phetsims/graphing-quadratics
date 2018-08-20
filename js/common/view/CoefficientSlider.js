@@ -23,8 +23,8 @@ define( function( require ) {
   // constants
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
   const TICK_LABEL_FONT = new PhetFont( GQConstants.SLIDER_TICK_LABEL_FONT_SIZE );
-  const DEFAULT_TRACK_SIZE = new Dimension2( 130, 1 );
-  const DEFAULT_THUMB_SIZE = new Dimension2( 20, 45 );
+  const TRACK_SIZE = new Dimension2( 130, 1 );
+  const THUMB_SIZE = new Dimension2( 20, 45 );
 
   class CoefficientSlider extends Node {
 
@@ -40,10 +40,6 @@ define( function( require ) {
         // {Array.<number>|null} values where tick marks will be placed
         tickValues: [ 0 ],
 
-        // HSlider options
-        trackSize: DEFAULT_TRACK_SIZE,
-        thumbSize: DEFAULT_THUMB_SIZE,
-
         // superclass options
         align: 'center'
       }, options );
@@ -53,8 +49,8 @@ define( function( require ) {
 
         majorTickLength: 28,
         trackFill: 'black',
-        trackSize: options.trackSize,
-        thumbSize: options.thumbSize,
+        trackSize: TRACK_SIZE,
+        thumbSize: THUMB_SIZE,
         thumbTouchAreaYDilation: 8,
 
         // snap to zero
