@@ -4,6 +4,7 @@
  * Vertical slider for changing one of the coefficients in a quadratic equation.
  *
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';
