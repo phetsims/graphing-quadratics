@@ -16,11 +16,9 @@ define( function( require ) {
   /**
    * @constructor
    */
-  class GQViewProperties extends Object {
+  class GQViewProperties {
 
     constructor() {
-
-      super();
 
       // @public determines whether a curve is displayed to reflect the quadratic term (y=ax^2)
       this.quadraticTermVisibleProperty = new BooleanProperty( false );
