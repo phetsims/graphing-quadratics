@@ -21,6 +21,7 @@ define( function( require ) {
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
 
   // constants
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
@@ -37,20 +38,31 @@ define( function( require ) {
      */
     constructor( symbol, property, options ) {
 
+      assert && assert( Math.abs( property.range.min ) === property.range.max,
+        'symmetrical range is required: ' + property.range );
+
       options = _.extend( {
 
         // {Array.<number>|null} values where tick marks will be placed
         tickValues: [ 0 ],
 
+        // slider mapping options
+        map: value => {
+          return Util.sign( value ) * Math.sqrt( property.range.max * Math.abs( value ) );
+        },
+        inverseMap: value => {
+          return Util.sign( value ) * value * value / property.range.max;
+        },
+
         // superclass options
         align: 'center'
       }, options );
 
-      // Map between linear behavior of the slider and logarithmic behavior of the coefficient value.
+      // Quadratic slider behavior of the form y = ax^2, where a is 1/property.range.max
       var sliderProperty = new DynamicProperty( new Property( property ), {
         bidirectional: true,
-        map: value => { return value; }, //TODO log to linear
-        inverseMap: value => { return value; } //TODO linear to log
+        map: options.map,
+        inverseMap: options.inverseMap
       } );
 
       // We don't have a vertical slider, so use a rotated HSlider.
@@ -82,7 +94,7 @@ define( function( require ) {
       // Create the tick labels, rotated opposite the HSlider, so that they'll look correct on the rotated HSlider.
       if ( options.tickValues ) {
         options.tickValues.forEach( tickValue => {
-          slider.addMajorTick( tickValue, new Text( tickValue, {
+          slider.addMajorTick( options.map( tickValue ), new Text( tickValue, {
             font: TICK_LABEL_FONT,
             rotation: -slider.rotation
           } ) );
