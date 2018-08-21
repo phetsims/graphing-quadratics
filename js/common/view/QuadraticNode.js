@@ -55,7 +55,10 @@ define( function( require ) {
         stroke: GQColors.QUADRATIC_TERM,
         lineWidth: 3
       } );
-      //TODO why is this parent node pattern used throughout?
+
+      // This pattern of wrapping things in a parent node is used throughout.
+      // The visibility of the parent nodes is synchronized with the viewProperties that control visibility,
+      // while the child nodes are synchronized with the quadratic.
       const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
       // linear term, y = bx
