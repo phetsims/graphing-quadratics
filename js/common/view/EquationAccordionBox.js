@@ -19,6 +19,7 @@ define( function( require ) {
   const HBox = require( 'SCENERY/nodes/HBox' );
   const HSeparator = require( 'SUN/HSeparator' );
   const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
+  const Property = require( 'AXON/Property' );
   const RectangularPushButton = require( 'SUN/buttons/RectangularPushButton' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
@@ -32,10 +33,12 @@ define( function( require ) {
      * @param {Node} interactiveEquationNode - interactive equation
      * @param {function} saveFunction
      * @param {function} eraseFunction
+     * @param {BooleanProperty} linesVisibleProperty
      * @param {NumberProperty} numberOfSavedLinesProperty
      * @param {Object} [options]
      */
-    constructor( interactiveEquationNode, saveFunction, eraseFunction, numberOfSavedLinesProperty, options ) {
+    constructor( interactiveEquationNode, saveFunction, eraseFunction,
+                 linesVisibleProperty, numberOfSavedLinesProperty, options ) {
 
       options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
@@ -70,10 +73,14 @@ define( function( require ) {
       } );
 
       super( content, options );
-      
-      // Disable the erase button when there are no saved lines. unlink not needed.
-      numberOfSavedLinesProperty.link( numberOfSavedLines => {
-        eraseButton.enabled = ( numberOfSavedLines > 0 );
+
+      // Enable the save button when lines are visible. unlink not needed.
+      linesVisibleProperty.link( linesVisible => { saveButton.enabled = linesVisible; } );
+
+      // Enable the erase button when lines are visible and there are saved lines. dispose not needed.
+      Property.multilink( [ linesVisibleProperty, numberOfSavedLinesProperty ],
+        ( linesVisible, numberOfSavedLines ) => {
+        eraseButton.enabled = linesVisible && ( numberOfSavedLines > 0 );
       } );
     }
   }

@@ -67,6 +67,7 @@ define( function( require ) {
         interactiveEquationNode,
         scene.saveQuadratic.bind( scene ),
         scene.eraseQuadratics.bind( scene ),
+        viewProperties.linesVisibleProperty,
         scene.savedQuadratics.lengthProperty, {
           titleNode: accordionBoxTitleNode,
           expandedProperty: viewProperties.interactiveEquationVisibleProperty,
