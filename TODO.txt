@@ -6,6 +6,5 @@ Point tool doesn't work on term-specific lines
 From https://github.com/phetsims/graphing-quadratics/issues/10
 Equations for each line on the graph
 TODOs in the code
-Draggable point connected to the focus and the directrix on Vertex Form screen
 Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
 stringTest
