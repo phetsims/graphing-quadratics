@@ -2,6 +2,7 @@
 
 /**
  * Vertical slider for changing one of the coefficients in a quadratic equation.
+ * The default response of this slider is linear.  To change the response, use options map and inverseMap.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
