@@ -61,7 +61,7 @@ define( function( require ) {
       let vertexManipulator;
       if ( options.hasVertexManipulator ) {
         vertexManipulator = new VertexManipulator(
-          GQConstants.MANIPULATOR_RADIUS,
+          model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
           model.quadraticProperty,
           model.graph.xRange,
           model.graph.yRange,

@@ -1,6 +1,5 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO Copied from GRAPHING_LINES/common/view/manipulator/PointManipulator
 /**
  * Drag handler for the vertex.
  *
@@ -23,7 +22,7 @@ define( function( require ) {
   class VertexManipulator extends Manipulator {
 
     /**
-     * @param {number} radius
+     * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {Range} xRange
      * @param {Range} yRange
@@ -31,29 +30,25 @@ define( function( require ) {
      */
     constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform ) {
 
-      super(
-        modelViewTransform.modelToViewDeltaX( radius ),
-        GQColors.VERTEX,
-        { haloAlpha: GQColors.HALO_ALPHA.point }
-      );
+      super( radius, GQColors.VERTEX, {
+        haloAlpha: GQColors.HALO_ALPHA.point 
+      } );
 
-      const vertexProperty = new Property( new Vector2(), {
+      // local Property whose value is the vertex of the current value of quadraticProperty
+      const vertexProperty = new Property( quadraticProperty.value.vertex, {
         valueType: Vector2,
         reentrant: true
       } );
 
+      // When the quadratic changes, set vertexProperty to the quadratic's vertex.
       quadraticProperty.link( quadratic => {
-        if ( quadratic.vertex ) {
-          this.visible = true;
-          if ( !quadratic.vertex.equals( vertexProperty.value ) ) {
-            vertexProperty.value = quadratic.vertex;
-          }
-        }
-        else { // quadratic does not have a vertex
-          this.visible = false;
+        this.visible = !!quadratic.vertex; // visible if the quadratic has a vertex
+        if ( quadratic.vertex && !quadratic.vertex.equals( vertexProperty.value ) ) {
+          vertexProperty.value = quadratic.vertex;
         }
       } );
 
+      // When the vertex changes, create new quadratic. 
       vertexProperty.link( function( vertex ) {
         const quadratic = quadraticProperty.value;
         if ( vertex.x !== quadratic.vertex.x || vertex.y !== quadratic.vertex.y ) {
@@ -61,11 +56,11 @@ define( function( require ) {
         }
       } );
 
-      // move the manipulator to match the point
-      const lineObserver = point => { this.translation = modelViewTransform.modelToViewPosition( point ); };
+      // move the manipulator to match the vertex location
+      const lineObserver = vertex => { this.translation = modelViewTransform.modelToViewPosition( vertex ); };
       vertexProperty.link( lineObserver ); // unlink in dispose
 
-      this.addInputListener( new PointDragHandler( vertexProperty, xRange, yRange, modelViewTransform ) );
+      this.addInputListener( new VertexDragHandler( vertexProperty, xRange, yRange, modelViewTransform ) );
 
       // @private called by dispose
       this.disposePointManipulator = function() {
@@ -85,16 +80,16 @@ define( function( require ) {
 
   graphingQuadratics.register( 'VertexManipulator', VertexManipulator );
 
-  class PointDragHandler extends SimpleDragHandler {
+  class VertexDragHandler extends SimpleDragHandler {
 
     /**
-     * Drag handler for arbitrary point.
-     * @param {Property.<Vector2>} pointProperty
+     * Drag handler for vertex.
+     * @param {Property.<Vector2>} vertexProperty
      * @param {Range} xRange
      * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
      */
-    constructor( pointProperty, xRange, yRange, modelViewTransform ) {
+    constructor( vertexProperty, xRange, yRange, modelViewTransform ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -104,27 +99,26 @@ define( function( require ) {
 
         // note where the drag started
         start: function( event ) {
-          const location = modelViewTransform.modelToViewPosition( pointProperty.value );
+          const location = modelViewTransform.modelToViewPosition( vertexProperty.value );
           startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
         drag: function( event ) {
 
+          // transform the drag point from view to model coordinate frame
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           const location = modelViewTransform.viewToModelPosition( parentPoint );
 
           // constrain to range, snap to grid
           const x = Util.roundSymmetric( Util.clamp( location.x, xRange.min, xRange.max ) );
           const y = Util.roundSymmetric( Util.clamp( location.y, yRange.min, yRange.max ) );
-          const p = new Vector2( x, y );
-
-          pointProperty.value = p;
+          vertexProperty.value = new Vector2( x, y );
         }
       } );
     }
   }
 
-  graphingQuadratics.register( 'VertexManipulator.PointDragHandler', PointDragHandler );
+  graphingQuadratics.register( 'VertexManipulator.VertexDragHandler', VertexDragHandler );
 
   return VertexManipulator;
 } );
