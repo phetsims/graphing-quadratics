@@ -43,7 +43,8 @@ define( function( require ) {
       return new HSlider( NUMBER_PROPERTY, NUMBER_PROPERTY.range, {
         trackSize: new Dimension2( 40, 0.4 ),
         thumbSize: new Dimension2( 12, 20 ),
-        rotation: -Math.PI / 2
+        rotation: -Math.PI / 2,
+        pickable: false
       } );
     }
   };
