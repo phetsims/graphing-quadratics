@@ -21,7 +21,6 @@ define( function( require ) {
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
 
   // constants
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
@@ -33,40 +32,35 @@ define( function( require ) {
 
     /**
      * @param {string} symbol - the coefficient's symbol
-     * @param {NumberProperty} property - the coefficient's value
+     * @param {NumberProperty} coefficientProperty - the coefficient's value
      * @param {Object} [options]
      */
-    constructor( symbol, property, options ) {
-
-      assert && assert( Math.abs( property.range.min ) === property.range.max,
-        'symmetrical range is required: ' + property.range );
+    constructor( symbol, coefficientProperty, options ) {
 
       options = _.extend( {
 
         // {Array.<number>|null} values where tick marks will be placed
         tickValues: [ 0 ],
 
-        // slider mapping options
-        map: value => {
-          return Util.sign( value ) * Math.sqrt( property.range.max * Math.abs( value ) );
-        },
-        inverseMap: value => {
-          return Util.sign( value ) * value * value / property.range.max;
-        },
+        // maps coefficientProperty value to slider value
+        map: value => { return value; },
+
+        // maps slider value to coefficientProperty value
+        inverseMap: value => { return value; },
 
         // superclass options
         align: 'center'
       }, options );
 
-      // Quadratic slider behavior of the form y = ax^2, where a is 1/property.range.max
-      var sliderProperty = new DynamicProperty( new Property( property ), {
+      // Map between value domains, determines how the slider responds.
+      var sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
         bidirectional: true,
         map: options.map,
         inverseMap: options.inverseMap
       } );
 
       // We don't have a vertical slider, so use a rotated HSlider.
-      const slider = new HSlider( sliderProperty, property.range, {
+      const slider = new HSlider( sliderProperty, coefficientProperty.range, {
 
         majorTickLength: 28,
         trackFill: 'black',

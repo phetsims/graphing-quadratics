@@ -22,6 +22,7 @@ define( function( require ) {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
+  const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
 
   // constants
@@ -71,15 +72,10 @@ define( function( require ) {
       const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
       const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
 
-      const linearSliderOptions = {
-        map: value => { return value; },
-        inverseMap: value => { return value; }
-      };
-
       // coefficient sliders
-      const aSlider = new CoefficientSlider( GQSymbols.a, aProperty );
-      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, linearSliderOptions );
-      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, linearSliderOptions );
+      const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty );
+      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty );
+      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty );
 
       assert && assert( !options.children, 'DecimalsInteractiveEquationNode sets children' );
       options.children = [
