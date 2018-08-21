@@ -38,7 +38,8 @@ define( function( require ) {
       );
 
       const vertexProperty = new Property( new Vector2(), {
-        valueType: Vector2
+        valueType: Vector2,
+        reentrant: true
       } );
 
       quadraticProperty.link( quadratic => {

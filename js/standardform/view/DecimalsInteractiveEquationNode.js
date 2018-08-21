@@ -51,7 +51,7 @@ define( function( require ) {
       options = options || {};
 
       // coefficient Properties
-      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange } );
+      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } );
       const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 

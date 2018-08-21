@@ -47,7 +47,7 @@ define( function( require ) {
       options = options || {};
 
       // Properties for the variables in vertex form
-      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange } );
+      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } );
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
 

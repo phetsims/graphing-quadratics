@@ -46,7 +46,8 @@ define( function( require ) {
 
       // @public the interactive quadratic
       this.quadraticProperty = new Property( options.quadratic, {
-        valueType: Quadratic
+        valueType: Quadratic,
+        reentrant: true
       } );
 
       // @public saved quadratics
