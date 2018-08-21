@@ -43,9 +43,8 @@ define( function( require ) {
      */
     createDecimalsIcon() {
       const verticalSlider = new HSlider( NUMBER_PROPERTY, NUMBER_PROPERTY.range, {
-        trackSize: new Dimension2( 50, 0.5 ),
-        thumbSize: new Dimension2( 15, 25 ),
-        scale: 0.8
+        trackSize: new Dimension2( 35, 0.4 ),
+        thumbSize: new Dimension2( 12, 20 )
       } );
       verticalSlider.rotate( -Math.PI / 2 );
       return new Node( { children: [ verticalSlider ], pickable: false } );
