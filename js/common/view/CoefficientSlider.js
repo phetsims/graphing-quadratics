@@ -21,7 +21,6 @@ define( function( require ) {
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
 
   // constants
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
