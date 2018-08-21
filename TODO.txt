@@ -1,10 +1,18 @@
 TODO list for graphing-quadratics
 
+DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Focus & Directrix screen
+Should graph controls be the same for both scenes on Standard Form screen?
+Should state of graph controls be shared between both scenes on Standard Form screen?
+Should roots be displayable on Vertex Form screen?
+Use new point tool design in both GQ and GL?
+
+IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Equations on each line on the graph
 Line[] in PointTool and PointToolNode is actually Quadratic[]
 Point tool doesn't work on term-specific lines
-
-From https://github.com/phetsims/graphing-quadratics/issues/10
-Equations for each line on the graph
-TODOs in the code
 Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
+TODOs in the code
 stringTest
