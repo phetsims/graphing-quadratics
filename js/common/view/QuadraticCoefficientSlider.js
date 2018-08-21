@@ -42,6 +42,9 @@ define( function( require ) {
         return Util.sign( value ) * a * value * value;
       };
 
+      assert && assert( options.snapToZeroEpsilon === undefined, 'QuadraticCoefficientSlider sets snapToZeroEpsilon' );
+      options.snapToZeroEpsilon = 0.05;
+
       super( symbol, coefficientProperty, options );
     }
   }

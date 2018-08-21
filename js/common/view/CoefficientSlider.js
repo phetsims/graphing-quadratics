@@ -49,6 +49,9 @@ define( function( require ) {
         // maps slider value to coefficientProperty value
         inverseMap: value => { return value; },
 
+        // If the absolute value of coefficientProperty is less than this value, snap to zero.
+        snapToZeroEpsilon: 0.1,
+
         // superclass options
         align: 'center'
       }, options );
@@ -71,7 +74,8 @@ define( function( require ) {
 
         // snap to zero
         constrainValue: function( value ) {
-          return ( Math.abs( value ) < 0.01 ) ? 0 : value;
+          var coefficientValue = options.inverseMap( value );
+          return ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) ? 0 : value;
         }
       } );
       slider.rotate( -Math.PI / 2 );
