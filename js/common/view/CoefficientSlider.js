@@ -11,14 +11,17 @@ define( function( require ) {
 
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
+  const DynamicProperty = require( 'AXON/DynamicProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSlider = require( 'SUN/HSlider' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
 
   // constants
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
@@ -29,8 +32,8 @@ define( function( require ) {
   class CoefficientSlider extends Node {
 
     /**
-     * @param {string} symbol
-     * @param {NumberProperty} property
+     * @param {string} symbol - the coefficient's symbol
+     * @param {NumberProperty} property - the coefficient's value
      * @param {Object} [options]
      */
     constructor( symbol, property, options ) {
@@ -44,8 +47,15 @@ define( function( require ) {
         align: 'center'
       }, options );
 
+      // Map between linear behavior of the slider and logarithmic behavior of the coefficient value.
+      var sliderProperty = new DynamicProperty( new Property( property ), {
+        bidirectional: true,
+        map: value => { return value; }, //TODO log to linear
+        inverseMap: value => { return value; } //TODO linear to log
+      } );
+
       // We don't have a vertical slider, so use a rotated HSlider.
-      const slider = new HSlider( property, property.range, {
+      const slider = new HSlider( sliderProperty, property.range, {
 
         majorTickLength: 28,
         trackFill: 'black',
