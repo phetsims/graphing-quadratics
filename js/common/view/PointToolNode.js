@@ -31,9 +31,8 @@ define( function( require ) {
   const pointUnknownString = require( 'string!GRAPHING_QUADRATICS/pointUnknown' );
   const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
-  //TODO copy image to graphing-quadratics?
   // images
-  const bodyImage = require( 'image!GRAPHING_LINES/point_tool_body.png' );
+  const bodyImage = require( 'image!GRAPHING_QUADRATICS/point_tool_body.png' );
 
   // constants
   const NUMBER_OF_DECIMAL_PLACES = 1;

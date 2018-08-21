@@ -1,2 +1,10 @@
 {
+  "point_tool_body.png": {
+    "text": [
+      "Copyright 2002-2018 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Bryce Gruneich, copied from graphing-lines"
+  }
 }
