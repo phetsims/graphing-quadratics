@@ -89,7 +89,6 @@ define( function( require ) {
         bottom: slider.top - 5
       } );
 
-      //TODO convert tick values to match scale
       // Create the tick labels, rotated opposite the HSlider, so that they'll look correct on the rotated HSlider.
       if ( options.tickValues ) {
         options.tickValues.forEach( tickValue => {
