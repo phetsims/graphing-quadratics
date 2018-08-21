@@ -12,7 +12,6 @@ define( function( require ) {
   const Dimension2 = require( 'DOT/Dimension2' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSlider = require( 'SUN/HSlider' );
-  const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -28,12 +27,12 @@ define( function( require ) {
      * @returns {Node}
      */
     createIntegersIcon() {
-      const numberPicker = new NumberPicker( NUMBER_PROPERTY, new Property( NUMBER_PROPERTY.range ), {
+      return new NumberPicker( NUMBER_PROPERTY, new Property( NUMBER_PROPERTY.range ), {
         font: new PhetFont( { size: 16, weight: 'bold' } ),
         color: 'black',
-        xMargin: 5
+        xMargin: 5,
+        pickable: false
       } );
-      return new Node( { children: [ numberPicker ], pickable: false } );
     },
 
     /**
@@ -41,12 +40,11 @@ define( function( require ) {
      * @returns {Node}
      */
     createDecimalsIcon() {
-      const verticalSlider = new HSlider( NUMBER_PROPERTY, NUMBER_PROPERTY.range, {
+      return new HSlider( NUMBER_PROPERTY, NUMBER_PROPERTY.range, {
         trackSize: new Dimension2( 40, 0.4 ),
-        thumbSize: new Dimension2( 12, 20 )
+        thumbSize: new Dimension2( 12, 20 ),
+        rotation: -Math.PI / 2
       } );
-      verticalSlider.rotate( -Math.PI / 2 );
-      return new Node( { children: [ verticalSlider ], pickable: false } );
     }
   };
 
