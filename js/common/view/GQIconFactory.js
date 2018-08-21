@@ -29,10 +29,9 @@ define( function( require ) {
      */
     createIntegersIcon() {
       const numberPicker = new NumberPicker( NUMBER_PROPERTY, new Property( NUMBER_PROPERTY.range ), {
-        font: new PhetFont( { size: 21, weight: 'bold' } ),
+        font: new PhetFont( { size: 16, weight: 'bold' } ),
         color: 'black',
-        xMargin: 5,
-        scale: 0.8
+        xMargin: 5
       } );
       return new Node( { children: [ numberPicker ], pickable: false } );
     },
@@ -43,7 +42,7 @@ define( function( require ) {
      */
     createDecimalsIcon() {
       const verticalSlider = new HSlider( NUMBER_PROPERTY, NUMBER_PROPERTY.range, {
-        trackSize: new Dimension2( 35, 0.4 ),
+        trackSize: new Dimension2( 40, 0.4 ),
         thumbSize: new Dimension2( 12, 20 )
       } );
       verticalSlider.rotate( -Math.PI / 2 );
