@@ -85,7 +85,7 @@ define( require => {
       cNumberPicker.centerY = equalToText.centerY;
 
       // When the quadratic changes, update the coefficients.
-      quadraticProperty.link( function( quadratic ) {
+      quadraticProperty.link( quadratic => {
         if ( quadratic.a !== aProperty.value ) {
           aProperty.value = quadratic.a;
         }
@@ -98,7 +98,7 @@ define( require => {
       } );
 
       // When the coefficients change, update the quadratic.
-      Property.multilink( [ aProperty, bProperty, cProperty ], function( a, b, c ) {
+      Property.multilink( [ aProperty, bProperty, cProperty ], ( a, b, c ) => {
         const newQuadratic = new Quadratic( a, b, c );
         if ( !newQuadratic.equals( quadraticProperty.value ) ) {
           quadraticProperty.value = new Quadratic( a, b, c );

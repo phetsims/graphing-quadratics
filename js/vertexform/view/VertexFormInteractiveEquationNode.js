@@ -108,7 +108,7 @@ define( require => {
       kNumberPicker.centerY = equalToText.centerY;
 
       // When the quadratic changes, update the coefficients.
-      quadraticProperty.link( function( quadratic ) {
+      quadraticProperty.link( quadratic => {
         if ( quadratic.a !== aProperty.value ) {
           aProperty.value = quadratic.a;
         }
@@ -121,7 +121,7 @@ define( require => {
       } );
 
       // When the coefficients change, update the quadratic.
-      Property.multilink( [ aProperty, hProperty, kProperty ], function( a, h, k ) {
+      Property.multilink( [ aProperty, hProperty, kProperty ], ( a, h, k ) => {
         const newQuadratic = Quadratic.createFromVertexForm( a, h, k );
         if ( !newQuadratic.equals( quadraticProperty.value ) ) {
           quadraticProperty.value = newQuadratic;

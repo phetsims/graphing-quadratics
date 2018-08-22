@@ -115,7 +115,7 @@ define( require => {
         savedQuadraticsLayer.addChild( path );
 
         // add listener for when the quadratic is eventually removed
-        const itemRemovedListener = function( removedQuadratic ) {
+        const itemRemovedListener = removedQuadratic => {
           if ( removedQuadratic === savedQuadratic ) {
             savedQuadraticsLayer.removeChild( path );
             model.savedQuadratics.removeItemRemovedListener( itemRemovedListener );

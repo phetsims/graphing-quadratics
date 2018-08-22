@@ -32,8 +32,8 @@ define( require => {
       };
 
       super(
-        function() { return new StandardFormModel(); },
-        function( model ) { return new StandardFormScreenView( model ); },
+        () => { return new StandardFormModel(); },
+        model => { return new StandardFormScreenView( model ); },
         options
       );
     }

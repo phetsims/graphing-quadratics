@@ -32,8 +32,8 @@ define( require => {
       };
 
       super(
-        function() { return new VertexFormModel(); },
-        function( model ) { return new VertexFormScreenView( model ); },
+        () => { return new VertexFormModel(); },
+        model => { return new VertexFormScreenView( model ); },
         options
       );
     }

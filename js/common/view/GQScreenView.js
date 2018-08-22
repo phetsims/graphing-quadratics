@@ -28,7 +28,7 @@ define( require => {
 
       // Reset All Button
       const resetAllButton = new ResetAllButton( {
-        listener: function() {
+        listener: () => {
           model.reset();
           viewPropertiesArray.forEach( viewProperties => { viewProperties.reset(); } );
         },

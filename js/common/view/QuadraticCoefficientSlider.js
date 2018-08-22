@@ -32,13 +32,13 @@ define( require => {
 
       // map coefficientProperty value to slider value, x = sqrt( y / a )
       assert && assert( !options.map, 'QuadraticCoefficientSlider sets map' );
-      options.map = function( value ) {
+      options.map = value => {
         return Util.sign( value ) * Math.sqrt( Math.abs( value ) / a );
       };
 
       // map slider value to coefficientProperty value, y = ax^2
       assert && assert( !options.inverseMap, 'QuadraticCoefficientSlider sets inverseMap' );
-      options.inverseMap = function( value ) {
+      options.inverseMap = value => {
         return Util.sign( value ) * a * value * value;
       };
 

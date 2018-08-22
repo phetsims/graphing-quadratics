@@ -32,8 +32,8 @@ define( require => {
       };
 
       super(
-        function() { return new FocusAndDirectrixModel(); },
-        function( model ) { return new FocusAndDirectrixScreenView( model ); },
+        () => { return new FocusAndDirectrixModel(); },
+        model => { return new FocusAndDirectrixScreenView( model ); },
         options
       );
     }

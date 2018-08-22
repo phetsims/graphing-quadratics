@@ -49,7 +49,7 @@ define( require => {
       } );
 
       // When the vertex changes, create new quadratic. 
-      vertexProperty.link( function( vertex ) {
+      vertexProperty.link( vertex => {
         const quadratic = quadraticProperty.value;
         if ( vertex.x !== quadratic.vertex.x || vertex.y !== quadratic.vertex.y ) {
           quadraticProperty.value = Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y );
@@ -63,7 +63,7 @@ define( require => {
       this.addInputListener( new VertexDragHandler( vertexProperty, xRange, yRange, modelViewTransform ) );
 
       // @private called by dispose
-      this.disposePointManipulator = function() {
+      this.disposePointManipulator = () => {
         vertexProperty.unlink( lineObserver );
       };
     }
@@ -98,12 +98,12 @@ define( require => {
         allowTouchSnag: true,
 
         // note where the drag started
-        start: function( event ) {
+        start: ( event, trail ) => {
           const location = modelViewTransform.modelToViewPosition( vertexProperty.value );
           startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
-        drag: function( event ) {
+        drag: ( event, trail ) => {
 
           // transform the drag point from view to model coordinate frame
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );

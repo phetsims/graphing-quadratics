@@ -74,8 +74,8 @@ define( require => {
         thumbTouchAreaYDilation: 8,
 
         // snap to zero
-        constrainValue: function( value ) {
-          var coefficientValue = options.inverseMap( value );
+        constrainValue: value => {
+          const coefficientValue = options.inverseMap( value );
           return ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) ? 0 : value;
         }
       } );

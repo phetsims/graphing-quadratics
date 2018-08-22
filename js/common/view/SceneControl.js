@@ -39,7 +39,7 @@ define( require => {
       options.touchAreaYDilation = 5;
 
       const content = [];
-      scenes.forEach( function( scene ) {
+      scenes.forEach( scene => {
         assert && assert( scene.icon, 'scene is missing icon' );
         content.push( {
           value: scene,

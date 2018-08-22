@@ -221,7 +221,7 @@ define( require => {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
-      const constrainBounds = function( point, bounds ) {
+      const constrainBounds = ( point, bounds ) => {
         if ( !bounds || bounds.containsPoint( point ) ) {
           return point;
         }
@@ -238,7 +238,7 @@ define( require => {
         allowTouchSnag: true,
 
         // note where the drag started
-        start: function( event ) {
+        start: ( event, trail ) => {
           // Note the mouse-click offset when dragging starts.
           let location = modelViewTransform.modelToViewPosition( pointTool.locationProperty.value );
           startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
@@ -246,7 +246,7 @@ define( require => {
           event.currentTarget.moveToFront();
         },
 
-        drag: function( event ) {
+        drag: ( event, trail ) => {
           let parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
           location = constrainBounds( location, pointTool.dragBounds );
