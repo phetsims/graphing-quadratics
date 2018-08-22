@@ -1,6 +1,6 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO Copied from GRAPHING_LINES/common/view/PointToolNode
+//TODO #18, copied from GRAPHING_LINES/common/view/PointToolNode
 /**
  * Tool that displays the (x,y) coordinates of a grid-point on the graph.
  * Origin is at the tip of the tool (bottom center.)
