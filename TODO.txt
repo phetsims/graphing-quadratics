@@ -7,6 +7,7 @@ Should graph controls be the same for both scenes on Standard Form screen?
 Should state of graph controls be shared between both scenes on Standard Form screen?
 Should roots be displayable on Vertex Form screen?
 Use new point tool design in both GQ and GL?
+Should sliders have more tick labels, so it's clear which one is non-linear?
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
