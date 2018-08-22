@@ -6,7 +6,7 @@
  *
  * @author Andrea Lin
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
