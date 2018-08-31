@@ -16,12 +16,12 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HSlider = require( 'SUN/HSlider' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
+  const VSlider = require( 'SUN/VSlider' );
 
   // constants
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
@@ -64,8 +64,7 @@ define( require => {
         inverseMap: options.inverseMap
       } );
 
-      // We don't have a vertical slider, so use a rotated HSlider.
-      const slider = new HSlider( sliderProperty, coefficientProperty.range, {
+      const slider = new VSlider( sliderProperty, coefficientProperty.range, {
 
         majorTickLength: 28,
         trackFill: 'black',
@@ -79,7 +78,6 @@ define( require => {
           return ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) ? 0 : value;
         }
       } );
-      slider.rotate( -Math.PI / 2 );
 
       // Coefficient label that appears above the slider. Position this after rotating the slider,
       // but before adding ticks, so that the label is horizontally centered on the track.
@@ -94,8 +92,7 @@ define( require => {
       if ( options.tickValues ) {
         options.tickValues.forEach( tickValue => {
           slider.addMajorTick( options.map( tickValue ), new Text( tickValue, {
-            font: TICK_LABEL_FONT,
-            rotation: -slider.rotation
+            font: TICK_LABEL_FONT
           } ) );
         } );
       }

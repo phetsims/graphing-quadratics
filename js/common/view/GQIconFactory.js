@@ -11,11 +11,11 @@ define( require => {
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HSlider = require( 'SUN/HSlider' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
+  const VSlider = require( 'SUN/VSlider' );
 
   // constants
   const NUMBER_PROPERTY = new NumberProperty( 0, { range: { min: -6, max: 6 } } );
@@ -40,10 +40,9 @@ define( require => {
      * @returns {Node}
      */
     createDecimalsIcon() {
-      return new HSlider( NUMBER_PROPERTY, NUMBER_PROPERTY.range, {
+      return new VSlider( NUMBER_PROPERTY, NUMBER_PROPERTY.range, {
         trackSize: new Dimension2( 40, 0.4 ),
         thumbSize: new Dimension2( 12, 20 ),
-        rotation: -Math.PI / 2,
         pickable: false
       } );
     }
