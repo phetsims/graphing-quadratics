@@ -50,7 +50,7 @@ define( require => {
           new PlottedPointNode( 6, GQColors.FOCUS ) //TODO icon should be a manipulator
         ]
       } );
-      const focusCheckBox = new Checkbox( focusLabel, viewProperties.focusVisibleProperty );
+      const focusCheckbox = new Checkbox( focusLabel, viewProperties.focusVisibleProperty );
 
       // Directrix, dispose not needed
       const directrixLabel = new HBox( {
@@ -78,7 +78,7 @@ define( require => {
         align: 'left',
         spacing: 20,
         children: [
-          focusCheckBox,
+          focusCheckbox,
           directrixCheckbox,
           axisOfSymmetryCheckbox,
           hideCurvesCheckbox
