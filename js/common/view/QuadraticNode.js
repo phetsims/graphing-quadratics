@@ -184,13 +184,13 @@ define( require => {
     /**
      * Create a quadratic path with a certain color.
      * @param {Quadratic} quadratic
-     * @param {Color|String} color - default colorblind red in GQColors.ACTIVE_CURVE
+     * @param {Color|String} color
      * @returns {Path}
      * @public
      */
     createPathWithColor( quadratic, color ) {
       return new Path( this.createQuadraticShape( quadratic ), {
-        stroke: color || GQColors.INTERACTIVE_CURVE,
+        stroke: color,
         lineWidth: LINE_WIDTH
       } );
     }
