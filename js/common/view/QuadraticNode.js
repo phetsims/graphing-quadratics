@@ -20,6 +20,7 @@ define( require => {
   const Shape = require( 'KITE/Shape' );
 
   // constants
+  const LINE_WIDTH = 3;
   const LINE_OPTIONS = {
     lineDash: [ 8, 8 ],
     lineDashOffset: 10
@@ -47,31 +48,30 @@ define( require => {
       // quadratic curve, y = ax^2 + bx + c
       const quadraticPath = new Path( null, {
         stroke: GQColors.INTERACTIVE_CURVE,
-        lineWidth: 3
+        lineWidth: LINE_WIDTH
       } );
 
       // quadratic term, y = ax^2
-      const quadraticTermPath = new Path( null, {
-        stroke: GQColors.QUADRATIC_TERM,
-        lineWidth: 3
-      } );
-
       // This pattern of wrapping things in a parent node is used throughout.
       // The visibility of the parent nodes is synchronized with the viewProperties that control visibility,
       // while the child nodes are synchronized with the quadratic.
+      const quadraticTermPath = new Path( null, {
+        stroke: GQColors.QUADRATIC_TERM,
+        lineWidth: LINE_WIDTH
+      } );
       const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
       // linear term, y = bx
       const linearTermPath = new Path( null, {
         stroke: GQColors.LINEAR_TERM,
-        lineWidth: 3
+        lineWidth: LINE_WIDTH
       } );
       const linearTermParentNode = new Node( { children: [ linearTermPath ] } );
 
       // constant term, y = c
       const constantTermPath = new Path( null, {
         stroke: GQColors.CONSTANT_TERM,
-        lineWidth: 3
+        lineWidth: LINE_WIDTH
       } );
       const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
 
@@ -191,7 +191,7 @@ define( require => {
     createPathWithColor( quadratic, color ) {
       return new Path( this.createQuadraticShape( quadratic ), {
         stroke: color || GQColors.INTERACTIVE_CURVE,
-        lineWidth: 3
+        lineWidth: LINE_WIDTH
       } );
     }
 
