@@ -17,7 +17,7 @@ define( require => {
     CONTROL_PANEL_BACKGROUND: 'rgb( 238, 238, 238 )',
     INTERACTIVE_CURVE: PhetColorScheme.RED_COLORBLIND,
     SAVED_CURVE: 'rgb( 160, 160, 160 )',
-    QUADRATIC_TERM: 'hotpink',
+    QUADRATIC_TERM: 'blue',
     LINEAR_TERM: 'green',
     CONSTANT_TERM: 'black',
     FOCUS: 'green',
