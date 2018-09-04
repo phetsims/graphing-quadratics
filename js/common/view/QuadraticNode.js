@@ -62,18 +62,17 @@ define( require => {
       const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
       // linear term, y = bx
-      // make a Property out of quadraticProperty.value.getLinearTerm() in order to pass into LineNode
-      const linearTermProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.getLinearTerm() );
-      const linearTermPath = new LineNode( linearTermProperty, graph, modelViewTransform, { hasArrows: false } );
+      const linearTermPath = new Path( null, {
+        stroke: GQColors.LINEAR_TERM,
+        lineWidth: 3
+      } );
       const linearTermParentNode = new Node( { children: [ linearTermPath ] } );
 
       // constant term, y = c
-      // make a Property out of quadraticProperty.value.getConstantTerm() in order to pass into LineNode
-      const constantTermProperty = new DerivedProperty(
-        [ quadraticProperty ],
-        quadratic => quadratic.getConstantTerm()
-      );
-      const constantTermPath = new LineNode( constantTermProperty, graph, modelViewTransform, { hasArrows: false } );
+      const constantTermPath = new Path( null, {
+        stroke: GQColors.CONSTANT_TERM,
+        lineWidth: 3
+      } );
       const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
 
       // axis of symmetry
@@ -136,12 +135,15 @@ define( require => {
       // Update the view of the curve when the quadratic model changes. dispose not needed.
       quadraticProperty.link( quadratic => {
 
+        // update Paths
         quadraticPath.setShape( this.createQuadraticShape( quadratic ) );
+        quadraticTermPath.setShape( this.createQuadraticShape( quadratic.getQuadraticTerm() ) );
+        linearTermPath.setShape( this.createQuadraticShape( quadratic.getLinearTerm() ) );
+        constantTermPath.setShape( this.createQuadraticShape( quadratic.getConstantTerm() ) );
 
         if ( quadratic.a !== 0 ) {
 
           // is a quadratic
-          quadraticTermPath.setShape( this.createQuadraticShape( quadratic.getQuadraticTerm() ) );
           vertexPoint.center = modelViewTransform.modelToViewPosition( quadratic.vertex );
           focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
           quadraticTermPath.visible = true;

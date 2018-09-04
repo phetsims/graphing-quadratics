@@ -88,19 +88,28 @@ define( require => {
       return new Quadratic( this.a, this.b, this.c, { color: color } );
     }
 
-    // @public Creates the {Quadratic} y = ax^2, using the quadratic term
+    /**
+     * Gets the quadratic term, y = ax^2
+     * @returns {Quadratic}
+     */
     getQuadraticTerm() {
       return new Quadratic( this.a, 0, 0 );
     }
 
-    // @public Creates the {Line} y = bx, using the linear term
+    /**
+     * Gets the linear term, y = bx
+     * @returns {Quadratic}
+     */
     getLinearTerm() {
-      return new Line( 0, 0, 1, this.b, GQColors.LINEAR_TERM );
+      return new Quadratic( 0, this.b, 0 );
     }
 
-    // @public Creates the {Line} y = c, using the constant term
+    /**
+     * Gets the constant term, y = c
+     * @returns {Quadratic}
+     */
     getConstantTerm() {
-      return new Line( 0, this.c, 1, this.c, GQColors.CONSTANT_TERM );
+      return new Quadratic( 0, 0, this.c );
     }
 
     /**
