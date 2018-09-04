@@ -20,6 +20,12 @@ define( require => {
 
     constructor() {
 
+      // @public whether the equation accordion box is expanded
+      this.equationAccordionBoxExpandedProperty = new BooleanProperty( true );
+
+      // @public determines whether lines and their decorations are visible on the graph
+      this.linesVisibleProperty = new BooleanProperty( true );
+
       // @public determines whether a curve is displayed to reflect the quadratic term (y=ax^2)
       this.quadraticTermVisibleProperty = new BooleanProperty( false );
 
@@ -28,9 +34,6 @@ define( require => {
 
       // @public determines whether a line is displayed to reflect the constant term (y=c)
       this.constantTermVisibleProperty = new BooleanProperty( false );
-
-      // @public determines whether lines and their decorations are visible on the graph
-      this.linesVisibleProperty = new BooleanProperty( true );
 
       // @public determines whether axis of symmetry on the quadratic is displayed
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( false );
@@ -50,6 +53,7 @@ define( require => {
      * @override
      */
     reset() {
+      this.equationAccordionBoxExpandedProperty.reset();
       this.linesVisibleProperty.reset();
       this.quadraticTermVisibleProperty.reset();
       this.linearTermVisibleProperty.reset();

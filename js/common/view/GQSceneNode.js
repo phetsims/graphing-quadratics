@@ -70,7 +70,7 @@ define( require => {
         viewProperties.linesVisibleProperty,
         scene.savedQuadratics.lengthProperty, {
           titleNode: accordionBoxTitleNode,
-          expandedProperty: viewProperties.interactiveEquationVisibleProperty,
+          expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           maxWidth: controlPanelMaxWidth
         }
       );
