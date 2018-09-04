@@ -20,6 +20,8 @@ define( require => {
      * @param {FocusAndDirectrixModel} model
      */
     constructor( model ) {
+
+      //TODO this pattern of passing view Properties to superclass is awkward
       const viewProperties = new GQViewProperties( {
         focusVisible: true,
         directrixVisible: true
