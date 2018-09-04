@@ -13,7 +13,6 @@ define( require => {
   const AccordionBox = require( 'SUN/AccordionBox' );
   const EraserButton = require( 'SCENERY_PHET/buttons/EraserButton' );
   const FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
@@ -25,7 +24,7 @@ define( require => {
 
   // constants
   const BUTTON_ICON_WIDTH = 30;
-  const SEPARATOR_OPTIONS = { stroke: GQColors.SEPARATOR };
+  const SEPARATOR_OPTIONS = { stroke: 'rgb( 212, 212, 212 )' };
   
   class EquationAccordionBox extends AccordionBox {
 
