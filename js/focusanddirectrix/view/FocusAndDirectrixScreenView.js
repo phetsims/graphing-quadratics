@@ -20,7 +20,10 @@ define( require => {
      * @param {FocusAndDirectrixModel} model
      */
     constructor( model ) {
-      const viewProperties = new GQViewProperties();
+      const viewProperties = new GQViewProperties( {
+        focusVisible: true,
+        directrixVisible: true
+      } );
       super( model, [ viewProperties ] );
       this.addChild( new FocusAndDirectrixSceneNode( model.scene, this.layoutBounds, viewProperties ) );
     }

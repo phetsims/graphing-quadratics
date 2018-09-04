@@ -14,41 +14,54 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
   /**
-   * @constructor
+   * @param {Object} [options]
    */
   class GQViewProperties {
 
-    constructor() {
+    constructor( options ) {
+
+      options = _.extend( {
+        equationAccordionBoxExpanded: true,
+        lineVisible: true,
+        quadraticTermVisible: false,
+        linearTermVisible: false,
+        constantTermVisible: false,
+        axisOfSymmetryVisible: false,
+        vertexVisible: false,
+        rootsVisible: false,
+        focusVisible: false,
+        directrixVisible: false
+      }, options );
 
       // @public whether the equation accordion box is expanded
-      this.equationAccordionBoxExpandedProperty = new BooleanProperty( true );
+      this.equationAccordionBoxExpandedProperty = new BooleanProperty( options.equationAccordionBoxExpanded );
 
       // @public whether lines and their decorations are visible on the graph
-      this.linesVisibleProperty = new BooleanProperty( true );
+      this.linesVisibleProperty = new BooleanProperty( options.lineVisible );
 
       // @public whether a curve is displayed to reflect the quadratic term (y=ax^2)
-      this.quadraticTermVisibleProperty = new BooleanProperty( false );
+      this.quadraticTermVisibleProperty = new BooleanProperty( options.quadraticTermVisible );
 
       // @public whether a line is displayed to reflect the linear term (y=bx)
-      this.linearTermVisibleProperty = new BooleanProperty( false );
+      this.linearTermVisibleProperty = new BooleanProperty( options.linearTermVisible );
 
       // @public whether a line is displayed to reflect the constant term (y=c)
-      this.constantTermVisibleProperty = new BooleanProperty( false );
+      this.constantTermVisibleProperty = new BooleanProperty( options.constantTermVisible );
 
       // @public whether axis of symmetry on the quadratic is displayed
-      this.axisOfSymmetryVisibleProperty = new BooleanProperty( false );
+      this.axisOfSymmetryVisibleProperty = new BooleanProperty( options.axisOfSymmetryVisible );
 
       // @public whether a point is displayed to mark the vertex of the quadratic
-      this.vertexVisibleProperty = new BooleanProperty( false );
+      this.vertexVisibleProperty = new BooleanProperty( options.vertexVisible );
 
       // @public whether points are displayed to mark roots of the quadratic
-      this.rootsVisibleProperty = new BooleanProperty( false );
+      this.rootsVisibleProperty = new BooleanProperty( options.rootsVisible );
 
       // @public whether focus is visible
-      this.focusVisibleProperty = new BooleanProperty( false );
+      this.focusVisibleProperty = new BooleanProperty( options.focusVisible );
 
       // @public whether directrix is visible
-      this.directrixVisibleProperty = new BooleanProperty( false );
+      this.directrixVisibleProperty = new BooleanProperty( options.directrixVisible );
     }
 
     /**
