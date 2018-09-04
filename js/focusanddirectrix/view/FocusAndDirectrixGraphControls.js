@@ -19,11 +19,13 @@ define( require => {
   const Line = require( 'SCENERY/nodes/Line' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
+  const focusString = require( 'string!GRAPHING_QUADRATICS/focus' );
 
   // constants
   const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
@@ -41,6 +43,17 @@ define( require => {
 
       // Axis of Symmetry, dispose not needed
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
+
+      // Focus, dispose not needed
+      const focusLabel = new HBox( {
+        align: 'center',
+        spacing: 15,
+        children: [
+          new Text( focusString, CHECKBOX_LABEL_OPTIONS ),
+          new PlottedPointNode( 6, GQColors.FOCUS ) //TODO icon should be a manipulator
+        ]
+      } );
+      const focusCheckBox = new Checkbox( focusLabel, viewProperties.focusVisibleProperty );
 
       // Directrix, dispose not needed
       const directrixLabel = new HBox( {
@@ -66,6 +79,7 @@ define( require => {
         spacing: 20,
         children: [
           axisOfSymmetryCheckbox,
+          focusCheckBox,
           directrixCheckbox,
           hideCurvesCheckbox
         ]

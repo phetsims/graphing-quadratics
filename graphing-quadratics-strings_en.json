@@ -23,6 +23,9 @@
   "hideCurves": {
     "value": "Hide curves"
   },
+  "focus": {
+    "value": "Focus"
+  },
   "directrix": {
     "value": "Directrix"
   },

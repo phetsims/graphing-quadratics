@@ -20,6 +20,7 @@ define( require => {
     QUADRATIC_TERM: 'hotpink',
     LINEAR_TERM: 'green',
     CONSTANT_TERM: 'black',
+    FOCUS: 'green',
     DIRECTRIX: 'green',
     VERTEX: 'rgb( 128, 0, 128 )', // purple
     ROOTS: PhetColorScheme.RED_COLORBLIND,

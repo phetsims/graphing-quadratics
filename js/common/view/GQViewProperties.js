@@ -23,28 +23,31 @@ define( require => {
       // @public whether the equation accordion box is expanded
       this.equationAccordionBoxExpandedProperty = new BooleanProperty( true );
 
-      // @public determines whether lines and their decorations are visible on the graph
+      // @public whether lines and their decorations are visible on the graph
       this.linesVisibleProperty = new BooleanProperty( true );
 
-      // @public determines whether a curve is displayed to reflect the quadratic term (y=ax^2)
+      // @public whether a curve is displayed to reflect the quadratic term (y=ax^2)
       this.quadraticTermVisibleProperty = new BooleanProperty( false );
 
-      // @public determines whether a line is displayed to reflect the linear term (y=bx)
+      // @public whether a line is displayed to reflect the linear term (y=bx)
       this.linearTermVisibleProperty = new BooleanProperty( false );
 
-      // @public determines whether a line is displayed to reflect the constant term (y=c)
+      // @public whether a line is displayed to reflect the constant term (y=c)
       this.constantTermVisibleProperty = new BooleanProperty( false );
 
-      // @public determines whether axis of symmetry on the quadratic is displayed
+      // @public whether axis of symmetry on the quadratic is displayed
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( false );
 
-      // @public determines whether a point is displayed to mark the vertex of the quadratic
+      // @public whether a point is displayed to mark the vertex of the quadratic
       this.vertexVisibleProperty = new BooleanProperty( false );
 
-      // @public determines whether points are displayed to mark roots of the quadratic
+      // @public whether points are displayed to mark roots of the quadratic
       this.rootsVisibleProperty = new BooleanProperty( false );
 
-      // @public determines whether focus and directrix are visible
+      // @public whether focus is visible
+      this.focusVisibleProperty = new BooleanProperty( false );
+
+      // @public whether directrix is visible
       this.directrixVisibleProperty = new BooleanProperty( false );
     }
 
@@ -61,6 +64,7 @@ define( require => {
       this.axisOfSymmetryVisibleProperty.reset();
       this.vertexVisibleProperty.reset();
       this.rootsVisibleProperty.reset();
+      this.focusVisibleProperty.reset();
       this.directrixVisibleProperty.reset();
     }
   }

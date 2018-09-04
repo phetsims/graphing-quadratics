@@ -99,6 +99,7 @@ define( require => {
 
       // focus point
       const focusPoint = new PlottedPointNode( pointRadius, GQColors.DIRECTRIX );
+      const focusParentNode = new Node( { children: [ focusPoint ] } );
 
       // directrix
       // make a property out of quadraticProperty.value.directrix in order to pass into LineNode
@@ -107,7 +108,7 @@ define( require => {
         hasArrows: false,
         lineOptions: LINE_OPTIONS
       } );
-      const directrixParentNode = new Node( { children: [ directrixLine, focusPoint ] } );
+      const directrixParentNode = new Node( { children: [ directrixLine ] } );
 
       // rendering order
       this.addChild( quadraticPath );
@@ -116,6 +117,7 @@ define( require => {
       this.addChild( constantTermParentNode );
       this.addChild( axisOfSymmetryLineParentNode );
       this.addChild( vertexPointParentNode );
+      this.addChild( focusParentNode );
       this.addChild( directrixParentNode );
       this.addChild( rootPointsParentNode );
 
@@ -128,6 +130,7 @@ define( require => {
       viewProperties.axisOfSymmetryVisibleProperty.link( visible => {axisOfSymmetryLineParentNode.visible = visible; } );
       viewProperties.vertexVisibleProperty.link( visible => { vertexPointParentNode.visible = visible; } );
       viewProperties.rootsVisibleProperty.link( visible => { rootPointsParentNode.visible = visible; } );
+      viewProperties.focusVisibleProperty.link( visible => { focusParentNode.visible = visible; } );
       viewProperties.directrixVisibleProperty.link( visible => { directrixParentNode.visible = visible; } );
 
       // Update the view of the curve when the quadratic model changes. dispose not needed.
