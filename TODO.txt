@@ -1,6 +1,6 @@
 TODO list for graphing-quadratics
 
-The standard form is (x - h)2 = 4p (y - k), where the focus is (h, k + p) and the directrix is y = k - p.
+The standard form is (x - h)^2 = 4p (y - k), where the focus is (h, k + p) and the directrix is y = k - p.
 
 DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
