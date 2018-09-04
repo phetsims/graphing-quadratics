@@ -80,7 +80,7 @@ define( require => {
         maxWidth: controlPanelMaxWidth,
         resize: false,
         align: 'center',
-        spacing: 15,
+        spacing: 10,
         children: [
           equationAccordionBox,
           graphControls
