@@ -41,9 +41,6 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
-      // Axis of Symmetry, dispose not needed
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
-
       // Focus, dispose not needed
       const focusLabel = new HBox( {
         align: 'center',
@@ -70,6 +67,9 @@ define( require => {
       } );
       const directrixCheckbox = new Checkbox( directrixLabel, viewProperties.directrixVisibleProperty );
 
+      // Axis of Symmetry, dispose not needed
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
+
       // Hide curves, dispose not needed
       const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.linesVisibleProperty );
 
@@ -78,9 +78,9 @@ define( require => {
         align: 'left',
         spacing: 20,
         children: [
-          axisOfSymmetryCheckbox,
           focusCheckBox,
           directrixCheckbox,
+          axisOfSymmetryCheckbox,
           hideCurvesCheckbox
         ]
       } );
