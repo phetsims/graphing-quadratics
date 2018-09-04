@@ -49,6 +49,9 @@ define( require => {
         valueType: Quadratic,
         reentrant: true
       } );
+      this.quadraticProperty.link( quadratic => {
+        phet.log && phet.log( 'quadratic=' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );
+      } );
 
       // @public saved quadratics
       this.savedQuadratics = new ObservableArray( [] );
