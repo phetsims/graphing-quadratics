@@ -121,7 +121,7 @@ define( require => {
       } );
 
       // Hide curves, dispose not needed
-      const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.linesVisibleProperty );
+      const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
       // vertical layout
       const contentNode = new VBox( {
@@ -139,13 +139,13 @@ define( require => {
       super( contentNode, options );
 
       // Disable other controls when 'Hide curves' is checked
-      viewProperties.linesVisibleProperty.link( ( linesVisible ) => {
-        axisOfSymmetryCheckbox.enabled = linesVisible;
-        vertexCheckbox.enabled = linesVisible;
-        rootsCheckbox.enabled = linesVisible;
-        quadraticTermCheckbox.enabled = linesVisible;
-        linearTermCheckbox.enabled = linesVisible;
-        constantTermCheckbox.enabled = linesVisible;
+      viewProperties.curvesVisibleProperty.link( curvesVisible => {
+        axisOfSymmetryCheckbox.enabled = curvesVisible;
+        vertexCheckbox.enabled = curvesVisible;
+        rootsCheckbox.enabled = curvesVisible;
+        quadraticTermCheckbox.enabled = curvesVisible;
+        linearTermCheckbox.enabled = curvesVisible;
+        constantTermCheckbox.enabled = curvesVisible;
       } );
     }
   }

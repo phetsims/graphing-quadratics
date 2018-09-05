@@ -50,7 +50,7 @@ define( require => {
           pointTool,
           scene.modelViewTransform,
           scene.graph,
-          viewProperties.linesVisibleProperty,
+          viewProperties.curvesVisibleProperty,
           scene.lines
         ) );
       } );
@@ -67,7 +67,7 @@ define( require => {
         interactiveEquationNode,
         scene.saveQuadratic.bind( scene ),
         scene.eraseQuadratics.bind( scene ),
-        viewProperties.linesVisibleProperty,
+        viewProperties.curvesVisibleProperty,
         scene.savedQuadratics.lengthProperty, {
           titleNode: accordionBoxTitleNode,
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,

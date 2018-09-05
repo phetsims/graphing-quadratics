@@ -32,12 +32,12 @@ define( require => {
      * @param {Node} interactiveEquationNode - interactive equation
      * @param {function} saveFunction
      * @param {function} eraseFunction
-     * @param {BooleanProperty} linesVisibleProperty
+     * @param {BooleanProperty} curvesVisibleProperty
      * @param {NumberProperty} numberOfSavedLinesProperty
      * @param {Object} [options]
      */
     constructor( interactiveEquationNode, saveFunction, eraseFunction,
-                 linesVisibleProperty, numberOfSavedLinesProperty, options ) {
+                 curvesVisibleProperty, numberOfSavedLinesProperty, options ) {
 
       options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
@@ -74,12 +74,12 @@ define( require => {
       super( content, options );
 
       // Enable the save button when lines are visible. unlink not needed.
-      linesVisibleProperty.link( linesVisible => { saveButton.enabled = linesVisible; } );
+      curvesVisibleProperty.link( curvesVisible => { saveButton.enabled = curvesVisible; } );
 
       // Enable the erase button when lines are visible and there are saved lines. dispose not needed.
-      Property.multilink( [ linesVisibleProperty, numberOfSavedLinesProperty ],
-        ( linesVisible, numberOfSavedLines ) => {
-        eraseButton.enabled = linesVisible && ( numberOfSavedLines > 0 );
+      Property.multilink( [ curvesVisibleProperty, numberOfSavedLinesProperty ],
+        ( curvesVisible, numberOfSavedLines ) => {
+        eraseButton.enabled = curvesVisible && ( numberOfSavedLines > 0 );
       } );
     }
   }

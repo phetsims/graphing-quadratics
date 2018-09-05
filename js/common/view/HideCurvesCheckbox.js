@@ -22,19 +22,19 @@ define( require => {
   class HideCurvesCheckbox extends Checkbox {
 
     /**
-     * @param {BooleanProperty} linesVisibleProperty
+     * @param {BooleanProperty} curvesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( linesVisibleProperty, options ) {
+    constructor( curvesVisibleProperty, options ) {
 
       var label = new Text( hideCurvesString, {
         font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
       } );
 
-      // adapter to invert the semantics of linesVisibleProperty
-      const hideCurvesProperty = new BooleanProperty( !linesVisibleProperty.value );
-      linesVisibleProperty.lazyLink( linesVisible => { hideCurvesProperty.value = !linesVisible; } );
-      hideCurvesProperty.lazyLink( hideCurves => { linesVisibleProperty.value = !hideCurves; } );
+      // adapter to invert the semantics of curvesVisibleProperty
+      const hideCurvesProperty = new BooleanProperty( !curvesVisibleProperty.value );
+      curvesVisibleProperty.lazyLink( curvesVisible => { hideCurvesProperty.value = !curvesVisible; } );
+      hideCurvesProperty.lazyLink( hideCurves => { curvesVisibleProperty.value = !hideCurves; } );
 
       super( label, hideCurvesProperty, options );
     }
