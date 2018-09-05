@@ -28,7 +28,7 @@ define( require => {
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
   const TICK_LABEL_FONT = new PhetFont( GQConstants.SLIDER_TICK_LABEL_FONT_SIZE );
   const TRACK_SIZE = new Dimension2( 130, 1 );
-  const THUMB_SIZE = new Dimension2( 20, 45 );
+  const THUMB_SIZE = new Dimension2( 20, 40 );
 
   class CoefficientSlider extends Node {
 
@@ -70,11 +70,11 @@ define( require => {
 
       const slider = new VSlider( sliderProperty, coefficientProperty.range, {
 
-        majorTickLength: 28,
         trackFill: 'black',
         trackSize: TRACK_SIZE,
         thumbSize: THUMB_SIZE,
         thumbTouchAreaYDilation: 8,
+        majorTickLength: ( THUMB_SIZE.height / 2 ) + 3, // so that ticks extends past thumb
 
         // snap to zero
         constrainValue: value => {
