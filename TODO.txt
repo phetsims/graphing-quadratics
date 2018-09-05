@@ -8,6 +8,7 @@ Should state of graph controls be shared between both scenes on Standard Form sc
 Should roots be displayable on Vertex Form screen?
 Use new point tool design in both GQ and GL?
 Should sliders have more tick labels, so it's clear which one is non-linear?
+Using a NumberPicker for 'a' with decimalPlaces:0 results in big jumps
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
