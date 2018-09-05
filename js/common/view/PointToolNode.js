@@ -1,9 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO #18, copied from GRAPHING_LINES/common/view/PointToolNode
 /**
- * Tool that displays the (x,y) coordinates of a grid-point on the graph.
- * Origin is at the tip of the tool (bottom center.)
+ * Tool that displays the (x,y) coordinates of a point on the graph.
+ * If it's sufficiently close to a quadratic, it will snap to the quadratic.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -46,11 +45,10 @@ define( require => {
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
-     * @param {Property.<Boolean>} linesVisibleProperty
-     * @param {ObservableArray.<Line>} lines - lines that the tool might intersect, in the order that they are rendered
+     * @param {Property.<Boolean>} curvesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( pointTool, modelViewTransform, graph, linesVisibleProperty, lines, options ) {
+    constructor( pointTool, modelViewTransform, graph, curvesVisibleProperty, options ) {
 
       options = _.extend( {
         cursor: 'pointer',
@@ -144,26 +142,21 @@ define( require => {
       this.setBackground( options.backgroundNormalColor );
 
       // location and display
-      Property.multilink( [
-          pointTool.locationProperty,
-          pointTool.onLineProperty,
-          linesVisibleProperty
-        ],
-        () => {
+      Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, curvesVisibleProperty ],
+        ( location, onQuadratic, curvesVisible ) => {
 
           // move to location
-          let location = pointTool.locationProperty.value;
           this.translation = modelViewTransform.modelToViewPosition( location );
 
           // display value and highlighting
           if ( graph.contains( location ) ) {
             this.setCoordinatesVector2( location );
-            if ( linesVisibleProperty.value ) {
-              // use the line's color to highlight
-              this.setForeground( !pointTool.onLineProperty.value ?
+            if ( curvesVisible ) {
+              // use the quadratic's color to highlight
+              this.setForeground( !onQuadratic ?
                                   options.foregroundNormalColor : options.foregroundHighlightColor );
-              this.setBackground( !pointTool.onLineProperty.value ?
-                                  options.backgroundNormalColor : pointTool.onLineProperty.value.color );
+              this.setBackground( !onQuadratic ?
+                                  options.backgroundNormalColor : onQuadratic.color );
             }
             else {
               this.setForeground( options.foregroundNormalColor );
@@ -178,7 +171,7 @@ define( require => {
         } );
 
       // interactivity
-      this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph, lines ) );
+      this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph ) );
     }
 
     // @private Sets the displayed value to a point
@@ -214,10 +207,9 @@ define( require => {
      * Drag handler for the point tool.
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {ObservableArray.<Line>} lines - Lines that the tool might intersect, in the order that they are rendered
      * @param {Graph} graph
      */
-    constructor( pointTool, modelViewTransform, graph, lines ) {
+    constructor( pointTool, modelViewTransform, graph ) {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
@@ -251,14 +243,14 @@ define( require => {
           let location = modelViewTransform.viewToModelPosition( parentPoint );
           location = constrainBounds( location, pointTool.dragBounds );
           if ( graph.contains( location ) ) {
-            let line;
-            let nearestPoint;
-            let distance = 1; // empirically chosen
-            for ( let i = 0; i < lines.length; i ++ ) {
 
-              // snap to line if near
-              line = lines.get( i );
-              nearestPoint = line.nearestPointOnLineToPoint( location );
+            //TODO what's up here?
+            let distance = 1; // empirically chosen
+            for ( let i = 0; i < pointTool.quadratics.length; i ++ ) {
+
+              // snap to quadratic if near
+              const quadratic = pointTool.quadratics.get( i );
+              const nearestPoint = quadratic.nearestPointOnLineToPoint( location );
               if ( nearestPoint.distance( location ) < distance ) {
                 distance = nearestPoint.distance( location );
                 location = nearestPoint;

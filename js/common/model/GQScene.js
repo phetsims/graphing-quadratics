@@ -16,7 +16,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const ObservableArray = require( 'AXON/ObservableArray' );
-  const PointTool = require( 'GRAPHING_LINES/common/model/PointTool' );
+  const PointTool = require( 'GRAPHING_QUADRATICS/common/model/PointTool' );
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -56,6 +56,7 @@ define( require => {
       // @public saved quadratics
       this.savedQuadratics = new ObservableArray( [] );
 
+      //TODO rename to this.quadratics
       // @public (read-only) interactive and saved quadratics
       this.lines = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
