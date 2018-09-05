@@ -65,6 +65,8 @@ define( require => {
         reentrant: true,
         bidirectional: true,
         map: options.map,
+
+        // apply interval to options.inverseMap
         inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
       } );
 
