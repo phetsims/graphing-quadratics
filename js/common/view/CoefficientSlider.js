@@ -21,6 +21,7 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
   const VSlider = require( 'SUN/VSlider' );
 
   // constants
@@ -52,6 +53,9 @@ define( require => {
         // If the absolute value of coefficientProperty is less than this value, snap to zero.
         snapToZeroEpsilon: 0.1,
 
+        // value will be a multiple of this interval
+        interval: 0.1,
+
         // superclass options
         align: 'center'
       }, options );
@@ -61,7 +65,7 @@ define( require => {
         reentrant: true,
         bidirectional: true,
         map: options.map,
-        inverseMap: options.inverseMap
+        inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
       } );
 
       const slider = new VSlider( sliderProperty, coefficientProperty.range, {
@@ -74,7 +78,7 @@ define( require => {
 
         // snap to zero
         constrainValue: value => {
-          const coefficientValue = options.inverseMap( value );
+          let coefficientValue = options.inverseMap( value );
           return ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) ? 0 : value;
         }
       } );

@@ -22,7 +22,10 @@ define( require => {
      */
     constructor( symbol, coefficientProperty, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        interval: 0.01,
+        snapToZeroEpsilon: 0.05
+      }, options );
 
       assert && assert( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,
         'symmetrical range is required: ' + coefficientProperty.range );
@@ -41,9 +44,6 @@ define( require => {
       options.inverseMap = value => {
         return Util.sign( value ) * a * value * value;
       };
-
-      assert && assert( options.snapToZeroEpsilon === undefined, 'QuadraticCoefficientSlider sets snapToZeroEpsilon' );
-      options.snapToZeroEpsilon = 0.05;
 
       super( symbol, coefficientProperty, options );
     }
