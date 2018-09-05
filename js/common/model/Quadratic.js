@@ -12,7 +12,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const Line = require( 'GRAPHING_LINES/common/model/Line' );
-  const NotALine = require( 'GRAPHING_LINES/linegame/model/NotALine' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
 
@@ -58,8 +57,8 @@ define( require => {
       else {
 
         // This is not a quadratic because a is zero.
-        this.axisOfSymmetry = NotALine();
-        this.directrix = NotALine();
+        this.axisOfSymmetry = null;
+        this.directrix = null;
       }
     }
 
