@@ -10,6 +10,7 @@ define( require => {
 
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const NumberProperty = require( 'AXON/NumberProperty' );
@@ -29,7 +30,7 @@ define( require => {
     createIntegersIcon() {
       return new NumberPicker( NUMBER_PROPERTY, new Property( NUMBER_PROPERTY.range ), {
         font: new PhetFont( { size: 16, weight: 'bold' } ),
-        color: 'black',
+        color: GQColors.INTERACTIVE_CURVE,
         xMargin: 5,
         pickable: false
       } );
