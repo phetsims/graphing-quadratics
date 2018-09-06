@@ -24,7 +24,7 @@ define( require => {
 
       options = _.extend( {
         interval: 0.01,
-        snapToZeroEpsilon: 0.05
+        snapToZeroEpsilon: 0.03
       }, options );
 
       assert && assert( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,
