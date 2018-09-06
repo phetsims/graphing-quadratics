@@ -59,14 +59,16 @@ define( require => {
 
       const bodyNode = new Image( bodyImage, { centerY: 0 } ); // body of the tool
 
-      // crosshair view
-      const crosshairShape = new Shape()
+      // crosshairs for the probe
+      const crosshairs = new Path( new Shape()
         .moveTo( -CIRCLE_AROUND_CROSSHAIR_RADIUS, 0 )
         .lineTo( CIRCLE_AROUND_CROSSHAIR_RADIUS * 1.5, 0 )
         .moveTo( 0, -CIRCLE_AROUND_CROSSHAIR_RADIUS )
-        .lineTo( 0, CIRCLE_AROUND_CROSSHAIR_RADIUS );
+        .lineTo( 0, CIRCLE_AROUND_CROSSHAIR_RADIUS ), {
+        stroke: 'black'
+      } );
 
-      const crosshair = new Path( crosshairShape, { stroke: 'black' } );
+      // circle for the probe
       const circle = new Circle( CIRCLE_AROUND_CROSSHAIR_RADIUS, {
         lineWidth: 2,
         stroke: 'black',
@@ -75,24 +77,21 @@ define( require => {
         centerY: 0
       } );
 
+      //TODO inner class ProbeNode
       /*
-       * Tip, separate from the body and not pickable.
+       * Probe, separate from the body and not pickable.
        * Because picking bounds are rectangular, making the tip pickable made it difficult
-       * to pick a line manipulator when the tip and manipulator were on the same grid point.
+       * to pick a manipulator when the tip and manipulator were on the same grid point.
        * Making the tip non-pickable was determined to be an acceptable and 'natural feeling' solution.
        */
-      const tipNode = new Node( {
-        children: [
-          crosshair,
-          circle
-        ],
+      const probeNode = new Node( {
+        children: [ crosshairs, circle ],
         pickable: false,
         x: 0,
         y: 0
       } );
 
-      // background behind the displayed value, shows through a transparent hole in the display area portion of the body
-      // image
+      // background behind the displayed value
       const BACKGROUND_MARGIN = 5;
       const backgroundNode = new Rectangle( 0, 0,
         bodyNode.width - ( 2 * BACKGROUND_MARGIN ), bodyNode.height - ( 2 * BACKGROUND_MARGIN ),
@@ -107,14 +106,14 @@ define( require => {
 
       // orientation
       if ( pointTool.orientation === 'left' ) {
-        bodyNode.left = tipNode.right;
+        bodyNode.left = probeNode.right;
         backgroundNode.centerX = bodyNode.centerX;
         backgroundNode.top = bodyNode.top + BACKGROUND_MARGIN;
         valueNode.centerY = backgroundNode.centerY;
       }
       else if ( pointTool.orientation === 'right' ) {
-        tipNode.setScaleMagnitude( -1, 1 ); // reflect around y-axis
-        bodyNode.right = tipNode.left;
+        probeNode.setScaleMagnitude( -1, 1 ); // reflect around y-axis
+        bodyNode.right = probeNode.left;
         backgroundNode.centerX = bodyNode.centerX;
         backgroundNode.top = bodyNode.top + BACKGROUND_MARGIN;
         valueNode.centerY = backgroundNode.centerY;
@@ -123,18 +122,13 @@ define( require => {
         throw new Error( 'unsupported point tool orientation: ' + pointTool.orientation );
       }
 
-      options.children = [
-        backgroundNode,
-        bodyNode,
-        tipNode,
-        valueNode
-      ];
+      options.children = [ backgroundNode, bodyNode, probeNode, valueNode ];
       super( options );
 
       // @private
       this.backgroundNode = backgroundNode;
       this.bodyNode = bodyNode;
-      this.tipNode = tipNode;
+      this.probeNode = probeNode;
       this.valueNode = valueNode;
 
       // initial state
@@ -241,14 +235,12 @@ define( require => {
         drag: ( event, trail ) => {
           let parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
-          if ( pointTool.dragBounds ) {
-            location = constrainBounds( location, pointTool.dragBounds );
-          }
+          location = constrainBounds( location, pointTool.dragBounds );
           if ( graph.contains( location ) ) {
 
             //TODO what's up here?
             let distance = 1; // empirically chosen
-            for ( let i = 0; i < pointTool.quadratics.length; i ++ ) {
+            for ( let i = 0; i < pointTool.quadratics.length; i++ ) {
 
               // snap to quadratic if near
               const quadratic = pointTool.quadratics.get( i );
