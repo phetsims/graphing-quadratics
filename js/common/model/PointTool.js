@@ -11,24 +11,28 @@ define( require => {
   // modules
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var Property = require( 'AXON/Property' );
+  var Vector2 = require( 'DOT/Vector2' );
 
-  /**
-   * @param {Vector2} location - initial location of the tool
-   * @param {string} orientation - direction that the sensor points, either 'right', or 'left'
-   * @param {ObservableArray.<Quadratic>} quadratics - Quadratics that the tool might intersect
-   * @param {Bounds2} dragBounds - tool can be dragged within these bounds
-   * @constructor
-   */
   class PointTool {
 
-    constructor( location, orientation, quadratics, dragBounds ) {
+    /**
+     * @param {ObservableArray.<Quadratic>} quadratics - Quadratics that the tool might intersect
+     * @param {Object} [options]
+     */
+    constructor( quadratics, options ) {
 
-      assert && assert( [ 'right', 'left' ].includes( orientation ) );
+      options = _.extend( {
+        location: Vector2.ZERO, // {Vector2} initial location
+        orientation: 'left', // {string} which side the probe is on, 'left' or 'right'
+        dragBounds: null // {Bounds2|null} drag bounds in model coordinate frame
+      }, options );
+
+      assert && assert( [ 'right', 'left' ].includes( options.orientation ) );
 
       var self = this;
 
       // @public {Vector2} location of the point tool
-      this.locationProperty = new Property( location );
+      this.locationProperty = new Property( options.location );
 
       // @public (read-only)
       this.quadratics = quadratics;
@@ -36,8 +40,8 @@ define( require => {
       // @public quadratic that the tool is on, null if it's not on a quadratic
       this.onQuadraticProperty = new Property( null );
 
-      this.orientation = orientation; // @public
-      this.dragBounds = dragBounds; // @public
+      this.orientation = options.orientation; // @public
+      this.dragBounds = options.dragBounds; // @public
 
       // Update when the point tool moves or the quadratics change. unmultilink not needed.
       Property.multilink( [ this.locationProperty, quadratics.lengthProperty ],

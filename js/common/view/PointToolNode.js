@@ -241,7 +241,9 @@ define( require => {
         drag: ( event, trail ) => {
           let parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
-          location = constrainBounds( location, pointTool.dragBounds );
+          if ( pointTool.dragBounds ) {
+            location = constrainBounds( location, pointTool.dragBounds );
+          }
           if ( graph.contains( location ) ) {
 
             //TODO what's up here?

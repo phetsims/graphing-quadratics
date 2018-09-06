@@ -57,7 +57,7 @@ define( require => {
       this.savedQuadratics = new ObservableArray( [] );
 
       //TODO rename to this.quadratics
-      // @public (read-only) interactive and saved quadratics
+      // @public (read-only) {ObservableArray.<Quadratic>} quadratics displayed on the graph
       this.lines = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
         this.lines.clear();
@@ -78,22 +78,22 @@ define( require => {
         -modelViewTransformScale // y is inverted
       );
 
-      // @public (read-only) point tools, drag bounds determined empirically
+      // @public (read-only) point tools, initial locations and drag bounds determined empirically
       this.pointTools = [
-        new PointTool( new Vector2( -2, -12 ), 'right', this.lines,
-          new Bounds2(
-            this.graph.xRange.min - 1,
-            this.graph.yRange.min - 1,
-            this.graph.xRange.max + 3,
-            this.graph.yRange.max + 3
-          ) ),
-        new PointTool( new Vector2( 2, -12 ), 'left', this.lines,
-          new Bounds2(
-            this.graph.xRange.min - 1,
-            this.graph.yRange.min - 3,
-            this.graph.xRange.max + 3,
-            this.graph.yRange.max + 1
-          ) )
+        new PointTool( this.lines, {
+          location: new Vector2( 2, -12 ),
+          orientation: 'left',
+          dragBounds: new Bounds2(
+            this.graph.xRange.min - 1, this.graph.yRange.min - 3,
+            this.graph.xRange.max + 3, this.graph.yRange.max + 1 )
+        } ),
+        new PointTool( this.lines, {
+          location: new Vector2( -2, -12 ),
+          orientation: 'right',
+          dragBounds: new Bounds2(
+            this.graph.xRange.min - 1, this.graph.yRange.min - 1,
+            this.graph.xRange.max + 3, this.graph.yRange.max + 3 )
+        } )
       ];
     }
 
