@@ -58,11 +58,11 @@ define( require => {
 
       //TODO rename to this.quadratics
       // @public (read-only) {ObservableArray.<Quadratic>} quadratics displayed on the graph
-      this.lines = new ObservableArray();
+      this.quadratics = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
-        this.lines.clear();
-        this.lines.add( quadratic );
-        this.lines.addAll( this.savedQuadratics.getArray() );
+        this.quadratics.clear();
+        this.quadratics.add( quadratic );
+        this.quadratics.addAll( this.savedQuadratics.getArray() );
       } );
 
       // transform between model and view coordinate frames
@@ -80,14 +80,14 @@ define( require => {
 
       // @public (read-only) point tools, initial locations and drag bounds determined empirically
       this.pointTools = [
-        new PointTool( this.lines, {
+        new PointTool( this.quadratics, {
           location: new Vector2( 2, -12 ),
           orientation: 'left',
           dragBounds: new Bounds2(
             this.graph.xRange.min - 1, this.graph.yRange.min - 3,
             this.graph.xRange.max + 3, this.graph.yRange.max + 1 )
         } ),
-        new PointTool( this.lines, {
+        new PointTool( this.quadratics, {
           location: new Vector2( -2, -12 ),
           orientation: 'right',
           dragBounds: new Bounds2(

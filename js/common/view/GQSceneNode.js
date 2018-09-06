@@ -50,8 +50,7 @@ define( require => {
           pointTool,
           scene.modelViewTransform,
           scene.graph,
-          viewProperties.curvesVisibleProperty,
-          scene.lines
+          viewProperties.curvesVisibleProperty
         ) );
       } );
 
