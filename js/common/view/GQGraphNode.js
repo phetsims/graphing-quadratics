@@ -18,6 +18,7 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
+  const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -110,18 +111,19 @@ define( require => {
       // When a quadratic is saved...  removeItemAddedListener not needed.
       model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
-        //TODO use QuadraticNode for saved quadratic
         // create Node for the new quadratic
-        const path = interactiveQuadraticNode.createQuadraticPath( savedQuadratic, {
-          stroke: GQColors.SAVED_CURVE,
-          lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
+        const savedQuadraticNode = new QuadraticNode( new Property( savedQuadratic ), model.graph, model.modelViewTransform, {
+          pathOptions: {
+            stroke: GQColors.SAVED_CURVE,
+            lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
+          }
         } );
-        savedQuadraticsLayer.addChild( path );
+        savedQuadraticsLayer.addChild( savedQuadraticNode );
 
         // add listener for when the quadratic is eventually removed
         const itemRemovedListener = removedQuadratic => {
           if ( removedQuadratic === savedQuadratic ) {
-            savedQuadraticsLayer.removeChild( path );
+            savedQuadraticsLayer.removeChild( savedQuadraticNode );
             model.savedQuadratics.removeItemRemovedListener( itemRemovedListener );
           }
         };

@@ -31,7 +31,7 @@ define( require => {
      */
     constructor( quadraticProperty, graph, modelViewTransform, viewProperties, options ) {
 
-      super( quadraticProperty, graph, modelViewTransform, viewProperties, options );
+      super( quadraticProperty, graph, modelViewTransform, options );
 
       // quadratic term, y = ax^2
       // This pattern of wrapping things in a parent node is used throughout.

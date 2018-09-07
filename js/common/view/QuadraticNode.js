@@ -23,12 +23,13 @@ define( require => {
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, graph, modelViewTransform, viewProperties, options ) {
+    constructor( quadraticProperty, graph, modelViewTransform, options ) {
 
-      options = _.extend( {}, options );
+      options = _.extend( {
+        pathOptions: null // {Object|null} propagated to Path
+      }, options );
 
       super( options );
 
@@ -37,10 +38,10 @@ define( require => {
       this.modelViewTransform = modelViewTransform;
 
       // @protected quadratic curve, y = ax^2 + bx + c
-      this.quadraticPath = new Path( null, {
+      this.quadraticPath = new Path( null, _.extend( {
         stroke: GQColors.INTERACTIVE_CURVE,
         lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
-      } );
+      }, options.pathOptions ) );
       this.addChild( this.quadraticPath );
 
       // Update the view of the curve when the quadratic model changes. dispose not needed.
@@ -50,21 +51,10 @@ define( require => {
     }
 
     /**
-     * Create a quadratic Path.
-     * @param {Quadratic} quadratic
-     * @param {Object} [options]
-     * @returns {Path}
-     * @public
-     */
-    createQuadraticPath( quadratic, options ) {
-      return new Path( this.createQuadraticShape( quadratic ), options );
-    }
-
-    /**
-     * Create a quadratic shape. Assumes same graph and modelViewTransform as this one.
+     * Creates the shape for a specified Quadratic, using this Node's graph and modelViewTransform.
      * @param {Quadratic} quadratic
      * @returns {Shape}
-     * @private
+     * @protected
      */
     createQuadraticShape( quadratic ) {
 
