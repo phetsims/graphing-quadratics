@@ -14,10 +14,10 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
+  const InteractiveQuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/InteractiveQuadraticNode' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
-  const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -50,7 +50,7 @@ define( require => {
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
       // Interactive quadratic curve. dispose not needed.
-      const quadraticNode = new QuadraticNode(
+      const interactiveQuadraticNode = new InteractiveQuadraticNode(
         model.quadraticProperty,
         model.graph,
         model.modelViewTransform,
@@ -99,7 +99,7 @@ define( require => {
       // Everything that's on the graph, clipped to the graph
       const contentNode = new Node( { clipArea: clipArea } );
       contentNode.addChild( savedQuadraticsLayer );
-      contentNode.addChild( quadraticNode );
+      contentNode.addChild( interactiveQuadraticNode );
       contentNode.addChild( noRealRootsNode );
       if ( options.hasVertexManipulator ) { contentNode.addChild( vertexManipulator ); }
 
@@ -112,7 +112,7 @@ define( require => {
 
         //TODO use QuadraticNode for saved quadratic
         // create Node for the new quadratic
-        const path = quadraticNode.createQuadraticPath( savedQuadratic, {
+        const path = interactiveQuadraticNode.createQuadraticPath( savedQuadratic, {
           stroke: GQColors.SAVED_CURVE,
           lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
         } );
