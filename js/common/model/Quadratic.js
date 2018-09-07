@@ -119,6 +119,14 @@ define( require => {
     }
 
     /**
+     * Gets the constant term, y = c
+     * @returns {Quadratic}
+     */
+    getConstantTerm() {
+      return new Quadratic( 0, 0, this.c, GQColors.CONSTANT_TERM );
+    }
+
+    /**
      * Given a graph for ranges, get control points for a bezier curve representing this quadratic
      * @param {Range} xRange
      * @returns {Object}
@@ -191,14 +199,6 @@ define( require => {
         }
       }
       return nearestPoint;
-    }
-
-    /**
-     * Gets the constant term, y = c
-     * @returns {Quadratic}
-     */
-    getConstantTerm() {
-      return new Quadratic( 0, 0, this.c, { color: GQColors.CONSTANT_TERM } );
     }
   }
 
