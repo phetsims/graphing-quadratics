@@ -37,24 +37,15 @@ define( require => {
       // This pattern of wrapping things in a parent node is used throughout.
       // The visibility of the parent nodes is synchronized with the viewProperties that control visibility,
       // while the child nodes are synchronized with the quadratic.
-      const quadraticTermPath = new Path( null, {
-        stroke: GQColors.QUADRATIC_TERM,
-        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH
-      } );
+      const quadraticTermPath = new Path( null, { lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH } );
       const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
       // linear term, y = bx
-      const linearTermPath = new Path( null, {
-        stroke: GQColors.LINEAR_TERM,
-        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH
-      } );
+      const linearTermPath = new Path( null, { lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH } );
       const linearTermParentNode = new Node( { children: [ linearTermPath ] } );
 
       // constant term, y = c
-      const constantTermPath = new Path( null, {
-        stroke: GQColors.CONSTANT_TERM,
-        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH
-      } );
+      const constantTermPath = new Path( null, { lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH } );
       const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
 
       // axis of symmetry
@@ -123,10 +114,19 @@ define( require => {
       // Update the view of the curve when the quadratic model changes. dispose not needed.
       quadraticProperty.link( quadratic => {
 
-        // update Paths
-        quadraticTermPath.setShape( this.createQuadraticShape( quadratic.getQuadraticTerm() ) );
-        linearTermPath.setShape( this.createQuadraticShape( quadratic.getLinearTerm() ) );
-        constantTermPath.setShape( this.createQuadraticShape( quadratic.getConstantTerm() ) );
+        const quadraticTerm = quadratic.getQuadraticTerm();
+        const linearTerm = quadratic.getLinearTerm();
+        const constantTerm = quadratic.getConstantTerm();
+
+        // update Shapes
+        quadraticTermPath.setShape( this.createQuadraticShape( quadraticTerm ) );
+        linearTermPath.setShape( this.createQuadraticShape( linearTerm ) );
+        constantTermPath.setShape( this.createQuadraticShape( constantTerm ) );
+
+        // update colors
+        quadraticTermPath.stroke = quadraticTerm.color;
+        linearTermPath.stroke = linearTerm.color;
+        constantTermPath.stroke = constantTerm.color;
 
         if ( quadratic.a !== 0 ) {
 

@@ -29,7 +29,9 @@ define( require => {
       options = options || {};
 
       assert && assert( !options.quadratic, 'VertexFormScene sets quadratic' );
-      options.quadratic = Quadratic.createFromVertexForm( A_RANGE.defaultValue, H_RANGE.defaultValue, K_RANGE.defaultValue );
+      options.quadratic = Quadratic.createFromVertexForm( A_RANGE.defaultValue, H_RANGE.defaultValue, K_RANGE.defaultValue, {
+        color: 'black'
+      } );
 
       super( options );
 

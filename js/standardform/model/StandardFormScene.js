@@ -10,6 +10,7 @@ define( require => {
 
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQScene = require( 'GRAPHING_QUADRATICS/common/model/GQScene' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
@@ -33,7 +34,9 @@ define( require => {
       options.icon = icon;
 
       assert && assert( !options.quadratic, 'StandardFormScene sets quadratic' );
-      options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue );
+      options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue, {
+        color: GQColors.INTERACTIVE_CURVE
+      } );
 
       super( options );
 

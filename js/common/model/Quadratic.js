@@ -29,7 +29,7 @@ define( require => {
     constructor( a, b, c, options ) {
 
       options = _.extend( {
-        color: GQColors.INTERACTIVE_CURVE // {Color|String} color used to render the curve
+        color: 'black' // {Color|String} color used to render the curve
       }, options );
 
       // @public (read-only)
@@ -88,11 +88,26 @@ define( require => {
     }
 
     /**
+     * Creates a quadratic given a, h, and k based on the equation y = a(x - h)^2 + k
+     * @param {number} a
+     * @param {number} h
+     * @param {number} k
+     * @param {Object} [options] - see Quadratic constructor
+     * @returns {Quadratic}
+     * @public
+     */
+    static createFromVertexForm( a, h, k, options ) {
+      const b = -2 * a * h;
+      const c = a * h * h + k;
+      return new Quadratic( a, b, c, options );
+    }
+
+    /**
      * Gets the quadratic term, y = ax^2
      * @returns {Quadratic}
      */
     getQuadraticTerm() {
-      return new Quadratic( this.a, 0, 0 );
+      return new Quadratic( this.a, 0, 0, { color: GQColors.QUADRATIC_TERM } );
     }
 
     /**
@@ -100,15 +115,7 @@ define( require => {
      * @returns {Quadratic}
      */
     getLinearTerm() {
-      return new Quadratic( 0, this.b, 0 );
-    }
-
-    /**
-     * Gets the constant term, y = c
-     * @returns {Quadratic}
-     */
-    getConstantTerm() {
-      return new Quadratic( 0, 0, this.c );
+      return new Quadratic( 0, this.b, 0, { color: GQColors.LINEAR_TERM } );
     }
 
     /**
@@ -187,17 +194,11 @@ define( require => {
     }
 
     /**
-     * Creates a quadratic given a, h, and k based on the equation y = a(x - h)^2 + k
-     * @param {number} a
-     * @param {number} h
-     * @param {number} k
+     * Gets the constant term, y = c
      * @returns {Quadratic}
-     * @public
      */
-    static createFromVertexForm( a, h, k ) {
-      const b = -2 * a * h;
-      const c = a * h * h + k;
-      return new Quadratic( a, b, c );
+    getConstantTerm() {
+      return new Quadratic( 0, 0, this.c, { color: GQColors.CONSTANT_TERM } );
     }
   }
 

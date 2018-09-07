@@ -29,7 +29,9 @@ define( require => {
       options = options || {};
 
       assert && assert( !options.quadratic, 'FocusAndDirectrixScene sets quadratic' );
-      options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue );
+      options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue, {
+        color: 'black'
+      } );
 
       super( options );
 

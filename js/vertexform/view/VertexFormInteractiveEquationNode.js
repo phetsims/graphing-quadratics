@@ -122,7 +122,7 @@ define( require => {
 
       // When the coefficients change, update the quadratic.
       Property.multilink( [ aProperty, hProperty, kProperty ], ( a, h, k ) => {
-        const newQuadratic = Quadratic.createFromVertexForm( a, h, k );
+        const newQuadratic = Quadratic.createFromVertexForm( a, h, k, { color: quadraticProperty.value.color } );
         if ( !newQuadratic.equals( quadraticProperty.value ) ) {
           quadraticProperty.value = newQuadratic;
         }

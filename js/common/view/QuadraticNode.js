@@ -10,7 +10,6 @@ define( require => {
   'use strict';
 
   // modules
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -39,7 +38,6 @@ define( require => {
 
       // @protected quadratic curve, y = ax^2 + bx + c
       this.quadraticPath = new Path( null, _.extend( {
-        stroke: GQColors.INTERACTIVE_CURVE,
         lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
       }, options.pathOptions ) );
       this.addChild( this.quadraticPath );
@@ -47,6 +45,7 @@ define( require => {
       // Update the view of the curve when the quadratic model changes. dispose not needed.
       quadraticProperty.link( quadratic => {
         this.quadraticPath.setShape( this.createQuadraticShape( quadratic ) );
+        this.quadraticPath.stroke = quadratic.color;
       } );
     }
 

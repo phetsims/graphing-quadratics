@@ -122,10 +122,7 @@ define( require => {
 
       // When the coefficients change, update the quadratic.
       Property.multilink( [ aProperty, bProperty, cProperty ], ( a, b, c ) => {
-        const newQuadratic = new Quadratic( a, b, c );
-        if ( !newQuadratic.equals( quadraticProperty.value ) ) {
-          quadraticProperty.value = new Quadratic( a, b, c );
-        }
+        quadraticProperty.value = new Quadratic( a, b, c, { color: quadraticProperty.value.color } );
       } );
     }
   }
