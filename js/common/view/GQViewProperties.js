@@ -41,7 +41,7 @@ define( require => {
       this.curvesVisibleProperty = new BooleanProperty( options.curvesVisible );
 
       // @public whether coordinates are visible on points
-      this.coordinatesVisible = new BooleanProperty( options.coordinatesVisible );
+      this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible );
 
       // @public whether a curve is displayed to reflect the quadratic term (y=ax^2)
       this.quadraticTermVisibleProperty = new BooleanProperty( options.quadraticTermVisible );
@@ -75,7 +75,7 @@ define( require => {
     reset() {
       this.equationAccordionBoxExpandedProperty.reset();
       this.curvesVisibleProperty.reset();
-      this.coordinatesVisible.reset();
+      this.coordinatesVisibleProperty.reset();
       this.quadraticTermVisibleProperty.reset();
       this.linearTermVisibleProperty.reset();
       this.constantTermVisibleProperty.reset();

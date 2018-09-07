@@ -13,6 +13,7 @@ define( require => {
   const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HideCoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCoordinatesCheckbox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const Panel = require( 'SUN/Panel' );
   const RootsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/RootsCheckbox' );
@@ -38,6 +39,9 @@ define( require => {
       // Roots, dispose not needed
       const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty );
 
+      // Hide coordinates, dispose not needed
+      const hideCoordinatesCheckbox = new HideCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
+
       // Hide curves, dispose not needed
       const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
@@ -49,6 +53,7 @@ define( require => {
           vertexCheckbox,
           axisOfSymmetryCheckbox,
           rootsCheckbox,
+          hideCoordinatesCheckbox,
           hideCurvesCheckbox
         ]
       } );
@@ -60,6 +65,7 @@ define( require => {
         axisOfSymmetryCheckbox.enabled = curvesVisible;
         vertexCheckbox.enabled = curvesVisible;
         rootsCheckbox.enabled = curvesVisible;
+        hideCoordinatesCheckbox.enabled = curvesVisible;
       } );
     }
   }

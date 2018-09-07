@@ -23,6 +23,9 @@
   "hideCurves": {
     "value": "Hide curves"
   },
+  "hideCoordinates": {
+    "value": "Hide coordinates"
+  },
   "focus": {
     "value": "Focus"
   },
