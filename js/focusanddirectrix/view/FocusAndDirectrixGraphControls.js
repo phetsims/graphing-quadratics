@@ -10,25 +10,13 @@ define( require => {
 
   // modules
   const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
-  const Checkbox = require( 'SUN/Checkbox' );
+  const DirectrixCheckbox = require( 'GRAPHING_QUADRATICS/common/view/DirectrixCheckbox' );
   const FocusCheckbox = require( 'GRAPHING_QUADRATICS/common/view/FocusCheckbox' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
-  const Line = require( 'SCENERY/nodes/Line' );
   const Panel = require( 'SUN/Panel' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
-
-  // strings
-  const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
-
-  // constants
-  const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
-  const DASH_LENGTH = 5;
 
   class FocusAndDirectrixGraphControls extends Panel {
 
@@ -44,19 +32,7 @@ define( require => {
       const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty );
 
       // Directrix, dispose not needed
-      const directrixLabel = new HBox( {
-        align: 'center',
-        spacing: 15,
-        children: [
-          new Text( directrixString, CHECKBOX_LABEL_OPTIONS ),
-          new Line( 0, 0, 7 * DASH_LENGTH, 0, {
-            stroke: GQColors.DIRECTRIX,
-            lineWidth: 3,
-            lineDash: [ DASH_LENGTH, DASH_LENGTH ]
-          } )
-        ]
-      } );
-      const directrixCheckbox = new Checkbox( directrixLabel, viewProperties.directrixVisibleProperty );
+      const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty );
 
       // Axis of Symmetry, dispose not needed
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
