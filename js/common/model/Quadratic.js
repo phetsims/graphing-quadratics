@@ -123,7 +123,7 @@ define( require => {
      * @returns {Quadratic}
      */
     getConstantTerm() {
-      return new Quadratic( 0, 0, this.c, GQColors.CONSTANT_TERM );
+      return new Quadratic( 0, 0, this.c, { color: GQColors.CONSTANT_TERM } );
     }
 
     /**
