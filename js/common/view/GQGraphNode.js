@@ -111,7 +111,7 @@ define( require => {
       // When a quadratic is saved...  removeItemAddedListener not needed.
       model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
-        // create Node for the new quadratic
+        // Node for the saved quadratic
         const savedQuadraticNode = new QuadraticNode( new Property( savedQuadratic ), model.graph, model.modelViewTransform, {
           pathOptions: {
             stroke: GQColors.SAVED_CURVE,
@@ -120,7 +120,7 @@ define( require => {
         } );
         savedQuadraticsLayer.addChild( savedQuadraticNode );
 
-        // add listener for when the quadratic is eventually removed
+        // add listener for when the saved quadratic is eventually removed
         const itemRemovedListener = removedQuadratic => {
           if ( removedQuadratic === savedQuadratic ) {
             savedQuadraticsLayer.removeChild( savedQuadraticNode );
