@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * 'Hide curves' checkbox, used in both screens.
+ * 'Hide curves' checkbox.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

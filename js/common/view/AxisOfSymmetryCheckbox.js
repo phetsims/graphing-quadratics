@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * 'Axis of Symmetry' checkbox, used in both screens.
+ * 'Axis of Symmetry' checkbox.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

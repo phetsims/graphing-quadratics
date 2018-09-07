@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Checkbox to show/hide roots of the quadratic.
+ * 'Roots' checkbox.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
