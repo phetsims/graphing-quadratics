@@ -11,24 +11,11 @@ define( require => {
 
   // modules
   const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
-  const Checkbox = require( 'SUN/Checkbox' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const Panel = require( 'SUN/Panel' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
-  const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
-
-  // strings
-  const rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
-
-  // constants
-  const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
-  const POINT_RADIUS = 6;
 
   class VertexFormGraphControls extends Panel {
 
@@ -43,24 +30,6 @@ define( require => {
       // Axis of Symmetry, dispose not needed
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
 
-      // Roots, dispose not needed
-      const rootsLabel = new HBox( {
-        align: 'center',
-        spacing: 10,
-        children: [
-          new Text( rootsString, CHECKBOX_LABEL_OPTIONS ),
-          new HBox( {
-            align: 'center',
-            spacing: 5,
-            children: [
-              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS ),
-              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS )
-            ]
-          } )
-        ]
-      } );
-      const rootsCheckbox = new Checkbox( rootsLabel, viewProperties.rootsVisibleProperty );
-
       // Hide curves, dispose not needed
       const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
@@ -70,7 +39,6 @@ define( require => {
         spacing: 20,
         children: [
           axisOfSymmetryCheckbox,
-          rootsCheckbox,
           hideCurvesCheckbox
         ]
       } );
@@ -80,7 +48,6 @@ define( require => {
       // Disable other controls when 'Hide curves' is checked
       viewProperties.curvesVisibleProperty.link( curvesVisible => {
         axisOfSymmetryCheckbox.enabled = curvesVisible;
-        rootsCheckbox.enabled = curvesVisible;
       } );
     }
   }
