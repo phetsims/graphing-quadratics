@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Controls for various features related to the graph on the 'Standard Form' screen.
+ * Controls for various features related to the graph on 'Integers' scene of the 'Standard Form' screen.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -10,33 +10,23 @@ define( require => {
   'use strict';
 
   // modules
-  const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
   const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const RichText = require( 'SCENERY/nodes/RichText' );
-  const RootsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/RootsCheckbox' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
-
-  // strings
-  const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
 
   // constants
   const CHECKBOX_EQUATION_FONT = new PhetFont( GQConstants.CHECKBOX_EQUATION_FONT_SIZE );
-  const CHECKBOX_LABEL_OPTIONS = { font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) };
-  const POINT_RADIUS = 6;
 
-  class StandardFormGraphControls extends Panel {
+  class DecimalsGraphControls extends Panel {
 
     /**
      * @param {GQViewProperties} viewProperties
@@ -45,23 +35,6 @@ define( require => {
     constructor( viewProperties, options ) {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
-
-      // Axis of Symmetry, dispose not needed
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
-
-      // Vertex, dispose not needed
-      const vertexLabel = new HBox( {
-        align: 'center',
-        spacing: 10,
-        children: [
-          new Text( vertexString, CHECKBOX_LABEL_OPTIONS ),
-          new PlottedPointNode( POINT_RADIUS, GQColors.VERTEX )
-        ]
-      } );
-      const vertexCheckbox = new Checkbox( vertexLabel, viewProperties.vertexVisibleProperty );
-
-      // Roots, dispose not needed
-      const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty );
 
       // y = ax^2, dispose not needed
       const quadraticTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
@@ -99,12 +72,6 @@ define( require => {
       } );
       const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty );
 
-      // horizontal layout of term checkboxes
-      var termCheckboxes = new HBox( {
-        spacing: 30,
-        children: [ quadraticTermCheckbox, linearTermCheckbox, constantTermCheckbox ]
-      } );
-
       // Hide curves, dispose not needed
       const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
@@ -113,10 +80,9 @@ define( require => {
         align: 'left',
         spacing: 20,
         children: [
-          axisOfSymmetryCheckbox,
-          vertexCheckbox,
-          rootsCheckbox,
-          termCheckboxes,
+          quadraticTermCheckbox,
+          linearTermCheckbox,
+          constantTermCheckbox,
           hideCurvesCheckbox
         ]
       } );
@@ -125,9 +91,6 @@ define( require => {
 
       // Disable other controls when 'Hide curves' is checked
       viewProperties.curvesVisibleProperty.link( curvesVisible => {
-        axisOfSymmetryCheckbox.enabled = curvesVisible;
-        vertexCheckbox.enabled = curvesVisible;
-        rootsCheckbox.enabled = curvesVisible;
         quadraticTermCheckbox.enabled = curvesVisible;
         linearTermCheckbox.enabled = curvesVisible;
         constantTermCheckbox.enabled = curvesVisible;
@@ -135,5 +98,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'StandardFormGraphControls', StandardFormGraphControls );
+  return graphingQuadratics.register( 'DecimalsGraphControls', DecimalsGraphControls );
 } );
