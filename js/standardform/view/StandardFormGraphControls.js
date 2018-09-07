@@ -23,12 +23,12 @@ define( require => {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const RootsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/RootsCheckbox' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // strings
-  const rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
   const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
 
   // constants
@@ -61,22 +61,7 @@ define( require => {
       const vertexCheckbox = new Checkbox( vertexLabel, viewProperties.vertexVisibleProperty );
 
       // Roots, dispose not needed
-      const rootsLabel = new HBox( {
-        align: 'center',
-        spacing: 10,
-        children: [
-          new Text( rootsString, CHECKBOX_LABEL_OPTIONS ),
-          new HBox( {
-            align: 'center',
-            spacing: 5,
-            children: [
-              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS ),
-              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS )
-            ]
-          } )
-        ]
-      } );
-      const rootsCheckbox = new Checkbox( rootsLabel, viewProperties.rootsVisibleProperty );
+      const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty );
 
       // y = ax^2, dispose not needed
       const quadraticTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
