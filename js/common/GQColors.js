@@ -19,7 +19,7 @@ define( require => {
     SAVED_CURVE: 'rgb( 160, 160, 160 )',
     QUADRATIC_TERM: 'blue',
     LINEAR_TERM: 'green',
-    CONSTANT_TERM: 'black',
+    CONSTANT_TERM: 'magenta',
     FOCUS: 'green',
     DIRECTRIX: 'green',
     VERTEX: 'rgb( 128, 0, 128 )', // purple
