@@ -16,8 +16,8 @@ define( require => {
 
   // constants
   const A_RANGE = new RangeWithValue( -6, 6, 1 );
-  const H_RANGE = new RangeWithValue( -10, 10, 0 );
-  const K_RANGE = new RangeWithValue( -10, 10, 0 );
+  const H_RANGE = new RangeWithValue( -9, 9, 0 );
+  const K_RANGE = new RangeWithValue( -9, 9, 0 );
 
   class VertexFormScene extends GQScene {
 
