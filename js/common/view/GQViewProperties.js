@@ -10,7 +10,7 @@ define( require => {
   'use strict';
 
   // modules
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
   /**
@@ -23,6 +23,7 @@ define( require => {
       options = _.extend( {
         equationAccordionBoxExpanded: true,
         curvesVisible: true,
+        coordinatesVisible: true,
         quadraticTermVisible: false,
         linearTermVisible: false,
         constantTermVisible: false,
@@ -38,6 +39,9 @@ define( require => {
 
       // @public whether curves and their decorations are visible on the graph
       this.curvesVisibleProperty = new BooleanProperty( options.curvesVisible );
+
+      // @public whether coordinates are visible on points
+      this.coordinatesVisible = new BooleanProperty( options.coordinatesVisible );
 
       // @public whether a curve is displayed to reflect the quadratic term (y=ax^2)
       this.quadraticTermVisibleProperty = new BooleanProperty( options.quadraticTermVisible );
@@ -71,6 +75,7 @@ define( require => {
     reset() {
       this.equationAccordionBoxExpandedProperty.reset();
       this.curvesVisibleProperty.reset();
+      this.coordinatesVisible.reset();
       this.quadraticTermVisibleProperty.reset();
       this.linearTermVisibleProperty.reset();
       this.constantTermVisibleProperty.reset();
