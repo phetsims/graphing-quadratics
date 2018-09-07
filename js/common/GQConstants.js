@@ -62,8 +62,8 @@ define( require => {
     DIRECTRIX_LINE_WIDTH: 3,
 
     // line dashes
-    AXIS_OF_SYMMETRY_LINE_DASH: [ 8, 8 ],
-    DIRECTRIX_LINE_DASH: [ 8, 8 ]
+    AXIS_OF_SYMMETRY_LINE_DASH: [ 5, 5 ],
+    DIRECTRIX_LINE_DASH: [ 5, 5 ]
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );
