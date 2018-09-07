@@ -52,7 +52,18 @@ define( require => {
     INTERACTIVE_EQUATION_FONT_SIZE: 26,
     SLIDER_TICK_LABEL_FONT_SIZE: 16,
     CHECKBOX_LABEL_FONT_SIZE: 18,
-    CHECKBOX_EQUATION_FONT_SIZE: 18
+    CHECKBOX_EQUATION_FONT_SIZE: 18,
+
+    // line widths
+    INTERACTIVE_CURVE_LINE_WIDTH: 4,
+    SAVED_CURVE_LINE_WIDTH: 2,
+    QUADRATIC_TERMS_LINE_WIDTH: 2, // y = ax^2, y = bx, y = c
+    AXIS_OF_SYMMETRY_LINE_WIDTH: 3,
+    DIRECTRIX_LINE_WIDTH: 3,
+
+    // line dashes
+    AXIS_OF_SYMMETRY_LINE_DASH: [ 8, 8 ],
+    DIRECTRIX_LINE_DASH: [ 8, 8 ]
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );

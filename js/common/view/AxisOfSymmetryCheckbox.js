@@ -21,9 +21,6 @@ define( require => {
   // strings
   const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
 
-  // constants
-  const DASH_LENGTH = 5;
-
   class AxisOfSymmetryCheckbox extends Checkbox {
 
     /**
@@ -43,10 +40,10 @@ define( require => {
           } ),
 
           // vertical dashed line
-          new Line( 0, 0, 0, 5 * DASH_LENGTH, {
+          new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[0], {
             stroke: GQColors.VERTEX,
-            lineWidth: 3,
-            lineDash: [ DASH_LENGTH, DASH_LENGTH ]
+            lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
+            lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
           } )
         ]
       } );

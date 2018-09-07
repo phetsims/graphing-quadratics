@@ -1,5 +1,6 @@
 // Copyright 2018, University of Colorado Boulder
 
+//TODO move interactive features into subclass InteractiveQuadraticNode
 /**
  * Visual representation of a quadratic curve, its individual terms, and all of it's related decorations.
  *
@@ -18,13 +19,6 @@ define( require => {
   const Path = require( 'SCENERY/nodes/Path' );
   const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const Shape = require( 'KITE/Shape' );
-
-  // constants
-  const LINE_WIDTH = 3;
-  const LINE_OPTIONS = {
-    lineDash: [ 8, 8 ],
-    lineDashOffset: 10
-  };
 
   class QuadraticNode extends Node {
 
@@ -48,7 +42,7 @@ define( require => {
       // quadratic curve, y = ax^2 + bx + c
       const quadraticPath = new Path( null, {
         stroke: GQColors.INTERACTIVE_CURVE,
-        lineWidth: LINE_WIDTH
+        lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
       } );
 
       // quadratic term, y = ax^2
@@ -57,21 +51,21 @@ define( require => {
       // while the child nodes are synchronized with the quadratic.
       const quadraticTermPath = new Path( null, {
         stroke: GQColors.QUADRATIC_TERM,
-        lineWidth: LINE_WIDTH
+        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH
       } );
       const quadraticTermParentNode = new Node( { children: [ quadraticTermPath ] } );
 
       // linear term, y = bx
       const linearTermPath = new Path( null, {
         stroke: GQColors.LINEAR_TERM,
-        lineWidth: LINE_WIDTH
+        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH
       } );
       const linearTermParentNode = new Node( { children: [ linearTermPath ] } );
 
       // constant term, y = c
       const constantTermPath = new Path( null, {
         stroke: GQColors.CONSTANT_TERM,
-        lineWidth: LINE_WIDTH
+        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH
       } );
       const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
 
@@ -80,7 +74,10 @@ define( require => {
       const axisOfSymmetryLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.axisOfSymmetry );
       const axisOfSymmetryLine = new LineNode( axisOfSymmetryLineProperty, graph, modelViewTransform, {
         hasArrows: false,
-        lineOptions: LINE_OPTIONS
+        lineOptions: {
+          lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
+          lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
+        }
       } );
       const axisOfSymmetryLineParentNode = new Node( { children: [ axisOfSymmetryLine ] } );
 
@@ -97,7 +94,7 @@ define( require => {
       const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
 
       // focus point
-      const focusPoint = new PlottedPointNode( pointRadius, GQColors.DIRECTRIX );
+      const focusPoint = new PlottedPointNode( pointRadius, GQColors.FOCUS );
       const focusParentNode = new Node( { children: [ focusPoint ] } );
 
       // directrix
@@ -105,7 +102,10 @@ define( require => {
       const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.directrix );
       const directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
         hasArrows: false,
-        lineOptions: LINE_OPTIONS
+        lineOptions: {
+          lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
+          lineDash: GQConstants.DIRECTRIX_LINE_DASH
+        }
       } );
       const directrixParentNode = new Node( { children: [ directrixLine ] } );
 
@@ -182,17 +182,14 @@ define( require => {
     }
 
     /**
-     * Create a quadratic path with a certain color.
+     * Create a quadratic Path.
      * @param {Quadratic} quadratic
-     * @param {Color|String} color
+     * @param {Object} [options]
      * @returns {Path}
      * @public
      */
-    createPathWithColor( quadratic, color ) {
-      return new Path( this.createQuadraticShape( quadratic ), {
-        stroke: color,
-        lineWidth: LINE_WIDTH
-      } );
+    createQuadraticPath( quadratic ) {
+      return new Path( this.createQuadraticShape( quadratic ) );
     }
 
     /**

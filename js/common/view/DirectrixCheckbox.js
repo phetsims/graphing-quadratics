@@ -21,9 +21,6 @@ define( require => {
   // strings
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
 
-  // constants
-  const DASH_LENGTH = 5;
-
   class DirectrixCheckbox extends Checkbox {
 
     /**
@@ -43,10 +40,10 @@ define( require => {
           } ),
 
           // horizontal dashed line
-          new Line( 0, 0, 7 * DASH_LENGTH, 0, {
+          new Line( 0, 0, 7 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
             stroke: GQColors.DIRECTRIX,
-            lineWidth: 3,
-            lineDash: [ DASH_LENGTH, DASH_LENGTH ]
+            lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
+            lineDash: GQConstants.DIRECTRIX_LINE_DASH
           } )
         ]
       } );
