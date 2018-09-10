@@ -168,24 +168,24 @@ define( require => {
       return { startPoint, controlPoint, endPoint };
     }
 
-    // @public Given {number} x, return the corresponding point on the quadratic
+    // @public Given {number} x, return the corresponding {Vector2} point on the quadratic
     solvePoint( x ) {
-      return new Vector2( x, this.solveY(x ) );
+      return new Vector2( x, this.solveY( x ) );
     }
 
-    // @private Given {number} x, solve y = ax^2 + bx + c
+    // @private Given {number} x, solve for {number} y = ax^2 + bx + c
     solveY( x ) {
       return this.a * x * x + this.b * x + this.c;
     }
 
-    // @public Whether {Vector2} point lies on this quadratics
-    onLinePoint( point ) {
-      return this.onLineXY( point.x, point.y );
-    }
-
-    // @private
-    onLineXY( x, y ) {
-      return Math.abs( this.solveY( x ) - y ) < EPSILON;
+    /**
+     * Does a specified point lie on this quadratic?
+     * @param {Vector2} point
+     * @returns {boolean}
+     * @public
+     */
+    isOnQuadraticPoint( point ) {
+      return ( Math.abs( this.solveY( point.x ) - point.y ) < EPSILON );
     }
 
     // @public Nearest point {Vector2} on this line to given {Vector2} point

@@ -71,7 +71,7 @@ define( require => {
      * @public
      */
     isOnQuadratic( quadratic ) {
-      return false; //TODO
+      return quadratic.isOnQuadraticPoint( this.locationProperty.get() );
     }
   }
 
