@@ -49,11 +49,11 @@ define( require => {
           for ( let i = 0; i < length; i++ ) {
             var quadratic = quadratics.get( i );
             if ( self.isOnQuadratic( quadratic ) ) {
-              self.onQuadraticProperty.set( quadratic );
+              self.onQuadraticProperty.value = quadratic;
               return;
             }
           }
-          self.onQuadraticProperty.set( null );
+          self.onQuadraticProperty.value = null;
         }
       );
     }
