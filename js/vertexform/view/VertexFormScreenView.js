@@ -25,9 +25,7 @@ define( require => {
 
       super( model, [ viewProperties ] );
 
-      this.addChild( new VertexFormSceneNode( model.scene, this.layoutBounds, viewProperties, {
-        hasVertexManipulator: true
-      } ) );
+      this.addChild( new VertexFormSceneNode( model.scene, this.layoutBounds, viewProperties ) );
     }
   }
 

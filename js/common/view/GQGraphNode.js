@@ -38,10 +38,6 @@ define( require => {
      */
     constructor( scene, layoutBounds, viewProperties, options ) {
 
-      options = _.extend( {
-        hasVertexManipulator: false // only vertex scene has vertex manipulator
-      }, options );
-
       super( options );
 
       // Location of the origin in view coordinate frame, for layout
@@ -60,12 +56,12 @@ define( require => {
 
       // Vertex manipulator. dispose not needed.
       let vertexManipulator;
-      if ( options.hasVertexManipulator ) {
+      if ( scene.hRange && scene.kRange ) {
         vertexManipulator = new VertexManipulator(
           scene.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
           scene.quadraticProperty,
-          scene.graph.xRange,
-          scene.graph.yRange,
+          scene.hRange,
+          scene.kRange,
           scene.modelViewTransform
         );
       }
@@ -102,7 +98,7 @@ define( require => {
       contentNode.addChild( savedQuadraticsLayer );
       contentNode.addChild( interactiveQuadraticNode );
       contentNode.addChild( noRealRootsNode );
-      if ( options.hasVertexManipulator ) { contentNode.addChild( vertexManipulator ); }
+      vertexManipulator && contentNode.addChild( vertexManipulator );
 
       // rendering order
       this.addChild( graphNode );

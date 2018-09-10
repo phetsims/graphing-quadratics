@@ -36,10 +36,6 @@ define( require => {
     constructor( scene, layoutBounds, viewProperties,
                  accordionBoxTitleNode, interactiveEquationNode, graphControls, options ) {
 
-      options = _.extend( {
-        hasVertexManipulator: false
-      }, options );
-
       super( options );
 
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
@@ -55,9 +51,7 @@ define( require => {
       } );
 
       // The graph and everything on it -- position is determined by the model! dispose not needed.
-      const graphNode = new GQGraphNode( scene, layoutBounds, viewProperties, {
-        hasVertexManipulator: options.hasVertexManipulator
-      } );
+      const graphNode = new GQGraphNode( scene, layoutBounds, viewProperties );
 
       const controlPanelMaxWidth = layoutBounds.width - graphNode.width - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN ) - X_SPACING;
 
