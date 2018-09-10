@@ -43,7 +43,7 @@ define( require => {
         fill: options.valueColor
       } );
 
-      assert && assert( !options.chilren, 'CoordinatesNode sets children' );
+      assert && assert( !options.children, 'CoordinatesNode sets children' );
       options.children = [ backgroundNode, valueNode ];
 
       super( options );
