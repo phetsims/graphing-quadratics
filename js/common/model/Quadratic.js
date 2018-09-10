@@ -12,6 +12,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const Line = require( 'GRAPHING_LINES/common/model/Line' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
 
@@ -60,6 +61,19 @@ define( require => {
         this.axisOfSymmetry = null;
         this.directrix = null;
       }
+    }
+
+    /**
+     * @returns {string}
+     * @public
+     */
+    toString() {
+      return StringUtils.fillIn( 'Quadratic {{a}}x^2 + {{b}}x + {{c}}, color={{color}}', {
+        a: this.a,
+        b: this.b,
+        c: this.c,
+        color: this.color
+      } );
     }
 
     /**
