@@ -57,39 +57,9 @@ define( require => {
         foregroundHighlightColor: 'white'
       }, options );
 
-      const bodyNode = new Image( bodyImage, { centerY: 0 } ); // body of the tool
+      const bodyNode = new Image( bodyImage, { centerY: 0 } );
 
-      // crosshairs for the probe
-      const crosshairs = new Path( new Shape()
-        .moveTo( -CIRCLE_AROUND_CROSSHAIR_RADIUS, 0 )
-        .lineTo( CIRCLE_AROUND_CROSSHAIR_RADIUS * 1.5, 0 )
-        .moveTo( 0, -CIRCLE_AROUND_CROSSHAIR_RADIUS )
-        .lineTo( 0, CIRCLE_AROUND_CROSSHAIR_RADIUS ), {
-        stroke: 'black'
-      } );
-
-      // circle for the probe
-      const circle = new Circle( CIRCLE_AROUND_CROSSHAIR_RADIUS, {
-        lineWidth: 2,
-        stroke: 'black',
-        fill: TRANSPARENT_WHITE,
-        centerX: 0,
-        centerY: 0
-      } );
-
-      //TODO inner class ProbeNode
-      /*
-       * Probe, separate from the body and not pickable.
-       * Because picking bounds are rectangular, making the tip pickable made it difficult
-       * to pick a manipulator when the tip and manipulator were on the same grid point.
-       * Making the tip non-pickable was determined to be an acceptable and 'natural feeling' solution.
-       */
-      const probeNode = new Node( {
-        children: [ crosshairs, circle ],
-        pickable: false,
-        x: 0,
-        y: 0
-      } );
+      const probeNode = new ProbeNode();
 
       // background behind the displayed value
       const BACKGROUND_MARGIN = 5;
@@ -194,6 +164,46 @@ define( require => {
   }
 
   graphingQuadratics.register( 'PointToolNode', PointToolNode );
+
+
+  class ProbeNode extends Node {
+
+    constructor() {
+
+      // crosshairs for the probe
+      const crosshairs = new Path( new Shape()
+        .moveTo( -CIRCLE_AROUND_CROSSHAIR_RADIUS, 0 )
+        .lineTo( CIRCLE_AROUND_CROSSHAIR_RADIUS * 1.5, 0 )
+        .moveTo( 0, -CIRCLE_AROUND_CROSSHAIR_RADIUS )
+        .lineTo( 0, CIRCLE_AROUND_CROSSHAIR_RADIUS ), {
+        stroke: 'black'
+      } );
+
+      // circle for the probe
+      const circle = new Circle( CIRCLE_AROUND_CROSSHAIR_RADIUS, {
+        lineWidth: 2,
+        stroke: 'black',
+        fill: TRANSPARENT_WHITE,
+        centerX: 0,
+        centerY: 0
+      } );
+
+      super( {
+        children: [ crosshairs, circle ],
+
+        // Not pickable because picking bounds are rectangular, making the tip pickable made it difficult
+        // to pick a manipulator when the tip and manipulator were on the same grid point.
+        // Making the tip non-pickable was determined to be an acceptable and 'natural feeling' solution.
+        pickable: false,
+
+        // origin at the center
+        x: 0,
+        y: 0
+      } );
+    }
+  }
+
+  graphingQuadratics.register( 'PointToolNode.ProbeNode', ProbeNode );
 
   class PointToolDragHandler extends SimpleDragHandler {
 
