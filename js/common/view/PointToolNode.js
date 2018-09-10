@@ -217,18 +217,6 @@ define( require => {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
-      const constrainBounds = ( point, bounds ) => {
-        if ( !bounds || bounds.containsPoint( point ) ) {
-          return point;
-        }
-        else {
-          return new Vector2(
-            Util.clamp( point.x, bounds.minX, bounds.maxX ),
-            Util.clamp( point.y, bounds.minY, bounds.maxY )
-          );
-        }
-      };
-
       super( {
 
         allowTouchSnag: true,
@@ -245,7 +233,7 @@ define( require => {
         drag: ( event, trail ) => {
           let parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
-          location = constrainBounds( location, pointTool.dragBounds );
+          location = pointTool.dragBounds.closestPointTo( location );
           if ( graph.contains( location ) ) {
 
             //TODO what's up here?
