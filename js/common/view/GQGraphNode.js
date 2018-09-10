@@ -62,7 +62,8 @@ define( require => {
           scene.quadraticProperty,
           scene.hRange,
           scene.kRange,
-          scene.modelViewTransform
+          scene.modelViewTransform,
+          viewProperties.coordinatesVisibleProperty
         );
       }
 
@@ -73,8 +74,8 @@ define( require => {
       } );
       const noRealRootsBackground = new Rectangle( noRealRootsLabel.bounds.dilatedXY( 5, 1 ), {
         fill: GQColors.ROOTS,
-        opacity: 0.8,
-        cornerRadius: 2,
+        opacity: 0.75,
+        cornerRadius: 4,
         center: noRealRootsLabel.center
       } );
       const noRealRootsNode = new Node( {

@@ -11,6 +11,8 @@ define( require => {
 
   // modules
   const Bounds2 = require( 'DOT/Bounds2' );
+  const Color = require( 'SCENERY/util/Color' );
+  const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
@@ -28,8 +30,9 @@ define( require => {
      * @param {Range} xRange
      * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} coordinatesVisibleProperty
      */
-    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform ) {
+    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform, coordinatesVisibleProperty ) {
 
       super( radius, GQColors.VERTEX, {
         haloAlpha: GQColors.VERTEX_MANIPULATOR_HALO_ALPHA
@@ -41,11 +44,33 @@ define( require => {
         reentrant: true
       } );
 
-      // unlink in dispose.
+      // dispose required
+      const coordinatesNode = new CoordinatesNode( vertexProperty, {
+        backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
+        pickable: false
+      } );
+      this.addChild( coordinatesNode );
+
+      // y offset of coordinates from manipulator
+      const coordinatesYOffset = 1.8 * radius;
+
+      // unlink in dispose
       const quadraticListener = quadratic => {
-        this.visible = !!quadratic.vertex; // visible if the quadratic has a vertex
+
+        // manipulator is visible only if the quadratic has a vertex
+        this.visible = !!quadratic.vertex;
+
         if ( quadratic.vertex && !quadratic.vertex.equals( vertexProperty.value ) ) {
           vertexProperty.value = quadratic.vertex;
+        }
+
+        // position coordinates based on which way the curve opens
+        coordinatesNode.centerX = 0;
+        if ( quadraticProperty.value.a > 0 ) {
+          coordinatesNode.top = coordinatesYOffset;
+        }
+        else {
+          coordinatesNode.bottom = -coordinatesYOffset;
         }
       };
       quadraticProperty.link( quadraticListener );
@@ -58,10 +83,12 @@ define( require => {
         }
       } );
 
-      // update the manipulator to match the vertex location
-      vertexProperty.link( vertex => {
-        this.translation = modelViewTransform.modelToViewPosition( vertex );
-      } );
+      // move the manipulator
+      vertexProperty.link( vertex => { this.translation = modelViewTransform.modelToViewPosition( vertex ); } );
+
+      // unlink in dispose
+      const coordinatesVisibleListener = coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; };
+      coordinatesVisibleProperty.link( coordinatesVisibleListener );
 
       // @private
       this.addInputListener( new VertexDragHandler( vertexProperty, modelViewTransform,
@@ -70,6 +97,8 @@ define( require => {
       // @private called by dispose
       this.disposePointManipulator = () => {
         quadraticProperty.unlink( quadraticListener );
+        coordinatesVisibleProperty.unlink( coordinatesVisibleListener );
+        coordinatesNode.dispose();
       };
     }
 
