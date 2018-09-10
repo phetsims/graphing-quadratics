@@ -10,6 +10,7 @@ define( require => {
   'use strict';
 
   // modules
+  const Bounds2 = require( 'DOT/Bounds2' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
@@ -40,13 +41,14 @@ define( require => {
         reentrant: true
       } );
 
-      // When the quadratic changes, set vertexProperty to the quadratic's vertex.
-      quadraticProperty.link( quadratic => {
+      // unlink in dispose.
+      const quadraticListener = quadratic => {
         this.visible = !!quadratic.vertex; // visible if the quadratic has a vertex
         if ( quadratic.vertex && !quadratic.vertex.equals( vertexProperty.value ) ) {
           vertexProperty.value = quadratic.vertex;
         }
-      } );
+      };
+      quadraticProperty.link( quadraticListener );
 
       // When the vertex changes, create new quadratic. 
       vertexProperty.link( vertex => {
@@ -56,15 +58,18 @@ define( require => {
         }
       } );
 
-      // move the manipulator to match the vertex location
-      const lineObserver = vertex => { this.translation = modelViewTransform.modelToViewPosition( vertex ); };
-      vertexProperty.link( lineObserver ); // unlink in dispose
+      // update the manipulator to match the vertex location
+      vertexProperty.link( vertex => {
+        this.translation = modelViewTransform.modelToViewPosition( vertex );
+      } );
 
-      this.addInputListener( new VertexDragHandler( vertexProperty, xRange, yRange, modelViewTransform ) );
+      // @private
+      this.addInputListener( new VertexDragHandler( vertexProperty, modelViewTransform,
+        new Bounds2( xRange.min, yRange.min, xRange.max, yRange.max ) ) );
 
       // @private called by dispose
       this.disposePointManipulator = () => {
-        vertexProperty.unlink( lineObserver );
+        quadraticProperty.unlink( quadraticListener );
       };
     }
 
@@ -85,11 +90,10 @@ define( require => {
     /**
      * Drag handler for vertex.
      * @param {Property.<Vector2>} vertexProperty
-     * @param {Range} xRange
-     * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {Bounds2} bounds
      */
-    constructor( vertexProperty, xRange, yRange, modelViewTransform ) {
+    constructor( vertexProperty, modelViewTransform, bounds ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -107,12 +111,13 @@ define( require => {
 
           // transform the drag point from view to model coordinate frame
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
-          const location = modelViewTransform.viewToModelPosition( parentPoint );
+          let location = modelViewTransform.viewToModelPosition( parentPoint );
 
-          // constrain to range, snap to grid
-          const x = Util.roundSymmetric( Util.clamp( location.x, xRange.min, xRange.max ) );
-          const y = Util.roundSymmetric( Util.clamp( location.y, yRange.min, yRange.max ) );
-          vertexProperty.value = new Vector2( x, y );
+          // constrain to graph bounds
+          location = bounds.closestPointTo( location );
+
+          // snap to grid
+          vertexProperty.value = new Vector2( Util.roundSymmetric( location.x ), Util.roundSymmetric( location.y ) );
         }
       } );
     }
