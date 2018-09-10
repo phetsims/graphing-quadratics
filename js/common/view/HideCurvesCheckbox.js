@@ -27,7 +27,7 @@ define( require => {
      */
     constructor( curvesVisibleProperty, options ) {
 
-      var label = new Text( hideCurvesString, {
+      const label = new Text( hideCurvesString, {
         font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
       } );
 

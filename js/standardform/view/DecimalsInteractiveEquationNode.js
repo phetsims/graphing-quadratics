@@ -99,7 +99,7 @@ define( require => {
       cDisplay.bottom = yText.bottom;
       
       // sliders below equation
-      var ySpacing = 5;
+      const ySpacing = 5;
       aSlider.centerX = aDisplay.centerX;
       bSlider.centerX = bDisplay.centerX;
       cSlider.centerX = cDisplay.centerX;

@@ -61,7 +61,7 @@ define( require => {
       }, options );
 
       // Map between value domains, determines how the slider responds.
-      var sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
+      const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
         reentrant: true,
         bidirectional: true,
         map: options.map,

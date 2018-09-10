@@ -27,7 +27,7 @@ define( require => {
      */
     constructor( coordinatesVisibleProperty, options ) {
 
-      var label = new Text( hideCoordinatesString, {
+      const label = new Text( hideCoordinatesString, {
         font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
       } );
 
