@@ -119,9 +119,9 @@ define( require => {
         const constantTerm = quadratic.getConstantTerm();
 
         // update Shapes
-        quadraticTermPath.setShape( this.createQuadraticShape( quadraticTerm ) );
-        linearTermPath.setShape( this.createQuadraticShape( linearTerm ) );
-        constantTermPath.setShape( this.createQuadraticShape( constantTerm ) );
+        quadraticTermPath.shape = this.createQuadraticShape( quadraticTerm );
+        linearTermPath.shape = this.createQuadraticShape( linearTerm );
+        constantTermPath.shape = this.createQuadraticShape( constantTerm );
 
         // update colors
         quadraticTermPath.stroke = quadraticTerm.color;

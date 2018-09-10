@@ -44,7 +44,7 @@ define( require => {
 
       // Update the view of the curve when the quadratic model changes. dispose not needed.
       quadraticProperty.link( quadratic => {
-        this.quadraticPath.setShape( this.createQuadraticShape( quadratic ) );
+        this.quadraticPath.shape = this.createQuadraticShape( quadratic );
         this.quadraticPath.stroke = quadratic.color;
       } );
     }
