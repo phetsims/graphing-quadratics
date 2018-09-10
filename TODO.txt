@@ -3,18 +3,15 @@ TODO list for graphing-quadratics
 DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Focus & Directrix screen
-Should graph controls be the same for both scenes on Standard Form screen?
-Should state of graph controls be shared between both scenes on Standard Form screen?
-Should roots be displayable on Vertex Form screen?
-Use new point tool design in both GQ and GL?
-Should sliders have more tick labels, so it's clear which one is non-linear?
-Using a NumberPicker for 'a' with decimalPlaces:0 results in big jumps
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Equations on each line on the graph
-Line[] in PointTool and PointToolNode is actually Quadratic[]
 Point tool doesn't work on term-specific lines
 Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
+Equations on each line on the graph, on outside edge of curve
+Equation on directrix
+Equation on axis of symmetry
+Coordinates for vertex, directly below/above (outside curve)
+Coordinates for roots, directly to left/right (outside curve)
 TODOs in the code
 stringTest
