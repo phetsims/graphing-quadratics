@@ -16,17 +16,12 @@ define( require => {
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   const InteractiveQuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/InteractiveQuadraticNode' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/common/view/NoRealRootsNode' );
   const Property = require( 'AXON/Property' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
-  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
-  const Text = require( 'SCENERY/nodes/Text' );
   const Vector2 = require( 'DOT/Vector2' );
   const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
-
-  // strings
-  const noRealRootsString = require( 'string!GRAPHING_QUADRATICS/noRealRoots' );
 
   class GQGraphNode extends Node {
 
@@ -68,18 +63,7 @@ define( require => {
       }
 
       // 'no real roots' label
-      const noRealRootsLabel = new Text( noRealRootsString, {
-        font: new PhetFont( { size: 18, weight: 'bold' } ),
-        fill: 'white'
-      } );
-      const noRealRootsBackground = new Rectangle( noRealRootsLabel.bounds.dilatedXY( 5, 1 ), {
-        fill: GQColors.ROOTS,
-        opacity: 0.75,
-        cornerRadius: 4,
-        center: noRealRootsLabel.center
-      } );
-      const noRealRootsNode = new Node( {
-        children: [ noRealRootsBackground, noRealRootsLabel ],
+      const noRealRootsNode = new NoRealRootsNode( {
         center: origin
       } );
 
