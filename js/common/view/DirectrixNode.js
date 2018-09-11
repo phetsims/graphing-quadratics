@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Displays the axis of symmetry for a quadratic.
+ * Displays the directrix for a quadratic.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -21,7 +21,7 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
-  class AxisOfSymmetryNode extends Node {
+  class DirectrixNode extends Node {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
@@ -32,7 +32,7 @@ define( require => {
     constructor( quadraticProperty, graph, modelViewTransform, options ) {
 
       options = _.extend( {
-        color: GQColors.AXIS_OF_SYMMETRY,
+        color: GQColors.DIRECTRIX,
         decimals: 2
       }, options );
 
@@ -44,38 +44,37 @@ define( require => {
 
       const equationNode = new RichText( '', {
         font: new PhetFont( 16 ),
-        fill: options.color,
-        rotation: Math.PI / 2
+        fill: options.color
       } );
 
-      assert && assert( !options.children, 'AxisOfSymmetryNode sets children' );
+      assert && assert( !options.children, 'Directrix sets children' );
       options.children = [ path, equationNode ];
 
       super( options );
 
-      const minY = modelViewTransform.modelToViewY( graph.yRange.max );
-      const maxY = modelViewTransform.modelToViewY( graph.yRange.min );
+      const minX = modelViewTransform.modelToViewX( graph.xRange.min );
+      const maxX = modelViewTransform.modelToViewX( graph.xRange.max );
 
       quadraticProperty.link( quadratic => {
 
-        if ( quadratic.axisOfSymmetry === undefined ) {
+        if ( quadratic.directrix === undefined ) {
           path.shape = null;
           equationNode.text = '';
         }
         else {
-          const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
-          path.shape = new Shape().moveTo( x, minY ).lineTo( x, maxY );
+          const y = modelViewTransform.modelToViewY( quadratic.directrix );
+          path.shape = new Shape().moveTo( minX, y ).lineTo( maxX, y );
 
-          equationNode.text = StringUtils.fillIn( '{{x}} = {{value}}', {
-            x: GQSymbols.x,
-            value: Util.toFixedNumber( quadratic.axisOfSymmetry, options.decimals )
+          equationNode.text = StringUtils.fillIn( '{{y}} = {{value}}', {
+            y: GQSymbols.y,
+            value: Util.toFixedNumber( quadratic.directrix, options.decimals )
           } );
-          equationNode.left = path.right + 3;
-          equationNode.top = path.top + 15;
+          equationNode.left = path.left + 15;
+          equationNode.top = path.bottom + 3;
         }
       } );
     }
   }
 
-  return graphingQuadratics.register( 'AxisOfSymmetryNode', AxisOfSymmetryNode );
+  return graphingQuadratics.register( 'DirectrixNode', DirectrixNode );
 } );

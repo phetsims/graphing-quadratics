@@ -11,11 +11,10 @@ define( require => {
 
   // modules
   const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
-  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DirectrixNode = require( 'GRAPHING_QUADRATICS/common/view/DirectrixNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const LineNode = require( 'GRAPHING_LINES/common/view/LineNode' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
@@ -73,16 +72,8 @@ define( require => {
       const focusParentNode = new Node( { children: [ focusPoint ] } );
 
       // directrix
-      // make a property out of quadraticProperty.value.directrix in order to pass into LineNode
-      const directrixLineProperty = new DerivedProperty( [ quadraticProperty ], quadratic => quadratic.directrix );
-      const directrixLine = new LineNode( directrixLineProperty, graph, modelViewTransform, {
-        hasArrows: false,
-        lineOptions: {
-          lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
-          lineDash: GQConstants.DIRECTRIX_LINE_DASH
-        }
-      } );
-      const directrixParentNode = new Node( { children: [ directrixLine ] } );
+      const directrixNode = new DirectrixNode( quadraticProperty, graph, modelViewTransform );
+      const directrixParentNode = new Node( { children: [ directrixNode ] } );
 
       // rendering order
       this.addChild( quadraticTermParentNode );

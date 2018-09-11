@@ -11,7 +11,6 @@ define( require => {
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const Line = require( 'GRAPHING_LINES/common/model/Line' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -52,14 +51,8 @@ define( require => {
         this.axisOfSymmetry = h; // x = h
         this.vertex = new Vector2( h, k );
         this.focus = new Vector2( h, k + p );
-        //TODO this.directrix = k - p
-        this.directrix = new Line( 0, k - p, 1, k - p, GQColors.DIRECTRIX ); // y = k - p
+        this.directrix = k - p;
         this.roots = Util.solveQuadraticRootsReal( a, b, c ).map( root => new Vector2( root, 0 ) ); // {Vector[]}
-      }
-      else {
-        //TODO delete else clause after addressing directrix
-        // This is not a quadratic because a is zero.
-        this.directrix = null;
       }
     }
 
