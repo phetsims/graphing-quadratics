@@ -35,9 +35,7 @@ define( require => {
 
   // constants
   const NUMBER_OF_DECIMAL_PLACES = 1;
-  const VALUE_WINDOW_CENTER_X = 44; // center of the value window relative to the left edge of point_tool_body.png
-  const CIRCLE_AROUND_CROSSHAIR_RADIUS = 15; // view units, will not be transformed
-  const TRANSPARENT_WHITE = 'rgba( 255, 255, 255, 0.2 )';
+  const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of bodyImage
 
   class PointToolNode extends Node {
 
@@ -61,11 +59,10 @@ define( require => {
 
       const probeNode = new ProbeNode();
 
-      // background behind the displayed value
-      const BACKGROUND_MARGIN = 5;
-      const backgroundNode = new Rectangle( 0, 0,
-        bodyNode.width - ( 2 * BACKGROUND_MARGIN ), bodyNode.height - ( 2 * BACKGROUND_MARGIN ),
-        { pickable: false } );
+      // background behind the displayed value, sized to the body
+      const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10, {
+        pickable: false
+      } );
 
       // displayed value
       const valueNode = new Text( '?', {
@@ -75,19 +72,17 @@ define( require => {
       } );
 
       // orientation
+      assert && assert( pointTool.orientation === 'left' || pointTool.orientation === 'right',
+        'unsupported pointTool.orientation: ' + pointTool.orientation );
       if ( pointTool.orientation === 'left' ) {
         bodyNode.left = probeNode.right;
       }
-      else if ( pointTool.orientation === 'right' ) {
+      else {
         bodyNode.setScaleMagnitude( -1, 1 ); // reflect around y-axis
-        probeNode.setScaleMagnitude( -1, 1 ); // reflect around y-axis
+        probeNode.setScaleMagnitude( -1, 1 );
         bodyNode.right = probeNode.left;
       }
-      else {
-        throw new Error( 'unsupported point tool orientation: ' + pointTool.orientation );
-      }
-      backgroundNode.centerX = bodyNode.centerX;
-      backgroundNode.top = bodyNode.top + BACKGROUND_MARGIN;
+      backgroundNode.center = bodyNode.center;
 
       options.children = [ backgroundNode, bodyNode, probeNode, valueNode ];
       super( options );
@@ -170,22 +165,26 @@ define( require => {
 
   class ProbeNode extends Node {
 
-    constructor() {
+    constructor( options ) {
+
+      options = _.extend( {
+        radius: 15
+      }, options );
 
       // crosshairs for the probe
       const crosshairs = new Path( new Shape()
-        .moveTo( -CIRCLE_AROUND_CROSSHAIR_RADIUS, 0 )
-        .lineTo( CIRCLE_AROUND_CROSSHAIR_RADIUS * 1.5, 0 )
-        .moveTo( 0, -CIRCLE_AROUND_CROSSHAIR_RADIUS )
-        .lineTo( 0, CIRCLE_AROUND_CROSSHAIR_RADIUS ), {
+        .moveTo( -options.radius, 0 )
+        .lineTo( options.radius * 1.5, 0 )
+        .moveTo( 0, -options.radius )
+        .lineTo( 0, options.radius ), {
         stroke: 'black'
       } );
 
       // circle for the probe
-      const circle = new Circle( CIRCLE_AROUND_CROSSHAIR_RADIUS, {
+      const circle = new Circle( options.radius, {
         lineWidth: 2,
         stroke: 'black',
-        fill: TRANSPARENT_WHITE,
+        fill: 'rgba( 255, 255, 255, 0.2 )', // transparent white
         centerX: 0,
         centerY: 0
       } );
