@@ -78,6 +78,7 @@ define( require => {
         coordinatesProperty.unlink( coordinatesListener );
       };
 
+      // @private for use in other methods
       this.foregroundNode = foregroundNode;
       this.backgroundNode = backgroundNode;
     }
