@@ -15,6 +15,7 @@ define( require => {
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
 
   // strings
   const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
@@ -28,7 +29,7 @@ define( require => {
         valueColor: 'white',
         backgroundColor: 'black',
         cornerRadius: 4,
-        decimals: 1,
+        decimals: 0,
         xMargin: 3,
         yMargin: 1
       }, options );
@@ -52,8 +53,8 @@ define( require => {
 
         // coordinates
         valueNode.text = StringUtils.fillIn( pointXYString, {
-          x: location.x,
-          y: location.y
+          x: Util.toFixedNumber( location.x, options.decimals ),
+          y: Util.toFixedNumber( location.y, options.decimals )
         } );
 
         // resize background

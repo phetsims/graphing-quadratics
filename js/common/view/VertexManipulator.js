@@ -44,9 +44,10 @@ define( require => {
         reentrant: true
       } );
 
-      // dispose required
+      // dispose not needed
       const coordinatesNode = new CoordinatesNode( vertexProperty, {
         backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
+        decimals: 0,
         pickable: false
       } );
       this.addChild( coordinatesNode );
@@ -54,7 +55,7 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      // unlink in dispose
+      // unlink not needed
       const quadraticListener = quadratic => {
 
         // manipulator is visible only if the quadratic has a vertex
@@ -86,29 +87,12 @@ define( require => {
       // move the manipulator
       vertexProperty.link( vertex => { this.translation = modelViewTransform.modelToViewPosition( vertex ); } );
 
-      // unlink in dispose
-      const coordinatesVisibleListener = coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; };
-      coordinatesVisibleProperty.link( coordinatesVisibleListener );
+      // unlink not needed
+      coordinatesVisibleProperty.link( coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; } );
 
       // @private
       this.addInputListener( new VertexDragHandler( vertexProperty, modelViewTransform,
         new Bounds2( xRange.min, yRange.min, xRange.max, yRange.max ) ) );
-
-      // @private called by dispose
-      this.disposePointManipulator = () => {
-        quadraticProperty.unlink( quadraticListener );
-        coordinatesVisibleProperty.unlink( coordinatesVisibleListener );
-        coordinatesNode.dispose();
-      };
-    }
-
-    /**
-     * @public
-     * @override
-     */
-    dispose() {
-      this.disposePointManipulator();
-      Manipulator.prototype.dispose.call( this );
     }
   }
 

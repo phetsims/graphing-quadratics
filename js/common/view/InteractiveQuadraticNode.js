@@ -19,6 +19,7 @@ define( require => {
   const Path = require( 'SCENERY/nodes/Path' );
   const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
+  const VertexNode = require( 'GRAPHING_QUADRATICS/common/view/VertexNode' );
 
   class InteractiveQuadraticNode extends QuadraticNode {
 
@@ -64,7 +65,9 @@ define( require => {
       const pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
       // vertex
-      const vertexPoint = new PlottedPointNode( pointRadius, GQColors.VERTEX );
+      const vertexPoint = new VertexNode( quadraticProperty, viewProperties.coordinatesVisibleProperty, {
+        radius: pointRadius
+      } );
       const vertexPointParentNode = new Node( { children: [ vertexPoint ] } );
 
       // roots
@@ -131,7 +134,7 @@ define( require => {
         if ( quadratic.a !== 0 ) {
 
           // is a quadratic
-          vertexPoint.center = modelViewTransform.modelToViewPosition( quadratic.vertex );
+          vertexPoint.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
           focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
           quadraticTermPath.visible = true;
           vertexPoint.visible = true;
