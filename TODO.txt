@@ -6,6 +6,8 @@ Focus & Directrix screen
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Remove save & delete buttons from Focus screen
+Reconsider scene architecture, because every scene is different
 Make lines for terms available to point tools
 Points, coordinates and manipulators are clipped at edges of graph
 Point tool doesn't work on term-specific lines
