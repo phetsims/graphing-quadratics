@@ -77,33 +77,27 @@ define( require => {
       // orientation
       if ( pointTool.orientation === 'left' ) {
         bodyNode.left = probeNode.right;
-        backgroundNode.centerX = bodyNode.centerX;
-        backgroundNode.top = bodyNode.top + BACKGROUND_MARGIN;
-        valueNode.centerY = backgroundNode.centerY;
       }
       else if ( pointTool.orientation === 'right' ) {
+        bodyNode.setScaleMagnitude( -1, 1 ); // reflect around y-axis
         probeNode.setScaleMagnitude( -1, 1 ); // reflect around y-axis
         bodyNode.right = probeNode.left;
-        backgroundNode.centerX = bodyNode.centerX;
-        backgroundNode.top = bodyNode.top + BACKGROUND_MARGIN;
-        valueNode.centerY = backgroundNode.centerY;
       }
       else {
         throw new Error( 'unsupported point tool orientation: ' + pointTool.orientation );
       }
+      backgroundNode.centerX = bodyNode.centerX;
+      backgroundNode.top = bodyNode.top + BACKGROUND_MARGIN;
 
       options.children = [ backgroundNode, bodyNode, probeNode, valueNode ];
       super( options );
 
-      // @private
+      // @private for use in other methods
+      this.orientation = pointTool.orientation;
       this.backgroundNode = backgroundNode;
       this.bodyNode = bodyNode;
       this.probeNode = probeNode;
       this.valueNode = valueNode;
-
-      // initial state
-      this.setCoordinatesVector2( pointTool.locationProperty.value );
-      this.setBackground( options.backgroundNormalColor );
 
       // location and display
       Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, curvesVisibleProperty ],
@@ -144,11 +138,20 @@ define( require => {
      * @private
      */
     setCoordinatesVector2( p ) {
+
       this.valueNode.text = StringUtils.fillIn( pointXYString, {
         x: p ? Util.toFixed( p.x, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString,
         y: p ? Util.toFixed( p.y, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString
       } );
-      this.valueNode.centerX = this.bodyNode.left + VALUE_WINDOW_CENTER_X;  // centered
+
+      // center value in window
+      if ( this.orientation === 'left' ) {
+        this.valueNode.centerX = this.bodyNode.left + VALUE_WINDOW_CENTER_X;
+      }
+      else {
+        this.valueNode.centerX = this.bodyNode.right - VALUE_WINDOW_CENTER_X;
+      }
+      this.valueNode.centerY =  this.bodyNode.centerY;
     }
 
     // @private Sets the foreground, the color of the displayed value
