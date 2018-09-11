@@ -26,6 +26,7 @@ define( require => {
     AXIS_OF_SYMMETRY: 'rgb( 128, 0, 128 )', // purple
     ROOTS: PhetColorScheme.RED_COLORBLIND,
     A_SYMBOL: 'green',
+    POINT_ON_QUADRATIC: PhetColorScheme.RED_COLORBLIND,
     VERTEX_MANIPULATOR_HALO_ALPHA: 0.15
   };
 

@@ -29,6 +29,9 @@
   "noRealRoots": {
     "value": "NO REAL ROOTS"
   },
+  "pointOnQuadratic": {
+    "value": "Point on Quadratic"
+  },
   "x": {
     "value": "x"
   },

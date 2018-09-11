@@ -14,6 +14,7 @@ define( require => {
   const HideCoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCoordinatesCheckbox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const Panel = require( 'SUN/Panel' );
+  const PointOnQuadraticCheckbox = require( 'GRAPHING_QUADRATICS/common/view/PointOnQuadraticCheckbox' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   class FocusAndDirectrixGraphControls extends Panel {
@@ -26,6 +27,9 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
+      // Point on Quadratic, dispose not needed
+      const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty );
+
       // Hide coordinates, dispose not needed
       const hideCoordinatesCheckbox = new HideCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
 
@@ -37,6 +41,7 @@ define( require => {
         align: 'left',
         spacing: 20,
         children: [
+          pointOnQuadraticCheckbox,
           hideCoordinatesCheckbox,
           hideCurvesCheckbox
         ]
@@ -46,6 +51,7 @@ define( require => {
 
       // Disable other controls when 'Hide curves' is checked
       viewProperties.curvesVisibleProperty.link( curvesVisible => {
+        pointOnQuadraticCheckbox.enabled = curvesVisible;
         hideCoordinatesCheckbox.enabled = curvesVisible;
       } );
     }

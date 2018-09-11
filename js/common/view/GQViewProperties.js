@@ -29,7 +29,8 @@ define( require => {
         constantTermVisible: false,
         axisOfSymmetryVisible: false,
         vertexVisible: false,
-        rootsVisible: false
+        rootsVisible: false,
+        pointOnQuadraticVisible: true
       }, options );
 
       // @public whether the equation accordion box is expanded
@@ -58,6 +59,9 @@ define( require => {
 
       // @public whether points are displayed to mark roots of the quadratic
       this.rootsVisibleProperty = new BooleanProperty( options.rootsVisible );
+
+      // @public whether an interactive point is visible on the quadratic
+      this.pointOnQuadraticVisibleProperty = new BooleanProperty( options.pointOnQuadraticVisible );
     }
 
     /**
@@ -74,6 +78,7 @@ define( require => {
       this.axisOfSymmetryVisibleProperty.reset();
       this.vertexVisibleProperty.reset();
       this.rootsVisibleProperty.reset();
+      this.pointOnQuadraticVisibleProperty.reset();
     }
   }
 
