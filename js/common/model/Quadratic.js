@@ -48,17 +48,17 @@ define( require => {
         const k = c - b * b / ( 4 * a );
         const p = 1 / ( 4 * a );
 
-        // @public (read-only)
+        // @public (read-only) these will be undefined if a === 0
+        this.axisOfSymmetry = h; // x = h
         this.vertex = new Vector2( h, k );
-        this.axisOfSymmetry = new Line( h, 0, h, 1, GQColors.VERTEX ); // x = h;
         this.focus = new Vector2( h, k + p );
+        //TODO this.directrix = k - p
         this.directrix = new Line( 0, k - p, 1, k - p, GQColors.DIRECTRIX ); // y = k - p
         this.roots = Util.solveQuadraticRootsReal( a, b, c ).map( root => new Vector2( root, 0 ) ); // {Vector[]}
       }
       else {
-
+        //TODO delete else clause after addressing directrix
         // This is not a quadratic because a is zero.
-        this.axisOfSymmetry = null;
         this.directrix = null;
       }
     }

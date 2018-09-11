@@ -23,6 +23,7 @@ define( require => {
     FOCUS: 'green',
     DIRECTRIX: 'green',
     VERTEX: 'rgb( 128, 0, 128 )', // purple
+    AXIS_OF_SYMMETRY: 'rgb( 128, 0, 128 )', // purple
     ROOTS: PhetColorScheme.RED_COLORBLIND,
     A_SYMBOL: 'green',
     VERTEX_MANIPULATOR_HALO_ALPHA: 0.15
