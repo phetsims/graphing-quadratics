@@ -30,11 +30,11 @@ define( require => {
     constructor( coordinatesProperty, options ) {
 
       options = _.extend( {
+        decimals: 0,
         font: new PhetFont( 16 ),
         foregroundColor: 'black',
         backgroundColor: 'white',
         cornerRadius: 4,
-        decimals: 0,
         xMargin: 4,
         yMargin: 2
       }, options );
@@ -77,32 +77,12 @@ define( require => {
       this.disposeCoordinatesNode = function() {
         coordinatesProperty.unlink( coordinatesListener );
       };
-
-      // @private for use in other methods
-      this.foregroundNode = foregroundNode;
-      this.backgroundNode = backgroundNode;
     }
 
     dispose() {
       this.disposeCoordinatesNode();
       super.dispose();
     }
-
-    /**
-     * Sets the foreground color.
-     * @param {Color|string} color
-     */
-    setForegroundColor( color ) { this.foregroundNode.fill = color; }
-
-    set foregroundColor( color ) { this.setForegroundColor( color ); }
-
-    /**
-     * Sets the background color.
-     * @param {Color|string} color
-     */
-    setBackgroundColor( color ) { this.backgroundNode.fill = color; }
-
-    set backgroundColor( color ) { this.setBackgroundColor( color ); }
   }
 
   return graphingQuadratics.register( 'CoordinatesNode', CoordinatesNode );
