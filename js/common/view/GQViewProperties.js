@@ -30,8 +30,6 @@ define( require => {
         axisOfSymmetryVisible: false,
         vertexVisible: false,
         rootsVisible: false,
-        focusVisible: false,
-        directrixVisible: false
       }, options );
 
       // @public whether the equation accordion box is expanded
