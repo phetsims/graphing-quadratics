@@ -89,37 +89,26 @@ define( require => {
 
       // @private for use in other methods
       this.orientation = pointTool.orientation;
-      this.backgroundNode = backgroundNode;
       this.bodyNode = bodyNode;
-      this.probeNode = probeNode;
       this.valueNode = valueNode;
 
-      // location and display
       Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, curvesVisibleProperty ],
         ( location, onQuadratic, curvesVisible ) => {
 
           // move to location
           this.translation = modelViewTransform.modelToViewPosition( location );
 
-          // display value and highlighting
-          if ( graph.contains( location ) ) {
-            this.setCoordinates( location );
-            if ( curvesVisible ) {
-              // use the quadratic's color to highlight
-              this.setForeground( !onQuadratic ?
-                                  options.foregroundNormalColor : options.foregroundHighlightColor );
-              this.setBackground( !onQuadratic ?
-                                  options.backgroundNormalColor : onQuadratic.color );
-            }
-            else {
-              this.setForeground( options.foregroundNormalColor );
-              this.setBackground( options.backgroundNormalColor );
-            }
+          // update coordinates
+          this.setCoordinates( graph.contains( location ) ? location : null );
+
+          // updater colors
+          if ( onQuadratic && curvesVisible ) {
+            valueNode.fill = options.foregroundHighlightColor;
+            backgroundNode.fill = onQuadratic.color;
           }
           else {
-            this.setCoordinates( null );
-            this.setForeground( options.foregroundNormalColor );
-            this.setBackground( options.backgroundNormalColor );
+            valueNode.fill = options.foregroundNormalColor;
+            backgroundNode.fill = options.backgroundNormalColor;
           }
         } );
 
@@ -148,16 +137,6 @@ define( require => {
         this.valueNode.centerX = this.bodyNode.right - VALUE_WINDOW_CENTER_X;
       }
       this.valueNode.centerY =  this.bodyNode.centerY;
-    }
-
-    // @private Sets the foreground, the color of the displayed value
-    setForeground( color ) {
-      this.valueNode.fill = color;
-    }
-
-    // @private Sets the background, the color of the rectangle behind the value
-    setBackground( color ) {
-      this.backgroundNode.fill = color;
     }
   }
 
