@@ -95,6 +95,8 @@ define( require => {
       viewProperties.axisOfSymmetryVisibleProperty.link( visible => { axisOfSymmetryParentNode.visible = visible; } );
       viewProperties.vertexVisibleProperty.link( visible => { vertexParentNode.visible = visible; } );
       viewProperties.rootsVisibleProperty.link( visible => { rootPointsParentNode.visible = visible; } );
+      viewProperties.focusVisibleProperty.link( visible => { focusParentNode.visible = visible; } );
+      viewProperties.directrixVisibleProperty.link( visible => { directrixParentNode.visible = visible; } );
 
       // Update the view of the curve when the quadratic model changes. dispose not needed.
       quadraticProperty.link( quadratic => {

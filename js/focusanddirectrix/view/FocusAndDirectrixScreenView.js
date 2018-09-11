@@ -24,7 +24,8 @@ define( require => {
       //TODO this pattern of passing view Properties to superclass is awkward
       const viewProperties = new GQViewProperties( {
         focusVisible: true,
-        directrixVisible: true
+        directrixVisible: true,
+        pointOnQuadraticVisible: true
       } );
       super( model, [ viewProperties ] );
       this.addChild( new FocusAndDirectrixSceneNode( model.scene, this.layoutBounds, viewProperties ) );

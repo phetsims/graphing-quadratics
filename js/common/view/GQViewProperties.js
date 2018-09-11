@@ -30,7 +30,9 @@ define( require => {
         axisOfSymmetryVisible: false,
         vertexVisible: false,
         rootsVisible: false,
-        pointOnQuadraticVisible: true
+        focusVisible: false,
+        directrixVisible: false,
+        pointOnQuadraticVisible: false
       }, options );
 
       // @public whether the equation accordion box is expanded
@@ -60,6 +62,12 @@ define( require => {
       // @public whether points are displayed to mark roots of the quadratic
       this.rootsVisibleProperty = new BooleanProperty( options.rootsVisible );
 
+      // @public whether focus is visible
+      this.focusVisibleProperty = new BooleanProperty( options.focusVisible );
+
+      // @public whether directrix is visible
+      this.directrixVisibleProperty = new BooleanProperty( options.directrixVisible );
+
       // @public whether an interactive point is visible on the quadratic
       this.pointOnQuadraticVisibleProperty = new BooleanProperty( options.pointOnQuadraticVisible );
     }
@@ -78,6 +86,8 @@ define( require => {
       this.axisOfSymmetryVisibleProperty.reset();
       this.vertexVisibleProperty.reset();
       this.rootsVisibleProperty.reset();
+      this.focusVisibleProperty.reset();
+      this.directrixVisibleProperty.reset();
       this.pointOnQuadraticVisibleProperty.reset();
     }
   }
