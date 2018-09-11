@@ -30,7 +30,7 @@ define( require => {
     constructor( coordinatesProperty, options ) {
 
       options = _.extend( {
-        font: new PhetFont( 18 ),
+        font: new PhetFont( 16 ),
         foregroundColor: 'black',
         backgroundColor: 'white',
         cornerRadius: 4,
