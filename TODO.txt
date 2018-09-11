@@ -3,6 +3,8 @@ TODO list for graphing-quadratics
 DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Focus & Directrix screen
+Standard vs General form?
+Should Focus screen equation be reversed, so that y is on left side?
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
