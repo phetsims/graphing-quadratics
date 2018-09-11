@@ -14,6 +14,7 @@ define( require => {
   const Circle = require( 'SCENERY/nodes/Circle' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
+  const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -131,32 +132,46 @@ define( require => {
 
   class ProbeNode extends Node {
 
+    /**
+     * Draw in the 'left' orientation, with the probe on the left side of the tool.
+     * @param {Object} [options]
+     */
     constructor( options ) {
 
       options = _.extend( {
-        radius: 15
+        radius: 15,
+        color: 'black'
       }, options );
 
-      // crosshairs for the probe
-      const crosshairs = new Path( new Shape()
-        .moveTo( -options.radius, 0 )
-        .lineTo( options.radius * 1.5, 0 )
-        .moveTo( 0, -options.radius )
-        .lineTo( 0, options.radius ), {
-        stroke: 'black'
-      } );
-
-      // circle for the probe
+      // circle
       const circle = new Circle( options.radius, {
-        lineWidth: 2,
-        stroke: 'black',
+        lineWidth: 3,
+        stroke: options.color,
         fill: 'rgba( 255, 255, 255, 0.2 )', // transparent white
         centerX: 0,
         centerY: 0
       } );
 
+      // crosshairs
+      const crosshairs = new Path( new Shape()
+        .moveTo( -options.radius, 0 )
+        .lineTo( options.radius, 0 )
+        .moveTo( 0, -options.radius )
+        .lineTo( 0, options.radius ), {
+        stroke: options.color,
+        center: circle.center
+      } );
+
+      // shaft that connects the probe to the body
+      const shaft = new Line( 0, 0, 0.5 * options.radius, 0, {
+        stroke: 'rgb( 144, 144, 144 )', // matched to bodyImage
+        lineWidth: 4,
+        left: circle.right,
+        centerY: circle.centerY
+      } );
+
       super( {
-        children: [ crosshairs, circle ],
+        children: [ shaft, crosshairs, circle ],
 
         // Not pickable because picking bounds are rectangular, making the tip pickable made it difficult
         // to pick a manipulator when the tip and manipulator were on the same grid point.
