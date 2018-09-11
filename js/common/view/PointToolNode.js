@@ -69,7 +69,7 @@ define( require => {
 
       // displayed value
       const valueNode = new Text( '?', {
-        font: new PhetFont( { size: 15, weight: 'bold' } ),
+        font: new PhetFont( 15 ),
         pickable: false,
         maxWidth: 60 // constrain width, determined empirically, dependent on bodyImage
       } );
