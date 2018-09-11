@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Drag handler for the vertex.
+ * Manipulator for editing a quadratic by changing its vertex.
+ * Displays the coordinates of the vertex.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
