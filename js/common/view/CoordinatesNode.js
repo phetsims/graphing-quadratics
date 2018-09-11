@@ -31,42 +31,45 @@ define( require => {
 
       options = _.extend( {
         font: new PhetFont( 18 ),
-        valueColor: 'white',
-        backgroundColor: 'black',
+        foregroundColor: 'black',
+        backgroundColor: 'white',
         cornerRadius: 4,
         decimals: 0,
         xMargin: 3,
         yMargin: 1
       }, options );
 
+      // the coordinates
+      const foregroundNode = new Text( '', {
+        font: options.font,
+        fill: options.foregroundColor
+      } );
+
+      // rectangle behind the coordinates
       const backgroundNode = new Rectangle( 0, 0, 1, 1, {
         fill: options.backgroundColor,
         cornerRadius: options.cornerRadius
       } );
 
-      const valueNode = new Text( '', {
-        font: options.font,
-        fill: options.valueColor
-      } );
-
       assert && assert( !options.children, 'CoordinatesNode sets children' );
-      options.children = [ backgroundNode, valueNode ];
+      options.children = [ backgroundNode, foregroundNode ];
 
       super( options );
 
       const coordinatesListener = coordinates => {
 
         // coordinates
-        valueNode.text = StringUtils.fillIn( pointXYString, {
+        foregroundNode.text = StringUtils.fillIn( pointXYString, {
           x: coordinates ? Util.toFixedNumber( coordinates.x, options.decimals ) : coordinateUnknownString,
           y: coordinates ? Util.toFixedNumber( coordinates.y, options.decimals ) : coordinateUnknownString
         } );
 
         // resize background
-        backgroundNode.setRect( 0, 0, valueNode.width + ( 2 * options.xMargin ), valueNode.height + ( 2 * options.yMargin ) );
+        backgroundNode.setRect( 0, 0,
+          foregroundNode.width + ( 2 * options.xMargin ), foregroundNode.height + ( 2 * options.yMargin ) );
 
         // center coordinates in background
-        valueNode.center = backgroundNode.center;
+        foregroundNode.center = backgroundNode.center;
       };
       coordinatesProperty.link( coordinatesListener );
 
@@ -74,12 +77,31 @@ define( require => {
       this.disposeCoordinatesNode = function() {
         coordinatesProperty.unlink( coordinatesListener );
       };
+
+      this.foregroundNode = foregroundNode;
+      this.backgroundNode = backgroundNode;
     }
 
     dispose() {
       this.disposeCoordinatesNode();
       super.dispose();
     }
+
+    set foregroundColor( color ) { this.setForegroundColor( color ); }
+
+    set backgroundColor( color ) { this.setBackgroundColor( color ); }
+
+    /**
+     * Sets the foreground color.
+     * @param {Color|string} color
+     */
+    setForegroundColor( color ) { this.foregroundNode.fill = color; }
+
+    /**
+     * Sets the background color.
+     * @param {Color|string} color
+     */
+    setBackgroundColor( color ) { this.backgroundNode.fill = color; }
   }
 
   return graphingQuadratics.register( 'CoordinatesNode', CoordinatesNode );
