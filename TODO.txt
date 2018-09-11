@@ -7,7 +7,7 @@ Focus & Directrix screen
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Make lines for terms available to point tools
-Vertex and root points are clipped at edges of graph
+Points, coordinates and manipulators are clipped at edges of graph
 Point tool doesn't work on term-specific lines
 Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
 Equations on each line on the graph, on outside edge of curve
