@@ -11,10 +11,15 @@ define( require => {
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
   const Shape = require( 'KITE/Shape' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Util = require( 'DOT/Util' );
 
   class AxisOfSymmetryNode extends Node {
 
@@ -27,7 +32,8 @@ define( require => {
     constructor( quadraticProperty, graph, modelViewTransform, options ) {
 
       options = _.extend( {
-        color: GQColors.AXIS_OF_SYMMETRY
+        color: GQColors.AXIS_OF_SYMMETRY,
+        decimals: 2
       }, options );
 
       const path = new Path( null, {
@@ -36,8 +42,14 @@ define( require => {
         lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
       } );
 
+      const equationNode = new RichText( '', {
+        font: new PhetFont( 16 ),
+        fill: options.color,
+        rotation: Math.PI / 2
+      } );
+
       assert && assert( !options.children, 'AxisOfSymmetryNode sets children' );
-      options.children = [ path ];
+      options.children = [ path, equationNode ];
 
       super( options );
 
@@ -45,12 +57,21 @@ define( require => {
       const maxY = modelViewTransform.modelToViewY( graph.yRange.min );
 
       quadraticProperty.link( quadratic => {
+
         if ( quadratic.axisOfSymmetry === undefined ) {
           path.shape = null;
+          equationNode.text = '';
         }
         else {
           const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
           path.shape = new Shape().moveTo( x, minY ).lineTo( x, maxY );
+
+          equationNode.text = StringUtils.fillIn( '{{x}} = {{value}}', {
+            x: GQSymbols.x,
+            value: Util.toFixedNumber( quadratic.axisOfSymmetry, options.decimals )
+          } );
+          equationNode.left = path.right + 3;
+          equationNode.top = path.top + 12;
         }
       } );
     }
