@@ -103,7 +103,7 @@ define( require => {
 
           // display value and highlighting
           if ( graph.contains( location ) ) {
-            this.setCoordinatesVector2( location );
+            this.setCoordinates( location );
             if ( curvesVisible ) {
               // use the quadratic's color to highlight
               this.setForeground( !onQuadratic ?
@@ -117,7 +117,7 @@ define( require => {
             }
           }
           else {
-            this.setCoordinatesVector2( null );
+            this.setCoordinates( null );
             this.setForeground( options.foregroundNormalColor );
             this.setBackground( options.backgroundNormalColor );
           }
@@ -132,8 +132,9 @@ define( require => {
      * @param {Vector|null} p
      * @private
      */
-    setCoordinatesVector2( p ) {
+    setCoordinates( p ) {
 
+      // (x, y) or (?, ?)
       this.valueNode.text = StringUtils.fillIn( pointXYString, {
         x: p ? Util.toFixedNumber( p.x, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString,
         y: p ? Util.toFixedNumber( p.y, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString
