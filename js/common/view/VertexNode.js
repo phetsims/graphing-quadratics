@@ -49,7 +49,7 @@ define( require => {
 
       super( options );
 
-      // y offset of coordinates from manipulator
+      // y offset of coordinates from point
       const coordinatesYOffset = 2 * options.radius;
 
       // unlink not needed
