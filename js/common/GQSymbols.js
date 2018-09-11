@@ -19,6 +19,7 @@ define( require => {
   const cString = require( 'string!GRAPHING_QUADRATICS/c' );
   const hString = require( 'string!GRAPHING_QUADRATICS/h' );
   const kString = require( 'string!GRAPHING_QUADRATICS/k' );
+  const pString = require( 'string!GRAPHING_QUADRATICS/p' );
   const xString = require( 'string!GRAPHING_QUADRATICS/x' );
   const yString = require( 'string!GRAPHING_QUADRATICS/y' );
 
@@ -32,6 +33,7 @@ define( require => {
     c: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: cString } ),
     h: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: hString } ),
     k: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: kString } ),
+    p: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: pString } ),
     x: x,
     xSquared: StringUtils.fillIn( '{{x}}<sup>2</sup>', { x: x } ),
     y: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: yString } )

@@ -53,6 +53,9 @@
   "k": {
     "value": "k"
   },
+  "p": {
+    "value": "p"
+  },
   "pointXY": {
     "value": "({{x}}, {{y}})"
   },
