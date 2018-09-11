@@ -44,7 +44,7 @@ define( require => {
         // turn y = ax^2 + bx + c into 4p(y - k) = (x - h)^2
         // see http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
         const h = -b / ( 2 * a );
-        const k = c - b * b / ( 4 * a );
+        const k = c - ( ( b * b ) / ( 4 * a ) );
         const p = 1 / ( 4 * a );
 
         // @public (read-only) these will be undefined if a === 0
@@ -106,6 +106,24 @@ define( require => {
     static createFromVertexForm( a, h, k, options ) {
       const b = -2 * a * h;
       const c = a * h * h + k;
+      return new Quadratic( a, b, c, options );
+    }
+
+    //TODO is 'standard form' the correct name?
+    //TODO is this implementation correct? It's untested.
+    /**
+     * Creates a quadratic given h, p, k based on the equation (x -h)^2 = 4p(y - k)
+     * @param {number} h
+     * @param {number} p
+     * @param {number} k
+     * @param {Object} [options] - see Quadratic constructor
+     * @returns {Quadratic}
+     */
+    static createFromStandardForm( h, p, k, options ) {
+      assert && assert( p !== 0 );
+      const a = 1 / ( 4 * p );
+      const b = -2 * a * h;
+      const c = k + ( ( b * b ) / ( 4 * a ) );
       return new Quadratic( a, b, c, options );
     }
 
