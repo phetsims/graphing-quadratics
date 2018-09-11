@@ -60,12 +60,6 @@ define( require => {
 
       // @public whether points are displayed to mark roots of the quadratic
       this.rootsVisibleProperty = new BooleanProperty( options.rootsVisible );
-
-      // @public whether focus is visible
-      this.focusVisibleProperty = new BooleanProperty( options.focusVisible );
-
-      // @public whether directrix is visible
-      this.directrixVisibleProperty = new BooleanProperty( options.directrixVisible );
     }
 
     /**
@@ -82,8 +76,6 @@ define( require => {
       this.axisOfSymmetryVisibleProperty.reset();
       this.vertexVisibleProperty.reset();
       this.rootsVisibleProperty.reset();
-      this.focusVisibleProperty.reset();
-      this.directrixVisibleProperty.reset();
     }
   }
 

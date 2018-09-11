@@ -9,9 +9,6 @@ define( require => {
   'use strict';
 
   // modules
-  const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
-  const DirectrixCheckbox = require( 'GRAPHING_QUADRATICS/common/view/DirectrixCheckbox' );
-  const FocusCheckbox = require( 'GRAPHING_QUADRATICS/common/view/FocusCheckbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HideCoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCoordinatesCheckbox' );
@@ -29,15 +26,6 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
-      // Focus, dispose not needed
-      const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty );
-
-      // Directrix, dispose not needed
-      const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty );
-
-      // Axis of Symmetry, dispose not needed
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
-
       // Hide coordinates, dispose not needed
       const hideCoordinatesCheckbox = new HideCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
 
@@ -49,9 +37,6 @@ define( require => {
         align: 'left',
         spacing: 20,
         children: [
-          focusCheckbox,
-          directrixCheckbox,
-          axisOfSymmetryCheckbox,
           hideCoordinatesCheckbox,
           hideCurvesCheckbox
         ]
@@ -61,8 +46,6 @@ define( require => {
 
       // Disable other controls when 'Hide curves' is checked
       viewProperties.curvesVisibleProperty.link( curvesVisible => {
-        axisOfSymmetryCheckbox.enabled = curvesVisible;
-        directrixCheckbox.enabled = curvesVisible;
         hideCoordinatesCheckbox.enabled = curvesVisible;
       } );
     }
