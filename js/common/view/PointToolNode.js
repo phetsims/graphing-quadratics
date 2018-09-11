@@ -59,19 +59,19 @@ define( require => {
 
       const probeNode = new ProbeNode();
 
-      // background behind the displayed value, sized to the body
-      const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10, {
-        pickable: false
-      } );
-
-      // displayed value
-      const valueNode = new Text( '?', {
+      // displayed coordinates
+      const coordinatesNode = new Text( '?', {
         font: new PhetFont( 15 ),
         pickable: false,
         maxWidth: 60 // constrain width, determined empirically, dependent on bodyImage
       } );
 
-      // orientation
+      // background behind the coordinates, sized to the body
+      const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10, {
+        pickable: false
+      } );
+
+      // orientation - bodyImage is drawn in 'left' orientation
       assert && assert( pointTool.orientation === 'left' || pointTool.orientation === 'right',
         'unsupported pointTool.orientation: ' + pointTool.orientation );
       if ( pointTool.orientation === 'left' ) {
@@ -84,59 +84,45 @@ define( require => {
       }
       backgroundNode.center = bodyNode.center;
 
-      options.children = [ backgroundNode, bodyNode, probeNode, valueNode ];
+      options.children = [ backgroundNode, bodyNode, probeNode, coordinatesNode ];
       super( options );
 
-      // @private for use in other methods
-      this.orientation = pointTool.orientation;
-      this.bodyNode = bodyNode;
-      this.valueNode = valueNode;
-
+      // dispose not needed
       Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, curvesVisibleProperty ],
         ( location, onQuadratic, curvesVisible ) => {
 
           // move to location
           this.translation = modelViewTransform.modelToViewPosition( location );
 
-          // update coordinates
-          this.setCoordinates( graph.contains( location ) ? location : null );
+          // update coordinates - (x, y) or (?, ?)
+          const onGraph = graph.contains( location );
+          coordinatesNode.text = StringUtils.fillIn( pointXYString, {
+            x: onGraph ? Util.toFixedNumber( location.x, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString,
+            y: onGraph ? Util.toFixedNumber( location.y, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString
+          } );
+
+          // center coordinates in window
+          if ( pointTool.orientation === 'left' ) {
+            coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
+          }
+          else {
+            coordinatesNode.centerX = bodyNode.right - VALUE_WINDOW_CENTER_X;
+          }
+          coordinatesNode.centerY = bodyNode.centerY;
 
           // updater colors
           if ( onQuadratic && curvesVisible ) {
-            valueNode.fill = options.foregroundHighlightColor;
+            coordinatesNode.fill = options.foregroundHighlightColor;
             backgroundNode.fill = onQuadratic.color;
           }
           else {
-            valueNode.fill = options.foregroundNormalColor;
+            coordinatesNode.fill = options.foregroundNormalColor;
             backgroundNode.fill = options.backgroundNormalColor;
           }
         } );
 
       // interactivity
       this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph ) );
-    }
-   
-    /**
-     * Sets the displayed value to a point
-     * @param {Vector|null} p
-     * @private
-     */
-    setCoordinates( p ) {
-
-      // (x, y) or (?, ?)
-      this.valueNode.text = StringUtils.fillIn( pointXYString, {
-        x: p ? Util.toFixedNumber( p.x, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString,
-        y: p ? Util.toFixedNumber( p.y, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString
-      } );
-
-      // center value in window
-      if ( this.orientation === 'left' ) {
-        this.valueNode.centerX = this.bodyNode.left + VALUE_WINDOW_CENTER_X;
-      }
-      else {
-        this.valueNode.centerX = this.bodyNode.right - VALUE_WINDOW_CENTER_X;
-      }
-      this.valueNode.centerY =  this.bodyNode.centerY;
     }
   }
 
