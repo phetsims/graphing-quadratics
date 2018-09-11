@@ -27,7 +27,7 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  const pointUnknownString = require( 'string!GRAPHING_QUADRATICS/pointUnknown' );
+  const coordinateUnknownString = require( 'string!GRAPHING_QUADRATICS/coordinateUnknown' );
   const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
   // images
@@ -128,7 +128,7 @@ define( require => {
             }
           }
           else {
-            this.setCoordinatesString( pointUnknownString );
+            this.setCoordinatesVector2( null );
             this.setForeground( options.foregroundNormalColor );
             this.setBackground( options.backgroundNormalColor );
           }
@@ -137,18 +137,17 @@ define( require => {
       // interactivity
       this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph ) );
     }
-
-    // @private Sets the displayed value to a point
+   
+    /**
+     * Sets the displayed value to a point
+     * @param {Vector|null} p
+     * @private
+     */
     setCoordinatesVector2( p ) {
-      this.setCoordinatesString( StringUtils.fillIn( pointXYString, {
-        x: Util.toFixed( p.x, NUMBER_OF_DECIMAL_PLACES ),
-        y: Util.toFixed( p.y, NUMBER_OF_DECIMAL_PLACES )
-      } ) );
-    }
-
-    // @private Sets the displayed value to an arbitrary string
-    setCoordinatesString( s ) {
-      this.valueNode.text = s;
+      this.valueNode.text = StringUtils.fillIn( pointXYString, {
+        x: p ? Util.toFixed( p.x, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString,
+        y: p ? Util.toFixed( p.y, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString
+      } );
       this.valueNode.centerX = this.bodyNode.left + VALUE_WINDOW_CENTER_X;  // centered
     }
 

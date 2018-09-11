@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Displays (x,y) coordinates for a location.
+ * Displays '(x, y)' coordinates for a location.  If the location is null, this displays '(?, ?)'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -18,11 +18,16 @@ define( require => {
   const Util = require( 'DOT/Util' );
 
   // strings
+  const coordinateUnknownString = require( 'string!GRAPHING_QUADRATICS/coordinateUnknown' );
   const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
   class CoordinatesNode extends Node {
 
-    constructor( locationProperty, options ) {
+    /**
+     * @param {Property.<Vector2|null>}coordinatesProperty
+     * @param {Object} [options]
+     */
+    constructor( coordinatesProperty, options ) {
 
       options = _.extend( {
         font: new PhetFont( 18 ),
@@ -37,7 +42,7 @@ define( require => {
       const backgroundNode = new Rectangle( 0, 0, 1, 1, {
         fill: options.backgroundColor,
         cornerRadius: options.cornerRadius
-      });
+      } );
 
       const valueNode = new Text( '', {
         font: options.font,
@@ -49,12 +54,12 @@ define( require => {
 
       super( options );
 
-      const locationListener = location => {
+      const coordinatesListener = coordinates => {
 
         // coordinates
         valueNode.text = StringUtils.fillIn( pointXYString, {
-          x: Util.toFixedNumber( location.x, options.decimals ),
-          y: Util.toFixedNumber( location.y, options.decimals )
+          x: coordinates ? Util.toFixedNumber( coordinates.x, options.decimals ) : coordinateUnknownString,
+          y: coordinates ? Util.toFixedNumber( coordinates.y, options.decimals ) : coordinateUnknownString
         } );
 
         // resize background
@@ -63,11 +68,11 @@ define( require => {
         // center coordinates in background
         valueNode.center = backgroundNode.center;
       };
-      locationProperty.link( locationListener );
+      coordinatesProperty.link( coordinatesListener );
 
       // @private
       this.disposeCoordinatesNode = function() {
-        locationProperty.unlink( locationListener );
+        coordinatesProperty.unlink( coordinatesListener );
       };
     }
 

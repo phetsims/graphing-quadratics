@@ -59,7 +59,7 @@
   "pointXY": {
     "value": "({{x}}, {{y}})"
   },
-  "pointUnknown": {
-    "value": "( ?, ? )"
+  "coordinateUnknown": {
+    "value": "?"
   }
 }
