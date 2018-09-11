@@ -88,21 +88,21 @@ define( require => {
       super.dispose();
     }
 
-    set foregroundColor( color ) { this.setForegroundColor( color ); }
-
-    set backgroundColor( color ) { this.setBackgroundColor( color ); }
-
     /**
      * Sets the foreground color.
      * @param {Color|string} color
      */
     setForegroundColor( color ) { this.foregroundNode.fill = color; }
 
+    set foregroundColor( color ) { this.setForegroundColor( color ); }
+
     /**
      * Sets the background color.
      * @param {Color|string} color
      */
     setBackgroundColor( color ) { this.backgroundNode.fill = color; }
+
+    set backgroundColor( color ) { this.setBackgroundColor( color ); }
   }
 
   return graphingQuadratics.register( 'CoordinatesNode', CoordinatesNode );
