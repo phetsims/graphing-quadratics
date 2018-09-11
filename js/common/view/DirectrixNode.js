@@ -69,7 +69,7 @@ define( require => {
             y: GQSymbols.y,
             value: Util.toFixedNumber( quadratic.directrix, options.decimals )
           } );
-          equationNode.left = path.left + 15;
+          equationNode.right = path.right - 15;
           equationNode.top = path.bottom + 3;
         }
       } );
