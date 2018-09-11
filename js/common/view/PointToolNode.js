@@ -140,8 +140,8 @@ define( require => {
     setCoordinatesVector2( p ) {
 
       this.valueNode.text = StringUtils.fillIn( pointXYString, {
-        x: p ? Util.toFixed( p.x, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString,
-        y: p ? Util.toFixed( p.y, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString
+        x: p ? Util.toFixedNumber( p.x, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString,
+        y: p ? Util.toFixedNumber( p.y, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString
       } );
 
       // center value in window
