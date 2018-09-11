@@ -35,8 +35,8 @@ define( require => {
         backgroundColor: 'white',
         cornerRadius: 4,
         decimals: 0,
-        xMargin: 3,
-        yMargin: 1
+        xMargin: 4,
+        yMargin: 2
       }, options );
 
       // the coordinates
