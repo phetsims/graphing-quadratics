@@ -11,19 +11,13 @@ define( require => {
 
   // modules
   const AccordionBox = require( 'SUN/AccordionBox' );
-  const EraserButton = require( 'SCENERY_PHET/buttons/EraserButton' );
-  const FontAwesomeNode = require( 'SUN/FontAwesomeNode' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const HSeparator = require( 'SUN/HSeparator' );
-  const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
-  const Property = require( 'AXON/Property' );
-  const RectangularPushButton = require( 'SUN/buttons/RectangularPushButton' );
+  const SaveCurveControls =  require( 'GRAPHING_QUADRATICS/common/view/SaveCurveControls' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
-  const BUTTON_ICON_WIDTH = 30;
   const SEPARATOR_OPTIONS = { stroke: 'rgb( 212, 212, 212 )' };
   
   class EquationAccordionBox extends AccordionBox {
@@ -41,24 +35,7 @@ define( require => {
 
       options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
-      // Save button
-      const saveButton = new RectangularPushButton( {
-        content: new FontAwesomeNode( 'camera', { maxWidth: BUTTON_ICON_WIDTH } ),
-        baseColor: PhetColorScheme.BUTTON_YELLOW,
-        listener: saveFunction
-      } );
-
-      // Erase button
-      const eraseButton = new EraserButton( { 
-        iconWidth: BUTTON_ICON_WIDTH, 
-        listener: eraseFunction 
-      } );
-
-      // horizontal layout of buttons
-      const buttons = new HBox( {
-        children: [ saveButton, eraseButton ],
-        spacing: 40
-      } );
+      const saveCurveControls = new SaveCurveControls( saveFunction, eraseFunction, curvesVisibleProperty, numberOfSavedLinesProperty );
 
       const content = new VBox( {
         align: 'center',
@@ -67,20 +44,11 @@ define( require => {
           new HSeparator( interactiveEquationNode.width, SEPARATOR_OPTIONS ),
           interactiveEquationNode,
           new HSeparator( interactiveEquationNode.width, SEPARATOR_OPTIONS ),
-          buttons
+          saveCurveControls
         ]
       } );
 
       super( content, options );
-
-      // Enable the save button when lines are visible. unlink not needed.
-      curvesVisibleProperty.link( curvesVisible => { saveButton.enabled = curvesVisible; } );
-
-      // Enable the erase button when lines are visible and there are saved lines. dispose not needed.
-      Property.multilink( [ curvesVisibleProperty, numberOfSavedLinesProperty ],
-        ( curvesVisible, numberOfSavedLines ) => {
-        eraseButton.enabled = curvesVisible && ( numberOfSavedLines > 0 );
-      } );
     }
   }
 
