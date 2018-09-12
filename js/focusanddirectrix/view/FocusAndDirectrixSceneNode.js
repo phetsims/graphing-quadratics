@@ -24,6 +24,12 @@ define( require => {
      * @param {Object} options
      */
     constructor( scene, layoutBounds, viewProperties, options ) {
+
+      options = options || {};
+
+      assert && assert( options.pointToolsVisible === undefined, 'FocusAndDirectrixSceneNode sets pointToolsVisible' );
+      options.pointToolsVisible = false;
+
       super( scene, layoutBounds, viewProperties,
 
         // standard form of the equation, title of accordion box
@@ -35,7 +41,7 @@ define( require => {
         // controls related to the graph
         new FocusAndDirectrixGraphControls( viewProperties ),
 
-        { pointToolsVisible: false }
+        options
       );
     }
   }
