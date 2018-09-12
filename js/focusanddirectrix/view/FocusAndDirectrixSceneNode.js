@@ -9,11 +9,10 @@ define( require => {
   'use strict';
 
   // modules
-  const FocusAndDirectrixEquationNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixEquationNode' );
+  const FocusAndDirectrixAccordionBox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixAccordionBox' );
   const FocusAndDirectrixGraphControls = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphControls' );
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
 
   class FocusAndDirectrixSceneNode extends GQSceneNode {
 
@@ -31,18 +30,9 @@ define( require => {
       options.pointToolsVisible = false;
 
       super( scene, layoutBounds, viewProperties,
-
-        // standard form of the equation, title of accordion box
-        new FocusAndDirectrixEquationNode(),
-
-        // interactive equation, in the accordion box
-        new IntegersInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange ),
-
-        // controls related to the graph
+        new FocusAndDirectrixAccordionBox( scene, viewProperties ),
         new FocusAndDirectrixGraphControls( viewProperties ),
-
-        options
-      );
+        options );
     }
   }
 

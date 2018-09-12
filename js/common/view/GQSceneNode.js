@@ -10,7 +10,6 @@ define( require => {
   'use strict';
 
   // modules
-  const EquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/EquationAccordionBox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -27,14 +26,12 @@ define( require => {
      * @param {GQScene} scene
      * @param {Bounds2} layoutBounds
      * @param {GQViewProperties} viewProperties
-     * @param {Node} accordionBoxTitleNode
-     * @param {Node} interactiveEquationNode
+     * @param {AccordionBox} accordionBox
      * @param {Panel} graphControls
      * @param {Object} [options]
      * @abstract
      */
-    constructor( scene, layoutBounds, viewProperties,
-                 accordionBoxTitleNode, interactiveEquationNode, graphControls, options ) {
+    constructor( scene, layoutBounds, viewProperties, accordionBox, graphControls, options ) {
 
       options = _.extend( {
         pointToolsVisible: true
@@ -61,19 +58,6 @@ define( require => {
 
       const controlPanelMaxWidth = layoutBounds.width - graphNode.width - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN ) - X_SPACING;
 
-      // Interactive equation and associated controls. dispose not needed.
-      const equationAccordionBox = new EquationAccordionBox(
-        interactiveEquationNode,
-        scene.saveQuadratic.bind( scene ),
-        scene.eraseQuadratics.bind( scene ),
-        viewProperties.curvesVisibleProperty,
-        scene.savedQuadratics.lengthProperty, {
-          titleNode: accordionBoxTitleNode,
-          expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
-          maxWidth: controlPanelMaxWidth
-        }
-      );
-
       // Parent for all control panels, to simplify layout
       const controlsParent = new VBox( {
         maxWidth: controlPanelMaxWidth,
@@ -81,7 +65,7 @@ define( require => {
         align: 'center',
         spacing: 10,
         children: [
-          equationAccordionBox,
+          accordionBox,
           graphControls
         ]
       } );

@@ -11,9 +11,8 @@ define( require => {
   // modules
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const IntegersAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersAccordionBox' );
   const IntegersGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersGraphControls' );
-  const IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
-  const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
 
   class IntegersSceneNode extends GQSceneNode {
 
@@ -25,17 +24,9 @@ define( require => {
      */
     constructor( scene, layoutBounds, viewProperties, options ) {
       super( scene, layoutBounds, viewProperties,
-
-        // standard form of the equation, title of accordion box
-        new StandardFormEquationNode(),
-
-        // interactive equation, in the accordion box
-        new IntegersInteractiveEquationNode( scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange ),
-
-        // controls related to the graph
+        new IntegersAccordionBox( scene, viewProperties ),
         new IntegersGraphControls( viewProperties ),
-        options
-      );
+        options );
     }
   }
 
