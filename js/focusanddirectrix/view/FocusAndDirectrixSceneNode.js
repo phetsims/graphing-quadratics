@@ -34,10 +34,9 @@ define( require => {
 
         // controls related to the graph
         new FocusAndDirectrixGraphControls( viewProperties ),
-        options
-      );
 
-      this.pointToolsParent.visible = false; //TODO handle this in a better way
+        { pointToolsVisible: false }
+      );
     }
   }
 

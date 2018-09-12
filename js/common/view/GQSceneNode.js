@@ -36,11 +36,17 @@ define( require => {
     constructor( scene, layoutBounds, viewProperties,
                  accordionBoxTitleNode, interactiveEquationNode, graphControls, options ) {
 
+      options = _.extend( {
+        pointToolsVisible: true
+      }, options );
+
       super( options );
 
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
       // dispose not needed.
-      const pointToolsParent = new Node();
+      const pointToolsParent = new Node( {
+        visible: options.pointToolsVisible
+      } );
       scene.pointTools.forEach( pointTool => {
         pointToolsParent.addChild( new PointToolNode(
           pointTool,
@@ -92,9 +98,6 @@ define( require => {
       // @public
       this.controlsParent = controlsParent;
       this.scene = scene;
-
-      // @protected TODO make this go away
-      this.pointToolsParent = pointToolsParent;
     }
   }
 
