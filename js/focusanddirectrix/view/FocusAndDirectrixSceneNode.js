@@ -36,6 +36,8 @@ define( require => {
         new FocusAndDirectrixGraphControls( viewProperties ),
         options
       );
+
+      this.pointToolsParent.visible = false; //TODO handle this in a better way
     }
   }
 

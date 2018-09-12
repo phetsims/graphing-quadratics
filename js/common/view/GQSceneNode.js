@@ -92,6 +92,9 @@ define( require => {
       // @public
       this.controlsParent = controlsParent;
       this.scene = scene;
+
+      // @protected TODO make this go away
+      this.pointToolsParent = pointToolsParent;
     }
   }
 
