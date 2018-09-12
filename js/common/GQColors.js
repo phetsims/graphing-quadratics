@@ -27,7 +27,8 @@ define( require => {
     ROOTS: PhetColorScheme.RED_COLORBLIND,
     A_SYMBOL: 'green',
     POINT_ON_QUADRATIC: PhetColorScheme.RED_COLORBLIND,
-    VERTEX_MANIPULATOR_HALO_ALPHA: 0.15
+    VERTEX_MANIPULATOR_HALO_ALPHA: 0.15,
+    SEPARATOR: 'rgb( 212, 212, 212 )'
   };
 
   return graphingQuadratics.register( 'GQColors', GQColors );

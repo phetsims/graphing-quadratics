@@ -12,14 +12,12 @@ define( require => {
   const AccordionBox = require( 'SUN/AccordionBox' );
   const FocusAndDirectrixEquationNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixEquationNode' );
   const FocusAndDirectrixInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixInteractiveEquationNode' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
-  // constants
-  const SEPARATOR_OPTIONS = { stroke: 'rgb( 212, 212, 212 )' };
-  
   class FocusAndDirectrixAccordionBox extends AccordionBox {
 
     /**
@@ -41,7 +39,7 @@ define( require => {
         align: 'center',
         spacing: 10,
         children: [
-          new HSeparator( interactiveEquationNode.width, SEPARATOR_OPTIONS ),
+          new HSeparator( interactiveEquationNode.width, { stroke: GQColors.SEPARATOR } ),
           interactiveEquationNode
         ]
       } );

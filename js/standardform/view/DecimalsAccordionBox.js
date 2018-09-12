@@ -10,6 +10,7 @@ define( require => {
 
   // modules
   const AccordionBox = require( 'SUN/AccordionBox' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
@@ -18,9 +19,6 @@ define( require => {
   const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
-  // constants
-  const SEPARATOR_OPTIONS = { stroke: 'rgb( 212, 212, 212 )' };
-  
   class DecimalsAccordionBox extends AccordionBox {
 
     /**
@@ -44,13 +42,15 @@ define( require => {
 
       const separatorWidth = Math.max( interactiveEquationNode.width, saveCurveControls.width );
 
+      const separatorOptions = { stroke: GQColors.SEPARATOR };
+
       const content = new VBox( {
         align: 'center',
         spacing: 10,
         children: [
-          new HSeparator( separatorWidth, SEPARATOR_OPTIONS ),
+          new HSeparator( separatorWidth, separatorOptions ),
           interactiveEquationNode,
-          new HSeparator( separatorWidth, SEPARATOR_OPTIONS ),
+          new HSeparator( separatorWidth, separatorOptions ),
           saveCurveControls
         ]
       } );
