@@ -38,6 +38,16 @@ define( require => {
       this.c = c;
       this.color = options.color;
 
+      // @public (read-only) {Vector2[]|null} null means that all points are roots (y = 0)
+      this.roots = null;
+      const xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
+      if ( xCoordinates !== null ) {
+        this.roots = [];
+        xCoordinates.forEach( x => { this.roots.push( new Vector2( x, 0 ) ); } );
+      }
+      assert && assert( this.roots === null || ( this.roots.length >= 0 && this.roots.length <= 2 ),
+        'unexpected roots: ' + this.roots );
+
       // This is a quadratic because a is nonzero. Determine more information about it.
       if ( a !== 0 ) {
 
@@ -52,7 +62,6 @@ define( require => {
         this.vertex = new Vector2( h, k );
         this.focus = new Vector2( h, k + p );
         this.directrix = k - p;
-        this.roots = Util.solveQuadraticRootsReal( a, b, c ).map( root => new Vector2( root, 0 ) ); // {Vector[]}
       }
     }
 
@@ -75,7 +84,7 @@ define( require => {
      * @public
      */
     hasRoots() {
-     return this.roots && ( this.roots.length > 0 );
+     return ( this.roots === null || this.roots.length > 0 ); // this.roots === null means that all points are roots
     }
 
     /**

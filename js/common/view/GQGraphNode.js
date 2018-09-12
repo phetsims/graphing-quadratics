@@ -117,7 +117,7 @@ define( require => {
       // If the quadratic has no roots, indicate so on the x axis. dispose not needed.
       Property.multilink( [ scene.quadraticProperty, viewProperties.rootsVisibleProperty ],
         ( quadratic, rootsVisible ) => {
-          noRealRootsNode.visible = ( quadratic.a !== 0 && !quadratic.hasRoots() && rootsVisible );
+          noRealRootsNode.visible = ( !quadratic.hasRoots() && rootsVisible );
         } );
     }
   }

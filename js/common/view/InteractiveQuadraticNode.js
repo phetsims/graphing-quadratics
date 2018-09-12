@@ -76,9 +76,9 @@ define( require => {
       const directrixParentNode = new Node( { children: [ directrixNode ] } );
 
       // rendering order
-      this.addChild( quadraticTermParentNode );
-      this.addChild( linearTermParentNode );
       this.addChild( constantTermParentNode );
+      this.addChild( linearTermParentNode );
+      this.addChild( quadraticTermParentNode );
       this.addChild( axisOfSymmetryParentNode );
       this.addChild( directrixParentNode );
       this.quadraticPath.moveToFront(); // quadratic in front of the above decorations
@@ -115,42 +115,39 @@ define( require => {
         linearTermPath.stroke = linearTerm.color;
         constantTermPath.stroke = constantTerm.color;
 
-        if ( quadratic.a !== 0 ) {
-
-          // is a quadratic
-          vertexNode.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
-          focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
-          quadraticTermPath.visible = true;
-          vertexNode.visible = true;
-          focusPoint.visible = true;
-
-          // roots
-          if ( quadratic.roots.length === 2 ) {
-            // two roots
-            root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
-            root1Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 1 ] );
-            root0Point.visible = true;
-            root1Point.visible = true;
-          }
-          else if ( quadratic.roots.length === 1 ) {
-            // one root
-            root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
-            root0Point.visible = true;
-            root1Point.visible = false;
-          }
-          else {
-            // no roots
-            root0Point.visible = false;
-            root1Point.visible = false;
-          }
-        }
-        else {
-          // not a quadratic
-          quadraticTermPath.visible = false;
-          vertexNode.visible = false;
-          focusPoint.visible = false;
+        // roots
+        if ( !quadratic.roots || quadratic.roots.length === 0 ) {
           root0Point.visible = false;
           root1Point.visible = false;
+        }
+        else if ( quadratic.roots.length === 2 ) {
+          root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
+          root1Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 1 ] );
+          root0Point.visible = true;
+          root1Point.visible = true;
+        }
+        else if ( quadratic.roots.length === 1 ) {
+          root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
+          root0Point.visible = true;
+          root1Point.visible = false;
+        }
+
+        // vertex
+        if ( quadratic.vertex === undefined ) {
+          vertexNode.visible = false;
+        }
+        else {
+          vertexNode.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
+          vertexNode.visible = true;
+        }
+
+        // focus
+        if ( quadratic.focus === undefined ) {
+          focusPoint.visible = false;
+        }
+        else {
+          focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
+          focusPoint.visible = true;
         }
       } );
     }
