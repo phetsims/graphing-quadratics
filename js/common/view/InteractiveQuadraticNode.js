@@ -11,13 +11,13 @@ define( require => {
 
   // modules
   const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
+  const Circle = require( 'SCENERY/nodes/Circle' );
   const DirectrixNode = require( 'GRAPHING_QUADRATICS/common/view/DirectrixNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
-  const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const VertexNode = require( 'GRAPHING_QUADRATICS/common/view/VertexNode' );
 
@@ -63,12 +63,12 @@ define( require => {
       const vertexParentNode = new Node( { children: [ vertexNode ] } );
 
       // roots
-      const root0Point = new PlottedPointNode( pointRadius, GQColors.ROOTS ); // left root, or single root
-      const root1Point = new PlottedPointNode( pointRadius, GQColors.ROOTS ); // right root
+      const root0Point = new Circle( pointRadius, { fill: GQColors.ROOTS } ); // left root, or single root
+      const root1Point = new Circle( pointRadius, { fill: GQColors.ROOTS } ); // right root
       const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
 
       // focus point
-      const focusPoint = new PlottedPointNode( pointRadius, GQColors.FOCUS );
+      const focusPoint = new Circle( pointRadius, { fill: GQColors.FOCUS } );
       const focusParentNode = new Node( { children: [ focusPoint ] } );
 
       // directrix

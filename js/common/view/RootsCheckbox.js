@@ -10,12 +10,12 @@ define( require => {
 
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
+  const Circle = require( 'SCENERY/nodes/Circle' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const PlottedPointNode = require( 'GRAPHING_QUADRATICS/common/view/PlottedPointNode' );
   const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -39,8 +39,8 @@ define( require => {
             align: 'center',
             spacing: 5,
             children: [
-              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS ),
-              new PlottedPointNode( POINT_RADIUS, GQColors.ROOTS )
+              new Circle( POINT_RADIUS, { fill: GQColors.ROOTS } ),
+              new Circle( POINT_RADIUS, { fill: GQColors.ROOTS } )
             ]
           } )
         ]
