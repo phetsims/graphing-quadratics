@@ -8,8 +8,10 @@ Should Focus screen equation be reversed, so that y is on left side?
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Remove save & delete buttons from Focus screen
 Reconsider scene architecture, because every scene is different
+
+Remove point tools from Focus screen
+Remove save & delete buttons from Focus screen
 Make lines for terms available to point tools
 Points, coordinates and manipulators are clipped at edges of graph
 Point tool doesn't work on term-specific lines
