@@ -36,7 +36,7 @@ define( require => {
     constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform, coordinatesVisibleProperty ) {
 
       super( radius, GQColors.VERTEX, {
-        haloAlpha: GQColors.VERTEX_MANIPULATOR_HALO_ALPHA
+        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
       } );
 
       // local Property whose value is the vertex of the current value of quadraticProperty
