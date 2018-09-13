@@ -17,6 +17,7 @@ define( require => {
   const InteractiveQuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/InteractiveQuadraticNode' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/common/view/NoRealRootsNode' );
+  const PointOnQuadraticManipulator = require( 'GRAPHING_QUADRATICS/common/view/PointOnQuadraticManipulator' );
   const Property = require( 'AXON/Property' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Shape = require( 'KITE/Shape' );
@@ -62,6 +63,16 @@ define( require => {
         );
       }
 
+      // Point on Quadratic manipulator, dispose not needed.
+      const pointOnQuadraticManipulator = new PointOnQuadraticManipulator(
+        scene.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        scene.quadraticProperty,
+        scene.graph.xRange,
+        scene.graph.yRange,
+        scene.modelViewTransform,
+        viewProperties.coordinatesVisibleProperty
+      );
+
       // 'no real roots' label
       const noRealRootsNode = new NoRealRootsNode( {
         center: origin
@@ -84,6 +95,7 @@ define( require => {
       contentNode.addChild( interactiveQuadraticNode );
       contentNode.addChild( noRealRootsNode );
       vertexManipulator && contentNode.addChild( vertexManipulator );
+      contentNode.addChild( pointOnQuadraticManipulator );
 
       // rendering order
       this.addChild( graphNode );
@@ -112,7 +124,10 @@ define( require => {
       } );
 
       // Show/hide the graph content. unlink not needed.
-      viewProperties.curvesVisibleProperty.link( curvesVisible => { contentNode.visible = curvesVisible; } );
+      viewProperties.curvesVisibleProperty.link( visible => { contentNode.visible = visible; } );
+
+      // Show/hide the point manipulator
+      viewProperties.pointOnQuadraticVisibleProperty.link( visible => { pointOnQuadraticManipulator.visible = visible; } );
 
       // If the quadratic has no roots, indicate so on the x axis. dispose not needed.
       Property.multilink( [ scene.quadraticProperty, viewProperties.rootsVisibleProperty ],
