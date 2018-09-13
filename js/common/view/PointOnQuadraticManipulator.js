@@ -41,7 +41,7 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( pointProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.POINT_ON_QUADRATIC ).withAlpha( 0.75 ),
-        decimals: 0,
+        decimals: 2,
         pickable: false
       } );
       this.addChild( coordinatesNode );
@@ -63,7 +63,8 @@ define( require => {
         this.translation = modelViewTransform.modelToViewPosition( point );
 
         // position coordinates based on which side of the curve the point is on
-        if ( !quadraticProperty.vertex || ( point.x >= quadraticProperty.vertex.x ) ) {
+        const vertex = quadraticProperty.value.vertex;
+        if ( !vertex || ( point.x >= vertex.x ) ) {
           coordinatesNode.left = coordinatesXOffset;
         }
         else {

@@ -49,7 +49,7 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( vertexProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
-        decimals: 0,
+        decimals: 2,
         pickable: false
       } );
       this.addChild( coordinatesNode );
