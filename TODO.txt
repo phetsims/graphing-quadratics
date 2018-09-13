@@ -6,6 +6,25 @@ Focus & Directrix screen
 Standard vs General form?
 Should Focus screen equation be reversed, so that y is on left side?
 
+Focus & Directrix screen:
+- Should y term be on the left side, i.e. 4p(y-k)=(x-h)^2 ?
+- What happens when p=0 ?
+- Are the manipulators continuous or do they snap to grid?
+- What happens when focus manipulator goes off the graph?
+- Should “Point on Quadratic” automatically adjust to stay on the graph?
+- No point tools?
+- No save/erase buttons?
+- The equation (x-h)^2=4p(y-k) is referred to as “standard form” in the literature. Do we have a terminology problem with the “Standard Form” screen?
+- where are coordinates displayed for 'Point on Quadratic'?
+- why are there red dashed lines associated with 'Point on Quadratic'?
+- default for 'Point on Quadratic'?
+- Do we always have a parabola in this screen? If not, what happens?
+
+General questions:
+- Are point coordinates always visible, or do we need a “Hide coordinates” checkbox?
+- Points have 2 decimal places, point tools have 1 decimal place. Is that OK?
+- What do we display when “Roots” checkbox is checked and y=0? (every point is a root)
+
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FocusAndDirectrixInteractiveEquationNode
