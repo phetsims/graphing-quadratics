@@ -59,11 +59,11 @@ define( require => {
         // point is visible only if the quadratic has a vertex
         this.visible = !!quadratic.vertex;
 
-        vertexProperty.value = quadraticProperty.value.vertex;
+        vertexProperty.value = quadratic.vertex;
 
         // position coordinates based on which way the curve opens
         coordinatesNode.centerX = 0;
-        if ( quadraticProperty.value.a > 0 ) {
+        if ( quadratic.a > 0 ) {
           coordinatesNode.top = coordinatesYOffset;
         }
         else {
