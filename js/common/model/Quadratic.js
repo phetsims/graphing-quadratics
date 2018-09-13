@@ -40,7 +40,7 @@ define( require => {
 
       // @public (read-only) {Vector2[]|null} null means that all points are roots (y = 0)
       this.roots = null;
-      const xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
+      const xCoordinates = _.uniq( Util.solveQuadraticRootsReal( a, b, c ) );
       if ( xCoordinates !== null ) {
         this.roots = [];
         xCoordinates.forEach( x => { this.roots.push( new Vector2( x, 0 ) ); } );

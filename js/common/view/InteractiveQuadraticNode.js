@@ -11,15 +11,14 @@ define( require => {
 
   // modules
   const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
-  const Circle = require( 'SCENERY/nodes/Circle' );
   const DirectrixNode = require( 'GRAPHING_QUADRATICS/common/view/DirectrixNode' );
   const FocusNode = require( 'GRAPHING_QUADRATICS/common/view/FocusNode' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
+  const RootsNode = require( 'GRAPHING_QUADRATICS/common/view/RootsNode' );
   const VertexNode = require( 'GRAPHING_QUADRATICS/common/view/VertexNode' );
 
   class InteractiveQuadraticNode extends QuadraticNode {
@@ -64,9 +63,10 @@ define( require => {
       const vertexParentNode = new Node( { children: [ vertexNode ] } );
 
       // roots
-      const root0Point = new Circle( pointRadius, { fill: GQColors.ROOTS } ); // left root, or single root
-      const root1Point = new Circle( pointRadius, { fill: GQColors.ROOTS } ); // right root
-      const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
+      const rootsNode = new RootsNode( quadraticProperty, modelViewTransform, viewProperties.coordinatesVisibleProperty, {
+        radius: pointRadius
+      } );
+      const rootsParentNode = new Node( { children: [ rootsNode] } );
 
       // focus point
       const focusNode = new FocusNode( quadraticProperty, modelViewTransform, viewProperties.coordinatesVisibleProperty, {
@@ -86,7 +86,7 @@ define( require => {
       this.addChild( directrixParentNode );
       this.quadraticPath.moveToFront(); // quadratic in front of the above decorations
       this.addChild( focusParentNode );
-      this.addChild( rootPointsParentNode );
+      this.addChild( rootsParentNode );
       this.addChild( vertexParentNode );
 
       // Control visibility of terms
@@ -97,7 +97,7 @@ define( require => {
       // Control visibility of decorations
       viewProperties.axisOfSymmetryVisibleProperty.link( visible => { axisOfSymmetryParentNode.visible = visible; } );
       viewProperties.vertexVisibleProperty.link( visible => { vertexParentNode.visible = visible; } );
-      viewProperties.rootsVisibleProperty.link( visible => { rootPointsParentNode.visible = visible; } );
+      viewProperties.rootsVisibleProperty.link( visible => { rootsParentNode.visible = visible; } );
       viewProperties.focusVisibleProperty.link( visible => { focusParentNode.visible = visible; } );
       viewProperties.directrixVisibleProperty.link( visible => { directrixParentNode.visible = visible; } );
 
@@ -117,23 +117,6 @@ define( require => {
         quadraticTermPath.stroke = quadraticTerm.color;
         linearTermPath.stroke = linearTerm.color;
         constantTermPath.stroke = constantTerm.color;
-
-        // roots
-        if ( !quadratic.roots || quadratic.roots.length === 0 ) {
-          root0Point.visible = false;
-          root1Point.visible = false;
-        }
-        else if ( quadratic.roots.length === 2 ) {
-          root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
-          root1Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 1 ] );
-          root0Point.visible = true;
-          root1Point.visible = true;
-        }
-        else if ( quadratic.roots.length === 1 ) {
-          root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
-          root0Point.visible = true;
-          root1Point.visible = false;
-        }
       } );
     }
   }
