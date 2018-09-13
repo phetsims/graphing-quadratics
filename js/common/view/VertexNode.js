@@ -40,7 +40,7 @@ define( require => {
         y: 0
       } );
 
-      const coordinatesProperty = new Property( quadraticProperty.value.vertex );
+      const coordinatesProperty = new Property( null );
 
       // dispose not needed
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
