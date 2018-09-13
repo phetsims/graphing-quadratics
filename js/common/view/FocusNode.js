@@ -67,7 +67,7 @@ define( require => {
           this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
 
           // position coordinates on the inside of the curve
-          coordinatesNode.centerX = 0;
+          coordinatesNode.centerX = pointNode.centerX;
           if ( quadratic.a > 0 ) {
             coordinatesNode.bottom = pointNode.top - Y_SPACING;
           }
