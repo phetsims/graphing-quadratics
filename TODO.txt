@@ -41,7 +41,8 @@ X Are point coordinates always visible, or do we need a “Hide coordinates” c
   yes
 X Points have 2 decimal places, point tools have 1 decimal place. Is that OK?
   Fine
-- What do we display when “Roots” checkbox is checked and y=0? (every point is a root)
+X What do we display when “Roots” checkbox is checked and y=0? (every point is a root)
+  Create an issue for this
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
