@@ -13,6 +13,7 @@ define( require => {
   const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
   const Circle = require( 'SCENERY/nodes/Circle' );
   const DirectrixNode = require( 'GRAPHING_QUADRATICS/common/view/DirectrixNode' );
+  const FocusNode = require( 'GRAPHING_QUADRATICS/common/view/FocusNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -57,7 +58,7 @@ define( require => {
       const pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
       // vertex
-      const vertexNode = new VertexNode( quadraticProperty, viewProperties.coordinatesVisibleProperty, {
+      const vertexNode = new VertexNode( quadraticProperty, modelViewTransform, viewProperties.coordinatesVisibleProperty, {
         radius: pointRadius
       } );
       const vertexParentNode = new Node( { children: [ vertexNode ] } );
@@ -68,8 +69,10 @@ define( require => {
       const rootPointsParentNode = new Node( { children: [ root0Point, root1Point ] } );
 
       // focus point
-      const focusPoint = new Circle( pointRadius, { fill: GQColors.FOCUS } );
-      const focusParentNode = new Node( { children: [ focusPoint ] } );
+      const focusNode = new FocusNode( quadraticProperty, modelViewTransform, viewProperties.coordinatesVisibleProperty, {
+        radius: pointRadius
+      } );
+      const focusParentNode = new Node( { children: [ focusNode ] } );
 
       // directrix
       const directrixNode = new DirectrixNode( quadraticProperty, graph, modelViewTransform );
@@ -130,24 +133,6 @@ define( require => {
           root0Point.center = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
           root0Point.visible = true;
           root1Point.visible = false;
-        }
-
-        // vertex
-        if ( quadratic.vertex === undefined ) {
-          vertexNode.visible = false;
-        }
-        else {
-          vertexNode.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
-          vertexNode.visible = true;
-        }
-
-        // focus
-        if ( quadratic.focus === undefined ) {
-          focusPoint.visible = false;
-        }
-        else {
-          focusPoint.center = modelViewTransform.modelToViewPosition( quadratic.focus );
-          focusPoint.visible = true;
         }
       } );
     }

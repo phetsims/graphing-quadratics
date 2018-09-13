@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Displays the vertex as a non-interactive point with coordinates label.
+ * Displays the focus point as a non-interactive point with coordinates label.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,7 +20,7 @@ define( require => {
   // constants
   const Y_SPACING = 5;
 
-  class VertexNode extends Node {
+  class FocusNode extends Node {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
@@ -35,21 +35,21 @@ define( require => {
       }, options );
 
       const pointNode = new Circle( options.radius, {
-        fill: GQColors.VERTEX,
+        fill: GQColors.FOCUS,
         x: 0,
         y: 0
       } );
 
-      const coordinatesProperty = new Property( quadraticProperty.value.vertex );
+      const coordinatesProperty = new Property( quadraticProperty.value.focus );
 
       // dispose not needed
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
-        backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
+        backgroundColor: new Color( GQColors.FOCUS ).withAlpha( 0.75 ),
         decimals: 2
       } );
 
-      assert && assert( !options.children, 'VertexNode sets children' );
+      assert && assert( !options.children, 'FocusNode sets children' );
       options.children = [ pointNode, coordinatesNode ];
 
       super( options );
@@ -57,23 +57,22 @@ define( require => {
       // unlink not needed
       quadraticProperty.link( quadratic => {
 
-        coordinatesProperty.value = quadratic.vertex;
+        coordinatesProperty.value = quadratic.focus;
 
-        // point is visible only if the quadratic has a vertex
-        this.visible = !!quadratic.vertex;
+        this.visible = !!quadratic.focus;
 
         if ( this.visible ) {
 
-          // move to the vertex location
-          this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
+          // move to the focus location
+          this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
 
-          // position coordinates on the outside of the curve
+          // position coordinates on the inside of the curve
           coordinatesNode.centerX = 0;
           if ( quadratic.a > 0 ) {
-            coordinatesNode.top = pointNode.bottom + Y_SPACING;
+            coordinatesNode.bottom = pointNode.top - Y_SPACING;
           }
           else {
-            coordinatesNode.bottom = pointNode.top - Y_SPACING;
+            coordinatesNode.top = pointNode.bottom + Y_SPACING;
           }
         }
       } );
@@ -83,5 +82,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'VertexNode', VertexNode );
+  return graphingQuadratics.register( 'FocusNode', FocusNode );
 } );
