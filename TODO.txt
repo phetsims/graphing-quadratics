@@ -25,24 +25,24 @@ X What happens when focus manipulator goes off the graph?
 X Should “Point on Quadratic” automatically adjust to stay on the graph?
     yes
 X No point tools?
-  Add them for consistency
+    Add them for consistency
 X No save/erase buttons?
-  Add them for consistency
+    Add them for consistency
 X default for 'Point on Quadratic'?
-  I'll pick default value for h,k,p,point
+    I'll pick default value for h,k,p,point
 X The equation (x-h)^2=4p(y-k) is referred to as “standard form” in the literature. Do we have a terminology problem with the “Standard Form” screen?
-  Use general and standard terminology
+    Use general and standard terminology
 
 > split first screen into 2, tentative names: 'Explorer' (decimals scene), 'General Form' (integers scene)
 > add Vertex checkbox to Vertex Form screen
 > make 'NO REAL ROOTS' disappear for y=0
 General questions:
 X Are point coordinates always visible, or do we need a “Hide coordinates” checkbox?
-  yes
+    yes
 X Points have 2 decimal places, point tools have 1 decimal place. Is that OK?
-  Fine
+    Fine
 X What do we display when “Roots” checkbox is checked and y=0? (every point is a root)
-  Create an issue for this
+    Create an issue for this
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
