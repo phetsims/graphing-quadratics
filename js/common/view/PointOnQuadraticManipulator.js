@@ -47,28 +47,30 @@ define( require => {
       this.addChild( coordinatesNode );
 
       // y offset of coordinates from manipulator
-      const coordinatesYOffset = 1.8 * radius;
+      const coordinatesXOffset = 1.8 * radius;
 
       // unlink not needed
       const quadraticListener = quadratic => {
 
         // update the point
-        const x = pointProperty.value.x;
-        pointProperty.value = new Vector2( x, quadratic.solveY( x ) );
-
-        // position coordinates based on which way the curve opens
-        coordinatesNode.centerX = 0;
-        if ( quadratic.a > 0 ) {
-          coordinatesNode.top = coordinatesYOffset;
-        }
-        else {
-          coordinatesNode.bottom = -coordinatesYOffset;
-        }
+        pointProperty.value = new Vector2( pointProperty.value.x, quadratic.solveY( pointProperty.value.x ) );
       };
       quadraticProperty.link( quadraticListener );
 
       // move the manipulator
-      pointProperty.link( point => { this.translation = modelViewTransform.modelToViewPosition( point ); } );
+      pointProperty.link( point => {
+
+        this.translation = modelViewTransform.modelToViewPosition( point );
+
+        // position coordinates based on which side of the curve the point is on
+        if ( !quadraticProperty.vertex || ( point.x >= quadraticProperty.vertex.x ) ) {
+          coordinatesNode.left = coordinatesXOffset;
+        }
+        else {
+          coordinatesNode.right = -coordinatesXOffset;
+        }
+        coordinatesNode.centerY = 0;
+      } );
 
       // unlink not needed
       coordinatesVisibleProperty.link( coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; } );
