@@ -7,19 +7,31 @@ Standard vs General form?
 Should Focus screen equation be reversed, so that y is on left side?
 
 Focus & Directrix screen:
-- Should y term be on the left side, i.e. 4p(y-k)=(x-h)^2 ?
-- What happens when p=0 ?
-- Are the manipulators continuous or do they snap to grid?
-- What happens when focus manipulator goes off the graph?
-- Should “Point on Quadratic” automatically adjust to stay on the graph?
+> Add Vertex, Focus and Directrix checkboxes
+> Change 'Hide coordinates' to 'Coordinates', off by default
+> Replace 'Hide curves' with eyeball toggle button
+> Remove 'Hide coordinates' from Decimals scene
+X Should y term be on the left side, i.e. 4p(y-k)=(x-h)^2 ?
+    Leave as is.
+X What happens when p=0 ?
+    Allow p=0, hide vertex manipulator, keep focus and point manipulators
+X Are the manipulators continuous or do they snap to grid?
+    Vertex manipulator snaps to grid.
+    Point and focus manipulators are continuous.
+X Slider increments?
+    0.1 for all sliders
+X What happens when focus manipulator goes off the graph?
+    it disappears, drag cycle canceled
+X Should “Point on Quadratic” automatically adjust to stay on the graph?
+    yes
 - No point tools?
 - No save/erase buttons?
 - The equation (x-h)^2=4p(y-k) is referred to as “standard form” in the literature. Do we have a terminology problem with the “Standard Form” screen?
-- where are coordinates displayed for 'Point on Quadratic'?
-- why are there red dashed lines associated with 'Point on Quadratic'?
 - default for 'Point on Quadratic'?
 - Do we always have a parabola in this screen? If not, what happens?
 
+
+> add Vertex checkbox to Vertex Form screen
 General questions:
 - Are point coordinates always visible, or do we need a “Hide coordinates” checkbox?
 - Points have 2 decimal places, point tools have 1 decimal place. Is that OK?
