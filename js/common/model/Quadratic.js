@@ -188,12 +188,7 @@ define( require => {
       return { startPoint, controlPoint, endPoint };
     }
 
-    // @public Given {number} x, return the corresponding {Vector2} point on the quadratic
-    solvePoint( x ) {
-      return new Vector2( x, this.solveY( x ) );
-    }
-
-    // @private Given {number} x, solve for {number} y = ax^2 + bx + c
+    // @public Given {number} x, solve for {number} y = ax^2 + bx + c
     solveY( x ) {
       return this.a * x * x + this.b * x + this.c;
     }
