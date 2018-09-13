@@ -12,6 +12,7 @@ define( require => {
 
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
   const Line = require( 'SCENERY/nodes/Line' );
@@ -35,7 +36,6 @@ define( require => {
   const bodyImage = require( 'image!GRAPHING_QUADRATICS/point_tool_body.png' );
 
   // constants
-  const NUMBER_OF_DECIMAL_PLACES = 1;
   const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of bodyImage
 
   class PointToolNode extends Node {
@@ -98,8 +98,8 @@ define( require => {
           // update coordinates - (x, y) or (?, ?)
           const onGraph = graph.contains( location );
           coordinatesNode.text = StringUtils.fillIn( pointXYString, {
-            x: onGraph ? Util.toFixedNumber( location.x, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString,
-            y: onGraph ? Util.toFixedNumber( location.y, NUMBER_OF_DECIMAL_PLACES ) : coordinateUnknownString
+            x: onGraph ? Util.toFixedNumber( location.x, GQConstants.POINT_TOOL_DECIMALS ) : coordinateUnknownString,
+            y: onGraph ? Util.toFixedNumber( location.y, GQConstants.POINT_TOOL_DECIMALS ) : coordinateUnknownString
           } );
 
           // center coordinates in window

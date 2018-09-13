@@ -63,7 +63,12 @@ define( require => {
 
     // line dashes
     AXIS_OF_SYMMETRY_LINE_DASH: [ 5, 5 ],
-    DIRECTRIX_LINE_DASH: [ 5, 5 ]
+    DIRECTRIX_LINE_DASH: [ 5, 5 ],
+
+    // decimal places
+    EQUATION_DECIMALS: 2,
+    POINT_DECIMALS: 2,
+    POINT_TOOL_DECIMALS: 1
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );

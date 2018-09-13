@@ -15,6 +15,7 @@ define( require => {
   const Color = require( 'SCENERY/util/Color' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Property = require( 'AXON/Property' );
@@ -49,7 +50,7 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( vertexProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
-        decimals: 2,
+        decimals: GQConstants.POINT_DECIMALS,
         pickable: false
       } );
       this.addChild( coordinatesNode );
