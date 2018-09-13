@@ -45,7 +45,7 @@ define( require => {
         decimals: 2
       } );
 
-      assert && assert( !options.children, 'CoordinatesNode sets children' );
+      assert && assert( !options.children, 'VertexNode sets children' );
       options.children = [ pointNode, coordinatesNode ];
 
       super( options );
