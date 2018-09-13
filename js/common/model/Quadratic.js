@@ -123,12 +123,12 @@ define( require => {
     /**
      * Creates a quadratic given h, p, k based on the equation (x -h)^2 = 4p(y - k)
      * @param {number} h
-     * @param {number} p
      * @param {number} k
+     * @param {number} p
      * @param {Object} [options] - see Quadratic constructor
      * @returns {Quadratic}
      */
-    static createFromStandardForm( h, p, k, options ) {
+    static createFromStandardForm( h, k, p, options ) {
       assert && assert( p !== 0 );
       const a = 1 / ( 4 * p );
       const b = -2 * a * h;

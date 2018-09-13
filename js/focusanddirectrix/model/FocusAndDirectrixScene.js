@@ -15,9 +15,9 @@ define( require => {
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
   // constants
-  const A_RANGE = new RangeWithValue( -6, 6, 1 );
-  const B_RANGE = new RangeWithValue( -6, 6, 0 );
-  const C_RANGE = new RangeWithValue( -6, 6, 0 );
+  const H_RANGE = new RangeWithValue( -6, 6, 0 );
+  const K_RANGE = new RangeWithValue( -6, 6, 0 );
+  const P_RANGE = new RangeWithValue( -9, 9, 1 );
 
   class FocusAndDirectrixScene extends GQScene {
 
@@ -29,16 +29,16 @@ define( require => {
       options = options || {};
 
       assert && assert( !options.quadratic, 'FocusAndDirectrixScene sets quadratic' );
-      options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue, {
+      options.quadratic = Quadratic.createFromStandardForm( H_RANGE.defaultValue, K_RANGE.defaultValue, P_RANGE.defaultValue, {
         color: 'black'
       } );
 
       super( options );
 
       // @public (read-only)
-      this.aRange = A_RANGE;
-      this.bRange = B_RANGE;
-      this.cRange = C_RANGE;
+      this.hRange = H_RANGE;
+      this.kRange = K_RANGE;
+      this.pRange = P_RANGE;
     }
   }
 
