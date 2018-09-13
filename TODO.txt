@@ -32,6 +32,7 @@ X default for 'Point on Quadratic'?
   I'll pick default value for h,k,p,point
 - The equation (x-h)^2=4p(y-k) is referred to as “standard form” in the literature. Do we have a terminology problem with the “Standard Form” screen?
 
+> split first screen into 2, tentative names: 'Explorer' (decimals scene), 'General Form' (integer scene)
 > add Vertex checkbox to Vertex Form screen
 > make 'NO REAL ROOTS' disappear for y=0
 General questions:
