@@ -188,9 +188,16 @@ define( require => {
       return { startPoint, controlPoint, endPoint };
     }
 
-    // @public Given {number} x, solve for {number} y = ax^2 + bx + c
+    // @public Given {number} x, solve for {number} y
     solveY( x ) {
       return this.a * x * x + this.b * x + this.c;
+    }
+
+    //TODO untested
+    // @public Given {number} y, solve for {number} |x|
+    solveX( y ) {
+      assert && assert( this.a !== 0, 'solveX is unsupported when a === 0' );
+      return -this.b * Math.abs( Math.sqrt( ( this.b * this.b ) - ( 4 * this.a * this.c ) ) ) / ( 2 * this.a );
     }
 
     /**
