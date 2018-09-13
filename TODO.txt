@@ -8,7 +8,6 @@ Should Focus screen equation be reversed, so that y is on left side?
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-RootsNode with coordinates
 FocusAndDirectrixInteractiveEquationNode
 FocusManipulator
 PointOnQuadraticManipulator
