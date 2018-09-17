@@ -15,7 +15,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HideCoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCoordinatesCheckbox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Panel = require( 'SUN/Panel' );
@@ -73,9 +72,6 @@ define( require => {
       } );
       const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty );
 
-      // Hide coordinates, dispose not needed
-      const hideCoordinatesCheckbox = new HideCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
-
       // Hide curves, dispose not needed
       const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
@@ -87,7 +83,6 @@ define( require => {
           quadraticTermCheckbox,
           linearTermCheckbox,
           constantTermCheckbox,
-          hideCoordinatesCheckbox,
           hideCurvesCheckbox
         ]
       } );
@@ -99,7 +94,6 @@ define( require => {
         quadraticTermCheckbox.enabled = curvesVisible;
         linearTermCheckbox.enabled = curvesVisible;
         constantTermCheckbox.enabled = curvesVisible;
-        hideCoordinatesCheckbox.enabled = curvesVisible;
       } );
     }
   }
