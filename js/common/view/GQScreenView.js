@@ -34,17 +34,14 @@ define( require => {
     constructor( model, viewProperties, accordionBox, graphControls, options ) {
 
       options = _.extend( {
-        layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,
-        pointToolsVisible: true
+        layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS
       }, options );
 
       super( GQConstants.SCREEN_VIEW_OPTIONS );
 
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
       // dispose not needed.
-      const pointToolsParent = new Node( {
-        visible: options.pointToolsVisible
-      } );
+      const pointToolsParent = new Node();
       model.pointTools.forEach( pointTool => {
         pointToolsParent.addChild( new PointToolNode(
           pointTool,
