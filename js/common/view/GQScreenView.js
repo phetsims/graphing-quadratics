@@ -10,9 +10,9 @@ define( require => {
   'use strict';
 
   // modules
-  const EyeToggleButton = require( 'SCENERY_PHET/buttons/EyeToggleButton' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
+  const GraphContentsToggleButton = require( 'GRAPHING_QUADRATICS/common/view/GraphContentsToggleButton' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PointToolNode = require( 'GRAPHING_QUADRATICS/common/view/PointToolNode' );
@@ -56,8 +56,7 @@ define( require => {
       const graphNode = new GQGraphNode( model, this.layoutBounds, viewProperties );
 
       // Toggle button for showing/hiding contents of graph
-      const eyeToggleButton = new EyeToggleButton( viewProperties.graphContentsVisibleProperty, {
-        baseColor: 'rgb( 220, 220, 220 )',
+      const eyeToggleButton = new GraphContentsToggleButton( viewProperties.graphContentsVisibleProperty, {
         scale: 0.75,
         left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 10,
         bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min )
