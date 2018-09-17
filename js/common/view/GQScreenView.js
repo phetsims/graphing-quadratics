@@ -37,7 +37,7 @@ define( require => {
         layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS
       }, options );
 
-      super( GQConstants.SCREEN_VIEW_OPTIONS );
+      super( options );
 
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
       // dispose not needed.
