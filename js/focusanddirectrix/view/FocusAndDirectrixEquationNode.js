@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renderer for (x - h)^2 = 4p(y - k )
+ * Renderer for y = (1/(4p)(x - h)^2 + k
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -36,14 +36,14 @@ define( require => {
       } );
 
       const equation = StringUtils.fillIn(
-        '({{x}} {{minus}} {{h}})<sup>2</sup> {{equals}} 4{{p}}({{y}} {{minus}} {{k}})', {
+        '{{y}} {{equals}} 1/4{{p}} ({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
+          y: GQSymbols.y,
+          equals: MathSymbols.EQUAL_TO,
+          p: GQSymbols.p,
           x: GQSymbols.x,
           minus: MathSymbols.MINUS,
           h: GQSymbols.h,
-          equals: MathSymbols.EQUAL_TO,
-          a: options.a,
-          p: GQSymbols.p,
-          y: GQSymbols.y,
+          plus: MathSymbols.PLUS,
           k: GQSymbols.k
         } );
 
