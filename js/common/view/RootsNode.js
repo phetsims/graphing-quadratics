@@ -63,6 +63,8 @@ define( require => {
 
         if ( !roots || roots.length === 0 ) {
           this.visible = false;
+          leftCoordinatesProperty.value = null;
+          rightCoordinatesProperty.value = null;
         }
         else {
           assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
@@ -83,6 +85,7 @@ define( require => {
           }
           else {
             // one root
+            rightCoordinatesProperty.value = null;
             rightPointNode.visible = false;
             rightCoordinatesNode.visible = false;
           }
@@ -101,8 +104,8 @@ define( require => {
 
       // unlink not needed
       coordinatesVisibleProperty.link( coordinatesVisible => {
-        leftCoordinatesNode.visible = coordinatesVisible;
-        rightCoordinatesNode.visible = coordinatesVisible;
+        leftCoordinatesNode.visible = !!( coordinatesVisible && leftCoordinatesProperty.value );
+        rightCoordinatesNode.visible = !!( coordinatesVisible && rightCoordinatesProperty.value );
       } );
     }
   }

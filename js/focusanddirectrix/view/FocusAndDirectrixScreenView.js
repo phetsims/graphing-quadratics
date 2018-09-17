@@ -11,6 +11,7 @@ define( require => {
   // modules
   const FocusAndDirectrixAccordionBox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixAccordionBox' );
   const FocusAndDirectrixGraphControls = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphControls' );
+  const FocusAndDirectrixGraphNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphNode' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -23,6 +24,7 @@ define( require => {
     constructor( model ) {
 
       const viewProperties = new GQViewProperties( {
+        vertexVisible: true,
         focusVisible: true,
         directrixVisible: true,
         pointOnQuadraticVisible: true
@@ -30,6 +32,7 @@ define( require => {
 
       super( model,
         viewProperties,
+        new FocusAndDirectrixGraphNode( model, viewProperties ),
         new FocusAndDirectrixAccordionBox( model, viewProperties ),
         new FocusAndDirectrixGraphControls( viewProperties ) );
     }

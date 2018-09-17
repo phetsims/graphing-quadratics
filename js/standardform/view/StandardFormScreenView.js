@@ -15,6 +15,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const StandardFormAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormAccordionBox' );
   const StandardFormGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControls' );
+  const StandardFormGraphNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphNode' );
 
   class StandardFormScreenView extends GQScreenView {
 
@@ -27,6 +28,7 @@ define( require => {
 
       super( model,
         viewProperties,
+        new StandardFormGraphNode( model, viewProperties ),
         new StandardFormAccordionBox( model, viewProperties ),
         new StandardFormGraphControls( viewProperties ) );
     }

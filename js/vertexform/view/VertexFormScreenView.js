@@ -14,6 +14,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const VertexFormAccordionBox = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormAccordionBox' );
   const VertexFormGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphControls' );
+  const VertexFormGraphNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphNode' );
 
   class VertexFormScreenView extends GQScreenView{
 
@@ -26,6 +27,7 @@ define( require => {
 
       super( model,
         viewProperties,
+        new VertexFormGraphNode( model, viewProperties ),
         new VertexFormAccordionBox( model, viewProperties ),
         new VertexFormGraphControls( viewProperties ) );
     }

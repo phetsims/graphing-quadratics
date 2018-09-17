@@ -1,7 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
 /**
- * Displays the graph and everything that appears on it (aka, it's content).
+ * Base type for displaying the graph.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -17,22 +17,19 @@ define( require => {
   const InteractiveQuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/InteractiveQuadraticNode' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/common/view/NoRealRootsNode' );
-  const PointOnQuadraticManipulator = require( 'GRAPHING_QUADRATICS/common/view/PointOnQuadraticManipulator' );
   const Property = require( 'AXON/Property' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Shape = require( 'KITE/Shape' );
   const Vector2 = require( 'DOT/Vector2' );
-  const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
 
   class GQGraphNode extends Node {
 
     /**
      * @param {GQModel} model
-     * @param {Bounds2} layoutBounds
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( model, layoutBounds, viewProperties, options ) {
+    constructor( model, viewProperties, options ) {
 
       super( options );
 
@@ -48,29 +45,6 @@ define( require => {
         model.graph,
         model.modelViewTransform,
         viewProperties
-      );
-
-      // Vertex manipulator. dispose not needed.
-      let vertexManipulator;
-      if ( model.hRange && model.kRange ) {
-        vertexManipulator = new VertexManipulator(
-          model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-          model.quadraticProperty,
-          model.hRange,
-          model.kRange,
-          model.modelViewTransform,
-          viewProperties.coordinatesVisibleProperty
-        );
-      }
-
-      // Point on Quadratic manipulator, dispose not needed.
-      const pointOnQuadraticManipulator = new PointOnQuadraticManipulator(
-        model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-        model.quadraticProperty,
-        model.graph.xRange,
-        model.graph.yRange,
-        model.modelViewTransform,
-        viewProperties.coordinatesVisibleProperty
       );
 
       // 'no real roots' label
@@ -94,8 +68,6 @@ define( require => {
       contentNode.addChild( savedQuadraticsLayer );
       contentNode.addChild( interactiveQuadraticNode );
       contentNode.addChild( noRealRootsNode );
-      vertexManipulator && contentNode.addChild( vertexManipulator );
-      contentNode.addChild( pointOnQuadraticManipulator );
 
       // rendering order
       this.addChild( graphNode );
@@ -125,9 +97,6 @@ define( require => {
 
       // Show/hide the graph content. unlink not needed.
       viewProperties.graphContentsVisibleProperty.link( visible => { contentNode.visible = visible; } );
-
-      // Show/hide the point manipulator
-      viewProperties.pointOnQuadraticVisibleProperty.link( visible => { pointOnQuadraticManipulator.visible = visible; } );
 
       // If the quadratic has no roots, indicate so on the x axis. dispose not needed.
       Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],

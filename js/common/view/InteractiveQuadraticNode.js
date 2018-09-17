@@ -10,16 +10,11 @@ define( require => {
   'use strict';
 
   // modules
-  const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
-  const DirectrixNode = require( 'GRAPHING_QUADRATICS/common/view/DirectrixNode' );
-  const FocusNode = require( 'GRAPHING_QUADRATICS/common/view/FocusNode' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
-  const RootsNode = require( 'GRAPHING_QUADRATICS/common/view/RootsNode' );
-  const VertexNode = require( 'GRAPHING_QUADRATICS/common/view/VertexNode' );
 
   class InteractiveQuadraticNode extends QuadraticNode {
 
@@ -49,57 +44,16 @@ define( require => {
       const constantTermPath = new Path( null, { lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH } );
       const constantTermParentNode = new Node( { children: [ constantTermPath ] } );
 
-      // axis of symmetry
-      const axisOfSymmetryNode = new AxisOfSymmetryNode( quadraticProperty, graph, modelViewTransform );
-      const axisOfSymmetryParentNode = new Node( { children: [ axisOfSymmetryNode ] } );
-
-      // Radius of plotted points, in view coordinate frame
-      const pointRadius = modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
-
-      // vertex
-      const vertexNode = new VertexNode( quadraticProperty, modelViewTransform, viewProperties.coordinatesVisibleProperty, {
-        radius: pointRadius
-      } );
-      const vertexParentNode = new Node( { children: [ vertexNode ] } );
-
-      // roots
-      const rootsNode = new RootsNode( quadraticProperty, modelViewTransform, viewProperties.coordinatesVisibleProperty, {
-        radius: pointRadius
-      } );
-      const rootsParentNode = new Node( { children: [ rootsNode] } );
-
-      // focus point
-      const focusNode = new FocusNode( quadraticProperty, modelViewTransform, viewProperties.coordinatesVisibleProperty, {
-        radius: pointRadius
-      } );
-      const focusParentNode = new Node( { children: [ focusNode ] } );
-
-      // directrix
-      const directrixNode = new DirectrixNode( quadraticProperty, graph, modelViewTransform );
-      const directrixParentNode = new Node( { children: [ directrixNode ] } );
-
       // rendering order
       this.addChild( constantTermParentNode );
       this.addChild( linearTermParentNode );
       this.addChild( quadraticTermParentNode );
-      this.addChild( axisOfSymmetryParentNode );
-      this.addChild( directrixParentNode );
       this.quadraticPath.moveToFront(); // quadratic in front of the above decorations
-      this.addChild( focusParentNode );
-      this.addChild( rootsParentNode );
-      this.addChild( vertexParentNode );
 
       // Control visibility of terms
       viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermParentNode.visible = visible; } );
       viewProperties.linearTermVisibleProperty.link( visible => { linearTermParentNode.visible = visible; } );
       viewProperties.constantTermVisibleProperty.link( visible => { constantTermParentNode.visible = visible; } );
-
-      // Control visibility of decorations
-      viewProperties.axisOfSymmetryVisibleProperty.link( visible => { axisOfSymmetryParentNode.visible = visible; } );
-      viewProperties.vertexVisibleProperty.link( visible => { vertexParentNode.visible = visible; } );
-      viewProperties.rootsVisibleProperty.link( visible => { rootsParentNode.visible = visible; } );
-      viewProperties.focusVisibleProperty.link( visible => { focusParentNode.visible = visible; } );
-      viewProperties.directrixVisibleProperty.link( visible => { directrixParentNode.visible = visible; } );
 
       // Update the view of the curve when the quadratic model changes. dispose not needed.
       quadraticProperty.link( quadratic => {

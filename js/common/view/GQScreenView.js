@@ -11,7 +11,6 @@ define( require => {
 
   // modules
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const GraphContentsToggleButton = require( 'GRAPHING_QUADRATICS/common/view/GraphContentsToggleButton' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -28,11 +27,12 @@ define( require => {
     /**
      * @param {GQModel} model
      * @param {GQViewProperties} viewProperties
-     * @param {AccordionBox} accordionBox
-     * @param {Panel} graphControls
+     * @param {Node} graphNode
+     * @param {Node} equationControls
+     * @param {Node} graphControls
      * @param {Object} [options]
      */
-    constructor( model, viewProperties, accordionBox, graphControls, options ) {
+    constructor( model, viewProperties, graphNode, equationControls, graphControls, options ) {
 
       options = _.extend( {
         layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS
@@ -52,9 +52,6 @@ define( require => {
         ) );
       } );
 
-      // The graph and everything on it -- position is determined by the model! dispose not needed.
-      const graphNode = new GQGraphNode( model, this.layoutBounds, viewProperties );
-
       // Toggle button for showing/hiding contents of graph
       const eyeToggleButton = new GraphContentsToggleButton( viewProperties.graphContentsVisibleProperty, {
         scale: 0.75,
@@ -71,7 +68,7 @@ define( require => {
         align: 'center',
         spacing: 10,
         children: [
-          accordionBox,
+          equationControls,
           graphControls
         ]
       } );
