@@ -28,7 +28,7 @@ define( require => {
       const interactiveEquationNode = new ExploreInteractiveEquationNode(
         model.quadraticProperty, model.aRange, model.bRange, model.cRange );
 
-      super(model, viewProperties, titleNode, interactiveEquationNode, options );
+      super( model, viewProperties, titleNode, interactiveEquationNode, options );
     }
   }
 
