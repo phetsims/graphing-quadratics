@@ -112,7 +112,7 @@ define( require => {
           coordinatesNode.centerY = bodyNode.centerY;
 
           // updater colors
-          if ( onQuadratic && curvesVisible ) {
+          if ( onGraph && onQuadratic && curvesVisible ) {
             coordinatesNode.fill = options.foregroundHighlightColor;
             backgroundNode.fill = onQuadratic.color;
           }
