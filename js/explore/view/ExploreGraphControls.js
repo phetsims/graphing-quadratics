@@ -15,7 +15,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -72,9 +71,6 @@ define( require => {
       } );
       const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty );
 
-      // Hide curves, dispose not needed
-      const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
-
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
@@ -82,8 +78,7 @@ define( require => {
         children: [
           quadraticTermCheckbox,
           linearTermCheckbox,
-          constantTermCheckbox,
-          hideCurvesCheckbox
+          constantTermCheckbox
         ]
       } );
 

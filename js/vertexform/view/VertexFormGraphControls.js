@@ -14,7 +14,6 @@ define( require => {
   const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const Panel = require( 'SUN/Panel' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
@@ -30,7 +29,6 @@ define( require => {
 
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
-      const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
       // vertical layout
       const contentNode = new VBox( {
@@ -38,8 +36,7 @@ define( require => {
         spacing: 20,
         children: [
           axisOfSymmetryCheckbox,
-          coordinatesCheckbox,
-          hideCurvesCheckbox
+          coordinatesCheckbox
         ]
       } );
 

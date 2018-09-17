@@ -10,6 +10,7 @@ define( require => {
   'use strict';
 
   // modules
+  const EyeToggleButton = require( 'SCENERY_PHET/buttons/EyeToggleButton' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -54,6 +55,14 @@ define( require => {
       // The graph and everything on it -- position is determined by the model! dispose not needed.
       const graphNode = new GQGraphNode( model, this.layoutBounds, viewProperties );
 
+      // Toggle button for showing/hiding contents of graph
+      const eyeToggleButton = new EyeToggleButton( viewProperties.curvesVisibleProperty, {
+        baseColor: 'rgb( 220, 220, 220 )',
+        scale: 0.75,
+        left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 10,
+        bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min )
+      } );
+
       const controlPanelMaxWidth = this.layoutBounds.width - graphNode.width - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN ) - X_SPACING;
 
       // Parent for all control panels, to simplify layout
@@ -71,6 +80,7 @@ define( require => {
       // rendering order
       this.addChild( controlsParent );
       this.addChild( graphNode );
+      this.addChild( eyeToggleButton );
       this.addChild( pointToolsParent );
 
       // Horizontally center controls in the space to the right of the graph.

@@ -14,7 +14,6 @@ define( require => {
   const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const Panel = require( 'SUN/Panel' );
   const RootsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/RootsCheckbox' );
   const VBox = require( 'SCENERY/nodes/VBox' );
@@ -34,7 +33,6 @@ define( require => {
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
       const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
-      const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
       // vertical layout
       const contentNode = new VBox( {
@@ -44,8 +42,7 @@ define( require => {
           vertexCheckbox,
           axisOfSymmetryCheckbox,
           rootsCheckbox,
-          coordinatesCheckbox,
-          hideCurvesCheckbox
+          coordinatesCheckbox
         ]
       } );
 
