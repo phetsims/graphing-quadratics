@@ -2,47 +2,7 @@ TODO list for graphing-quadratics
 
 DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Focus & Directrix screen
-Standard vs General form?
-Should Focus screen equation be reversed, so that y is on left side?
 
-Focus & Directrix screen:
-> Add Vertex, Focus and Directrix checkboxes
-> Change 'Hide coordinates' to 'Coordinates', off by default
-> Replace 'Hide curves' with eyeball toggle button
-> Remove 'Hide coordinates' from Decimals scene
-X Should y term be on the left side, i.e. 4p(y-k)=(x-h)^2 ?
-    Leave as is.
-X What happens when p=0 ?
-    Allow p=0, hide vertex manipulator, keep focus and point manipulators
-X Are the manipulators continuous or do they snap to grid?
-    Vertex manipulator snaps to grid.
-    Point and focus manipulators are continuous.
-X Slider increments?
-    0.1 for all sliders
-X What happens when focus manipulator goes off the graph?
-    it disappears, drag cycle canceled
-X Should “Point on Quadratic” automatically adjust to stay on the graph?
-    yes
-X No point tools?
-    Add them for consistency
-X No save/erase buttons?
-    Add them for consistency
-X default for 'Point on Quadratic'?
-    I'll pick default value for h,k,p,point
-X The equation (x-h)^2=4p(y-k) is referred to as “standard form” in the literature. Do we have a terminology problem with the “Standard Form” screen?
-    Use general and standard terminology
-
-> split first screen into 2, tentative names: 'Explorer' (decimals scene), 'Standard Form' (integers scene)
-> add Vertex checkbox to Vertex Form screen
-> make 'NO REAL ROOTS' disappear for y=0
-General questions:
-X Are point coordinates always visible, or do we need a “Hide coordinates” checkbox?
-    yes
-X Points have 2 decimal places, point tools have 1 decimal place. Is that OK?
-    Fine
-X What do we display when “Roots” checkbox is checked and y=0? (every point is a root)
-    Create an issue for this
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
