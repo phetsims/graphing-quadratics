@@ -38,7 +38,8 @@ define( require => {
     constructor( viewProperties, options ) {
 
       options = _.extend( {
-        expandedProperty: viewProperties.termsAccordionBoxExpandedProperty
+        expandedProperty: viewProperties.termsAccordionBoxExpandedProperty,
+        titleAlignX: 'left'
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
       assert && assert( !options.titleNode, 'TermsAccordionBox sets titleNode' );
