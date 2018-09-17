@@ -9,7 +9,6 @@ define( require => {
   'use strict';
 
   // modules
-  const GQIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQIconFactory' );
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const StandardFormScene = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormScene' );
@@ -18,14 +17,12 @@ define( require => {
 
     constructor() {
 
-      const decimalsScene = new StandardFormScene( GQIconFactory.createDecimalsIcon() );
-      const integersScene = new StandardFormScene( GQIconFactory.createIntegersIcon() );
+      const scene = new StandardFormScene();
 
-      super( [ decimalsScene, integersScene  ] );
+      super( [ scene  ] );
 
       // @public (read-only)
-      this.decimalsScene = decimalsScene;
-      this.integersScene = integersScene;
+      this.scene = scene;
     }
   }
 

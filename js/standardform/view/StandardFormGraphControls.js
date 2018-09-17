@@ -20,7 +20,7 @@ define( require => {
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 
-  class IntegersGraphControls extends Panel {
+  class StandardFormGraphControls extends Panel {
 
     /**
      * @param {GQViewProperties} viewProperties
@@ -70,5 +70,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'IntegersGraphControls', IntegersGraphControls );
+  return graphingQuadratics.register( 'StandardFormGraphControls', StandardFormGraphControls );
 } );

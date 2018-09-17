@@ -1,24 +1,23 @@
-// Copyright 2014-2018, University of Colorado Boulder
+// Copyright 2018, University of Colorado Boulder
 
 /**
- * View for the 'Standard Form' screen.
+ * View for the 'Explore' screen.
  *
- * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';
 
   // modules
+  const ExploreSceneNode = require( 'GRAPHING_QUADRATICS/explore/view/ExploreSceneNode' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const StandardFormSceneNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormSceneNode' );
 
-  class StandardFormScreenView extends GQScreenView {
+  class ExploreScreenView extends GQScreenView {
 
     /**
-     * @param {StandardFormModel} model
+     * @param {ExploreModel} model
      */
     constructor( model ) {
 
@@ -26,9 +25,9 @@ define( require => {
 
       super( model, [ viewProperties ] );
 
-      this.addChild( new StandardFormSceneNode( model.scene, this.layoutBounds, viewProperties ) );
+      this.addChild( new ExploreSceneNode( model.scene, this.layoutBounds, viewProperties ) );
     }
   }
 
-  return graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
+  return graphingQuadratics.register( 'ExploreScreenView', ExploreScreenView );
 } );

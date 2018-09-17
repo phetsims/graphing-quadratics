@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Controls for various features related to the graph on 'Integers' scene of the 'Standard Form' screen.
+ * Controls for various features related to the graph on the 'Explore screen.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -27,7 +27,7 @@ define( require => {
   // constants
   const CHECKBOX_EQUATION_FONT = new PhetFont( GQConstants.CHECKBOX_EQUATION_FONT_SIZE );
 
-  class DecimalsGraphControls extends Panel {
+  class ExploreGraphControls extends Panel {
 
     /**
      * @param {GQViewProperties} viewProperties
@@ -104,5 +104,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'DecimalsGraphControls', DecimalsGraphControls );
+  return graphingQuadratics.register( 'ExploreGraphControls', ExploreGraphControls );
 } );

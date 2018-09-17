@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * A scene in the 'Standard Form' screen.
+ * A scene in the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,16 +20,16 @@ define( require => {
   const B_RANGE = new RangeWithValue( -6, 6, 0 );
   const C_RANGE = new RangeWithValue( -6, 6, 0 );
 
-  class StandardFormScene extends GQScene {
+  class ExploreScene extends GQScene {
 
     /**
      * @param {Object} [options]
      */
-    constructor( options ) {
+    constructor( icon, options ) {
 
       options = options || {};
 
-      assert && assert( !options.quadratic, 'StandardFormScene sets quadratic' );
+      assert && assert( !options.quadratic, 'ExploreScene sets quadratic' );
       options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue, {
         color: GQColors.INTERACTIVE_CURVE
       } );
@@ -43,6 +43,6 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'StandardFormScene', StandardFormScene );
+  return graphingQuadratics.register( 'ExploreScene', ExploreScene );
 } );
  

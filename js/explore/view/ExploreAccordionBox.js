@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Accordion box in the 'Integers' scene of the 'Standard Form' screen.
+ * Accordion box in the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -10,19 +10,19 @@ define( require => {
 
   // modules
   const AccordionBox = require( 'SUN/AccordionBox' );
+  const ExploreInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/explore/view/ExploreInteractiveEquationNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
-  const IntegersInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersInteractiveEquationNode' );
   const SaveCurveControls =  require( 'GRAPHING_QUADRATICS/common/view/SaveCurveControls' );
   const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
-  class IntegersAccordionBox extends AccordionBox {
+  class ExploreAccordionBox extends AccordionBox {
 
     /**
-     * @param {StandardFormScene} scene
+     * @param {ExploreScene} scene
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
@@ -30,10 +30,10 @@ define( require => {
 
       options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
-      assert && assert( !options.titleNode, 'IntegersAccordionBox sets titleNode' );
+      assert && assert( !options.titleNode, 'ExploreAccordionBox sets titleNode' );
       options.titleNode = new StandardFormEquationNode();
 
-      const interactiveEquationNode = new IntegersInteractiveEquationNode(
+      const interactiveEquationNode = new ExploreInteractiveEquationNode(
         scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange );
 
       const saveCurveControls = new SaveCurveControls(
@@ -59,5 +59,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'IntegersAccordionBox', IntegersAccordionBox );
+  return graphingQuadratics.register( 'ExploreAccordionBox', ExploreAccordionBox );
 } );

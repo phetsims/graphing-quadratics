@@ -34,12 +34,8 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
-        quadratic: new Quadratic( 1, 0, 0, { color: GQColors.INTERACTIVE_CURVE } ),
-        icon: null // used on radio button to select the scene
+        quadratic: new Quadratic( 1, 0, 0, { color: GQColors.INTERACTIVE_CURVE } )
       }, options );
-
-      // @public (read-only) icon that represents this scene
-      this.icon = options.icon;
 
       // @public (read-only) graph
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );

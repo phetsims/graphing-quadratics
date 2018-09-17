@@ -9,6 +9,7 @@ define( require => {
   'use strict';
 
   // modules
+  const ExploreScreen = require( 'GRAPHING_QUADRATICS/explore/ExploreScreen' );
   const FocusAndDirectrixScreen = require( 'GRAPHING_QUADRATICS/focusanddirectrix/FocusAndDirectrixScreen' );
   const Sim = require( 'JOIST/Sim' );
   const SimLauncher = require( 'JOIST/SimLauncher' );
@@ -29,6 +30,7 @@ define( require => {
 
   SimLauncher.launch( () => {
     const screens = [
+      new ExploreScreen(),
       new StandardFormScreen(),
       new VertexFormScreen(),
       new FocusAndDirectrixScreen()

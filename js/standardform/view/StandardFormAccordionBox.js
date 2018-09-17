@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Accordion box in the 'Decimals' scene of the 'Standard Form' screen.
+ * Accordion box in the 'Integers' scene of the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -14,12 +14,12 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
-  const DecimalsInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsInteractiveEquationNode' );
   const SaveCurveControls =  require( 'GRAPHING_QUADRATICS/common/view/SaveCurveControls' );
   const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
+  const StandardFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormInteractiveEquationNode' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
-  class DecimalsAccordionBox extends AccordionBox {
+  class StandardFormAccordionBox extends AccordionBox {
 
     /**
      * @param {StandardFormScene} scene
@@ -30,10 +30,10 @@ define( require => {
 
       options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
-      assert && assert( !options.titleNode, 'DecimalsAccordionBox sets titleNode' );
+      assert && assert( !options.titleNode, 'StandardFormAccordionBox sets titleNode' );
       options.titleNode = new StandardFormEquationNode();
 
-      const interactiveEquationNode = new DecimalsInteractiveEquationNode(
+      const interactiveEquationNode = new StandardFormInteractiveEquationNode(
         scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange );
 
       const saveCurveControls = new SaveCurveControls(
@@ -59,5 +59,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'DecimalsAccordionBox', DecimalsAccordionBox );
+  return graphingQuadratics.register( 'StandardFormAccordionBox', StandardFormAccordionBox );
 } );

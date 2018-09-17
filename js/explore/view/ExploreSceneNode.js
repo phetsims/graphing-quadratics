@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * View for the 'Decimals' scene of the 'Standard Form' screen.
+ * View for a scene in the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -9,26 +9,26 @@ define( require => {
   'use strict';
 
   // modules
+  const ExploreAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/ExploreAccordionBox' );
+  const ExploreGraphControls = require( 'GRAPHING_QUADRATICS/explore/view/ExploreGraphControls' );
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const DecimalsAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsAccordionBox' );
-  const DecimalsGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/DecimalsGraphControls' );
 
-  class DecimalsSceneNode extends GQSceneNode {
+  class ExploreSceneNode extends GQSceneNode {
 
     /**
-     * @param {StandardFormScene} scene
+     * @param {ExploreScene} scene
      * @param {Bounds2} layoutBounds
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( scene, layoutBounds, viewProperties, options ) {
       super( scene, layoutBounds, viewProperties,
-        new DecimalsAccordionBox( scene, viewProperties ),
-        new DecimalsGraphControls( viewProperties ),
+        new ExploreAccordionBox( scene, viewProperties ),
+        new ExploreGraphControls( viewProperties ),
         options );
     }
   }
 
-  return graphingQuadratics.register( 'DecimalsSceneNode', DecimalsSceneNode );
+  return graphingQuadratics.register( 'ExploreSceneNode', ExploreSceneNode );
 } );

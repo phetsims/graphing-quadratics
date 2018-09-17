@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * View for the 'Integers' scene of the 'Standard Form' screen.
+ * View for a scene in the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -11,10 +11,10 @@ define( require => {
   // modules
   const GQSceneNode = require( 'GRAPHING_QUADRATICS/common/view/GQSceneNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const IntegersAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersAccordionBox' );
-  const IntegersGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/IntegersGraphControls' );
+  const StandardFormAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormAccordionBox' );
+  const StandardFormGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControls' );
 
-  class IntegersSceneNode extends GQSceneNode {
+  class StandardFormSceneNode extends GQSceneNode {
 
     /**
      * @param {StandardFormScene} scene
@@ -24,11 +24,11 @@ define( require => {
      */
     constructor( scene, layoutBounds, viewProperties, options ) {
       super( scene, layoutBounds, viewProperties,
-        new IntegersAccordionBox( scene, viewProperties ),
-        new IntegersGraphControls( viewProperties ),
+        new StandardFormAccordionBox( scene, viewProperties ),
+        new StandardFormGraphControls( viewProperties ),
         options );
     }
   }
 
-  return graphingQuadratics.register( 'IntegersSceneNode', IntegersSceneNode );
+  return graphingQuadratics.register( 'StandardFormSceneNode', StandardFormSceneNode );
 } );
