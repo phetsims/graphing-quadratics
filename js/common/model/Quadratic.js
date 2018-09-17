@@ -59,6 +59,7 @@ define( require => {
     }
 
     /**
+     * Returns a string representation of this Quadratic. For debugging only, do not rely on format!
      * @returns {string}
      * @public
      */
@@ -72,7 +73,7 @@ define( require => {
     }
 
     /**
-     * Tests whether this quadratic is equal to the given
+     * Tests whether this quadratic is equal to the given quadratic.
      * @param {*} quadratic
      * @returns {boolean}
      * @public
@@ -82,7 +83,11 @@ define( require => {
              ( this.a === quadratic.a ) && ( this.b === quadratic.b ) && ( this.c === quadratic.c );
     }
 
-    // @public Creates {Quadratic} copy, with a specified {Color} color
+    /**
+     * Returns a copy of this Quadratic with a specified color.
+     * @param {Color|String} color
+     * @returns {Quadratic}
+     */
     withColor( color ) {
       return new Quadratic( this.a, this.b, this.c, { color: color } );
     }
@@ -102,18 +107,18 @@ define( require => {
       return new Quadratic( a, b, c, options );
     }
 
-    //TODO is 'standard form' the correct name?
-    //TODO is this implementation correct? It's untested.
+    //TODO this is untested
     /**
-     * Creates a quadratic given h, p, k based on the equation (x -h)^2 = 4p(y - k)
+     * Creates a quadratic given p, h, k, based on the equation y = (1/(4p))(x - h)^2 + k
+     * This is an alternate vertex form, where 1/4p is substituted for a.
+     * @param {number} p
      * @param {number} h
      * @param {number} k
-     * @param {number} p
      * @param {Object} [options] - see Quadratic constructor
      * @returns {Quadratic}
      * @public
      */
-    static createFromStandardForm( h, k, p, options ) {
+    static createFromAlternateVertexForm( p, h, k, options ) {
       assert && assert( p !== 0 );
       const a = 1 / ( 4 * p );
       const b = -2 * a * h;

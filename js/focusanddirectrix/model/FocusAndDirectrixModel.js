@@ -29,9 +29,10 @@ define( require => {
       options = options || {};
 
       assert && assert( !options.quadratic, 'FocusAndDirectrixModel sets quadratic' );
-      options.quadratic = Quadratic.createFromStandardForm( H_RANGE.defaultValue, K_RANGE.defaultValue, P_RANGE.defaultValue, {
-        color: 'black'
-      } );
+      options.quadratic = Quadratic.createFromAlternateVertexForm(
+        P_RANGE.defaultValue, H_RANGE.defaultValue, K_RANGE.defaultValue, {
+          color: 'black'
+        } );
 
       super( options );
 
