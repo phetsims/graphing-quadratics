@@ -30,6 +30,7 @@ define( require => {
 
       // Directrix
       const directrixNode = new DirectrixNode( model.quadraticProperty, model.graph, model.modelViewTransform );
+      this.addChild( directrixNode );
       viewProperties.directrixVisibleProperty.link( visible => { directrixNode.visible = visible; } );
 
       //TODO replace with FocusManipulator
