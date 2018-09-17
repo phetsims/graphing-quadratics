@@ -39,14 +39,7 @@ define( require => {
       this.color = options.color;
 
       // @public (read-only) {Vector2[]|null} null means that all points are roots (y = 0)
-      this.roots = null;
-      const xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
-      if ( xCoordinates !== null ) {
-        this.roots = [];
-        _.uniq( xCoordinates ).forEach( x => { this.roots.push( new Vector2( x, 0 ) ); } );
-      }
-      assert && assert( this.roots === null || ( this.roots.length >= 0 && this.roots.length <= 2 ),
-        'unexpected roots: ' + this.roots );
+      this.roots = Quadratic.solveRoots( a, b, c );
 
       // This is a quadratic because a is nonzero. Determine more information about it.
       if ( a !== 0 ) {
@@ -118,6 +111,7 @@ define( require => {
      * @param {number} p
      * @param {Object} [options] - see Quadratic constructor
      * @returns {Quadratic}
+     * @public
      */
     static createFromStandardForm( h, k, p, options ) {
       assert && assert( p !== 0 );
@@ -125,6 +119,25 @@ define( require => {
       const b = -2 * a * h;
       const c = k + ( ( b * b ) / ( 4 * a ) );
       return new Quadratic( a, b, c, options );
+    }
+
+    /**
+     * Returns the real roots of the quadratic y = ax^2 + bx + c.
+     * @param {number} a
+     * @param {number} b
+     * @param {number} c
+     * @returns {Vector2[]|null} null means that all points are roots (y = 0)
+     * @private
+     */
+    static solveRoots( a, b, c ) {
+      let roots = null;
+      const xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
+      if ( xCoordinates !== null ) {
+        roots = [];
+        _.uniq( xCoordinates ).forEach( x => { roots.push( new Vector2( x, 0 ) ); } );
+      }
+      assert && assert( roots === null || ( roots.length >= 0 && roots.length <= 2 ), 'unexpected roots: ' + roots );
+      return roots;
     }
 
     /**

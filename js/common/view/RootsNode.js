@@ -59,22 +59,27 @@ define( require => {
       // unlink not needed
       quadraticProperty.link( quadratic => {
 
-        if ( !quadratic.roots || quadratic.roots.length === 0 ) {
+        let roots = quadratic.roots;
+
+        if ( !roots || roots.length === 0 ) {
           this.visible = false;
         }
         else {
+          assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
 
           this.visible = true;
 
-          assert && assert( quadratic.roots.length === 1 || quadratic.roots.length === 2,
-            'unexpected number of roots: ' + quadratic.roots.length );
-          leftCoordinatesProperty.value = quadratic.roots[ 0 ];
-          leftPointNode.translation = modelViewTransform.modelToViewPosition( quadratic.roots[ 0 ] );
-          if ( quadratic.roots.length === 2 ) {
+          // sort by ascending x value
+          roots = _.sortBy( roots, function( root ) { return root.x; } );
+
+          leftCoordinatesProperty.value = roots[ 0 ];
+          leftPointNode.translation = modelViewTransform.modelToViewPosition( roots[ 0 ] );
+          if ( roots.length === 2 ) {
+            assert && assert( roots[ 0 ].x < roots[ 1 ].x, 'unexpected order of roots: ' + roots );
             rightPointNode.visible = true;
             rightCoordinatesNode.visible = true;
-            rightCoordinatesProperty.value = quadratic.roots[ 1 ];
-            rightPointNode.translation = modelViewTransform.modelToViewPosition( quadratic.roots[ 1 ] );
+            rightCoordinatesProperty.value = roots[ 1 ];
+            rightPointNode.translation = modelViewTransform.modelToViewPosition( roots[ 1 ] );
           }
           else {
             // one root
