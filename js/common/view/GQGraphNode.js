@@ -124,7 +124,7 @@ define( require => {
       } );
 
       // Show/hide the graph content. unlink not needed.
-      viewProperties.curvesVisibleProperty.link( visible => { contentNode.visible = visible; } );
+      viewProperties.graphContentsVisibleProperty.link( visible => { contentNode.visible = visible; } );
 
       // Show/hide the point manipulator
       viewProperties.pointOnQuadraticVisibleProperty.link( visible => { pointOnQuadraticManipulator.visible = visible; } );

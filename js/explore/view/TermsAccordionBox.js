@@ -98,7 +98,7 @@ define( require => {
       super( contentNode, options );
 
       // Disable other controls when 'Hide curves' is checked
-      viewProperties.curvesVisibleProperty.link( curvesVisible => {
+      viewProperties.graphContentsVisibleProperty.link( curvesVisible => {
         quadraticTermCheckbox.enabled = curvesVisible;
         linearTermCheckbox.enabled = curvesVisible;
         constantTermCheckbox.enabled = curvesVisible;

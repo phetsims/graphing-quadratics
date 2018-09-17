@@ -44,10 +44,10 @@ define( require => {
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
-     * @param {Property.<Boolean>} curvesVisibleProperty
+     * @param {Property.<Boolean>} graphContentsVisibleProperty
      * @param {Object} [options]
      */
-    constructor( pointTool, modelViewTransform, graph, curvesVisibleProperty, options ) {
+    constructor( pointTool, modelViewTransform, graph, graphContentsVisibleProperty, options ) {
 
       options = _.extend( {
         cursor: 'pointer',
@@ -89,7 +89,7 @@ define( require => {
       super( options );
 
       // dispose not needed
-      Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, curvesVisibleProperty ],
+      Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
         ( location, onQuadratic, curvesVisible ) => {
 
           // move to location

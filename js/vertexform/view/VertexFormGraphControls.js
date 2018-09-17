@@ -43,7 +43,7 @@ define( require => {
       super( contentNode, options );
 
       // Disable other controls when 'Hide curves' is checked
-      viewProperties.curvesVisibleProperty.link( curvesVisible => {
+      viewProperties.graphContentsVisibleProperty.link( curvesVisible => {
         axisOfSymmetryCheckbox.enabled = curvesVisible;
         coordinatesCheckbox.enabled = curvesVisible;
       } );

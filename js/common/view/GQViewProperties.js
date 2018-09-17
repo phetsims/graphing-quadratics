@@ -23,7 +23,7 @@ define( require => {
       options = _.extend( {
         equationAccordionBoxExpanded: true,
         termsAccordionBoxExpanded: true,
-        curvesVisible: true,
+        graphContentsVisible: true,
         coordinatesVisible: true,
         quadraticTermVisible: false,
         linearTermVisible: false,
@@ -42,8 +42,8 @@ define( require => {
       // @public whether the terms accordion box is expanded
       this.termsAccordionBoxExpandedProperty = new BooleanProperty( options.termsAccordionBoxExpanded );
 
-      // @public whether curves and their decorations are visible on the graph
-      this.curvesVisibleProperty = new BooleanProperty( options.curvesVisible );
+      // @public whether the contents of the graph are visible
+      this.graphContentsVisibleProperty = new BooleanProperty( options.graphContentsVisible );
 
       // @public whether coordinates are visible on points
       this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible );
@@ -83,7 +83,7 @@ define( require => {
     reset() {
       this.equationAccordionBoxExpandedProperty.reset();
       this.termsAccordionBoxExpandedProperty.reset();
-      this.curvesVisibleProperty.reset();
+      this.graphContentsVisibleProperty.reset();
       this.coordinatesVisibleProperty.reset();
       this.quadraticTermVisibleProperty.reset();
       this.linearTermVisibleProperty.reset();

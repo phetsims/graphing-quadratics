@@ -48,7 +48,7 @@ define( require => {
           pointTool,
           model.modelViewTransform,
           model.graph,
-          viewProperties.curvesVisibleProperty
+          viewProperties.graphContentsVisibleProperty
         ) );
       } );
 
@@ -56,7 +56,7 @@ define( require => {
       const graphNode = new GQGraphNode( model, this.layoutBounds, viewProperties );
 
       // Toggle button for showing/hiding contents of graph
-      const eyeToggleButton = new EyeToggleButton( viewProperties.curvesVisibleProperty, {
+      const eyeToggleButton = new EyeToggleButton( viewProperties.graphContentsVisibleProperty, {
         baseColor: 'rgb( 220, 220, 220 )',
         scale: 0.75,
         left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 10,
