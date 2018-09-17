@@ -26,7 +26,7 @@ define( require => {
 
       options = options || {};
 
-      var placeholder = new Rectangle( 0, 0, 300, 300, { stroke: 'red' } );
+      var placeholder = new Rectangle( 0, 0, 300, 250, { stroke: 'red' } );
 
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
       options.children = [ placeholder ];

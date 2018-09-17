@@ -23,7 +23,9 @@ define( require => {
      */
     constructor( model ) {
 
-      const viewProperties = new GQViewProperties();
+      const viewProperties = new GQViewProperties( {
+        vertexVisible: true
+      } );
 
       super( model,
         viewProperties,

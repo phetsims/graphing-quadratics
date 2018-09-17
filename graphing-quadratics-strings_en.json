@@ -38,6 +38,12 @@
   "quadraticTerms": {
     "value": "Quadratic Terms"
   },
+  "directrix": {
+    "value": "Directrix"
+  },
+  "focus": {
+    "value": "Focus"
+  },
   "x": {
     "value": "x"
   },

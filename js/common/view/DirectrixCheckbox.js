@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * 'Axis of Symmetry' checkbox.
+ * 'Directrix' checkbox.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -19,15 +19,15 @@ define( require => {
   const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
+  const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
 
-  class AxisOfSymmetryCheckbox extends Checkbox {
+  class DirectrixCheckbox extends Checkbox {
 
     /**
-     * @param {BooleanProperty} axisOfSymmetryVisibleProperty
+     * @param {BooleanProperty} directrixVisibleProperty
      * @param {Object} [options]
      */
-    constructor( axisOfSymmetryVisibleProperty, options ) {
+    constructor( directrixVisibleProperty, options ) {
 
       const label = new HBox( {
         align: 'center',
@@ -35,22 +35,22 @@ define( require => {
         children: [
 
           // text
-          new Text( axisOfSymmetryString, {
+          new Text( directrixString, {
             font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
           } ),
 
           // vertical dashed line
-          new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[0], {
-            stroke: GQColors.AXIS_OF_SYMMETRY,
+          new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[0], 0, {
+            stroke: GQColors.DIRECTRIX,
             lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
             lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
           } )
         ]
       } );
 
-      super( label, axisOfSymmetryVisibleProperty, options );
+      super( label, directrixVisibleProperty, options );
     }
   }
 
-  return graphingQuadratics.register( 'AxisOfSymmetryCheckbox', AxisOfSymmetryCheckbox );
+  return graphingQuadratics.register( 'DirectrixCheckbox', DirectrixCheckbox );
 } );

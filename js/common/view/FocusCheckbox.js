@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * 'Axis of Symmetry' checkbox.
+ * 'Focus' checkbox.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -10,24 +10,24 @@ define( require => {
 
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
+  const Circle = require( 'SCENERY/nodes/Circle' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
-  const Line = require( 'SCENERY/nodes/Line' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
+  const focusString = require( 'string!GRAPHING_QUADRATICS/focus' );
 
-  class AxisOfSymmetryCheckbox extends Checkbox {
+  class FocusCheckbox extends Checkbox {
 
     /**
-     * @param {BooleanProperty} axisOfSymmetryVisibleProperty
+     * @param {BooleanProperty} focusVisibleProperty
      * @param {Object} [options]
      */
-    constructor( axisOfSymmetryVisibleProperty, options ) {
+    constructor( focusVisibleProperty, options ) {
 
       const label = new HBox( {
         align: 'center',
@@ -35,22 +35,18 @@ define( require => {
         children: [
 
           // text
-          new Text( axisOfSymmetryString, {
+          new Text( focusString, {
             font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
           } ),
 
-          // vertical dashed line
-          new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[0], {
-            stroke: GQColors.AXIS_OF_SYMMETRY,
-            lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
-            lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
-          } )
+          // point
+          new Circle( 6, { fill: GQColors.FOCUS } )
         ]
       } );
 
-      super( label, axisOfSymmetryVisibleProperty, options );
+      super( label, focusVisibleProperty, options );
     }
   }
 
-  return graphingQuadratics.register( 'AxisOfSymmetryCheckbox', AxisOfSymmetryCheckbox );
+  return graphingQuadratics.register( 'FocusCheckbox', FocusCheckbox );
 } );

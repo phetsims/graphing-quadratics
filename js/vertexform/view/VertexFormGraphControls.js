@@ -16,6 +16,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
   const VBox = require( 'SCENERY/nodes/VBox' );
+  const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 
   class VertexFormGraphControls extends Panel {
 
@@ -27,6 +28,7 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
+      const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty );
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
 
@@ -35,6 +37,7 @@ define( require => {
         align: 'left',
         spacing: 20,
         children: [
+          vertexCheckbox,
           axisOfSymmetryCheckbox,
           coordinatesCheckbox
         ]
@@ -44,6 +47,7 @@ define( require => {
 
       // Disable other controls when 'Hide curves' is checked
       viewProperties.graphContentsVisibleProperty.link( curvesVisible => {
+        vertexCheckbox.enabled = curvesVisible;
         axisOfSymmetryCheckbox.enabled = curvesVisible;
         coordinatesCheckbox.enabled = curvesVisible;
       } );

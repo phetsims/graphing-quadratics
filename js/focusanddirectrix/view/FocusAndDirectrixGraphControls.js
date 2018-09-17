@@ -10,11 +10,14 @@ define( require => {
 
   // modules
   const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
+  const DirectrixCheckbox = require( 'GRAPHING_QUADRATICS/common/view/DirectrixCheckbox' );
+  const FocusCheckbox = require( 'GRAPHING_QUADRATICS/common/view/FocusCheckbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
   const PointOnQuadraticCheckbox = require( 'GRAPHING_QUADRATICS/common/view/PointOnQuadraticCheckbox' );
   const VBox = require( 'SCENERY/nodes/VBox' );
+  const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 
   class FocusAndDirectrixGraphControls extends Panel {
 
@@ -26,6 +29,9 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
+      const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty );
+      const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty );
+      const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty );
       const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
 
@@ -34,6 +40,9 @@ define( require => {
         align: 'left',
         spacing: 20,
         children: [
+          vertexCheckbox,
+          focusCheckbox,
+          directrixCheckbox,
           pointOnQuadraticCheckbox,
           coordinatesCheckbox
         ]
@@ -43,6 +52,9 @@ define( require => {
 
       // Disable other controls when 'Hide curves' is checked
       viewProperties.graphContentsVisibleProperty.link( curvesVisible => {
+        vertexCheckbox.enabled = curvesVisible;
+        focusCheckbox.enabled = curvesVisible;
+        directrixCheckbox.enabled = curvesVisible;
         pointOnQuadraticCheckbox.enabled = curvesVisible;
         coordinatesCheckbox.enabled = curvesVisible;
       } );
