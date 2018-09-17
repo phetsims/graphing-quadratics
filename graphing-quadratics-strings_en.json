@@ -26,8 +26,8 @@
   "hideCurves": {
     "value": "Hide curves"
   },
-  "hideCoordinates": {
-    "value": "Hide coordinates"
+  "coordinates": {
+    "value": "Coordinates"
   },
   "noRealRoots": {
     "value": "NO REAL ROOTS"

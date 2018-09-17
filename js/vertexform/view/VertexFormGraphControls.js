@@ -11,9 +11,9 @@ define( require => {
 
   // modules
   const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
+  const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HideCoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCoordinatesCheckbox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const Panel = require( 'SUN/Panel' );
   const VBox = require( 'SCENERY/nodes/VBox' );
@@ -28,13 +28,8 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
-      // Axis of Symmetry, dispose not needed
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
-
-      // Hide coordinates, dispose not needed
-      const hideCoordinatesCheckbox = new HideCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
-
-      // Hide curves, dispose not needed
+      const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
       const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
       // vertical layout
@@ -43,7 +38,7 @@ define( require => {
         spacing: 20,
         children: [
           axisOfSymmetryCheckbox,
-          hideCoordinatesCheckbox,
+          coordinatesCheckbox,
           hideCurvesCheckbox
         ]
       } );
@@ -53,7 +48,7 @@ define( require => {
       // Disable other controls when 'Hide curves' is checked
       viewProperties.curvesVisibleProperty.link( curvesVisible => {
         axisOfSymmetryCheckbox.enabled = curvesVisible;
-        hideCoordinatesCheckbox.enabled = curvesVisible;
+        coordinatesCheckbox.enabled = curvesVisible;
       } );
     }
   }

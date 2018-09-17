@@ -9,9 +9,9 @@ define( require => {
   'use strict';
 
   // modules
+  const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HideCoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCoordinatesCheckbox' );
   const HideCurvesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/HideCurvesCheckbox' );
   const Panel = require( 'SUN/Panel' );
   const PointOnQuadraticCheckbox = require( 'GRAPHING_QUADRATICS/common/view/PointOnQuadraticCheckbox' );
@@ -27,13 +27,8 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
-      // Point on Quadratic, dispose not needed
       const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty );
-
-      // Hide coordinates, dispose not needed
-      const hideCoordinatesCheckbox = new HideCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
-
-      // Hide curves, dispose not needed
+      const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
       const hideCurvesCheckbox = new HideCurvesCheckbox( viewProperties.curvesVisibleProperty );
 
       // vertical layout
@@ -42,7 +37,7 @@ define( require => {
         spacing: 20,
         children: [
           pointOnQuadraticCheckbox,
-          hideCoordinatesCheckbox,
+          coordinatesCheckbox,
           hideCurvesCheckbox
         ]
       } );
@@ -52,7 +47,7 @@ define( require => {
       // Disable other controls when 'Hide curves' is checked
       viewProperties.curvesVisibleProperty.link( curvesVisible => {
         pointOnQuadraticCheckbox.enabled = curvesVisible;
-        hideCoordinatesCheckbox.enabled = curvesVisible;
+        coordinatesCheckbox.enabled = curvesVisible;
       } );
     }
   }
