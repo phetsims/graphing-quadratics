@@ -16,6 +16,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
+  const SaveCurveControls =  require( 'GRAPHING_QUADRATICS/common/view/SaveCurveControls' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   class FocusAndDirectrixAccordionBox extends AccordionBox {
@@ -37,12 +38,22 @@ define( require => {
       const interactiveEquationNode = new FocusAndDirectrixInteractiveEquationNode(
         model.quadraticProperty, model.hRange, model.pRange, model.kRange );
 
+      const saveCurveControls = new SaveCurveControls(
+        model.saveQuadratic.bind( model ), model.eraseQuadratics.bind( model ),
+        viewProperties.curvesVisibleProperty, model.savedQuadratics.lengthProperty );
+
+      const separatorWidth = Math.max( interactiveEquationNode.width, saveCurveControls.width );
+
+      const separatorOptions = { stroke: GQColors.SEPARATOR };
+
       const content = new VBox( {
         align: 'center',
         spacing: 10,
         children: [
-          new HSeparator( interactiveEquationNode.width, { stroke: GQColors.SEPARATOR } ),
-          interactiveEquationNode
+          new HSeparator( separatorWidth, separatorOptions ),
+          interactiveEquationNode,
+          new HSeparator( separatorWidth, separatorOptions ),
+          saveCurveControls
         ]
       } );
 
