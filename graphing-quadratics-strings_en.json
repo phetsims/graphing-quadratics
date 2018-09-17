@@ -35,6 +35,9 @@
   "pointOnQuadratic": {
     "value": "Point on Quadratic"
   },
+  "quadraticTerms": {
+    "value": "Quadratic Terms"
+  },
   "x": {
     "value": "x"
   },

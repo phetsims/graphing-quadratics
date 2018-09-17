@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Controls for various features related to the graph on the 'Explore screen.
+ * Accordion box for showing and hiding terms of the interactive auadratic equation.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -10,22 +10,26 @@ define( require => {
   'use strict';
 
   // modules
+  const AccordionBox = require( 'SUN/AccordionBox' );
   const Checkbox = require( 'SUN/Checkbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const Panel = require( 'SUN/Panel' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
   const CHECKBOX_EQUATION_FONT = new PhetFont( GQConstants.CHECKBOX_EQUATION_FONT_SIZE );
 
-  class ExploreGraphControls extends Panel {
+  // strings
+  const quadraticTermsString = require( 'string!GRAPHING_QUADRATICS/quadraticTerms' );
+
+  class TermsAccordionBox extends AccordionBox {
 
     /**
      * @param {GQViewProperties} viewProperties
@@ -33,7 +37,14 @@ define( require => {
      */
     constructor( viewProperties, options ) {
 
-      options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
+      options = _.extend( {
+        expandedProperty: viewProperties.termsAccordionBoxExpandedProperty
+      }, GQConstants.ACCORDION_BOX_OPTIONS, options );
+
+      assert && assert( !options.titleNode, 'TermsAccordionBox sets titleNode' );
+      options.titleNode = new Text( quadraticTermsString, {
+        font: new PhetFont( 22 )
+      } );
 
       // y = ax^2, dispose not needed
       const quadraticTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
@@ -93,5 +104,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'ExploreGraphControls', ExploreGraphControls );
+  return graphingQuadratics.register( 'TermsAccordionBox', TermsAccordionBox );
 } );

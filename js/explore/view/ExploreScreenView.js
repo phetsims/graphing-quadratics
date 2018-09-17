@@ -10,10 +10,10 @@ define( require => {
 
   // modules
   const ExploreAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/ExploreAccordionBox' );
-  const ExploreGraphControls = require( 'GRAPHING_QUADRATICS/explore/view/ExploreGraphControls' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const TermsAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/TermsAccordionBox' );
 
   class ExploreScreenView extends GQScreenView {
 
@@ -27,7 +27,7 @@ define( require => {
       super( model,
         viewProperties,
         new ExploreAccordionBox( model, viewProperties ),
-        new ExploreGraphControls( viewProperties ) );
+        new TermsAccordionBox( viewProperties ) );
     }
   }
 
