@@ -9,7 +9,8 @@ define( require => {
   'use strict';
 
   // modules
-  const ExploreSceneNode = require( 'GRAPHING_QUADRATICS/explore/view/ExploreSceneNode' );
+  const ExploreAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/ExploreAccordionBox' );
+  const ExploreGraphControls = require( 'GRAPHING_QUADRATICS/explore/view/ExploreGraphControls' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -23,9 +24,10 @@ define( require => {
 
       const viewProperties = new GQViewProperties();
 
-      super( model, [ viewProperties ] );
-
-      this.addChild( new ExploreSceneNode( model.scene, this.layoutBounds, viewProperties ) );
+      super( model,
+        viewProperties,
+        new ExploreAccordionBox( model, viewProperties ),
+        new ExploreGraphControls( viewProperties ) );
     }
   }
 

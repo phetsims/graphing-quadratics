@@ -21,11 +21,11 @@ define( require => {
   class FocusAndDirectrixAccordionBox extends AccordionBox {
 
     /**
-     * @param {VertexFormScene} scene
+     * @param {VertexFormModel} model
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( scene, viewProperties, options ) {
+    constructor( model, viewProperties, options ) {
 
       options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
@@ -33,7 +33,7 @@ define( require => {
       options.titleNode = new FocusAndDirectrixEquationNode();
 
       const interactiveEquationNode = new FocusAndDirectrixInteractiveEquationNode(
-        scene.quadraticProperty, scene.hRange, scene.pRange, scene.kRange );
+        model.quadraticProperty, model.hRange, model.pRange, model.kRange );
 
       const content = new VBox( {
         align: 'center',

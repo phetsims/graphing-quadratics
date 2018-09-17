@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Controls for various features related to the graph on 'Decimals' scene of the 'Standard Form' screen.
+ * Controls for various features related to the graph in the 'Standard Form' screen.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

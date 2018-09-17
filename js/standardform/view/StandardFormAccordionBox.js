@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Accordion box in the 'Integers' scene of the 'Standard Form' screen.
+ * Accordion box in the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -22,11 +22,11 @@ define( require => {
   class StandardFormAccordionBox extends AccordionBox {
 
     /**
-     * @param {StandardFormScene} scene
+     * @param {StandardFormModel} model
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( scene, viewProperties, options ) {
+    constructor( model, viewProperties, options ) {
 
       options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
@@ -34,11 +34,11 @@ define( require => {
       options.titleNode = new StandardFormEquationNode();
 
       const interactiveEquationNode = new StandardFormInteractiveEquationNode(
-        scene.quadraticProperty, scene.aRange, scene.bRange, scene.cRange );
+        model.quadraticProperty, model.aRange, model.bRange, model.cRange );
 
       const saveCurveControls = new SaveCurveControls(
-        scene.saveQuadratic.bind( scene ), scene.eraseQuadratics.bind( scene ),
-        viewProperties.curvesVisibleProperty, scene.savedQuadratics.lengthProperty );
+        model.saveQuadratic.bind( model ), model.eraseQuadratics.bind( model ),
+        viewProperties.curvesVisibleProperty, model.savedQuadratics.lengthProperty );
 
       const separatorWidth = Math.max( interactiveEquationNode.width, saveCurveControls.width );
 

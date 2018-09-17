@@ -11,14 +11,34 @@ define( require => {
   // modules
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const VertexFormScene = require( 'GRAPHING_QUADRATICS/vertexform/model/VertexFormScene' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
+  const RangeWithValue = require( 'DOT/RangeWithValue' );
+
+  // constants
+  const A_RANGE = new RangeWithValue( -6, 6, 1 );
+  const H_RANGE = new RangeWithValue( -9, 9, 0 );
+  const K_RANGE = new RangeWithValue( -9, 9, 0 );
 
   class VertexFormModel extends GQModel {
 
-    constructor() {
-      const vertexScene = new VertexFormScene();
-      super( [ vertexScene ] );
-      this.scene = vertexScene; // @public (read-only)
+    /**
+     * @param {Object} [options]
+     */
+    constructor( options ) {
+
+      options = options || {};
+
+      assert && assert( !options.quadratic, 'VertexFormModel sets quadratic' );
+      options.quadratic = Quadratic.createFromVertexForm( A_RANGE.defaultValue, H_RANGE.defaultValue, K_RANGE.defaultValue, {
+        color: 'black'
+      } );
+
+      super( options );
+
+      // @public (read-only)
+      this.aRange = A_RANGE;
+      this.hRange = H_RANGE;
+      this.kRange = K_RANGE;
     }
   }
 

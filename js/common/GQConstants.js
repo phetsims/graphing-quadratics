@@ -19,7 +19,7 @@ define( require => {
 
   const GQConstants = {
 
-    SCREEN_VIEW_OPTIONS: { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) },
+    SCREEN_VIEW_LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ),
     SCREEN_VIEW_X_MARGIN: 20,
     SCREEN_VIEW_Y_MARGIN: 16,
     X_AXIS_RANGE: new RangeWithValue( -10, 10 ),

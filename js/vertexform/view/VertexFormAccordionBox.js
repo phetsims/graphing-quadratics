@@ -22,11 +22,11 @@ define( require => {
   class VertexFormAccordionBox extends AccordionBox {
 
     /**
-     * @param {VertexFormScene} scene
+     * @param {VertexFormModel} model
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( scene, viewProperties, options ) {
+    constructor( model, viewProperties, options ) {
 
       options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
@@ -34,11 +34,11 @@ define( require => {
       options.titleNode = new VertexFormEquationNode();
 
       const interactiveEquationNode = new VertexFormInteractiveEquationNode(
-        scene.quadraticProperty, scene.aRange, scene.hRange, scene.kRange );
+        model.quadraticProperty, model.aRange, model.hRange, model.kRange );
 
       const saveCurveControls = new SaveCurveControls(
-        scene.saveQuadratic.bind( scene ), scene.eraseQuadratics.bind( scene ),
-        viewProperties.curvesVisibleProperty, scene.savedQuadratics.lengthProperty );
+        model.saveQuadratic.bind( model ), model.eraseQuadratics.bind( model ),
+        viewProperties.curvesVisibleProperty, model.savedQuadratics.lengthProperty );
 
       const separatorWidth = Math.max( interactiveEquationNode.width, saveCurveControls.width );
 

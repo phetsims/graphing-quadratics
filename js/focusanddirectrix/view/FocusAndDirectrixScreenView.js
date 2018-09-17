@@ -9,7 +9,8 @@ define( require => {
   'use strict';
 
   // modules
-  const FocusAndDirectrixSceneNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixSceneNode' );
+  const FocusAndDirectrixAccordionBox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixAccordionBox' );
+  const FocusAndDirectrixGraphControls = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphControls' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -21,14 +22,16 @@ define( require => {
      */
     constructor( model ) {
 
-      //TODO this pattern of passing view Properties to superclass is awkward
       const viewProperties = new GQViewProperties( {
         focusVisible: true,
         directrixVisible: true,
         pointOnQuadraticVisible: true
       } );
-      super( model, [ viewProperties ] );
-      this.addChild( new FocusAndDirectrixSceneNode( model.scene, this.layoutBounds, viewProperties ) );
+
+      super( model,
+        viewProperties,
+        new FocusAndDirectrixAccordionBox( model, viewProperties ),
+        new FocusAndDirectrixGraphControls( viewProperties ) );
     }
   }
 

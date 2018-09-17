@@ -27,49 +27,49 @@ define( require => {
   class GQGraphNode extends Node {
 
     /**
-     * @param {GQScene} scene
+     * @param {GQModel} model
      * @param {Bounds2} layoutBounds
      * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( scene, layoutBounds, viewProperties, options ) {
+    constructor( model, layoutBounds, viewProperties, options ) {
 
       super( options );
 
       // Location of the origin in view coordinate frame, for layout
-      const origin = scene.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) );
+      const origin = model.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) );
 
       // Cartesian coordinates graph
-      const graphNode = new GraphNode( scene.graph, scene.modelViewTransform );
+      const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
       // Interactive quadratic curve. dispose not needed.
       const interactiveQuadraticNode = new InteractiveQuadraticNode(
-        scene.quadraticProperty,
-        scene.graph,
-        scene.modelViewTransform,
+        model.quadraticProperty,
+        model.graph,
+        model.modelViewTransform,
         viewProperties
       );
 
       // Vertex manipulator. dispose not needed.
       let vertexManipulator;
-      if ( scene.hRange && scene.kRange ) {
+      if ( model.hRange && model.kRange ) {
         vertexManipulator = new VertexManipulator(
-          scene.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-          scene.quadraticProperty,
-          scene.hRange,
-          scene.kRange,
-          scene.modelViewTransform,
+          model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+          model.quadraticProperty,
+          model.hRange,
+          model.kRange,
+          model.modelViewTransform,
           viewProperties.coordinatesVisibleProperty
         );
       }
 
       // Point on Quadratic manipulator, dispose not needed.
       const pointOnQuadraticManipulator = new PointOnQuadraticManipulator(
-        scene.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-        scene.quadraticProperty,
-        scene.graph.xRange,
-        scene.graph.yRange,
-        scene.modelViewTransform,
+        model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        model.quadraticProperty,
+        model.graph.xRange,
+        model.graph.yRange,
+        model.modelViewTransform,
         viewProperties.coordinatesVisibleProperty
       );
 
@@ -83,11 +83,11 @@ define( require => {
 
       // Clip content to the graph
       const clipArea = Shape.rectangle(
-        scene.graph.xRange.min,
-        scene.graph.yRange.min,
-        scene.graph.xRange.getLength(),
-        scene.graph.yRange.getLength()
-      ).transformed( scene.modelViewTransform.getMatrix() );
+        model.graph.xRange.min,
+        model.graph.yRange.min,
+        model.graph.xRange.getLength(),
+        model.graph.yRange.getLength()
+      ).transformed( model.modelViewTransform.getMatrix() );
 
       // Everything that's on the graph, clipped to the graph
       const contentNode = new Node( { clipArea: clipArea } );
@@ -102,10 +102,10 @@ define( require => {
       this.addChild( contentNode );
 
       // When a quadratic is saved...  removeItemAddedListener not needed.
-      scene.savedQuadratics.addItemAddedListener( savedQuadratic => {
+      model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
         // Node for the saved quadratic
-        const savedQuadraticNode = new QuadraticNode( new Property( savedQuadratic ), scene.graph, scene.modelViewTransform, {
+        const savedQuadraticNode = new QuadraticNode( new Property( savedQuadratic ), model.graph, model.modelViewTransform, {
           pathOptions: {
             stroke: GQColors.SAVED_CURVE,
             lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
@@ -117,10 +117,10 @@ define( require => {
         const itemRemovedListener = removedQuadratic => {
           if ( removedQuadratic === savedQuadratic ) {
             savedQuadraticsLayer.removeChild( savedQuadraticNode );
-            scene.savedQuadratics.removeItemRemovedListener( itemRemovedListener );
+            model.savedQuadratics.removeItemRemovedListener( itemRemovedListener );
           }
         };
-        scene.savedQuadratics.addItemRemovedListener( itemRemovedListener ); // removeItemRemovedListener above
+        model.savedQuadratics.addItemRemovedListener( itemRemovedListener ); // removeItemRemovedListener above
       } );
 
       // Show/hide the graph content. unlink not needed.
@@ -130,7 +130,7 @@ define( require => {
       viewProperties.pointOnQuadraticVisibleProperty.link( visible => { pointOnQuadraticManipulator.visible = visible; } );
 
       // If the quadratic has no roots, indicate so on the x axis. dispose not needed.
-      Property.multilink( [ viewProperties.rootsVisibleProperty, scene.quadraticProperty ],
+      Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],
         ( rootsVisible, quadratic ) => {
           noRealRootsNode.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length === 0 );
         } );
