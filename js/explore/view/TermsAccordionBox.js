@@ -39,12 +39,13 @@ define( require => {
 
       options = _.extend( {
         expandedProperty: viewProperties.termsAccordionBoxExpandedProperty,
-        titleAlignX: 'left'
+        titleAlignX: 'left',
+        titleXSpacing: 8
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
       assert && assert( !options.titleNode, 'TermsAccordionBox sets titleNode' );
       options.titleNode = new Text( quadraticTermsString, {
-        font: new PhetFont( 22 )
+        font: new PhetFont( GQConstants.TITLE_FONT_SIZE )
       } );
 
       // y = ax^2, dispose not needed
