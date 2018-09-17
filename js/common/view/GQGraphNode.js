@@ -130,9 +130,9 @@ define( require => {
       viewProperties.pointOnQuadraticVisibleProperty.link( visible => { pointOnQuadraticManipulator.visible = visible; } );
 
       // If the quadratic has no roots, indicate so on the x axis. dispose not needed.
-      Property.multilink( [ scene.quadraticProperty, viewProperties.rootsVisibleProperty ],
-        ( quadratic, rootsVisible ) => {
-          noRealRootsNode.visible = ( !quadratic.hasRoots() && rootsVisible );
+      Property.multilink( [ viewProperties.rootsVisibleProperty, scene.quadraticProperty ],
+        ( rootsVisible, quadratic ) => {
+          noRealRootsNode.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length === 0 );
         } );
     }
   }
