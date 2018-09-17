@@ -28,7 +28,9 @@ define( require => {
      */
     constructor( model, viewProperties, options ) {
 
-      options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, options );
+      options = _.extend( {
+        expandedProperty: viewProperties.equationAccordionBoxExpandedProperty
+      }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
       assert && assert( !options.titleNode, 'VertexFormAccordionBox sets titleNode' );
       options.titleNode = new VertexFormEquationNode();
