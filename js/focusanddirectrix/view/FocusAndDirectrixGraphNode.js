@@ -10,6 +10,7 @@ define( require => {
 
   // modules
   const DirectrixNode = require( 'GRAPHING_QUADRATICS/common/view/DirectrixNode' );
+  //TODO const FocusManipulator = require( 'GRAPHING_QUADRATICS/common/view/FocusManipulator' );
   const FocusNode = require( 'GRAPHING_QUADRATICS/common/view/FocusNode' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
@@ -34,6 +35,15 @@ define( require => {
       viewProperties.directrixVisibleProperty.link( visible => { directrixNode.visible = visible; } );
 
       //TODO replace with FocusManipulator
+      // const focusNode = new FocusManipulator(
+      //   model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+      //   model.quadraticProperty,
+      //   model.graph.xRange,
+      //   model.graph.yRange,
+      //   model.modelViewTransform,
+      //   viewProperties.coordinatesVisibleProperty
+      // );
+
       // Focus
       const focusNode = new FocusNode( model.quadraticProperty, model.modelViewTransform, viewProperties.coordinatesVisibleProperty, {
         radius: model.modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS )
