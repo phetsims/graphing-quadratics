@@ -6,6 +6,7 @@ DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+FocusManipulator causes an assertion failure
 Explore: terms aren't clipped to graph
 Standard Forms: initial state is out of sync with checkboxes
 all: eyeball toggle doesn't control decorations, terms, etc.
