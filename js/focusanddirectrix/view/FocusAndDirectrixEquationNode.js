@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renderer for y = (1/(4p)(x - h)^2 + k
+ * Renders the equation y = (1/(4p)(x - h)^2 + k.
+ * This is an alternative version of the vertex form, when 1/(4p) is substituted for a.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

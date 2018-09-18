@@ -1,8 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renderer for general equation in vertex form.
- * Vertex form is y = a(x - h)^2 + k
+ * Renders the vertex form of the quadratic equation, is y = a(x - h)^2 + k
  *
  * @author Andrea Lin
  */
