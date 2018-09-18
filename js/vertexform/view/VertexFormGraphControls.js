@@ -28,7 +28,9 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
-      const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty );
+      const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
+        manipulatorIcon: true
+      } );
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
 

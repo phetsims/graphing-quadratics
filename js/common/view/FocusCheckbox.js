@@ -10,11 +10,11 @@ define( require => {
 
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
-  const Circle = require( 'SCENERY/nodes/Circle' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Text = require( 'SCENERY/nodes/Text' );
 
@@ -39,8 +39,8 @@ define( require => {
             font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
           } ),
 
-          // point
-          new Circle( 6, { fill: GQColors.FOCUS } )
+          // manipulator icon
+          new Manipulator( 8, GQColors.FOCUS, { pickable: false } )
         ]
       } );
 

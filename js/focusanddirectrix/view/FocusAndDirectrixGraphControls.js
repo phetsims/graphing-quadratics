@@ -29,7 +29,9 @@ define( require => {
 
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
-      const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty );
+      const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
+        manipulatorIcon: true
+      } );
       const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty );
       const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty );
       const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty );

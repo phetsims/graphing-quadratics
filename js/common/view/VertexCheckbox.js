@@ -15,6 +15,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Text = require( 'SCENERY/nodes/Text' );
 
@@ -29,6 +30,10 @@ define( require => {
      */
     constructor( vertexVisibleProperty, options ) {
 
+      options = _.extend( {
+        manipulatorIcon: false
+      }, options );
+
       const label = new HBox( {
         align: 'center',
         spacing: 15,
@@ -39,7 +44,9 @@ define( require => {
             font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
           } ),
 
-          // point
+          // icon
+          ( options.manipulatorIcon ) ?
+          new Manipulator( 8, GQColors.VERTEX, { pickable: false } ) :
           new Circle( 6, { fill: GQColors.VERTEX } )
         ]
       } );
