@@ -12,8 +12,8 @@ define( require => {
   const FocusAndDirectrixAccordionBox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixAccordionBox' );
   const FocusAndDirectrixGraphControls = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphControls' );
   const FocusAndDirectrixGraphNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphNode' );
+  const FocusAndDirectrixViewProperties = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixViewProperties' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
-  const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
   class FocusAndDirectrixScreenView extends GQScreenView {
@@ -23,12 +23,7 @@ define( require => {
      */
     constructor( model ) {
 
-      const viewProperties = new GQViewProperties( {
-        vertexVisible: true,
-        focusVisible: true,
-        directrixVisible: true,
-        pointOnQuadraticVisible: true
-      } );
+      const viewProperties = new FocusAndDirectrixViewProperties();
 
       super( model,
         viewProperties,

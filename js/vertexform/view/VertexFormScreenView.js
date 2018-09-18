@@ -3,18 +3,18 @@
 /**
  * View for the 'Vertex Form' screen.
  *
- * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';
 
   // modules
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
-  const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const VertexFormAccordionBox = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormAccordionBox' );
   const VertexFormGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphControls' );
   const VertexFormGraphNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphNode' );
+  const VertexFormViewProperties = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormViewProperties' );
 
   class VertexFormScreenView extends GQScreenView{
 
@@ -23,9 +23,7 @@ define( require => {
      */
     constructor( model ) {
 
-      const viewProperties = new GQViewProperties( {
-        vertexVisible: true
-      } );
+      const viewProperties = new VertexFormViewProperties();
 
       super( model,
         viewProperties,

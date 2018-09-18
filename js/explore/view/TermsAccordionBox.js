@@ -32,7 +32,7 @@ define( require => {
   class TermsAccordionBox extends AccordionBox {
 
     /**
-     * @param {GQViewProperties} viewProperties
+     * @param {ExploreViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( viewProperties, options ) {

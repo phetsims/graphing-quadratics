@@ -11,8 +11,8 @@ define( require => {
   // modules
   const ExploreAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/ExploreAccordionBox' );
   const ExploreGraphNode = require( 'GRAPHING_QUADRATICS/explore/view/ExploreGraphNode' );
+  const ExploreViewProperties = require( 'GRAPHING_QUADRATICS/explore/view/ExploreViewProperties' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
-  const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const TermsAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/TermsAccordionBox' );
 
@@ -23,7 +23,7 @@ define( require => {
      */
     constructor( model ) {
 
-      const viewProperties = new GQViewProperties();
+      const viewProperties = new ExploreViewProperties();
 
       super( model,
         viewProperties,

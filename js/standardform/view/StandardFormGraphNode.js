@@ -23,7 +23,7 @@ define( require => {
 
     /**
      * @param {GQModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {StandardFormViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( model, viewProperties, options ) {

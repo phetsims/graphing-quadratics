@@ -18,7 +18,7 @@ define( require => {
 
     /**
      * @param {ExploreModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {ExploreViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( model, viewProperties, options ) {

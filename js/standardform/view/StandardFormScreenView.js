@@ -3,7 +3,6 @@
 /**
  * View for the 'Standard Form' screen.
  *
- * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
@@ -11,11 +10,11 @@ define( require => {
 
   // modules
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
-  const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const StandardFormAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormAccordionBox' );
   const StandardFormGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControls' );
   const StandardFormGraphNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphNode' );
+  const StandardFormViewProperties = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormViewProperties' );
 
   class StandardFormScreenView extends GQScreenView {
 
@@ -24,7 +23,7 @@ define( require => {
      */
     constructor( model ) {
 
-      const viewProperties = new GQViewProperties();
+      const viewProperties = new StandardFormViewProperties();
 
       super( model,
         viewProperties,

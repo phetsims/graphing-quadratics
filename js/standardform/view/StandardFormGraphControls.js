@@ -22,7 +22,7 @@ define( require => {
   class StandardFormGraphControls extends Panel {
 
     /**
-     * @param {GQViewProperties} viewProperties
+     * @param {StandardFormViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( viewProperties, options ) {
@@ -30,8 +30,8 @@ define( require => {
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty );
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
       const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty );
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
 
       // vertical layout
@@ -40,8 +40,8 @@ define( require => {
         spacing: 20,
         children: [
           vertexCheckbox,
-          axisOfSymmetryCheckbox,
           rootsCheckbox,
+          axisOfSymmetryCheckbox,
           coordinatesCheckbox
         ]
       } );
