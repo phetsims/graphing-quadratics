@@ -81,9 +81,11 @@ define( require => {
 
       // When the vertex changes, create new quadratic. 
       vertexProperty.link( vertex => {
-        const quadratic = quadraticProperty.value;
-        if ( vertex.x !== quadratic.vertex.x || vertex.y !== quadratic.vertex.y ) {
-          quadraticProperty.value = Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y );
+        if ( vertex ) {
+          const quadratic = quadraticProperty.value;
+          if ( vertex.x !== quadratic.vertex.x || vertex.y !== quadratic.vertex.y ) {
+            quadraticProperty.value = Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y );
+          }
         }
       } );
 
