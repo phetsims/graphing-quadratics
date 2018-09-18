@@ -15,11 +15,9 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/common/view/NoRealRootsNode' );
   const Property = require( 'AXON/Property' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Shape = require( 'KITE/Shape' );
-  const Vector2 = require( 'DOT/Vector2' );
 
   class GQGraphNode extends Node {
 
@@ -32,9 +30,6 @@ define( require => {
 
       super( options );
 
-      // Location of the origin in view coordinate frame, for layout
-      const origin = model.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) );
-
       // Cartesian coordinates graph
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
@@ -45,11 +40,6 @@ define( require => {
         model.modelViewTransform,
         viewProperties
       );
-
-      // 'no real roots' label
-      const noRealRootsNode = new NoRealRootsNode( {
-        center: origin
-      } );
 
       // Parent for saved quadratics
       const savedQuadraticsLayer = new Node();
@@ -66,7 +56,6 @@ define( require => {
       const contentNode = new Node( { clipArea: clipArea } );
       contentNode.addChild( savedQuadraticsLayer );
       contentNode.addChild( interactiveQuadraticNode );
-      contentNode.addChild( noRealRootsNode );
 
       // rendering order
       this.addChild( graphNode );
@@ -96,12 +85,6 @@ define( require => {
 
       // Show/hide the graph content. unlink not needed.
       viewProperties.graphContentsVisibleProperty.link( visible => { contentNode.visible = visible; } );
-
-      // If the quadratic has no roots, indicate so on the x axis. dispose not needed.
-      Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],
-        ( rootsVisible, quadratic ) => {
-          noRealRootsNode.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length === 0 );
-        } );
     }
   }
 

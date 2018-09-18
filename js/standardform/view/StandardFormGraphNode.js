@@ -13,7 +13,10 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/common/view/NoRealRootsNode' );
+  const Property = require( 'AXON/Property' );
   const RootsNode = require( 'GRAPHING_QUADRATICS/common/view/RootsNode' );
+  const Vector2 = require( 'DOT/Vector2' );
   const VertexNode = require( 'GRAPHING_QUADRATICS/common/view/VertexNode' );
 
   class StandardFormGraphNode extends GQGraphNode {
@@ -47,6 +50,16 @@ define( require => {
       } );
       this.addChild( vertexNode );
       viewProperties.vertexVisibleProperty.link( visible => { vertexNode.visible = visible; } );
+
+      // 'NO REAL ROOTS' label
+      const noRealRootsNode = new NoRealRootsNode( {
+        center: model.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) ) // at the origin
+      } );
+      this.addChild( noRealRootsNode );
+      Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],
+        ( rootsVisible, quadratic ) => {
+          noRealRootsNode.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length === 0 );
+        } );
     }
   }
 
