@@ -26,25 +26,20 @@ define( require => {
 
       options = _.extend( {
 
-        // {string|number} defaults display the general form y = ax^2 + bx + c
-        a: GQSymbols.a,
-        b: GQSymbols.b,
-        c: GQSymbols.c,
-
-        // superclass options
+        // RichText options
         font: new PhetFont( 26 ),
         fill: 'black'
       } );
 
       const equation = StringUtils.fillIn(
         '{{y}} {{equals}} {{a}}{{x}}<sup>2</sup> {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
-          y: GQSymbols.y,
-          equals: MathSymbols.EQUAL_TO,
-          a: options.a,
           x: GQSymbols.x,
-          plus: MathSymbols.PLUS,
-          b: options.b,
-          c: options.c
+          y: GQSymbols.y,
+          a: GQSymbols.a,
+          b: GQSymbols.b,
+          c: GQSymbols.c,
+          equals: MathSymbols.EQUAL_TO,
+          plus: MathSymbols.PLUS
         } );
 
       super( equation, options );

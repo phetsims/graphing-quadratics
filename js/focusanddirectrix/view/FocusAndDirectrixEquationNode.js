@@ -25,26 +25,21 @@ define( require => {
 
       options = _.extend( {
 
-        // {string|number}
-        h: GQSymbols.h,
-        p: GQSymbols.p,
-        k: GQSymbols.k,
-
-        // superclass options
+        // RichText options
         font: new PhetFont( 26 ),
         fill: 'black'
       } );
 
       const equation = StringUtils.fillIn(
         '{{y}} {{equals}} 1/4{{p}} ({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
-          y: GQSymbols.y,
-          equals: MathSymbols.EQUAL_TO,
-          p: GQSymbols.p,
           x: GQSymbols.x,
-          minus: MathSymbols.MINUS,
+          y: GQSymbols.y,
           h: GQSymbols.h,
+          k: GQSymbols.k,
+          p: GQSymbols.p,
+          equals: MathSymbols.EQUAL_TO,
           plus: MathSymbols.PLUS,
-          k: GQSymbols.k
+          minus: MathSymbols.MINUS
         } );
 
       super( equation, options );
