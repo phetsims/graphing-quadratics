@@ -57,6 +57,7 @@ define( require => {
       const pointOnQuadraticManipulator = new PointOnQuadraticManipulator(
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
         model.quadraticProperty,
+        model.pointOnQuadraticProperty,
         model.graph.xRange,
         model.graph.yRange,
         model.modelViewTransform,

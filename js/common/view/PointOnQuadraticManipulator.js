@@ -15,7 +15,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const Property = require( 'AXON/Property' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Vector2 = require( 'DOT/Vector2' );
 
@@ -24,22 +23,20 @@ define( require => {
     /**
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Property.<Vector2>} pointOnQuadraticProperty
      * @param {Range} xRange
      * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} coordinatesVisibleProperty
      */
-    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform, coordinatesVisibleProperty ) {
+    constructor( radius, quadraticProperty, pointOnQuadraticProperty, xRange, yRange, modelViewTransform, coordinatesVisibleProperty ) {
 
       super( radius, GQColors.POINT_ON_QUADRATIC, {
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
       } );
 
-      const xDefault = 1; //TODO is this correct?
-      const pointProperty = new Property( new Vector2( xDefault, quadraticProperty.value.solveY( xDefault ) ) );
-
       // dispose not needed
-      const coordinatesNode = new CoordinatesNode( pointProperty, {
+      const coordinatesNode = new CoordinatesNode( pointOnQuadraticProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.POINT_ON_QUADRATIC ).withAlpha( 0.75 ),
         decimals: GQConstants.POINT_DECIMALS,
@@ -50,16 +47,8 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesXOffset = 1.8 * radius;
 
-      // unlink not needed
-      const quadraticListener = quadratic => {
-
-        // update the point
-        pointProperty.value = new Vector2( pointProperty.value.x, quadratic.solveY( pointProperty.value.x ) );
-      };
-      quadraticProperty.link( quadraticListener );
-
       // move the manipulator
-      pointProperty.link( point => {
+      pointOnQuadraticProperty.link( point => {
 
         this.translation = modelViewTransform.modelToViewPosition( point );
 
@@ -78,7 +67,7 @@ define( require => {
       coordinatesVisibleProperty.link( coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; } );
 
       // @private
-      this.addInputListener( new PointOnQuadraticDragHandler( pointProperty, quadraticProperty,
+      this.addInputListener( new PointOnQuadraticDragHandler( pointOnQuadraticProperty, quadraticProperty,
         modelViewTransform, xRange, yRange ) );
     }
   }
@@ -89,13 +78,13 @@ define( require => {
 
     /**
      * Drag handler for point on the quadratic.
-     * @param {Property.<Vector2>} pointProperty
+     * @param {Property.<Vector2>} pointOnQuadraticProperty
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Range} xRange
      * @param {Range} yRange
      */
-    constructor( pointProperty, quadraticProperty, modelViewTransform, xRange, yRange ) {
+    constructor( pointOnQuadraticProperty, quadraticProperty, modelViewTransform, xRange, yRange ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -105,7 +94,7 @@ define( require => {
 
         // note where the drag started
         start: ( event, trail ) => {
-          const location = modelViewTransform.modelToViewPosition( pointProperty.value );
+          const location = modelViewTransform.modelToViewPosition( pointOnQuadraticProperty.value );
           startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
@@ -118,7 +107,7 @@ define( require => {
           //TODO constrain to graph bounds
 
           // update model
-          pointProperty.value = new Vector2( x, quadraticProperty.value.solveY( x ) );
+          pointOnQuadraticProperty.value = new Vector2( x, quadraticProperty.value.solveY( x ) );
         }
       } );
     }
