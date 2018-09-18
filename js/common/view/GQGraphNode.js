@@ -14,7 +14,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
-  const InteractiveQuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/InteractiveQuadraticNode' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/common/view/NoRealRootsNode' );
   const Property = require( 'AXON/Property' );
@@ -40,7 +39,7 @@ define( require => {
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
       // Interactive quadratic curve. dispose not needed.
-      const interactiveQuadraticNode = new InteractiveQuadraticNode(
+      const interactiveQuadraticNode = new QuadraticNode(
         model.quadraticProperty,
         model.graph,
         model.modelViewTransform,

@@ -9,6 +9,7 @@ define( require => {
   'use strict';
 
   // modules
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -40,6 +41,14 @@ define( require => {
       this.aRange = A_RANGE;
       this.bRange = B_RANGE;
       this.cRange = C_RANGE;
+
+      // @public (read-only)
+      this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
+        quadratic => { return quadratic.getQuadraticTerm(); } );
+      this.linearTermProperty = new DerivedProperty( [ this.quadraticProperty ],
+        quadratic => { return quadratic.getLinearTerm(); } );
+      this.constantTermProperty = new DerivedProperty( [ this.quadraticProperty ],
+        quadratic => { return quadratic.getConstantTerm(); } );
     }
   }
 
