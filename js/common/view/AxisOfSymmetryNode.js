@@ -27,9 +27,10 @@ define( require => {
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} axisOfSymmetryVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, graph, modelViewTransform, options ) {
+    constructor( quadraticProperty, graph, modelViewTransform, axisOfSymmetryVisibleProperty, options ) {
 
       options = _.extend( {
         color: GQColors.AXIS_OF_SYMMETRY,
@@ -74,6 +75,8 @@ define( require => {
           equationNode.top = path.top + 15;
         }
       } );
+
+      axisOfSymmetryVisibleProperty.link( visible => { this.visible = visible; } );
     }
   }
 

@@ -33,23 +33,23 @@ define( require => {
       const pointRadius = model.modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
       // Axis of symmetry
-      const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph, model.modelViewTransform );
+      const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph, model.modelViewTransform,
+        viewProperties.axisOfSymmetryVisibleProperty );
       this.addChild( axisOfSymmetryNode );
-      viewProperties.axisOfSymmetryVisibleProperty.link( visible => { axisOfSymmetryNode.visible = visible; } );
 
       // Roots
-      const rootsNode = new RootsNode( model.quadraticProperty, model.modelViewTransform, viewProperties.coordinatesVisibleProperty, {
-        radius: pointRadius
-      } );
+      const rootsNode = new RootsNode( model.quadraticProperty, model.modelViewTransform,
+        viewProperties.rootsVisibleProperty, viewProperties.coordinatesVisibleProperty, {
+          radius: pointRadius
+        } );
       this.addChild( rootsNode );
-      viewProperties.rootsVisibleProperty.link( visible => { rootsNode.visible = visible; } );
 
       // Vertex
-      const vertexNode = new VertexNode( model.quadraticProperty, model.modelViewTransform, viewProperties.coordinatesVisibleProperty, {
-        radius: pointRadius
-      } );
+      const vertexNode = new VertexNode( model.quadraticProperty, model.modelViewTransform,
+        viewProperties.vertexVisibleProperty, viewProperties.coordinatesVisibleProperty, {
+          radius: pointRadius
+        } );
       this.addChild( vertexNode );
-      viewProperties.vertexVisibleProperty.link( visible => { vertexNode.visible = visible; } );
 
       // 'NO REAL ROOTS' label
       const noRealRootsNode = new NoRealRootsNode( {

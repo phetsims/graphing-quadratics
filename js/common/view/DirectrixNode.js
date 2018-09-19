@@ -27,9 +27,10 @@ define( require => {
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} directrixVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, graph, modelViewTransform, options ) {
+    constructor( quadraticProperty, graph, modelViewTransform, directrixVisibleProperty, options ) {
 
       options = _.extend( {
         color: GQColors.DIRECTRIX,
@@ -58,10 +59,13 @@ define( require => {
       quadraticProperty.link( quadratic => {
 
         if ( quadratic.directrix === undefined ) {
+          this.visible = false;
           path.shape = null;
           equationNode.text = '';
         }
         else {
+          this.visible = directrixVisibleProperty.value;
+
           const y = modelViewTransform.modelToViewY( quadratic.directrix );
           path.shape = new Shape().moveTo( minX, y ).lineTo( maxX, y );
 
@@ -73,6 +77,8 @@ define( require => {
           equationNode.top = path.bottom + 3;
         }
       } );
+
+      directrixVisibleProperty.link( visible => { this.visible = visible; } );
     }
   }
 

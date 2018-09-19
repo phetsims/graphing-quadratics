@@ -30,9 +30,9 @@ define( require => {
       super( model, viewProperties, options );
 
       // Directrix
-      const directrixNode = new DirectrixNode( model.quadraticProperty, model.graph, model.modelViewTransform );
+      const directrixNode = new DirectrixNode( model.quadraticProperty, model.graph, model.modelViewTransform,
+        viewProperties.directrixVisibleProperty );
       this.addChild( directrixNode );
-      viewProperties.directrixVisibleProperty.link( visible => { directrixNode.visible = visible; } );
 
       //TODO replace with FocusManipulator
       // const focusNode = new FocusManipulator(
@@ -41,15 +41,16 @@ define( require => {
       //   model.graph.xRange,
       //   model.graph.yRange,
       //   model.modelViewTransform,
+      //   viewProperties.focusVisibleProperty,
       //   viewProperties.coordinatesVisibleProperty
       // );
 
       // Focus
-      const focusNode = new FocusNode( model.quadraticProperty, model.modelViewTransform, viewProperties.coordinatesVisibleProperty, {
+      const focusNode = new FocusNode( model.quadraticProperty, model.modelViewTransform,
+        viewProperties.focusVisibleProperty, viewProperties.coordinatesVisibleProperty, {
         radius: model.modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS )
       } );
       this.addChild( focusNode );
-      viewProperties.focusVisibleProperty.link( visible => { focusNode.visible = visible; } );
 
       // Vertex manipulator
       const vertexManipulator = new VertexManipulator(
@@ -58,10 +59,10 @@ define( require => {
         model.hRange,
         model.kRange,
         model.modelViewTransform,
+        viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty
       );
       this.addChild( vertexManipulator );
-      viewProperties.vertexVisibleProperty.link( visible => { vertexManipulator.visible = visible; } );
 
       // Point on Quadratic manipulator
       const pointOnQuadraticManipulator = new PointOnQuadraticManipulator(
@@ -71,10 +72,10 @@ define( require => {
         model.graph.xRange,
         model.graph.yRange,
         model.modelViewTransform,
+        viewProperties.pointOnQuadraticVisibleProperty,
         viewProperties.coordinatesVisibleProperty
       );
       this.addChild( pointOnQuadraticManipulator );
-      viewProperties.pointOnQuadraticVisibleProperty.link( visible => { pointOnQuadraticManipulator.visible = visible; } );
     }
   }
 

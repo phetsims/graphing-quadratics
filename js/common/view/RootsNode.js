@@ -27,10 +27,11 @@ define( require => {
     /**
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} rootsVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, modelViewTransform, coordinatesVisibleProperty, options ) {
+    constructor( quadraticProperty, modelViewTransform, rootsVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
         radius: 10
@@ -56,7 +57,6 @@ define( require => {
 
       super( options );
 
-      // unlink not needed
       quadraticProperty.link( quadratic => {
 
         let roots = quadratic.roots;
@@ -69,7 +69,7 @@ define( require => {
         else {
           assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
 
-          this.visible = true;
+          this.visible = rootsVisibleProperty.value;
 
           // sort by ascending x value
           roots = _.sortBy( roots, function( root ) { return root.x; } );
@@ -92,20 +92,16 @@ define( require => {
         }
 
         // position coordinates to left and right of roots
-        if ( this.visible ) {
-
-          leftCoordinatesNode.right = leftPointNode.left - X_SPACING;
-          leftCoordinatesNode.centerY = leftPointNode.centerY;
-
-          rightCoordinatesNode.left = rightPointNode.right + X_SPACING;
-          rightCoordinatesNode.centerY = rightPointNode.centerY;
-        }
+        leftCoordinatesNode.right = leftPointNode.left - X_SPACING;
+        leftCoordinatesNode.centerY = leftPointNode.centerY;
+        rightCoordinatesNode.left = rightPointNode.right + X_SPACING;
+        rightCoordinatesNode.centerY = rightPointNode.centerY;
       } );
 
-      // unlink not needed
-      coordinatesVisibleProperty.link( coordinatesVisible => {
-        leftCoordinatesNode.visible = !!( coordinatesVisible && leftCoordinatesProperty.value );
-        rightCoordinatesNode.visible = !!( coordinatesVisible && rightCoordinatesProperty.value );
+      rootsVisibleProperty.link( visible => { this.visible = visible; } );
+      coordinatesVisibleProperty.link( visible => {
+        leftCoordinatesNode.visible = !!( visible && leftCoordinatesProperty.value );
+        rightCoordinatesNode.visible = !!( visible && rightCoordinatesProperty.value );
       } );
     }
   }

@@ -32,9 +32,11 @@ define( require => {
      * @param {Range} xRange
      * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      */
-    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform, coordinatesVisibleProperty ) {
+    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform,
+                 vertexVisibleProperty, coordinatesVisibleProperty ) {
 
       super( radius, GQColors.VERTEX, {
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
@@ -62,7 +64,7 @@ define( require => {
       const quadraticListener = quadratic => {
 
         // manipulator is visible only if the quadratic has a vertex
-        this.visible = !!quadratic.vertex;
+        this.visible = !!( quadratic.vertex && vertexVisibleProperty.value );
 
         if ( quadratic.vertex && !quadratic.vertex.equals( vertexProperty.value ) ) {
           vertexProperty.value = quadratic.vertex;
@@ -91,8 +93,8 @@ define( require => {
       // move the manipulator
       vertexProperty.link( vertex => { this.translation = modelViewTransform.modelToViewPosition( vertex ); } );
 
-      // unlink not needed
-      coordinatesVisibleProperty.link( coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; } );
+      vertexVisibleProperty.link( visible => { this.visible = visible; } );
+      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
       this.addInputListener( new VertexDragHandler( vertexProperty, modelViewTransform,

@@ -30,9 +30,11 @@ define( require => {
      * @param {Range} xRange
      * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} focusVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      */
-    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform, coordinatesVisibleProperty ) {
+    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform,
+                 focusVisibleProperty, coordinatesVisibleProperty ) {
 
       super( radius, GQColors.FOCUS, {
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
@@ -60,7 +62,7 @@ define( require => {
       const quadraticListener = quadratic => {
 
         // manipulator is visible only if the quadratic has a focus
-        this.visible = !!quadratic.focus;
+        this.visible = !!( quadratic.focus && focusVisibleProperty.value );
 
         if ( quadratic.focus && !quadratic.focus.equals( focusProperty.value ) ) {
           focusProperty.value = quadratic.focus;
@@ -91,11 +93,11 @@ define( require => {
       // move the manipulator
       focusProperty.link( focus => { this.translation = modelViewTransform.modelToViewPosition( focus ); } );
 
-      // unlink not needed
-      coordinatesVisibleProperty.link( coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; } );
+      focusVisibleProperty.link( visible => { this.visible = visible; } );
+      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
-        this.addInputListener( new FocusDragHandler( focusProperty, modelViewTransform,
+      this.addInputListener( new FocusDragHandler( focusProperty, modelViewTransform,
         new Bounds2( xRange.min, yRange.min, xRange.max, yRange.max ) ) );
     }
   }

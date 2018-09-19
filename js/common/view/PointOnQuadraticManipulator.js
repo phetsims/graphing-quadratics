@@ -27,9 +27,11 @@ define( require => {
      * @param {Range} xRange
      * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} pointOnQuadraticVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      */
-    constructor( radius, quadraticProperty, pointOnQuadraticProperty, xRange, yRange, modelViewTransform, coordinatesVisibleProperty ) {
+    constructor( radius, quadraticProperty, pointOnQuadraticProperty, xRange, yRange, modelViewTransform,
+                 pointOnQuadraticVisibleProperty, coordinatesVisibleProperty ) {
 
       super( radius, GQColors.POINT_ON_QUADRATIC, {
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
@@ -63,8 +65,8 @@ define( require => {
         coordinatesNode.centerY = 0;
       } );
 
-      // unlink not needed
-      coordinatesVisibleProperty.link( coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; } );
+      pointOnQuadraticVisibleProperty.link( visible => { this.visible = visible; } );
+      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
       this.addInputListener( new PointOnQuadraticDragHandler( pointOnQuadraticProperty, quadraticProperty,

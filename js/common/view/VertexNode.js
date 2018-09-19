@@ -26,10 +26,11 @@ define( require => {
     /**
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, modelViewTransform, coordinatesVisibleProperty, options ) {
+    constructor( quadraticProperty, modelViewTransform, vertexVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
         radius: 10
@@ -60,27 +61,25 @@ define( require => {
 
         coordinatesProperty.value = quadratic.vertex;
 
-        // point is visible only if the quadratic has a vertex
-        this.visible = !!quadratic.vertex;
+        this.visible = !!( quadratic.vertex && vertexVisibleProperty.value );
 
-        if ( this.visible ) {
-
-          // move to the vertex location
+        // move to the vertex location
+        if ( quadratic.vertex ) {
           this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
+        }
 
-          // position coordinates on the outside of the curve
-          coordinatesNode.centerX = pointNode.centerX;
-          if ( quadratic.a > 0 ) {
-            coordinatesNode.top = pointNode.bottom + Y_SPACING;
-          }
-          else {
-            coordinatesNode.bottom = pointNode.top - Y_SPACING;
-          }
+        // position coordinates on the outside of the curve
+        coordinatesNode.centerX = pointNode.centerX;
+        if ( quadratic.a > 0 ) {
+          coordinatesNode.top = pointNode.bottom + Y_SPACING;
+        }
+        else {
+          coordinatesNode.bottom = pointNode.top - Y_SPACING;
         }
       } );
 
-      // unlink not needed
-      coordinatesVisibleProperty.link( coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; } );
+      vertexVisibleProperty.link( visible => { this.visible = visible; } );
+      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
     }
   }
 

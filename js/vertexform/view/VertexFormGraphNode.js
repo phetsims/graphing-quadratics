@@ -27,9 +27,9 @@ define( require => {
       super( model, viewProperties, options );
 
       // Axis of symmetry
-      const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph, model.modelViewTransform );
+      const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph, model.modelViewTransform,
+        viewProperties.axisOfSymmetryVisibleProperty );
       this.addChild( axisOfSymmetryNode );
-      viewProperties.axisOfSymmetryVisibleProperty.link( visible => { axisOfSymmetryNode.visible = visible; } );
 
       // Vertex
       const vertexManipulator = new VertexManipulator(
@@ -38,10 +38,10 @@ define( require => {
         model.hRange,
         model.kRange,
         model.modelViewTransform,
+        viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty
       );
       this.addChild( vertexManipulator );
-      viewProperties.vertexVisibleProperty.link( visible => { vertexManipulator.visible = visible; } );
     }
   }
 

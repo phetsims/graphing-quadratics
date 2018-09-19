@@ -26,10 +26,11 @@ define( require => {
     /**
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {BooleanProperty} focusVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, modelViewTransform, coordinatesVisibleProperty, options ) {
+    constructor( quadraticProperty, modelViewTransform, focusVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
         radius: 10
@@ -60,26 +61,25 @@ define( require => {
 
         coordinatesProperty.value = quadratic.focus;
 
-        this.visible = !!quadratic.focus;
+        this.visible = !!( quadratic.focus && focusVisibleProperty.value );
 
-        if ( this.visible ) {
-
-          // move to the focus location
+        // move to focus point
+        if ( quadratic.focus ) {
           this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
+        }
 
-          // position coordinates on the inside of the curve
-          coordinatesNode.centerX = pointNode.centerX;
-          if ( quadratic.a > 0 ) {
-            coordinatesNode.bottom = pointNode.top - Y_SPACING;
-          }
-          else {
-            coordinatesNode.top = pointNode.bottom + Y_SPACING;
-          }
+        // position coordinates on the inside of the curve
+        coordinatesNode.centerX = pointNode.centerX;
+        if ( quadratic.a > 0 ) {
+          coordinatesNode.bottom = pointNode.top - Y_SPACING;
+        }
+        else {
+          coordinatesNode.top = pointNode.bottom + Y_SPACING;
         }
       } );
 
-      // unlink not needed
-      coordinatesVisibleProperty.link( coordinatesVisible => { coordinatesNode.visible = coordinatesVisible; } );
+      focusVisibleProperty.link( visible => { this.visible = visible; } );
+      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
     }
   }
 
