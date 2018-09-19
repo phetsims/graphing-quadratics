@@ -16,6 +16,8 @@ define( require => {
   const HBox = require( 'SCENERY/nodes/HBox' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const Property = require( 'AXON/Property' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
@@ -62,10 +64,39 @@ define( require => {
             new Rectangle( 0, 0, hBox.width, 75, { stroke: 'red' } ),
             hBox
           ]
-        })
+        } )
       ];
 
       super( options );
+
+      //TODO hack to prevent 'call stack size exceeded' and need for reentrant:true NumberProperty
+      let changing = false;
+
+      // When the coefficients change, update the quadratic.
+      Property.multilink( [ pProperty, hProperty, kProperty ], ( p, h, k ) => {
+        if ( !changing ) {
+          changing = true;
+          //TODO handle p === 0, which results in x=h
+          if ( p !== 0 ) {
+            quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, h, k, { color: quadraticProperty.value.color } );
+          }
+          changing = false;
+        }
+      } );
+
+      // When the quadratic changes, update the coefficients
+      quadraticProperty.link( quadratic => {
+        if ( !changing ) {
+          changing = true;
+          //TODO handle non-quadratic
+          if ( quadratic.a !== 0 ) {
+            pProperty.value = quadratic.p;
+            hProperty.value = quadratic.h;
+            kProperty.value = quadratic.k;
+          }
+          changing = false;
+        }
+      } );
     }
   }
 

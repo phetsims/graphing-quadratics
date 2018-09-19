@@ -44,17 +44,17 @@ define( require => {
       // This is a quadratic because a is nonzero. Determine more information about it.
       if ( a !== 0 ) {
 
-        // turn y = ax^2 + bx + c into 4p(y - k) = (x - h)^2
-        // see http://jwilson.coe.uga.edu/emt668/emat6680.folders/brooks/assignments/Assign2/Coeffpar.html
-        const h = -b / ( 2 * a );
-        const k = c - ( ( b * b ) / ( 4 * a ) );
-        const p = 1 / ( 4 * a );
+        // @public (read-only) these will be undefined if a === 0
+        // derive coefficients for vertex form
+        this.p = 1 / ( 4 * a );
+        this.h = -b / ( 2 * a );
+        this.k = c - ( ( b * b ) / ( 4 * a ) );
 
         // @public (read-only) these will be undefined if a === 0
-        this.axisOfSymmetry = h; // x = h
-        this.vertex = new Vector2( h, k );
-        this.focus = new Vector2( h, k + p );
-        this.directrix = k - p;
+        this.axisOfSymmetry = this.h; // x = h
+        this.vertex = new Vector2( this.h, this.k );
+        this.focus = new Vector2( this.h, this.k + this.p );
+        this.directrix = this.k - this.p;
       }
     }
 
