@@ -31,7 +31,7 @@ define( require => {
 
       assert && assert( !options.quadratic, 'StandardFormModel sets quadratic' );
       options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue, {
-        color: GQColors.INTERACTIVE_CURVE
+        color: GQColors.STANDARD_FORM_INTERACTIVE_CURVE
       } );
 
       super( options );

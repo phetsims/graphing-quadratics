@@ -23,14 +23,6 @@ define( require => {
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
 
-  // constants
-  const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
-  const NUMBER_PICKER_OPTIONS = {
-    font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
-    color: GQColors.INTERACTIVE_CURVE,
-    xMargin: 5
-  };
-
   class StandardFormInteractiveEquationNode extends Node {
 
     /**
@@ -50,17 +42,28 @@ define( require => {
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
       // coefficient pickers
-      const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ), NUMBER_PICKER_OPTIONS );
-      const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), NUMBER_PICKER_OPTIONS );
-      const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), NUMBER_PICKER_OPTIONS );
+      const numberPickerOptions = {
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
+        color: GQColors.STANDARD_FORM_INTERACTIVE_CURVE,
+        xMargin: 5
+      };
+      const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
+        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_A } ) );
+      const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), 
+        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_B } ));
+      const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), 
+        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_C } ));
 
       // static parts of the equation
-      const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
-      const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-      const xSquaredText = new RichText( GQSymbols.xSquared, TEXT_OPTIONS );
-      const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
-      const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
-      const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+      const richTextOptions = {
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
+      };
+      const yText = new RichText( GQSymbols.y, richTextOptions );
+      const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
+      const xSquaredText = new RichText( GQSymbols.xSquared, richTextOptions );
+      const plusText = new RichText( MathSymbols.PLUS, richTextOptions );
+      const xText = new RichText( GQSymbols.x, richTextOptions );
+      const secondPlusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
       assert && assert( !options.children, 'StandardFormInteractiveEquationNode sets children' );
       options.children = [

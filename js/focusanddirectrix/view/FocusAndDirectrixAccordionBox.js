@@ -26,7 +26,7 @@ define( require => {
       const titleNode = new FocusAndDirectrixEquationNode();
 
       const interactiveEquationNode = new FocusAndDirectrixInteractiveEquationNode(
-        model.quadraticProperty, model.hRange, model.pRange, model.kRange );
+        model.quadraticProperty, model.pRange, model.hRange, model.kRange );
 
       super( model, viewProperties, titleNode, interactiveEquationNode, options );
     }

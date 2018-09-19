@@ -22,16 +22,6 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
-  // const Util = require( 'DOT/Util' );
-
-  // constants
-  const NUMBER_PICKER_OPTIONS = {
-    font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
-    xMargin: 5
-  };
-  const TEXT_OPTIONS = {
-    font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
-  };
 
   class VertexFormInteractiveEquationNode extends Node {
 
@@ -51,27 +41,30 @@ define( require => {
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
 
-      // a picker
-       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
-         _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.A_SYMBOL } ) );
-
-      // h picker
+      // Coefficient pickers
+      const numberPickerOptions = {
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
+        xMargin: 5
+      };
+      const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
+        _.extend( {}, numberPickerOptions, { color: GQColors.VERTEX_FORM_A } ) );
       const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
-        _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.VERTEX } ) );
-
-      // k picker
+        _.extend( {}, numberPickerOptions, { color: GQColors.VERTEX_FORM_H } ) );
       const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
-        _.extend( {}, NUMBER_PICKER_OPTIONS, { color: GQColors.VERTEX } ) );
+        _.extend( {}, numberPickerOptions, { color: GQColors.VERTEX_FORM_K } ) );
 
       // static parts of the equation
-      const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
-      const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-      const openParenthesisText = new RichText( '(', TEXT_OPTIONS );
-      const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
-      const minusText = new RichText( MathSymbols.MINUS, TEXT_OPTIONS );
-      const closeParenthesisAndSquaredText = new RichText( ')', TEXT_OPTIONS );
-      const exponentText = new RichText( '<sup>2</sup>', TEXT_OPTIONS );
-      const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+      const richTextOptions = {
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
+      };
+      const yText = new RichText( GQSymbols.y, richTextOptions );
+      const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
+      const openParenthesisText = new RichText( '(', richTextOptions );
+      const xText = new RichText( GQSymbols.x, richTextOptions );
+      const minusText = new RichText( MathSymbols.MINUS, richTextOptions );
+      const closeParenthesisAndSquaredText = new RichText( ')', richTextOptions );
+      const exponentText = new RichText( '<sup>2</sup>', richTextOptions );
+      const plusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
       assert && assert( !options.children, 'VertexFormInteractiveEquationNode sets children' );
       options.children = [

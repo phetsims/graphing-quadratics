@@ -13,7 +13,6 @@ define( require => {
   // modules
   const Dimension2 = require( 'DOT/Dimension2' );
   const DynamicProperty = require( 'AXON/DynamicProperty' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -56,6 +55,9 @@ define( require => {
         // value will be a multiple of this interval
         interval: 0.1,
 
+        // {Color|string} color of the label that appears above the slider
+        labelColor: 'black',
+
         // superclass options
         align: 'center'
       }, options );
@@ -89,7 +91,7 @@ define( require => {
       // but before adding ticks, so that the label is horizontally centered on the track.
       const label = new RichText( symbol, {
         font: COEFFICIENT_LABEL_FONT,
-        fill: GQColors.INTERACTIVE_CURVE,
+        fill: options.labelColor,
         centerX: slider.centerX,
         bottom: slider.top - 5
       } );

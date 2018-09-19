@@ -32,7 +32,7 @@ define( require => {
 
       assert && assert( !options.quadratic, 'ExploreModel sets quadratic' );
       options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue, {
-        color: GQColors.INTERACTIVE_CURVE
+        color: GQColors.EXPLORE_INTERACTIVE_CURVE
       } );
 
       super( options );

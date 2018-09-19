@@ -25,18 +25,6 @@ define( require => {
   const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
 
-  // constants
-  const TEXT_OPTIONS = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
-  const NUMBER_DISPLAY_OPTIONS = {
-    font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
-    numberFill: GQColors.INTERACTIVE_CURVE,
-    backgroundFill: null,
-    backgroundStroke: null,
-    decimalPlaces: 1,
-    xMargin: 0,
-    yMargin: 0
-  };
-
   class ExploreInteractiveEquationNode extends Node {
 
     /**
@@ -55,27 +43,46 @@ define( require => {
       const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
-      // coefficient value displays
-      const aDisplay = new NumberDisplay(
-        aProperty,
-        aProperty.range,
-        _.extend( {}, NUMBER_DISPLAY_OPTIONS, { decimalPlaces: 2 } )
-      );
-      const bDisplay = new NumberDisplay( bProperty, bProperty.range, NUMBER_DISPLAY_OPTIONS );
-      const cDisplay = new NumberDisplay( cProperty, bProperty.range, NUMBER_DISPLAY_OPTIONS );
+      // dynamic parts of the equation (coefficients)
+      const numberDisplayOptions = {
+        font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
+        backgroundFill: null,
+        backgroundStroke: null,
+        xMargin: 0,
+        yMargin: 0
+      };
+      const aDisplay = new NumberDisplay( aProperty, aProperty.range, _.extend( {}, numberDisplayOptions, {
+        numberFill: GQColors.EXPLORE_A,
+        decimalPlaces: 2
+      } ) );
+      const bDisplay = new NumberDisplay( bProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
+        numberFill: GQColors.EXPLORE_B,
+        decimalPlaces: 1
+      } ) );
+      const cDisplay = new NumberDisplay( cProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
+        numberFill: GQColors.EXPLORE_C,
+        decimalPlaces: 1
+      } ) );
 
       // static parts of the equation
-      const yText = new RichText( GQSymbols.y, TEXT_OPTIONS );
-      const equalToText = new RichText( MathSymbols.EQUAL_TO, TEXT_OPTIONS );
-      const xSquaredText = new RichText( GQSymbols.xSquared, TEXT_OPTIONS );
-      const plusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
-      const xText = new RichText( GQSymbols.x, TEXT_OPTIONS );
-      const secondPlusText = new RichText( MathSymbols.PLUS, TEXT_OPTIONS );
+      const richTextOptions = { font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ) };
+      const yText = new RichText( GQSymbols.y, richTextOptions );
+      const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
+      const xSquaredText = new RichText( GQSymbols.xSquared, richTextOptions );
+      const plusText = new RichText( MathSymbols.PLUS, richTextOptions );
+      const xText = new RichText( GQSymbols.x, richTextOptions );
+      const secondPlusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
       // coefficient sliders
-      const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty );
-      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty );
-      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty );
+      const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty, {
+        labelColor: GQColors.EXPLORE_A
+      } );
+      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, {
+        labelColor: GQColors.EXPLORE_B
+      } );
+      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, {
+        labelColor: GQColors.EXPLORE_C
+      } );
 
       assert && assert( !options.children, 'ExploreInteractiveEquationNode sets children' );
       options.children = [

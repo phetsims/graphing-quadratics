@@ -34,7 +34,7 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
-        quadratic: new Quadratic( 1, 0, 0, { color: GQColors.INTERACTIVE_CURVE } )
+        quadratic: new Quadratic( 1, 0, 0 )
       }, options );
 
       // @public (read-only) graph
