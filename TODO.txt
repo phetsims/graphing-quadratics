@@ -2,24 +2,16 @@ TODO list for graphing-quadratics
 
 DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+form of equation on lines?
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FocusManipulator causes an assertion failure
-Explore: terms aren't clipped to graph
-all: eyeball toggle doesn't control decorations, terms, etc.
-all: Rendering order of curves on graph is incorrect
 
 FocusAndDirectrixInteractiveEquationNode
-FocusManipulator
-PointOnQuadraticManipulator
 Equations on each line on the graph, on outside edge of curve
 
-Reconsider scene architecture, because every scene is different
-
 Make lines for terms available to point tools
-Points, coordinates and manipulators are clipped at edges of graph
 Point tool doesn't work on term-specific lines
 Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
 TODOs in the code
