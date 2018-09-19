@@ -22,5 +22,5 @@ KNOWN PROBLEMS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 All screens: No equations on graphed lines.
 All screens: Point tools don't work reliably.
 Focus & Directrix: Equation is not aligned with sliders and it jumps around while updating.
-Focus & Directrix: p=0 is not supported, UI will not update.
+Focus & Directrix: p=0 is not supported, UI does not update while p=0.
 Focus & Directrix: focus and point manipulators can go off the graph
