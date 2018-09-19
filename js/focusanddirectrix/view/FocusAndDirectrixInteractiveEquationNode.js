@@ -15,11 +15,16 @@ define( require => {
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const Line = require( 'SCENERY/nodes/Line' );
+  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   class FocusAndDirectrixInteractiveEquationNode extends Node {
@@ -59,13 +64,15 @@ define( require => {
         children: [ pSlider, hSlider, kSlider ]
       } );
 
+      // Invisible, provides constant size for equation area.
+      var equationParentNode = new Rectangle( 0, 0, hBox.width, 75 );
+
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
       options.children = [
         new VBox( {
           spacing: 10,
           children: [
-            //TODO placeholder for dynamic equation
-            new Rectangle( 0, 0, hBox.width, 75, { stroke: 'red' } ),
+            equationParentNode,
             hBox
           ]
         } )
@@ -80,6 +87,17 @@ define( require => {
       Property.multilink( [ pProperty, hProperty, kProperty ], ( p, h, k ) => {
         if ( !changing ) {
           changing = true;
+
+          //TODO this is an expensive, may impact UI responsiveness
+          // update the equation above the sliders
+          equationParentNode.removeAllChildren();
+          const equationNode = new EquationNode( p, h, k, {
+            maxWidth: equationParentNode.width,
+            maxHeight: equationParentNode.height,
+            center: equationParentNode.center
+          } );
+          equationParentNode.addChild( equationNode );
+
           //TODO handle p === 0, which results in x=h
           if ( p !== 0 ) {
             quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, h, k, { color: quadraticProperty.value.color } );
@@ -104,5 +122,113 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );
+  graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );
+
+  class EquationNode extends HBox {
+
+    /**
+     * @param {number} p
+     * @param {number} h
+     * @param {number} k
+     * @param {Object} [options]
+     */
+    constructor( p, h, k, options ) {
+
+      options = _.extend( {
+        font: new PhetFont( 26 ),
+        fractionFont: new PhetFont( 22 ),
+        color: 'black',
+        pColor: GQColors.FOCUS_AND_DIRECTRIX_P,
+        hColor: GQColors.FOCUS_AND_DIRECTRIX_H,
+        kColor: GQColors.FOCUS_AND_DIRECTRIX_K,
+
+        // HBox options
+        spacing: 5
+      }, options );
+      
+      assert && assert( !options.children, 'DynamicEquationNode sets children' );
+      options.children = [];
+
+      // y =
+      const yEqualsString = StringUtils.fillIn( '{{y}} {{equals}}', {
+        y: GQSymbols.y,
+        equals: MathSymbols.EQUAL_TO
+      } );
+      const yEqualsNode = new RichText( yEqualsString, {
+        font: options.font,
+        fill: options.color
+      } );
+      options.children.push( yEqualsNode );
+
+      // 1
+      const numeratorNode = new RichText( '1', {
+        font: options.fractionFont,
+        fill: options.color
+      } );
+
+      // 4p
+      const denominatorString = StringUtils.fillIn( '4({{p}})', {
+        p: p
+      } );
+      const denominatorNode = new RichText( denominatorString, {
+        font: options.fractionFont,
+        fill: options.pColor
+      } );
+      
+      // horizontal line between numerator and denominator
+      const fractionLineLength = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
+      const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
+        stroke: options.color,
+        lineWidth: 1
+      } );
+
+      // 1/4p
+      const fractionNode = new VBox( {
+        spacing: 2,
+        children: [ numeratorNode, fractionLine, denominatorNode ]
+      } );
+      options.children.push( fractionNode );
+      
+      // (x -
+      const xMinusString = StringUtils.fillIn( '({{x}} {{minus}} ', {
+        x: GQSymbols.x,
+        minus: MathSymbols.MINUS
+      } );
+      const xMinusNode = new RichText( xMinusString, {
+        font: options.font,
+        fill: options.color
+      } );
+      options.children.push( xMinusNode );
+
+      // h
+      const hNode = new RichText( h, {
+        font: options.font,
+        fill: options.hColor
+      } );
+      options.children.push( hNode );
+
+      // )^2 +
+      const squaredPlusString = StringUtils.fillIn( ')<sup>2</sup> {{plus}} ', {
+        plus: MathSymbols.PLUS
+      } );
+      const squaredPlusNode = new RichText( squaredPlusString, {
+        font: options.font,
+        fill: options.color
+      } );
+      options.children.push( squaredPlusNode );
+
+      // k
+      const kNode = new RichText( k, {
+        font: options.font,
+        fill: options.hColor
+      } );
+      options.children.push( kNode );
+
+      super( options );
+    }
+  }
+
+  graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode.EquationNode', EquationNode );
+
+  return FocusAndDirectrixInteractiveEquationNode;
 } );
