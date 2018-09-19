@@ -85,6 +85,7 @@ define( require => {
 
       super( options );
 
+      //TODO empirically isn't going to cut it because of variation in font size across platforms
       // equation layout, spacing determined empirically
       equalToText.left = yText.right + 10;
       aDisplay.left = equalToText.right + 10;
