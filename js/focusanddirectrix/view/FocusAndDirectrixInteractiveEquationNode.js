@@ -11,6 +11,7 @@ define( require => {
   // modules
   const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
@@ -41,12 +42,15 @@ define( require => {
 
       // coefficient sliders
       const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
+        interval: GQConstants.FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_P,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_P
       } );
       const hSlider = new CoefficientSlider( GQSymbols.h, hProperty, {
+        interval: GQConstants.FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_H,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_H
       } );
       const kSlider = new CoefficientSlider( GQSymbols.k, kProperty, {
+        interval: GQConstants.FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_K,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_K
       } );
 

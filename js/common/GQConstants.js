@@ -69,7 +69,15 @@ define( require => {
     // decimal places
     EQUATION_DECIMALS: 2,
     POINT_DECIMALS: 2,
-    POINT_TOOL_DECIMALS: 1
+    POINT_TOOL_DECIMALS: 1,
+
+    // slider intervals
+    EXPLORE_SLIDER_INTERVAL_A: 0.01,
+    EXPLORE_SLIDER_INTERVAL_B: 0.1,
+    EXPLORE_SLIDER_INTERVAL_C: 0.1,
+    FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_P: 0.1,
+    FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_H: 0.1,
+    FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_K: 0.1
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );

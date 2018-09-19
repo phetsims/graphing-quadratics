@@ -23,7 +23,6 @@ define( require => {
     constructor( symbol, coefficientProperty, options ) {
 
       options = _.extend( {
-        interval: 0.01,
         snapToZeroEpsilon: 0.03
       }, options );
 

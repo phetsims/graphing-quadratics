@@ -53,7 +53,7 @@ define( require => {
         snapToZeroEpsilon: 0.1,
 
         // value will be a multiple of this interval
-        interval: 0.1,
+        interval: 1,
 
         // {Color|string} color of the label that appears above the slider
         labelColor: 'black',

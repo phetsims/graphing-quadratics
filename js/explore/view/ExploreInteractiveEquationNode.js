@@ -75,12 +75,15 @@ define( require => {
 
       // coefficient sliders
       const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty, {
+        interval: GQConstants.EXPLORE_SLIDER_INTERVAL_A,
         labelColor: GQColors.EXPLORE_A
       } );
       const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, {
+        interval: GQConstants.EXPLORE_SLIDER_INTERVAL_B,
         labelColor: GQColors.EXPLORE_B
       } );
       const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, {
+        interval: GQConstants.EXPLORE_SLIDER_INTERVAL_C,
         labelColor: GQColors.EXPLORE_C
       } );
 
