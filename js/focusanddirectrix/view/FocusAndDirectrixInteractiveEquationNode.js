@@ -16,6 +16,8 @@ define( require => {
   const HBox = require( 'SCENERY/nodes/HBox' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberProperty = require( 'AXON/NumberProperty' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
 
   class FocusAndDirectrixInteractiveEquationNode extends Node {
 
@@ -52,7 +54,16 @@ define( require => {
       } );
 
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
-      options.children = [ hBox ];
+      options.children = [
+        new VBox( {
+          spacing: 10,
+          children: [
+            //TODO placeholder for dynamic equation
+            new Rectangle( 0, 0, hBox.width, 75, { stroke: 'red' } ),
+            hBox
+          ]
+        })
+      ];
 
       super( options );
     }
