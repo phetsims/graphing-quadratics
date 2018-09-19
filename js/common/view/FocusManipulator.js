@@ -10,7 +10,6 @@ define( require => {
   'use strict';
 
   // modules
-  const Bounds2 = require( 'DOT/Bounds2' );
   const Color = require( 'SCENERY/util/Color' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
@@ -27,14 +26,12 @@ define( require => {
     /**
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Range} xRange
-     * @param {Range} yRange
+     * @param {Range} pRange
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} focusVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      */
-    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform,
-                 focusVisibleProperty, coordinatesVisibleProperty ) {
+    constructor( radius, quadraticProperty, pRange, modelViewTransform, focusVisibleProperty, coordinatesVisibleProperty ) {
 
       super( radius, GQColors.FOCUS, {
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
@@ -81,10 +78,11 @@ define( require => {
 
       // When the focus changes, create new quadratic.
       focusProperty.link( focus => {
-        if ( focus ) {
-          const quadratic = quadraticProperty.value;
+        const quadratic = quadraticProperty.value;
+        //TODO handle no vertex
+        if ( focus && quadratic.vertex ) {
           if ( focus.x !== quadratic.focus.x || focus.y !== quadratic.focus.y ) {
-            const p = focus.y - quadratic.directrix;
+            const p = focus.y - quadratic.vertex.y;
             quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, quadratic.h, quadratic.k );
           }
         }
@@ -97,8 +95,7 @@ define( require => {
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
-      this.addInputListener( new FocusDragHandler( focusProperty, modelViewTransform,
-        new Bounds2( xRange.min, yRange.min, xRange.max, yRange.max ) ) );
+      this.addInputListener( new FocusDragHandler( quadraticProperty, focusProperty, modelViewTransform, pRange ) );
     }
   }
 
@@ -108,11 +105,12 @@ define( require => {
 
     /**
      * Drag handler for vertex.
+     * @param {Property.<Quadratic>} quadraticProperty
      * @param {Property.<Vector2>} focusProperty
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {Bounds2} bounds
+     * @param {Range} pRange
      */
-    constructor( focusProperty, modelViewTransform, bounds ) {
+    constructor( quadraticProperty, focusProperty, modelViewTransform, pRange ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -128,14 +126,21 @@ define( require => {
 
         drag: ( event, trail ) => {
 
-          // transform the drag point from view to model coordinate frame
-          const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
-          let location = modelViewTransform.viewToModelPosition( parentPoint );
+          const vertex = quadraticProperty.value.vertex;
+          if ( vertex ) {
 
-          // constrain to graph bounds
-          location = bounds.closestPointTo( location );
+            // transform the drag point from view to model coordinate frame
+            const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
+            const location = modelViewTransform.viewToModelPosition( parentPoint );
 
-          focusProperty.value = location;
+            // constrain to range
+            const p = pRange.constrainValue( location.y - vertex.y );
+
+            focusProperty.value = new Vector2( vertex.x, vertex.y + p );
+          }
+          else {
+            //TODO handle no vertex
+          }
         }
       } );
     }
