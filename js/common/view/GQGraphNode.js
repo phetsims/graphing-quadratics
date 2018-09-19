@@ -49,29 +49,31 @@ define( require => {
       // Parent for saved quadratics
       const savedQuadraticsLayer = new Node();
 
-      // @private Parent for special lines, e.g. quadratic terms
-      this.specialLinesLayer = new Node( { children: options.specialLines });
+      // Parent for special lines, e.g. quadratic terms, axis of symmetry, directrix
+      const specialLinesLayer = new Node( { children: options.specialLines } );
 
       // Parent for decorations, e.g. vertex, roots, manipulators
-      this.decorationsLayer = new Node( { children: options.decorations } );
+      const decorationsLayer = new Node( { children: options.decorations } );
 
-      // Clip content to the graph
-      const clipArea = Shape.rectangle(
-        model.graph.xRange.min,
-        model.graph.yRange.min,
-        model.graph.xRange.getLength(),
-        model.graph.yRange.getLength()
-      ).transformed( model.modelViewTransform.getMatrix() );
+      // All lines, clipped to the graph
+      const allLinesParent = new Node( {
+        clipArea: Shape.rectangle(
+          model.graph.xRange.min,
+          model.graph.yRange.min,
+          model.graph.xRange.getLength(),
+          model.graph.yRange.getLength()
+        ).transformed( model.modelViewTransform.getMatrix() ),
+        children: [ savedQuadraticsLayer, specialLinesLayer, interactiveQuadraticNode ]
+      } );
 
-      // Everything that's on the graph, clipped to the graph
-      const contentNode = new Node( {
-        clipArea: clipArea,
-        children: [ savedQuadraticsLayer, this.specialLinesLayer, interactiveQuadraticNode, this.decorationsLayer ]
+      // Everything that's on the graph
+      const contentParent = new Node( {
+        children: [ allLinesParent, decorationsLayer ]
       } );
 
       // rendering order
       this.addChild( graphNode );
-      this.addChild( contentNode );
+      this.addChild( contentParent );
 
       // When a quadratic is saved...  removeItemAddedListener not needed.
       model.savedQuadratics.addItemAddedListener( savedQuadratic => {
@@ -95,8 +97,8 @@ define( require => {
         model.savedQuadratics.addItemRemovedListener( itemRemovedListener ); // removeItemRemovedListener above
       } );
 
-      // Show/hide the graph content. unlink not needed.
-      viewProperties.graphContentsVisibleProperty.link( visible => { contentNode.visible = visible; } );
+      // Show/hide the graph content
+      viewProperties.graphContentsVisibleProperty.link( visible => { contentParent.visible = visible; } );
     }
   }
 
