@@ -41,9 +41,9 @@ define( require => {
       options = options || {};
 
       // coefficient Properties
-      const pProperty = new NumberProperty( pRange.defaultValue, { range: pRange } );
-      const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
-      const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
+      const pProperty = new NumberProperty( pRange.defaultValue, { range: pRange, reentrant: true } );
+      const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange, reentrant: true } );
+      const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange, reentrant: true } );
 
       // coefficient sliders
       const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
@@ -65,7 +65,7 @@ define( require => {
       } );
 
       // Invisible, provides constant size for equation area.
-      var equationParentNode = new Rectangle( 0, 0, hBox.width, 75 );
+      var equationParentNode = new Rectangle( 0, 0, 1.25 * hBox.width, 75 );
 
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
       options.children = [
@@ -80,7 +80,7 @@ define( require => {
 
       super( options );
 
-      //TODO hack to prevent 'call stack size exceeded' and need for reentrant:true NumberProperty
+      //TODO hack to prevent 'call stack size exceeded'
       let changing = false;
 
       // When the coefficients change, update the quadratic.
@@ -124,6 +124,9 @@ define( require => {
 
   graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );
 
+  /**
+   * Equation that appears above sliders, shows current values, color coded.
+   */
   class EquationNode extends HBox {
 
     /**
@@ -145,7 +148,7 @@ define( require => {
         // HBox options
         spacing: 5
       }, options );
-      
+
       assert && assert( !options.children, 'DynamicEquationNode sets children' );
       options.children = [];
 
@@ -166,15 +169,29 @@ define( require => {
         fill: options.color
       } );
 
-      // 4p
-      const denominatorString = StringUtils.fillIn( '4({{p}})', {
-        p: p
+      // 4(
+      const fourParenNode = new RichText( '4(', {
+        font: options.fractionFont,
+        fill: options.color
       } );
-      const denominatorNode = new RichText( denominatorString, {
+
+      // p
+      const pNode = new RichText( p, {
         font: options.fractionFont,
         fill: options.pColor
       } );
-      
+
+      // )
+      const parenNode = new RichText( ')', {
+        font: options.fractionFont,
+        fill: options.color
+      } );
+
+      // 1/4(p)
+      const denominatorNode = new HBox( {
+        children: [ fourParenNode, pNode, parenNode ]
+      } );
+
       // horizontal line between numerator and denominator
       const fractionLineLength = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
       const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
@@ -188,9 +205,9 @@ define( require => {
         children: [ numeratorNode, fractionLine, denominatorNode ]
       } );
       options.children.push( fractionNode );
-      
+
       // (x -
-      const xMinusString = StringUtils.fillIn( '({{x}} {{minus}} ', {
+      const xMinusString = StringUtils.fillIn( '({{x}} {{minus}}', {
         x: GQSymbols.x,
         minus: MathSymbols.MINUS
       } );
@@ -208,7 +225,7 @@ define( require => {
       options.children.push( hNode );
 
       // )^2 +
-      const squaredPlusString = StringUtils.fillIn( ')<sup>2</sup> {{plus}} ', {
+      const squaredPlusString = StringUtils.fillIn( ')<sup>2</sup> {{plus}}', {
         plus: MathSymbols.PLUS
       } );
       const squaredPlusNode = new RichText( squaredPlusString, {
