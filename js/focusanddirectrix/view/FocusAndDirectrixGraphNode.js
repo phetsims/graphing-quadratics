@@ -32,16 +32,6 @@ define( require => {
       const directrixNode = new DirectrixNode( model.quadraticProperty, model.graph, model.modelViewTransform,
         viewProperties.directrixVisibleProperty );
 
-      // Focus manipulator
-      const focusNode = new FocusManipulator(
-        model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-        model.quadraticProperty,
-        model.pRange,
-        model.modelViewTransform,
-        viewProperties.focusVisibleProperty,
-        viewProperties.coordinatesVisibleProperty
-      );
-
       // Vertex manipulator
       const vertexManipulator = new VertexManipulator(
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
@@ -50,6 +40,16 @@ define( require => {
         model.kRange,
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
+        viewProperties.coordinatesVisibleProperty
+      );
+
+      // Focus manipulator
+      const focusNode = new FocusManipulator(
+        model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        model.quadraticProperty,
+        model.pRange,
+        model.modelViewTransform,
+        viewProperties.focusVisibleProperty,
         viewProperties.coordinatesVisibleProperty
       );
 
@@ -69,7 +69,7 @@ define( require => {
       options.specialLines = [ directrixNode ];
 
       assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
-      options.decorations = [ focusNode, vertexManipulator, pointOnQuadraticManipulator ];
+      options.decorations = [ vertexManipulator, focusNode, pointOnQuadraticManipulator ];
 
       super( model, viewProperties.graphContentsVisibleProperty, options );
     }
