@@ -2,7 +2,6 @@ TODO list for graphing-quadratics
 
 DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-form of equation on lines?
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -10,6 +9,8 @@ FocusManipulator causes an assertion failure
 
 FocusAndDirectrixInteractiveEquationNode
 Equations on each line on the graph, on outside edge of curve
+Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
+Lines labeled with vertex form in screens 3 & 4, 1/4p in decimal format to 2 decimals
 
 Make lines for terms available to point tools
 Point tool doesn't work on term-specific lines
