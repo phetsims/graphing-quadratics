@@ -8,8 +8,9 @@ IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FocusManipulator causes an assertion failure
 Explore: terms aren't clipped to graph
-Standard Forms: initial state is out of sync with checkboxes
+Standard Forms: initial state is out of sync with checkboxes, vertex and roots are visible
 all: eyeball toggle doesn't control decorations, terms, etc.
+all: Rendering order of curves on graph is incorrect
 
 FocusAndDirectrixInteractiveEquationNode
 FocusManipulator
