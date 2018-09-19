@@ -88,7 +88,7 @@ define( require => {
         if ( !changing ) {
           changing = true;
 
-          //TODO this is an expensive, may impact UI responsiveness
+          //TODO this is expensive, may impact UI responsiveness
           // update the equation above the sliders
           equationParentNode.removeAllChildren();
           const equationNode = new EquationNode( p, h, k, {
