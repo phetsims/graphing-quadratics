@@ -6,9 +6,8 @@ F&D: Manipulators can gets stuck behind each other. Pop to front on startDrag?
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-FocusManipulator causes an assertion failure
-
-F&D dynamic equation
+Handle a=0 and p=0 cases
+F&D: align equation with sliders
 Equations on each line on the graph, on outside edge of curve
 Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
 Lines labeled with vertex form in screens 3 & 4, 1/4p in decimal format to 2 decimals
