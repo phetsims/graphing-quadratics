@@ -16,3 +16,11 @@ Point tool doesn't work on term-specific lines
 Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
 TODOs in the code
 stringTest
+
+KNOWN PROBLEMS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All screens: No equations on graphed lines.
+All screens: Point tools don't work reliably.
+Focus & Directrix: Equation is not aligned with sliders and it jumps around while updating.
+Focus & Directrix: p=0 is not supported, UI will not update.
+Focus & Directrix: focus and point manipulators can go off the graph
