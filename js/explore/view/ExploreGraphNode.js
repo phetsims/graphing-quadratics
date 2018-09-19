@@ -39,7 +39,7 @@ define( require => {
       assert && assert( !options.specialLines, 'ExploreGraphNode sets specialLines' );
       options.specialLines = [ constantTermNode, linearTermNode, quadraticTermNode ];
 
-      super( model, viewProperties, options );
+      super( model, viewProperties.graphContentsVisibleProperty, options );
     }
   }
 

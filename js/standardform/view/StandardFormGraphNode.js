@@ -64,7 +64,7 @@ define( require => {
       assert && assert( !options.decorations, 'StandardFormGraphNode sets decorations' );
       options.decorations = [ rootsNode, vertexNode, noRealRootsNode ];
 
-      super( model, viewProperties, options );
+      super( model, viewProperties.graphContentsVisibleProperty, options );
     }
   }
 

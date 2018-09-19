@@ -23,10 +23,10 @@ define( require => {
 
     /**
      * @param {GQModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {BooleanProperty} graphContentsVisibleProperty
      * @param {Object} [options]
      */
-    constructor( model, viewProperties, options ) {
+    constructor( model, graphContentsVisibleProperty, options ) {
 
       options = _.extend( {
         specialLines: [], // {Nodes[]}
@@ -93,7 +93,7 @@ define( require => {
       } );
 
       // Show/hide the graph content
-      viewProperties.graphContentsVisibleProperty.link( visible => { contentParent.visible = visible; } );
+      graphContentsVisibleProperty.link( visible => { contentParent.visible = visible; } );
     }
   }
 
