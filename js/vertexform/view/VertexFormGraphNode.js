@@ -24,12 +24,11 @@ define( require => {
      */
     constructor( model, viewProperties, options ) {
 
-      super( model, viewProperties, options );
+      options = options || {};
 
       // Axis of symmetry
       const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph, model.modelViewTransform,
         viewProperties.axisOfSymmetryVisibleProperty );
-      this.addChild( axisOfSymmetryNode );
 
       // Vertex
       const vertexManipulator = new VertexManipulator(
@@ -41,7 +40,14 @@ define( require => {
         viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty
       );
-      this.addChild( vertexManipulator );
+
+      assert && assert( !options.specialLines, 'VertexFormGraphNode sets specialLines' );
+      options.specialLines = [ axisOfSymmetryNode ];
+
+      assert && assert( !options.decorations, 'VertexFormGraphNode sets decorations' );
+      options.decorations = [ vertexManipulator ];
+
+      super( model, viewProperties, options );
     }
   }
 

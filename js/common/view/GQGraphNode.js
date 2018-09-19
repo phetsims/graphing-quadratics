@@ -28,6 +28,11 @@ define( require => {
      */
     constructor( model, viewProperties, options ) {
 
+      options = _.extend( {
+        specialLines: [], // {Nodes[]}
+        decorations: [] // {Node[]}
+      }, options );
+
       super( options );
 
       // Cartesian coordinates graph
@@ -44,6 +49,12 @@ define( require => {
       // Parent for saved quadratics
       const savedQuadraticsLayer = new Node();
 
+      // @private Parent for special lines, e.g. quadratic terms
+      this.specialLinesLayer = new Node( { children: options.specialLines });
+
+      // Parent for decorations, e.g. vertex, roots, manipulators
+      this.decorationsLayer = new Node( { children: options.decorations } );
+
       // Clip content to the graph
       const clipArea = Shape.rectangle(
         model.graph.xRange.min,
@@ -53,9 +64,10 @@ define( require => {
       ).transformed( model.modelViewTransform.getMatrix() );
 
       // Everything that's on the graph, clipped to the graph
-      const contentNode = new Node( { clipArea: clipArea } );
-      contentNode.addChild( savedQuadraticsLayer );
-      contentNode.addChild( interactiveQuadraticNode );
+      const contentNode = new Node( {
+        clipArea: clipArea,
+        children: [ savedQuadraticsLayer, this.specialLinesLayer, interactiveQuadraticNode, this.decorationsLayer ]
+      } );
 
       // rendering order
       this.addChild( graphNode );

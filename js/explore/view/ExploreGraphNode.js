@@ -21,22 +21,25 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( model, viewProperties, options ) {
-      super( model, viewProperties, options );
+
+      options = options || {};
 
       // constant term, y = bx
       const constantTermNode = new QuadraticNode( model.constantTermProperty, model.graph, model.modelViewTransform );
-      this.addChild( constantTermNode );
       viewProperties.constantTermVisibleProperty.link( visible => { constantTermNode.visible = visible; } );
 
       // linear term, y = bx
       const linearTermNode = new QuadraticNode( model.linearTermProperty, model.graph, model.modelViewTransform );
-      this.addChild( linearTermNode );
       viewProperties.linearTermVisibleProperty.link( visible => { linearTermNode.visible = visible; } );
 
       // quadratic term, y = ax^2
       const quadraticTermNode = new QuadraticNode( model.quadraticTermProperty, model.graph, model.modelViewTransform );
-      this.addChild( quadraticTermNode );
       viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermNode.visible = visible; } );
+
+      assert && assert( !options.specialLines, 'ExploreGraphNode sets specialLines' );
+      options.specialLines = [ constantTermNode, linearTermNode, quadraticTermNode ];
+
+      super( model, viewProperties, options );
     }
   }
 

@@ -27,7 +27,8 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( model, viewProperties, options ) {
-      super( model, viewProperties, options );
+
+      options = options || {};
 
       // Radius of plotted points, in view coordinate frame
       const pointRadius = model.modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
@@ -35,31 +36,35 @@ define( require => {
       // Axis of symmetry
       const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph, model.modelViewTransform,
         viewProperties.axisOfSymmetryVisibleProperty );
-      this.addChild( axisOfSymmetryNode );
 
       // Roots
       const rootsNode = new RootsNode( model.quadraticProperty, model.modelViewTransform,
         viewProperties.rootsVisibleProperty, viewProperties.coordinatesVisibleProperty, {
           radius: pointRadius
         } );
-      this.addChild( rootsNode );
 
       // Vertex
       const vertexNode = new VertexNode( model.quadraticProperty, model.modelViewTransform,
         viewProperties.vertexVisibleProperty, viewProperties.coordinatesVisibleProperty, {
           radius: pointRadius
         } );
-      this.addChild( vertexNode );
 
       // 'NO REAL ROOTS' label
       const noRealRootsNode = new NoRealRootsNode( {
         center: model.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) ) // at the origin
       } );
-      this.addChild( noRealRootsNode );
       Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],
         ( rootsVisible, quadratic ) => {
           noRealRootsNode.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length === 0 );
         } );
+
+      assert && assert( !options.specialLines, 'StandardFormGraphNode sets specialLines' );
+      options.specialLines = [ axisOfSymmetryNode ];
+
+      assert && assert( !options.decorations, 'StandardFormGraphNode sets decorations' );
+      options.decorations = [ rootsNode, vertexNode, noRealRootsNode ];
+
+      super( model, viewProperties, options );
     }
   }
 
