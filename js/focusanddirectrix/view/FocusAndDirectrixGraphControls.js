@@ -40,7 +40,7 @@ define( require => {
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
-        spacing: 20,
+        spacing: 15,
         children: [
           vertexCheckbox,
           focusCheckbox,

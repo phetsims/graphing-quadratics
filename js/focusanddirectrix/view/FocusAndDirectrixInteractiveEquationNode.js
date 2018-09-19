@@ -70,7 +70,7 @@ define( require => {
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
       options.children = [
         new VBox( {
-          spacing: 10,
+          spacing: 3,
           children: [
             equationParentNode,
             hBox
