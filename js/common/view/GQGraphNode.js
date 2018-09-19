@@ -39,12 +39,7 @@ define( require => {
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
       // Interactive quadratic curve. dispose not needed.
-      const interactiveQuadraticNode = new QuadraticNode(
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties
-      );
+      const interactiveQuadraticNode = new QuadraticNode( model.quadraticProperty, model.graph, model.modelViewTransform );
 
       // Parent for saved quadratics
       const savedQuadraticsLayer = new Node();
