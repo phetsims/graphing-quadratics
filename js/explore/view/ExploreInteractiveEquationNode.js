@@ -48,6 +48,7 @@ define( require => {
         font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
         backgroundFill: null,
         backgroundStroke: null,
+        backgroundLineWidth: 0,
         xMargin: 0,
         yMargin: 0
       };
