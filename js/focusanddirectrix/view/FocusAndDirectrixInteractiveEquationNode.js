@@ -241,6 +241,13 @@ define( require => {
       } );
       options.children.push( kNode );
 
+      // horizontal spacing, determined empirically
+      fractionNode.left = yEqualsNode.right + 5;
+      xMinusNode.left = fractionNode.right + 5;
+      hNode.left = xMinusNode.right + 5;
+      squaredPlusNode.left = hNode.right + 5;
+      kNode.left = kNode.right + 5;
+
       super( options );
     }
   }
