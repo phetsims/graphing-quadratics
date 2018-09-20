@@ -29,10 +29,10 @@ define( require => {
       this.directrixVisibleProperty = new BooleanProperty( true );
 
       // @public whether an interactive point is visible on the quadratic
-      this.pointOnQuadraticVisibleProperty = new BooleanProperty( true );
+      this.pointOnQuadraticVisibleProperty = new BooleanProperty( false );
       
       // @public whether coordinates are visible on points
-      this.coordinatesVisibleProperty = new BooleanProperty( true );
+      this.coordinatesVisibleProperty = new BooleanProperty( false );
     }
 
     /**
