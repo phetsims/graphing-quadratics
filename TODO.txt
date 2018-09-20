@@ -5,6 +5,7 @@ DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Factor out 15 spacing for VBoxes in graph controls
 Handle a=0 and p=0 cases
 F&D: align equation with sliders
 Equations on each line on the graph, on outside edge of curve
