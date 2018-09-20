@@ -30,8 +30,8 @@ define( require => {
       options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
 
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty );
-      const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty );
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
+      const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
 
       // vertical layout
@@ -40,8 +40,8 @@ define( require => {
         spacing: 15,
         children: [
           vertexCheckbox,
-          rootsCheckbox,
           axisOfSymmetryCheckbox,
+          rootsCheckbox,
           coordinatesCheckbox
         ]
       } );
