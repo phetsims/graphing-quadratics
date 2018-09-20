@@ -152,12 +152,26 @@ define( require => {
       assert && assert( !options.children, 'EquationNode sets children' );
       options.children = [];
 
-      const equationOptions = {
+      // common options for NumberDisplay instances
+      const numberDisplayOptions = {
+        decimalPlaces: 1,
         font: options.font,
-        fill: options.color
+        backgroundFill: null,
+        backgroundStroke: null,
+        backgroundLineWidth: 0,
+        xMargin: 0,
+        yMargin: 0
       };
+
+      // options for fraction parts of the equation
       const fractionOptions = {
         font: options.fractionFont,
+        fill: options.color
+      };
+      
+      // options for non-fraction parts of the equation
+      const equationOptions = {
+        font: options.font,
         fill: options.color
       };
 
@@ -175,15 +189,6 @@ define( require => {
       const fourParenNode = new RichText( '4(', fractionOptions );
 
       // p
-      const numberDisplayOptions = {
-        decimalPlaces: 1,
-        font: options.font,
-        backgroundFill: null,
-        backgroundStroke: null,
-        backgroundLineWidth: 0,
-        xMargin: 0,
-        yMargin: 0
-      };
       const pNode = new NumberDisplay( pProperty, pRange, _.extend( {}, numberDisplayOptions, {
         numberFill: options.pColor,
         font: options.fractionFont
