@@ -180,6 +180,7 @@ define( require => {
         font: options.font,
         backgroundFill: null,
         backgroundStroke: null,
+        backgroundLineWidth: 0,
         xMargin: 0,
         yMargin: 0
       };
