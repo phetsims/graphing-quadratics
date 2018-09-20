@@ -26,6 +26,7 @@ define( require => {
     Y_AXIS_RANGE: new RangeWithValue( -10, 10 ),
 
     ACCORDION_BOX_OPTIONS: {
+      resize: false,
       fill: GQColors.CONTROL_PANEL_BACKGROUND,
       cornerRadius: PANEL_CORNER_RADIUS,
       titleYMargin: 10,
