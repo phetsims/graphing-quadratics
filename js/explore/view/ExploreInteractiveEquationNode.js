@@ -95,7 +95,6 @@ define( require => {
 
       super( options );
 
-      //TODO empirically isn't going to cut it because of variation in font size across platforms
       // equation layout, spacing determined empirically
       equalToText.left = yText.right + 10;
       aDisplay.left = equalToText.right + 10;
@@ -108,7 +107,8 @@ define( require => {
       aDisplay.bottom = yText.bottom;
       bDisplay.bottom = yText.bottom;
       cDisplay.bottom = yText.bottom;
-      
+
+      //TODO sliders are not quite centered under values
       // sliders below equation
       const ySpacing = 5;
       aSlider.centerX = aDisplay.centerX;
