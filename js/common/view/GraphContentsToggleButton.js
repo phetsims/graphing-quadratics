@@ -23,7 +23,7 @@ define( require => {
       super( graphContentsVisibleProperty, options );
       graphContentsVisibleProperty.link( visible => {
         if ( visible ) {
-          this.setBaseColor( 'rgb( 220, 220, 220 )' );
+          this.setBaseColor( 'white' );
         }
         else {
           this.setBaseColor( PhetColorScheme.BUTTON_YELLOW );
