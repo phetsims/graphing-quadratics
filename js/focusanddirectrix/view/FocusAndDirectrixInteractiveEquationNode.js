@@ -244,6 +244,11 @@ define( require => {
       options.children.push( kNode );
 
       super( options );
+
+      // @public (read-only) for layout only
+      this.pNode = pNode;
+      this.hNode = hNode;
+      this.kNode = kNode;
     }
   }
 
