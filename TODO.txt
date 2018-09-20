@@ -6,8 +6,12 @@ New artwork for 'left' point tool
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+lineWidth:1 for quadratic terms
+vertical alignment of ')^2' in F&D screen
 Factor out 15 spacing for VBoxes in graph controls
-Handle a=0 and p=0 cases
+skip p=0
+
+Handle a=0
 F&D: align equation with sliders
 Equations on each line on the graph, on outside edge of curve
 Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
