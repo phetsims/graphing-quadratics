@@ -226,7 +226,7 @@ define( require => {
       // h
       const hNode = new NumberDisplay( hProperty, hRange, _.extend( {}, numberDisplayOptions, {
         numberFill: options.hColor,
-        font: options.fractionFont
+        font: options.font
       } ) );
       options.children.push( hNode );
 
@@ -239,7 +239,7 @@ define( require => {
       // k
       const kNode = new NumberDisplay( kProperty, kRange, _.extend( {}, numberDisplayOptions, {
         numberFill: options.kColor,
-        font: options.fractionFont
+        font: options.font
       } ) );
       options.children.push( kNode );
 
