@@ -33,7 +33,7 @@ define( require => {
       buttonLength: 25,
       buttonXMargin: 10,
       contentXMargin: 20,
-      contentYMargin: 10
+      contentYMargin: 15
     },
 
     PANEL_OPTIONS: {
