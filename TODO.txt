@@ -6,7 +6,6 @@ New artwork for 'left' point tool
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Factor out 15 spacing for VBoxes in graph controls
 skip p=0
 
 Handle a=0

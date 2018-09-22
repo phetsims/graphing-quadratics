@@ -43,6 +43,8 @@ define( require => {
       yMargin: 15
     },
 
+    CHECKBOXES_Y_SPACING: 15,
+
     PICKER_TOUCH_AREA_X_DILATION: 30,
 
     MANIPULATOR_RADIUS: 0.425,

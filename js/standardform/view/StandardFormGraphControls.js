@@ -37,7 +37,7 @@ define( require => {
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
-        spacing: 15,
+        spacing: GQConstants.CHECKBOXES_Y_SPACING,
         children: [
           vertexCheckbox,
           axisOfSymmetryCheckbox,
