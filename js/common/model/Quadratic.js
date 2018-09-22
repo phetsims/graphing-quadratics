@@ -4,6 +4,7 @@
  * An immutable quadratic, described by the equation y = ax^2 + bx + c.
  *
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';
@@ -87,6 +88,7 @@ define( require => {
      * Returns a copy of this Quadratic with a specified color.
      * @param {Color|String} color
      * @returns {Quadratic}
+     * @public
      */
     withColor( color ) {
       return new Quadratic( this.a, this.b, this.c, { color: color } );
@@ -144,6 +146,7 @@ define( require => {
     /**
      * Gets the quadratic term, y = ax^2
      * @returns {Quadratic}
+     * @public
      */
     getQuadraticTerm() {
       return new Quadratic( this.a, 0, 0, { color: GQColors.QUADRATIC_TERM } );
@@ -152,6 +155,7 @@ define( require => {
     /**
      * Gets the linear term, y = bx
      * @returns {Quadratic}
+     * @public
      */
     getLinearTerm() {
       return new Quadratic( 0, this.b, 0, { color: GQColors.LINEAR_TERM } );
@@ -160,6 +164,7 @@ define( require => {
     /**
      * Gets the constant term, y = c
      * @returns {Quadratic}
+     * @public
      */
     getConstantTerm() {
       return new Quadratic( 0, 0, this.c, { color: GQColors.CONSTANT_TERM } );
@@ -198,13 +203,6 @@ define( require => {
       return this.a * x * x + this.b * x + this.c;
     }
 
-    //TODO untested
-    // @public Given {number} y, solve for {number} |x|
-    solveX( y ) {
-      assert && assert( this.a !== 0, 'solveX is unsupported when a === 0' );
-      return -this.b * Math.abs( Math.sqrt( ( this.b * this.b ) - ( 4 * this.a * this.c ) ) ) / ( 2 * this.a );
-    }
-
     /**
      * Does a specified point lie on this quadratic?
      * @param {Vector2} point
@@ -215,8 +213,13 @@ define( require => {
       return ( Math.abs( this.solveY( point.x ) - point.y ) < EPSILON );
     }
 
-    // @public Nearest point {Vector2} on this line to given {Vector2} point
-    nearestPointOnLineToPoint( point ) {
+    /**
+     * Gets the point on this quadratic that is closest to a specified point.
+     * @param {Vector2} point
+     * @returns {Vector2}
+     * @public
+     */
+    getClosestPoint( point ) {
 
       // http://mathworld.wolfram.com/Point-QuadraticDistance.html
       // TODO #22, math does not work well for cases of -1 < a < 1

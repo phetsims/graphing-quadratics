@@ -224,7 +224,7 @@ define( require => {
 
               // snap to quadratic if near
               const quadratic = pointTool.quadratics.get( i );
-              const nearestPoint = quadratic.nearestPointOnLineToPoint( location );
+              const nearestPoint = quadratic.getClosestPoint( location );
               if ( nearestPoint.distance( location ) < distance ) {
                 distance = nearestPoint.distance( location );
                 location = nearestPoint;
