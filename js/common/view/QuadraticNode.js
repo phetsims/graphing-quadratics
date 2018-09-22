@@ -10,7 +10,6 @@ define( require => {
   'use strict';
 
   // modules
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
@@ -27,7 +26,9 @@ define( require => {
     constructor( quadraticProperty, graph, modelViewTransform, options ) {
 
       options = _.extend( {
-        pathOptions: null // {Object|null} propagated to Path
+
+        // Path options
+        lineWidth: 1
       }, options );
 
       super( options );
@@ -37,9 +38,9 @@ define( require => {
       this.modelViewTransform = modelViewTransform;
 
       // @protected quadratic curve, y = ax^2 + bx + c
-      this.quadraticPath = new Path( null, _.extend( {
-        lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
-      }, options.pathOptions ) );
+      this.quadraticPath = new Path( null, {
+        lineWidth: options.lineWidth
+      } );
       this.addChild( this.quadraticPath );
 
       // Update the view of the curve when the quadratic model changes. dispose not needed.
