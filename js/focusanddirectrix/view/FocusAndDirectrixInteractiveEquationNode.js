@@ -124,7 +124,7 @@ define( require => {
   /**
    * The equation that appears above the sliders.
    */
-  class EquationNode extends HBox {
+  class EquationNode extends Node {
 
     /**
      * @param {NumberProperty} pProperty
@@ -143,10 +143,7 @@ define( require => {
         color: 'black',
         pColor: GQColors.FOCUS_AND_DIRECTRIX_P,
         hColor: GQColors.FOCUS_AND_DIRECTRIX_H,
-        kColor: GQColors.FOCUS_AND_DIRECTRIX_K,
-
-        // HBox options
-        spacing: 5
+        kColor: GQColors.FOCUS_AND_DIRECTRIX_K
       }, options );
 
       assert && assert( !options.children, 'EquationNode sets children' );
@@ -242,6 +239,17 @@ define( require => {
         font: options.font
       } ) );
       options.children.push( kNode );
+
+      // layout
+      const xSpacing = 5;
+      fractionNode.left = yEqualsNode.right + xSpacing;
+      fractionNode.centerY = yEqualsNode.centerY;
+      xMinusNode.left = fractionNode.right + xSpacing;
+      hNode.left = xMinusNode.right + xSpacing;
+      hNode.centerY = yEqualsNode.centerY;
+      squaredPlusNode.left = hNode.right + xSpacing;
+      kNode.left = squaredPlusNode.right + xSpacing;
+      kNode.centerY = yEqualsNode.centerY;
 
       super( options );
 
