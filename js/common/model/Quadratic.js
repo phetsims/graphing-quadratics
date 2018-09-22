@@ -107,7 +107,6 @@ define( require => {
       return new Quadratic( a, b, c, options );
     }
 
-    //TODO this is untested
     /**
      * Creates a quadratic given p, h, k, based on the equation y = (1/(4p))(x - h)^2 + k
      * This is an alternate vertex form, where 1/4p is substituted for a.
@@ -119,11 +118,8 @@ define( require => {
      * @public
      */
     static createFromAlternateVertexForm( p, h, k, options ) {
-      assert && assert( p !== 0 );
       const a = 1 / ( 4 * p );
-      const b = -2 * a * h;
-      const c = k + ( ( b * b ) / ( 4 * a ) );
-      return new Quadratic( a, b, c, options );
+      return Quadratic.createFromVertexForm( a, h, k, options );
     }
 
     /**
