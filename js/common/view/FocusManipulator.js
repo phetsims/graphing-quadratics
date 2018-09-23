@@ -19,6 +19,7 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
 
   class FocusManipulator extends Manipulator {
@@ -30,12 +31,19 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} focusVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
+     * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, pRange, modelViewTransform, focusVisibleProperty, coordinatesVisibleProperty ) {
+    constructor( radius, quadraticProperty, pRange, modelViewTransform,
+                 focusVisibleProperty, coordinatesVisibleProperty, options ) {
 
-      super( radius, GQColors.FOCUS, {
+      options = _.extend( {
+        interval: 0.1, // interval of p value, in model coordinate frame
+
+        // Manipulator options
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
-      } );
+      }, options );
+
+      super( radius, GQColors.FOCUS, options );
 
       // local Property whose value is the focus of the current value of quadraticProperty
       const focusProperty = new Property( quadraticProperty.value.focus, {
@@ -95,7 +103,8 @@ define( require => {
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
-      this.addInputListener( new FocusDragHandler( quadraticProperty, focusProperty, modelViewTransform, pRange ) );
+      this.addInputListener( new FocusDragHandler( quadraticProperty, focusProperty, modelViewTransform,
+        pRange, options.interval ) );
     }
   }
 
@@ -109,8 +118,9 @@ define( require => {
      * @param {Property.<Vector2>} focusProperty
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Range} pRange
+     * @param {number} interval
      */
-    constructor( quadraticProperty, focusProperty, modelViewTransform, pRange ) {
+    constructor( quadraticProperty, focusProperty, modelViewTransform, pRange, interval ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -127,6 +137,8 @@ define( require => {
         drag: ( event, trail ) => {
 
           const vertex = quadraticProperty.value.vertex;
+          assert && assert( vertex, 'null vertex is not supported' );
+
           if ( vertex ) {
 
             // transform the drag point from view to model coordinate frame
@@ -134,12 +146,17 @@ define( require => {
             const location = modelViewTransform.viewToModelPosition( parentPoint );
 
             // constrain to range
-            const p = pRange.constrainValue( location.y - vertex.y );
+            let p = pRange.constrainValue( location.y - vertex.y );
+
+            p = Util.roundToInterval( p, interval );
+
+            // skip over p === 0
+            if ( p === 0 ) {
+              p = ( focusProperty.value.y < vertex.y ) ? interval : -interval;
+            }
+            assert && assert( p !== 0, 'p==0 is not supported' );
 
             focusProperty.value = new Vector2( vertex.x, vertex.y + p );
-          }
-          else {
-            //TODO handle no vertex
           }
         }
       } );
