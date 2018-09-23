@@ -10,12 +10,12 @@ define( require => {
 
   // modules
   const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
-  const DirectrixCheckbox = require( 'GRAPHING_QUADRATICS/common/view/DirectrixCheckbox' );
-  const FocusCheckbox = require( 'GRAPHING_QUADRATICS/common/view/FocusCheckbox' );
+  const DirectrixCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/DirectrixCheckbox' );
+  const FocusCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusCheckbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
-  const PointOnQuadraticCheckbox = require( 'GRAPHING_QUADRATICS/common/view/PointOnQuadraticCheckbox' );
+  const PointOnQuadraticCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticCheckbox' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 

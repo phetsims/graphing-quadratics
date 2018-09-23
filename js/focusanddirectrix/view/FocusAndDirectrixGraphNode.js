@@ -9,12 +9,12 @@ define( require => {
   'use strict';
 
   // modules
-  const DirectrixNode = require( 'GRAPHING_QUADRATICS/common/view/DirectrixNode' );
-  const FocusManipulator = require( 'GRAPHING_QUADRATICS/common/view/FocusManipulator' );
+  const DirectrixNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/DirectrixNode' );
+  const FocusManipulator = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusManipulator' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const PointOnQuadraticManipulator = require( 'GRAPHING_QUADRATICS/common/view/PointOnQuadraticManipulator' );
+  const PointOnQuadraticManipulator = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticManipulator' );
   const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
 
   class FocusAndDirectrixGraphNode extends GQGraphNode {

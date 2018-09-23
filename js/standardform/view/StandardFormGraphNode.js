@@ -13,9 +13,9 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/common/view/NoRealRootsNode' );
+  const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/NoRealRootsNode' );
   const Property = require( 'AXON/Property' );
-  const RootsNode = require( 'GRAPHING_QUADRATICS/common/view/RootsNode' );
+  const RootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/RootsNode' );
   const Vector2 = require( 'DOT/Vector2' );
   const VertexNode = require( 'GRAPHING_QUADRATICS/common/view/VertexNode' );
 

@@ -15,7 +15,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
-  const RootsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/RootsCheckbox' );
+  const RootsCheckbox = require( 'GRAPHING_QUADRATICS/standardform/view/RootsCheckbox' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 
