@@ -41,7 +41,7 @@ define( require => {
     STANDARD_FORM_C: PhetColorScheme.RED_COLORBLIND,
 
     // Coefficients on the Vertex Form screen
-    VERTEX_FORM_A: 'green', //TODO why?
+    VERTEX_FORM_A: 'green', //TODO #29 there is nothing else that is green on the Vertex Form screen
     VERTEX_FORM_H: VERTEX,
     VERTEX_FORM_K: VERTEX,
 
