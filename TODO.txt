@@ -6,8 +6,6 @@ New artwork for 'left' point tool
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-skip p=0
-
 Handle a=0
 F&D: align equation with sliders
 Equations on each line on the graph, on outside edge of curve
