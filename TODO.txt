@@ -6,8 +6,9 @@ New artwork for 'left' point tool
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Handle a=0
 F&D: align equation with sliders
+F&D: make focus disappear when it goes off graph
+F&D: force point to remain on graph
 Equations on each line on the graph, on outside edge of curve
 Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
 Lines labeled with vertex form in screens 3 & 4, 1/4p in decimal format to 2 decimals
@@ -23,5 +24,4 @@ KNOWN PROBLEMS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 All screens: No equations on graphed lines.
 All screens: Point tools don't work reliably.
 Focus & Directrix: Equation is not aligned with sliders and it jumps around while updating.
-Focus & Directrix: p=0 is not supported, UI does not update while p=0.
 Focus & Directrix: focus and point manipulators can go off the graph
