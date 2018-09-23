@@ -49,13 +49,14 @@ define( require => {
         new Property( new Vector2( POINT_X, this.quadraticProperty.value.solveY( POINT_X ) ) );
 
       // update the point
-      this.quadraticProperty.link( ( quadratic, oldQuadratic ) => {
-        //TODO handle the case of no quadratic
-        if ( quadratic && oldQuadratic && quadratic.vertex && oldQuadratic.vertex ) {
-          const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
-          const x = this.pointOnQuadraticProperty.value.x + dx;
-          this.pointOnQuadraticProperty.value = new Vector2( x, quadratic.solveY( x ) );
-        }
+      this.quadraticProperty.lazyLink( ( quadratic, oldQuadratic ) => {
+
+        assert && assert( quadratic.vertex, 'null quadratic.vertex not supported' );
+        assert && assert( oldQuadratic.vertex, 'null oldQuadratic.vertex not supported' );
+
+        const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
+        const x = this.pointOnQuadraticProperty.value.x + dx;
+        this.pointOnQuadraticProperty.value = new Vector2( x, quadratic.solveY( x ) );
       } );
     }
   }
