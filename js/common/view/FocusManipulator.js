@@ -37,7 +37,9 @@ define( require => {
                  focusVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
-        interval: 0.1, // interval of p value, in model coordinate frame
+
+        // interval of p value, in model coordinate frame
+        interval: GQConstants.FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_P,
 
         // Manipulator options
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA

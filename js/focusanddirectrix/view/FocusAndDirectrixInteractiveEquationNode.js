@@ -57,6 +57,7 @@ define( require => {
       
       // sliders
       const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
+        skipZero: true,
         interval: GQConstants.FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_P,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_P
       } );
@@ -95,10 +96,7 @@ define( require => {
       Property.multilink( [ pProperty, hProperty, kProperty ], ( p, h, k ) => {
         if ( !changing ) {
           changing = true;
-          //TODO handle p === 0, which results in x=h
-          if ( p !== 0 ) {
-            quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, h, k, { color: quadraticProperty.value.color } );
-          }
+          quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, h, k, { color: quadraticProperty.value.color } );
           changing = false;
         }
       } );
@@ -107,12 +105,9 @@ define( require => {
       quadraticProperty.link( quadratic => {
         if ( !changing ) {
           changing = true;
-          //TODO handle non-quadratic
-          if ( quadratic.a !== 0 ) {
-            pProperty.value = quadratic.p;
-            hProperty.value = quadratic.h;
-            kProperty.value = quadratic.k;
-          }
+          pProperty.value = quadratic.p;
+          hProperty.value = quadratic.h;
+          kProperty.value = quadratic.k;
           changing = false;
         }
       } );

@@ -49,6 +49,9 @@ define( require => {
         // maps slider value to coefficientProperty value
         inverseMap: value => { return value; },
 
+        // whether to skip zero value
+        skipZero: false,
+
         // If the absolute value of coefficientProperty is less than this value, snap to zero.
         snapToZeroEpsilon: 0.1,
 
@@ -80,10 +83,19 @@ define( require => {
         thumbTouchAreaYDilation: 8,
         majorTickLength: ( THUMB_SIZE.height / 2 ) + 3, // so that ticks extends past thumb
 
-        // snap to zero
         constrainValue: value => {
           let coefficientValue = options.inverseMap( value );
-          return ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) ? 0 : value;
+          if ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) {
+            if ( options.skipZero ) {
+              // skip zero
+              coefficientValue = ( coefficientProperty.value < 0 ) ? options.interval : -options.interval;
+            }
+            else {
+              // snap to zero
+              coefficientValue = 0;
+            }
+          }
+          return options.map( coefficientValue );
         }
       } );
 
