@@ -92,17 +92,7 @@ define( require => {
         right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
         bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN
       } );
-
       this.addChild( resetAllButton );
-
-      //TODO needed?
-      // @protected
-      this.resetAllButton = resetAllButton;
-
-      //TODO needed?
-      // @public
-      this.controlsParent = controlsParent;
-      this.model = model;
     }
   }
 
