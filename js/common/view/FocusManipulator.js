@@ -45,13 +45,13 @@ define( require => {
 
       super( radius, GQColors.FOCUS, options );
 
-      // local Property whose value is the focus of the current value of quadraticProperty
+      // local Property
       const focusProperty = new Property( quadraticProperty.value.focus, {
         valueType: Vector2,
         reentrant: true
       } );
 
-      // dispose not needed
+      // coordinates displayed on this manuipulator
       const coordinatesNode = new CoordinatesNode( focusProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.FOCUS ).withAlpha( 0.75 ),
@@ -66,12 +66,11 @@ define( require => {
       // unlink not needed
       const quadraticListener = quadratic => {
 
-        // manipulator is visible only if the quadratic has a focus
-        this.visible = !!( quadratic.focus && focusVisibleProperty.value );
+        assert && assert( quadratic.focus, 'null quadratic.focus is not supported' );
+        assert && assert( quadratic.vertex, 'null quadratic.vertex is not supported' );
 
-        if ( quadratic.focus && !quadratic.focus.equals( focusProperty.value ) ) {
-          focusProperty.value = quadratic.focus;
-        }
+        // update local Property
+        focusProperty.value = quadratic.focus;
 
         // position coordinates based on which way the curve opens
         coordinatesNode.centerX = 0;
@@ -86,13 +85,14 @@ define( require => {
 
       // When the focus changes, create new quadratic.
       focusProperty.link( focus => {
+
         const quadratic = quadraticProperty.value;
-        //TODO handle no vertex
-        if ( focus && quadratic.vertex ) {
-          if ( focus.x !== quadratic.focus.x || focus.y !== quadratic.focus.y ) {
-            const p = focus.y - quadratic.vertex.y;
-            quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, quadratic.h, quadratic.k );
-          }
+        assert && assert( quadratic.focus, 'null quadratic.focus is not supported' );
+        assert && assert( quadratic.vertex, 'null quadratic.vertex is not supported' );
+
+        if ( !focus.equals( quadratic.focus ) ) {
+          const p = focus.y - quadratic.vertex.y;
+          quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, quadratic.h, quadratic.k );
         }
       } );
 
@@ -137,27 +137,24 @@ define( require => {
         drag: ( event, trail ) => {
 
           const vertex = quadraticProperty.value.vertex;
-          assert && assert( vertex, 'null vertex is not supported' );
+          assert && assert( vertex, 'null quadratic.vertex is not supported' );
 
-          if ( vertex ) {
+          // transform the drag point from view to model coordinate frame
+          const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
+          const location = modelViewTransform.viewToModelPosition( parentPoint );
 
-            // transform the drag point from view to model coordinate frame
-            const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
-            const location = modelViewTransform.viewToModelPosition( parentPoint );
+          // constrain to range
+          let p = pRange.constrainValue( location.y - vertex.y );
 
-            // constrain to range
-            let p = pRange.constrainValue( location.y - vertex.y );
+          p = Util.roundToInterval( p, interval );
 
-            p = Util.roundToInterval( p, interval );
-
-            // skip over p === 0
-            if ( p === 0 ) {
-              p = ( focusProperty.value.y < vertex.y ) ? interval : -interval;
-            }
-            assert && assert( p !== 0, 'p==0 is not supported' );
-
-            focusProperty.value = new Vector2( vertex.x, vertex.y + p );
+          // skip over p === 0
+          if ( p === 0 ) {
+            p = ( focusProperty.value.y < vertex.y ) ? interval : -interval;
           }
+          assert && assert( p !== 0, 'p==0 is not supported' );
+
+          focusProperty.value = new Vector2( vertex.x, vertex.y + p );
         }
       } );
     }
