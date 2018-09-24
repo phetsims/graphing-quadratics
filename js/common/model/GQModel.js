@@ -75,19 +75,23 @@ define( require => {
 
       // @public (read-only) point tools, initial locations and drag bounds determined empirically
       this.pointTools = [
+
+        // probe on right
         new PointTool( this.quadratics, {
-          location: new Vector2( 2, -12 ),
-          orientation: 'left',
+          orientation: 'right',
+          location: new Vector2( -2, -12 ),
           dragBounds: new Bounds2(
             this.graph.xRange.min - 1, this.graph.yRange.min - 3,
-            this.graph.xRange.max + 3, this.graph.yRange.max + 1 )
+            this.graph.xRange.max + 1, this.graph.yRange.max + 1 )
         } ),
+        
+        // probe on left
         new PointTool( this.quadratics, {
-          location: new Vector2( -2, -12 ),
-          orientation: 'right',
+          orientation: 'left',
+          location: new Vector2( 2, -12 ),
           dragBounds: new Bounds2(
-            this.graph.xRange.min - 1, this.graph.yRange.min - 1,
-            this.graph.xRange.max + 3, this.graph.yRange.max + 3 )
+            this.graph.xRange.min - 1, this.graph.yRange.min - 3,
+            this.graph.xRange.max + 1, this.graph.yRange.max + 1 )
         } )
       ];
     }
