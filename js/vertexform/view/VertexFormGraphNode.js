@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Graph view for the 'Vertex Form' screen.
+ * Graph for the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

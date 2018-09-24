@@ -1,9 +1,10 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renders the vertex form of the quadratic equation, is y = a(x - h)^2 + k
+ * Static equation in vertex form: y = a(x - h)^2 + k
  *
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';

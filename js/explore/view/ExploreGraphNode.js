@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Graph view for the 'Explore' screen.
+ * Graph for the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

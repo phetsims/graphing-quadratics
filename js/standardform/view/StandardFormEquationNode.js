@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renderers the standard form of the quadratic equation, y = ax^2 + bx + c.
+ * Static equation in standard form: y = ax^2 + bx + c
  * This is sometimes referred to as general form, typically in the context of conics.
  *
  * @author Andrea Lin

@@ -1,8 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renderer for standard form equation with integer coefficients that can be changed.
- * Form is y = ax^2 + bx + c, where a, b, and c can be changed with number pickers
+ * Standard form equation with integer coefficients that can be changed.
+ * Form is y = ax^2 + bx + c, where a, b, and c can be changed with sliders.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -177,6 +177,8 @@ define( require => {
       super( {
         align: 'bottom',
         spacing: 5,
+
+        // y = ax^2 + bx + c
         children: [ yEqualsNode, aNode, xSquaredPlusNode, bNode, xPlusNode, cNode ]
       } );
 

@@ -4,6 +4,7 @@
  * Constants that are global to this sim.
  *
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';

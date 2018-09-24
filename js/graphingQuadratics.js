@@ -3,7 +3,7 @@
 /**
  * Creates the namespace for this simulation.
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Andrea Lin
  */
 define( require => {
   'use strict';

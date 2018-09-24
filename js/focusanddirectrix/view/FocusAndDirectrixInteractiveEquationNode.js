@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Interactive equation for the 'Focus & Directrix' screen.
+ * Alternate vertex form equation with coefficients that can be changed via sliders.
+ * Form is y = (1/(4p))(x - h)^2 + k, where p, h, and k can be changed with number pickers
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -213,6 +214,8 @@ define( require => {
       kNode.centerY = yEqualsNode.centerY;
 
       super( {
+
+        // y = (1/(4p))(x - h)^2 + k
         children: [ yEqualsNode, fractionNode, xMinusNode, hNode, squaredPlusNode, kNode ]
       } );
 

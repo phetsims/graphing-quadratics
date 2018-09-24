@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Visual representation of a quadratic curve.
+ * Draws a quadratic curve.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

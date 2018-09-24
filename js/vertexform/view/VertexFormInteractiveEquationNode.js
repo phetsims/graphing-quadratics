@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Renderer for vertex form equation with coefficients that can be changed.
+ * Vertex form equation with coefficients that can be changed.
  * Form is y = ax^2 + bx + c, where a, b, and c can be changed with number pickers.
  *
  * @author Andrea Lin

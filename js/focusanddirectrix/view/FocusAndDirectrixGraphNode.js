@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Graph view for the 'Focus & Directrix' screen.
+ * Graph for the 'Focus & Directrix' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

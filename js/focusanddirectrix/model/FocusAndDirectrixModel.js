@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Model for the 'Standard Form' screen.
+ * Model for the 'Focus & Directrix' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
