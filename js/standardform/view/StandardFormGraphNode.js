@@ -35,7 +35,7 @@ define( require => {
 
       // Axis of symmetry
       const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph, model.modelViewTransform,
-        viewProperties.axisOfSymmetryVisibleProperty );
+        viewProperties.axisOfSymmetryVisibleProperty, viewProperties.equationsVisibleProperty );
 
       // Roots
       const rootsNode = new RootsNode( model.quadraticProperty, model.modelViewTransform,

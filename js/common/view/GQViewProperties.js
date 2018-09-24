@@ -21,11 +21,15 @@ define( require => {
 
       options = _.extend( {
         graphContentsVisible: true,
+        equationsVisible: true,
         equationAccordionBoxExpanded: true
       }, options );
 
       // @public whether the contents of the graph are visible
       this.graphContentsVisibleProperty = new BooleanProperty( options.graphContentsVisible );
+
+      // @public whether equations are visible on the graph
+      this.equationsVisibleProperty = new BooleanProperty( options.equationsVisible );
 
       // @public whether the equation accordion box is expanded
       this.equationAccordionBoxExpandedProperty = new BooleanProperty( options.equationAccordionBoxExpanded );
@@ -36,6 +40,7 @@ define( require => {
      */
     reset() {
       this.graphContentsVisibleProperty.reset();
+      this.equationsVisibleProperty.reset();
       this.equationAccordionBoxExpandedProperty.reset();
     }
   }

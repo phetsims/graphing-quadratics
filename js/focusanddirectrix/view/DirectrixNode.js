@@ -28,9 +28,10 @@ define( require => {
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} directrixVisibleProperty
+     * @param {BooleanProperty} equationsVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, graph, modelViewTransform, directrixVisibleProperty, options ) {
+    constructor( quadraticProperty, graph, modelViewTransform, directrixVisibleProperty, equationsVisibleProperty, options ) {
 
       options = _.extend( {
         color: GQColors.DIRECTRIX,
@@ -79,6 +80,7 @@ define( require => {
       } );
 
       directrixVisibleProperty.link( visible => { this.visible = visible; } );
+      equationsVisibleProperty.link( visible => { equationNode.visible = visible; } );
     }
   }
 
