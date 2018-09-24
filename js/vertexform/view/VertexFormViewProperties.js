@@ -24,9 +24,6 @@ define( require => {
 
       // @public whether the axis of symmetry is visible
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( false );
-
-      // @public whether coordinates are visible on points
-      this.coordinatesVisibleProperty = new BooleanProperty( true );
     }
 
     /**
@@ -37,7 +34,6 @@ define( require => {
       super.reset();
       this.vertexVisibleProperty.reset();
       this.axisOfSymmetryVisibleProperty.reset();
-      this.coordinatesVisibleProperty.reset();
     }
   }
 

@@ -17,7 +17,9 @@ define( require => {
 
     constructor() {
 
-      super();
+      super( {
+        coordinatesVisible: false
+      } );
 
       // @public whether a point is displayed to mark the vertex of the quadratic
       this.vertexVisibleProperty = new BooleanProperty( true );
@@ -30,9 +32,6 @@ define( require => {
 
       // @public whether an interactive point is visible on the quadratic
       this.pointOnQuadraticVisibleProperty = new BooleanProperty( false );
-      
-      // @public whether coordinates are visible on points
-      this.coordinatesVisibleProperty = new BooleanProperty( false );
     }
 
     /**
@@ -45,7 +44,6 @@ define( require => {
       this.focusVisibleProperty.reset();
       this.directrixVisibleProperty.reset();
       this.pointOnQuadraticVisibleProperty.reset();
-      this.coordinatesVisibleProperty.reset();
     }
   }
 

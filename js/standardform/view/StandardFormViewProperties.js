@@ -27,9 +27,6 @@ define( require => {
 
       // @public whether the roots of the quadratic are visible
       this.rootsVisibleProperty = new BooleanProperty( false );
-
-      // @public whether coordinates are visible on points
-      this.coordinatesVisibleProperty = new BooleanProperty( true );
     }
 
     /**
@@ -39,9 +36,8 @@ define( require => {
     reset() {
       super.reset();
       this.vertexVisibleProperty.reset();
-      this.rootsVisibleProperty.reset();
       this.axisOfSymmetryVisibleProperty.reset();
-      this.coordinatesVisibleProperty.reset();
+      this.rootsVisibleProperty.reset();
     }
   }
 

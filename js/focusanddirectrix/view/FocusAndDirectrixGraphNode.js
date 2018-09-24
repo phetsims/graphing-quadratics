@@ -30,7 +30,7 @@ define( require => {
 
       // Directrix
       const directrixNode = new DirectrixNode( model.quadraticProperty, model.graph, model.modelViewTransform,
-        viewProperties.directrixVisibleProperty, viewProperties.coordinatesVisibleProperty );
+        viewProperties.directrixVisibleProperty, viewProperties.equationsVisibleProperty );
 
       // Vertex manipulator
       const vertexManipulator = new VertexManipulator(
