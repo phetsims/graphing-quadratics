@@ -14,7 +14,6 @@ define( function( require ) {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
-  const Property = require( 'AXON/Property' );
   const RectangularPushButton = require( 'SUN/buttons/RectangularPushButton' );
 
   // constants
