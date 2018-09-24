@@ -61,17 +61,32 @@ define( require => {
 
         assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );
 
-        this.visible = directrixVisibleProperty.value;
-
+        // update the line
         const y = modelViewTransform.modelToViewY( quadratic.directrix );
         path.shape = new Shape().moveTo( minX, y ).lineTo( maxX, y );
 
+        // update the equation
         equationNode.text = StringUtils.fillIn( '{{y}} = {{value}}', {
           y: GQSymbols.y,
           value: Util.toFixedNumber( quadratic.directrix, options.decimals )
         } );
-        equationNode.right = path.right - 15;
-        equationNode.top = path.bottom + 3;
+
+        // position the equation to avoid overlapping vertex
+        const xOffset = 15;
+        const yOffset = 3;
+        if ( quadratic.vertex.x >= 0 ) {
+          equationNode.left = path.left + xOffset;
+        }
+        else {
+          equationNode.right = path.right - xOffset;
+        }
+
+        if ( quadratic.directrix > quadratic.vertex.y ) {
+          equationNode.bottom = path.top - yOffset;
+        }
+        else {
+          equationNode.top = path.bottom + yOffset;
+        }
       } );
 
       directrixVisibleProperty.link( visible => { this.visible = visible; } );
