@@ -13,7 +13,6 @@ F&D: drag motion of point feels odd
 Equations on each line on the graph, on outside edge of curve
 Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
 Lines labeled with vertex form in screens 3 & 4, 1/4p in decimal format to 2 decimals
-In all equations, enforce the number of decimal places for values
 
 Make lines for terms available to point tools
 Point tool doesn't work on term-specific lines
