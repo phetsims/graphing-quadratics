@@ -65,15 +65,26 @@ define( require => {
           equationNode.text = '';
         }
         else {
+
+          // update the line
           const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
           path.shape = new Shape().moveTo( x, minY ).lineTo( x, maxY );
 
+          // update the equation
           equationNode.text = StringUtils.fillIn( '{{x}} = {{value}}', {
             x: GQSymbols.x,
             value: Util.toFixedNumber( quadratic.axisOfSymmetry, options.decimals )
           } );
+
+          // position the equation to avoid overlapping vertex
           equationNode.left = path.right + 3;
-          equationNode.top = path.top + 15;
+          const yOffset = 15;
+          if ( quadratic.vertex.y > 0 ) {
+            equationNode.bottom = path.bottom - yOffset;
+          }
+          else {
+            equationNode.top = path.top + yOffset;
+          }
         }
       } );
 
