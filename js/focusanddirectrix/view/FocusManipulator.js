@@ -39,7 +39,7 @@ define( require => {
       options = _.extend( {
 
         // interval of p value, in model coordinate frame
-        interval: GQConstants.FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_P,
+        interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
 
         // Manipulator options
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA

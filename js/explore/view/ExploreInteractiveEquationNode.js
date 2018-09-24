@@ -27,6 +27,7 @@ define( require => {
   const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Util = require( 'DOT/Util' );
 
   class ExploreInteractiveEquationNode extends Node {
 
@@ -51,15 +52,15 @@ define( require => {
 
       // coefficient sliders
       const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty, {
-        interval: GQConstants.EXPLORE_SLIDER_INTERVAL_A,
+        interval: GQConstants.EXPLORE_INTERVAL_A,
         labelColor: GQColors.EXPLORE_A
       } );
       const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, {
-        interval: GQConstants.EXPLORE_SLIDER_INTERVAL_B,
+        interval: GQConstants.EXPLORE_INTERVAL_B,
         labelColor: GQColors.EXPLORE_B
       } );
       const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, {
-        interval: GQConstants.EXPLORE_SLIDER_INTERVAL_C,
+        interval: GQConstants.EXPLORE_INTERVAL_C,
         labelColor: GQColors.EXPLORE_C
       } );
 
@@ -146,7 +147,7 @@ define( require => {
       // a value
       const aNode = new NumberDisplay( aProperty, aProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.EXPLORE_A,
-        decimalPlaces: 2
+        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.EXPLORE_INTERVAL_A )
       } ) );
 
       // x^2 +
@@ -158,7 +159,7 @@ define( require => {
       // b value
       const bNode = new NumberDisplay( bProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.EXPLORE_B,
-        decimalPlaces: 1
+        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.EXPLORE_INTERVAL_B )
       } ) );
 
       // x +
@@ -170,7 +171,7 @@ define( require => {
       // c value
       const cNode = new NumberDisplay( cProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.EXPLORE_C,
-        decimalPlaces: 1
+        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.EXPLORE_INTERVAL_C )
       } ) );
 
       super( {
