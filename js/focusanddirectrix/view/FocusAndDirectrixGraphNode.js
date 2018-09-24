@@ -14,6 +14,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const PointOnQuadraticLinesNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticLinesNode' );
   const PointOnQuadraticManipulator = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticManipulator' );
   const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
 
@@ -67,8 +68,18 @@ define( require => {
         viewProperties.coordinatesVisibleProperty
       );
 
+      // Lines that connect the point on the quadratic to the focus and directrix
+      const pointOnQuadraticLinesNode = new PointOnQuadraticLinesNode(
+        model.quadraticProperty,
+        model.pointOnQuadraticProperty,
+        model.modelViewTransform,
+        viewProperties.pointOnQuadraticVisibleProperty,
+        viewProperties.focusVisibleProperty,
+        viewProperties.directrixVisibleProperty
+        );
+
       assert && assert( !options.specialLines, 'FocusAndDirectrixGraphNode sets specialLines' );
-      options.specialLines = [ directrixNode ];
+      options.specialLines = [ directrixNode, pointOnQuadraticLinesNode ];
 
       assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
       options.decorations = [ vertexManipulator, focusNode, pointOnQuadraticManipulator ];

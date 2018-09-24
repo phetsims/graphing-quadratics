@@ -65,10 +65,12 @@ define( require => {
     QUADRATIC_TERMS_LINE_WIDTH: 2, // y = ax^2, y = bx, y = c
     AXIS_OF_SYMMETRY_LINE_WIDTH: 3,
     DIRECTRIX_LINE_WIDTH: 3,
+    POINT_ON_QUADRATIC_LINE_WIDTH: 3,
 
     // line dashes
     AXIS_OF_SYMMETRY_LINE_DASH: [ 5, 5 ],
     DIRECTRIX_LINE_DASH: [ 5, 5 ],
+    POINT_ON_QUADRATIC_LINE_DASH: [ 5, 5 ],
 
     // decimal places
     EQUATION_DECIMALS: 2,
