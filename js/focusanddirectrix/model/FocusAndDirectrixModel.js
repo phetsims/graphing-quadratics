@@ -55,7 +55,8 @@ define( require => {
 
         const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
         const x = this.pointOnQuadraticProperty.value.x + dx;
-        this.pointOnQuadraticProperty.value = new Vector2( x, quadratic.solveY( x ) );
+        const y = quadratic.solveY( x );
+        this.pointOnQuadraticProperty.value = new Vector2( x, y );
       } );
     }
   }
