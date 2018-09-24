@@ -79,7 +79,7 @@ define( require => {
       cSlider.top = equationNode.bottom + ySpacing;
 
 
-      //TODO hack to prevent 'call stack size exceeded'
+      //TODO #17 hack to prevent 'call stack size exceeded'
       let changing = false;
 
       // When the coefficients change, update the quadratic.
