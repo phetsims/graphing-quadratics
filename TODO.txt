@@ -12,6 +12,7 @@ Equations on each line on the graph, on outside edge of curve
 Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
 Lines labeled with vertex form in screens 3 & 4, 1/4p in decimal format to 2 decimals
 
+use DragListener
 Make lines for terms available to point tools
 Point tool doesn't work on term-specific lines
 Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
@@ -23,4 +24,4 @@ KNOWN PROBLEMS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 All screens: No equations on graphed lines.
 All screens: Point tools don't work reliably.
 Focus & Directrix: Equation is not aligned with sliders and it jumps around while updating.
-Focus & Directrix: focus and point manipulators can go off the graph
+Focus & Directrix: point manipulator can go off the graph
