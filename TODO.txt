@@ -5,6 +5,7 @@ DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+F&D: dashed lines connecting point to focus and directrix
 F&D: force point to remain on graph
 F&D: drag motion of point feels odd
 
