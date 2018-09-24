@@ -171,8 +171,8 @@ define( require => {
     }
 
     /**
-     * Given a graph for ranges, get control points for a bezier curve representing this quadratic
-     * @param {Range} xRange
+     * Gets the control points for the Bezier curve that describes this quadratic.
+     * @param {Range} xRange - range of the graph's x axis
      * @returns {Object}
      * @public
      */
@@ -195,7 +195,7 @@ define( require => {
       const controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
       const endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
 
-      return { startPoint, controlPoint, endPoint };
+      return { startPoint, controlPoint, endPoint }; // caution! ES6 object shorthand
     }
 
     /**
