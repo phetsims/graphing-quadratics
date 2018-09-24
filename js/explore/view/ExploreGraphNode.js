@@ -30,18 +30,18 @@ define( require => {
       };
 
       // constant term, y = bx
-      const constantTermNode = new QuadraticNode( model.constantTermProperty, model.graph, model.modelViewTransform,
-        termNodeOptions );
+      const constantTermNode = new QuadraticNode( model.constantTermProperty, model.graph.xRange, model.graph.yRange,
+        model.modelViewTransform, termNodeOptions );
       viewProperties.constantTermVisibleProperty.link( visible => { constantTermNode.visible = visible; } );
 
       // linear term, y = bx
-      const linearTermNode = new QuadraticNode( model.linearTermProperty, model.graph, model.modelViewTransform,
-        termNodeOptions );
+      const linearTermNode = new QuadraticNode( model.linearTermProperty, model.graph.xRange, model.graph.yRange,
+        model.modelViewTransform, termNodeOptions );
       viewProperties.linearTermVisibleProperty.link( visible => { linearTermNode.visible = visible; } );
 
       // quadratic term, y = ax^2
-      const quadraticTermNode = new QuadraticNode( model.quadraticTermProperty, model.graph, model.modelViewTransform,
-        termNodeOptions );
+      const quadraticTermNode = new QuadraticNode( model.quadraticTermProperty, model.graph.xRange, model.graph.yRange,
+        model.modelViewTransform, termNodeOptions );
       viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermNode.visible = visible; } );
 
       assert && assert( !options.specialLines, 'ExploreGraphNode sets specialLines' );

@@ -19,11 +19,12 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Graph} graph
+     * @param {Range} xRange - range of the graph's x axis
+     * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, graph, modelViewTransform, options ) {
+    constructor( quadraticProperty, xRange, yRange, modelViewTransform, options ) {
 
       options = _.extend( {
 
@@ -34,7 +35,8 @@ define( require => {
       super( options );
 
       // @private
-      this.graph = graph;
+      this.xRange = xRange;
+      this.yRange = yRange; //TODO needed?
       this.modelViewTransform = modelViewTransform;
 
       // @protected quadratic curve, y = ax^2 + bx + c
@@ -59,7 +61,7 @@ define( require => {
     createQuadraticShape( quadratic ) {
 
       // have model calculate the control points to draw a bezier curve shape
-      const bezierControlPoints = quadratic.getControlPoints( this.graph.xRange );
+      const bezierControlPoints = quadratic.getControlPoints( this.xRange );
 
       // draw the quadratic
       return new Shape()

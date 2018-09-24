@@ -38,9 +38,10 @@ define( require => {
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
       // Interactive quadratic curve. dispose not needed.
-      const interactiveQuadraticNode = new QuadraticNode( model.quadraticProperty, model.graph, model.modelViewTransform, {
-        lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
-      } );
+      const interactiveQuadraticNode = new QuadraticNode(
+        model.quadraticProperty, model.graph.xRange, model.graph.yRange, model.modelViewTransform, {
+          lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
+        } );
 
       // Parent for saved quadratics
       const savedQuadraticsLayer = new Node();
@@ -75,7 +76,8 @@ define( require => {
       model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
         // Node for the saved quadratic
-        const savedQuadraticNode = new QuadraticNode( new Property( savedQuadratic ), model.graph, model.modelViewTransform, {
+        const savedQuadraticNode = new QuadraticNode(
+          new Property( savedQuadratic ), model.graph.xRange, model.graph.yRange, model.modelViewTransform, {
           lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
         } );
         savedQuadraticsLayer.addChild( savedQuadraticNode );
