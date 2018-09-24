@@ -62,8 +62,8 @@ define( require => {
       // visibility
       Property.multilink( [ pointOnQuadraticVisibleProperty, focusVisibleProperty, directrixVisibleProperty ],
         ( pointOnQuadraticVisible, focusVisibleProperty, directrixVisible ) => {
-          focusLine.visible = ( pointOnQuadraticVisible && focusVisibleProperty && directrixVisible );
-          directrixLine.visible = ( pointOnQuadraticVisible && focusVisibleProperty && directrixVisible );
+          focusLine.visible = ( pointOnQuadraticVisible && focusVisibleProperty );
+          directrixLine.visible = ( pointOnQuadraticVisible && directrixVisible );
         } );
     }
   }
