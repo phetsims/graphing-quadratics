@@ -42,20 +42,20 @@ define( require => {
       // @public (read-only) {Vector2[]|null} null means that all points are roots (y = 0)
       this.roots = Quadratic.solveRoots( a, b, c );
 
-      // This is a quadratic because a is nonzero. Determine more information about it.
+      // Strictly speaking, we don't have a quadratic if a === 0.
+      // If that's the case, then the fields herein will be undefined.
       if ( a !== 0 ) {
 
-        // @public (read-only) these will be undefined if a === 0
-        // derive coefficients for vertex form
+        // @public (read-only) derive coefficients for vertex form
         this.p = 1 / ( 4 * a );
         this.h = -b / ( 2 * a );
         this.k = c - ( ( b * b ) / ( 4 * a ) );
 
-        // @public (read-only) these will be undefined if a === 0
-        this.axisOfSymmetry = this.h; // x = h
+        // @public (read-only)
         this.vertex = new Vector2( this.h, this.k );
         this.focus = new Vector2( this.h, this.k + this.p );
-        this.directrix = this.k - this.p;
+        this.directrix = this.k - this.p; // y = directrix
+        this.axisOfSymmetry = this.h; // x = h
       }
     }
 
