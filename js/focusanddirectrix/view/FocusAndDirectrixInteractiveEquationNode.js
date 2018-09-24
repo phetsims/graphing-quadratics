@@ -38,14 +38,7 @@ define( require => {
      */
     constructor( quadraticProperty, pRange, hRange, kRange, options ) {
 
-      options = _.extend( {
-        font: new PhetFont( 26 ),
-        fractionFont: new PhetFont( 22 ),
-        color: 'black',
-        pColor: GQColors.FOCUS_AND_DIRECTRIX_P,
-        hColor: GQColors.FOCUS_AND_DIRECTRIX_H,
-        kColor: GQColors.FOCUS_AND_DIRECTRIX_K
-      }, options );
+      options = options || {};
 
       // coefficient Properties
       const pProperty = new NumberProperty( pRange.defaultValue, { range: pRange, reentrant: true } );
@@ -53,7 +46,7 @@ define( require => {
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange, reentrant: true } );
 
       // equation
-      const equationNode = new EquationNode( pProperty, pRange, hProperty, hRange, kProperty, kRange );
+      const equationNode = new EquationNode( pProperty, hProperty, kProperty );
       
       // sliders
       const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
@@ -77,7 +70,6 @@ define( require => {
 
       // horizontally align sliders under their associated values in the equation
       const ySpacing = 3;
-      // pSlider.centerX = this.globalToLocalPoint( equationNode.pNode.parentToGlobalPoint( equationNode.pNode.center ) ).x;
       pSlider.centerX = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
       pSlider.top = equationNode.bottom + ySpacing;
       hSlider.centerX = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
@@ -119,31 +111,19 @@ define( require => {
 
     /**
      * @param {NumberProperty} pProperty
-     * @param {Range} pRange
      * @param {NumberProperty} hProperty
-     * @param {Range} hRange
      * @param {NumberProperty} kProperty
-     * @param {Range} kRange
-     * @param {Object} [options]
      */
-    constructor( pProperty, pRange, hProperty, hRange, kProperty, kRange, options ) {
+    constructor( pProperty, hProperty, kProperty ) {
 
-      options = _.extend( {
-        font: new PhetFont( 26 ),
-        fractionFont: new PhetFont( 22 ),
-        color: 'black',
-        pColor: GQColors.FOCUS_AND_DIRECTRIX_P,
-        hColor: GQColors.FOCUS_AND_DIRECTRIX_H,
-        kColor: GQColors.FOCUS_AND_DIRECTRIX_K
-      }, options );
-
-      assert && assert( !options.children, 'EquationNode sets children' );
-      options.children = [];
+      assert && assert( pProperty.range, 'missing pProperty.range' );
+      assert && assert( hProperty.range, 'missing hProperty.range' );
+      assert && assert( kProperty.range, 'missing kProperty.range' );
 
       // common options for NumberDisplay instances
       const numberDisplayOptions = {
+        font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
         decimalPlaces: 1,
-        font: options.font,
         backgroundFill: null,
         backgroundStroke: null,
         backgroundLineWidth: 0,
@@ -151,16 +131,10 @@ define( require => {
         yMargin: 0
       };
 
-      // options for fraction parts of the equation
-      const fractionOptions = {
-        font: options.fractionFont,
-        fill: options.color
-      };
-      
-      // options for non-fraction parts of the equation
+      // options for other parts of the equation
       const equationOptions = {
-        font: options.font,
-        fill: options.color
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
+        fill: 'black'
       };
 
       // y =
@@ -168,22 +142,21 @@ define( require => {
         y: GQSymbols.y,
         equals: MathSymbols.EQUAL_TO
       } ), equationOptions );
-      options.children.push( yEqualsNode );
 
       // 1
-      const numeratorNode = new RichText( '1', fractionOptions );
+      const numeratorNode = new RichText( '1', equationOptions );
 
       // 4(
-      const fourParenNode = new RichText( '4(', fractionOptions );
+      const fourParenNode = new RichText( '4(', equationOptions );
 
-      // p
-      const pNode = new NumberDisplay( pProperty, pRange, _.extend( {}, numberDisplayOptions, {
-        numberFill: options.pColor,
-        font: options.fractionFont
+      // p value
+      const pNode = new NumberDisplay( pProperty, pProperty.range, _.extend( {}, numberDisplayOptions, {
+        numberFill: GQColors.FOCUS_AND_DIRECTRIX_P,
+        decimals: 1
       } ) );
 
       // )
-      const parenNode = new RichText( ')', fractionOptions );
+      const parenNode = new RichText( ')', equationOptions );
 
       // 1/4(p)
       const denominatorNode = new HBox( {
@@ -193,43 +166,39 @@ define( require => {
       // horizontal line between numerator and denominator
       const fractionLineLength = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
       const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
-        stroke: options.color,
+        stroke: 'black',
         lineWidth: 1
       } );
 
       // 1/4p
       const fractionNode = new VBox( {
         spacing: 2,
-        children: [ numeratorNode, fractionLine, denominatorNode ]
+        children: [ numeratorNode, fractionLine, denominatorNode ],
+        scale: 0.85
       } );
-      options.children.push( fractionNode );
 
       // (x -
       const xMinusNode = new RichText( StringUtils.fillIn( '({{x}} {{minus}}', {
         x: GQSymbols.x,
         minus: MathSymbols.MINUS
       } ), equationOptions );
-      options.children.push( xMinusNode );
 
-      // h
-      const hNode = new NumberDisplay( hProperty, hRange, _.extend( {}, numberDisplayOptions, {
-        numberFill: options.hColor,
-        font: options.font
+      // h value
+      const hNode = new NumberDisplay( hProperty, hProperty.range, _.extend( {}, numberDisplayOptions, {
+        numberFill: GQColors.FOCUS_AND_DIRECTRIX_H,
+        decimals: 1
       } ) );
-      options.children.push( hNode );
 
       // )^2 +
       const squaredPlusNode = new RichText( StringUtils.fillIn( ')<sup>2</sup> {{plus}}', {
         plus: MathSymbols.PLUS
       } ), equationOptions );
-      options.children.push( squaredPlusNode );
 
-      // k
-      const kNode = new NumberDisplay( kProperty, kRange, _.extend( {}, numberDisplayOptions, {
-        numberFill: options.kColor,
-        font: options.font
+      // k value
+      const kNode = new NumberDisplay( kProperty, kProperty.range, _.extend( {}, numberDisplayOptions, {
+        numberFill: GQColors.FOCUS_AND_DIRECTRIX_K,
+        decimals: 1
       } ) );
-      options.children.push( kNode );
 
       // layout
       const xSpacing = 5;
@@ -242,7 +211,9 @@ define( require => {
       kNode.left = squaredPlusNode.right + xSpacing;
       kNode.centerY = yEqualsNode.centerY;
 
-      super( options );
+      super( {
+        children: [ yEqualsNode, fractionNode, xMinusNode, hNode, squaredPlusNode, kNode ]
+      } );
 
       // @private needed by methods
       this.pNode = pNode;
