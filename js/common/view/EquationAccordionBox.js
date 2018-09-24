@@ -37,8 +37,7 @@ define( require => {
       options.titleNode = titleNode;
 
       const saveCurveControls = new SaveCurveControls(
-        model.saveQuadratic.bind( model ), model.eraseQuadratics.bind( model ),
-        viewProperties.graphContentsVisibleProperty, model.savedQuadratics.lengthProperty );
+        model.saveQuadratic.bind( model ), model.eraseQuadratics.bind( model ), model.savedQuadratics.lengthProperty );
 
       const separatorWidth = Math.max( interactiveEquationNode.width, saveCurveControls.width );
 

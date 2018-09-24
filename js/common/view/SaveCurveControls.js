@@ -25,11 +25,10 @@ define( function( require ) {
     /**
      * @param {function} saveFunction
      * @param {function} eraseFunction
-     * @param {BooleanProperty} graphContentsVisibleProperty
      * @param {NumberProperty} numberOfSavedLinesProperty
      * @param {Object} [options]
      */
-    constructor( saveFunction, eraseFunction, graphContentsVisibleProperty, numberOfSavedLinesProperty, options ) {
+    constructor( saveFunction, eraseFunction, numberOfSavedLinesProperty, options ) {
 
       options = _.extend( {
         spacing: 40
@@ -53,13 +52,9 @@ define( function( require ) {
       
       super( options );
 
-      // Enable the save button when lines are visible. unlink not needed.
-      graphContentsVisibleProperty.link( curvesVisible => { saveButton.enabled = curvesVisible; } );
-
-      // Enable the erase button when lines are visible and there are saved lines. dispose not needed.
-      Property.multilink( [ graphContentsVisibleProperty, numberOfSavedLinesProperty ],
-        ( curvesVisible, numberOfSavedLines ) => {
-        eraseButton.enabled = curvesVisible && ( numberOfSavedLines > 0 );
+      // Enable the erase button when there are saved lines.
+      numberOfSavedLinesProperty.link( numberOfSavedLines => {
+        eraseButton.enabled = ( numberOfSavedLines > 0 );
       } );
     }
   }
