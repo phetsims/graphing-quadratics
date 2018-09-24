@@ -2,28 +2,20 @@ TODO list for graphing-quadratics
 
 DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SF: vertex and roots are visible for a=0 after toggling checkboxes
 VF: vertex is visible for a=0 after toggling checkbox
-F&D: constrain point to graph
-F&D: drag motion of point is based on pointer's x location and feels a bit odd
+#22 point tools problems
+#32 NumberProperty value is out of range
 
-Equations on each line on the graph, on outside edge of curve
-Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
-Lines labeled with vertex form in screens 3 & 4, 1/4p in decimal format to 2 decimals
+IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-use DragListener
-Make lines for terms available to point tools
-Point tool doesn't work on term-specific lines
-Math for the point tool doesn't work for all quadratics. An example is -1 < a < 1
+FD: constrain point to graph
+FD: drag motion of point is based on pointer's x location and feels a bit odd
+E,SF: Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
+VF,FD: Lines labeled with vertex form in screens 3 & 4, 1/4p in decimal format to 2 decimals
+E: Make terms available to point tools
+
 TODOs in the code
 stringTest
-
-KNOWN PROBLEMS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-All screens: No equations on graphed lines.
-All screens: Point tools don't work reliably.
-Focus & Directrix: Equation is not aligned with sliders and it jumps around while updating.
-Focus & Directrix: point manipulator can go off the graph
