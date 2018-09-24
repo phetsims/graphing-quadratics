@@ -20,7 +20,7 @@ define( require => {
   const P_RANGE = new RangeWithValue( -9, 9, 2 );
   const H_RANGE = new RangeWithValue( -6, 6, 0 );
   const K_RANGE = new RangeWithValue( -6, 6, 0 );
-  const POINT_X = 2;
+  const POINT_X = 5;
 
   class FocusAndDirectrixModel extends GQModel {
 
