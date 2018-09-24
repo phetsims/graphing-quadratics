@@ -32,7 +32,7 @@ define( require => {
       // @public whether equations are visible on the graph
       this.equationsVisibleProperty = new BooleanProperty( options.equationsVisible );
 
-      // @public whether coordinates are visible on points
+      // @public whether coordinates are visible on points and manipulators
       this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible );
 
       // @public whether the equation accordion box is expanded
