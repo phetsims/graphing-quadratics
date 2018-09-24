@@ -1,10 +1,18 @@
 {
-  "point_tool_body.png": {
+  "point_tool_left.png": {
     "text": [
-      "Copyright 2002-2018 University of Colorado Boulder"
+      "Copyright 2018 University of Colorado Boulder"
     ],
     "projectURL": "http://phet.colorado.edu",
     "license": "contact phethelp@colorado.edu",
-    "notes": "created by Bryce Gruneich, copied from graphing-lines"
+    "notes": "created by Amanda McGarry, asset file is graphing-lines/assets/point_tool.ai"
+  },
+  "point_tool_right.png": {
+    "text": [
+      "Copyright 2018 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Amanda McGarry, asset file is graphing-lines/assets/point_tool.ai"
   }
 }

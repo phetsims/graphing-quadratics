@@ -33,10 +33,11 @@ define( require => {
   const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
   // images
-  const bodyImage = require( 'image!GRAPHING_QUADRATICS/point_tool_body.png' );
+  const pointToolLeftImage = require( 'image!GRAPHING_QUADRATICS/point_tool_left.png' );
+  const pointToolRightImage = require( 'image!GRAPHING_QUADRATICS/point_tool_right.png' );
 
   // constants
-  const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of bodyImage
+  const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of pointToolLeftImage
 
   class PointToolNode extends Node {
 
@@ -56,6 +57,11 @@ define( require => {
         foregroundHighlightColor: 'white'
       }, options );
 
+      assert && assert( pointTool.orientation === 'left' || pointTool.orientation === 'right',
+        'unsupported pointTool.orientation: ' + pointTool.orientation );
+
+      // use the image file that corresponds to the orientation
+      const bodyImage = ( pointTool.orientation === 'left' ) ? pointToolLeftImage : pointToolRightImage;
       const bodyNode = new Image( bodyImage, { centerY: 0 } );
 
       const probeNode = new ProbeNode();
@@ -64,7 +70,7 @@ define( require => {
       const coordinatesNode = new Text( '?', {
         font: new PhetFont( 15 ),
         pickable: false,
-        maxWidth: 60 // constrain width, determined empirically, dependent on bodyImage
+        maxWidth: 60 // constrain width, determined empirically, dependent on bodyNode
       } );
 
       // background behind the coordinates, sized to the body
@@ -72,15 +78,12 @@ define( require => {
         pickable: false
       } );
 
-      // orientation - bodyImage is drawn in 'left' orientation
-      assert && assert( pointTool.orientation === 'left' || pointTool.orientation === 'right',
-        'unsupported pointTool.orientation: ' + pointTool.orientation );
+      // put probe on correct side of body
       if ( pointTool.orientation === 'left' ) {
         bodyNode.left = probeNode.right;
       }
       else {
-        bodyNode.setScaleMagnitude( -1, 1 ); // reflect around y-axis
-        probeNode.setScaleMagnitude( -1, 1 );
+        probeNode.setScaleMagnitude( -1, 1 ); // reflect about the y axis
         bodyNode.right = probeNode.left;
       }
       backgroundNode.center = bodyNode.center;
