@@ -4,6 +4,7 @@
  * Model for the 'Standard Form' screen.
  *
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';
@@ -15,11 +16,6 @@ define( require => {
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
-  // constants
-  const A_RANGE = new RangeWithValue( -6, 6, 1 );
-  const B_RANGE = new RangeWithValue( -6, 6, 0 );
-  const C_RANGE = new RangeWithValue( -6, 6, 0 );
-
   class StandardFormModel extends GQModel {
 
     /**
@@ -27,19 +23,24 @@ define( require => {
      */
     constructor( options ) {
 
-      options = options || {};
+      options = _.extend( {
+        aRange: new RangeWithValue( -6, 6, 1 ),
+        bRange: new RangeWithValue( -6, 6, 0 ),
+        cRange: new RangeWithValue( -6, 6, 0 )
+      }, options );
 
       assert && assert( !options.quadratic, 'StandardFormModel sets quadratic' );
-      options.quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue, {
-        color: GQColors.STANDARD_FORM_INTERACTIVE_CURVE
-      } );
+      options.quadratic = new Quadratic(
+        options.aRange.defaultValue, options.bRange.defaultValue, options.cRange.defaultValue, {
+          color: GQColors.EXPLORE_INTERACTIVE_CURVE
+        } );
 
       super( options );
 
       // @public (read-only)
-      this.aRange = A_RANGE;
-      this.bRange = B_RANGE;
-      this.cRange = C_RANGE;
+      this.aRange = options.aRange;
+      this.bRange = options.bRange;
+      this.cRange = options.cRange;
     }
   }
 

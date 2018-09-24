@@ -16,12 +16,6 @@ define( require => {
   const RangeWithValue = require( 'DOT/RangeWithValue' );
   const Vector2 = require( 'DOT/Vector2' );
 
-  // constants
-  const P_RANGE = new RangeWithValue( -9, 9, 2 );
-  const H_RANGE = new RangeWithValue( -6, 6, 0 );
-  const K_RANGE = new RangeWithValue( -6, 6, 0 );
-  const POINT_X = 5;
-
   class FocusAndDirectrixModel extends GQModel {
 
     /**
@@ -29,24 +23,29 @@ define( require => {
      */
     constructor( options ) {
 
-      options = options || {};
+      options = _.extend( {
+        pRange: new RangeWithValue( -9, 9, 2 ),
+        hRange: new RangeWithValue( -6, 6, 0 ),
+        kRange: new RangeWithValue( -6, 6, 0 ),
+        pointX: 5  // default x value for point on quadratic
+      }, options );
 
       assert && assert( !options.quadratic, 'FocusAndDirectrixModel sets quadratic' );
       options.quadratic = Quadratic.createFromAlternateVertexForm(
-        P_RANGE.defaultValue, H_RANGE.defaultValue, K_RANGE.defaultValue, {
+        options.pRange.defaultValue, options.hRange.defaultValue, options.kRange.defaultValue, {
           color: 'black'
         } );
 
       super( options );
 
       // @public (read-only)
-      this.hRange = H_RANGE;
-      this.kRange = K_RANGE;
-      this.pRange = P_RANGE;
+      this.pRange = options.pRange;
+      this.hRange = options.hRange;
+      this.kRange = options.kRange;
 
       // @public
       this.pointOnQuadraticProperty =
-        new Property( new Vector2( POINT_X, this.quadraticProperty.value.solveY( POINT_X ) ) );
+        new Property( new Vector2( options.pointX, this.quadraticProperty.value.solveY( options.pointX ) ) );
 
       // update the point
       this.quadraticProperty.lazyLink( ( quadratic, oldQuadratic ) => {
