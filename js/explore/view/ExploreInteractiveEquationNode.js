@@ -1,5 +1,6 @@
 // Copyright 2018, University of Colorado Boulder
 
+//TODO structure this like FocusAndDirectrixInteractiveEquationNode, with EquationNode inner class
 /**
  * Renderer for standard form equation with integer coefficients that can be changed.
  * Form is y = ax^2 + bx + c, where a, b, and c can be changed with number pickers
