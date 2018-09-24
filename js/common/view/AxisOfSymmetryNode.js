@@ -26,13 +26,13 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Graph} graph
+     * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} axisOfSymmetryVisibleProperty
      * @param {BooleanProperty} equationsVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, graph, modelViewTransform,
+    constructor( quadraticProperty, yRange, modelViewTransform,
                  axisOfSymmetryVisibleProperty, equationsVisibleProperty, options ) {
 
       options = _.extend( {
@@ -57,8 +57,8 @@ define( require => {
 
       super( options );
 
-      const minY = modelViewTransform.modelToViewY( graph.yRange.max );
-      const maxY = modelViewTransform.modelToViewY( graph.yRange.min );
+      const minY = modelViewTransform.modelToViewY( yRange.max );
+      const maxY = modelViewTransform.modelToViewY( yRange.min );
 
       quadraticProperty.link( quadratic => {
 

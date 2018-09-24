@@ -27,8 +27,8 @@ define( require => {
       options = options || {};
 
       // Axis of symmetry
-      const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph, model.modelViewTransform,
-        viewProperties.axisOfSymmetryVisibleProperty, viewProperties.equationsVisibleProperty );
+      const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph.yRange,
+        model.modelViewTransform, viewProperties.axisOfSymmetryVisibleProperty, viewProperties.equationsVisibleProperty );
 
       // Vertex
       const vertexManipulator = new VertexManipulator(
