@@ -53,7 +53,7 @@ define( require => {
         reentrant: true
       } );
 
-      // coordinates displayed on this manuipulator
+      // coordinates displayed on this manipulator
       const coordinatesNode = new CoordinatesNode( focusProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.FOCUS ).withAlpha( 0.75 ),
