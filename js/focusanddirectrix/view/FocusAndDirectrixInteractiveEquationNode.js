@@ -69,25 +69,21 @@ define( require => {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_SLIDER_INTERVAL_K,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_K
       } );
-      var sliders = new HBox( {
-        spacing: 40,
-        children: [ pSlider, hSlider, kSlider ]
-      } );
 
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
-      options.children = [
-        new VBox( {
-          resize: false,
-          align: 'center',
-          spacing: 3,
-          children: [
-            equationNode,
-            sliders
-          ]
-        } )
-      ];
+      options.children = [ equationNode, pSlider, hSlider, kSlider ];
 
       super( options );
+
+      // horizontally align sliders under their associated values in the equation
+      const ySpacing = 3;
+      // pSlider.centerX = this.globalToLocalPoint( equationNode.pNode.parentToGlobalPoint( equationNode.pNode.center ) ).x;
+      pSlider.centerX = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
+      pSlider.top = equationNode.bottom + ySpacing;
+      hSlider.centerX = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
+      hSlider.top = equationNode.bottom + ySpacing;
+      kSlider.centerX = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
+      kSlider.top = equationNode.bottom + ySpacing;
 
       //TODO hack to prevent 'call stack size exceeded'
       let changing = false;
@@ -248,11 +244,19 @@ define( require => {
 
       super( options );
 
-      // @public (read-only) for layout only
+      // @private needed by methods
       this.pNode = pNode;
       this.hNode = hNode;
       this.kNode = kNode;
     }
+
+    // @public Gets the global {Bounds2} of p, h, k, used for layout
+    get pGlobalBounds() { return this.getGlobalBoundsForNode( this.pNode ); }
+    get hGlobalBounds() { return this.getGlobalBoundsForNode( this.hNode ); }
+    get kGlobalBounds() { return this.getGlobalBoundsForNode( this.kNode ); }
+
+    // @private gets the global bounds of a descendent Node
+    getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
   }
 
   graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode.EquationNode', EquationNode );
