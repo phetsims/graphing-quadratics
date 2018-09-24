@@ -16,6 +16,7 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Shape = require( 'KITE/Shape' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -31,7 +32,8 @@ define( require => {
      * @param {BooleanProperty} equationsVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, graph, modelViewTransform, axisOfSymmetryVisibleProperty, equationsVisibleProperty, options ) {
+    constructor( quadraticProperty, graph, modelViewTransform,
+                 axisOfSymmetryVisibleProperty, equationsVisibleProperty, options ) {
 
       options = _.extend( {
         color: GQColors.AXIS_OF_SYMMETRY,
@@ -60,11 +62,8 @@ define( require => {
 
       quadraticProperty.link( quadratic => {
 
-        if ( quadratic.axisOfSymmetry === undefined ) {
-          path.shape = null;
-          equationNode.text = '';
-        }
-        else {
+        if ( quadratic.axisOfSymmetry !== undefined ) {
+          assert && assert( quadratic.vertex !== undefined, 'undefined vertex is not supported' );
 
           // update the line
           const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
@@ -88,7 +87,11 @@ define( require => {
         }
       } );
 
-      axisOfSymmetryVisibleProperty.link( visible => { this.visible = visible; } );
+      Property.multilink( [ axisOfSymmetryVisibleProperty, quadraticProperty ],
+        ( axisOfSymmetryVisible, quadratic ) => {
+          this.visible = !!( axisOfSymmetryVisible && quadratic.axisOfSymmetry !== undefined );
+        } );
+
       equationsVisibleProperty.link( visible => { equationNode.visible = visible; } );
     }
   }
