@@ -15,7 +15,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
-  const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -69,14 +68,11 @@ define( require => {
       // displayed coordinates
       const coordinatesNode = new Text( '?', {
         font: new PhetFont( 15 ),
-        pickable: false,
         maxWidth: 60 // constrain width, determined empirically, dependent on bodyNode
       } );
 
       // background behind the coordinates, sized to the body
-      const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10, {
-        pickable: false
-      } );
+      const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10 );
 
       // put probe on correct side of body
       if ( pointTool.orientation === 'left' ) {
@@ -166,20 +162,14 @@ define( require => {
       } );
 
       // shaft that connects the probe to the body
-      const shaft = new Line( 0, 0, 0.5 * options.radius, 0, {
-        stroke: 'rgb( 144, 144, 144 )', // matched to bodyImage
-        lineWidth: 4,
+      const shaft = new Rectangle( 0, 0, 0.5 * options.radius, 4, {
+        fill: 'rgb( 144, 144, 144 )', // matched to bodyImage
         left: circle.right,
         centerY: circle.centerY
       } );
 
       super( {
         children: [ shaft, crosshairs, circle ],
-
-        // Not pickable because picking bounds are rectangular, making the tip pickable made it difficult
-        // to pick a manipulator when the tip and manipulator were on the same grid point.
-        // Making the tip non-pickable was determined to be an acceptable and 'natural feeling' solution.
-        pickable: false,
 
         // origin at the center
         x: 0,
