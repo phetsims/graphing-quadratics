@@ -6,7 +6,6 @@ New artwork for 'left' point tool
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-F&D: align equation with sliders
 F&D: make focus disappear when it goes off graph
 F&D: force point to remain on graph
 Equations on each line on the graph, on outside edge of curve
