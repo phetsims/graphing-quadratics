@@ -59,13 +59,13 @@ define( require => {
 
       quadraticProperty.link( quadratic => {
 
-        let roots = quadratic.roots;
-
         // start with all subcomponents invisible, make visible the ones that are needed
         leftPointNode.visible = false;
         leftCoordinatesNode.visible = false;
         rightPointNode.visible = false;
         rightCoordinatesNode.visible = false;
+
+        let roots = quadratic.roots;
 
         if ( roots && roots.length !== 0 ) {
           assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
