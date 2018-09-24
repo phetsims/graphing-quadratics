@@ -61,41 +61,37 @@ define( require => {
 
         let roots = quadratic.roots;
 
-        if ( !roots || roots.length === 0 ) {
-          this.visible = false;
-          leftCoordinatesProperty.value = null;
-          rightCoordinatesProperty.value = null;
-        }
-        else {
-          assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
+        // start with all subcomponents invisible, make visible the ones that are needed
+        leftPointNode.visible = false;
+        leftCoordinatesNode.visible = false;
+        rightPointNode.visible = false;
+        rightCoordinatesNode.visible = false;
 
-          this.visible = rootsVisibleProperty.value;
+        if ( roots && roots.length !== 0 ) {
+          assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
 
           // sort by ascending x value
           roots = _.sortBy( roots, function( root ) { return root.x; } );
 
           leftCoordinatesProperty.value = roots[ 0 ];
+          leftPointNode.visible = true;
+          leftCoordinatesNode.visible = true
           leftPointNode.translation = modelViewTransform.modelToViewPosition( roots[ 0 ] );
+
           if ( roots.length === 2 ) {
             assert && assert( roots[ 0 ].x < roots[ 1 ].x, 'unexpected order of roots: ' + roots );
+            rightCoordinatesProperty.value = roots[ 1 ];
             rightPointNode.visible = true;
             rightCoordinatesNode.visible = true;
-            rightCoordinatesProperty.value = roots[ 1 ];
             rightPointNode.translation = modelViewTransform.modelToViewPosition( roots[ 1 ] );
           }
-          else {
-            // one root
-            rightCoordinatesProperty.value = null;
-            rightPointNode.visible = false;
-            rightCoordinatesNode.visible = false;
-          }
-        }
 
-        // position coordinates to left and right of roots
-        leftCoordinatesNode.right = leftPointNode.left - X_SPACING;
-        leftCoordinatesNode.centerY = leftPointNode.centerY;
-        rightCoordinatesNode.left = rightPointNode.right + X_SPACING;
-        rightCoordinatesNode.centerY = rightPointNode.centerY;
+          // position coordinates to left and right of roots
+          leftCoordinatesNode.right = leftPointNode.left - X_SPACING;
+          leftCoordinatesNode.centerY = leftPointNode.centerY;
+          rightCoordinatesNode.left = rightPointNode.right + X_SPACING;
+          rightCoordinatesNode.centerY = rightPointNode.centerY;
+        }
       } );
 
       rootsVisibleProperty.link( visible => { this.visible = visible; } );
