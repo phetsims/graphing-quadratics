@@ -50,8 +50,8 @@ define( require => {
       // update the point
       this.quadraticProperty.lazyLink( ( quadratic, oldQuadratic ) => {
 
-        assert && assert( quadratic.vertex, 'null quadratic.vertex not supported' );
-        assert && assert( oldQuadratic.vertex, 'null oldQuadratic.vertex not supported' );
+        assert && assert( quadratic.vertex !== undefined, 'undefined quadratic.vertex is not supported' );
+        assert && assert( oldQuadratic.vertex !== undefined, 'undefined oldQuadratic.vertex is not supported' );
 
         const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
         const x = this.pointOnQuadraticProperty.value.x + dx;

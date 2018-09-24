@@ -59,24 +59,19 @@ define( require => {
 
       quadraticProperty.link( quadratic => {
 
-        if ( quadratic.directrix === undefined ) {
-          this.visible = false;
-          path.shape = null;
-          equationNode.text = '';
-        }
-        else {
-          this.visible = directrixVisibleProperty.value;
+        assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );
 
-          const y = modelViewTransform.modelToViewY( quadratic.directrix );
-          path.shape = new Shape().moveTo( minX, y ).lineTo( maxX, y );
+        this.visible = directrixVisibleProperty.value;
 
-          equationNode.text = StringUtils.fillIn( '{{y}} = {{value}}', {
-            y: GQSymbols.y,
-            value: Util.toFixedNumber( quadratic.directrix, options.decimals )
-          } );
-          equationNode.right = path.right - 15;
-          equationNode.top = path.bottom + 3;
-        }
+        const y = modelViewTransform.modelToViewY( quadratic.directrix );
+        path.shape = new Shape().moveTo( minX, y ).lineTo( maxX, y );
+
+        equationNode.text = StringUtils.fillIn( '{{y}} = {{value}}', {
+          y: GQSymbols.y,
+          value: Util.toFixedNumber( quadratic.directrix, options.decimals )
+        } );
+        equationNode.right = path.right - 15;
+        equationNode.top = path.bottom + 3;
       } );
 
       directrixVisibleProperty.link( visible => { this.visible = visible; } );

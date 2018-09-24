@@ -70,8 +70,8 @@ define( require => {
       // unlink not needed
       const quadraticListener = quadratic => {
 
-        assert && assert( quadratic.focus, 'null quadratic.focus is not supported' );
-        assert && assert( quadratic.vertex, 'null quadratic.vertex is not supported' );
+        assert && assert( quadratic.focus !== undefined, 'undefined quadratic.focus is not supported' );
+        assert && assert( quadratic.vertex !== undefined, 'undefined quadratic.vertex is not supported' );
 
         // update local Property
         focusProperty.value = quadratic.focus;
@@ -91,8 +91,8 @@ define( require => {
       focusProperty.link( focus => {
 
         const quadratic = quadraticProperty.value;
-        assert && assert( quadratic.focus, 'null quadratic.focus is not supported' );
-        assert && assert( quadratic.vertex, 'null quadratic.vertex is not supported' );
+        assert && assert( quadratic.focus !== undefined, 'undefined quadratic.focus is not supported' );
+        assert && assert( quadratic.vertex !== undefined, 'undefined quadratic.vertex is not supported' );
 
         if ( !focus.equals( quadratic.focus ) ) {
           const p = focus.y - quadratic.vertex.y;
@@ -145,7 +145,7 @@ define( require => {
         drag: ( event, trail ) => {
 
           const vertex = quadraticProperty.value.vertex;
-          assert && assert( vertex, 'null quadratic.vertex is not supported' );
+          assert && assert( vertex !== undefined, 'undefined quadratic.vertex is not supported' );
 
           // transform the drag point from view to model coordinate frame
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
@@ -160,7 +160,7 @@ define( require => {
           if ( p === 0 ) {
             p = ( focusProperty.value.y < vertex.y ) ? interval : -interval;
           }
-          assert && assert( p !== 0, 'p==0 is not supported' );
+          assert && assert( p !== 0, 'p=0 is not supported' );
 
           focusProperty.value = new Vector2( vertex.x, vertex.y + p );
         }
