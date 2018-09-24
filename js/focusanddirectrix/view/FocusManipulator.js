@@ -28,12 +28,14 @@ define( require => {
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {Range} pRange
+     * @param {Range} xRange
+     * @param {Range} yRange
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} focusVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, pRange, modelViewTransform,
+    constructor( radius, quadraticProperty, pRange, xRange, yRange, modelViewTransform,
                  focusVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
@@ -96,6 +98,10 @@ define( require => {
           const p = focus.y - quadratic.vertex.y;
           quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, quadratic.h, quadratic.k );
         }
+
+        // Make the focus invisible if it goes off the graph
+        this.visible = !!( focusVisibleProperty.value && xRange.contains( focus.x ) && yRange.contains( focus.y ) );
+        //TODO cancel drag if off graph?
       } );
 
       // move the manipulator

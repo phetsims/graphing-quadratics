@@ -5,7 +5,6 @@ DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-F&D: make focus disappear when it goes off graph
 F&D: force point to remain on graph
 F&D: drag motion of point feels odd
 
