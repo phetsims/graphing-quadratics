@@ -5,8 +5,8 @@ DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-F&D: force point to remain on graph
-F&D: drag motion of point feels odd
+F&D: constrain point to graph
+F&D: drag motion of point is based on pointer's x location and feels a bit odd
 
 Equations on each line on the graph, on outside edge of curve
 Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
