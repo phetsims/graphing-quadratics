@@ -60,6 +60,7 @@ define( require => {
       quadraticProperty.link( quadratic => {
 
         assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );
+        assert && assert( quadratic.vertex !== undefined, 'undefined vertex is not supported' );
 
         // update the line
         const y = modelViewTransform.modelToViewY( quadratic.directrix );
