@@ -75,7 +75,7 @@ define( require => {
 
           leftCoordinatesProperty.value = roots[ 0 ];
           leftPointNode.visible = true;
-          leftCoordinatesNode.visible = true
+          leftCoordinatesNode.visible = true;
           leftPointNode.translation = modelViewTransform.modelToViewPosition( roots[ 0 ] );
 
           if ( roots.length === 2 ) {
