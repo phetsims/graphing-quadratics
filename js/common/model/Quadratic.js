@@ -198,9 +198,28 @@ define( require => {
       return { startPoint, controlPoint, endPoint };
     }
 
-    // @public Given {number} x, solve for {number} y
+    /**
+     * Given x, solve the quadratic for y.
+     * @param {number} x
+     * @returns {number}
+     * @public
+     */
     solveY( x ) {
       return this.a * x * x + this.b * x + this.c;
+    }
+
+    /**
+     * Given y, solve the quadratic for x. There will be 2 solutions.
+     * @param {number} y
+     * @returns {number[]}
+     * @public
+     */
+    solveX( y ) {
+      assert && assert( this.a !== 0, 'solveX is unsupported when a === 0' );
+      const commonTerm = Math.sqrt( ( this.b * this.b ) - ( 4 * this.a * this.c ) );
+      const x1 = ( -this.b + commonTerm ) / ( 2 * this.a );
+      const x2 = ( -this.b - commonTerm ) / ( 2 * this.a );
+      return [ x1, x2 ];
     }
 
     /**
@@ -209,7 +228,7 @@ define( require => {
      * @returns {boolean}
      * @public
      */
-    isOnQuadraticPoint( point ) {
+    isOnQuadratic( point ) {
       return ( Math.abs( this.solveY( point.x ) - point.y ) < EPSILON );
     }
 
