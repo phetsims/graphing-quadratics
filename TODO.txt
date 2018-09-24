@@ -4,8 +4,6 @@ DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SF: vertex and roots are visible for a=0 after toggling checkboxes
-VF: vertex is visible for a=0 after toggling checkbox
 #22 point tools problems
 #32 NumberProperty value is out of range
 

@@ -59,26 +59,29 @@ define( require => {
       // unlink not needed
       quadraticProperty.link( quadratic => {
 
-        coordinatesProperty.value = quadratic.vertex;
-
-        this.visible = !!( quadratic.vertex && vertexVisibleProperty.value );
-
-        // move to the vertex location
         if ( quadratic.vertex ) {
-          this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
-        }
 
-        // position coordinates on the outside of the curve
-        coordinatesNode.centerX = pointNode.centerX;
-        if ( quadratic.a > 0 ) {
-          coordinatesNode.top = pointNode.bottom + Y_SPACING;
-        }
-        else {
-          coordinatesNode.bottom = pointNode.top - Y_SPACING;
+          // update coordinates
+          coordinatesProperty.value = quadratic.vertex;
+
+          // move to the vertex location
+          this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
+
+          // position coordinates on the outside of the curve
+          coordinatesNode.centerX = pointNode.centerX;
+          if ( quadratic.a > 0 ) {
+            coordinatesNode.top = pointNode.bottom + Y_SPACING;
+          }
+          else {
+            coordinatesNode.bottom = pointNode.top - Y_SPACING;
+          }
         }
       } );
 
-      vertexVisibleProperty.link( visible => { this.visible = visible; } );
+      Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
+        this.visible = !!( vertexVisible && quadratic.vertex );
+      });
+
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
     }
   }

@@ -68,20 +68,17 @@ define( require => {
       // unlink not needed
       const quadraticListener = quadratic => {
 
-        // manipulator is visible only if the quadratic has a vertex
-        this.visible = !!( quadratic.vertex && vertexVisibleProperty.value );
-
-        if ( quadratic.vertex && !quadratic.vertex.equals( vertexProperty.value ) ) {
+        if ( quadratic.vertex ) {
           vertexProperty.value = quadratic.vertex;
-        }
 
-        // position coordinates based on which way the curve opens
-        coordinatesNode.centerX = 0;
-        if ( quadraticProperty.value.a > 0 ) {
-          coordinatesNode.top = coordinatesYOffset;
-        }
-        else {
-          coordinatesNode.bottom = -coordinatesYOffset;
+          // position coordinates based on which way the curve opens
+          coordinatesNode.centerX = 0;
+          if ( quadraticProperty.value.a > 0 ) {
+            coordinatesNode.top = coordinatesYOffset;
+          }
+          else {
+            coordinatesNode.bottom = -coordinatesYOffset;
+          }
         }
       };
       quadraticProperty.link( quadraticListener );
@@ -98,7 +95,10 @@ define( require => {
       // move the manipulator
       vertexProperty.link( vertex => { this.translation = modelViewTransform.modelToViewPosition( vertex ); } );
 
-      vertexVisibleProperty.link( visible => { this.visible = visible; } );
+      Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
+        this.visible = !!( vertexVisible && quadratic.vertex );
+      } );
+
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private

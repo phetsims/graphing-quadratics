@@ -94,7 +94,10 @@ define( require => {
         }
       } );
 
-      rootsVisibleProperty.link( visible => { this.visible = visible; } );
+      Property.multilink( [ rootsVisibleProperty, quadraticProperty ], ( rootsVisible, quadratic ) => {
+         this.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length !== 0 );
+      } );
+
       coordinatesVisibleProperty.link( visible => {
         leftCoordinatesNode.visible = !!( visible && leftCoordinatesProperty.value );
         rightCoordinatesNode.visible = !!( visible && rightCoordinatesProperty.value );
