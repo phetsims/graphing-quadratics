@@ -29,13 +29,18 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} pointOnQuadraticVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
+     * @param {Object} [options]
      */
     constructor( radius, quadraticProperty, pointOnQuadraticProperty, xRange, yRange, modelViewTransform,
-                 pointOnQuadraticVisibleProperty, coordinatesVisibleProperty ) {
+                 pointOnQuadraticVisibleProperty, coordinatesVisibleProperty, options ) {
 
-      super( radius, GQColors.POINT_ON_QUADRATIC, {
+      options = _.extend( {
+
+        // Manipulator options
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
-      } );
+      }, options );
+
+      super( radius, GQColors.POINT_ON_QUADRATIC, options );
 
       // dispose not needed
       const coordinatesNode = new CoordinatesNode( pointOnQuadraticProperty, {

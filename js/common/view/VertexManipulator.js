@@ -34,13 +34,18 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
+     * @param {Object} [options]
      */
     constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform,
-                 vertexVisibleProperty, coordinatesVisibleProperty ) {
+                 vertexVisibleProperty, coordinatesVisibleProperty, options ) {
 
-      super( radius, GQColors.VERTEX, {
+      options = _.extend( {
+
+        // Manipulator options
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
-      } );
+      }, options );
+
+      super( radius, GQColors.VERTEX, options );
 
       // local Property whose value is the vertex of the current value of quadraticProperty
       const vertexProperty = new Property( quadraticProperty.value.vertex, {
