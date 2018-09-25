@@ -41,7 +41,7 @@ define( require => {
     STANDARD_FORM_C: PhetColorScheme.RED_COLORBLIND,
 
     // Coefficients on the Vertex Form screen
-    VERTEX_FORM_A: 'green', //TODO #29 there is nothing else that is green on the Vertex Form screen
+    VERTEX_FORM_A: FOCUS,
     VERTEX_FORM_H: VERTEX,
     VERTEX_FORM_K: VERTEX,
 
@@ -58,7 +58,7 @@ define( require => {
     DIRECTRIX: 'green',
     VERTEX: VERTEX,
     AXIS_OF_SYMMETRY: VERTEX,
-    ROOTS: PhetColorScheme.RED_COLORBLIND,
+    ROOTS: '#0071bc',
     POINT_ON_QUADRATIC: PhetColorScheme.RED_COLORBLIND,
     SEPARATOR: 'rgb( 212, 212, 212 )',
 
