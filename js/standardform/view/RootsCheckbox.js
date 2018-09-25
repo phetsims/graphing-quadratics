@@ -30,7 +30,7 @@ define( require => {
 
       const label = new HBox( {
         align: 'center',
-        spacing: 10,
+        spacing: GQConstants.CHECKBOX_ICON_SPACING,
         children: [
           new Text( rootsString, {
             font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )

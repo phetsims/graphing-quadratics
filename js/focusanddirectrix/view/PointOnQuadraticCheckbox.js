@@ -31,7 +31,7 @@ define( require => {
 
       const label = new HBox( {
         align: 'center',
-        spacing: 4,
+        spacing: GQConstants.CHECKBOX_ICON_SPACING,
         children: [
 
           // text
@@ -40,7 +40,7 @@ define( require => {
           } ),
 
           // interactive point
-          new Manipulator( 8, GQColors.POINT_ON_QUADRATIC, { pickable: false } )
+          new Manipulator( 8, GQColors.POINT_ON_QUADRATIC, { haloAlpha: 0, pickable: false } )
         ]
       } );
 

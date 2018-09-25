@@ -36,7 +36,7 @@ define( require => {
 
       const label = new HBox( {
         align: 'center',
-        spacing: 15,
+        spacing: GQConstants.CHECKBOX_ICON_SPACING,
         children: [
 
           // text
@@ -46,7 +46,7 @@ define( require => {
 
           // icon
           ( options.manipulatorIcon ) ?
-          new Manipulator( 8, GQColors.VERTEX, { pickable: false } ) :
+          new Manipulator( 8, GQColors.VERTEX, { haloAlpha: 0, pickable: false } ) :
           new Circle( 6, { fill: GQColors.VERTEX } )
         ]
       } );

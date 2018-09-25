@@ -44,6 +44,10 @@ define( require => {
       yMargin: 15
     },
 
+    // horizontal space between checkbox text and icon
+    CHECKBOX_ICON_SPACING: 8,
+
+    // vertical space between checkboxes
     CHECKBOXES_Y_SPACING: 15,
 
     PICKER_TOUCH_AREA_X_DILATION: 30,
