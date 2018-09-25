@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * EquationFactory creates Nodes that display a quadratic equation in various forms.
+ * QuadraticQuadraticEquationFactory creates Nodes that display a quadratic equation in various forms.
  * Equations are reduced so that they don't contain terms that evaluate to zero,
  * and coefficients are displayed as positive decimal numbers.
  *
@@ -21,7 +21,7 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
-  const EquationFactory = {
+  const QuadraticEquationFactory = {
 
     /**
      * Creates an equation in standard form, y = ax^2 + bx + c
@@ -166,7 +166,7 @@ define( require => {
         children.push( new RichText( 0, textOptions ) );
       }
 
-      assert && assert( !options.children, 'EquationFactory sets children' );
+      assert && assert( !options.children, 'QuadraticEquationFactory sets children' );
       options.children = children;
 
       return new HBox( options );
@@ -284,12 +284,12 @@ define( require => {
         }
       }
 
-      assert && assert( !options.children, 'EquationFactory sets children' );
+      assert && assert( !options.children, 'QuadraticEquationFactory sets children' );
       options.children = children;
 
       return new HBox( options );
     }
   };
 
-  return graphingQuadratics.register( 'EquationFactory', EquationFactory );
+  return graphingQuadratics.register( 'QuadraticEquationFactory', QuadraticEquationFactory );
 } );

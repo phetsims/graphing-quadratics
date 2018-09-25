@@ -10,10 +10,10 @@ define( require => {
   'use strict';
 
   // modules
-  const EquationFactory = require( 'GRAPHING_QUADRATICS/common/view/EquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
+  const QuadraticEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/QuadraticEquationFactory' );
   const Shape = require( 'KITE/Shape' );
 
   class QuadraticNode extends Node {
@@ -65,10 +65,10 @@ define( require => {
           this.removeChild( this.equationNode );
         }
         if ( equationForm === 'standard' ) {
-          this.equationNode = EquationFactory.createStandardForm( quadratic );
+          this.equationNode = QuadraticEquationFactory.createStandardForm( quadratic );
         }
         else {
-          this.equationNode = EquationFactory.createVertexForm( quadratic );
+          this.equationNode = QuadraticEquationFactory.createVertexForm( quadratic );
         }
         this.addChild( this.equationNode );
 
