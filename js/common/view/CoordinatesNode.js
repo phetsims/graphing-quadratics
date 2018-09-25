@@ -56,7 +56,7 @@ define( require => {
 
       super( options );
 
-      const coordinatesListener = coordinates => {
+      coordinatesProperty.link( coordinates => {
 
         // coordinates
         foregroundNode.text = StringUtils.fillIn( pointXYString, {
@@ -70,18 +70,7 @@ define( require => {
 
         // center coordinates in background
         foregroundNode.center = backgroundNode.center;
-      };
-      coordinatesProperty.link( coordinatesListener );
-
-      // @private
-      this.disposeCoordinatesNode = function() {
-        coordinatesProperty.unlink( coordinatesListener );
-      };
-    }
-
-    dispose() {
-      this.disposeCoordinatesNode();
-      super.dispose();
+      } );
     }
   }
 
