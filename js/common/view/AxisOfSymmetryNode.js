@@ -80,8 +80,14 @@ define( require => {
           if ( quadratic.axisOfSymmetry > yRange.max - 1 ) {
             equationNode.right = path.left - xOffset;
           }
-          else {
+          else if ( quadratic.axisOfSymmetry < yRange.min + 1 ) {
             equationNode.left = path.right + xOffset;
+          }
+          else if ( quadratic.axisOfSymmetry >= 0 ) {
+            equationNode.left = path.right + xOffset;
+          }
+          else {
+            equationNode.right = path.left - xOffset;
           }
 
           if ( quadratic.vertex.y >= 0 ) {
