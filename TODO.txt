@@ -11,8 +11,8 @@ BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Position equation on parabola in QuadraticNode
 Hide roots if they are off the graph
-Position equations on lines
 FD: constrain point to graph
 FD: drag motion of point is based on pointer's x location and feels a bit odd
 E: Make terms available to point tools
