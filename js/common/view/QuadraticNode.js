@@ -23,7 +23,7 @@ define( require => {
      * @param {Range} xRange - range of the graph's x axis
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {string} equationForm
+     * @param {string} equationForm - form of the equation displayed on the line, 'standard' or 'vertex'
      * @param {Object} [options]
      */
     constructor( quadraticProperty, xRange, yRange, modelViewTransform, equationForm, options ) {
