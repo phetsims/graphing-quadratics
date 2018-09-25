@@ -74,7 +74,8 @@ define( require => {
         this.addChild( this.equationNode );
 
         //TODO position the equation
-        this.equationNode.center = modelViewTransform.modelToViewPosition( new Vector2( -5, -5 ) );
+        this.equationNode.left = modelViewTransform.modelToViewX( xRange.min ) + 20;
+        this.equationNode.bottom = modelViewTransform.modelToViewY( yRange.min ) - 20;
       } );
     }
 
