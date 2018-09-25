@@ -10,7 +10,7 @@ define( require => {
   'use strict';
 
   // modules
-  const GQEquationNode = require( 'GRAPHING_QUADRATICS/common/view/GQEquationNode' );
+  const EquationFactory = require( 'GRAPHING_QUADRATICS/common/view/EquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
@@ -47,9 +47,8 @@ define( require => {
       } );
       this.addChild( this.quadraticPath );
 
-      // @private
-      this.equationNode = new GQEquationNode( quadraticProperty.value );
-      this.addChild( this.equationNode );
+      // @private created below
+      this.equationNode = null;
 
       // Update the view of the curve when the quadratic model changes.
       quadraticProperty.link( quadratic => {
@@ -59,8 +58,10 @@ define( require => {
         this.quadraticPath.stroke = quadratic.color;
         
         // update equation
-        this.removeChild( this.equationNode );
-        this.equationNode = new GQEquationNode( quadratic, {
+        if ( this.equationNode ) {
+          this.removeChild( this.equationNode );
+        }
+        this.equationNode = EquationFactory.createStandardForm( quadratic, {
           center: modelViewTransform.modelToViewPosition( new Vector2( -5, -5 ) ) //TODO position along the curve
         } );
         this.addChild( this.equationNode );

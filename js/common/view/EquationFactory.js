@@ -1,9 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO better name for this
 /**
- * Equation in standard form (y = ax^2 + bx + c) that appears on lines on the graph.
- * The equation is reduced so that it doesn't contain terms that evaluate to zero,
+ * EquationFactory creates Nodes that display a quadratic equation in various forms.
+ * Equations are reduced so that they don't contain terms that evaluate to zero,
  * and coefficients are displayed as positive decimal numbers.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -21,13 +20,16 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
-  class GQEquationNode extends HBox {
+  const EquationFactory = {
 
     /**
+     * Creates an equation in standard form, y = ax^2 + bx + c
      * @param {Quadratic} quadratic
      * @param {Object} [options]
+     * @public
+     * @static
      */
-    constructor( quadratic, options ) {
+    createStandardForm: function( quadratic, options ) {
 
       options = _.extend( {
         font: new PhetFont( 16 ), //TODO factor out font size
@@ -161,12 +163,12 @@ define( require => {
         children.push( new RichText( 0, textOptions ) );
       }
 
-      assert && assert( !options.children, 'GQEquationNode sets children' );
+      assert && assert( !options.children, 'EquationFactory sets children' );
       options.children = children;
 
-      super( options );
+      return new HBox( options );
     }
-  }
+  };
 
-  return graphingQuadratics.register( 'GQEquationNode', GQEquationNode );
+  return graphingQuadratics.register( 'EquationFactory', EquationFactory );
 } );
