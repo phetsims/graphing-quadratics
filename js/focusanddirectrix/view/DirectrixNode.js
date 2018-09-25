@@ -73,7 +73,6 @@ define( require => {
         } );
 
         // position the equation to avoid overlapping vertex and x axis
-        const xOffset = 15;
         const yOffset = 3;
         if ( quadratic.vertex.x >= 0 ) {
           equationNode.left = modelViewTransform.modelToViewX( xRange.min + 1 );
