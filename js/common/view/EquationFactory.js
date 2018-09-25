@@ -167,6 +167,123 @@ define( require => {
       options.children = children;
 
       return new HBox( options );
+    },
+
+    /**
+     * Creates an equation in standard form, y = a(x - h)^2 + k
+     * @param {Quadratic} quadratic
+     * @param {Object} [options]
+     * @public
+     * @static
+     */
+    createVertexForm: function( quadratic, options ) {
+
+      options = _.extend( {
+        font: new PhetFont( 16 ), //TODO factor out font size
+        aDecimals: 3,
+        hDecimals: 1,
+        kDecimals: 1,
+
+        // HBox options
+        spacing: 5
+      }, options );
+
+      const a = quadratic.a;
+      const h = quadratic.h;
+      const k = quadratic.k;
+
+      const children = [];
+
+      const textOptions = {
+        fill: quadratic.color,
+        font: options.font
+      };
+
+      if ( a === 0 ) {
+
+        // y = k
+        const yEqualsString = StringUtils.fillIn( '{{y}} {{equals}} {{k}}', {
+          y: GQSymbols.y,
+          equals: MathSymbols.EQUAL_TO,
+          k: Util.toFixedNumber( quadratic.k, options.kDecimals )
+        } );
+        children.push( new RichText( yEqualsString, textOptions ) );
+      }
+      else {
+
+        // y =
+        const yEqualsString = StringUtils.fillIn( '{{y}} {{equals}}', {
+          y: GQSymbols.y,
+          equals: MathSymbols.EQUAL_TO
+        } );
+        children.push( new RichText( yEqualsString, textOptions ) );
+
+        // a(x
+        let axString = null;
+        if ( a === 1 ) {
+          axString = StringUtils.fillIn( '({{x}}', {
+            x: GQSymbols.x
+          } );
+        }
+        else if ( a === -1 ) {
+          axString = StringUtils.fillIn( '{{minus}}({{x}}', {
+            minus: MathSymbols.UNARY_MINUS,
+            x: GQSymbols.x
+          } );
+        }
+        else {
+          axString = StringUtils.fillIn( '{{a}}({{x}}', {
+            a: Util.toFixedNumber( a, options.aDecimals ),
+            x: GQSymbols.x
+          } );
+        }
+
+        if ( h === 0 ) {
+          axString += ')<sup>2</sup>';
+        }
+        children.push( new RichText( axString, textOptions ) );
+
+        // h
+        if ( h !== 0 ) {
+          let hString = null;
+          if ( h > 0 ) {
+            hString = StringUtils.fillIn( '{{minus}} {{h}})<sup>2</sup>', {
+              minus: MathSymbols.MINUS,
+              h: Util.toFixedNumber( h, options.hDecimals )
+            } );
+          }
+          else {
+            hString = StringUtils.fillIn( '{{plus}} {{h}})<sup>2</sup>', {
+              plus: MathSymbols.PLUS,
+              h: Math.abs( Util.toFixedNumber( h, options.hDecimals ) )
+            } );
+          }
+          children.push( new RichText( hString, textOptions ) );
+        }
+
+        // k
+        if ( k !== 0 ) {
+          let kString = null;
+          if ( k > 0 ) {
+            kString = StringUtils.fillIn( '{{plus}} {{k}}', {
+              plus: MathSymbols.PLUS,
+              k: Util.toFixedNumber( k, options.kDecimals )
+            } );
+          }
+          else {
+            kString = StringUtils.fillIn( '{{minus}} {{k}}', {
+              minus: MathSymbols.MINUS,
+              k: Math.abs( Util.toFixedNumber( k, options.kDecimals ) )
+            } );
+          }
+          children.push( new RichText( kString, textOptions ) );
+        }
+      }
+
+      assert && assert( !options.children, 'EquationFactory sets children' );
+      options.children = children;
+
+      return new HBox( options );
     }
   };
 
