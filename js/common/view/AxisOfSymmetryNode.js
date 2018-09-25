@@ -77,7 +77,6 @@ define( require => {
 
           // position the equation to avoid overlapping vertex and y axis
           const xOffset = 3;
-          const yOffset = 15;
           if ( quadratic.vertex.x >= 0 ) {
             equationNode.left = path.right + xOffset;
           }
@@ -86,10 +85,10 @@ define( require => {
           }
 
           if ( quadratic.vertex.y >= 0 ) {
-            equationNode.bottom = path.bottom - yOffset;
+            equationNode.bottom = modelViewTransform.modelToViewY( yRange.min + 1 )
           }
           else {
-            equationNode.top = path.top + yOffset;
+            equationNode.top = modelViewTransform.modelToViewY( yRange.max - 1 );
           }
         }
       } );
