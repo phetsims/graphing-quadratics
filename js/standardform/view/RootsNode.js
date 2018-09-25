@@ -18,6 +18,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
   const X_SPACING = 15;
@@ -38,8 +39,12 @@ define( require => {
       }, options );
 
       // points
-      const leftPointNode = new Circle( options.radius, { fill: GQColors.ROOTS } );
-      const rightPointNode = new Circle( options.radius, { fill: GQColors.ROOTS } );
+      const pointOptions = {
+        fill: GQColors.ROOTS,
+        center: modelViewTransform.modelToViewPosition( Vector2.ZERO )
+      };
+      const leftPointNode = new Circle( options.radius, pointOptions );
+      const rightPointNode = new Circle( options.radius, pointOptions );
 
       // coordinates
       const coordinatesOptions = {
