@@ -43,9 +43,12 @@ define( require => {
       this.hRange = options.hRange;
       this.kRange = options.kRange;
 
+      const initialPoint = new Vector2( options.pointX, this.quadraticProperty.value.solveY( options.pointX ) );
+
       // @public
-      this.pointOnQuadraticProperty =
-        new Property( new Vector2( options.pointX, this.quadraticProperty.value.solveY( options.pointX ) ) );
+      this.pointOnQuadraticProperty = new Property( initialPoint, {
+        valueType: Vector2
+      } );
 
       // update the point
       this.quadraticProperty.lazyLink( ( quadratic, oldQuadratic ) => {
@@ -58,6 +61,12 @@ define( require => {
         const y = quadratic.solveY( x );
         this.pointOnQuadraticProperty.value = new Vector2( x, y );
       } );
+    }
+
+    // @public
+    reset() {
+      super.reset();
+      this.pointOnQuadraticProperty.reset();
     }
   }
 
