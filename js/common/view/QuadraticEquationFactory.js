@@ -173,7 +173,7 @@ define( require => {
     },
 
     /**
-     * Creates an equation in standard form, y = a(x - h)^2 + k
+     * Creates an equation in vertex form, y = a(x - h)^2 + k
      * @param {Quadratic} quadratic
      * @param {Object} [options]
      * @public
