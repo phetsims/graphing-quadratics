@@ -43,7 +43,7 @@ define( require => {
       this.orientation = options.orientation; // @public
       this.dragBounds = options.dragBounds; // @public
 
-      // Update when the point tool moves or the quadratics change. unmultilink not needed.
+      // Update when the point tool moves or the quadratics change.
       Property.multilink( [ this.locationProperty, quadratics.lengthProperty ],
         ( location, length ) => {
           for ( let i = 0; i < length; i++ ) {

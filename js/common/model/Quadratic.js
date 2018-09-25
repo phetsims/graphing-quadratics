@@ -43,7 +43,7 @@ define( require => {
       this.roots = Quadratic.solveRoots( a, b, c );
 
       // Strictly speaking, we don't have a quadratic if a === 0.
-      // If that's the case, then the fields herein will be undefined.
+      // If that's the case, then the fields in this if block will be undefined.
       if ( a !== 0 ) {
 
         // @public (read-only) derive coefficients for vertex form

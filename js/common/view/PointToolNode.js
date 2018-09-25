@@ -65,6 +65,7 @@ define( require => {
 
       const probeNode = new ProbeNode();
 
+      //TODO use CoordinatesNode here
       // displayed coordinates
       const coordinatesNode = new Text( '?', {
         font: new PhetFont( 15 ),
