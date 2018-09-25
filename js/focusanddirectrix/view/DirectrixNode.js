@@ -25,13 +25,13 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Graph} graph
+     * @param {Graph} xRange - range of graph's x axis
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} directrixVisibleProperty
      * @param {BooleanProperty} equationsVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, graph, modelViewTransform, directrixVisibleProperty, equationsVisibleProperty, options ) {
+    constructor( quadraticProperty, xRange, modelViewTransform, directrixVisibleProperty, equationsVisibleProperty, options ) {
 
       options = _.extend( {
         color: GQColors.DIRECTRIX,
@@ -54,8 +54,8 @@ define( require => {
 
       super( options );
 
-      const minX = modelViewTransform.modelToViewX( graph.xRange.min );
-      const maxX = modelViewTransform.modelToViewX( graph.xRange.max );
+      const minX = modelViewTransform.modelToViewX( xRange.min );
+      const maxX = modelViewTransform.modelToViewX( xRange.max );
 
       quadraticProperty.link( quadratic => {
 
@@ -76,10 +76,10 @@ define( require => {
         const xOffset = 15;
         const yOffset = 3;
         if ( quadratic.vertex.x >= 0 ) {
-          equationNode.left = path.left + xOffset;
+          equationNode.left = modelViewTransform.modelToViewX( xRange.min + 1 );
         }
         else {
-          equationNode.right = path.right - xOffset;
+          equationNode.right = modelViewTransform.modelToViewX( xRange.max - 1 );
         }
         
         if ( quadratic.directrix > quadratic.vertex.y ) {
