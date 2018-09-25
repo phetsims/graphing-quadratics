@@ -11,6 +11,7 @@ define( require => {
   'use strict';
 
   // modules
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
@@ -32,13 +33,14 @@ define( require => {
     createStandardForm: function( quadratic, options ) {
 
       options = _.extend( {
-        font: new PhetFont( 16 ), //TODO factor out font size
+        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
         aDecimals: 2,
         bDecimals: 1,
         cDecimals: 1,
 
         // HBox options
-        spacing: 5
+        spacing: 5,
+        align: 'bottom'
       }, options );
       
       const a = quadratic.a;
@@ -179,13 +181,14 @@ define( require => {
     createVertexForm: function( quadratic, options ) {
 
       options = _.extend( {
-        font: new PhetFont( 16 ), //TODO factor out font size
+        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
         aDecimals: 3,
         hDecimals: 1,
         kDecimals: 1,
 
         // HBox options
-        spacing: 5
+        spacing: 5,
+        align: 'bottom'
       }, options );
 
       const a = quadratic.a;
