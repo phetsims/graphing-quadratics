@@ -72,7 +72,7 @@ define( require => {
           value: Util.toFixedNumber( quadratic.directrix, options.decimals )
         } );
 
-        // position the equation to avoid overlapping vertex
+        // position the equation to avoid overlapping vertex and x axis
         const xOffset = 15;
         const yOffset = 3;
         if ( quadratic.vertex.x >= 0 ) {
@@ -81,7 +81,7 @@ define( require => {
         else {
           equationNode.right = path.right - xOffset;
         }
-
+        
         if ( quadratic.directrix > quadratic.vertex.y ) {
           equationNode.bottom = path.top - yOffset;
         }

@@ -84,6 +84,7 @@ define( require => {
           else {
             equationNode.right = path.left - xOffset;
           }
+
           if ( quadratic.vertex.y >= 0 ) {
             equationNode.bottom = path.bottom - yOffset;
           }
