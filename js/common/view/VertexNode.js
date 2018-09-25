@@ -25,12 +25,14 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, modelViewTransform, vertexVisibleProperty, coordinatesVisibleProperty, options ) {
+    constructor( quadraticProperty, graph, modelViewTransform,
+                 vertexVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
         radius: 10
@@ -78,7 +80,7 @@ define( require => {
       } );
 
       Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
-        this.visible = !!( vertexVisible && quadratic.vertex );
+        this.visible = !!( vertexVisible && quadratic.vertex && graph.contains( quadratic.vertex ) );
       });
 
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );

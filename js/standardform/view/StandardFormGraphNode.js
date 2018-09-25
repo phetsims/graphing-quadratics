@@ -44,7 +44,7 @@ define( require => {
         } );
 
       // Vertex
-      const vertexNode = new VertexNode( model.quadraticProperty, model.modelViewTransform,
+      const vertexNode = new VertexNode( model.quadraticProperty, model.graph, model.modelViewTransform,
         viewProperties.vertexVisibleProperty, viewProperties.coordinatesVisibleProperty, {
           radius: pointRadius
         } );
