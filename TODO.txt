@@ -4,6 +4,7 @@ DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+F&D: y = 0.109(x - 1.9)^2 + 0, should not show k=0
 #22 point tools problems
 Panels shift horizontally when switching between SF and VF screens
 
