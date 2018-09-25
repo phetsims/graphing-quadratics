@@ -47,7 +47,7 @@ define( require => {
       } );
 
       const equationNode = new RichText( '', {
-        font: new PhetFont( 16 ),
+        font: new PhetFont( 16 ), //TODO factor out font size
         fill: options.color,
         rotation: Math.PI / 2
       } );
