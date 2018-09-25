@@ -78,17 +78,19 @@ define( require => {
           // sort by ascending x value
           roots = _.sortBy( roots, function( root ) { return root.x; } );
 
-          leftCoordinatesProperty.value = roots[ 0 ];
+          const leftRoot = roots[ 0 ];
+          leftCoordinatesProperty.value = leftRoot;
           leftPointNode.visible = true;
           leftCoordinatesNode.visible = true;
-          leftPointNode.translation = modelViewTransform.modelToViewPosition( roots[ 0 ] );
+          leftPointNode.translation = modelViewTransform.modelToViewPosition( leftRoot );
 
           if ( roots.length === 2 ) {
-            assert && assert( roots[ 0 ].x < roots[ 1 ].x, 'unexpected order of roots: ' + roots );
-            rightCoordinatesProperty.value = roots[ 1 ];
+            const rightRoot = roots[ 1 ];
+            assert && assert( leftRoot.x < rightRoot.x, 'unexpected order of roots: ' + roots );
+            rightCoordinatesProperty.value = rightRoot;
             rightPointNode.visible = true;
             rightCoordinatesNode.visible = true;
-            rightPointNode.translation = modelViewTransform.modelToViewPosition( roots[ 1 ] );
+            rightPointNode.translation = modelViewTransform.modelToViewPosition( rightRoot );
           }
 
           // position coordinates to left and right of roots
