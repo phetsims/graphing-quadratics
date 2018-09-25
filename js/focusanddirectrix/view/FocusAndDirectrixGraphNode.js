@@ -55,8 +55,7 @@ define( require => {
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
         model.quadraticProperty,
         model.pRange,
-        model.graph.xRange,
-        model.graph.yRange,
+        model.graph,
         model.modelViewTransform,
         viewProperties.focusVisibleProperty,
         viewProperties.coordinatesVisibleProperty

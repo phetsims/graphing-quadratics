@@ -49,7 +49,7 @@ define( require => {
 
       // local Property whose value is the vertex of the current value of quadraticProperty
       const vertexProperty = new Property( quadraticProperty.value.vertex, {
-        valueType: Vector2,
+        isValidValue: value => { return value instanceof Vector2 || value === null; },
         reentrant: true
       } );
 
@@ -65,9 +65,12 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      const quadraticListener = quadratic => {
+      quadraticProperty.link( quadratic => {
 
-        if ( quadratic.vertex ) {
+        if ( quadratic.vertex === undefined ) {
+          vertexProperty.value = null;
+        }
+        else {
           vertexProperty.value = quadratic.vertex;
 
           // position coordinates based on which way the curve opens
@@ -79,25 +82,23 @@ define( require => {
             coordinatesNode.bottom = -coordinatesYOffset;
           }
         }
-      };
-      quadraticProperty.link( quadraticListener );
+      } );
 
-      // When the vertex changes, create new quadratic. 
+      // When the vertex changes, move the manipulator and create a new quadratic.
       vertexProperty.link( vertex => {
-        assert && assert( vertex );
-        const quadratic = quadraticProperty.value;
-        if ( !quadratic.vertex || !vertex.equals( quadratic.vertex ) ) {
-          quadraticProperty.value = Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y );
+        if ( vertex ) {
+          this.translation = modelViewTransform.modelToViewPosition( vertex );
+          const quadratic = quadraticProperty.value;
+          if ( !quadratic.vertex || !vertex.equals( quadratic.vertex ) ) {
+            quadraticProperty.value = Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y );
+          }
         }
       } );
 
-      // move the manipulator
-      vertexProperty.link( vertex => { this.translation = modelViewTransform.modelToViewPosition( vertex ); } );
-
-      Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
-        this.visible = !!( vertexVisible && quadratic.vertex );
+      // visibility
+      Property.multilink( [ vertexVisibleProperty, vertexProperty ], ( vertexVisible, vertex ) => {
+        this.visible = !!( vertexVisible && vertex && xRange.contains( vertex.x ) && yRange.contains( vertex.y ) );
       } );
-
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private

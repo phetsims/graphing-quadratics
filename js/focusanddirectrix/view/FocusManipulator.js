@@ -28,14 +28,13 @@ define( require => {
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {Range} pRange
-     * @param {Range} xRange - range of the graph's x axis
-     * @param {Range} yRange - range of the graph's y axis
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} focusVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, pRange, xRange, yRange, modelViewTransform,
+    constructor( radius, quadraticProperty, pRange, graph, modelViewTransform,
                  focusVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
@@ -86,27 +85,25 @@ define( require => {
       };
       quadraticProperty.link( quadraticListener );
 
-      // When the focus changes, create new quadratic.
+      // When the focus changes, move the manipulator and create a new quadratic.
       focusProperty.link( focus => {
 
         const quadratic = quadraticProperty.value;
         assert && assert( quadratic.focus !== undefined, 'undefined quadratic.focus is not supported' );
         assert && assert( quadratic.vertex !== undefined, 'undefined quadratic.vertex is not supported' );
 
+        this.translation = modelViewTransform.modelToViewPosition( focus );
+
         if ( !focus.equals( quadratic.focus ) ) {
           const p = focus.y - quadratic.vertex.y;
           quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, quadratic.h, quadratic.k );
         }
-
-        // Make the focus invisible if it goes off the graph
-        this.visible = !!( focusVisibleProperty.value && xRange.contains( focus.x ) && yRange.contains( focus.y ) );
-        //TODO cancel drag if off graph?
       } );
 
-      // move the manipulator
-      focusProperty.link( focus => { this.translation = modelViewTransform.modelToViewPosition( focus ); } );
-
-      focusVisibleProperty.link( visible => { this.visible = visible; } );
+      // visibility
+      Property.multilink( [ focusVisibleProperty, focusProperty ], ( focusVisible, focus ) => {
+        this.visible = !!( focusVisible && graph.contains( focus ) );
+      } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
