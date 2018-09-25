@@ -42,7 +42,7 @@ define( require => {
         spacing: 5,
         align: 'bottom'
       }, options );
-      
+
       const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
       const b = Util.toFixedNumber( quadratic.b, options.bDecimals );
       const c = Util.toFixedNumber( quadratic.c, options.cDecimals );
@@ -65,7 +65,7 @@ define( require => {
       if ( a !== 0 ) {
 
         let aTermString = null;
-        
+
         if ( a === 1 ) {
           // x^2
           aTermString = StringUtils.fillIn( '{{x}}<sup>2</sup>', {
@@ -249,37 +249,19 @@ define( require => {
 
         // h
         if ( h !== 0 ) {
-          let hString = null;
-          if ( h > 0 ) {
-            hString = StringUtils.fillIn( '{{minus}} {{h}})<sup>2</sup>', {
-              minus: MathSymbols.MINUS,
-              h: h
-            } );
-          }
-          else {
-            hString = StringUtils.fillIn( '{{plus}} {{h}})<sup>2</sup>', {
-              plus: MathSymbols.PLUS,
-              h: Math.abs( h )
-            } );
-          }
+          const hString = StringUtils.fillIn( '{{operator}} {{h}})<sup>2</sup>', {
+            operator: ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS,
+            h: Math.abs( h )
+          } );
           children.push( new RichText( hString, textOptions ) );
         }
 
         // k
         if ( k !== 0 ) {
-          let kString = null;
-          if ( k > 0 ) {
-            kString = StringUtils.fillIn( '{{plus}} {{k}}', {
-              plus: MathSymbols.PLUS,
-              k: k
-            } );
-          }
-          else {
-            kString = StringUtils.fillIn( '{{minus}} {{k}}', {
-              minus: MathSymbols.MINUS,
-              k: Math.abs( k )
-            } );
-          }
+          const kString = StringUtils.fillIn( '{{operator}} {{k}}', {
+            operator: ( k > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS,
+            k: Math.abs( k )
+          } );
           children.push( new RichText( kString, textOptions ) );
         }
       }
