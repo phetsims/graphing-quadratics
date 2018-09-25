@@ -81,11 +81,11 @@ define( require => {
           equationNode.right = modelViewTransform.modelToViewX( xRange.max - 1 );
         }
         
-        if ( quadratic.directrix > quadratic.vertex.y ) {
-          equationNode.bottom = path.top - yOffset;
+        if ( quadratic.directrix > xRange.max - 1 ) {
+          equationNode.top = path.bottom + yOffset;
         }
         else {
-          equationNode.top = path.bottom + yOffset;
+          equationNode.bottom = path.top - yOffset;
         }
       } );
 
