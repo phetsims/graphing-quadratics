@@ -15,7 +15,6 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const Shape = require( 'KITE/Shape' );
-  const Vector2 = require( 'DOT/Vector2' );
 
   class QuadraticNode extends Node {
 
