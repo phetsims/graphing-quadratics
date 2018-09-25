@@ -75,7 +75,7 @@ define( require => {
             value: Util.toFixedNumber( quadratic.axisOfSymmetry, options.decimals )
           } );
 
-          // position the equation to avoid overlapping vertex
+          // position the equation to avoid overlapping vertex and y axis
           const xOffset = 3;
           const yOffset = 15;
           if ( quadratic.vertex.x >= 0 ) {
