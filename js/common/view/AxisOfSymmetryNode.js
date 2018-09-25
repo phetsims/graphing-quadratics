@@ -85,7 +85,7 @@ define( require => {
           }
 
           if ( quadratic.vertex.y >= 0 ) {
-            equationNode.bottom = modelViewTransform.modelToViewY( yRange.min + 1 )
+            equationNode.bottom = modelViewTransform.modelToViewY( yRange.min + 1 );
           }
           else {
             equationNode.top = modelViewTransform.modelToViewY( yRange.max - 1 );
