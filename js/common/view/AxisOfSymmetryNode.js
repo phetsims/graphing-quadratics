@@ -77,7 +77,7 @@ define( require => {
 
           // position the equation to avoid overlapping vertex and y axis
           const xOffset = 3;
-          if ( quadratic.axisOfSymmetry === yRange.max ) {
+          if ( quadratic.axisOfSymmetry > yRange.max - 1 ) {
             equationNode.right = path.left - xOffset;
           }
           else {
