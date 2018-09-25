@@ -44,7 +44,7 @@ define( require => {
 
       const coordinatesProperty = new Property( null );
 
-      // dispose not needed
+      // displays the vertex coordinates
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
@@ -56,7 +56,6 @@ define( require => {
 
       super( options );
 
-      // unlink not needed
       quadraticProperty.link( quadratic => {
 
         if ( quadratic.vertex ) {

@@ -48,7 +48,7 @@ define( require => {
         font: new PhetFont( GQConstants.TITLE_FONT_SIZE )
       } );
 
-      // y = ax^2, dispose not needed
+      // y = ax^2
       const quadraticTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
         y: GQSymbols.y,
         equals: MathSymbols.EQUAL_TO,
@@ -61,7 +61,7 @@ define( require => {
       } );
       const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, viewProperties.quadraticTermVisibleProperty );
 
-      // y = bx, dispose not needed
+      // y = bx
       const linearTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
         y: GQSymbols.y,
         equals: MathSymbols.EQUAL_TO,
@@ -73,7 +73,7 @@ define( require => {
       } );
       const linearTermCheckbox = new Checkbox( linearTermLabel, viewProperties.linearTermVisibleProperty );
 
-      // y = c, dispose not needed
+      // y = c
       const constantTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
         y: GQSymbols.y,
         equals: MathSymbols.EQUAL_TO,

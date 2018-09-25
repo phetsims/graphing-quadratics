@@ -37,7 +37,7 @@ define( require => {
       // Cartesian coordinates graph
       const graphNode = new GraphNode( model.graph, model.modelViewTransform );
 
-      // Interactive quadratic curve. dispose not needed.
+      // Interactive quadratic curve
       const interactiveQuadraticNode = new QuadraticNode(
         model.quadraticProperty, model.graph.xRange, model.graph.yRange, model.modelViewTransform, {
           lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
@@ -72,7 +72,7 @@ define( require => {
       this.addChild( graphNode );
       this.addChild( contentParent );
 
-      // When a quadratic is saved...  removeItemAddedListener not needed.
+      // When a quadratic is saved...
       model.savedQuadratics.addItemAddedListener( savedQuadratic => {
 
         // Node for the saved quadratic

@@ -67,7 +67,6 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      // unlink not needed
       const quadraticListener = quadratic => {
 
         assert && assert( quadratic.focus !== undefined, 'undefined quadratic.focus is not supported' );

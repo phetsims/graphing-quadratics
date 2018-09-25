@@ -45,7 +45,7 @@ define( require => {
       } );
       this.addChild( this.quadraticPath );
 
-      // Update the view of the curve when the quadratic model changes. dispose not needed.
+      // Update the view of the curve when the quadratic model changes.
       quadraticProperty.link( quadratic => {
         this.quadraticPath.shape = this.createQuadraticShape( quadratic );
         this.quadraticPath.stroke = quadratic.color;

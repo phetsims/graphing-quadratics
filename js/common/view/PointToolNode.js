@@ -88,7 +88,6 @@ define( require => {
       options.children = [ backgroundNode, bodyNode, probeNode, coordinatesNode ];
       super( options );
 
-      // dispose not needed
       Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
         ( location, onQuadratic, curvesVisible ) => {
 

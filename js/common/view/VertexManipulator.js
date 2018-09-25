@@ -53,7 +53,7 @@ define( require => {
         reentrant: true
       } );
 
-      // dispose not needed
+      // displays the vertex coordinates
       const coordinatesNode = new CoordinatesNode( vertexProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
@@ -65,7 +65,6 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      // unlink not needed
       const quadraticListener = quadratic => {
 
         if ( quadratic.vertex ) {

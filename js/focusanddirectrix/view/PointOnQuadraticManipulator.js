@@ -42,7 +42,6 @@ define( require => {
 
       super( radius, GQColors.POINT_ON_QUADRATIC, options );
 
-      // dispose not needed
       const coordinatesNode = new CoordinatesNode( pointOnQuadraticProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.POINT_ON_QUADRATIC ).withAlpha( 0.75 ),

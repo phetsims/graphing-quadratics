@@ -41,7 +41,6 @@ define( require => {
       super( options );
 
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
-      // dispose not needed.
       const pointToolsParent = new Node();
       model.pointTools.forEach( pointTool => {
         pointToolsParent.addChild( new PointToolNode(

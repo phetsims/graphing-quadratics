@@ -41,7 +41,7 @@ define( require => {
       const leftPointNode = new Circle( options.radius, { fill: GQColors.ROOTS } );
       const rightPointNode = new Circle( options.radius, { fill: GQColors.ROOTS } );
 
-      // coordinates, dispose not needed
+      // coordinates
       const coordinatesOptions = {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.ROOTS ).withAlpha( 0.75 ),
