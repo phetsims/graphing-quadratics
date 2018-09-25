@@ -17,6 +17,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
   const Y_SPACING = 5;
@@ -44,7 +45,9 @@ define( require => {
         y: 0
       } );
 
-      const coordinatesProperty = new Property( null );
+      const coordinatesProperty = new Property( null, {
+        isValidValue: value => { return value instanceof Vector2 || value === null; }
+      } );
 
       // displays the vertex coordinates
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {

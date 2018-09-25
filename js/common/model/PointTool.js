@@ -11,6 +11,7 @@ define( require => {
   // modules
   var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   var Property = require( 'AXON/Property' );
+  var Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   var Vector2 = require( 'DOT/Vector2' );
 
   class PointTool {
@@ -32,13 +33,17 @@ define( require => {
       var self = this;
 
       // @public {Vector2} location of the point tool
-      this.locationProperty = new Property( options.location );
+      this.locationProperty = new Property( options.location, {
+        valueType: Vector2
+      } );
 
       // @public (read-only)
       this.quadratics = quadratics;
 
       // @public quadratic that the tool is on, null if it's not on a quadratic
-      this.onQuadraticProperty = new Property( null );
+      this.onQuadraticProperty = new Property( null, {
+        isValidValue: value => { return value instanceof Quadratic || value === null; }
+      } );
 
       this.orientation = options.orientation; // @public
       this.dragBounds = options.dragBounds; // @public

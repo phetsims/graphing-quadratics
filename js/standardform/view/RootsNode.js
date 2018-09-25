@@ -46,14 +46,19 @@ define( require => {
       const leftPointNode = new Circle( options.radius, pointOptions );
       const rightPointNode = new Circle( options.radius, pointOptions );
 
-      // coordinates
+      // coordinates Properties
+      const propertyOptions = {
+        isValidValue: value => { return value instanceof Vector2 || value === null; }
+      };
+      const leftCoordinatesProperty = new Property( null, propertyOptions );
+      const rightCoordinatesProperty = new Property( null, propertyOptions );
+
+      // coordinate displays
       const coordinatesOptions = {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.ROOTS ).withAlpha( 0.75 ),
         decimals: GQConstants.POINT_DECIMALS
       };
-      const leftCoordinatesProperty = new Property( null );
-      const rightCoordinatesProperty = new Property( null );
       const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesOptions );
       const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesOptions );
 
