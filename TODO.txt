@@ -9,10 +9,9 @@ Panels shift horizontally when switching between SF and VF screens
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Position equations on lines
 FD: constrain point to graph
 FD: drag motion of point is based on pointer's x location and feels a bit odd
-E,SF: Lines labeled with reduced standard form in screens 1 & 2, coefficients in decimal format to 2 decimals
-VF,FD: Lines labeled with vertex form in screens 3 & 4, 1/4p in decimal format to 2 decimals
 E: Make terms available to point tools
 
 TODOs in the code
