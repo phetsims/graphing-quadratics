@@ -47,7 +47,7 @@ define( require => {
       assert && assert( !options.decorations, 'VertexFormGraphNode sets decorations' );
       options.decorations = [ vertexManipulator ];
 
-      super( model, viewProperties.graphContentsVisibleProperty, options );
+      super( model, viewProperties.graphContentsVisibleProperty, viewProperties.equationForm, options );
     }
   }
 

@@ -17,7 +17,9 @@ define( require => {
 
     constructor() {
 
-      super();
+      super( {
+        equationForm: 'vertex'
+      } );
 
       // @public whether the vertex manipulator is visible
       this.vertexVisibleProperty = new BooleanProperty( true );

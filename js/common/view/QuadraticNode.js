@@ -24,9 +24,13 @@ define( require => {
      * @param {Range} xRange - range of the graph's x axis
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
+     * @param {string} equationForm
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, xRange, yRange, modelViewTransform, options ) {
+    constructor( quadraticProperty, xRange, yRange, modelViewTransform, equationForm, options ) {
+
+      assert && assert( equationForm === 'standard' || equationForm === 'vertex',
+        'invalid equationForm: ' + equationForm );
 
       options = _.extend( {
 
@@ -61,10 +65,16 @@ define( require => {
         if ( this.equationNode ) {
           this.removeChild( this.equationNode );
         }
-        this.equationNode = EquationFactory.createStandardForm( quadratic, {
-          center: modelViewTransform.modelToViewPosition( new Vector2( -5, -5 ) ) //TODO position along the curve
-        } );
+        if ( equationForm === 'standard' ) {
+          this.equationNode = EquationFactory.createStandardForm( quadratic );
+        }
+        else {
+          this.equationNode = EquationFactory.createVertexForm( quadratic );
+        }
         this.addChild( this.equationNode );
+
+        //TODO position the equation
+        this.equationNode.center = modelViewTransform.modelToViewPosition( new Vector2( -5, -5 ) );
       } );
     }
 

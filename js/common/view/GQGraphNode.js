@@ -23,13 +23,14 @@ define( require => {
     /**
      * @param {GQModel} model
      * @param {BooleanProperty} graphContentsVisibleProperty
+     * @param {string} equationForm
      * @param {Object} [options]
      */
-    constructor( model, graphContentsVisibleProperty, options ) {
+    constructor( model, graphContentsVisibleProperty, equationForm, options ) {
 
       options = _.extend( {
         specialLines: [], // {Nodes[]}
-        decorations: [] // {Node[]}
+        decorations: [] // {Node[]},
       }, options );
 
       super( options );
@@ -39,7 +40,7 @@ define( require => {
 
       // Interactive quadratic curve
       const interactiveQuadraticNode = new QuadraticNode(
-        model.quadraticProperty, model.graph.xRange, model.graph.yRange, model.modelViewTransform, {
+        model.quadraticProperty, model.graph.xRange, model.graph.yRange, model.modelViewTransform, equationForm, {
           lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
         } );
 
@@ -77,9 +78,9 @@ define( require => {
 
         // Node for the saved quadratic
         const savedQuadraticNode = new QuadraticNode(
-          new Property( savedQuadratic ), model.graph.xRange, model.graph.yRange, model.modelViewTransform, {
-          lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
-        } );
+          new Property( savedQuadratic ), model.graph.xRange, model.graph.yRange, model.modelViewTransform, equationForm, {
+            lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
+          } );
         savedQuadraticsLayer.addChild( savedQuadraticNode );
 
         // add listener for when the saved quadratic is eventually removed

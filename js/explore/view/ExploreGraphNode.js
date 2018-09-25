@@ -31,23 +31,23 @@ define( require => {
 
       // constant term, y = bx
       const constantTermNode = new QuadraticNode( model.constantTermProperty, model.graph.xRange, model.graph.yRange,
-        model.modelViewTransform, termNodeOptions );
+        model.modelViewTransform, viewProperties.equationForm, termNodeOptions );
       viewProperties.constantTermVisibleProperty.link( visible => { constantTermNode.visible = visible; } );
 
       // linear term, y = bx
       const linearTermNode = new QuadraticNode( model.linearTermProperty, model.graph.xRange, model.graph.yRange,
-        model.modelViewTransform, termNodeOptions );
+        model.modelViewTransform, viewProperties.equationForm, termNodeOptions );
       viewProperties.linearTermVisibleProperty.link( visible => { linearTermNode.visible = visible; } );
 
       // quadratic term, y = ax^2
       const quadraticTermNode = new QuadraticNode( model.quadraticTermProperty, model.graph.xRange, model.graph.yRange,
-        model.modelViewTransform, termNodeOptions );
+        model.modelViewTransform, viewProperties.equationForm, termNodeOptions );
       viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermNode.visible = visible; } );
 
       assert && assert( !options.specialLines, 'ExploreGraphNode sets specialLines' );
       options.specialLines = [ constantTermNode, linearTermNode, quadraticTermNode ];
 
-      super( model, viewProperties.graphContentsVisibleProperty, options );
+      super( model, viewProperties.graphContentsVisibleProperty, viewProperties.equationForm, options );
     }
   }
 

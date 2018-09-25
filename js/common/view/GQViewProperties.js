@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * View-specific Properties that are common to all screens.
+ * View-specific Properties and properties that are common to all screens.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,11 +20,18 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
+        equationForm: 'standard',
         graphContentsVisible: true,
         equationsVisible: true,
         coordinatesVisible: true,
         equationAccordionBoxExpanded: true
       }, options );
+
+      assert && assert( options.equationForm === 'standard' || options.equationForm === 'vertex',
+        'invalid equationForm: ' + options.equationForm );
+
+      // @public form of equations used to label lines
+      this.equationForm = options.equationForm;
 
       // @public whether the contents of the graph are visible
       this.graphContentsVisibleProperty = new BooleanProperty( options.graphContentsVisible );

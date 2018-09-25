@@ -18,6 +18,7 @@ define( require => {
     constructor() {
 
       super( {
+        equationForm: 'vertex',
         coordinatesVisible: false
       } );
 

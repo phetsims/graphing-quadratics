@@ -84,7 +84,7 @@ define( require => {
       assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
       options.decorations = [ vertexManipulator, focusNode, pointOnQuadraticManipulator ];
 
-      super( model, viewProperties.graphContentsVisibleProperty, options );
+      super( model, viewProperties.graphContentsVisibleProperty, viewProperties.equationForm, options );
     }
   }
 
