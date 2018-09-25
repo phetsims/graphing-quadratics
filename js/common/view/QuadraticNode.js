@@ -50,8 +50,9 @@ define( require => {
       } );
       this.addChild( this.quadraticPath );
 
-      // @private created below
-      this.equationNode = null;
+      // makes positioning and rotating the equation a little easier to grok
+      const equationParent = new Node();
+      this.addChild( equationParent );
 
       // Update the view of the curve when the quadratic model changes.
       quadraticProperty.link( quadratic => {
@@ -61,20 +62,42 @@ define( require => {
         this.quadraticPath.stroke = quadratic.color;
         
         // update equation
-        if ( this.equationNode ) {
-          this.removeChild( this.equationNode );
-        }
+        equationParent.removeAllChildren();
+        let equationNode = null;
         if ( equationForm === 'standard' ) {
-          this.equationNode = QuadraticEquationFactory.createStandardForm( quadratic );
+          equationNode = QuadraticEquationFactory.createStandardForm( quadratic );
         }
         else {
-          this.equationNode = QuadraticEquationFactory.createVertexForm( quadratic );
+          equationNode = QuadraticEquationFactory.createVertexForm( quadratic );
         }
-        this.addChild( this.equationNode );
+        equationParent.addChild( equationNode );
 
-        //TODO position the equation
-        this.equationNode.left = modelViewTransform.modelToViewX( xRange.min ) + 20;
-        this.equationNode.bottom = modelViewTransform.modelToViewY( yRange.min ) - 20;
+        // position the equation
+        const equationMargin = 1; // distance from edge of graph, in model coordinate frame
+        if ( quadratic.a === 0 ) {
+
+          // straight line, equation above left end of line
+
+          // determine x & y model coordinates, in graph quadrants 2 or 3
+          let x = xRange.min + equationMargin;
+          let y = quadratic.solveY( x );
+          if ( ( y > yRange.max - equationMargin ) || ( y < yRange.min + equationMargin ) ) {
+            // y is off the graph, compute x
+            y = ( y > yRange.max - equationMargin ) ? ( yRange.max - equationMargin ) : ( yRange.min + equationMargin );
+            x = ( y - quadratic.c ) / quadratic.b; // y = bx + c => x = (y-c)/b
+          }
+
+          equationParent.rotation = -Math.atan( quadratic.b ); // rotate to match line's slope
+          equationParent.translation = modelViewTransform.modelToViewXY( x, y );
+          equationNode.bottom = -4;
+        }
+        else {
+          // parabola
+          //TODO temporarily in lower-left corner of graph
+          equationParent.rotation = 0;
+          equationParent.left = modelViewTransform.modelToViewX( xRange.min + equationMargin );
+          equationParent.bottom = modelViewTransform.modelToViewY( yRange.min + equationMargin );
+        }
       } );
     }
 
