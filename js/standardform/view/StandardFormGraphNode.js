@@ -34,18 +34,29 @@ define( require => {
       const pointRadius = model.modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
 
       // Axis of symmetry
-      const axisOfSymmetryNode = new AxisOfSymmetryNode( model.quadraticProperty, model.graph.yRange,
-        model.modelViewTransform, viewProperties.axisOfSymmetryVisibleProperty, viewProperties.equationsVisibleProperty );
+      const axisOfSymmetryNode = new AxisOfSymmetryNode(
+        model.quadraticProperty,
+        model.graph.yRange,
+        model.modelViewTransform,
+        viewProperties.axisOfSymmetryVisibleProperty,
+        viewProperties.equationsVisibleProperty );
 
       // Roots
-      const rootsNode = new RootsNode( model.quadraticProperty, model.modelViewTransform,
-        viewProperties.rootsVisibleProperty, viewProperties.coordinatesVisibleProperty, {
+      const rootsNode = new RootsNode(
+        model.quadraticProperty,
+        model.modelViewTransform,
+        viewProperties.rootsVisibleProperty,
+        viewProperties.coordinatesVisibleProperty, {
           radius: pointRadius
         } );
 
       // Vertex
-      const vertexNode = new VertexNode( model.quadraticProperty, model.graph, model.modelViewTransform,
-        viewProperties.vertexVisibleProperty, viewProperties.coordinatesVisibleProperty, {
+      const vertexNode = new VertexNode(
+        model.quadraticProperty,
+        model.graph,
+        model.modelViewTransform,
+        viewProperties.vertexVisibleProperty,
+        viewProperties.coordinatesVisibleProperty, {
           radius: pointRadius
         } );
 

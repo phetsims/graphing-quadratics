@@ -36,8 +36,7 @@ define( require => {
         model.graph.yRange,
         model.modelViewTransform,
         viewProperties.directrixVisibleProperty,
-        viewProperties.equationsVisibleProperty
-      );
+        viewProperties.equationsVisibleProperty );
 
       // Vertex manipulator
       const vertexManipulator = new VertexManipulator(
@@ -47,8 +46,7 @@ define( require => {
         model.kRange,
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
-        viewProperties.coordinatesVisibleProperty
-      );
+        viewProperties.coordinatesVisibleProperty );
 
       // Focus manipulator
       const focusNode = new FocusManipulator(
@@ -58,8 +56,7 @@ define( require => {
         model.graph,
         model.modelViewTransform,
         viewProperties.focusVisibleProperty,
-        viewProperties.coordinatesVisibleProperty
-      );
+        viewProperties.coordinatesVisibleProperty );
 
       // Point on Quadratic manipulator
       const pointOnQuadraticManipulator = new PointOnQuadraticManipulator(
@@ -70,8 +67,7 @@ define( require => {
         model.graph.yRange,
         model.modelViewTransform,
         viewProperties.pointOnQuadraticVisibleProperty,
-        viewProperties.coordinatesVisibleProperty
-      );
+        viewProperties.coordinatesVisibleProperty );
 
       // Lines that connect the point on the quadratic to the focus and directrix
       const pointOnQuadraticLinesNode = new PointOnQuadraticLinesNode(
@@ -80,8 +76,7 @@ define( require => {
         model.modelViewTransform,
         viewProperties.pointOnQuadraticVisibleProperty,
         viewProperties.focusVisibleProperty,
-        viewProperties.directrixVisibleProperty
-        );
+        viewProperties.directrixVisibleProperty );
 
       assert && assert( !options.specialLines, 'FocusAndDirectrixGraphNode sets specialLines' );
       options.specialLines = [ directrixNode, pointOnQuadraticLinesNode ];
