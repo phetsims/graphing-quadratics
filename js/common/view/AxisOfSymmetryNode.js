@@ -77,11 +77,11 @@ define( require => {
 
           // position the equation to avoid overlapping vertex and y axis
           const xOffset = 3;
-          if ( quadratic.vertex.x >= 0 ) {
-            equationNode.left = path.right + xOffset;
+          if ( quadratic.axisOfSymmetry === yRange.max ) {
+            equationNode.right = path.left - xOffset;
           }
           else {
-            equationNode.right = path.left - xOffset;
+            equationNode.left = path.right + xOffset;
           }
 
           if ( quadratic.vertex.y >= 0 ) {
