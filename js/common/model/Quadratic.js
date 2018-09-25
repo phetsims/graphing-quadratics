@@ -57,6 +57,9 @@ define( require => {
         this.directrix = this.k - this.p; // y = directrix
         this.axisOfSymmetry = this.h; // x = h
       }
+      else {
+        this.k = c; // hack to support y = k
+      }
     }
 
     /**
@@ -86,7 +89,7 @@ define( require => {
 
     /**
      * Returns a copy of this Quadratic with a specified color.
-     * @param {Color|String} color
+     * @param {Color|string} color
      * @returns {Quadratic}
      * @public
      */
@@ -104,9 +107,14 @@ define( require => {
      * @public
      */
     static createFromVertexForm( a, h, k, options ) {
-      const b = -2 * a * h;
-      const c = a * h * h + k;
-      return new Quadratic( a, b, c, options );
+      if ( a === 0 ) {
+        return new Quadratic( 0, 0, k, options ); // hack to support y = k
+      }
+      else {
+        const b = -2 * a * h;
+        const c = a * h * h + k;
+        return new Quadratic( a, b, c, options );
+      }
     }
 
     /**
