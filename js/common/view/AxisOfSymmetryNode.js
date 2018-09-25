@@ -76,8 +76,14 @@ define( require => {
           } );
 
           // position the equation to avoid overlapping vertex
-          equationNode.left = path.right + 3;
+          const xOffset = 3;
           const yOffset = 15;
+          if ( quadratic.vertex.x >= 0 ) {
+            equationNode.left = path.right + xOffset;
+          }
+          else {
+            equationNode.right = path.left - xOffset;
+          }
           if ( quadratic.vertex.y >= 0 ) {
             equationNode.bottom = path.bottom - yOffset;
           }
