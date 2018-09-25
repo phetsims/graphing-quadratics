@@ -40,8 +40,6 @@ define( require => {
       super( options );
 
       // @private
-      this.xRange = xRange;
-      this.yRange = yRange; //TODO needed?
       this.modelViewTransform = modelViewTransform;
 
       // @protected quadratic curve, y = ax^2 + bx + c
@@ -54,11 +52,16 @@ define( require => {
       const equationParent = new Node();
       this.addChild( equationParent );
 
-      // Update the view of the curve when the quadratic model changes.
       quadraticProperty.link( quadratic => {
 
-        // update line
-        this.quadraticPath.shape = this.createQuadraticShape( quadratic );
+        // update shape
+        const bezierControlPoints = quadratic.getControlPoints( xRange );
+        this.quadraticPath.shape = new Shape()
+          .moveToPoint( bezierControlPoints.startPoint )
+          .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
+          .transformed( modelViewTransform.getMatrix() );
+
+        // update color
         this.quadraticPath.stroke = quadratic.color;
         
         // update equation
@@ -99,24 +102,6 @@ define( require => {
           equationParent.bottom = modelViewTransform.modelToViewY( yRange.min + equationMargin );
         }
       } );
-    }
-
-    /**
-     * Creates the shape for a specified Quadratic, using this Node's graph and modelViewTransform.
-     * @param {Quadratic} quadratic
-     * @returns {Shape}
-     * @protected
-     */
-    createQuadraticShape( quadratic ) {
-
-      // have model calculate the control points to draw a bezier curve shape
-      const bezierControlPoints = quadratic.getControlPoints( this.xRange );
-
-      // draw the quadratic
-      return new Shape()
-        .moveToPoint( bezierControlPoints.startPoint)
-        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
-        .transformed( this.modelViewTransform.getMatrix() );
     }
   }
 
