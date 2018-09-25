@@ -101,7 +101,9 @@ define( require => {
 
       Property.multilink( [ axisOfSymmetryVisibleProperty, quadraticProperty ],
         ( axisOfSymmetryVisible, quadratic ) => {
-          this.visible = !!( axisOfSymmetryVisible && quadratic.axisOfSymmetry !== undefined );
+          this.visible = !!( axisOfSymmetryVisible &&
+                             quadratic.axisOfSymmetry !== undefined &&
+                             yRange.contains( quadratic.axisOfSymmetry ) );
         } );
 
       equationsVisibleProperty.link( visible => { equationNode.visible = visible; } );

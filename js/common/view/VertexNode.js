@@ -79,9 +79,12 @@ define( require => {
         }
       } );
 
-      Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
-        this.visible = !!( vertexVisible && quadratic.vertex && graph.contains( quadratic.vertex ) );
-      });
+      Property.multilink( [ vertexVisibleProperty, quadraticProperty ],
+        ( vertexVisible, quadratic ) => {
+          this.visible = !!( vertexVisible &&
+                             quadratic.vertex !== undefined &&
+                             graph.contains( quadratic.vertex ) );
+        } );
 
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
     }
