@@ -43,9 +43,9 @@ define( require => {
         align: 'bottom'
       }, options );
       
-      const a = quadratic.a;
-      const b = quadratic.b;
-      const c = quadratic.c;
+      const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
+      const b = Util.toFixedNumber( quadratic.b, options.bDecimals );
+      const c = Util.toFixedNumber( quadratic.c, options.cDecimals );
 
       const children = [];
 
@@ -65,6 +65,7 @@ define( require => {
       if ( a !== 0 ) {
 
         let aTermString = null;
+        
         if ( a === 1 ) {
           // x^2
           aTermString = StringUtils.fillIn( '{{x}}<sup>2</sup>', {
@@ -81,7 +82,7 @@ define( require => {
         else {
           // ax^2
           aTermString = StringUtils.fillIn( '{{a}}{{x}}<sup>2</sup>', {
-            a: Util.toFixedNumber( a, options.aDecimals ),
+            a: a,
             x: GQSymbols.x
           } );
         }
@@ -92,7 +93,28 @@ define( require => {
       if ( b !== 0 ) {
 
         let bTermString = null;
-        if ( a !== 0 ) {
+
+        if ( a === 0 ) {
+          if ( b === 1 ) {
+            // x
+            bTermString = GQSymbols.x;
+          }
+          else if ( b === -1 ) {
+            // -x
+            bTermString = StringUtils.fillIn( '{{minus}}{{x}}', {
+              minus: MathSymbols.UNARY_MINUS,
+              x: GQSymbols.x
+            } );
+          }
+          else {
+            // bx
+            bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
+              b: b,
+              x: GQSymbols.x
+            } );
+          }
+        }
+        else {
 
           // plus or minus operator
           if ( b > 0 ) {
@@ -109,28 +131,7 @@ define( require => {
           else {
             // |b|x
             bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
-              b: Math.abs( Util.toFixedNumber( b, options.bDecimals ) ),
-              x: GQSymbols.x
-            } );
-          }
-        }
-        else {
-
-          if ( b === 1 ) {
-            // x
-            bTermString = GQSymbols.x;
-          }
-          else if ( b === -1 ) {
-            // -x
-            bTermString = StringUtils.fillIn( '{{minus}}{{x}}', {
-              minus: MathSymbols.UNARY_MINUS,
-              x: GQSymbols.x
-            } );
-          }
-          else {
-            // x
-            bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
-              b: Util.toFixedNumber( b, options.bDecimals ),
+              b: Math.abs( b ),
               x: GQSymbols.x
             } );
           }
@@ -141,7 +142,11 @@ define( require => {
       // c term
       if ( c !== 0 ) {
 
-        if ( a !== 0 || b !== 0 ) {
+        if ( a === 0 && b === 0 ) {
+          // c
+          children.push( new RichText( c, textOptions ) );
+        }
+        else {
 
           // plus or minus operator
           if ( c > 0 ) {
@@ -152,11 +157,7 @@ define( require => {
           }
 
           // |c|
-          children.push( new RichText( Math.abs( Util.toFixedNumber( c, options.cDecimals ) ), textOptions ) );
-        }
-        else {
-          // c
-          children.push( new RichText( Util.toFixedNumber( c, options.cDecimals ), textOptions ) );
+          children.push( new RichText( Math.abs( c ), textOptions ) );
         }
       }
 
@@ -191,9 +192,9 @@ define( require => {
         align: 'bottom'
       }, options );
 
-      const a = quadratic.a;
-      const h = quadratic.h;
-      const k = quadratic.k;
+      const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
+      const h = Util.toFixedNumber( quadratic.h, options.hDecimals );
+      const k = Util.toFixedNumber( quadratic.k, options.kDecimals );
 
       const children = [];
 
@@ -208,7 +209,7 @@ define( require => {
         const yEqualsString = StringUtils.fillIn( '{{y}} {{equals}} {{k}}', {
           y: GQSymbols.y,
           equals: MathSymbols.EQUAL_TO,
-          k: Util.toFixedNumber( quadratic.k, options.kDecimals )
+          k: k
         } );
         children.push( new RichText( yEqualsString, textOptions ) );
       }
@@ -236,7 +237,7 @@ define( require => {
         }
         else {
           axString = StringUtils.fillIn( '{{a}}({{x}}', {
-            a: Util.toFixedNumber( a, options.aDecimals ),
+            a: a,
             x: GQSymbols.x
           } );
         }
@@ -252,13 +253,13 @@ define( require => {
           if ( h > 0 ) {
             hString = StringUtils.fillIn( '{{minus}} {{h}})<sup>2</sup>', {
               minus: MathSymbols.MINUS,
-              h: Util.toFixedNumber( h, options.hDecimals )
+              h: h
             } );
           }
           else {
             hString = StringUtils.fillIn( '{{plus}} {{h}})<sup>2</sup>', {
               plus: MathSymbols.PLUS,
-              h: Math.abs( Util.toFixedNumber( h, options.hDecimals ) )
+              h: Math.abs( h )
             } );
           }
           children.push( new RichText( hString, textOptions ) );
@@ -270,13 +271,13 @@ define( require => {
           if ( k > 0 ) {
             kString = StringUtils.fillIn( '{{plus}} {{k}}', {
               plus: MathSymbols.PLUS,
-              k: Util.toFixedNumber( k, options.kDecimals )
+              k: k
             } );
           }
           else {
             kString = StringUtils.fillIn( '{{minus}} {{k}}', {
               minus: MathSymbols.MINUS,
-              k: Math.abs( Util.toFixedNumber( k, options.kDecimals ) )
+              k: Math.abs( k )
             } );
           }
           children.push( new RichText( kString, textOptions ) );
