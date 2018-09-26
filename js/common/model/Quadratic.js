@@ -206,6 +206,16 @@ define( require => {
     }
 
     /**
+     * Gets the slope of the tangent line at point (x,f(x)) on the quadratic.
+     * @param {number} x
+     * @returns {number}
+     */
+    getTangentSlope( x ) {
+      assert && assert( this.a !== 0, 'not supported non-parabola' );
+      return ( 2 * this.a * x ) + this.b;
+    }
+
+    /**
      * Gets the control points for the Bezier curve that describes this quadratic.
      * See https://github.com/phetsims/graphing-quadratics/issues/1
      * @param {Range} xRange - range of the graph's x axis
