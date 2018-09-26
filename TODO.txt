@@ -24,6 +24,7 @@ all: equations sometimes go off graph, e.g.
 SF: Hide roots if they are off the graph
 E: Make terms available to point tools
 
+Separate equations from QuadraticNode, so they can exceed graph bounds?
 VertexQuadratic extends Quadratic?
 #17 reentrant Properties
 #14 PhET-iO instrumentation
