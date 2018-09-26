@@ -2,8 +2,9 @@ TODO list for graphing-quadratics
 
 DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1/4p is in a slightly smaller font, OK?
-(x)^2 when h=0 looks odd for vertex form equations
+FD: 1/4p is in a slightly smaller font, OK?
+VF,FD: (x)^2 when h=0 looks odd for vertex form equations
+FD: feels odd that focus and point are continuous, but vertex snaps to grid
 
 BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -12,7 +13,7 @@ BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Position equation on parabola in QuadraticNode
-Hide roots if they are off the graph
+SF: Hide roots if they are off the graph
 FD: constrain point to graph
 FD: drag motion of point is based on pointer's x location and feels a bit odd
 E: Make terms available to point tools
