@@ -184,7 +184,7 @@ define( require => {
         const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
         const x0 = this.h - commonTerm;
         const x1 = this.h + commonTerm;
-        return [ x0, x1 ].sort( ( x0, x1 ) => x0 - x1 );
+        return [ x0, x1 ].sort( ( x0, x1 ) => x0 - x1 ); // in ascending order
       }
       else {
         // For a straight line, use slope-intercept form.
@@ -297,9 +297,10 @@ define( require => {
    */
   function solveRoots( a, b, c ) {
     let roots = null;
-    const xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
+    let xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
     if ( xCoordinates !== null ) {
       roots = [];
+      xCoordinates = xCoordinates.sort( ( x0, x1 ) => x0 - x1 ); // in ascending order
       _.uniq( xCoordinates ).forEach( x => { roots.push( new Vector2( x, 0 ) ); } );
     }
     assert && assert( roots === null || ( roots.length >= 0 && roots.length <= 2 ), 'unexpected roots: ' + roots );

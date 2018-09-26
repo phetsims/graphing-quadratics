@@ -80,9 +80,6 @@ define( require => {
         if ( roots && roots.length !== 0 ) {
           assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
 
-          // sort by ascending x value
-          roots = _.sortBy( roots, function( root ) { return root.x; } );
-
           const leftRoot = roots[ 0 ];
           leftCoordinatesProperty.value = leftRoot;
           leftPointNode.visible = true;
