@@ -16,7 +16,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
-  const Vector2 = require( 'DOT/Vector2' );
 
   class PointOnQuadraticManipulator extends Manipulator {
 
@@ -108,20 +107,10 @@ define( require => {
 
           // transform the drag point from view to model coordinate frame
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
-          let x = modelViewTransform.viewToModelPosition( parentPoint ).x;
-
-          // constrain to graph bounds
-          x = xRange.constrainValue( x );
-          let y = quadraticProperty.value.solveY( x );
-          if ( !yRange.contains( y ) ) {
-            // y is off the graph, constrain y and solve for x
-            y = yRange.constrainValue( y );
-            const xValues = quadraticProperty.value.solveX( y );
-            x = ( x < quadraticProperty.value.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
-          }
+          const x = modelViewTransform.viewToModelPosition( parentPoint ).x;
 
           // update model
-          pointOnQuadraticProperty.value = new Vector2( x, y );
+          pointOnQuadraticProperty.value = quadraticProperty.value.getClosestPointInRange( x, xRange, yRange );
         }
       } );
     }

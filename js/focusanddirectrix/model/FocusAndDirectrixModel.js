@@ -56,20 +56,9 @@ define( require => {
         assert && assert( quadratic.vertex !== undefined, 'undefined quadratic.vertex is not supported' );
         assert && assert( oldQuadratic.vertex !== undefined, 'undefined oldQuadratic.vertex is not supported' );
 
-        const xRange = this.graph.xRange;
-        const yRange = this.graph.yRange;
-
-        //TODO logic duplicated in PointOnQuadraticManipulator
         const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
-        let x = xRange.constrainValue( this.pointOnQuadraticProperty.value.x + dx );
-        let y = quadratic.solveY( x );
-        if ( !yRange.contains( y ) ) {
-          // y is off the graph, constrain y and solve for x
-          y = yRange.constrainValue( y );
-          const xValues = quadratic.solveX( y );
-          x = ( x < quadratic.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
-        }
-        this.pointOnQuadraticProperty.value = new Vector2( x, y );
+        const x = this.pointOnQuadraticProperty.value.x + dx;
+        this.pointOnQuadraticProperty.value = quadratic.getClosestPointInRange( x, this.graph.xRange, this.graph.yRange );
       } );
     }
 

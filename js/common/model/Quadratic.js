@@ -270,13 +270,13 @@ define( require => {
       const roots = Util.solveCubicRootsReal(
         2 * a * a,
         3 * a * b,
-        b * b + 2 * a * c - 2 * a * y + 1/2, //TODO should be 1 not 1/2
+        b * b + 2 * a * c - 2 * a * y + 1 / 2, //TODO should be 1 not 1/2
         b * c - b * y - x
       );
 
       let rootPoint;
       let nearestPoint = new Vector2( roots[ 0 ], this.solveY( roots[ 0 ] ) );
-      for ( let i = 1; i < roots.length; i ++ ) {
+      for ( let i = 1; i < roots.length; i++ ) {
         rootPoint = new Vector2( roots[ i ], this.solveY( roots[ i ] ) );
         if ( rootPoint.distance( point ) < nearestPoint.distance( point ) ) {
           nearestPoint = rootPoint;
@@ -284,6 +284,28 @@ define( require => {
       }
 
       return nearestPoint;
+    }
+
+    /**
+     * Given x, find the closest (x,y) point on the parabola that is in range.
+     * @param {number} x
+     * @param {Range} xRange
+     * @param {Range} yRange
+     * @returns {Vector2}
+     */
+    getClosestPointInRange( x, xRange, yRange ) {
+      assert && assert( this.vertex !== undefined, 'unsupported for non-parabola' );
+      x = xRange.constrainValue( x );
+      let y = this.solveY( x );
+      if ( !yRange.contains( y ) ) {
+        // y is outside range, constrain y and solve for x
+        y = yRange.constrainValue( y );
+        const xValues = this.solveX( y );
+        assert && assert( xValues.length === 2, 'unexpected number of xValues: ' + xValues );
+        assert && assert( xValues[ 0 ] < xValues[ 1 ], 'unexpected order of xValues: ' + xValues );
+        x = ( x < this.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
+      }
+      return new Vector2( x, y );
     }
   }
 
