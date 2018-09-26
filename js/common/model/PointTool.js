@@ -28,7 +28,8 @@ define( require => {
         dragBounds: null // {Bounds2|null} drag bounds in model coordinate frame
       }, options );
 
-      assert && assert( [ 'right', 'left' ].includes( options.orientation ) );
+      assert && assert( [ 'right', 'left' ].includes( options.orientation ),
+        'invalid orientation: ' + options.orientation );
 
       var self = this;
 
