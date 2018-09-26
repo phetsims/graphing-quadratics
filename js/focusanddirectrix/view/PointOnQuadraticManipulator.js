@@ -112,9 +112,16 @@ define( require => {
 
           // constrain to graph bounds
           x = xRange.constrainValue( x );
+          let y = quadraticProperty.value.solveY( x );
+          if ( !yRange.contains( y ) ) {
+            // y is off the graph, solve for x
+            y = ( y > yRange.max ) ? yRange.max : yRange.min;
+            const xValues = quadraticProperty.value.solveX( y );
+            x = ( x < quadraticProperty.value.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
+          }
 
           // update model
-          pointOnQuadraticProperty.value = new Vector2( x, quadraticProperty.value.solveY( x ) );
+          pointOnQuadraticProperty.value = new Vector2( x, y );
         }
       } );
     }
