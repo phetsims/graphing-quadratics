@@ -48,7 +48,7 @@ define( require => {
       Property.multilink( [ quadraticProperty, pointOnQuadraticProperty ],
         ( quadratic, pointOnQuadratic ) => {
 
-          assert && assert( quadratic.focus !== undefined, 'undefined focus is not supported' );
+          assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
           assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );
 
           const pointView = modelViewTransform.modelToViewPosition( pointOnQuadratic );

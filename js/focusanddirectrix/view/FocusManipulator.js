@@ -68,8 +68,8 @@ define( require => {
 
       const quadraticListener = quadratic => {
 
-        assert && assert( quadratic.focus !== undefined, 'undefined quadratic.focus is not supported' );
-        assert && assert( quadratic.vertex !== undefined, 'undefined quadratic.vertex is not supported' );
+        assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
+        assert && assert( quadratic.vertex, 'expected vertex: ' + quadratic.vertex );
 
         // update local Property
         focusProperty.value = quadratic.focus;
@@ -89,8 +89,8 @@ define( require => {
       focusProperty.link( focus => {
 
         const quadratic = quadraticProperty.value;
-        assert && assert( quadratic.focus !== undefined, 'undefined quadratic.focus is not supported' );
-        assert && assert( quadratic.vertex !== undefined, 'undefined quadratic.vertex is not supported' );
+        assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
+        assert && assert( quadratic.vertex, 'expected vertex: ' + quadratic.vertex );
 
         this.translation = modelViewTransform.modelToViewPosition( focus );
 
@@ -141,7 +141,7 @@ define( require => {
         drag: ( event, trail ) => {
 
           const vertex = quadraticProperty.value.vertex;
-          assert && assert( vertex !== undefined, 'undefined quadratic.vertex is not supported' );
+          assert && assert( vertex, 'expected vertex: ' + vertex );
 
           // transform the drag point from view to model coordinate frame
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );

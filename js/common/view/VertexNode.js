@@ -85,7 +85,7 @@ define( require => {
       Property.multilink( [ vertexVisibleProperty, quadraticProperty ],
         ( vertexVisible, quadratic ) => {
           this.visible = !!( vertexVisible &&
-                             quadratic.vertex !== undefined &&
+                             quadratic.vertex &&
                              graph.contains( quadratic.vertex ) );
         } );
 

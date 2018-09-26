@@ -63,7 +63,7 @@ define( require => {
       quadraticProperty.link( quadratic => {
 
         if ( quadratic.axisOfSymmetry !== undefined ) {
-          assert && assert( quadratic.vertex !== undefined, 'undefined vertex is not supported' );
+          assert && assert( quadratic.vertex, 'expected vertex: ' + quadratic.vertex );
 
           // update the line
           const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
