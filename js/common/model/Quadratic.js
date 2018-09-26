@@ -3,6 +3,15 @@
 /**
  * An immutable quadratic, described by the equation y = ax^2 + bx + c.
  *
+ * Typically, a quadratic requires a !== 0. But this sim is required to support a === 0.
+ * So there is some non-standard behavior herein that is not exactly mathematically correct.
+ * Specifically:
+ *
+ * (1) When a === 0, Quadratic behaves like a straight line.  See for example solveX.
+ *
+ * (2) When a === 0, y = c (standard form) and y = k (vertex form) describe the same horizontal line.
+ *     See for example createFromVertexForm.
+ *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -46,7 +55,7 @@ define( require => {
       // If that's the case, then the fields in this if block will be undefined.
       if ( a !== 0 ) {
 
-        // @public (read-only) derive coefficients for vertex form
+        // @public (read-only) derive coefficients for vertex form, y = (1/(4p))(x - h)^2 + k
         this.p = 1 / ( 4 * a );
         this.h = -b / ( 2 * a );
         this.k = c - ( ( b * b ) / ( 4 * a ) );
@@ -58,7 +67,7 @@ define( require => {
         this.axisOfSymmetry = this.h; // x = h
       }
       else {
-        this.k = c; // hack to support y = k
+        this.k = c; // to support y = k when a === 0 in vertex form
       }
     }
 
@@ -107,13 +116,14 @@ define( require => {
      * @public
      */
     static createFromVertexForm( a, h, k, options ) {
-      if ( a === 0 ) {
-        return new Quadratic( 0, 0, k, options ); // hack to support y = k
+      if ( a !== 0 ) {
+        const b = -2 * a * h;
+        const c = ( a * h * h ) + k;
+        return new Quadratic( a, b, c, options );
       }
       else {
-        const b = -2 * a * h;
-        const c = a * h * h + k;
-        return new Quadratic( a, b, c, options );
+        // to support y = k when a === 0 in vertex form
+        return new Quadratic( 0, 0, k, options );
       }
     }
 
@@ -180,14 +190,13 @@ define( require => {
 
     /**
      * Gets the control points for the Bezier curve that describes this quadratic.
+     * See https://github.com/phetsims/graphing-quadratics/issues/1
      * @param {Range} xRange - range of the graph's x axis
      * @returns {Object}
      * @public
      */
     getControlPoints( xRange ) {
 
-      // given coefficients, calculate control points for the quadratic bezier curve
-      // see https://github.com/phetsims/graphing-quadratics/issues/1
       const a = this.a;
       const b = this.b;
       const c = this.c;
@@ -207,28 +216,39 @@ define( require => {
     }
 
     /**
-     * Given x, solve the quadratic for y.
+     * Given x, solve for y.
      * @param {number} x
      * @returns {number}
      * @public
      */
     solveY( x ) {
-      return this.a * x * x + this.b * x + this.c;
+      return ( this.a * x * x ) + ( this.b * x ) + this.c; // y = ax^2 + bx + c
     }
 
-    //TODO delete if unused
     /**
-     * Given y, solve the quadratic for x. There will be 2 solutions.
+     * Given y, solve for x.
      * @param {number} y
      * @returns {number[]}
      * @public
      */
     solveX( y ) {
-      assert && assert( this.a !== 0, 'solveX is unsupported when a === 0' );
-      const commonTerm = Math.sqrt( ( this.b * this.b ) - ( 4 * this.a * this.c ) );
-      const x1 = ( -this.b + commonTerm ) / ( 2 * this.a );
-      const x2 = ( -this.b - commonTerm ) / ( 2 * this.a );
-      return [ x1, x2 ];
+      if ( this.a !== 0 ) {
+
+        // For a parabola, use vertex form.
+        // y = a(x - h)^2 + k => x = h +- Math.sqrt((y - k)/a)
+        // This yields 2 solutions
+        const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
+        const x0 = this.h - commonTerm;
+        const x1 = this.h + commonTerm;
+        return [ x0, x1 ];
+      }
+      else {
+        // For a straight line, use slope-intercept form.
+        // y = bx + c => x = (y - c)/b
+        // This yields one solution.
+        const x0 = ( y - this.c ) / this.b;
+        return [ x0 ];
+      }
     }
 
     /**
