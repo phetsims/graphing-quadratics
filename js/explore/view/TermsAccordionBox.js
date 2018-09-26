@@ -84,10 +84,6 @@ define( require => {
       } );
       const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty );
 
-      // Equations
-      const equationsLabel = new RichText( 'Equations', { font: CHECKBOX_EQUATION_FONT } );
-      const equationsCheckbox = new Checkbox( equationsLabel, viewProperties.equationsVisibleProperty );
-
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
@@ -95,8 +91,7 @@ define( require => {
         children: [
           quadraticTermCheckbox,
           linearTermCheckbox,
-          constantTermCheckbox,
-          equationsCheckbox
+          constantTermCheckbox
         ]
       } );
 
