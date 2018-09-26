@@ -1,10 +1,10 @@
 # Graphing Quadratics - model description
 
-_Explore_ and _Standard Form_ screens use the standard form:
+_Explore_ and _Standard Form_ screens use the standard form of the quadratic equation:
 
 _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 
-_Vertex Form_ screen uses the vertex form:
+_Vertex Form_ screen uses the vertex form of the quadratic equation:
 
 _y_ = _a_(_x_ - _h_)<sup>2</sup> + _k_
 
