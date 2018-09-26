@@ -25,3 +25,4 @@ VertexQuadratic extends Quadratic?
 #14 PhET-iO instrumentation
 TODOs in the code
 stringTest
+multi-touch testing
