@@ -18,7 +18,7 @@ define( require => {
   const Shape = require( 'KITE/Shape' );
   
   // constants
-  const EQUATION_MARGIN = 1; // distance between equation and edge of graph, in model coordinate frame
+  const EQUATION_MARGIN = 0.5; // distance between equation and edge of graph, in model coordinate frame
   const EQUATION_SPACING = 4; // space between equation and line, in view coordinate frame
 
   class QuadraticNode extends Node {
