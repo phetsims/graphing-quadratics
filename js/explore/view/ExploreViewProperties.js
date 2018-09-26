@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * View-specific Properties for the 'Explore' screen.
+ * View-specific Properties and properties for the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

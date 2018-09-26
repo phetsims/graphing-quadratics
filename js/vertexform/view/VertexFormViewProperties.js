@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * View-specific Properties for the 'Vertex Form' screen.
+ * View-specific Properties and properties for the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

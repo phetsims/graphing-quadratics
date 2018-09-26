@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * View-specific Properties for the 'Focus & Directrix' screen.
+ * View-specific Properties and properties for the 'Focus & Directrix' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
