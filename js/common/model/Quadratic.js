@@ -212,7 +212,7 @@ define( require => {
      */
     getTangentSlope( x ) {
       assert && assert( this.a !== 0, 'not supported non-parabola' );
-      return ( 2 * this.a * x ) + this.b;
+      return ( 2 * this.a * x ) + this.b; // first derivative
     }
 
     /**
