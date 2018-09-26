@@ -11,9 +11,6 @@ all: Center equation on tangent that is half the distance between vertex.x and e
 
 BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-FD: vertex manipulator will disappear when h or k is at max.
-  E.g. h=6,k=-1, then drag focus manipulator up and down until vertex disappears,
-  vertex.x will be 6.000000000000001, outside of hRange.
 #22 point tools problems
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
