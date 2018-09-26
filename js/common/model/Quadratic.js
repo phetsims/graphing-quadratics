@@ -239,27 +239,31 @@ define( require => {
       return ( Math.abs( this.solveY( point.x ) - point.y ) < EPSILON );
     }
 
+    // TODO #22, math does not work well for cases of -1 < a < 1
     /**
      * Gets the point on this quadratic that is closest to a specified point.
+     * See http://mathworld.wolfram.com/Point-QuadraticDistance.html
      * @param {Vector2} point
      * @returns {Vector2}
      * @public
      */
     getClosestPoint( point ) {
 
-      // http://mathworld.wolfram.com/Point-QuadraticDistance.html
-      // TODO #22, math does not work well for cases of -1 < a < 1
+      // to improve readability
       const x = point.x;
       const y = point.y;
       const a = this.a; // a2
       const b = this.b; // a1
       const c = this.c; // a0
+
+      //TODO use solveRoots here?
       const roots = Util.solveCubicRootsReal(
         2 * a * a,
         3 * a * b,
-        b * b + 2 * a * c - 2 * a * y + 1/2, // should be 1 not 1/2
+        b * b + 2 * a * c - 2 * a * y + 1/2, //TODO should be 1 not 1/2
         b * c - b * y - x
       );
+
       let rootPoint;
       let nearestPoint = new Vector2( roots[ 0 ], this.solveY( roots[ 0 ] ) );
       for ( let i = 1; i < roots.length; i ++ ) {
@@ -268,6 +272,7 @@ define( require => {
           nearestPoint = rootPoint;
         }
       }
+
       return nearestPoint;
     }
   }
