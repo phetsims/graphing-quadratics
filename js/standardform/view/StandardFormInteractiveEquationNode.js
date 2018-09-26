@@ -45,7 +45,8 @@ define( require => {
       const numberPickerOptions = {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
         color: GQColors.STANDARD_FORM_INTERACTIVE_CURVE,
-        xMargin: 5
+        xMargin: 5,
+        touchAreaXDilation: GQConstants.PICKER_TOUCH_AREA_X_DILATION
       };
       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
         _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_A } ) );
