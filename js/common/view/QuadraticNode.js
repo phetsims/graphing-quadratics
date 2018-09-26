@@ -16,6 +16,10 @@ define( require => {
   const Path = require( 'SCENERY/nodes/Path' );
   const QuadraticEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/QuadraticEquationFactory' );
   const Shape = require( 'KITE/Shape' );
+  
+  // constants
+  const EQUATION_MARGIN = 1; // distance between equation and edge of graph, in model coordinate frame
+  const EQUATION_SPACING = 4; // space between equation and line, in view coordinate frame
 
   class QuadraticNode extends Node {
 
@@ -49,7 +53,8 @@ define( require => {
       } );
       this.addChild( this.quadraticPath );
 
-      // makes positioning and rotating the equation a little easier to grok
+      // Makes positioning and rotating the equation a little easier to grok.
+      // equationParent will be rotated and translated, equationNode will be translated to adjusts spacing.
       const equationParent = new Node();
       this.addChild( equationParent );
 
@@ -77,41 +82,57 @@ define( require => {
         equationParent.addChild( equationNode );
 
         // Position the equation.
-        // We'll be referring to the 4 quadrants of a 2D graph, numbered like so:
-        //
-        // 2 | 1
-        // -----
-        // 3 | 4
-        //
-        const equationMargin = 1; // distance from edge of graph, in model coordinate frame
         if ( quadratic.a === 0 ) {
 
-          // straight line, equation above left end of line, in graph quadrants 2 or 3
-          let x = xRange.min + equationMargin;
+          // straight line: equation above left end of line, in graph quadrants 2 or 3
+          let x = xRange.min + EQUATION_MARGIN;
           let y = quadratic.solveY( x );
-          if ( ( y > yRange.max - equationMargin ) || ( y < yRange.min + equationMargin ) ) {
+          if ( ( y > yRange.max - EQUATION_MARGIN ) || ( y < yRange.min + EQUATION_MARGIN ) ) {
             // y is off the graph, compute x
-            y = ( y > yRange.max - equationMargin ) ? ( yRange.max - equationMargin ) : ( yRange.min + equationMargin );
-            x = ( y - quadratic.c ) / quadratic.b; // y = bx + c => x = (y-c)/b
+            y = ( y > yRange.max - EQUATION_MARGIN ) ? ( yRange.max - EQUATION_MARGIN ) : ( yRange.min + EQUATION_MARGIN );
+            const xValues = quadratic.solveX( y );
+            assert && assert( xValues && xValues.length === 1, 'unexpected xValues: ' + xValues );
+            x = xValues[ 0 ];
           }
-          equationParent.rotation = -Math.atan( quadratic.b ); // rotate to match line's slope
+
+          // rotate to match line's slope
+          equationParent.rotation = -Math.atan( quadratic.b );
+          
+          // move equation to (x,y)
           equationParent.translation = modelViewTransform.modelToViewXY( x, y );
-          equationNode.bottom = -4;
+          
+          // space between line and equation
+          equationNode.bottom = -EQUATION_SPACING;
         }
         else {
 
-          // parabola, equation on outside, parallel to tangent
-          //TODO choose x based on where we want the equation to appear
-          const x = ( quadratic.vertex.x >= 0 ) ? ( quadratic.vertex.x - 2 ) : ( quadratic.vertex.x + 2 );
-          const y = quadratic.solveY( x );
-          const tangentSlope = 2 * quadratic.a * x + quadratic.b;
-          equationParent.rotation = -Math.atan( tangentSlope ); // rotate to match tangent's slope
+          // parabola: equation on outside of parabola, parallel to tangent, at edges of graph
+          let x = ( quadratic.vertex.x >= 0 ) ? ( xRange.min + EQUATION_MARGIN ) : ( xRange.max - EQUATION_MARGIN );
+          let y = quadratic.solveY( x );
+          if ( ( y > yRange.max - EQUATION_MARGIN ) || ( y < yRange.min + EQUATION_MARGIN ) ) {
+            // y is off the graph, compute x
+            y = ( y > yRange.max - EQUATION_MARGIN ) ? ( yRange.max - EQUATION_MARGIN ) : ( yRange.min + EQUATION_MARGIN );
+            const xValues = quadratic.solveX( y ).sort();
+            assert && assert( xValues && xValues.length === 2, 'unexpected xValues: ' + xValues );
+            x = ( quadratic.vertex.x >= 0 ) ? xValues[ 0 ] : xValues[ 1 ];
+          }
+
+          // rotate to match tangent's slope
+          equationParent.rotation = -Math.atan( quadratic.getTangentSlope( x ) );
+
+          // move equation to (x,y)
+          if ( x > quadratic.vertex.x) {
+            // when equation is on the right side, move it's origin to the right end of the equation
+             equationNode.right = 0;
+          }
           equationParent.translation = modelViewTransform.modelToViewXY( x, y );
+          
+          // space between line and equation
           if ( quadratic.a >= 0 ) {
-            equationNode.top = 4;
+            equationNode.top = EQUATION_SPACING;
           }
           else {
-            equationNode.bottom = -4;
+            equationNode.bottom = -EQUATION_SPACING;
           }
         }
       } );
