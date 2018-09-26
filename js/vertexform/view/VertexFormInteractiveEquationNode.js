@@ -62,8 +62,7 @@ define( require => {
       const openParenthesisText = new RichText( '(', richTextOptions );
       const xText = new RichText( GQSymbols.x, richTextOptions );
       const minusText = new RichText( MathSymbols.MINUS, richTextOptions );
-      const closeParenthesisAndSquaredText = new RichText( ')', richTextOptions );
-      const exponentText = new RichText( '<sup>2</sup>', richTextOptions );
+      const parenSquaredText = new RichText( ')<sup>2</sup>', richTextOptions );
       const plusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
       assert && assert( !options.children, 'VertexFormInteractiveEquationNode sets children' );
@@ -75,8 +74,7 @@ define( require => {
         xText,
         minusText,
         hNumberPicker,
-        closeParenthesisAndSquaredText,
-        exponentText,
+        parenSquaredText,
         plusText,
         kNumberPicker
       ];
@@ -84,16 +82,17 @@ define( require => {
       super( options );
 
       // equation layout, spacing determined empirically
-      equalToText.left = yText.right + 10;
-      aNumberPicker.left = equalToText.right + 10;
-      openParenthesisText.left = aNumberPicker.right + 5;
-      xText.left = openParenthesisText.right + 5;
-      minusText.left = xText.right + 10;
-      hNumberPicker.left = minusText.right + 10;
-      closeParenthesisAndSquaredText.left = hNumberPicker.right + 5;
-      exponentText.left = closeParenthesisAndSquaredText.right + 5;
-      plusText.left = exponentText.right + 10;
-      kNumberPicker.left = plusText.right + 10;
+      const spacing = 10;
+      const pickerSpacing = 6; // space to right of picker
+      equalToText.left = yText.right + spacing;
+      aNumberPicker.left = equalToText.right + spacing;
+      openParenthesisText.left = aNumberPicker.right + pickerSpacing;
+      xText.left = openParenthesisText.right + pickerSpacing;
+      minusText.left = xText.right + spacing;
+      hNumberPicker.left = minusText.right + spacing;
+      parenSquaredText.left = hNumberPicker.right + pickerSpacing;
+      plusText.left = parenSquaredText.right + spacing;
+      kNumberPicker.left = plusText.right + spacing;
 
       // vertically center pickers on equals
       aNumberPicker.centerY = equalToText.centerY;

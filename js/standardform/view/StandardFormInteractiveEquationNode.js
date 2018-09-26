@@ -73,14 +73,16 @@ define( require => {
       super ( options );
 
       // equation layout, spacing determined empirically
-      equalToText.left = yText.right + 10;
-      aNumberPicker.left = equalToText.right + 10;
-      xSquaredText.left = aNumberPicker.right + 10;
-      plusText.left = xSquaredText.right + 10;
-      bNumberPicker.left = plusText.right + 10;
-      xText.left = bNumberPicker.right + 10;
-      secondPlusText.left = xText.right + 10;
-      cNumberPicker.left = secondPlusText.right + 10;
+      const spacing = 10;
+      const pickerSpacing = 6; // space to right of picker
+      equalToText.left = yText.right + spacing;
+      aNumberPicker.left = equalToText.right + spacing;
+      xSquaredText.left = aNumberPicker.right + pickerSpacing;
+      plusText.left = xSquaredText.right + spacing;
+      bNumberPicker.left = plusText.right + spacing;
+      xText.left = bNumberPicker.right + pickerSpacing;
+      secondPlusText.left = xText.right + spacing;
+      cNumberPicker.left = secondPlusText.right + spacing;
 
       // vertically center pickers on equals
       aNumberPicker.centerY = equalToText.centerY;
