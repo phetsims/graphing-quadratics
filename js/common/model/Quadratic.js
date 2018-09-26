@@ -287,24 +287,39 @@ define( require => {
     }
 
     /**
-     * Given x, find the closest (x,y) point on the parabola that is in range.
+     * Given x, find the closest (x,y) point on the quadratic that is in range.
      * @param {number} x
      * @param {Range} xRange
      * @param {Range} yRange
      * @returns {Vector2}
      */
     getClosestPointInRange( x, xRange, yRange ) {
-      assert && assert( this.vertex !== undefined, 'unsupported for non-parabola' );
+
+      // constrain x and solve for y
       x = xRange.constrainValue( x );
       let y = this.solveY( x );
+
       if ( !yRange.contains( y ) ) {
+
         // y is outside range, constrain y and solve for x
         y = yRange.constrainValue( y );
         const xValues = this.solveX( y );
-        assert && assert( xValues.length === 2, 'unexpected number of xValues: ' + xValues );
-        assert && assert( xValues[ 0 ] < xValues[ 1 ], 'unexpected order of xValues: ' + xValues );
-        x = ( x < this.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
+
+        if ( this.a !== 0 ) {
+
+          // parabola
+          assert && assert( xValues.length === 2, 'unexpected number of xValues: ' + xValues );
+          assert && assert( xValues[ 0 ] < xValues[ 1 ], 'unexpected order of xValues: ' + xValues );
+          x = ( x < this.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
+        }
+        else {
+
+          //straight line
+          assert && assert( xValues.length === 1, 'unexpected number of xValues: ' + xValues );
+          x = xValues[ 0 ];
+        }
       }
+
       return new Vector2( x, y );
     }
   }
