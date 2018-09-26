@@ -22,11 +22,10 @@ define( require => {
 
     /**
      * @param {GQModel} model
-     * @param {BooleanProperty} graphContentsVisibleProperty
-     * @param {string} equationForm
+     * @param {GQViewProperties} viewProperties
      * @param {Object} [options]
      */
-    constructor( model, graphContentsVisibleProperty, equationForm, options ) {
+    constructor( model, viewProperties, options ) {
 
       options = _.extend( {
         specialLines: [], // {Nodes[]}
@@ -40,7 +39,12 @@ define( require => {
 
       // Interactive quadratic curve
       const interactiveQuadraticNode = new QuadraticNode(
-        model.quadraticProperty, model.graph.xRange, model.graph.yRange, model.modelViewTransform, equationForm, {
+        model.quadraticProperty,
+        model.graph.xRange,
+        model.graph.yRange,
+        model.modelViewTransform,
+        viewProperties.equationForm,
+        viewProperties.equationsVisibleProperty, {
           lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
         } );
 
@@ -78,7 +82,12 @@ define( require => {
 
         // Node for the saved quadratic
         const savedQuadraticNode = new QuadraticNode(
-          new Property( savedQuadratic ), model.graph.xRange, model.graph.yRange, model.modelViewTransform, equationForm, {
+          new Property( savedQuadratic ),
+          model.graph.xRange,
+          model.graph.yRange,
+          model.modelViewTransform,
+          viewProperties.equationForm,
+          viewProperties.equationsVisibleProperty, {
             lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
           } );
         savedQuadraticsLayer.addChild( savedQuadraticNode );
@@ -94,7 +103,7 @@ define( require => {
       } );
 
       // Show/hide the graph content
-      graphContentsVisibleProperty.link( visible => { contentParent.visible = visible; } );
+      viewProperties.graphContentsVisibleProperty.link( visible => { contentParent.visible = visible; } );
     }
   }
 

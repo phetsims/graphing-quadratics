@@ -36,6 +36,7 @@ define( require => {
         model.graph.yRange,
         model.modelViewTransform,
         viewProperties.equationForm,
+        viewProperties.equationsVisibleProperty,
         termNodeOptions );
       viewProperties.constantTermVisibleProperty.link( visible => { constantTermNode.visible = visible; } );
 
@@ -46,6 +47,7 @@ define( require => {
         model.graph.yRange,
         model.modelViewTransform,
         viewProperties.equationForm,
+        viewProperties.equationsVisibleProperty,
         termNodeOptions );
       viewProperties.linearTermVisibleProperty.link( visible => { linearTermNode.visible = visible; } );
 
@@ -56,13 +58,14 @@ define( require => {
         model.graph.yRange,
         model.modelViewTransform,
         viewProperties.equationForm,
+        viewProperties.equationsVisibleProperty,
         termNodeOptions );
       viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermNode.visible = visible; } );
 
       assert && assert( !options.specialLines, 'ExploreGraphNode sets specialLines' );
       options.specialLines = [ constantTermNode, linearTermNode, quadraticTermNode ];
 
-      super( model, viewProperties.graphContentsVisibleProperty, viewProperties.equationForm, options );
+      super( model, viewProperties, options );
     }
   }
 

@@ -29,9 +29,11 @@ define( require => {
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
      * @param {string} equationForm - form of the equation displayed on the line, see GQConstants.EQUATION_FORMS
+     * @param {BooleanProperty} equationsVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, xRange, yRange, modelViewTransform, equationForm, options ) {
+    constructor( quadraticProperty, xRange, yRange, modelViewTransform, equationForm,
+                 equationsVisibleProperty, options ) {
 
       assert && assert( GQConstants.EQUATION_FORMS.includes( equationForm ),
         'invalid equationForm: ' + equationForm );
@@ -137,6 +139,8 @@ define( require => {
           }
         }
       } );
+      
+      equationsVisibleProperty.link( visible => { equationParent.visible = visible; } );
     }
   }
 
