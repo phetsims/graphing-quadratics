@@ -23,7 +23,7 @@ define( require => {
       } );
 
       // @public whether the vertex manipulator is visible
-      this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      this.vertexVisibleProperty = new BooleanProperty( true );
 
       // @public whether the axis of symmetry is visible
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
