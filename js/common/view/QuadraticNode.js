@@ -112,8 +112,9 @@ define( require => {
           if ( ( y > yRange.max - EQUATION_MARGIN ) || ( y < yRange.min + EQUATION_MARGIN ) ) {
             // y is off the graph, compute x
             y = ( y > yRange.max - EQUATION_MARGIN ) ? ( yRange.max - EQUATION_MARGIN ) : ( yRange.min + EQUATION_MARGIN );
-            const xValues = quadratic.solveX( y ).sort();
+            const xValues = quadratic.solveX( y );
             assert && assert( xValues && xValues.length === 2, 'unexpected xValues: ' + xValues );
+            assert && assert( xValues[ 0 ] < xValues[ 1 ], 'unexpected order of xValues: ' + xValues );
             x = ( quadratic.vertex.x >= 0 ) ? xValues[ 0 ] : xValues[ 1 ];
           }
 

@@ -170,7 +170,7 @@ define( require => {
     }
 
     /**
-     * Given y, solve for x.
+     * Given y, solve for x.  If there is more than on solution, they will be in ascending order.
      * @param {number} y
      * @returns {number[]} - one or more solutions
      * @public
@@ -184,7 +184,7 @@ define( require => {
         const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
         const x0 = this.h - commonTerm;
         const x1 = this.h + commonTerm;
-        return [ x0, x1 ];
+        return [ x0, x1 ].sort( ( x0, x1 ) => x0 - x1 );
       }
       else {
         // For a straight line, use slope-intercept form.
@@ -289,6 +289,7 @@ define( require => {
 
   /**
    * Returns the real roots of the quadratic y = ax^2 + bx + c.
+   * If there is more than one roots, they will be in ascending order of x coordinate.
    * @param {number} a
    * @param {number} b
    * @param {number} c
