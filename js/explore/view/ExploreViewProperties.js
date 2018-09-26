@@ -11,6 +11,7 @@ define( require => {
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
 
   class ExploreViewProperties extends GQViewProperties {
@@ -23,13 +24,13 @@ define( require => {
       this.termsAccordionBoxExpandedProperty = new BooleanProperty( true );
 
       // @public whether the quadratic term (y=ax^2) is displayed on the graph
-      this.quadraticTermVisibleProperty = new BooleanProperty( false );
+      this.quadraticTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
 
       // @public whether the linear term (y=bx) is displayed on the graph
-      this.linearTermVisibleProperty = new BooleanProperty( false );
+      this.linearTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
 
       // @public whether the constant term (y=c) is displayed on the graph
-      this.constantTermVisibleProperty = new BooleanProperty( false );
+      this.constantTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
     }
 
     /**

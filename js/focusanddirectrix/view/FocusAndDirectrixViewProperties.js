@@ -11,6 +11,7 @@ define( require => {
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
 
   class FocusAndDirectrixViewProperties extends GQViewProperties {
@@ -19,7 +20,7 @@ define( require => {
 
       super( {
         equationForm: 'vertex',
-        coordinatesVisible: false
+        coordinatesVisible: GQQueryParameters.checkAll
       } );
 
       // @public whether a point is displayed to mark the vertex of the quadratic
@@ -32,7 +33,7 @@ define( require => {
       this.directrixVisibleProperty = new BooleanProperty( true );
 
       // @public whether an interactive point is visible on the quadratic
-      this.pointOnQuadraticVisibleProperty = new BooleanProperty( false );
+      this.pointOnQuadraticVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
     }
 
     /**

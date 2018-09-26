@@ -11,6 +11,7 @@ define( require => {
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
 
   class StandardFormViewProperties extends GQViewProperties {
@@ -20,13 +21,13 @@ define( require => {
       super();
 
       // @public whether the vertex point is visible
-      this.vertexVisibleProperty = new BooleanProperty( false );
+      this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
 
       // @public whether the axis of symmetry is visible
-      this.axisOfSymmetryVisibleProperty = new BooleanProperty( false );
+      this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
 
       // @public whether the roots of the quadratic are visible
-      this.rootsVisibleProperty = new BooleanProperty( false );
+      this.rootsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
     }
 
     /**
