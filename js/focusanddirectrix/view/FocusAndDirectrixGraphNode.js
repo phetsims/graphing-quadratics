@@ -79,10 +79,10 @@ define( require => {
         viewProperties.directrixVisibleProperty );
 
       assert && assert( !options.specialLines, 'FocusAndDirectrixGraphNode sets specialLines' );
-      options.specialLines = [ directrixNode, pointOnQuadraticLinesNode ];
+      options.specialLines = [ directrixNode, pointOnQuadraticLinesNode ]; // rendered in this order
 
       assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
-      options.decorations = [ vertexManipulator, focusNode, pointOnQuadraticManipulator ];
+      options.decorations = [ vertexManipulator, focusNode, pointOnQuadraticManipulator ]; // rendered in this order
 
       super( model, viewProperties, options );
     }

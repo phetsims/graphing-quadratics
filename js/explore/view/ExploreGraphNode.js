@@ -63,7 +63,7 @@ define( require => {
       viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermNode.visible = visible; } );
 
       assert && assert( !options.specialLines, 'ExploreGraphNode sets specialLines' );
-      options.specialLines = [ constantTermNode, linearTermNode, quadraticTermNode ];
+      options.specialLines = [ constantTermNode, linearTermNode, quadraticTermNode ]; // rendered in this order
 
       super( model, viewProperties, options );
     }

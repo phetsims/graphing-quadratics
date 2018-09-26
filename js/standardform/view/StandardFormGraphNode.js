@@ -73,7 +73,7 @@ define( require => {
       options.specialLines = [ axisOfSymmetryNode ];
 
       assert && assert( !options.decorations, 'StandardFormGraphNode sets decorations' );
-      options.decorations = [ rootsNode, vertexNode, noRealRootsNode ];
+      options.decorations = [ rootsNode, vertexNode, noRealRootsNode ]; // rendered in this order
 
       super( model, viewProperties, options );
     }

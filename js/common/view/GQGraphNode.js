@@ -28,8 +28,8 @@ define( require => {
     constructor( model, viewProperties, options ) {
 
       options = _.extend( {
-        specialLines: [], // {Nodes[]}
-        decorations: [] // {Node[]},
+        specialLines: [], // {Nodes[]}, rendered in the order provided
+        decorations: [] // {Node[]}, rendered in the order provided
       }, options );
 
       super( options );
