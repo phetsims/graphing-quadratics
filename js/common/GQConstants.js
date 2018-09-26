@@ -87,7 +87,10 @@ define( require => {
     EXPLORE_INTERVAL_C: 0.1,
     FOCUS_AND_DIRECTRIX_INTERVAL_P: 0.1,
     FOCUS_AND_DIRECTRIX_INTERVAL_H: 0.1,
-    FOCUS_AND_DIRECTRIX_INTERVAL_K: 0.1
+    FOCUS_AND_DIRECTRIX_INTERVAL_K: 0.1,
+
+    // enums
+    EQUATION_FORMS: [ 'standard', 'vertex' ]
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );

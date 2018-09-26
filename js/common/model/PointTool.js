@@ -14,6 +14,9 @@ define( require => {
   var Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  // constants
+  const ORIENTATIONS = [ 'right', 'left' ];
+
   class PointTool {
 
     /**
@@ -24,11 +27,11 @@ define( require => {
 
       options = _.extend( {
         location: Vector2.ZERO, // {Vector2} initial location
-        orientation: 'left', // {string} which side the probe is on, 'left' or 'right'
+        orientation: 'left', // {string} which side the probe is on, see ORIENTATIONS
         dragBounds: null // {Bounds2|null} drag bounds in model coordinate frame
       }, options );
 
-      assert && assert( [ 'right', 'left' ].includes( options.orientation ),
+      assert && assert( ORIENTATIONS.includes( options.orientation ),
         'invalid orientation: ' + options.orientation );
 
       var self = this;

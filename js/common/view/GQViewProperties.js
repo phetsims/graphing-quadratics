@@ -10,6 +10,7 @@ define( require => {
 
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
   /**
@@ -20,14 +21,14 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
-        equationForm: 'standard',
+        equationForm: 'standard', // see GQConstants.EQUATION_FORMS
         graphContentsVisible: true,
         equationsVisible: true,
         coordinatesVisible: true,
         equationAccordionBoxExpanded: true
       }, options );
 
-      assert && assert( options.equationForm === 'standard' || options.equationForm === 'vertex',
+      assert && assert( GQConstants.EQUATION_FORMS.includes( options.equationForm ),
         'invalid equationForm: ' + options.equationForm );
 
       // @public form of equations used to label lines

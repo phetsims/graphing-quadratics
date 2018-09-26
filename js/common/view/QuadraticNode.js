@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Draws a quadratic curve.
+ * Draws a quadratic curve, labeled with an equation.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -10,6 +10,7 @@ define( require => {
   'use strict';
 
   // modules
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
@@ -23,12 +24,12 @@ define( require => {
      * @param {Range} xRange - range of the graph's x axis
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {string} equationForm - form of the equation displayed on the line, 'standard' or 'vertex'
+     * @param {string} equationForm - form of the equation displayed on the line, see GQConstants.EQUATION_FORMS
      * @param {Object} [options]
      */
     constructor( quadraticProperty, xRange, yRange, modelViewTransform, equationForm, options ) {
 
-      assert && assert( equationForm === 'standard' || equationForm === 'vertex',
+      assert && assert( GQConstants.EQUATION_FORMS.includes( equationForm ),
         'invalid equationForm: ' + equationForm );
 
       options = _.extend( {
