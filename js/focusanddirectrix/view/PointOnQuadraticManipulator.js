@@ -114,8 +114,8 @@ define( require => {
           x = xRange.constrainValue( x );
           let y = quadraticProperty.value.solveY( x );
           if ( !yRange.contains( y ) ) {
-            // y is off the graph, solve for x
-            y = ( y > yRange.max ) ? yRange.max : yRange.min;
+            // y is off the graph, constrain y and solve for x
+            y = yRange.constrainValue( y );
             const xValues = quadraticProperty.value.solveX( y );
             x = ( x < quadraticProperty.value.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
           }
