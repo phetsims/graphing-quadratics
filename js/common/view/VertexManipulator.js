@@ -98,6 +98,9 @@ define( require => {
       // visibility
       Property.multilink( [ vertexVisibleProperty, vertexProperty ], ( vertexVisible, vertex ) => {
         this.visible = !!( vertexVisible && vertex && xRange.contains( vertex.x ) && yRange.contains( vertex.y ) );
+        if ( !this.visible ) {
+          console.log( 'vertex=' + vertex );//XXX
+        }
       } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
