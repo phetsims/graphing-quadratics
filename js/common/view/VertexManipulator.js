@@ -29,14 +29,15 @@ define( require => {
     /**
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Range} xRange - range of the graph's x axis
-     * @param {Range} yRange - range of the graph's y axis
+     * @param {Graph} graph
+     * @param {Range} hRange
+     * @param {Range} kRange
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, xRange, yRange, modelViewTransform,
+    constructor( radius, quadraticProperty, graph, hRange, kRange, modelViewTransform,
                  vertexVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
@@ -97,13 +98,13 @@ define( require => {
 
       // visibility
       Property.multilink( [ vertexVisibleProperty, vertexProperty ], ( vertexVisible, vertex ) => {
-        this.visible = !!( vertexVisible && vertex && xRange.contains( vertex.x ) && yRange.contains( vertex.y ) );
+        this.visible = !!( vertexVisible && vertex && graph.contains( vertex ) );
       } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
       this.addInputListener( new VertexDragHandler( vertexProperty, modelViewTransform,
-        new Bounds2( xRange.min, yRange.min, xRange.max, yRange.max ) ) );
+        new Bounds2( hRange.min, kRange.min, hRange.max, kRange.max ) ) );
     }
   }
 

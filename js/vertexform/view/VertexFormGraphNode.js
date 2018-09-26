@@ -38,6 +38,7 @@ define( require => {
       const vertexManipulator = new VertexManipulator(
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
         model.quadraticProperty,
+        model.graph,
         model.hRange,
         model.kRange,
         model.modelViewTransform,
