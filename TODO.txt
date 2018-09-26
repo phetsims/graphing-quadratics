@@ -5,6 +5,8 @@ DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 FD: 1/4p is in a slightly smaller font, OK?
 VF,FD: (x)^2 when h=0 looks odd for vertex form equations
 FD: feels odd that focus and point are continuous, but vertex snaps to grid
+all: you don't see anything when you click the save button
+E: initial state (a=1,b=0,c=0) means you won't see anything when you check term checkboxes
 
 BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
