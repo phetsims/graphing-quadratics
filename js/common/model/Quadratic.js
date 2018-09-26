@@ -216,6 +216,7 @@ define( require => {
       return this.a * x * x + this.b * x + this.c;
     }
 
+    //TODO delete if unused
     /**
      * Given y, solve the quadratic for x. There will be 2 solutions.
      * @param {number} y
