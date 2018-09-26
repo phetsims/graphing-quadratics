@@ -110,7 +110,8 @@ define( require => {
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let x = modelViewTransform.viewToModelPosition( parentPoint ).x;
 
-          //TODO constrain to graph bounds
+          // constrain to graph bounds
+          x = xRange.constrainValue( x );
 
           // update model
           pointOnQuadraticProperty.value = new Vector2( x, quadraticProperty.value.solveY( x ) );
