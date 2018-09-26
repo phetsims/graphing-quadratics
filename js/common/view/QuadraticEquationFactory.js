@@ -28,7 +28,6 @@ define( require => {
      * @param {Quadratic} quadratic
      * @param {Object} [options]
      * @public
-     * @static
      */
     createStandardForm: function( quadratic, options ) {
 
@@ -177,7 +176,6 @@ define( require => {
      * @param {Quadratic} quadratic
      * @param {Object} [options]
      * @public
-     * @static
      */
     createVertexForm: function( quadratic, options ) {
 
