@@ -192,21 +192,18 @@ define( require => {
      * Gets the control points for the Bezier curve that describes this quadratic.
      * See https://github.com/phetsims/graphing-quadratics/issues/1
      * @param {Range} xRange - range of the graph's x axis
-     * @returns {Object}
+     * @returns {startPoint:Vector2, controlPoint:Vector2, endPoint:Vector2}
      * @public
      */
     getControlPoints( xRange ) {
 
-      const a = this.a;
-      const b = this.b;
-      const c = this.c;
       const minX = xRange.min;
       const maxX = xRange.max;
-      const range = xRange.getLength();
+      const length = xRange.getLength();
 
-      const aPrime = a * range * range;
-      const bPrime = 2 * a * minX * range + b * range;
-      const cPrime = a * minX * minX + b * minX + c;
+      const aPrime = this.a * length * length;
+      const bPrime = ( 2 * this.a * minX * length ) + ( this.b * length );
+      const cPrime = ( this.a * minX * minX ) + ( this.b * minX ) + this.c;
 
       const startPoint = new Vector2( minX, cPrime );
       const controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
