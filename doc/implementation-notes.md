@@ -1,4 +1,4 @@
-# Function Builder - implementation notes
+# Graphing Quadratics - implementation notes
 
 ## Memory management 
 
