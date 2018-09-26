@@ -15,7 +15,6 @@ BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Wire up equationsVisibleProperty to equations
 SF: Hide roots if they are off the graph
 FD: constrain point to graph
 FD: drag motion of point is based on pointer's x location and feels a bit odd
