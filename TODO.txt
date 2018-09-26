@@ -15,6 +15,8 @@ BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+SF: Factor out Equation inner class in StandardFormInteractiveEquationNode, use HBox
+VF: Factor out Equation inner class in VertexFormInteractiveEquationNode, use HBox
 SF: Hide roots if they are off the graph
 E: Make terms available to point tools
 
