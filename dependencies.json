@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.0.0-dev.13 Mon Sep 24 2018 13:37:01 GMT-0600 (MDT)",
+  "comment": "# graphing-quadratics 1.0.0-dev.14 Wed Sep 26 2018 12:50:40 GMT-0600 (MDT)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "master"
@@ -13,7 +13,7 @@
     "branch": "master"
   },
   "chipper": {
-    "sha": "2852e1dcaf5d7dae607f0c64cf31648ac70f0667",
+    "sha": "ed169ed354d4dbc2b39ae105c146562b2bb7d97d",
     "branch": "master"
   },
   "dot": {
@@ -21,19 +21,19 @@
     "branch": "master"
   },
   "graphing-lines": {
-    "sha": "5366246c12d8a5d1d4915c8ab4c30194228ab45d",
+    "sha": "5951626b41bd9fd9f62502ac84d111bead7a9741",
     "branch": "master"
   },
   "graphing-quadratics": {
-    "sha": "0f4805953337a65d459ecf34b2a24b346369ee61",
+    "sha": "d5a18eee8cade607dcb2e4875a72690e5e6c89cf",
     "branch": "master"
   },
   "joist": {
-    "sha": "dbbb3729a41d6dcc75b25f5bc19b1a41a128636a",
+    "sha": "63cb9a24d7f3505dcdd3fb570d9fbc7afb9aaa49",
     "branch": "master"
   },
   "kite": {
-    "sha": "a1257832086a0c271c355d3e9881734ff5c0ef59",
+    "sha": "380cef530ae6a8ae4aa644ff4f09baf85326ad9f",
     "branch": "master"
   },
   "phet-core": {
@@ -41,7 +41,7 @@
     "branch": "master"
   },
   "phet-io": {
-    "sha": "1d58d234bcad9c9856e8523caf89cdcbbdce1619",
+    "sha": "6ca09f9fdae452f660f3088e1bd02e271fc6caa5",
     "branch": "master"
   },
   "phet-io-wrapper-classroom-activity": {
@@ -57,7 +57,7 @@
     "branch": "master"
   },
   "phet-io-wrappers": {
-    "sha": "94db51bf7b7dc2fe44391cffd4fca149d8d8b55b",
+    "sha": "a769fb9ec7b79dee77cc8a1fad4c66d8e125fc21",
     "branch": "master"
   },
   "phetcommon": {
@@ -69,15 +69,15 @@
     "branch": "master"
   },
   "scenery": {
-    "sha": "2194c0ddd08631b43757ee1d1d0e7612d8fb288d",
+    "sha": "ae065e811da00c1fb2cc85ea572248e722ac9536",
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "7219ef4d75207c2892d8598644969d67531fe6e2",
+    "sha": "91019cca04d99e2dc3695371e4d31b690218885c",
     "branch": "master"
   },
   "sherpa": {
-    "sha": "f73d2e09d1969e7c42d284acf4cb7d7269efa7e0",
+    "sha": "c6a137d3ca118fcdce1e18fa0db8c1067d88694a",
     "branch": "master"
   },
   "sun": {
@@ -85,11 +85,11 @@
     "branch": "master"
   },
   "tambo": {
-    "sha": "caf14fbcfb5993b52ea716370e3dd1ae6811cfb4",
+    "sha": "afb95743eda90fc067cfb065f36ebae63a8a8393",
     "branch": "master"
   },
   "tandem": {
-    "sha": "1dd1ec012298224d743bfff82fef7d8d77f8983e",
+    "sha": "44745674750f5456fa9088540232eee853388e81",
     "branch": "master"
   }
 }
