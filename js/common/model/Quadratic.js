@@ -49,7 +49,7 @@ define( require => {
       this.color = options.color;
 
       // @public (read-only) {Vector2[]|null} null means that all points are roots (y = 0)
-      this.roots = Quadratic.solveRoots( a, b, c );
+      this.roots = solveRoots( a, b, c );
 
       // Strictly speaking, we don't have a quadratic if a === 0.
       // If that's the case, then the fields in this if block will be undefined.
@@ -72,31 +72,6 @@ define( require => {
     }
 
     /**
-     * Returns a string representation of this Quadratic. For debugging only, do not rely on format!
-     * @returns {string}
-     * @public
-     */
-    toString() {
-      return StringUtils.fillIn( 'Quadratic {{a}}x^2 + {{b}}x + {{c}}, color={{color}}', {
-        a: this.a,
-        b: this.b,
-        c: this.c,
-        color: this.color
-      } );
-    }
-
-    /**
-     * Tests whether this quadratic is equal to the given quadratic.
-     * @param {*} quadratic
-     * @returns {boolean}
-     * @public
-     */
-    equals( quadratic ) {
-      return ( quadratic instanceof Quadratic ) &&
-             ( this.a === quadratic.a ) && ( this.b === quadratic.b ) && ( this.c === quadratic.c );
-    }
-
-    /**
      * Returns a copy of this Quadratic with a specified color.
      * @param {Color|string} color
      * @returns {Quadratic}
@@ -107,7 +82,7 @@ define( require => {
     }
 
     /**
-     * Creates a quadratic given a, h, and k based on the equation y = a(x - h)^2 + k
+     * Creates a Quadratic based on the vertex form equation y = a(x - h)^2 + k
      * @param {number} a
      * @param {number} h
      * @param {number} k
@@ -128,8 +103,8 @@ define( require => {
     }
 
     /**
-     * Creates a quadratic given p, h, k, based on the equation y = (1/(4p))(x - h)^2 + k
-     * This is an alternate vertex form, where 1/4p is substituted for a.
+     * Creates a Quadratic based on the equation y = (1/(4p))(x - h)^2 + k
+     * This is an alternate vertex form, where 1/(4p) is substituted for a.
      * @param {number} p
      * @param {number} h
      * @param {number} k
@@ -143,22 +118,28 @@ define( require => {
     }
 
     /**
-     * Returns the real roots of the quadratic y = ax^2 + bx + c.
-     * @param {number} a
-     * @param {number} b
-     * @param {number} c
-     * @returns {Vector2[]|null} null means that all points are roots (y = 0)
-     * @private
+     * Returns a string representation of this Quadratic. For debugging only, do not rely on format!
+     * @returns {string}
+     * @public
      */
-    static solveRoots( a, b, c ) {
-      let roots = null;
-      const xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
-      if ( xCoordinates !== null ) {
-        roots = [];
-        _.uniq( xCoordinates ).forEach( x => { roots.push( new Vector2( x, 0 ) ); } );
-      }
-      assert && assert( roots === null || ( roots.length >= 0 && roots.length <= 2 ), 'unexpected roots: ' + roots );
-      return roots;
+    toString() {
+      return StringUtils.fillIn( 'Quadratic {{a}}x^2 + {{b}}x + {{c}}, color={{color}}', {
+        a: this.a,
+        b: this.b,
+        c: this.c,
+        color: this.color
+      } );
+    }
+
+    /**
+     * Tests whether this quadratic is equal to the given quadratic. Color is not significant.
+     * @param {*} quadratic
+     * @returns {boolean}
+     * @public
+     */
+    equals( quadratic ) {
+      return ( quadratic instanceof Quadratic ) &&
+             ( this.a === quadratic.a ) && ( this.b === quadratic.b ) && ( this.c === quadratic.c );
     }
 
     /**
@@ -189,6 +170,42 @@ define( require => {
     }
 
     /**
+     * Given y, solve for x.
+     * @param {number} y
+     * @returns {number[]} - one or more solutions
+     * @public
+     */
+    solveX( y ) {
+      if ( this.a !== 0 ) {
+
+        // For a parabola, use vertex form.
+        // y = a(x - h)^2 + k => x = h +- Math.sqrt((y - k)/a)
+        // This yields 2 solutions
+        const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
+        const x0 = this.h - commonTerm;
+        const x1 = this.h + commonTerm;
+        return [ x0, x1 ];
+      }
+      else {
+        // For a straight line, use slope-intercept form.
+        // y = bx + c => x = (y - c)/b
+        // This yields one solution.
+        const x0 = ( y - this.c ) / this.b;
+        return [ x0 ];
+      }
+    }
+
+    /**
+     * Given x, solve for y.
+     * @param {number} x
+     * @returns {number}
+     * @public
+     */
+    solveY( x ) {
+      return ( this.a * x * x ) + ( this.b * x ) + this.c; // y = ax^2 + bx + c
+    }
+
+    /**
      * Gets the control points for the Bezier curve that describes this quadratic.
      * See https://github.com/phetsims/graphing-quadratics/issues/1
      * @param {Range} xRange - range of the graph's x axis
@@ -210,42 +227,6 @@ define( require => {
       const endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
 
       return { startPoint, controlPoint, endPoint }; // caution! ES6 object shorthand
-    }
-
-    /**
-     * Given x, solve for y.
-     * @param {number} x
-     * @returns {number}
-     * @public
-     */
-    solveY( x ) {
-      return ( this.a * x * x ) + ( this.b * x ) + this.c; // y = ax^2 + bx + c
-    }
-
-    /**
-     * Given y, solve for x.
-     * @param {number} y
-     * @returns {number[]}
-     * @public
-     */
-    solveX( y ) {
-      if ( this.a !== 0 ) {
-
-        // For a parabola, use vertex form.
-        // y = a(x - h)^2 + k => x = h +- Math.sqrt((y - k)/a)
-        // This yields 2 solutions
-        const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
-        const x0 = this.h - commonTerm;
-        const x1 = this.h + commonTerm;
-        return [ x0, x1 ];
-      }
-      else {
-        // For a straight line, use slope-intercept form.
-        // y = bx + c => x = (y - c)/b
-        // This yields one solution.
-        const x0 = ( y - this.c ) / this.b;
-        return [ x0 ];
-      }
     }
 
     /**
@@ -289,6 +270,24 @@ define( require => {
       }
       return nearestPoint;
     }
+  }
+
+  /**
+   * Returns the real roots of the quadratic y = ax^2 + bx + c.
+   * @param {number} a
+   * @param {number} b
+   * @param {number} c
+   * @returns {Vector2[]|null} null means that all points are roots (y = 0)
+   */
+  function solveRoots( a, b, c ) {
+    let roots = null;
+    const xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
+    if ( xCoordinates !== null ) {
+      roots = [];
+      _.uniq( xCoordinates ).forEach( x => { roots.push( new Vector2( x, 0 ) ); } );
+    }
+    assert && assert( roots === null || ( roots.length >= 0 && roots.length <= 2 ), 'unexpected roots: ' + roots );
+    return roots;
   }
 
   return graphingQuadratics.register( 'Quadratic', Quadratic );
