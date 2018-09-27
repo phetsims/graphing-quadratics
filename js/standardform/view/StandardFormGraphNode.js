@@ -17,7 +17,7 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const RootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/RootsNode' );
   const Vector2 = require( 'DOT/Vector2' );
-  const VertexNode = require( 'GRAPHING_QUADRATICS/common/view/VertexNode' );
+  const VertexNode = require( 'GRAPHING_QUADRATICS/standardform/view/VertexNode' );
 
   class StandardFormGraphNode extends GQGraphNode {
 
