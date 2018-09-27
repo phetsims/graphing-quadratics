@@ -89,13 +89,15 @@ define( require => {
       super( options );
 
       Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
-        ( location, onQuadratic, curvesVisible ) => {
+        ( location, onQuadratic, graphContentsVisible ) => {
 
           // move to location
           this.translation = modelViewTransform.modelToViewPosition( location );
 
-          // update coordinates - (x, y) or (?, ?)
+          // is the point tool on the graph?
           const onGraph = graph.contains( location );
+
+          // update coordinates - (x, y) or (?, ?)
           coordinatesNode.text = StringUtils.fillIn( pointXYString, {
             x: onGraph ? Util.toFixedNumber( location.x, GQConstants.POINT_TOOL_DECIMALS ) : coordinateUnknownString,
             y: onGraph ? Util.toFixedNumber( location.y, GQConstants.POINT_TOOL_DECIMALS ) : coordinateUnknownString
@@ -111,7 +113,7 @@ define( require => {
           coordinatesNode.centerY = bodyNode.centerY;
 
           // updater colors
-          if ( onGraph && onQuadratic && curvesVisible ) {
+          if ( onGraph && onQuadratic && graphContentsVisible ) {
             coordinatesNode.fill = options.foregroundHighlightColor;
             backgroundNode.fill = onQuadratic.color;
           }
