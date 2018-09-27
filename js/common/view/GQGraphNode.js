@@ -45,7 +45,7 @@ define( require => {
         model.modelViewTransform,
         viewProperties.equationForm,
         viewProperties.equationsVisibleProperty, {
-          lineWidth: GQConstants.INTERACTIVE_CURVE_LINE_WIDTH
+          lineWidth: GQConstants.INTERACTIVE_LINE_WIDTH
         } );
 
       // Parent for saved quadratics
@@ -88,7 +88,7 @@ define( require => {
           model.modelViewTransform,
           viewProperties.equationForm,
           viewProperties.equationsVisibleProperty, {
-            lineWidth: GQConstants.SAVED_CURVE_LINE_WIDTH
+            lineWidth: GQConstants.SAVED_LINE_WIDTH
           } );
         savedQuadraticsLayer.addChild( savedQuadraticNode );
 
