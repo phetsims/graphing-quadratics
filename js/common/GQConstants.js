@@ -69,17 +69,21 @@ define( require => {
     QUADRATIC_TERMS_LINE_WIDTH: 2, // y = ax^2, y = bx, y = c
     AXIS_OF_SYMMETRY_LINE_WIDTH: 3,
     DIRECTRIX_LINE_WIDTH: 3,
-    POINT_ON_QUADRATIC_LINE_WIDTH: 3,
+    POINT_ON_QUADRATIC_LINE_WIDTH: 3, // lines that connect point to focus and directrix
 
     // line dashes
     AXIS_OF_SYMMETRY_LINE_DASH: [ 5, 5 ],
     DIRECTRIX_LINE_DASH: [ 5, 5 ],
-    POINT_ON_QUADRATIC_LINE_DASH: [ 5, 5 ],
+    POINT_ON_QUADRATIC_LINE_DASH: [ 5, 5 ], // lines that connect point to focus and directrix
 
     // decimal places
-    EQUATION_DECIMALS: 2,
-    POINT_DECIMALS: 2,
+    AXIS_OF_SYMMETRY_DECIMALS: 2,
+    DIRECTRIX_DECIMALS: 2,
+    FOCUS_DECIMALS: 2,
+    POINT_ON_QUADRATIC_DECIMALS: 2,
     POINT_TOOL_DECIMALS: 1,
+    ROOTS_DECIMALS: 2,
+    VERTEX_DECIMALS: 2,
 
     // slider intervals
     EXPLORE_INTERVAL_A: 0.01,

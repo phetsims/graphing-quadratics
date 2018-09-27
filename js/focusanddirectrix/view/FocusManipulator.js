@@ -58,7 +58,7 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( focusProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.FOCUS ).withAlpha( 0.75 ),
-        decimals: GQConstants.POINT_DECIMALS,
+        decimals: GQConstants.FOCUS_DECIMALS,
         pickable: false
       } );
       this.addChild( coordinatesNode );

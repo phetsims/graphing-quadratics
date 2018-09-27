@@ -44,7 +44,7 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( pointOnQuadraticProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.POINT_ON_QUADRATIC ).withAlpha( 0.75 ),
-        decimals: GQConstants.POINT_DECIMALS,
+        decimals: GQConstants.POINT_ON_QUADRATIC_DECIMALS,
         pickable: false
       } );
       this.addChild( coordinatesNode );

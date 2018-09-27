@@ -37,7 +37,7 @@ define( require => {
 
       options = _.extend( {
         color: GQColors.DIRECTRIX,
-        decimals: GQConstants.EQUATION_DECIMALS
+        decimals: GQConstants.DIRECTRIX_DECIMALS
       }, options );
 
       const path = new Path( null, {

@@ -37,7 +37,7 @@ define( require => {
 
       options = _.extend( {
         color: GQColors.AXIS_OF_SYMMETRY,
-        decimals: GQConstants.EQUATION_DECIMALS
+        decimals: GQConstants.AXIS_OF_SYMMETRY_DECIMALS
       }, options );
 
       const path = new Path( null, {

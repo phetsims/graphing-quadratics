@@ -53,7 +53,7 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
-        decimals: GQConstants.POINT_DECIMALS
+        decimals: GQConstants.VERTEX_DECIMALS
       } );
 
       assert && assert( !options.children, 'VertexNode sets children' );
