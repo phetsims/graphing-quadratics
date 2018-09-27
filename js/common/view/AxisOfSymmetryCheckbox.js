@@ -40,7 +40,7 @@ define( require => {
           } ),
 
           // vertical dashed line
-          new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[0], {
+          new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[ 0 ], {
             stroke: GQColors.AXIS_OF_SYMMETRY,
             lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
             lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH

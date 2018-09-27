@@ -17,7 +17,7 @@ define( require => {
   const QuadraticEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/QuadraticEquationFactory' );
   const Range = require( 'DOT/Range' );
   const Shape = require( 'KITE/Shape' );
-  
+
   // constants
   const EQUATION_MARGIN = 0.5; // distance between equation and edge of graph, in model coordinate frame
   const EQUATION_SPACING = 4; // space between equation and line, in view coordinate frame
@@ -97,10 +97,10 @@ define( require => {
 
           // rotate to match line's slope
           equationParent.rotation = -Math.atan( quadratic.b );
-          
+
           // move equation to (x,y)
           equationParent.translation = modelViewTransform.modelToViewPosition( p );
-          
+
           // space between line and equation
           equationNode.bottom = -EQUATION_SPACING;
         }
@@ -116,10 +116,10 @@ define( require => {
           // move equation to (x,y)
           if ( p.x > quadratic.vertex.x ) {
             // when equation is on the right side, move it's origin to the right end of the equation
-             equationNode.right = 0;
+            equationNode.right = 0;
           }
           equationParent.translation = modelViewTransform.modelToViewPosition( p );
-          
+
           // space between line and equation
           if ( quadratic.a >= 0 ) {
             equationNode.top = EQUATION_SPACING;
@@ -129,7 +129,7 @@ define( require => {
           }
         }
       } );
-      
+
       equationsVisibleProperty.link( visible => { equationParent.visible = visible; } );
     }
   }

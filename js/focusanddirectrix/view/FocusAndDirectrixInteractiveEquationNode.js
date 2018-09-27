@@ -225,7 +225,9 @@ define( require => {
 
     // @public Gets the global {Bounds2} of p, h, k, used for layout
     get pGlobalBounds() { return this.getGlobalBoundsForNode( this.pNode ); }
+
     get hGlobalBounds() { return this.getGlobalBoundsForNode( this.hNode ); }
+
     get kGlobalBounds() { return this.getGlobalBoundsForNode( this.kNode ); }
 
     // @private gets the global bounds of a descendent Node

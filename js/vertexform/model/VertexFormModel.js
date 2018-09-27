@@ -31,8 +31,8 @@ define( require => {
       assert && assert( !options.quadratic, 'VertexFormModel sets quadratic' );
       options.quadratic = Quadratic.createFromVertexForm(
         options.aRange.defaultValue, options.hRange.defaultValue, options.kRange.defaultValue, {
-        color: 'black'
-      } );
+          color: 'black'
+        } );
 
       super( options );
 

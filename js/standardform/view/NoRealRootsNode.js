@@ -25,22 +25,22 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( options ) {
-      
+
       const textNode = new Text( noRealRootsString, {
         font: new PhetFont( { size: 18, weight: 'bold' } ),
         fill: 'white'
       } );
-      
+
       const backgroundNode = new Rectangle( textNode.bounds.dilatedXY( 5, 1 ), {
         fill: GQColors.ROOTS,
         opacity: 0.75,
         cornerRadius: 4,
         center: textNode.center
       } );
-      
+
       assert && assert( !options.children, 'NoRealRootsNode sets children' );
       options.children = [ backgroundNode, textNode ];
-      
+
       super( options );
     }
   }

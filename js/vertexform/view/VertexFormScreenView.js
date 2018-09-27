@@ -16,7 +16,7 @@ define( require => {
   const VertexFormGraphNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphNode' );
   const VertexFormViewProperties = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormViewProperties' );
 
-  class VertexFormScreenView extends GQScreenView{
+  class VertexFormScreenView extends GQScreenView {
 
     /**
      * @param {VertexFormModel} model

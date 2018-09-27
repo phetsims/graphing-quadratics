@@ -188,7 +188,9 @@ define( require => {
 
     // @public Gets the global {Bounds2} of a, b, c, used for layout
     get aGlobalBounds() { return this.getGlobalBoundsForNode( this.aNode ); }
+
     get bGlobalBounds() { return this.getGlobalBoundsForNode( this.bNode ); }
+
     get cGlobalBounds() { return this.getGlobalBoundsForNode( this.cNode ); }
 
     // @private gets the global bounds of a descendent Node

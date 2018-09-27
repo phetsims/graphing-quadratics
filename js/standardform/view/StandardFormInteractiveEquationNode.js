@@ -50,10 +50,10 @@ define( require => {
       };
       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
         _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_A } ) );
-      const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ), 
-        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_B } ));
-      const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ), 
-        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_C } ));
+      const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
+        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_B } ) );
+      const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
+        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_C } ) );
 
       // static parts of the equation
       const richTextOptions = {
@@ -71,7 +71,7 @@ define( require => {
         yText, equalToText, aNumberPicker, xSquaredText, plusText, bNumberPicker, xText, secondPlusText, cNumberPicker
       ];
 
-      super ( options );
+      super( options );
 
       // equation layout, spacing determined empirically
       const spacing = 10;

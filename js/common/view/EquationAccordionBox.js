@@ -14,7 +14,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
-  const SaveCurveControls =  require( 'GRAPHING_QUADRATICS/common/view/SaveCurveControls' );
+  const SaveCurveControls = require( 'GRAPHING_QUADRATICS/common/view/SaveCurveControls' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   class EquationAccordionBox extends AccordionBox {

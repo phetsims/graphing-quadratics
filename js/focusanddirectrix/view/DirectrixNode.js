@@ -82,7 +82,7 @@ define( require => {
         else {
           equationNode.right = modelViewTransform.modelToViewX( xRange.max - 1 );
         }
-        
+
         if ( quadratic.directrix > xRange.max - 1 ) {
           equationNode.top = path.bottom + yOffset;
         }

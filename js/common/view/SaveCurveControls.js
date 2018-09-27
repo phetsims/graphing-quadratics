@@ -2,7 +2,7 @@
 
 /**
  * Controls related to saved curves.
- * 
+ *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
@@ -18,7 +18,7 @@ define( function( require ) {
 
   // constants
   const BUTTON_ICON_WIDTH = 30;
-  
+
   class SaveCurveControls extends HBox {
 
     /**
@@ -32,7 +32,7 @@ define( function( require ) {
       options = _.extend( {
         spacing: 40
       }, options );
-      
+
       // Save button
       const saveButton = new RectangularPushButton( {
         content: new FontAwesomeNode( 'camera', { maxWidth: BUTTON_ICON_WIDTH } ),
@@ -41,14 +41,14 @@ define( function( require ) {
       } );
 
       // Erase button
-      const eraseButton = new EraserButton( { 
-        iconWidth: BUTTON_ICON_WIDTH, 
-        listener: eraseFunction 
+      const eraseButton = new EraserButton( {
+        iconWidth: BUTTON_ICON_WIDTH,
+        listener: eraseFunction
       } );
-      
+
       assert && assert( !options.children, 'SaveCurveControls sets children' );
       options.children = [ saveButton, eraseButton ];
-      
+
       super( options );
 
       // Enable the erase button when there are saved lines.

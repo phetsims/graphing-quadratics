@@ -53,7 +53,7 @@ define( require => {
       // update the point
       this.quadraticProperty.lazyLink( ( quadratic, oldQuadratic ) => {
 
-        assert && assert( quadratic.vertex, 'expected quadratic.vertex: ' + quadratic.vertex);
+        assert && assert( quadratic.vertex, 'expected quadratic.vertex: ' + quadratic.vertex );
         assert && assert( oldQuadratic.vertex, 'expected oldQuadratic.vertex: ' + oldQuadratic.vertex );
 
         const dx = quadratic.vertex.x - oldQuadratic.vertex.x;

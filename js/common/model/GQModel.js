@@ -84,7 +84,7 @@ define( require => {
             this.graph.xRange.min - 1, this.graph.yRange.min - 3,
             this.graph.xRange.max + 1, this.graph.yRange.max + 1 )
         } ),
-        
+
         // probe on left
         new PointTool( this.quadratics, {
           orientation: 'left',
