@@ -26,7 +26,6 @@ define( require => {
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Util = require( 'DOT/Util' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   class FocusAndDirectrixInteractiveEquationNode extends Node {
@@ -153,7 +152,7 @@ define( require => {
       // p value
       const pNode = new NumberDisplay( pProperty, pProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.FOCUS_AND_DIRECTRIX_P,
-        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P )
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
       } ) );
 
       // )
@@ -187,7 +186,7 @@ define( require => {
       // h value
       const hNode = new NumberDisplay( hProperty, hProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.FOCUS_AND_DIRECTRIX_H,
-        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H )
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
       } ) );
 
       // )^2 +
@@ -198,7 +197,7 @@ define( require => {
       // k value
       const kNode = new NumberDisplay( kProperty, kProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.FOCUS_AND_DIRECTRIX_K,
-        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K )
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
       } ) );
 
       // layout

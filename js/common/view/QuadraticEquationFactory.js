@@ -33,9 +33,9 @@ define( require => {
 
       options = _.extend( {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
-        aDecimals: 2,
-        bDecimals: 1,
-        cDecimals: 1,
+        aDecimals: GQConstants.EXPLORE_DECIMALS_A,
+        bDecimals: GQConstants.EXPLORE_DECIMALS_B,
+        cDecimals: GQConstants.EXPLORE_DECIMALS_C,
 
         // HBox options
         spacing: 5,
@@ -181,9 +181,9 @@ define( require => {
 
       options = _.extend( {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
-        aDecimals: 3,
-        hDecimals: 1,
-        kDecimals: 1,
+        aDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A,
+        hDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H,
+        kDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K,
 
         // HBox options
         spacing: 5,

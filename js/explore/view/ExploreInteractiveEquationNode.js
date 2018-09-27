@@ -27,7 +27,6 @@ define( require => {
   const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Util = require( 'DOT/Util' );
 
   class ExploreInteractiveEquationNode extends Node {
 
@@ -147,7 +146,7 @@ define( require => {
       // a value
       const aNode = new NumberDisplay( aProperty, aProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.EXPLORE_A,
-        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.EXPLORE_INTERVAL_A )
+        decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
       } ) );
 
       // x^2 +
@@ -159,7 +158,7 @@ define( require => {
       // b value
       const bNode = new NumberDisplay( bProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.EXPLORE_B,
-        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.EXPLORE_INTERVAL_B )
+        decimalPlaces: GQConstants.EXPLORE_DECIMALS_B
       } ) );
 
       // x +
@@ -171,7 +170,7 @@ define( require => {
       // c value
       const cNode = new NumberDisplay( cProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
         numberFill: GQColors.EXPLORE_C,
-        decimalPlaces: Util.numberOfDecimalPlaces( GQConstants.EXPLORE_INTERVAL_C )
+        decimalPlaces: GQConstants.EXPLORE_DECIMALS_C
       } ) );
 
       super( {
