@@ -22,11 +22,15 @@ define( require => {
 
       super( options );
 
-      // @public (read-only)
+      // @public (read-only) y = ax^2
       this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => { return quadratic.getQuadraticTerm(); } );
+      
+      // @public (read-only) y = bx
       this.linearTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => { return quadratic.getLinearTerm(); } );
+
+      // @public (read-only) y = c
       this.constantTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => { return quadratic.getConstantTerm(); } );
     }
