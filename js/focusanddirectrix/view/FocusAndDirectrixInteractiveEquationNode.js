@@ -125,7 +125,6 @@ define( require => {
       // common options for NumberDisplay instances
       const numberDisplayOptions = {
         font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
-        decimalPlaces: 1,
         backgroundFill: null,
         backgroundStroke: null,
         backgroundLineWidth: 0,
