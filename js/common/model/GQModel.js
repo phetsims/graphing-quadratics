@@ -52,7 +52,7 @@ define( require => {
       // @public saved quadratics
       this.savedQuadratics = new ObservableArray( [] );
 
-      // @public (read-only) {ObservableArray.<Quadratic>} quadratics displayed on the graph
+      // @public {ObservableArray.<Quadratic>} quadratics displayed on the graph
       this.quadratics = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
         this.quadratics.clear();
