@@ -27,12 +27,14 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} rootsVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, modelViewTransform, rootsVisibleProperty, coordinatesVisibleProperty, options ) {
+    constructor( quadraticProperty, graph, modelViewTransform,
+                 rootsVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
         radius: 10
@@ -53,7 +55,7 @@ define( require => {
       const leftCoordinatesProperty = new Property( null, propertyOptions );
       const rightCoordinatesProperty = new Property( null, propertyOptions );
 
-      // coordinate displays
+      // coordinates
       const coordinatesOptions = {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.ROOTS ).withAlpha( 0.75 ),
@@ -62,18 +64,20 @@ define( require => {
       const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesOptions );
       const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesOptions );
 
+      // group points and coordinates
+      const leftRootNode = new Node( { children: [ leftPointNode, leftCoordinatesNode ] } );
+      const rightRootNode = new Node( { children: [ rightPointNode, rightCoordinatesNode ] } );
+
       assert && assert( !options.children, 'RootsNode sets children' );
-      options.children = [ leftPointNode, leftCoordinatesNode, rightPointNode, rightCoordinatesNode ];
+      options.children = [ leftRootNode, rightRootNode ];
 
       super( options );
 
       quadraticProperty.link( quadratic => {
 
-        // start with all subcomponents invisible, make visible the ones that are needed
-        leftPointNode.visible = false;
-        leftCoordinatesNode.visible = false;
-        rightPointNode.visible = false;
-        rightCoordinatesNode.visible = false;
+        // start with both roots invisible, make visible the ones that are needed
+        leftRootNode.visible = false;
+        rightRootNode.visible = false;
 
         let roots = quadratic.roots;
 
@@ -82,17 +86,15 @@ define( require => {
 
           const leftRoot = roots[ 0 ];
           leftCoordinatesProperty.value = leftRoot;
-          leftPointNode.visible = true;
-          leftCoordinatesNode.visible = true;
           leftPointNode.translation = modelViewTransform.modelToViewPosition( leftRoot );
+          leftRootNode.visible = graph.contains( leftRoot );
 
           if ( roots.length === 2 ) {
             const rightRoot = roots[ 1 ];
             assert && assert( leftRoot.x < rightRoot.x, 'unexpected order of roots: ' + roots );
             rightCoordinatesProperty.value = rightRoot;
-            rightPointNode.visible = true;
-            rightCoordinatesNode.visible = true;
             rightPointNode.translation = modelViewTransform.modelToViewPosition( rightRoot );
+            rightRootNode.visible = graph.contains( rightRoot );
           }
 
           // position coordinates to left and right of roots
@@ -108,8 +110,8 @@ define( require => {
       } );
 
       coordinatesVisibleProperty.link( visible => {
-        leftCoordinatesNode.visible = !!( visible && leftCoordinatesProperty.value );
-        rightCoordinatesNode.visible = !!( visible && rightCoordinatesProperty.value );
+        leftCoordinatesNode.visible = visible;
+        rightCoordinatesNode.visible = visible;
       } );
     }
   }

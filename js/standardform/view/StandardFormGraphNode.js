@@ -44,6 +44,7 @@ define( require => {
       // Roots
       const rootsNode = new RootsNode(
         model.quadraticProperty,
+        model.graph,
         model.modelViewTransform,
         viewProperties.rootsVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {

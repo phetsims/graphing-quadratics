@@ -15,7 +15,6 @@ all: equations sometimes go off graph, e.g.
   VF: a=1,h=-9,k=9
   FD: p=3.4,h=1.7,k=-3.7
 
-SF: Hide roots if they are off the graph
 E: Make terms available to point tools
 
 #17 reentrant Properties
