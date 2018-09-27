@@ -1,19 +1,14 @@
 TODO list for graphing-quadratics
 
-DESIGN ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DESIGN QUESTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-FD: 1/4p is in a slightly smaller font, OK?
-VF,FD: (x)^2 when h=0 looks odd for vertex form equations
-FD: feels odd that focus and point are continuous, but vertex snaps to grid
-all: you don't see anything when you click the save button
-E: initial state (a=1,b=0,c=0) means you won't see anything when you check term checkboxes
 all: Center equation on tangent that is half the distance between vertex.x and edge of graph?
 
-BUGS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #22 point tools problems
 
-IMPLEMENTATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+THINGS TO IMPLEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 all: equations sometimes go off graph, e.g.
   E: a=0.07,b=0,c=0
@@ -23,10 +18,14 @@ all: equations sometimes go off graph, e.g.
 SF: Hide roots if they are off the graph
 E: Make terms available to point tools
 
-Separate equations from QuadraticNode, so they can exceed graph bounds?
-VertexQuadratic extends Quadratic?
 #17 reentrant Properties
 #14 PhET-iO instrumentation
 TODOs in the code
 stringTest
 multi-touch testing
+
+POTENTIAL CHANGES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Model Properties for things that the user can change? (a, b, c, p, h, k, vertex, focus)
+Separate equations from QuadraticNode, so they can exceed graph bounds?
+VertexQuadratic extends Quadratic?
