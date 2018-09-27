@@ -77,7 +77,6 @@ define( require => {
       cSlider.centerX = this.globalToLocalBounds( equationNode.cGlobalBounds ).centerX;
       cSlider.top = equationNode.bottom + ySpacing;
 
-
       //TODO #17 hack to prevent 'call stack size exceeded'
       let changing = false;
 
