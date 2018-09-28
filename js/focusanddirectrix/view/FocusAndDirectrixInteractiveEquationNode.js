@@ -55,20 +55,27 @@ define( require => {
         tandem: options.tandem.createTandem( 'equationNode' )
       } );
 
-      //TODO #14 instrument sliders
       // sliders
       const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
+
+        // p=0 is not supported by this sim, see https://github.com/phetsims/graphing-quadratics/issues/31
         skipZero: true,
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
-        labelColor: GQColors.FOCUS_AND_DIRECTRIX_P
+        labelColor: GQColors.FOCUS_AND_DIRECTRIX_P,
+        tandem: options.tandem.createTandem( 'pSlider' ),
+        phetioInstanceDocumentation: 'slider for coefficient p'
       } );
       const hSlider = new CoefficientSlider( GQSymbols.h, hProperty, {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
-        labelColor: GQColors.FOCUS_AND_DIRECTRIX_H
+        labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
+        tandem: options.tandem.createTandem( 'hSlider' ),
+        phetioInstanceDocumentation: 'slider for coefficient h'
       } );
       const kSlider = new CoefficientSlider( GQSymbols.k, kProperty, {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
-        labelColor: GQColors.FOCUS_AND_DIRECTRIX_K
+        labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
+        tandem: options.tandem.createTandem( 'kSlider' ),
+        phetioInstanceDocumentation: 'slider for coefficient k'
       } );
 
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );

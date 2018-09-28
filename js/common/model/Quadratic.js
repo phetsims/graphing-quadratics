@@ -1,6 +1,5 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO #14 create QuadraticIO ?
 /**
  * An immutable quadratic, described by the equation y = ax^2 + bx + c.
  *

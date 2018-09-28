@@ -59,15 +59,21 @@ define( require => {
       // coefficient sliders
       const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_A,
-        labelColor: GQColors.EXPLORE_A
+        labelColor: GQColors.EXPLORE_A,
+        tandem: options.tandem.createTandem( 'aSlider' ),
+        phetioInstanceDocumentation: 'slider for coefficient a'
       } );
       const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_B,
-        labelColor: GQColors.EXPLORE_B
+        labelColor: GQColors.EXPLORE_B,
+        tandem: options.tandem.createTandem( 'bSlider' ),
+        phetioInstanceDocumentation: 'slider for coefficient b'
       } );
       const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_C,
-        labelColor: GQColors.EXPLORE_C
+        labelColor: GQColors.EXPLORE_C,
+        tandem: options.tandem.createTandem( 'cSlider' ),
+        phetioInstanceDocumentation: 'slider for constant c'
       } );
 
       assert && assert( !options.children, 'ExploreInteractiveEquationNode sets children' );

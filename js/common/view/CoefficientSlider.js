@@ -19,6 +19,7 @@ define( require => {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
   const VSlider = require( 'SUN/VSlider' );
@@ -29,7 +30,6 @@ define( require => {
   const TRACK_SIZE = new Dimension2( 130, 1 );
   const THUMB_SIZE = new Dimension2( 20, 40 );
 
-  //TODO #14 instrument CoefficientSlider
   class CoefficientSlider extends Node {
 
     /**
@@ -63,9 +63,12 @@ define( require => {
         labelColor: 'black',
 
         // superclass options
-        align: 'center'
+        align: 'center',
+
+        tandem: Tandem.required
       }, options );
 
+      //TODO #14 instrument sliderProperty? DynamicProperty has no default phetio instrumentation
       // Map between value domains, determines how the slider responds.
       const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
         reentrant: true,
@@ -97,7 +100,8 @@ define( require => {
             }
           }
           return options.map( coefficientValue );
-        }
+        },
+        tandem: options.tandem.createTandem( 'slider' )
       } );
 
       // Coefficient label that appears above the slider. Position this after rotating the slider,
@@ -106,7 +110,8 @@ define( require => {
         font: COEFFICIENT_LABEL_FONT,
         fill: options.labelColor,
         centerX: slider.centerX,
-        bottom: slider.top - 5
+        bottom: slider.top - 5,
+        tandem: options.tandem.createTandem( 'label' )
       } );
 
       // Create the tick labels, rotated opposite the HSlider, so that they'll look correct on the rotated HSlider.
