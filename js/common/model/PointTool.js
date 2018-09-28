@@ -42,8 +42,6 @@ define( require => {
       assert && assert( ORIENTATIONS.includes( options.orientation ),
         'invalid orientation: ' + options.orientation );
 
-      var self = this;
-
       // @public {Vector2}
       this.locationProperty = new Property( options.location, {
         valueType: Vector2,
@@ -71,12 +69,12 @@ define( require => {
         ( location, length ) => {
           for ( let i = 0; i < length; i++ ) {
             var quadratic = quadratics.get( i );
-            if ( self.isOnQuadratic( quadratic ) ) {
-              self.onQuadraticProperty.value = quadratic;
+            if ( quadratic.isOnQuadratic( this.locationProperty.value ) ) {
+              this.onQuadraticProperty.value = quadratic;
               return;
             }
           }
-          self.onQuadraticProperty.value = null;
+          this.onQuadraticProperty.value = null;
         }
       );
     }
@@ -85,16 +83,6 @@ define( require => {
     reset() {
       this.locationProperty.reset();
       this.onQuadraticProperty.reset();
-    }
-
-    /**
-     * Determines if the point tool is on the specified quadratic.
-     * @param {Quadratic} quadratic
-     * @returns {boolean}
-     * @public
-     */
-    isOnQuadratic( quadratic ) {
-      return quadratic.isOnQuadratic( this.locationProperty.value );
     }
   }
 
