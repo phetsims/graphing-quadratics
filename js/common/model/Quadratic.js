@@ -134,7 +134,7 @@ define( require => {
     }
 
     /**
-     * Decodes state into a Quadratic instance for PhET-iO.
+     * Decodes state into a Quadratic instance, for PhET-iO.
      * @param {*} object
      * @returns {Quadratic}
      * @public (phet-io)
