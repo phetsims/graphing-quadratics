@@ -41,9 +41,13 @@ define( require => {
         align: 'center',
         spacing: GQConstants.CHECKBOX_ICON_SPACING,
         children: [
+
+          // text
           new Text( rootsString, {
             font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
           } ),
+
+          // icon
           new HBox( {
             align: 'center',
             spacing: 5,
