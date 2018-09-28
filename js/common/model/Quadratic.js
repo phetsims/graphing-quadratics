@@ -120,7 +120,7 @@ define( require => {
 
     //TODO #14 add additional fields that we want to see in the PhET-iO data stream
     /**
-     * Encodes the state of a Quadratic instance, for PhET-iO.
+     * Encodes a Quadratic instance as a PhET-iO state object
      * @returns {*}
      * @public
      */
@@ -134,7 +134,7 @@ define( require => {
     }
 
     /**
-     * Decodes state into a Quadratic instance, for PhET-iO.
+     * Decodes a PhET-iO state object and produces a Quadratic instance
      * @param {*} object
      * @returns {Quadratic}
      * @public
