@@ -50,9 +50,10 @@ define( require => {
       const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
-      //TODO #14 instrument equation so it can be hidden
       // equation
-      const equationNode = new EquationNode( aProperty, bProperty, cProperty );
+      const equationNode = new EquationNode( aProperty, bProperty, cProperty, {
+        tandem: options.tandem.createTandem( 'equationNode' )
+      } );
 
       //TODO #14 instrument sliders
       // coefficient sliders
@@ -119,8 +120,17 @@ define( require => {
      * @param {NumberProperty} aProperty
      * @param {NumberProperty} bProperty
      * @param {NumberProperty} cProperty
+     * @param {Object} [options]
      */
-    constructor( aProperty, bProperty, cProperty ) {
+    constructor( aProperty, bProperty, cProperty, options ) {
+
+      options = _.extend( {
+
+        // HBox options
+        align: 'bottom',
+        spacing: 5,
+        tandem: Tandem.required
+      }, options );
 
       assert && assert( aProperty.range, 'missing aProperty.range' );
       assert && assert( bProperty.range, 'missing bProperty.range' );
@@ -178,13 +188,11 @@ define( require => {
         decimalPlaces: GQConstants.EXPLORE_DECIMALS_C
       } ) );
 
-      super( {
-        align: 'bottom',
-        spacing: 5,
+      // y = ax^2 + bx + c
+      assert && assert( !options.children, 'EquationNode sets children' );
+      options.children = [ yEqualsNode, aNode, xSquaredPlusNode, bNode, xPlusNode, cNode ];
 
-        // y = ax^2 + bx + c
-        children: [ yEqualsNode, aNode, xSquaredPlusNode, bNode, xPlusNode, cNode ]
-      } );
+      super( options );
 
       // @private needed by methods
       this.aNode = aNode;

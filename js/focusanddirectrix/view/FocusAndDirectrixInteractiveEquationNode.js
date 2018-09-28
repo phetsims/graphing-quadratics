@@ -50,9 +50,10 @@ define( require => {
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange, reentrant: true } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange, reentrant: true } );
 
-      //TODO #14 instrument equationNode so it can be hidden
       // equation
-      const equationNode = new EquationNode( pProperty, hProperty, kProperty );
+      const equationNode = new EquationNode( pProperty, hProperty, kProperty, {
+        tandem: options.tandem.createTandem( 'equationNode' )
+      } );
 
       //TODO #14 instrument sliders
       // sliders
@@ -120,8 +121,13 @@ define( require => {
      * @param {NumberProperty} pProperty
      * @param {NumberProperty} hProperty
      * @param {NumberProperty} kProperty
+     * @param {Object} [options]
      */
-    constructor( pProperty, hProperty, kProperty ) {
+    constructor( pProperty, hProperty, kProperty, options ) {
+
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
       assert && assert( pProperty.range, 'missing pProperty.range' );
       assert && assert( hProperty.range, 'missing hProperty.range' );
@@ -217,11 +223,11 @@ define( require => {
       kNode.left = squaredPlusNode.right + xSpacing;
       kNode.centerY = yEqualsNode.centerY;
 
-      super( {
+      // y = (1/(4p))(x - h)^2 + k
+      assert && assert( !options.children, 'EquationNode sets children' );
+      options.children = [ yEqualsNode, fractionNode, xMinusNode, hNode, squaredPlusNode, kNode ];
 
-        // y = (1/(4p))(x - h)^2 + k
-        children: [ yEqualsNode, fractionNode, xMinusNode, hNode, squaredPlusNode, kNode ]
-      } );
+      super( options );
 
       // @private needed by methods
       this.pNode = pNode;
