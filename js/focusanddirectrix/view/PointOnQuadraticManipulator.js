@@ -41,6 +41,7 @@ define( require => {
 
       super( radius, GQColors.POINT_ON_QUADRATIC, options );
 
+      //TODO #14 instrument coordinatesNode?
       const coordinatesNode = new CoordinatesNode( pointOnQuadraticProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.POINT_ON_QUADRATIC ).withAlpha( 0.75 ),
@@ -79,6 +80,7 @@ define( require => {
 
   graphingQuadratics.register( 'PointOnQuadraticManipulator', PointOnQuadraticManipulator );
 
+  //TODO #14 instrument PointOnQuadraticDragHandler
   class PointOnQuadraticDragHandler extends SimpleDragHandler {
 
     /**

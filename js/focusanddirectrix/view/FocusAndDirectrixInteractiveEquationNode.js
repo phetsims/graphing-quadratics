@@ -26,6 +26,7 @@ define( require => {
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   class FocusAndDirectrixInteractiveEquationNode extends Node {
@@ -39,16 +40,21 @@ define( require => {
      */
     constructor( quadraticProperty, pRange, hRange, kRange, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
+      //TODO #14 instrument p, h, k Properties?
       // coefficient Properties
       const pProperty = new NumberProperty( pRange.defaultValue, { range: pRange, reentrant: true } );
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange, reentrant: true } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange, reentrant: true } );
 
+      //TODO #14 instrument equationNode so it can be hidden
       // equation
       const equationNode = new EquationNode( pProperty, hProperty, kProperty );
 
+      //TODO #14 instrument sliders
       // sliders
       const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
         skipZero: true,

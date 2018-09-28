@@ -33,7 +33,9 @@ define( require => {
       } );
 
       const interactiveEquationNode = new StandardFormInteractiveEquationNode(
-        model.quadraticProperty, model.aRange, model.bRange, model.cRange );
+        model.quadraticProperty, model.aRange, model.bRange, model.cRange, {
+          tandem: options.tandem.createTandem( 'interactiveEquation' )
+        } );
 
       super( model, expandedProperty, titleNode, interactiveEquationNode, options );
     }

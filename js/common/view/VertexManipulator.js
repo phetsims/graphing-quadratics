@@ -48,12 +48,14 @@ define( require => {
 
       super( radius, GQColors.VERTEX, options );
 
+      //TODO #14 instrument VertexProperty?
       // local Property whose value is the vertex of the current value of quadraticProperty
       const vertexProperty = new Property( quadraticProperty.value.vertex, {
         isValidValue: value => { return value instanceof Vector2 || value === null; },
         reentrant: true
       } );
 
+      //TODO #14 instrument coordinatesNode?
       // displays the vertex coordinates
       const coordinatesNode = new CoordinatesNode( vertexProperty, {
         foregroundColor: 'white',
@@ -110,6 +112,7 @@ define( require => {
 
   graphingQuadratics.register( 'VertexManipulator', VertexManipulator );
 
+  //TODO #14 instrument VertexDragHandler
   class VertexDragHandler extends SimpleDragHandler {
 
     /**

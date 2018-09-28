@@ -33,7 +33,9 @@ define( require => {
       } );
 
       const interactiveEquationNode = new FocusAndDirectrixInteractiveEquationNode(
-        model.quadraticProperty, model.pRange, model.hRange, model.kRange );
+        model.quadraticProperty, model.pRange, model.hRange, model.kRange, {
+          tandem: options.tandem.createTandem( 'interactiveEquation' )
+        } );
 
       super( model, expandedProperty, titleNode, interactiveEquationNode, options );
     }

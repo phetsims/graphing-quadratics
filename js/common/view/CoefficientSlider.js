@@ -29,6 +29,7 @@ define( require => {
   const TRACK_SIZE = new Dimension2( 130, 1 );
   const THUMB_SIZE = new Dimension2( 20, 40 );
 
+  //TODO #14 instrument CoefficientSlider
   class CoefficientSlider extends Node {
 
     /**

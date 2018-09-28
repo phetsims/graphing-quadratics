@@ -21,6 +21,7 @@ define( require => {
   const coordinateUnknownString = require( 'string!GRAPHING_QUADRATICS/coordinateUnknown' );
   const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
+  //TODO #14 instrument CoordinatesNode?
   class CoordinatesNode extends Node {
 
     /**

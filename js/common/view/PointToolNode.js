@@ -184,6 +184,7 @@ define( require => {
 
   graphingQuadratics.register( 'PointToolNode.ProbeNode', ProbeNode );
 
+  //TODO #14 instrument PointToolDragHandler
   class PointToolDragHandler extends SimpleDragHandler {
 
     /**

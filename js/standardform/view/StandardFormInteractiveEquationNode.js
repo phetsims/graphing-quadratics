@@ -22,6 +22,7 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   class StandardFormInteractiveEquationNode extends Node {
 
@@ -34,13 +35,17 @@ define( require => {
      */
     constructor( quadraticProperty, aRange, bRange, cRange, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
+      //TODO #14 instrument a, b, c Properties?
       // coefficient Properties
       const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } );
       const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
+      //TODO #14 instrument pickers so they can be disabled
       // coefficient pickers
       const numberPickerOptions = {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),

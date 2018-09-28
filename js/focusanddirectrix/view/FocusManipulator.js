@@ -48,12 +48,14 @@ define( require => {
 
       super( radius, GQColors.FOCUS, options );
 
+      //TODO #14 instrument focusProperty?
       // local Property
       const focusProperty = new Property( quadraticProperty.value.focus, {
         valueType: Vector2,
         reentrant: true
       } );
 
+      //TODO #14 instrument coordinatesNode?
       // coordinates displayed on this manipulator
       const coordinatesNode = new CoordinatesNode( focusProperty, {
         foregroundColor: 'white',
@@ -114,6 +116,7 @@ define( require => {
 
   graphingQuadratics.register( 'FocusManipulator', FocusManipulator );
 
+  //TODO #14 instrument FocusDragHandler
   class FocusDragHandler extends SimpleDragHandler {
 
     /**

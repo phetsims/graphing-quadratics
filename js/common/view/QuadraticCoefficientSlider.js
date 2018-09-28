@@ -13,6 +13,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Util = require( 'DOT/Util' );
 
+  //TODO #14 instrument QuadraticCoefficientSlider
   class QuadraticCoefficientSlider extends CoefficientSlider {
 
     /**

@@ -33,7 +33,9 @@ define( require => {
       } );
 
       const interactiveEquationNode = new VertexFormInteractiveEquationNode(
-        model.quadraticProperty, model.aRange, model.hRange, model.kRange );
+        model.quadraticProperty, model.aRange, model.hRange, model.kRange, {
+          tandem: options.tandem.createTandem( 'interactiveEquation' )
+        } );
 
       super( model, expandedProperty, titleNode, interactiveEquationNode, options );
     }

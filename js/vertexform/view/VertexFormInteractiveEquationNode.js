@@ -22,6 +22,7 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   class VertexFormInteractiveEquationNode extends Node {
 
@@ -34,13 +35,17 @@ define( require => {
      */
     constructor( quadraticProperty, aRange, hRange, kRange, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
+      //TODO instrument a, h, k Properties?
       // Properties for the variables in vertex form
       const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } );
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
 
+      //TODO #14 instrument pickers so they can be disabled
       // Coefficient pickers
       const numberPickerOptions = {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
