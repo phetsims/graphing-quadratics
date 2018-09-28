@@ -48,6 +48,7 @@ define( require => {
     },
 
     /**
+     * Decodes state into a Quadratic instance.
      * @param {*} object
      * @returns {Quadratic}
      */
