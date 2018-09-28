@@ -45,7 +45,6 @@ define( require => {
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
 
-      //TODO #14 instrument pickers so they can be disabled
       // Coefficient pickers
       const numberPickerOptions = {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
@@ -53,11 +52,20 @@ define( require => {
         touchAreaXDilation: GQConstants.PICKER_TOUCH_AREA_X_DILATION
       };
       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
-        _.extend( {}, numberPickerOptions, { color: GQColors.VERTEX_FORM_A } ) );
+        _.extend( {
+          color: GQColors.VERTEX_FORM_A,
+          tandem: options.tandem.createTandem( 'aNumberPicker' )
+        }, numberPickerOptions ) );
       const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
-        _.extend( {}, numberPickerOptions, { color: GQColors.VERTEX_FORM_H } ) );
+        _.extend( {
+          color: GQColors.VERTEX_FORM_H,
+          tandem: options.tandem.createTandem( 'hNumberPicker' )
+        }, numberPickerOptions ) );
       const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
-        _.extend( {}, numberPickerOptions, { color: GQColors.VERTEX_FORM_K } ) );
+        _.extend( {
+          color: GQColors.VERTEX_FORM_K,
+          tandem: options.tandem.createTandem( 'kNumberPicker' )
+        }, numberPickerOptions ) );
 
       // static parts of the equation
       const richTextOptions = {

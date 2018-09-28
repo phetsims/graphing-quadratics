@@ -45,20 +45,27 @@ define( require => {
       const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
-      //TODO #14 instrument pickers so they can be disabled
       // coefficient pickers
       const numberPickerOptions = {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
-        color: GQColors.STANDARD_FORM_INTERACTIVE_CURVE,
         xMargin: 5,
         touchAreaXDilation: GQConstants.PICKER_TOUCH_AREA_X_DILATION
       };
       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
-        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_A } ) );
+        _.extend( {
+          color: GQColors.STANDARD_FORM_A,
+          tandem: options.tandem.createTandem( 'aNumberPicker' )
+        }, numberPickerOptions ) );
       const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
-        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_B } ) );
+        _.extend( {
+          color: GQColors.STANDARD_FORM_B,
+          tandem: options.tandem.createTandem( 'bNumberPicker' )
+        }, numberPickerOptions ) );
       const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
-        _.extend( {}, numberPickerOptions, { color: GQColors.STANDARD_FORM_C } ) );
+        _.extend( {
+          color: GQColors.STANDARD_FORM_C,
+          tandem: options.tandem.createTandem( 'cNumberPicker' )
+        }, numberPickerOptions ) );
 
       // static parts of the equation
       const richTextOptions = {
