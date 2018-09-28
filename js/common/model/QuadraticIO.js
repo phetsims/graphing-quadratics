@@ -29,8 +29,7 @@ define( require => {
 
   graphingQuadratics.register( 'QuadraticIO', QuadraticIO );
 
-  //TODO return fails here, see https://github.com/phetsims/phet-io/issues/1370
-  phetioInherit( ObjectIO, 'QuadraticIO', QuadraticIO, {}, {
+  return phetioInherit( ObjectIO, 'QuadraticIO', QuadraticIO, {}, {
 
     /**
      * Encodes the state of a Quadratic instance.
@@ -51,6 +50,4 @@ define( require => {
       return Quadratic.fromStateObject( object );
     }
   } );
-
-  return QuadraticIO;
 } );
