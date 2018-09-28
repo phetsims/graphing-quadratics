@@ -15,11 +15,12 @@ define( function( require ) {
   const HBox = require( 'SCENERY/nodes/HBox' );
   const PhetColorScheme = require( 'SCENERY_PHET/PhetColorScheme' );
   const RectangularPushButton = require( 'SUN/buttons/RectangularPushButton' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   // constants
   const BUTTON_ICON_WIDTH = 30;
 
-  class SaveCurveControls extends HBox {
+  class SaveEraseButtons extends HBox {
 
     /**
      * @param {function} saveFunction
@@ -30,7 +31,8 @@ define( function( require ) {
     constructor( saveFunction, eraseFunction, numberOfSavedLinesProperty, options ) {
 
       options = _.extend( {
-        spacing: 40
+        spacing: 40,
+        tandem: Tandem.required
       }, options );
 
       // Save button
@@ -46,7 +48,7 @@ define( function( require ) {
         listener: eraseFunction
       } );
 
-      assert && assert( !options.children, 'SaveCurveControls sets children' );
+      assert && assert( !options.children, 'SaveEraseButtons sets children' );
       options.children = [ saveButton, eraseButton ];
 
       super( options );
@@ -58,5 +60,5 @@ define( function( require ) {
     }
   }
 
-  return graphingQuadratics.register( 'SaveCurveControls', SaveCurveControls );
+  return graphingQuadratics.register( 'SaveEraseButtons', SaveEraseButtons );
 } ); 

@@ -14,7 +14,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
-  const SaveCurveControls = require( 'GRAPHING_QUADRATICS/common/view/SaveCurveControls' );
+  const SaveEraseButtons = require( 'GRAPHING_QUADRATICS/common/view/SaveEraseButtons' );
   const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
@@ -40,10 +40,15 @@ define( require => {
       assert && assert( !options.titleNode, 'EquationAccordionBox sets titleNode' );
       options.titleNode = titleNode;
 
-      const saveCurveControls = new SaveCurveControls(
-        model.saveQuadratic.bind( model ), model.eraseQuadratics.bind( model ), model.savedQuadratics.lengthProperty );
+      const saveEraseButtons = new SaveEraseButtons( 
+        model.saveQuadratic.bind( model ), 
+        model.eraseQuadratics.bind( model ), 
+        model.savedQuadratics.lengthProperty, {
+          tandem: options.tandem.createTandem( 'saveEraseButtons' ),
+          phetioInstanceDocumentation: 'buttons to save and erase a quadratic on the graph'
+        } );
 
-      const separatorWidth = Math.max( interactiveEquationNode.width, saveCurveControls.width );
+      const separatorWidth = Math.max( interactiveEquationNode.width, saveEraseButtons.width );
 
       const separatorOptions = { stroke: GQColors.SEPARATOR };
 
@@ -54,7 +59,7 @@ define( require => {
           new HSeparator( separatorWidth, separatorOptions ),
           interactiveEquationNode,
           new HSeparator( separatorWidth, separatorOptions ),
-          saveCurveControls
+          saveEraseButtons
         ]
       } );
 

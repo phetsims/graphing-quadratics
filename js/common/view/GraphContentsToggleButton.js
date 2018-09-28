@@ -20,7 +20,9 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( graphContentsVisibleProperty, options ) {
+
       super( graphContentsVisibleProperty, options );
+
       graphContentsVisibleProperty.link( visible => {
         if ( visible ) {
           this.setBaseColor( 'white' );

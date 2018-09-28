@@ -23,6 +23,7 @@ define( require => {
   const Shape = require( 'KITE/Shape' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -53,7 +54,8 @@ define( require => {
         cursor: 'pointer',
         backgroundNormalColor: 'white',
         foregroundNormalColor: 'black',
-        foregroundHighlightColor: 'white'
+        foregroundHighlightColor: 'white',
+        tandem: Tandem.required
       }, options );
 
       assert && assert( pointTool.orientation === 'left' || pointTool.orientation === 'right',

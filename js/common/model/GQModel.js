@@ -78,38 +78,35 @@ define( require => {
         -modelViewTransformScale // y is inverted
       );
 
-      // @public (read-only) point tools, initial locations and drag bounds determined empirically
-      this.pointTools = [
+      // @public (read-only)
+      this.rightPointTool = new PointTool( this.quadratics, {
+        orientation: 'right',
+        location: new Vector2( -2, -12 ),
+        dragBounds: new Bounds2(
+          this.graph.xRange.min - 1, this.graph.yRange.min - 3,
+          this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
+        tandem: tandem.createTandem( 'rightPointTool' ),
+        phetioInstanceDocumentation: 'the point tool whose probe is on the right side'
+      } );
 
-        // probe on right
-        new PointTool( this.quadratics, {
-          orientation: 'right',
-          location: new Vector2( -2, -12 ),
-          dragBounds: new Bounds2(
-            this.graph.xRange.min - 1, this.graph.yRange.min - 3,
-            this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
-          tandem: tandem.createTandem( 'rightPointTool' ),
-          phetioInstanceDocumentation: 'the point tool whose probe is on the right side'
-        } ),
-
-        // probe on left
-        new PointTool( this.quadratics, {
-          orientation: 'left',
-          location: new Vector2( 2, -12 ),
-          dragBounds: new Bounds2(
-            this.graph.xRange.min - 1, this.graph.yRange.min - 3,
-            this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
-          tandem: tandem.createTandem( 'leftPointTool' ),
-          phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
-        } )
-      ];
+      // @public (read-only)
+      this.leftPointTool = new PointTool( this.quadratics, {
+        orientation: 'left',
+        location: new Vector2( 2, -12 ),
+        dragBounds: new Bounds2(
+          this.graph.xRange.min - 1, this.graph.yRange.min - 3,
+          this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
+        tandem: tandem.createTandem( 'leftPointTool' ),
+        phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
+      } );
     }
 
     // @public
     reset() {
       this.quadraticProperty.reset();
       this.eraseQuadratics();
-      this.pointTools.forEach( pointTool => { pointTool.reset(); } );
+      this.rightPointTool.reset();
+      this.leftPointTool.reset();
     }
 
     /**
