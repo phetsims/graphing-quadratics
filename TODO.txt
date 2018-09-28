@@ -10,6 +10,8 @@ BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 THINGS TO IMPLEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Model Properties for things that the user can change? (a, b, c, p, h, k, vertex, focus)
+
 all: equations sometimes go off graph, e.g.
   E: a=0.07,b=0,c=0
   VF: a=1,h=-9,k=9
@@ -25,6 +27,5 @@ multi-touch testing
 
 POTENTIAL CHANGES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Model Properties for things that the user can change? (a, b, c, p, h, k, vertex, focus)
 Separate equations from QuadraticNode, so they can exceed graph bounds?
 VertexQuadratic extends Quadratic?
