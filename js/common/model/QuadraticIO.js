@@ -32,23 +32,29 @@ define( require => {
   //TODO return fails here, see https://github.com/phetsims/phet-io/issues/1370
   phetioInherit( ObjectIO, 'QuadraticIO', QuadraticIO, {}, {
 
-      /**
-       * Encodes the state of a Quadratic instance.
-       * @param {Quadratic} quadratic
-       * @returns {*}
-       */
-      toStateObject: function( quadratic ) {
-        assert && assertInstanceOf( quadratic, Quadratic );
-        return {
-          //TODO #14
-          a: quadratic.a,
-          b: quadratic.b,
-          c: quadratic.c
-        };
-      }
+    /**
+     * Encodes the state of a Quadratic instance.
+     * @param {Quadratic} quadratic
+     * @returns {*}
+     */
+    toStateObject: function( quadratic ) {
+      assert && assertInstanceOf( quadratic, Quadratic );
+      return {
+        //TODO #14
+        a: quadratic.a,
+        b: quadratic.b,
+        c: quadratic.c
+      };
+    },
 
-      //TODO #14 do we need fromStateObject?
-    } );
+    /**
+     * @param {*} object
+     * @returns {Quadratic}
+     */
+    fromStateObject: function( object ) {
+      return new Quadratic( object.a, object.b, object.c );
+    }
+  } );
 
   return QuadraticIO;
 } );
