@@ -54,17 +54,20 @@ define( require => {
       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_A,
-          tandem: options.tandem.createTandem( 'aNumberPicker' )
+          tandem: options.tandem.createTandem( 'aNumberPicker' ),
+          phetioInstanceDocumentation: 'picker for coefficient a'
         }, numberPickerOptions ) );
       const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_B,
-          tandem: options.tandem.createTandem( 'bNumberPicker' )
+          tandem: options.tandem.createTandem( 'bNumberPicker' ),
+          phetioInstanceDocumentation: 'picker for coefficient b'
         }, numberPickerOptions ) );
       const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_C,
-          tandem: options.tandem.createTandem( 'cNumberPicker' )
+          tandem: options.tandem.createTandem( 'cNumberPicker' ),
+          phetioInstanceDocumentation: 'picker for constant c'
         }, numberPickerOptions ) );
 
       // static parts of the equation
