@@ -11,6 +11,7 @@ define( require => {
   // modules
   const EquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/EquationAccordionBox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
   const VertexFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormInteractiveEquationNode' );
 
@@ -22,6 +23,10 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( model, expandedProperty, options ) {
+
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
       const titleNode = new VertexFormEquationNode();
 

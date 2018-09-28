@@ -12,21 +12,22 @@ define( require => {
   const BooleanProperty = require( 'AXON/BooleanProperty' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   /**
-   * @param {Tandem} tandem
    * @param {Object} [options]
    */
   class GQViewProperties {
 
-    constructor( tandem, options ) {
+    constructor( options ) {
 
       options = _.extend( {
         equationForm: 'standard', // see GQConstants.EQUATION_FORMS
         graphContentsVisible: true,
         equationsVisible: true,
         coordinatesVisible: true,
-        equationAccordionBoxExpanded: true
+        equationAccordionBoxExpanded: true,
+        tandem: Tandem.required
       }, options );
 
       assert && assert( GQConstants.EQUATION_FORMS.includes( options.equationForm ),
@@ -37,25 +38,25 @@ define( require => {
 
       // @public
       this.graphContentsVisibleProperty = new BooleanProperty( options.graphContentsVisible, {
-        tandem: tandem.createTandem( 'graphContentsVisibleProperty' ),
+        tandem: options.tandem.createTandem( 'graphContentsVisibleProperty' ),
         phetioInstanceDocumentation: 'whether the contents of the graph are visible'
       } );
 
       // @public
       this.equationsVisibleProperty = new BooleanProperty( options.equationsVisible, {
-        tandem: tandem.createTandem( 'equationsVisibleProperty' ),
+        tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
         phetioInstanceDocumentation: 'whether equations are visible on the graphed lines'
       } );
 
       // @public
       this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible, {
-        tandem: tandem.createTandem( 'coordinatesVisibleProperty' ),
+        tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
         phetioInstanceDocumentation: 'whether coordinates are visible on points and manipulators'
       } );
 
       // @public
       this.equationAccordionBoxExpandedProperty = new BooleanProperty( options.equationAccordionBoxExpanded, {
-        tandem: tandem.createTandem( 'equationAccordionBoxExpandedProperty' ),
+        tandem: options.tandem.createTandem( 'equationAccordionBoxExpandedProperty' ),
         phetioInstanceDocumentation: 'whether the equation accordion box is expanded'
       } );
     }

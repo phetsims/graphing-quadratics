@@ -24,14 +24,24 @@ define( require => {
      */
     constructor( model, tandem ) {
 
-      const viewProperties = new FocusAndDirectrixViewProperties( tandem.createTandem( 'viewProperties') );
+      const options = {
+        tandem: tandem
+      };
+
+      const viewProperties = new FocusAndDirectrixViewProperties( {
+        tandem: options.tandem.createTandem( 'viewProperties')
+      } );
 
       super( model,
         viewProperties,
         new FocusAndDirectrixGraphNode( model, viewProperties ),
-        new FocusAndDirectrixAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, tandem.createTandem( 'equationAccordionBox') ),
-        new FocusAndDirectrixGraphControls( viewProperties, tandem.createTandem( 'graphControls' ) ),
-        tandem
+        new FocusAndDirectrixAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, {
+          tandem: options.tandem.createTandem( 'equationAccordionBox')
+        } ),
+        new FocusAndDirectrixGraphControls( viewProperties, {
+          tandem: options.tandem.createTandem( 'graphControls' )
+        } ),
+        options
       );
     }
   }

@@ -13,31 +13,36 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   class StandardFormViewProperties extends GQViewProperties {
 
     /**
-     * @param {Tandem} tandem
+     * @param {Object} [options]
      */
-    constructor( tandem ) {
+    constructor( options ) {
 
-      super( tandem );
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
+
+      super( options );
 
       // @public
       this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
-        tandem: tandem.createTandem( 'vertexVisibleProperty' ),
+        tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
         phetioInstanceDocumentation: 'whether the vertex point is visible'
       } );
 
       // @public
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
-        tandem: tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
+        tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
         phetioInstanceDocumentation: 'whether the axis of symmetry is visible'
       } );
 
       // @public
       this.rootsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
-        tandem: tandem.createTandem( 'rootsVisibleProperty' ),
+        tandem: options.tandem.createTandem( 'rootsVisibleProperty' ),
         phetioInstanceDocumentation: 'whether the real roots of the quadratic are visible'
       } );
     }

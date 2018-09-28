@@ -20,6 +20,7 @@ define( require => {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
@@ -33,15 +34,15 @@ define( require => {
 
     /**
      * @param {ExploreViewProperties} viewProperties
-     * @param {Tandem} tandem
      * @param {Object} [options]
      */
-    constructor( viewProperties, tandem, options ) {
+    constructor( viewProperties, options ) {
 
       options = _.extend( {
         expandedProperty: viewProperties.quadraticTermsAccordionBoxExpandedProperty,
         titleAlignX: 'left',
-        titleXSpacing: 8
+        titleXSpacing: 8,
+        tandem: Tandem.required
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
       assert && assert( !options.titleNode, 'QuadraticTermsAccordionBox sets titleNode' );
@@ -61,8 +62,8 @@ define( require => {
         fill: GQColors.QUADRATIC_TERM
       } );
       const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, viewProperties.quadraticTermVisibleProperty, {
-        tandem: tandem.createTandem( 'quadraticTermCheckbox' ),
-        phetioDocumentation: 'checkbox that makes the quadratic term visible'
+        tandem: options.tandem.createTandem( 'quadraticTermCheckbox' ),
+        phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible'
       } );
 
       // y = bx
@@ -76,8 +77,8 @@ define( require => {
         fill: GQColors.LINEAR_TERM
       } );
       const linearTermCheckbox = new Checkbox( linearTermLabel, viewProperties.linearTermVisibleProperty, {
-        tandem: tandem.createTandem( 'linearTermCheckbox' ),
-        phetioDocumentation: 'checkbox that makes the linear term visible'
+        tandem: options.tandem.createTandem( 'linearTermCheckbox' ),
+        phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible'
       } );
 
       // y = c
@@ -90,8 +91,8 @@ define( require => {
         fill: GQColors.CONSTANT_TERM
       } );
       const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty, {
-        tandem: tandem.createTandem( 'constantTermCheckbox' ),
-        phetioDocumentation: 'checkbox that makes the constant term visible'
+        tandem: options.tandem.createTandem( 'constantTermCheckbox' ),
+        phetioDocumentation: 'checkbox that makes the constant term (y = c) visible'
       } );
 
       // vertical layout

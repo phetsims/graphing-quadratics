@@ -15,6 +15,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
   const SaveCurveControls = require( 'GRAPHING_QUADRATICS/common/view/SaveCurveControls' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   class EquationAccordionBox extends AccordionBox {
@@ -24,16 +25,20 @@ define( require => {
      * @param {BooleanProperty} expandedProperty
      * @param {Node} titleNode
      * @param {Node} interactiveEquationNode
-     * @param {Tandem} tandem
+     * @param {Object} [options]
      * @abstract
      */
-    constructor( model, expandedProperty, titleNode, interactiveEquationNode, tandem ) {
+    constructor( model, expandedProperty, titleNode, interactiveEquationNode, options ) {
 
-      const options = _.extend( {
-        expandedProperty: expandedProperty,
-        titleNode: titleNode,
-        tandem: tandem
-      }, GQConstants.ACCORDION_BOX_OPTIONS );
+      options = _.extend( {
+        tandem: Tandem.required
+      }, GQConstants.ACCORDION_BOX_OPTIONS, options );
+
+      assert && assert( !options.expandedProperty, 'EquationAccordionBox sets expandedProperty' );
+      options.expandedProperty = expandedProperty;
+
+      assert && assert( !options.titleNode, 'EquationAccordionBox sets titleNode' );
+      options.titleNode = titleNode;
 
       const saveCurveControls = new SaveCurveControls(
         model.saveQuadratic.bind( model ), model.eraseQuadratics.bind( model ), model.savedQuadratics.lengthProperty );

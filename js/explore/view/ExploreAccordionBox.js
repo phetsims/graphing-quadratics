@@ -13,22 +13,27 @@ define( require => {
   const ExploreInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/explore/view/ExploreInteractiveEquationNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   class ExploreAccordionBox extends EquationAccordionBox {
 
     /**
      * @param {ExploreModel} model
      * @param {BooleanProperty} expandedProperty
-     * @param {Tandem} tandem
+     * @param {Object} [options]
      */
-    constructor( model, expandedProperty, tandem ) {
+    constructor( model, expandedProperty, options ) {
+
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
       const titleNode = new StandardFormEquationNode();
 
       const interactiveEquationNode = new ExploreInteractiveEquationNode(
         model.quadraticProperty, model.aRange, model.bRange, model.cRange );
 
-      super( model, expandedProperty, titleNode, interactiveEquationNode, tandem );
+      super( model, expandedProperty, titleNode, interactiveEquationNode, options );
     }
   }
 

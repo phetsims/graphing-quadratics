@@ -24,14 +24,24 @@ define( require => {
      */
     constructor( model, tandem ) {
 
-      const viewProperties = new ExploreViewProperties( tandem.createTandem( 'viewProperties') );
+      const options = {
+        tandem: tandem
+      };
+
+      const viewProperties = new ExploreViewProperties( {
+        tandem: tandem.createTandem( 'viewProperties' )
+      } );
 
       super( model,
         viewProperties,
         new ExploreGraphNode( model, viewProperties ),
-        new ExploreAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, tandem.createTandem( 'equationAccordionBox') ),
-        new QuadraticTermsAccordionBox( viewProperties, tandem.createTandem( 'quadraticTermsAccordionBox') ),
-        tandem
+        new ExploreAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, {
+          tandem: tandem.createTandem( 'equationAccordionBox' )
+        } ),
+        new QuadraticTermsAccordionBox( viewProperties, {
+          tandem: tandem.createTandem( 'quadraticTermsAccordionBox' )
+        } ),
+        options
       );
     }
   }

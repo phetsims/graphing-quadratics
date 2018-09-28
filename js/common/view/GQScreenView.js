@@ -17,6 +17,7 @@ define( require => {
   const PointToolNode = require( 'GRAPHING_QUADRATICS/common/view/PointToolNode' );
   const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   const ScreenView = require( 'JOIST/ScreenView' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   // constants
@@ -30,14 +31,16 @@ define( require => {
      * @param {Node} graphNode
      * @param {Node} equationControls
      * @param {Node} graphControls
-     * @param {Tandem} tandem
+     * @param {Object} options
      */
-    constructor( model, viewProperties, graphNode, equationControls, graphControls, tandem ) {
+    constructor( model, viewProperties, graphNode, equationControls, graphControls, options ) {
 
-      super( {
+      options = _.extend( {
         layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,
-        tandem: tandem
-      } );
+        tandem: Tandem.required
+      }, options );
+
+      super( options );
 
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
       const pointToolsParent = new Node();

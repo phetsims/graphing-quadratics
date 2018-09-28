@@ -13,6 +13,7 @@ define( require => {
   const FocusAndDirectrixEquationNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixEquationNode' );
   const FocusAndDirectrixInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixInteractiveEquationNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   class FocusAndDirectrixAccordionBox extends EquationAccordionBox {
 
@@ -22,6 +23,10 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( model, expandedProperty, options ) {
+
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
       const titleNode = new FocusAndDirectrixEquationNode();
 

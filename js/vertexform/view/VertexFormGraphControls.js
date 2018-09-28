@@ -15,6 +15,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 
@@ -22,24 +23,24 @@ define( require => {
 
     /**
      * @param {GQViewProperties} viewProperties
-     * @param {Tandem} tandem
+     * @param {Object} [options]
      */
-    constructor( viewProperties, tandem ) {
+    constructor( viewProperties, options ) {
 
-      const options = _.extend( {
-        tandem: tandem
-      }, GQConstants.PANEL_OPTIONS );
+      options = _.extend( {
+        tandem: Tandem.required
+      }, GQConstants.PANEL_OPTIONS, options );
 
       // checkboxes
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
         manipulatorIcon: true,
-        tandem: tandem.createTandem( 'vertexCheckbox' )
+        tandem: options.tandem.createTandem( 'vertexCheckbox' )
       } );
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty, {
-        tandem: tandem.createTandem( 'axisOfSymmetryCheckbox' )
+        tandem: options.tandem.createTandem( 'axisOfSymmetryCheckbox' )
       } );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
-        tandem: tandem.createTandem( 'coordinatesCheckbox' )
+        tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
       } );
 
       // vertical layout

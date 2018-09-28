@@ -24,14 +24,24 @@ define( require => {
      */
     constructor( model, tandem ) {
 
-      const viewProperties = new VertexFormViewProperties( tandem.createTandem( 'viewProperties' ) );
+      const options = {
+        tandem: tandem
+      };
+
+      const viewProperties = new VertexFormViewProperties( {
+        tandem: options.tandem.createTandem( 'viewProperties' )
+      } );
 
       super( model,
         viewProperties,
         new VertexFormGraphNode( model, viewProperties ),
-        new VertexFormAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, tandem.createTandem( 'equationAccordionBox' ) ),
-        new VertexFormGraphControls( viewProperties, tandem.createTandem( 'graphControls' ) ),
-        tandem
+        new VertexFormAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, {
+          tandem: options.tandem.createTandem( 'equationAccordionBox' )
+        } ),
+        new VertexFormGraphControls( viewProperties, {
+          tandem: options.tandem.createTandem( 'graphControls' )
+        } ),
+        options
       );
     }
   }

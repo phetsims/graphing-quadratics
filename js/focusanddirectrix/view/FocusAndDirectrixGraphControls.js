@@ -16,6 +16,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Panel = require( 'SUN/Panel' );
   const PointOnQuadraticCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticCheckbox' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 
@@ -23,30 +24,30 @@ define( require => {
 
     /**
      * @param {GQViewProperties} viewProperties
-     * @param {Tandem} tandem
+     * @param {Object} [options]
      */
-    constructor( viewProperties, tandem ) {
+    constructor( viewProperties, options ) {
 
-      const options = _.extend( {
-        tandem: tandem
-      }, GQConstants.PANEL_OPTIONS );
+      options = _.extend( {
+        tandem: Tandem.required
+      }, GQConstants.PANEL_OPTIONS, options );
 
       // checkboxes
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
         manipulatorIcon: true,
-        tandem: tandem.createTandem( 'vertexCheckbox' )
+        tandem: options.tandem.createTandem( 'vertexCheckbox' )
       } );
       const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty, {
-        tandem: tandem.createTandem( 'focusCheckbox' )
+        tandem: options.tandem.createTandem( 'focusCheckbox' )
       } );
       const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty, {
-        tandem: tandem.createTandem( 'directrixCheckbox' )
+        tandem: options.tandem.createTandem( 'directrixCheckbox' )
       } );
       const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty, {
-        tandem: tandem.createTandem( 'pointOnQuadraticCheckbox' )
+        tandem: options.tandem.createTandem( 'pointOnQuadraticCheckbox' )
       } );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
-        tandem: tandem.createTandem( 'coordinatesCheckbox' )
+        tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
       } );
 
       // vertical layout
