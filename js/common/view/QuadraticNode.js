@@ -114,11 +114,12 @@ define( require => {
           equationParent.rotation = -Math.atan( quadratic.getTangentSlope( p.x ) );
 
           // move equation to (x,y)
+          equationParent.translation = modelViewTransform.modelToViewPosition( p );
+
+          // when equation is on the right side of parabola, move it's origin to the right end of the equation
           if ( p.x > quadratic.vertex.x ) {
-            // when equation is on the right side, move it's origin to the right end of the equation
             equationNode.right = 0;
           }
-          equationParent.translation = modelViewTransform.modelToViewPosition( p );
 
           // space between line and equation
           if ( quadratic.a >= 0 ) {
