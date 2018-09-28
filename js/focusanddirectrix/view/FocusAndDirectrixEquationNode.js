@@ -18,6 +18,7 @@ define( require => {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   class FocusAndDirectrixEquationNode extends Node {
@@ -30,7 +31,8 @@ define( require => {
       options = _.extend( {
         font: new PhetFont( 26 ),
         fractionFont: new PhetFont( 22 ),
-        color: 'black'
+        color: 'black',
+        tandem: Tandem.required
       } );
 
       // y =

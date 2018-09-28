@@ -28,7 +28,9 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const titleNode = new VertexFormEquationNode();
+      const titleNode = new VertexFormEquationNode( {
+        tandem: options.tandem.createTandem( 'titleNode' )
+      } );
 
       const interactiveEquationNode = new VertexFormInteractiveEquationNode(
         model.quadraticProperty, model.aRange, model.hRange, model.kRange );

@@ -28,7 +28,9 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const titleNode = new StandardFormEquationNode();
+      const titleNode = new StandardFormEquationNode( {
+        tandem: options.tandem.createTandem( 'titleNode' )
+      } );
 
       const interactiveEquationNode = new ExploreInteractiveEquationNode(
         model.quadraticProperty, model.aRange, model.bRange, model.cRange );

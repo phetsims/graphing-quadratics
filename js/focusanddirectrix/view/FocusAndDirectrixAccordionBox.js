@@ -28,7 +28,9 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const titleNode = new FocusAndDirectrixEquationNode();
+      const titleNode = new FocusAndDirectrixEquationNode( {
+        tandem: options.tandem.createTandem( 'titleNode' )
+      } );
 
       const interactiveEquationNode = new FocusAndDirectrixInteractiveEquationNode(
         model.quadraticProperty, model.pRange, model.hRange, model.kRange );

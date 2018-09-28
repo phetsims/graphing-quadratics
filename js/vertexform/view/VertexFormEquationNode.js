@@ -16,6 +16,7 @@ define( require => {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   class VertexFormEquationNode extends RichText {
 
@@ -28,7 +29,8 @@ define( require => {
 
         // RichText options
         font: new PhetFont( 26 ),
-        fill: 'black'
+        fill: 'black',
+        tandem: Tandem.required
       } );
 
       const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
