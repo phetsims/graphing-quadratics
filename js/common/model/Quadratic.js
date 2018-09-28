@@ -122,7 +122,7 @@ define( require => {
     /**
      * Encodes the state of a Quadratic instance, for PhET-iO.
      * @returns {*}
-     * @public (phet-io)
+     * @public
      */
     toStateObject() {
       return {
@@ -137,7 +137,7 @@ define( require => {
      * Decodes state into a Quadratic instance, for PhET-iO.
      * @param {*} object
      * @returns {Quadratic}
-     * @public (phet-io)
+     * @public
      */
     static fromStateObject( object ) {
       return new Quadratic( object.a, object.b, object.c, {

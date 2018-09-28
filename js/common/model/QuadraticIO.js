@@ -35,7 +35,7 @@ define( require => {
      * Encodes the state of a Quadratic instance.
      * @param {Quadratic} quadratic
      * @returns {*}
-     * @public (phet-io)
+     * @public
      */
     toStateObject: function( quadratic ) {
       assert && assertInstanceOf( quadratic, Quadratic );
@@ -46,7 +46,7 @@ define( require => {
      * Decodes state into a Quadratic instance.
      * @param {*} object
      * @returns {Quadratic}
-     * @public (phet-io)
+     * @public
      */
     fromStateObject: function( object ) {
       return Quadratic.fromStateObject( object );
