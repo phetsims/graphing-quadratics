@@ -40,10 +40,10 @@ define( require => {
     toStateObject: function( quadratic ) {
       assert && assertInstanceOf( quadratic, Quadratic );
       return {
-        //TODO #14
         a: quadratic.a,
         b: quadratic.b,
-        c: quadratic.c
+        c: quadratic.c,
+        color: quadratic.color
       };
     },
 
@@ -52,7 +52,9 @@ define( require => {
      * @returns {Quadratic}
      */
     fromStateObject: function( object ) {
-      return new Quadratic( object.a, object.b, object.c );
+      return new Quadratic( object.a, object.b, object.c, {
+        color: object.color
+      } );
     }
   } );
 
