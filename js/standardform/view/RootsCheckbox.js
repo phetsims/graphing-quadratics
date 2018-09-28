@@ -16,6 +16,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -26,7 +27,15 @@ define( require => {
 
   class RootsCheckbox extends Checkbox {
 
+    /**
+     * @param {BooleanProperty} rootsVisibleProperty
+     * @param {Object} [options]
+     */
     constructor( rootsVisibleProperty, options ) {
+
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
       const label = new HBox( {
         align: 'center',

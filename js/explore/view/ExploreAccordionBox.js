@@ -18,17 +18,17 @@ define( require => {
 
     /**
      * @param {ExploreModel} model
-     * @param {ExploreViewProperties} viewProperties
-     * @param {Object} [options]
+     * @param {BooleanProperty} expandedProperty
+     * @param {Tandem} tandem
      */
-    constructor( model, viewProperties, options ) {
+    constructor( model, expandedProperty, tandem ) {
 
       const titleNode = new StandardFormEquationNode();
 
       const interactiveEquationNode = new ExploreInteractiveEquationNode(
         model.quadraticProperty, model.aRange, model.bRange, model.cRange );
 
-      super( model, viewProperties, titleNode, interactiveEquationNode, options );
+      super( model, expandedProperty, titleNode, interactiveEquationNode, tandem );
     }
   }
 

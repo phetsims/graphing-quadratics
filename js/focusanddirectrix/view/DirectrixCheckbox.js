@@ -16,6 +16,7 @@ define( require => {
   const HBox = require( 'SCENERY/nodes/HBox' );
   const Line = require( 'SCENERY/nodes/Line' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -28,6 +29,10 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( directrixVisibleProperty, options ) {
+
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
       const label = new HBox( {
         align: 'center',

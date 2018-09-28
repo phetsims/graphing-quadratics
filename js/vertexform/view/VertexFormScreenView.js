@@ -20,16 +20,19 @@ define( require => {
 
     /**
      * @param {VertexFormModel} model
+     * @param {Tandem} tandem
      */
-    constructor( model ) {
+    constructor( model, tandem ) {
 
-      const viewProperties = new VertexFormViewProperties();
+      const viewProperties = new VertexFormViewProperties( tandem.createTandem( 'viewProperties' ) );
 
       super( model,
         viewProperties,
         new VertexFormGraphNode( model, viewProperties ),
-        new VertexFormAccordionBox( model, viewProperties ),
-        new VertexFormGraphControls( viewProperties ) );
+        new VertexFormAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, tandem.createTandem( 'equationAccordionBox' ) ),
+        new VertexFormGraphControls( viewProperties, tandem.createTandem( 'graphControls' ) ),
+        tandem
+      );
     }
   }
 

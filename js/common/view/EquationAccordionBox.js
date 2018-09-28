@@ -21,20 +21,19 @@ define( require => {
 
     /**
      * @param {ExploreModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {BooleanProperty} expandedProperty
      * @param {Node} titleNode
      * @param {Node} interactiveEquationNode
-     * @param {Object} [options]
+     * @param {Tandem} tandem
      * @abstract
      */
-    constructor( model, viewProperties, titleNode, interactiveEquationNode, options ) {
+    constructor( model, expandedProperty, titleNode, interactiveEquationNode, tandem ) {
 
-      options = _.extend( {
-        expandedProperty: viewProperties.equationAccordionBoxExpandedProperty
-      }, GQConstants.ACCORDION_BOX_OPTIONS, options );
-
-      assert && assert( !options.titleNode, 'EquationAccordionBox sets titleNode' );
-      options.titleNode = titleNode;
+      const options = _.extend( {
+        expandedProperty: expandedProperty,
+        titleNode: titleNode,
+        tandem: tandem
+      }, GQConstants.ACCORDION_BOX_OPTIONS );
 
       const saveCurveControls = new SaveCurveControls(
         model.saveQuadratic.bind( model ), model.eraseQuadratics.bind( model ), model.savedQuadratics.lengthProperty );

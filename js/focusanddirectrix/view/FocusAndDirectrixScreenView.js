@@ -20,16 +20,19 @@ define( require => {
 
     /**
      * @param {FocusAndDirectrixModel} model
+     * @param {Tandem} tandem
      */
-    constructor( model ) {
+    constructor( model, tandem ) {
 
-      const viewProperties = new FocusAndDirectrixViewProperties();
+      const viewProperties = new FocusAndDirectrixViewProperties( tandem.createTandem( 'viewProperties') );
 
       super( model,
         viewProperties,
         new FocusAndDirectrixGraphNode( model, viewProperties ),
-        new FocusAndDirectrixAccordionBox( model, viewProperties ),
-        new FocusAndDirectrixGraphControls( viewProperties ) );
+        new FocusAndDirectrixAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, tandem.createTandem( 'equationAccordionBox') ),
+        new FocusAndDirectrixGraphControls( viewProperties, tandem.createTandem( 'graphControls' ) ),
+        tandem
+      );
     }
   }
 

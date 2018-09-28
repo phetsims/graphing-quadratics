@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Accordion box for showing and hiding terms of the interactive auadratic equation.
+ * Accordion box for showing and hiding terms of the interactive quadratic equation.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -29,21 +29,22 @@ define( require => {
   // strings
   const quadraticTermsString = require( 'string!GRAPHING_QUADRATICS/quadraticTerms' );
 
-  class TermsAccordionBox extends AccordionBox {
+  class QuadraticTermsAccordionBox extends AccordionBox {
 
     /**
      * @param {ExploreViewProperties} viewProperties
+     * @param {Tandem} tandem
      * @param {Object} [options]
      */
-    constructor( viewProperties, options ) {
+    constructor( viewProperties, tandem, options ) {
 
       options = _.extend( {
-        expandedProperty: viewProperties.termsAccordionBoxExpandedProperty,
+        expandedProperty: viewProperties.quadraticTermsAccordionBoxExpandedProperty,
         titleAlignX: 'left',
         titleXSpacing: 8
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
-      assert && assert( !options.titleNode, 'TermsAccordionBox sets titleNode' );
+      assert && assert( !options.titleNode, 'QuadraticTermsAccordionBox sets titleNode' );
       options.titleNode = new Text( quadraticTermsString, {
         font: new PhetFont( GQConstants.TITLE_FONT_SIZE )
       } );
@@ -59,7 +60,10 @@ define( require => {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.QUADRATIC_TERM
       } );
-      const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, viewProperties.quadraticTermVisibleProperty );
+      const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, viewProperties.quadraticTermVisibleProperty, {
+        tandem: tandem.createTandem( 'quadraticTermCheckbox' ),
+        phetioDocumentation: 'checkbox that makes the quadratic term visible'
+      } );
 
       // y = bx
       const linearTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
@@ -71,7 +75,10 @@ define( require => {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.LINEAR_TERM
       } );
-      const linearTermCheckbox = new Checkbox( linearTermLabel, viewProperties.linearTermVisibleProperty );
+      const linearTermCheckbox = new Checkbox( linearTermLabel, viewProperties.linearTermVisibleProperty, {
+        tandem: tandem.createTandem( 'linearTermCheckbox' ),
+        phetioDocumentation: 'checkbox that makes the linear term visible'
+      } );
 
       // y = c
       const constantTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
@@ -82,7 +89,10 @@ define( require => {
         font: CHECKBOX_EQUATION_FONT,
         fill: GQColors.CONSTANT_TERM
       } );
-      const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty );
+      const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty, {
+        tandem: tandem.createTandem( 'constantTermCheckbox' ),
+        phetioDocumentation: 'checkbox that makes the constant term visible'
+      } );
 
       // vertical layout
       const contentNode = new VBox( {
@@ -99,5 +109,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'TermsAccordionBox', TermsAccordionBox );
+  return graphingQuadratics.register( 'QuadraticTermsAccordionBox', QuadraticTermsAccordionBox );
 } );

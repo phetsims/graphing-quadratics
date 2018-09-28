@@ -21,19 +21,23 @@ define( require => {
 
   class ExploreScreen extends Screen {
 
-    constructor() {
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
       const options = {
 
         // superclass options
         name: screenExploreString,
-        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
+        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         //TODO #11 homeScreenIcon:
+        tandem: tandem
       };
 
       super(
-        () => { return new ExploreModel(); },
-        model => { return new ExploreScreenView( model ); },
+        () => { return new ExploreModel( tandem.createTandem( 'model' ) ); },
+        model => { return new ExploreScreenView( model, tandem.createTandem( 'view' ) ); },
         options
       );
     }

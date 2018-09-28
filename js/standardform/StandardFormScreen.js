@@ -21,19 +21,23 @@ define( require => {
 
   class StandardFormScreen extends Screen {
 
-    constructor() {
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
       const options = {
 
         // superclass options
         name: screenStandardFormString,
-        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
+        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         //TODO #11 homeScreenIcon:
+        tandem: tandem
       };
 
       super(
-        () => { return new StandardFormModel(); },
-        model => { return new StandardFormScreenView( model ); },
+        () => { return new StandardFormModel( tandem.createTandem( 'model' ) ); },
+        model => { return new StandardFormScreenView( model, tandem.createTandem( 'view' ) ); },
         options
       );
     }

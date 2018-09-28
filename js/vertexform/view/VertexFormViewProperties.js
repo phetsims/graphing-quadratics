@@ -16,17 +16,26 @@ define( require => {
 
   class VertexFormViewProperties extends GQViewProperties {
 
-    constructor() {
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
-      super( {
+      super( tandem, {
         equationForm: 'vertex'
       } );
 
-      // @public whether the vertex manipulator is visible
-      this.vertexVisibleProperty = new BooleanProperty( true );
+      // @public
+      this.vertexVisibleProperty = new BooleanProperty( true, {
+        tandem: tandem.createTandem( 'vertexVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the vertex manipulator is visible'
+      } );
 
-      // @public whether the axis of symmetry is visible
-      this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      // @public
+      this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the axis of symmetry is visible'
+      } );
     }
 
     /**

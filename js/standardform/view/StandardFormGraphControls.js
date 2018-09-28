@@ -23,16 +23,27 @@ define( require => {
 
     /**
      * @param {StandardFormViewProperties} viewProperties
-     * @param {Object} [options]
+     * @param {Tandem} tandem
      */
-    constructor( viewProperties, options ) {
+    constructor( viewProperties, tandem ) {
 
-      options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
+      const options = _.extend( {
+        tandem: tandem
+      }, GQConstants.PANEL_OPTIONS );
 
-      const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty );
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
-      const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty );
-      const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
+      // checkboxes
+      const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
+        tandem: tandem.createTandem( 'vertexCheckbox' )
+      } );
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty, {
+        tandem: tandem.createTandem( 'axisOfSymmetryCheckbox' )
+      } );
+      const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty, {
+        tandem: tandem.createTandem( 'rootsCheckbox' )
+      } );
+      const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'coordinatesCheckbox' )
+      } );
 
       // vertical layout
       const contentNode = new VBox( {

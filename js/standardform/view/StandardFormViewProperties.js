@@ -16,18 +16,30 @@ define( require => {
 
   class StandardFormViewProperties extends GQViewProperties {
 
-    constructor() {
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
-      super();
+      super( tandem );
 
-      // @public whether the vertex point is visible
-      this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      // @public
+      this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: tandem.createTandem( 'vertexVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the vertex point is visible'
+      } );
 
-      // @public whether the axis of symmetry is visible
-      this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      // @public
+      this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the axis of symmetry is visible'
+      } );
 
-      // @public whether the roots of the quadratic are visible
-      this.rootsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      // @public
+      this.rootsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: tandem.createTandem( 'rootsVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the real roots of the quadratic are visible'
+      } );
     }
 
     /**

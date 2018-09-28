@@ -16,31 +16,28 @@ define( require => {
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
+  // constants
+  const A_RANGE = new RangeWithValue( -6, 6, 1 );
+  const B_RANGE = new RangeWithValue( -6, 6, 0 );
+  const C_RANGE = new RangeWithValue( -6, 6, 0 );
+
   class StandardFormModel extends GQModel {
 
     /**
-     * @param {Object} [options]
+     * @param {Tandem} tandem
      */
-    constructor( options ) {
+    constructor( tandem ) {
 
-      options = _.extend( {
-        aRange: new RangeWithValue( -6, 6, 1 ),
-        bRange: new RangeWithValue( -6, 6, 0 ),
-        cRange: new RangeWithValue( -6, 6, 0 )
-      }, options );
+      const quadratic = new Quadratic( A_RANGE.defaultValue, B_RANGE.defaultValue, C_RANGE.defaultValue, {
+        color: GQColors.EXPLORE_INTERACTIVE_CURVE
+      } );
 
-      assert && assert( !options.quadratic, 'StandardFormModel sets quadratic' );
-      options.quadratic = new Quadratic(
-        options.aRange.defaultValue, options.bRange.defaultValue, options.cRange.defaultValue, {
-          color: GQColors.EXPLORE_INTERACTIVE_CURVE
-        } );
-
-      super( options );
+      super( quadratic, tandem );
 
       // @public (read-only)
-      this.aRange = options.aRange;
-      this.bRange = options.bRange;
-      this.cRange = options.cRange;
+      this.aRange = A_RANGE;
+      this.bRange = B_RANGE;
+      this.cRange = C_RANGE;
     }
   }
 

@@ -21,19 +21,23 @@ define( require => {
 
   class VertexFormScreen extends Screen {
 
-    constructor() {
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
       const options = {
 
         // superclass options
         name: screenVertexFormString,
-        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
+        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         //TODO #11 homeScreenIcon:
+        tandem: tandem
       };
 
       super(
-        () => { return new VertexFormModel(); },
-        model => { return new VertexFormScreenView( model ); },
+        () => { return new VertexFormModel( tandem.createTandem( 'model' ) ); },
+        model => { return new VertexFormScreenView( model, tandem.createTandem( 'view' ) ); },
         options
       );
     }

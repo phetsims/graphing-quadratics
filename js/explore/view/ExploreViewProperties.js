@@ -16,21 +16,36 @@ define( require => {
 
   class ExploreViewProperties extends GQViewProperties {
 
-    constructor() {
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
-      super();
+      super( tandem );
 
-      // @public whether the terms accordion box is expanded
-      this.termsAccordionBoxExpandedProperty = new BooleanProperty( true );
+      // @public
+      this.quadraticTermsAccordionBoxExpandedProperty = new BooleanProperty( true, {
+        tandem: tandem.createTandem( 'quadraticTermsAccordionBoxExpandedProperty' ),
+        phetioDocumentation: 'whether the quadratic terms accordion box is expanded'
+      } );
 
-      // @public whether the quadratic term (y=ax^2) is displayed on the graph
-      this.quadraticTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      // @public
+      this.quadraticTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: tandem.createTandem( 'quadraticTermVisibleProperty' ),
+        phetioDocumentation: 'whether the quadratic term, y = ax^2, is visible'
+      } );
 
-      // @public whether the linear term (y=bx) is displayed on the graph
-      this.linearTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      // @public
+      this.linearTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: tandem.createTandem( 'linearTermVisibleProperty' ),
+        phetioDocumentation: 'whether the linear term, y = bx, is visible'
+      } );
 
-      // @public whether the constant term (y=c) is displayed on the graph
-      this.constantTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      // @public
+      this.constantTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: tandem.createTandem( 'constantTermVisibleProperty' ),
+        phetioDocumentation: 'whether the constant term, y = c, is visible'
+      } );
     }
 
     /**
@@ -39,7 +54,7 @@ define( require => {
      */
     reset() {
       super.reset();
-      this.termsAccordionBoxExpandedProperty.reset();
+      this.quadraticTermsAccordionBoxExpandedProperty.reset();
       this.quadraticTermVisibleProperty.reset();
       this.linearTermVisibleProperty.reset();
       this.constantTermVisibleProperty.reset();

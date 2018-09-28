@@ -21,19 +21,23 @@ define( require => {
 
   class FocusAndDirectrixScreen extends Screen {
 
-    constructor() {
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
       const options = {
 
         // superclass options
         name: screenFocusAndDirectrixString,
-        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND )
+        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         //TODO #11 homeScreenIcon:
+        tandem: tandem
       };
 
       super(
-        () => { return new FocusAndDirectrixModel(); },
-        model => { return new FocusAndDirectrixScreenView( model ); },
+        () => { return new FocusAndDirectrixModel( tandem.createTandem( 'model' ) ); },
+        model => { return new FocusAndDirectrixScreenView( model, tandem.createTandem( 'view' ) ); },
         options
       );
     }

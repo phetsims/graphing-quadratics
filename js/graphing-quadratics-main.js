@@ -15,6 +15,7 @@ define( require => {
   const Sim = require( 'JOIST/Sim' );
   const SimLauncher = require( 'JOIST/SimLauncher' );
   const StandardFormScreen = require( 'GRAPHING_QUADRATICS/standardform/StandardFormScreen' );
+  var Tandem = require( 'TANDEM/Tandem' );
   const VertexFormScreen = require( 'GRAPHING_QUADRATICS/vertexform/VertexFormScreen' );
 
   // strings
@@ -31,10 +32,10 @@ define( require => {
 
   SimLauncher.launch( () => {
     const screens = [
-      new ExploreScreen(),
-      new StandardFormScreen(),
-      new VertexFormScreen(),
-      new FocusAndDirectrixScreen()
+      new ExploreScreen( Tandem.rootTandem.createTandem( 'exploreScreen' ) ),
+      new StandardFormScreen( Tandem.rootTandem.createTandem( 'standardFormScreen' ) ),
+      new VertexFormScreen( Tandem.rootTandem.createTandem( 'vertexFormScreen' ) ),
+      new FocusAndDirectrixScreen( Tandem.rootTandem.createTandem( 'focusAndDirectrixScreen' ) )
     ];
     const sim = new Sim( graphingQuadraticsTitleString, screens, options );
     sim.start();

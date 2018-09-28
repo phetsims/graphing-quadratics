@@ -17,6 +17,7 @@ define( require => {
   const HBox = require( 'SCENERY/nodes/HBox' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -31,7 +32,8 @@ define( require => {
     constructor( vertexVisibleProperty, options ) {
 
       options = _.extend( {
-        manipulatorIcon: false
+        manipulatorIcon: false,
+        tandem: Tandem.required
       }, options );
 
       const label = new HBox( {

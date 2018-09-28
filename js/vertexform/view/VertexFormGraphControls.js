@@ -22,17 +22,25 @@ define( require => {
 
     /**
      * @param {GQViewProperties} viewProperties
-     * @param options
+     * @param {Tandem} tandem
      */
-    constructor( viewProperties, options ) {
+    constructor( viewProperties, tandem ) {
 
-      options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
+      const options = _.extend( {
+        tandem: tandem
+      }, GQConstants.PANEL_OPTIONS );
 
+      // checkboxes
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
-        manipulatorIcon: true
+        manipulatorIcon: true,
+        tandem: tandem.createTandem( 'vertexCheckbox' )
       } );
-      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty );
-      const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty, {
+        tandem: tandem.createTandem( 'axisOfSymmetryCheckbox' )
+      } );
+      const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'coordinatesCheckbox' )
+      } );
 
       // vertical layout
       const contentNode = new VBox( {

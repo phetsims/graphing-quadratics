@@ -18,17 +18,17 @@ define( require => {
 
     /**
      * @param {VertexFormModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {BooleanProperty} expandedProperty
      * @param {Object} [options]
      */
-    constructor( model, viewProperties, options ) {
+    constructor( model, expandedProperty, options ) {
 
       const titleNode = new FocusAndDirectrixEquationNode();
 
       const interactiveEquationNode = new FocusAndDirectrixInteractiveEquationNode(
         model.quadraticProperty, model.pRange, model.hRange, model.kRange );
 
-      super( model, viewProperties, titleNode, interactiveEquationNode, options );
+      super( model, expandedProperty, titleNode, interactiveEquationNode, options );
     }
   }
 

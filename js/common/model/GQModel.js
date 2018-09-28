@@ -19,7 +19,9 @@ define( require => {
   const ObservableArray = require( 'AXON/ObservableArray' );
   const PointTool = require( 'GRAPHING_QUADRATICS/common/model/PointTool' );
   const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
+  const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
@@ -29,30 +31,32 @@ define( require => {
   class GQModel {
 
     /**
-     * @param {Object} [options]
+     * @param {Quadratic} quadratic - the initial quadratic
+     * @param {Tandem} tandem
      */
-    constructor( options ) {
-
-      options = _.extend( {
-        quadratic: new Quadratic( 1, 0, 0 )
-      }, options );
+    constructor( quadratic, tandem ) {
 
       // @public (read-only) graph
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
-      // @public the interactive quadratic
-      this.quadraticProperty = new Property( options.quadratic, {
+      // @public
+      this.quadraticProperty = new Property( quadratic, {
+        reentrant: true, //TODO #17
         valueType: Quadratic,
-        reentrant: true
+        tandem: tandem.createTandem( 'quadraticProperty' ),
+        phetioType: PropertyIO( QuadraticIO ),
+        phetioInstanceDocumentation: 'the interactive quadratic'
       } );
       this.quadraticProperty.link( quadratic => {
         phet.log && phet.log( 'quadratic=' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );
       } );
 
-      // @public saved quadratics
+      //TODO #14 instrument? there's only 1 saved line, change implementation to savedQuadraticProperty?
+      // @public
       this.savedQuadratics = new ObservableArray( [] );
 
-      // @public {ObservableArray.<Quadratic>} quadratics displayed on the graph
+      //TODO #14 instrument?
+      // @public {ObservableArray.<Quadratic>} all quadratics displayed on the graph
       this.quadratics = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
         this.quadratics.clear();
@@ -66,6 +70,7 @@ define( require => {
         this.graph.yRange.getLength()
       );
 
+      //TODO #14 instrument?
       // @public (read-only) model-view transform, created in the model because it's dependent on graph axes ranges.
       this.modelViewTransform = ModelViewTransform2.createOffsetXYScaleMapping(
         ORIGIN_OFFSET,
@@ -82,7 +87,9 @@ define( require => {
           location: new Vector2( -2, -12 ),
           dragBounds: new Bounds2(
             this.graph.xRange.min - 1, this.graph.yRange.min - 3,
-            this.graph.xRange.max + 1, this.graph.yRange.max + 1 )
+            this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
+          tandem: tandem.createTandem( 'rightPointTool' ),
+          phetioInstanceDocumentation: 'the point tool whose probe is on the right side'
         } ),
 
         // probe on left
@@ -91,7 +98,9 @@ define( require => {
           location: new Vector2( 2, -12 ),
           dragBounds: new Bounds2(
             this.graph.xRange.min - 1, this.graph.yRange.min - 3,
-            this.graph.xRange.max + 1, this.graph.yRange.max + 1 )
+            this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
+          tandem: tandem.createTandem( 'leftPointTool' ),
+          phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
         } )
       ];
     }

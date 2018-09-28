@@ -23,19 +23,31 @@ define( require => {
 
     /**
      * @param {GQViewProperties} viewProperties
-     * @param options
+     * @param {Tandem} tandem
      */
-    constructor( viewProperties, options ) {
+    constructor( viewProperties, tandem ) {
 
-      options = _.extend( {}, GQConstants.PANEL_OPTIONS, options );
+      const options = _.extend( {
+        tandem: tandem
+      }, GQConstants.PANEL_OPTIONS );
 
+      // checkboxes
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
-        manipulatorIcon: true
+        manipulatorIcon: true,
+        tandem: tandem.createTandem( 'vertexCheckbox' )
       } );
-      const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty );
-      const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty );
-      const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty );
-      const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty );
+      const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty, {
+        tandem: tandem.createTandem( 'focusCheckbox' )
+      } );
+      const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty, {
+        tandem: tandem.createTandem( 'directrixCheckbox' )
+      } );
+      const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty, {
+        tandem: tandem.createTandem( 'pointOnQuadraticCheckbox' )
+      } );
+      const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'coordinatesCheckbox' )
+      } );
 
       // vertical layout
       const contentNode = new VBox( {

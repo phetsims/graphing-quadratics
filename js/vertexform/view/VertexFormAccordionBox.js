@@ -18,17 +18,17 @@ define( require => {
 
     /**
      * @param {VertexFormModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {BooleanProperty} expandedProperty
      * @param {Object} [options]
      */
-    constructor( model, viewProperties, options ) {
+    constructor( model, expandedProperty, options ) {
 
       const titleNode = new VertexFormEquationNode();
 
       const interactiveEquationNode = new VertexFormInteractiveEquationNode(
         model.quadraticProperty, model.aRange, model.hRange, model.kRange );
 
-      super( model, viewProperties, titleNode, interactiveEquationNode, options );
+      super( model, expandedProperty, titleNode, interactiveEquationNode, options );
     }
   }
 

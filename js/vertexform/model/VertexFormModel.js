@@ -15,31 +15,29 @@ define( require => {
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
+  // constants
+  const A_RANGE = new RangeWithValue( -6, 6, 1 );
+  const H_RANGE = new RangeWithValue( -9, 9, 0 );
+  const K_RANGE = new RangeWithValue( -9, 9, 0 );
+
   class VertexFormModel extends GQModel {
 
     /**
-     * @param {Object} [options]
+     * @param {Tandem} tandem
      */
-    constructor( options ) {
+    constructor( tandem ) {
 
-      options = _.extend( {
-        aRange: new RangeWithValue( -6, 6, 1 ),
-        hRange: new RangeWithValue( -9, 9, 0 ),
-        kRange: new RangeWithValue( -9, 9, 0 )
-      }, options );
-
-      assert && assert( !options.quadratic, 'VertexFormModel sets quadratic' );
-      options.quadratic = Quadratic.createFromVertexForm(
-        options.aRange.defaultValue, options.hRange.defaultValue, options.kRange.defaultValue, {
+      const quadratic = Quadratic.createFromVertexForm(
+        A_RANGE.defaultValue, H_RANGE.defaultValue, K_RANGE.defaultValue, {
           color: 'black'
         } );
 
-      super( options );
+      super( quadratic, tandem );
 
       // @public (read-only)
-      this.aRange = options.aRange;
-      this.hRange = options.hRange;
-      this.kRange = options.kRange;
+      this.aRange = A_RANGE;
+      this.hRange = H_RANGE;
+      this.kRange = K_RANGE;
     }
   }
 

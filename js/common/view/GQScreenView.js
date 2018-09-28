@@ -30,15 +30,14 @@ define( require => {
      * @param {Node} graphNode
      * @param {Node} equationControls
      * @param {Node} graphControls
-     * @param {Object} [options]
+     * @param {Tandem} tandem
      */
-    constructor( model, viewProperties, graphNode, equationControls, graphControls, options ) {
+    constructor( model, viewProperties, graphNode, equationControls, graphControls, tandem ) {
 
-      options = _.extend( {
-        layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS
-      }, options );
-
-      super( options );
+      super( {
+        layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,
+        tandem: tandem
+      } );
 
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
       const pointToolsParent = new Node();

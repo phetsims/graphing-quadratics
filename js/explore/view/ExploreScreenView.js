@@ -14,22 +14,25 @@ define( require => {
   const ExploreViewProperties = require( 'GRAPHING_QUADRATICS/explore/view/ExploreViewProperties' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const TermsAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/TermsAccordionBox' );
+  const QuadraticTermsAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/QuadraticTermsAccordionBox' );
 
   class ExploreScreenView extends GQScreenView {
 
     /**
      * @param {ExploreModel} model
+     * @param {Tandem} tandem
      */
-    constructor( model ) {
+    constructor( model, tandem ) {
 
-      const viewProperties = new ExploreViewProperties();
+      const viewProperties = new ExploreViewProperties( tandem.createTandem( 'viewProperties') );
 
       super( model,
         viewProperties,
         new ExploreGraphNode( model, viewProperties ),
-        new ExploreAccordionBox( model, viewProperties ),
-        new TermsAccordionBox( viewProperties ) );
+        new ExploreAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, tandem.createTandem( 'equationAccordionBox') ),
+        new QuadraticTermsAccordionBox( viewProperties, tandem.createTandem( 'quadraticTermsAccordionBox') ),
+        tandem
+      );
     }
   }
 

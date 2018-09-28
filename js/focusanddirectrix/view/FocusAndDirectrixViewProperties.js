@@ -16,24 +16,39 @@ define( require => {
 
   class FocusAndDirectrixViewProperties extends GQViewProperties {
 
-    constructor() {
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
-      super( {
+      super( tandem, {
         equationForm: 'vertex',
         coordinatesVisible: GQQueryParameters.checkAll
       } );
 
-      // @public whether a point is displayed to mark the vertex of the quadratic
-      this.vertexVisibleProperty = new BooleanProperty( true );
+      // @public
+      this.vertexVisibleProperty = new BooleanProperty( true, {
+        tandem: tandem.createTandem( 'vertexVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the vertex manipulator is visible'
+      } );
 
-      // @public whether focus is visible
-      this.focusVisibleProperty = new BooleanProperty( true );
+      // @public
+      this.focusVisibleProperty = new BooleanProperty( true, {
+        tandem: tandem.createTandem( 'focusVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the focus manipulator is visible'
+      } );
 
-      // @public whether directrix is visible
-      this.directrixVisibleProperty = new BooleanProperty( true );
+      // @public
+      this.directrixVisibleProperty = new BooleanProperty( true, {
+        tandem: tandem.createTandem( 'directrixVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the directrix is visible'
+      } );
 
       // @public whether an interactive point is visible on the quadratic
-      this.pointOnQuadraticVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll );
+      this.pointOnQuadraticVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: tandem.createTandem( 'pointOnQuadraticVisibleProperty' ),
+        phetioInstanceDocumentation: 'whether the interactive point on the quadratic is visible'
+      } );
     }
 
     /**

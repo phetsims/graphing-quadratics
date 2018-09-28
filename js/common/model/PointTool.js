@@ -9,10 +9,17 @@ define( require => {
   'use strict';
 
   // modules
-  var graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  var Property = require( 'AXON/Property' );
-  var Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
+  const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
+  const Tandem = require( 'TANDEM/Tandem' );
+  const Vector2 = require( 'DOT/Vector2' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
+
+  // ifphetio
+  const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // constants
   const ORIENTATIONS = [ 'right', 'left' ];
@@ -28,7 +35,8 @@ define( require => {
       options = _.extend( {
         location: Vector2.ZERO, // {Vector2} initial location
         orientation: 'left', // {string} which side the probe is on, see ORIENTATIONS
-        dragBounds: null // {Bounds2|null} drag bounds in model coordinate frame
+        dragBounds: null, // {Bounds2|null} drag bounds in model coordinate frame
+        tandem: Tandem.required
       }, options );
 
       assert && assert( ORIENTATIONS.includes( options.orientation ),
@@ -36,9 +44,12 @@ define( require => {
 
       var self = this;
 
-      // @public {Vector2} location of the point tool
+      // @public {Vector2}
       this.locationProperty = new Property( options.location, {
-        valueType: Vector2
+        valueType: Vector2,
+        tandem: options.tandem.createTandem( 'locationProperty' ),
+        phetioType: PropertyIO( NullableIO( Vector2IO ) ),
+        phetioInstanceDocumentation: 'location of this point tool'
       } );
 
       // @public (read-only)
@@ -46,7 +57,10 @@ define( require => {
 
       // @public quadratic that the tool is on, null if it's not on a quadratic
       this.onQuadraticProperty = new Property( null, {
-        isValidValue: value => { return value instanceof Quadratic || value === null; }
+        isValidValue: value => { return value instanceof Quadratic || value === null; },
+        tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
+        phetioType: PropertyIO( NullableIO( QuadraticIO ) ),
+        phetioInstanceDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
       } );
 
       this.orientation = options.orientation; // @public

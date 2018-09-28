@@ -20,16 +20,19 @@ define( require => {
 
     /**
      * @param {StandardFormModel} model
+     * @param {Tandem} tandem
      */
-    constructor( model ) {
+    constructor( model, tandem ) {
 
-      const viewProperties = new StandardFormViewProperties();
+      const viewProperties = new StandardFormViewProperties( tandem.createTandem( 'viewProperties') );
 
       super( model,
         viewProperties,
         new StandardFormGraphNode( model, viewProperties ),
-        new StandardFormAccordionBox( model, viewProperties ),
-        new StandardFormGraphControls( viewProperties ) );
+        new StandardFormAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, tandem.createTandem( 'equationAccordionBox') ),
+        new StandardFormGraphControls( viewProperties, tandem.createTandem( 'graphControls') ),
+        tandem
+      );
     }
   }
 
