@@ -24,11 +24,11 @@ define( require => {
      * @param {ExploreModel} model
      * @param {BooleanProperty} expandedProperty
      * @param {Node} titleNode
-     * @param {Node} interactiveEquationNode
+     * @param {Node} content
      * @param {Object} [options]
      * @abstract
      */
-    constructor( model, expandedProperty, titleNode, interactiveEquationNode, options ) {
+    constructor( model, expandedProperty, titleNode, content, options ) {
 
       options = _.extend( {
         tandem: Tandem.required
@@ -48,22 +48,22 @@ define( require => {
           phetioInstanceDocumentation: 'buttons to save and erase a quadratic on the graph'
         } );
 
-      const separatorWidth = Math.max( interactiveEquationNode.width, saveEraseButtons.width );
+      const separatorWidth = Math.max( content.width, saveEraseButtons.width );
 
       const separatorOptions = { stroke: GQColors.SEPARATOR };
 
-      const content = new VBox( {
+      const vBox = new VBox( {
         align: 'center',
         spacing: 10,
         children: [
           new HSeparator( separatorWidth, separatorOptions ),
-          interactiveEquationNode,
+          content,
           new HSeparator( separatorWidth, separatorOptions ),
           saveEraseButtons
         ]
       } );
 
-      super( content, options );
+      super( vBox, options );
     }
   }
 

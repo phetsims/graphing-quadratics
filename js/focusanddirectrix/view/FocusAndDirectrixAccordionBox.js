@@ -32,12 +32,12 @@ define( require => {
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
 
-      const interactiveEquationNode = new FocusAndDirectrixInteractiveEquationNode(
+      const content = new FocusAndDirectrixInteractiveEquationNode(
         model.quadraticProperty, model.pRange, model.hRange, model.kRange, {
-          tandem: options.tandem.createTandem( 'interactiveEquation' )
+          tandem: options.tandem.createTandem( 'content' )
         } );
 
-      super( model, expandedProperty, titleNode, interactiveEquationNode, options );
+      super( model, expandedProperty, titleNode, content, options );
     }
   }
 
