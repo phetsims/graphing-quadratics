@@ -118,6 +118,7 @@ define( require => {
       return Quadratic.createFromVertexForm( a, h, k, options );
     }
 
+    //TODO #14 add additional fields that we want to see in the PhET-iO data stream
     /**
      * Encodes the state of a Quadratic instance, for PhET-iO.
      * @returns {*}
