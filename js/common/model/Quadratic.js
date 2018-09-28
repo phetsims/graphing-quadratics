@@ -19,6 +19,7 @@ define( require => {
   'use strict';
 
   // modules
+  const Color = require( 'SCENERY/util/Color' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -39,7 +40,7 @@ define( require => {
     constructor( a, b, c, options ) {
 
       options = _.extend( {
-        color: 'black' // {Color|String} color used to render the curve
+        color: 'black' // {Color|string} color used to render the curve
       }, options );
 
       // @public (read-only)
@@ -115,6 +116,31 @@ define( require => {
     static createFromAlternateVertexForm( p, h, k, options ) {
       const a = 1 / ( 4 * p );
       return Quadratic.createFromVertexForm( a, h, k, options );
+    }
+
+    /**
+     * Encodes the state of a Quadratic instance, for PhET-iO.
+     * @returns {*}
+     */
+    toStateObject() {
+      return {
+        a: this.a,
+        b: this.b,
+        c: this.c,
+        color: Color.toColor( this.color ).toStateObject()
+      };
+    }
+
+    /**
+     * Decodes state into a Quadratic instance for PhET-iO.
+     * @param {*} object
+     * @returns {Quadratic}
+     * @public
+     */
+    static fromStateObject( object ) {
+      return new Quadratic( object.a, object.b, object.c, {
+        color: Color.fromStateObject( object.color )
+      } );
     }
 
     /**
