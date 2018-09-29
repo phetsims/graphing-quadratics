@@ -197,6 +197,7 @@ define( require => {
       return new Quadratic( 0, 0, this.c, { color: GQColors.CONSTANT_TERM } );
     }
 
+    //TODO this appears to have problems, new Quadratic(1,1,1).solveX( 0.5 ) => [NaN,NaN]
     /**
      * Given y, solve for x.  If there is more than on solution, they will be in ascending order.
      * @param {number} y
