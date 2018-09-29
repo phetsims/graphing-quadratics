@@ -68,14 +68,14 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         font: new PhetFont( 15 ),
         foregroundColor: 'white',
-        backgroundColor: 'transparent',
+        backgroundColor: 'transparent', // don't use the CoordinatesNode background, because it resizes to the value
         xMargin: 0,
         yMargin: 0,
         decimals: GQConstants.POINT_TOOL_DECIMALS,
         maxWidth: 60 // constrain width, determined empirically, dependent on bodyNode
       } );
 
-      // background behind the coordinates, sized to the body
+      // background behind the coordinates, sized to the body so that it shows through the window
       const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10 );
 
       // put probe on correct side of body
