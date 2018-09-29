@@ -58,9 +58,6 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      assert && assert( pointTool.probeLocation === 'left' || pointTool.probeLocation === 'right',
-        'unsupported pointTool.probeLocation: ' + pointTool.probeLocation );
-
       // use the image file that corresponds to the probeLocation
       const bodyImage = ( pointTool.probeLocation === 'left' ) ? pointToolLeftImage : pointToolRightImage;
       const bodyNode = new Image( bodyImage, { centerY: 0 } );
