@@ -105,22 +105,27 @@ define( require => {
       bNumberPicker.centerY = equalToText.centerY;
       cNumberPicker.centerY = equalToText.centerY;
 
-      // When the quadratic changes, update the coefficients.
-      quadraticProperty.link( quadratic => {
-        if ( quadratic.a !== aProperty.value ) {
-          aProperty.value = quadratic.a;
-        }
-        if ( quadratic.b !== bProperty.value ) {
-          bProperty.value = quadratic.b;
-        }
-        if ( quadratic.c !== cProperty.value ) {
-          cProperty.value = quadratic.c;
-        }
-      } );
+      //TODO #17 hack for floating-point error
+      let changing = false;
 
       // When the coefficients change, update the quadratic.
       Property.multilink( [ aProperty, bProperty, cProperty ], ( a, b, c ) => {
-        quadraticProperty.value = new Quadratic( a, b, c, { color: quadraticProperty.value.color } );
+        if ( !changing ) {
+          changing = true;
+          quadraticProperty.value = new Quadratic( a, b, c, { color: quadraticProperty.value.color } );
+          changing = false;
+        }
+      } );
+
+      // When the quadratic changes, update the coefficients.
+      quadraticProperty.link( quadratic => {
+        if ( !changing ) {
+          changing = true;
+          aProperty.value = quadratic.a;
+          bProperty.value = quadratic.b;
+          cProperty.value = quadratic.c;
+          changing = false;
+        }
       } );
     }
   }

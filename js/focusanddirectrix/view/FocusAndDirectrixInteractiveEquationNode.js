@@ -92,7 +92,7 @@ define( require => {
       kSlider.centerX = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
       kSlider.top = equationNode.bottom + ySpacing;
 
-      //TODO #17 hack to prevent 'call stack size exceeded'
+      //TODO #17 hack for floating-point error
       let changing = false;
 
       // When the coefficients change, update the quadratic.

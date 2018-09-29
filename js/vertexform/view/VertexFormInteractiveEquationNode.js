@@ -116,24 +116,26 @@ define( require => {
       hNumberPicker.centerY = equalToText.centerY;
       kNumberPicker.centerY = equalToText.centerY;
 
-      // When the quadratic changes, update the coefficients.
-      quadraticProperty.link( quadratic => {
-        if ( quadratic.a !== aProperty.value ) {
-          aProperty.value = quadratic.a;
-        }
-        if ( quadratic.vertex && ( quadratic.vertex.x !== hProperty.value ) ) {
-          hProperty.value = quadratic.vertex.x;
-        }
-        if ( quadratic.vertex && ( quadratic.vertex.y !== kProperty.value ) ) {
-          kProperty.value = quadratic.vertex.y;
-        }
-      } );
+      //TODO #17 hack for floating-point error
+      let changing = false;
 
       // When the coefficients change, update the quadratic.
       Property.multilink( [ aProperty, hProperty, kProperty ], ( a, h, k ) => {
-        const newQuadratic = Quadratic.createFromVertexForm( a, h, k, { color: quadraticProperty.value.color } );
-        if ( !newQuadratic.equals( quadraticProperty.value ) ) {
-          quadraticProperty.value = newQuadratic;
+        if ( !changing ) {
+          changing = true;
+          quadraticProperty.value = Quadratic.createFromVertexForm( a, h, k, { color: quadraticProperty.value.color } );
+          changing = false;
+        }
+      } );
+
+      // When the quadratic changes, update the coefficients.
+      quadraticProperty.link( quadratic => {
+        if ( !changing ) {
+          changing = true;
+          aProperty.value = quadratic.a;
+          hProperty.value = quadratic.vertex.x;
+          kProperty.value = quadratic.vertex.y;
+          changing = false;
         }
       } );
     }
