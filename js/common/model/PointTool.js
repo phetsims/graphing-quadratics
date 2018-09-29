@@ -22,7 +22,7 @@ define( require => {
   const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // constants
-  const ORIENTATIONS = [ 'right', 'left' ];
+  const PROBE_LOCATION = [ 'right', 'left' ];
 
   class PointTool {
 
@@ -34,13 +34,13 @@ define( require => {
 
       options = _.extend( {
         location: Vector2.ZERO, // {Vector2} initial location
-        orientation: 'left', // {string} which side the probe is on, see ORIENTATIONS
+        probeLocation: 'left', // {string} which side the probe is on, see PROBE_LOCATION
         dragBounds: null, // {Bounds2|null} drag bounds in model coordinate frame
         tandem: Tandem.required
       }, options );
 
-      assert && assert( ORIENTATIONS.includes( options.orientation ),
-        'invalid orientation: ' + options.orientation );
+      assert && assert( PROBE_LOCATION.includes( options.probeLocation ),
+        'invalid probeLocation: ' + options.probeLocation );
 
       // @public {Vector2}
       this.locationProperty = new Property( options.location, {
@@ -61,7 +61,7 @@ define( require => {
         phetioInstanceDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
       } );
 
-      this.orientation = options.orientation; // @public
+      this.probeLocation = options.probeLocation; // @public
       this.dragBounds = options.dragBounds; // @public
 
       // Update when the point tool moves or the quadratics change.

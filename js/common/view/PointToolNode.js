@@ -58,11 +58,11 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      assert && assert( pointTool.orientation === 'left' || pointTool.orientation === 'right',
-        'unsupported pointTool.orientation: ' + pointTool.orientation );
+      assert && assert( pointTool.probeLocation === 'left' || pointTool.probeLocation === 'right',
+        'unsupported pointTool.probeLocation: ' + pointTool.probeLocation );
 
-      // use the image file that corresponds to the orientation
-      const bodyImage = ( pointTool.orientation === 'left' ) ? pointToolLeftImage : pointToolRightImage;
+      // use the image file that corresponds to the probeLocation
+      const bodyImage = ( pointTool.probeLocation === 'left' ) ? pointToolLeftImage : pointToolRightImage;
       const bodyNode = new Image( bodyImage, { centerY: 0 } );
 
       const probeNode = new ProbeNode();
@@ -78,7 +78,7 @@ define( require => {
       const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10 );
 
       // put probe on correct side of body
-      if ( pointTool.orientation === 'left' ) {
+      if ( pointTool.probeLocation === 'left' ) {
         bodyNode.left = probeNode.right;
       }
       else {
@@ -106,7 +106,7 @@ define( require => {
           } );
 
           // center coordinates in window
-          if ( pointTool.orientation === 'left' ) {
+          if ( pointTool.probeLocation === 'left' ) {
             coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
           }
           else {
@@ -136,7 +136,7 @@ define( require => {
   class ProbeNode extends Node {
 
     /**
-     * Draw in the 'left' orientation, with the probe on the left side of the tool.
+     * Draw the probe for attachment to left side of the tool.
      * @param {Object} [options]
      */
     constructor( options ) {

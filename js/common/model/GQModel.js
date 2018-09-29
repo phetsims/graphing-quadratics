@@ -80,7 +80,7 @@ define( require => {
 
       // @public (read-only)
       this.rightPointTool = new PointTool( this.quadratics, {
-        orientation: 'right',
+        probeLocation: 'right',
         location: new Vector2( -2, -12 ),
         dragBounds: new Bounds2(
           this.graph.xRange.min - 1, this.graph.yRange.min - 3,
@@ -91,7 +91,7 @@ define( require => {
 
       // @public (read-only)
       this.leftPointTool = new PointTool( this.quadratics, {
-        orientation: 'left',
+        probeLocation: 'left',
         location: new Vector2( 2, -12 ),
         dragBounds: new Bounds2(
           this.graph.xRange.min - 1, this.graph.yRange.min - 3,
