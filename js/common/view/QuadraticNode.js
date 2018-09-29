@@ -94,6 +94,7 @@ define( require => {
           // straight line: equation above left end of line
           const x = xEquationRange.min;
           const p = quadratic.getClosestPointInRange( x, xEquationRange, yEquationRange );
+          assert && assert( xRange.contains( p.x ) && yRange.contains( p.y ), 'p is off the graph: ' + p );
 
           // rotate to match line's slope
           equationParent.rotation = -Math.atan( quadratic.b );
@@ -109,6 +110,7 @@ define( require => {
           // parabola: equation on outside of parabola, parallel to tangent, at edges of graph
           const x = ( quadratic.vertex.x >= 0 ) ? xEquationRange.min : xEquationRange.max;
           const p = quadratic.getClosestPointInRange( x, xEquationRange, yEquationRange );
+          assert && assert( xRange.contains( p.x ) && yRange.contains( p.y ), 'p is off the graph: ' + p );
 
           // rotate to match tangent's slope
           equationParent.rotation = -Math.atan( quadratic.getTangentSlope( p.x ) );
