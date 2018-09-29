@@ -64,7 +64,7 @@ define( require => {
 
       const probeNode = new ProbeNode();
 
-      //TODO use CoordinatesNode here
+      //TODO #14 use CoordinatesNode here for PhET-iO consistency
       // displayed coordinates
       const coordinatesNode = new Text( '?', {
         font: new PhetFont( 15 ),
