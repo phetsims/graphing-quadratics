@@ -10,6 +10,7 @@ define( require => {
   'use strict';
 
   // modules
+  const Circle = require( 'SCENERY/nodes/Circle' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -87,6 +88,11 @@ define( require => {
           equationNode = QuadraticEquationFactory.createVertexForm( quadratic );
         }
         equationParent.addChild( equationNode );
+        
+        // if ?dev, display a black dot at the equation's origin, for debugging positioning
+        if ( phet.chipper.queryParameters.dev ) {
+          equationParent.addChild( new Circle( 3, { fill: 'black' } ) );
+        }
 
         // Position the equation.
         if ( quadratic.a === 0 ) {
