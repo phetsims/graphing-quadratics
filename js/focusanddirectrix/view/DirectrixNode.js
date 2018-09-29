@@ -22,9 +22,6 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
-  // constant
-  const EQUATION_X_MARGIN = 1.5; // distance between equation and left/right edges of graph, in model coordinate frame
-
   class DirectrixNode extends Node {
 
     /**
@@ -78,19 +75,22 @@ define( require => {
         } );
 
         // position the equation to avoid overlapping vertex and x axis
-        const yOffset = 3;
         if ( quadratic.vertex.x >= 0 ) {
-          equationNode.left = modelViewTransform.modelToViewX( xRange.min + EQUATION_X_MARGIN );
+
+          // vertex is at or to the right of origin, so put equation on left end of line
+          equationNode.left = modelViewTransform.modelToViewX( xRange.min + GQConstants.EQUATION_X_MARGIN );
         }
         else {
-          equationNode.right = modelViewTransform.modelToViewX( xRange.max - EQUATION_X_MARGIN );
+          // vertex is to the left of origin, so put equation on right end of line
+          equationNode.right = modelViewTransform.modelToViewX( xRange.max - GQConstants.EQUATION_X_MARGIN );
         }
 
+        // space between the equation and directrix
         if ( quadratic.directrix > xRange.max - 1 ) {
-          equationNode.top = path.bottom + yOffset;
+          equationNode.top = path.bottom + GQConstants.EQUATION_SPACING;
         }
         else {
-          equationNode.bottom = path.top - yOffset;
+          equationNode.bottom = path.top - GQConstants.EQUATION_SPACING;
         }
       } );
 

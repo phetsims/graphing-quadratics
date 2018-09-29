@@ -19,10 +19,6 @@ define( require => {
   const Range = require( 'DOT/Range' );
   const Shape = require( 'KITE/Shape' );
 
-  // constants
-  const EQUATION_MARGIN = 0.5; // distance between equation and edge of graph, in model coordinate frame
-  const EQUATION_SPACING = 4; // space between equation and line, in view coordinate frame
-
   class QuadraticNode extends Node {
 
     /**
@@ -63,8 +59,10 @@ define( require => {
       this.addChild( equationParent );
 
       // ranges for equation placement, just inside the edges of the graph
-      const xEquationRange = new Range( xRange.min + EQUATION_MARGIN, xRange.max - EQUATION_MARGIN );
-      const yEquationRange = new Range( yRange.min + EQUATION_MARGIN, yRange.max - EQUATION_MARGIN );
+      const xEquationRange =
+        new Range( xRange.min + GQConstants.EQUATION_X_MARGIN, xRange.max - GQConstants.EQUATION_X_MARGIN );
+      const yEquationRange =
+        new Range( yRange.min + GQConstants.EQUATION_Y_MARGIN, yRange.max - GQConstants.EQUATION_Y_MARGIN );
 
       quadraticProperty.link( quadratic => {
 
@@ -109,7 +107,7 @@ define( require => {
           equationParent.translation = modelViewTransform.modelToViewPosition( p );
 
           // space between line and equation
-          equationNode.bottom = -EQUATION_SPACING;
+          equationNode.bottom = -GQConstants.EQUATION_SPACING;
         }
         else {
 
@@ -131,10 +129,10 @@ define( require => {
 
           // space between line and equation
           if ( quadratic.a >= 0 ) {
-            equationNode.top = EQUATION_SPACING;
+            equationNode.top = GQConstants.EQUATION_SPACING;
           }
           else {
-            equationNode.bottom = -EQUATION_SPACING;
+            equationNode.bottom = -GQConstants.EQUATION_SPACING;
           }
         }
       } );

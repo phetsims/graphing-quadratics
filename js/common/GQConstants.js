@@ -101,7 +101,15 @@ define( require => {
     FOCUS_AND_DIRECTRIX_INTERVAL_K: 0.1,
 
     // enums
-    EQUATION_FORMS: [ 'standard', 'vertex' ]
+    EQUATION_FORMS: [ 'standard', 'vertex' ],
+
+    // margins between equations and edges of graph
+    // Caution! Changing these may cause an equation to go off the graph. Test thoroughly!
+    EQUATION_X_MARGIN: 1.5, // distance between equation and left/right edges of graph, in model coordinate frame
+    EQUATION_Y_MARGIN: 0.5, // distance between equation and top/bottom edges of graph, in model coordinate frame
+
+    // space between equation and the line it labels, in view coordinate frame
+    EQUATION_SPACING: 4
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );

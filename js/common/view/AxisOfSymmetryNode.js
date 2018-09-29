@@ -22,9 +22,6 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
-  // constant
-  const EQUATION_Y_MARGIN = 1.5; // distance between equation and top/bottom edges of graph, in model coordinate frame
-
   class AxisOfSymmetryNode extends Node {
 
     /**
@@ -79,20 +76,28 @@ define( require => {
           } );
 
           // position the equation to avoid overlapping vertex and y axis
-          const xOffset = 3;
-          if ( quadratic.axisOfSymmetry > yRange.max - EQUATION_Y_MARGIN ) {
-            equationNode.right = path.left - xOffset;
+          if ( quadratic.axisOfSymmetry > yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
+
+            // axis is at far right of graph, so put equation on left of axis
+            equationNode.right = path.left - GQConstants.EQUATION_SPACING;
           }
-          else if ( quadratic.axisOfSymmetry < yRange.min + EQUATION_Y_MARGIN ) {
-            equationNode.left = path.right + xOffset;
+          else if ( quadratic.axisOfSymmetry < yRange.min + GQConstants.EQUATION_Y_MARGIN ) {
+
+            // axis is at far left of graph, so put equation on right of axis
+            equationNode.left = path.right + GQConstants.EQUATION_SPACING;
           }
           else if ( quadratic.axisOfSymmetry >= 0 ) {
-            equationNode.left = path.right + xOffset;
+
+            // axis is at or to right of origin, so put equation on left of axis
+            equationNode.left = path.right + GQConstants.EQUATION_SPACING;
           }
           else {
-            equationNode.right = path.left - xOffset;
+
+            // axis is to left of origin, os put equation on right of axis
+            equationNode.right = path.left - GQConstants.EQUATION_SPACING;
           }
 
+          // space between the equation and axis
           if ( quadratic.vertex.y >= 0 ) {
             equationNode.bottom = modelViewTransform.modelToViewY( yRange.min + 1 );
           }
