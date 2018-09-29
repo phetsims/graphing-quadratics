@@ -22,6 +22,9 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
+  // constant
+  const EQUATION_Y_MARGIN = 1.5; // distance between equation and top/bottom edges of graph, in model coordinate frame
+
   class AxisOfSymmetryNode extends Node {
 
     /**
@@ -77,10 +80,10 @@ define( require => {
 
           // position the equation to avoid overlapping vertex and y axis
           const xOffset = 3;
-          if ( quadratic.axisOfSymmetry > yRange.max - 1 ) {
+          if ( quadratic.axisOfSymmetry > yRange.max - EQUATION_Y_MARGIN ) {
             equationNode.right = path.left - xOffset;
           }
-          else if ( quadratic.axisOfSymmetry < yRange.min + 1 ) {
+          else if ( quadratic.axisOfSymmetry < yRange.min + EQUATION_Y_MARGIN ) {
             equationNode.left = path.right + xOffset;
           }
           else if ( quadratic.axisOfSymmetry >= 0 ) {
