@@ -12,6 +12,7 @@ define( require => {
 
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
+  const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
@@ -22,15 +23,9 @@ define( require => {
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
-  const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
-
-  // strings
-  const coordinateUnknownString = require( 'string!GRAPHING_QUADRATICS/coordinateUnknown' );
-  const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
   // images
   const pointToolLeftImage = require( 'image!GRAPHING_QUADRATICS/point_tool_left.png' );
@@ -64,10 +59,19 @@ define( require => {
 
       const probeNode = new ProbeNode();
 
-      //TODO #14 use CoordinatesNode here for PhET-iO consistency
-      // displayed coordinates
-      const coordinatesNode = new Text( '?', {
+      const coordinatesProperty = new Property( null, {
+        isValidValue: value => { return value instanceof Vector2 || value === null; }
+      } );
+
+      //TODO #14 instrument coordinatesNode
+      // coordinates display
+      const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         font: new PhetFont( 15 ),
+        foregroundColor: 'white',
+        backgroundColor: 'transparent',
+        xMargin: 0,
+        yMargin: 0,
+        decimals: GQConstants.POINT_TOOL_DECIMALS,
         maxWidth: 60 // constrain width, determined empirically, dependent on bodyNode
       } );
 
@@ -97,10 +101,12 @@ define( require => {
           const onGraph = graph.contains( location );
 
           // update coordinates - (x, y) or (?, ?)
-          coordinatesNode.text = StringUtils.fillIn( pointXYString, {
-            x: onGraph ? Util.toFixedNumber( location.x, GQConstants.POINT_TOOL_DECIMALS ) : coordinateUnknownString,
-            y: onGraph ? Util.toFixedNumber( location.y, GQConstants.POINT_TOOL_DECIMALS ) : coordinateUnknownString
-          } );
+          if ( onQuadratic ) {
+            coordinatesProperty.value = location;
+          }
+          else {
+            coordinatesProperty.value = null;
+          }
 
           // center coordinates in window
           if ( pointTool.probeLocation === 'left' ) {
@@ -113,11 +119,11 @@ define( require => {
 
           // updater colors
           if ( onGraph && onQuadratic && graphContentsVisible ) {
-            coordinatesNode.fill = options.foregroundHighlightColor;
+            coordinatesNode.foreground = options.foregroundHighlightColor;
             backgroundNode.fill = onQuadratic.color;
           }
           else {
-            coordinatesNode.fill = options.foregroundNormalColor;
+            coordinatesNode.foreground = options.foregroundNormalColor;
             backgroundNode.fill = options.backgroundNormalColor;
           }
         } );

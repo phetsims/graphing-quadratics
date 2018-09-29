@@ -72,7 +72,13 @@ define( require => {
         // center coordinates in background
         foregroundNode.center = backgroundNode.center;
       } );
+
+      // @private used in methods
+      this.foregroundNode = foregroundNode;
+      this.backgroundNode = backgroundNode;
     }
+
+    set foreground( color ) { this.foregroundNode.fill = color; }
   }
 
   return graphingQuadratics.register( 'CoordinatesNode', CoordinatesNode );
