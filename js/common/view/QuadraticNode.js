@@ -86,7 +86,7 @@ define( require => {
           equationNode = QuadraticEquationFactory.createVertexForm( quadratic );
         }
         equationParent.addChild( equationNode );
-        
+
         // if ?dev, display a black dot at the equation's origin, for debugging positioning
         if ( phet.chipper.queryParameters.dev ) {
           equationParent.addChild( new Circle( 3, { fill: 'black' } ) );
@@ -111,28 +111,52 @@ define( require => {
         }
         else {
 
-          // parabola: equation on outside of parabola, parallel to tangent, at edges of graph
+          // parabola: pick a point on the parabola, at the edge of the graph
           const x = ( quadratic.vertex.x >= 0 ) ? xEquationRange.min : xEquationRange.max;
           const p = quadratic.getClosestPointInRange( x, xEquationRange, yEquationRange );
           assert && assert( xRange.contains( p.x ) && yRange.contains( p.y ), 'p is off the graph: ' + p );
 
-          // rotate to match tangent's slope
-          equationParent.rotation = -Math.atan( quadratic.getTangentSlope( p.x ) );
+          // If the equation gets crowded between the vertex and the edge of the graph...
+          // This was a problem on the 'Vertex Form' screen,
+          // see https://github.com/phetsims/graphing-quadratics/issues/21#issuecomment-425607873
+          const workaroundYMargin = 3.5; // model coordinates
+          if ( ( p.y > 0 && quadratic.vertex.y > yRange.max - workaroundYMargin ) ||
+               ( p.y < 0 && quadratic.vertex.y < yRange.min + workaroundYMargin ) ) {
 
-          // move equation to (x,y)
-          equationParent.translation = modelViewTransform.modelToViewPosition( p );
-
-          // when equation is on the right side of parabola, move it's origin to the right end of the equation
-          if ( p.x > quadratic.vertex.x ) {
-            equationNode.right = 0;
-          }
-
-          // space between line and equation
-          if ( quadratic.a >= 0 ) {
-            equationNode.top = GQConstants.EQUATION_SPACING;
+            // Place the equation (not rotated) to the left or right of the parabola.
+            equationParent.rotation = 0;
+            equationParent.translation = modelViewTransform.modelToViewPosition( p );
+            if ( p.x < quadratic.vertex.x ) {
+              equationNode.right = -GQConstants.EQUATION_SPACING;
+            }
+            else {
+              equationNode.left = GQConstants.EQUATION_SPACING;
+            }
+            if ( p.y < 0 ) {
+              equationNode.bottom = 0;
+            }
           }
           else {
-            equationNode.bottom = -GQConstants.EQUATION_SPACING;
+
+            // Place the equation on outside of the parabola, parallel to tangent, at the edge of the graph.
+            // rotate to match tangent's slope
+            equationParent.rotation = -Math.atan( quadratic.getTangentSlope( p.x ) );
+
+            // move equation to (x,y)
+            equationParent.translation = modelViewTransform.modelToViewPosition( p );
+
+            // when equation is on the right side of parabola, move it's origin to the right end of the equation
+            if ( p.x > quadratic.vertex.x ) {
+              equationNode.right = 0;
+            }
+
+            // space between line and equation
+            if ( quadratic.a >= 0 ) {
+              equationNode.top = GQConstants.EQUATION_SPACING;
+            }
+            else {
+              equationNode.bottom = -GQConstants.EQUATION_SPACING;
+            }
           }
         }
       } );
