@@ -52,7 +52,7 @@ define( require => {
       // local Property whose value is the vertex of the current value of quadraticProperty
       const vertexProperty = new Property( quadraticProperty.value.vertex, {
         isValidValue: value => { return value instanceof Vector2 || value === null; },
-        reentrant: true
+        reentrant: true //TODO #17
       } );
 
       //TODO #14 instrument coordinatesNode?

@@ -41,7 +41,7 @@ define( require => {
 
       //TODO instrument a, h, k Properties?
       // Properties for the variables in vertex form
-      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } );
+      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } ); //TODO #17
       const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
       const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
 

@@ -41,7 +41,7 @@ define( require => {
 
       //TODO #14 instrument a, b, c Properties?
       // coefficient Properties
-      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } );
+      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } ); //TODO #17
       const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
       const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 

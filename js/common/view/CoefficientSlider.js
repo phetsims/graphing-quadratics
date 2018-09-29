@@ -71,7 +71,7 @@ define( require => {
       //TODO #14 instrument sliderProperty? DynamicProperty has no default phetio instrumentation
       // Map between value domains, determines how the slider responds.
       const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
-        reentrant: true,
+        reentrant: true, //TODO #17
         bidirectional: true,
         map: options.map,
 

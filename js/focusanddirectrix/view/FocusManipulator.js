@@ -52,7 +52,7 @@ define( require => {
       // local Property
       const focusProperty = new Property( quadraticProperty.value.focus, {
         valueType: Vector2,
-        reentrant: true
+        reentrant: true //TODO #17
       } );
 
       //TODO #14 instrument coordinatesNode?

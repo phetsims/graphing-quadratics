@@ -46,9 +46,9 @@ define( require => {
 
       //TODO #14 instrument p, h, k Properties?
       // coefficient Properties
-      const pProperty = new NumberProperty( pRange.defaultValue, { range: pRange, reentrant: true } );
-      const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange, reentrant: true } );
-      const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange, reentrant: true } );
+      const pProperty = new NumberProperty( pRange.defaultValue, { range: pRange, reentrant: true } ); //TODO #17
+      const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange, reentrant: true } ); //TODO #17
+      const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange, reentrant: true } ); //TODO #17
 
       // equation
       const equationNode = new EquationNode( pProperty, hProperty, kProperty, {
