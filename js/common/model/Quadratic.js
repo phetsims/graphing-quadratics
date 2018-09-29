@@ -335,6 +335,7 @@ define( require => {
 
         if ( this.a !== 0 ) {
 
+          //TODO does this work correctly when x === this.vertex.x?
           // parabola
           assert && assert( xValues.length === 2, 'unexpected number of xValues: ' + xValues );
           assert && assert( xValues[ 0 ] < xValues[ 1 ], 'unexpected order of xValues: ' + xValues );
