@@ -42,7 +42,7 @@ define( require => {
 
       const saveEraseButtons = new SaveEraseButtons( 
         model.saveQuadratic.bind( model ), 
-        model.eraseQuadratics.bind( model ), 
+        model.eraseQuadratic.bind( model ),
         model.savedQuadraticProperty, {
           tandem: options.tandem.createTandem( 'saveEraseButtons' ),
           phetioInstanceDocumentation: 'buttons to save and erase a quadratic on the graph'

@@ -125,7 +125,7 @@ define( require => {
      * Erases the saved quadratic.
      * @public
      */
-    eraseQuadratics() {
+    eraseQuadratic() {
       this.savedQuadraticProperty.value = null;
     }
   }
