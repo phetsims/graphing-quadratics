@@ -6,8 +6,6 @@ all: #21 Center equation on tangent that is equationNode.width/2 from edge of gr
 
 BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#22 point tools problems
-
 THINGS TO IMPLEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Model Properties for things that the user can change? (a, b, c, p, h, k, vertex, focus)
