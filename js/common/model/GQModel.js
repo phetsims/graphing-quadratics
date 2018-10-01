@@ -24,6 +24,9 @@ define( require => {
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const Vector2 = require( 'DOT/Vector2' );
 
+  // ifphetio
+  const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
+
   // constants
   const GRID_VIEW_UNITS = 530; // max dimension (width or height) of the grid in view coordinates
   const ORIGIN_OFFSET = new Vector2( 315, 330 ); // offset of the graph's origin in view coordinates
@@ -51,17 +54,26 @@ define( require => {
         phet.log && phet.log( 'quadratic=' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );
       } );
 
-      //TODO #14 instrument? there's only 1 saved line, change implementation to savedQuadraticProperty?
       // @public
-      this.savedQuadratics = new ObservableArray( [] );
+      this.savedQuadraticProperty = new Property( null, {
+        isValidValue: function( value ) {
+          return ( value instanceof Quadratic ) || ( value === null );
+        },
+        tandem: tandem.createTandem( 'savedQuadraticProperty' ),
+        phetioType: PropertyIO( NullableIO( QuadraticIO ) ),
+        phetioInstanceDocumentation: 'the saved quadratic, null if there is no saved quadratic'
+      } );
 
       //TODO #14 instrument quadratics array?
       // @public {ObservableArray.<Quadratic>} all quadratics displayed on the graph
       this.quadratics = new ObservableArray();
-      Property.multilink( [ this.quadraticProperty, this.savedQuadratics.lengthProperty ], ( quadratic ) => {
+      Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
+        ( quadratic, savedQuadratic ) => {
         this.quadratics.clear();
         this.quadratics.add( quadratic );
-        this.quadratics.addAll( this.savedQuadratics.getArray() );
+        if ( savedQuadratic !== null ) {
+          this.quadratics.add( savedQuadratic );
+        }
       } );
 
       // transform between model and view coordinate frames
@@ -114,19 +126,15 @@ define( require => {
      * @public
      */
     saveQuadratic() {
-
-      // The implementation supports N saved quadratics, but the requirements specify that N=1.
-      // So before saving the quadratic, perform an erase.
-      this.eraseQuadratics();
-      this.savedQuadratics.add( this.quadraticProperty.value.withColor( GQColors.SAVED_CURVE ) );
+      this.savedQuadraticProperty.value = this.quadraticProperty.value.withColor( GQColors.SAVED_CURVE );
     }
 
     /**
-     * Erases the saved quadratics.
+     * Erases the saved quadratic.
      * @public
      */
     eraseQuadratics() {
-      this.savedQuadratics.clear();
+      this.savedQuadraticProperty.value = null;
     }
   }
 

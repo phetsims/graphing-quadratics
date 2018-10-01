@@ -48,8 +48,8 @@ define( require => {
           lineWidth: GQConstants.INTERACTIVE_LINE_WIDTH
         } );
 
-      // Parent for saved quadratics
-      const savedQuadraticsLayer = new Node();
+      // Parent for saved quadratic, to maintain rendering order
+      const savedQuadraticLayer = new Node();
 
       // Parent for special lines, e.g. quadratic terms, axis of symmetry, directrix
       const specialLinesLayer = new Node( { children: options.specialLines } );
@@ -65,7 +65,7 @@ define( require => {
           model.graph.xRange.getLength(),
           model.graph.yRange.getLength()
         ).transformed( model.modelViewTransform.getMatrix() ),
-        children: [ savedQuadraticsLayer, specialLinesLayer, interactiveQuadraticNode ]
+        children: [ savedQuadraticLayer, specialLinesLayer, interactiveQuadraticNode ]
       } );
 
       // Everything that's on the graph
@@ -78,31 +78,22 @@ define( require => {
       this.addChild( contentParent );
 
       // When a quadratic is saved...
-      model.savedQuadratics.addItemAddedListener( savedQuadratic => {
-
-        // Node for the saved quadratic
-        const savedQuadraticNode = new QuadraticNode(
-          new Property( savedQuadratic ),
-          model.graph.xRange,
-          model.graph.yRange,
-          model.modelViewTransform,
-          viewProperties.equationForm,
-          viewProperties.equationsVisibleProperty, {
-            lineWidth: GQConstants.SAVED_LINE_WIDTH
-          } );
-        savedQuadraticsLayer.addChild( savedQuadraticNode );
-
-        // add listener for when the saved quadratic is eventually removed
-        const itemRemovedListener = removedQuadratic => {
-          if ( removedQuadratic === savedQuadratic ) {
-            savedQuadraticsLayer.removeChild( savedQuadraticNode );
-            model.savedQuadratics.removeItemRemovedListener( itemRemovedListener );
-          }
-        };
-        model.savedQuadratics.addItemRemovedListener( itemRemovedListener ); // removeItemRemovedListener above
+      model.savedQuadraticProperty.link( savedQuadratic => {
+        savedQuadraticLayer.removeAllChildren();
+        if ( savedQuadratic ) {
+          savedQuadraticLayer.addChild( new QuadraticNode(
+            new Property( savedQuadratic ),
+            model.graph.xRange,
+            model.graph.yRange,
+            model.modelViewTransform,
+            viewProperties.equationForm,
+            viewProperties.equationsVisibleProperty, {
+              lineWidth: GQConstants.SAVED_LINE_WIDTH
+            } ) );
+        }
       } );
 
-      // Show/hide the graph content
+      // Show/hide the graph contents
       viewProperties.graphContentsVisibleProperty.link( visible => { contentParent.visible = visible; } );
     }
   }

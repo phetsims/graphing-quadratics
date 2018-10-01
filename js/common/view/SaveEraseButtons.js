@@ -25,10 +25,10 @@ define( function( require ) {
     /**
      * @param {function} saveFunction
      * @param {function} eraseFunction
-     * @param {NumberProperty} numberOfSavedLinesProperty
+     * @param {Property.<Quadratic>} savedQuadraticProperty
      * @param {Object} [options]
      */
-    constructor( saveFunction, eraseFunction, numberOfSavedLinesProperty, options ) {
+    constructor( saveFunction, eraseFunction, savedQuadraticProperty, options ) {
 
       options = _.extend( {
         spacing: 40,
@@ -53,9 +53,9 @@ define( function( require ) {
 
       super( options );
 
-      // Enable the erase button when there are saved lines.
-      numberOfSavedLinesProperty.link( numberOfSavedLines => {
-        eraseButton.enabled = ( numberOfSavedLines > 0 );
+      // Enable the erase button when there is a saved quadratic
+      savedQuadraticProperty.link( savedQuadratic => {
+        eraseButton.enabled = ( savedQuadratic !== null );
       } );
     }
   }
