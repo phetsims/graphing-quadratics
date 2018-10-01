@@ -236,7 +236,7 @@ define( require => {
               }
             }
 
-            // If we didn't snap to a quadratic, then snap to grid.
+            // If we didn't snap to a quadratic, then snap to the graph's grid.
             if ( !snapped ) {
               location = new Vector2( Util.toFixedNumber( location.x, 0 ), Util.toFixedNumber( location.y, 0 ) );
             }
