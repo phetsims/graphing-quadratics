@@ -114,7 +114,7 @@ define( require => {
     // @public
     reset() {
       this.quadraticProperty.reset();
-      this.eraseQuadratics();
+      this.savedQuadraticProperty.reset();
       this.rightPointTool.reset();
       this.leftPointTool.reset();
     }
