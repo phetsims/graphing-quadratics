@@ -27,7 +27,7 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  const EPSILON = 1e-8;  // how close is considered to be "on" the quadratic
+  const EPSILON = 0.01;  // how close is considered to be "on" the quadratic
 
   class Quadratic {
 
