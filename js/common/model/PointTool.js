@@ -23,7 +23,7 @@ define( require => {
   const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // constants
-  const PROBE_LOCATIONS = [ 'right', 'left' ];
+  const PROBE_SIDES = [ 'right', 'left' ];
 
   class PointTool {
 
@@ -35,17 +35,17 @@ define( require => {
 
       options = _.extend( {
         location: Vector2.ZERO, // {Vector2} initial location
-        probeLocation: 'left', // {string} which side the probe is on, see PROBE_LOCATIONS
+        probeSide: 'left', // {string} which side the probe is on, see PROBE_SIDES
         dragBounds: null, // {Bounds2|null} drag bounds, in model coordinate frame
         tandem: Tandem.required
       }, options );
 
-      assert && assert( PROBE_LOCATIONS.includes( options.probeLocation ),
-        'invalid probeLocation: ' + options.probeLocation );
+      assert && assert( PROBE_SIDES.includes( options.probeSide ),
+        'invalid probeSide: ' + options.probeSide );
       
       // @public (read-only)
       this.quadratics = quadratics;
-      this.probeLocation = options.probeLocation;
+      this.probeSide = options.probeSide;
       this.dragBounds = options.dragBounds;
 
       // @public {Vector2}

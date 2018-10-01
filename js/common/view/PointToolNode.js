@@ -54,8 +54,8 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      // use the image file that corresponds to the probeLocation
-      const bodyImage = ( pointTool.probeLocation === 'left' ) ? pointToolLeftImage : pointToolRightImage;
+      // use the image file that corresponds to the probeSide
+      const bodyImage = ( pointTool.probeSide === 'left' ) ? pointToolLeftImage : pointToolRightImage;
       const bodyNode = new Image( bodyImage, { centerY: 0 } );
 
       const probeNode = new ProbeNode();
@@ -80,7 +80,7 @@ define( require => {
       const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10 );
 
       // put probe on correct side of body
-      if ( pointTool.probeLocation === 'left' ) {
+      if ( pointTool.probeSide === 'left' ) {
         bodyNode.left = probeNode.right;
       }
       else {
@@ -106,7 +106,7 @@ define( require => {
         }
 
         // center coordinates in window
-        if ( pointTool.probeLocation === 'left' ) {
+        if ( pointTool.probeSide === 'left' ) {
           coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
         }
         else {
