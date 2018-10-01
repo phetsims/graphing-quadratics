@@ -98,11 +98,8 @@ define( require => {
           // move to location
           this.translation = modelViewTransform.modelToViewPosition( location );
 
-          // is the point tool on the graph?
-          const onGraph = graph.contains( location );
-
-          // update coordinates - (x, y) or (?, ?)
-          if ( onQuadratic ) {
+          // update coordinates
+          if ( graph.contains( location ) ) {
             coordinatesProperty.value = location;
           }
           else {
@@ -119,7 +116,7 @@ define( require => {
           coordinatesNode.centerY = bodyNode.centerY;
 
           // updater colors
-          if ( onGraph && onQuadratic && graphContentsVisible ) {
+          if ( onQuadratic && graphContentsVisible ) {
             coordinatesNode.foreground = options.foregroundHighlightColor;
             backgroundNode.fill = onQuadratic.color;
           }
@@ -238,7 +235,7 @@ define( require => {
 
             // If we didn't snap to a quadratic, then snap to the graph's grid.
             if ( !snapped ) {
-              location = new Vector2( Util.toFixedNumber( location.x, 0 ), Util.toFixedNumber( location.y, 0 ) );
+              location = new Vector2( Util.roundSymmetric( location.x ), Util.roundSymmetric( location.y ) );
             }
           }
 
