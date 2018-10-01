@@ -15,7 +15,12 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  const Tandem = require( 'TANDEM/Tandem' );
+  const Vector2 = require( 'DOT/Vector2' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
 
   class PointOnQuadraticManipulator extends Manipulator {
 
@@ -36,13 +41,21 @@ define( require => {
       options = _.extend( {
 
         // Manipulator options
-        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
+        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
+        tandem: Tandem.required
       }, options );
 
       super( radius, GQColors.POINT_ON_QUADRATIC, options );
 
-      //TODO #14 instrument coordinatesNode?
-      const coordinatesNode = new CoordinatesNode( pointOnQuadraticProperty, {
+      const coordinatesProperty = new Property( pointOnQuadraticProperty.value, {
+        valueType: Vector2,
+        tandem: options.tandem.createTandem( 'coordinatesProperty' ),
+        phetioType: PropertyIO( Vector2IO ),
+        phetioInstanceDocumentation: 'coordinates displayed by the point on the quadratic'
+      } );
+
+      // coordinates display
+      const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.POINT_ON_QUADRATIC ).withAlpha( 0.75 ),
         decimals: GQConstants.POINT_ON_QUADRATIC_DECIMALS,
@@ -56,7 +69,11 @@ define( require => {
       // move the manipulator
       pointOnQuadraticProperty.link( point => {
 
+        // move to location
         this.translation = modelViewTransform.modelToViewPosition( point );
+
+        // update coordinates
+        coordinatesProperty.value = point;
 
         // position coordinates based on which side of the curve the point is on
         const vertex = quadraticProperty.value.vertex;
@@ -74,13 +91,12 @@ define( require => {
 
       // @private
       this.addInputListener( new PointOnQuadraticDragHandler( pointOnQuadraticProperty, quadraticProperty,
-        modelViewTransform, xRange, yRange ) );
+        modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragHandler' ) ) );
     }
   }
 
   graphingQuadratics.register( 'PointOnQuadraticManipulator', PointOnQuadraticManipulator );
 
-  //TODO #14 instrument PointOnQuadraticDragHandler
   class PointOnQuadraticDragHandler extends SimpleDragHandler {
 
     /**
@@ -90,8 +106,9 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Range} xRange
      * @param {Range} yRange
+     * @param {Tandem} tandem
      */
-    constructor( pointOnQuadraticProperty, quadraticProperty, modelViewTransform, xRange, yRange ) {
+    constructor( pointOnQuadraticProperty, quadraticProperty, modelViewTransform, xRange, yRange, tandem ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -113,7 +130,9 @@ define( require => {
 
           // update model
           pointOnQuadraticProperty.value = quadraticProperty.value.getClosestPointInRange( x, xRange, yRange );
-        }
+        },
+
+        tandem: tandem
       } );
     }
   }

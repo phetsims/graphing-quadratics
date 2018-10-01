@@ -23,10 +23,12 @@ define( require => {
     /**
      * @param {GQModel} model
      * @param {GQViewProperties} viewProperties
+     * @param {Tandem} tandem
      * @param {Object} [options]
      */
-    constructor( model, viewProperties, options ) {
+    constructor( model, viewProperties, tandem, options ) {
 
+      // We do NOT want to instrument the graph, so tandem is not propagated via options
       options = options || {};
 
       // Directrix
@@ -47,17 +49,21 @@ define( require => {
         model.kRange,
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
-        viewProperties.coordinatesVisibleProperty );
+        viewProperties.coordinatesVisibleProperty, {
+          tandem: tandem.createTandem( 'vertexManipulator' )
+        } );
 
       // Focus manipulator
-      const focusNode = new FocusManipulator(
+      const focusManipulator = new FocusManipulator(
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
         model.quadraticProperty,
         model.pRange,
         model.graph,
         model.modelViewTransform,
         viewProperties.focusVisibleProperty,
-        viewProperties.coordinatesVisibleProperty );
+        viewProperties.coordinatesVisibleProperty, {
+          tandem: tandem.createTandem( 'focusManipulator' )
+        } );
 
       // Point on Quadratic manipulator
       const pointOnQuadraticManipulator = new PointOnQuadraticManipulator(
@@ -68,7 +74,9 @@ define( require => {
         model.graph.yRange,
         model.modelViewTransform,
         viewProperties.pointOnQuadraticVisibleProperty,
-        viewProperties.coordinatesVisibleProperty );
+        viewProperties.coordinatesVisibleProperty, {
+          tandem: tandem.createTandem( 'pointOnQuadraticManipulator' )
+        } );
 
       // Lines that connect the point on the quadratic to the focus and directrix
       const pointOnQuadraticLinesNode = new PointOnQuadraticLinesNode(
@@ -83,7 +91,7 @@ define( require => {
       options.specialLines = [ directrixNode, pointOnQuadraticLinesNode ]; // rendered in this order
 
       assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
-      options.decorations = [ vertexManipulator, focusNode, pointOnQuadraticManipulator ]; // rendered in this order
+      options.decorations = [ vertexManipulator, focusManipulator, pointOnQuadraticManipulator ]; // rendered in this order
 
       super( model, viewProperties, options );
     }

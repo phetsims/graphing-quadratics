@@ -21,6 +21,7 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
 
@@ -43,7 +44,8 @@ define( require => {
       options = _.extend( {
 
         // Manipulator options
-        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
+        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
+        tandem: Tandem.required
       }, options );
 
       super( radius, GQColors.VERTEX, options );
@@ -106,13 +108,13 @@ define( require => {
 
       // @private
       this.addInputListener( new VertexDragHandler( vertexProperty, modelViewTransform,
-        new Bounds2( hRange.min, kRange.min, hRange.max, kRange.max ) ) );
+        new Bounds2( hRange.min, kRange.min, hRange.max, kRange.max ),
+        options.tandem.createTandem( 'dragHandler') ) );
     }
   }
 
   graphingQuadratics.register( 'VertexManipulator', VertexManipulator );
 
-  //TODO #14 instrument VertexDragHandler
   class VertexDragHandler extends SimpleDragHandler {
 
     /**
@@ -120,8 +122,9 @@ define( require => {
      * @param {Property.<Vector2>} vertexProperty
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Bounds2} bounds
+     * @param {Tandem} tandem
      */
-    constructor( vertexProperty, modelViewTransform, bounds ) {
+    constructor( vertexProperty, modelViewTransform, bounds, tandem ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -146,7 +149,9 @@ define( require => {
 
           // snap to grid
           vertexProperty.value = new Vector2( Util.roundSymmetric( location.x ), Util.roundSymmetric( location.y ) );
-        }
+        },
+
+        tandem: tandem
       } );
     }
   }

@@ -19,6 +19,7 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
 
@@ -43,7 +44,8 @@ define( require => {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
 
         // Manipulator options
-        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA
+        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
+        tandem: Tandem.required
       }, options );
 
       super( radius, GQColors.FOCUS, options );
@@ -110,13 +112,12 @@ define( require => {
 
       // @private
       this.addInputListener( new FocusDragHandler( quadraticProperty, focusProperty, modelViewTransform,
-        pRange, options.interval ) );
+        pRange, options.interval, options.tandem.createTandem( 'dragHandler' ) ) );
     }
   }
 
   graphingQuadratics.register( 'FocusManipulator', FocusManipulator );
 
-  //TODO #14 instrument FocusDragHandler
   class FocusDragHandler extends SimpleDragHandler {
 
     /**
@@ -126,8 +127,9 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Range} pRange
      * @param {number} interval
+     * @param {Tandem} tandem
      */
-    constructor( quadraticProperty, focusProperty, modelViewTransform, pRange, interval ) {
+    constructor( quadraticProperty, focusProperty, modelViewTransform, pRange, interval, tandem ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -162,7 +164,9 @@ define( require => {
           assert && assert( p !== 0, 'p=0 is not supported' );
 
           focusProperty.value = new Vector2( vertex.x, vertex.y + p );
-        }
+        },
+
+        tandem: tandem
       } );
     }
   }

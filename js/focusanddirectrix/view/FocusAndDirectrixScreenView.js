@@ -34,7 +34,7 @@ define( require => {
 
       super( model,
         viewProperties,
-        new FocusAndDirectrixGraphNode( model, viewProperties ),
+        new FocusAndDirectrixGraphNode( model, viewProperties, tandem ),
         new FocusAndDirectrixAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, {
           tandem: options.tandem.createTandem( 'equationAccordionBox')
         } ),
