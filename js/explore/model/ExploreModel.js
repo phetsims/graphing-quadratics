@@ -24,7 +24,7 @@ define( require => {
 
       super( tandem );
 
-      // @public (read-only)
+      // @public {DerivedProperty.<Quadratic>}
       this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => quadratic.getQuadraticTerm(), {
           tandem: tandem.createTandem( 'quadraticTermProperty' ),
@@ -32,7 +32,7 @@ define( require => {
           phetioInstanceDocumentation: 'the quadratic term, y = ax^2, of the interactive quadratic'
         } );
 
-      // @public (read-only)
+      // @public {DerivedProperty.<Quadratic>}
       this.linearTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => quadratic.getLinearTerm(), {
           tandem: tandem.createTandem( 'linearTermProperty' ),
@@ -40,7 +40,7 @@ define( require => {
           phetioInstanceDocumentation: 'the linear term, y = bx, of the interactive quadratic'
         } );
 
-      // @public (read-only)
+      // @public {DerivedProperty.<Quadratic>}
       this.constantTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => quadratic.getConstantTerm(), {
           tandem: tandem.createTandem( 'constantTermProperty' ),
