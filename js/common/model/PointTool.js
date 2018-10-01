@@ -64,6 +64,7 @@ define( require => {
       this.probeLocation = options.probeLocation; // @public
       this.dragBounds = options.dragBounds; // @public
 
+      //TODO should onQuadraticProperty be a DerivedProperty?
       // Update when the point tool moves or the quadratics change.
       Property.multilink( [ this.locationProperty, quadratics.lengthProperty ],
         ( location, length ) => {
