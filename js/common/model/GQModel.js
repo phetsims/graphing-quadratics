@@ -64,7 +64,6 @@ define( require => {
         phetioInstanceDocumentation: 'the saved quadratic, null if there is no saved quadratic'
       } );
 
-      //TODO #14 instrument quadratics array?
       // @public {ObservableArray.<Quadratic>} all quadratics displayed on the graph
       this.quadratics = new ObservableArray();
       Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
@@ -82,7 +81,6 @@ define( require => {
         this.graph.yRange.getLength()
       );
 
-      //TODO #14 instrument modelViewTransform?
       // @public (read-only) model-view transform, created in the model because it's dependent on graph axes ranges.
       this.modelViewTransform = ModelViewTransform2.createOffsetXYScaleMapping(
         ORIGIN_OFFSET,
