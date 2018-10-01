@@ -29,7 +29,7 @@ define( require => {
     /**
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Graph} graph
+     * @param {GQGraph} graph
      * @param {Range} hRange
      * @param {Range} kRange
      * @param {ModelViewTransform2} modelViewTransform

@@ -26,8 +26,8 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Graph} xRange - range of graph's x axis
-     * @param {Graph} yRange - range of graph's y axis
+     * @param {Range} xRange - range of graph's x axis
+     * @param {Range} yRange - range of graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} directrixVisibleProperty
      * @param {BooleanProperty} equationsVisibleProperty

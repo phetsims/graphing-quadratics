@@ -28,7 +28,7 @@ define( require => {
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
      * @param {Range} pRange
-     * @param {Graph} graph
+     * @param {GQGraph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} focusVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty

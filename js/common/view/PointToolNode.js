@@ -40,7 +40,7 @@ define( require => {
     /**
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {Graph} graph
+     * @param {GQGraph} graph
      * @param {Property.<Boolean>} graphContentsVisibleProperty
      * @param {Object} [options]
      */
@@ -194,7 +194,7 @@ define( require => {
      * Drag handler for the point tool.
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {Graph} graph
+     * @param {GQGraph} graph
      */
     constructor( pointTool, modelViewTransform, graph ) {
 

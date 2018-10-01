@@ -26,7 +26,7 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Graph} graph
+     * @param {GQGraph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
