@@ -34,7 +34,7 @@ define( require => {
 
       super( model,
         viewProperties,
-        new VertexFormGraphNode( model, viewProperties ),
+        new VertexFormGraphNode( model, viewProperties, tandem ),
         new VertexFormAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, {
           tandem: options.tandem.createTandem( 'equationAccordionBox' )
         } ),

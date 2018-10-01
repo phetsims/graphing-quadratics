@@ -19,11 +19,16 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
+
+  // ifphetio
+  const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   class VertexManipulator extends Manipulator {
 
@@ -50,16 +55,16 @@ define( require => {
 
       super( radius, GQColors.VERTEX, options );
 
-      //TODO #14 instrument vertexProperty?
-      // local Property whose value is the vertex of the current value of quadraticProperty
-      const vertexProperty = new Property( quadraticProperty.value.vertex, {
+      const coordinatesProperty = new Property( quadraticProperty.value.vertex, {
+        reentrant: true, //TODO #17
         isValidValue: value => ( value instanceof Vector2 || value === null ),
-        reentrant: true //TODO #17
+        tandem: options.tandem.createTandem( 'coordinatesProperty' ),
+        phetioType: PropertyIO( NullableIO( Vector2IO ) ),
+        phetioInstanceDocumentation: 'coordinates displayed by the vertex manipulator, null means no vertex'
       } );
 
-      //TODO #14 instrument coordinatesNode?
-      // displays the vertex coordinates
-      const coordinatesNode = new CoordinatesNode( vertexProperty, {
+      // coordinates display
+      const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
         decimals: GQConstants.VERTEX_DECIMALS,
@@ -73,10 +78,10 @@ define( require => {
       quadraticProperty.link( quadratic => {
 
         if ( quadratic.vertex === undefined ) {
-          vertexProperty.value = null;
+          coordinatesProperty.value = null;
         }
         else {
-          vertexProperty.value = quadratic.vertex;
+          coordinatesProperty.value = quadratic.vertex;
 
           // position coordinates based on which way the curve opens
           coordinatesNode.centerX = 0;
@@ -90,7 +95,7 @@ define( require => {
       } );
 
       // When the vertex changes, move the manipulator and create a new quadratic.
-      vertexProperty.link( vertex => {
+      coordinatesProperty.link( vertex => {
         if ( vertex ) {
           this.translation = modelViewTransform.modelToViewPosition( vertex );
           const quadratic = quadraticProperty.value;
@@ -101,13 +106,13 @@ define( require => {
       } );
 
       // visibility
-      Property.multilink( [ vertexVisibleProperty, vertexProperty ], ( vertexVisible, vertex ) => {
+      Property.multilink( [ vertexVisibleProperty, coordinatesProperty ], ( vertexVisible, vertex ) => {
         this.visible = !!( vertexVisible && vertex && graph.contains( vertex ) );
       } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
-      this.addInputListener( new VertexDragHandler( vertexProperty, modelViewTransform,
+      this.addInputListener( new VertexDragHandler( coordinatesProperty, modelViewTransform,
         new Bounds2( hRange.min, kRange.min, hRange.max, kRange.max ),
         options.tandem.createTandem( 'dragHandler') ) );
     }

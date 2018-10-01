@@ -17,11 +17,13 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
 
   class FocusManipulator extends Manipulator {
 
@@ -50,16 +52,16 @@ define( require => {
 
       super( radius, GQColors.FOCUS, options );
 
-      //TODO #14 instrument focusProperty?
-      // local Property
-      const focusProperty = new Property( quadraticProperty.value.focus, {
+      const coordinatesProperty = new Property( quadraticProperty.value.focus, {
+        reentrant: true, //TODO #17
         valueType: Vector2,
-        reentrant: true //TODO #17
+        tandem: options.tandem.createTandem( 'coordinatesProperty' ),
+        phetioType: PropertyIO( Vector2IO ),
+        phetioInstanceDocumentation: 'coordinates displayed on the focus manipulator'
       } );
 
-      //TODO #14 instrument coordinatesNode?
-      // coordinates displayed on this manipulator
-      const coordinatesNode = new CoordinatesNode( focusProperty, {
+      // coordinates display
+      const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.FOCUS ).withAlpha( 0.75 ),
         decimals: GQConstants.FOCUS_DECIMALS,
@@ -75,8 +77,8 @@ define( require => {
         assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
         assert && assert( quadratic.vertex, 'expected vertex: ' + quadratic.vertex );
 
-        // update local Property
-        focusProperty.value = quadratic.focus;
+        // update coordinates
+        coordinatesProperty.value = quadratic.focus;
 
         // position coordinates based on which way the curve opens
         coordinatesNode.centerX = 0;
@@ -90,7 +92,7 @@ define( require => {
       quadraticProperty.link( quadraticListener );
 
       // When the focus changes, move the manipulator and create a new quadratic.
-      focusProperty.link( focus => {
+      coordinatesProperty.link( focus => {
 
         const quadratic = quadraticProperty.value;
         assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
@@ -105,13 +107,13 @@ define( require => {
       } );
 
       // visibility
-      Property.multilink( [ focusVisibleProperty, focusProperty ], ( focusVisible, focus ) => {
+      Property.multilink( [ focusVisibleProperty, coordinatesProperty ], ( focusVisible, focus ) => {
         this.visible = !!( focusVisible && graph.contains( focus ) );
       } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
-      this.addInputListener( new FocusDragHandler( quadraticProperty, focusProperty, modelViewTransform,
+      this.addInputListener( new FocusDragHandler( quadraticProperty, coordinatesProperty, modelViewTransform,
         pRange, options.interval, options.tandem.createTandem( 'dragHandler' ) ) );
     }
   }

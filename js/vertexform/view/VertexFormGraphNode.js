@@ -20,10 +20,12 @@ define( require => {
     /**
      * @param {GQModel} model
      * @param {GQViewProperties} viewProperties
+     * @param {Tandem} tandem
      * @param {Object} [options]
      */
-    constructor( model, viewProperties, options ) {
+    constructor( model, viewProperties, tandem, options ) {
 
+      // We do NOT want to instrument the graph, so tandem is not propagated via options
       options = options || {};
 
       // Axis of symmetry
@@ -43,7 +45,9 @@ define( require => {
         model.kRange,
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
-        viewProperties.coordinatesVisibleProperty );
+        viewProperties.coordinatesVisibleProperty, {
+          tandem: tandem.createTandem( 'vertexManipulator' )
+        } );
 
       assert && assert( !options.specialLines, 'VertexFormGraphNode sets specialLines' );
       options.specialLines = [ axisOfSymmetryNode ];

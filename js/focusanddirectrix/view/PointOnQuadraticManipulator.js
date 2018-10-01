@@ -51,7 +51,7 @@ define( require => {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioType: PropertyIO( Vector2IO ),
-        phetioInstanceDocumentation: 'coordinates displayed by the point on the quadratic'
+        phetioInstanceDocumentation: 'coordinates displayed on the point-on-quadratic manipulator'
       } );
 
       // coordinates display
