@@ -92,33 +92,31 @@ define( require => {
       options.children = [ backgroundNode, bodyNode, probeNode, coordinatesNode ];
       super( options );
 
-      pointTool.locationProperty.link( location => {
+      Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
+        ( location, quadratic, graphContentsVisible ) => {
 
-        // move to location
-        this.translation = modelViewTransform.modelToViewPosition( location );
+          // move to location
+          this.translation = modelViewTransform.modelToViewPosition( location );
 
-        // update coordinates
-        if ( graph.contains( location ) ) {
-          coordinatesProperty.value = location;
-        }
-        else {
-          coordinatesProperty.value = null;
-        }
+          // update coordinates
+          if ( graph.contains( location ) ) {
+            coordinatesProperty.value = location;
+          }
+          else {
+            coordinatesProperty.value = null;
+          }
 
-        // center coordinates in window
-        if ( pointTool.probeSide === 'left' ) {
-          coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
-        }
-        else {
-          coordinatesNode.centerX = bodyNode.right - VALUE_WINDOW_CENTER_X;
-        }
-        coordinatesNode.centerY = bodyNode.centerY;
-      } );
+          // center coordinates in window
+          if ( pointTool.probeSide === 'left' ) {
+            coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
+          }
+          else {
+            coordinatesNode.centerX = bodyNode.right - VALUE_WINDOW_CENTER_X;
+          }
+          coordinatesNode.centerY = bodyNode.centerY;
 
-      // update colors
-      Property.multilink( [ pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
-        ( quadratic, graphContentsVisible ) => {
-          if ( quadratic && graphContentsVisible ) {
+          // update colors
+          if ( graph.contains( location ) && quadratic && graphContentsVisible ) {
 
             // color code the display to the quadratic
             coordinatesNode.foreground = options.foregroundHighlightColor;
