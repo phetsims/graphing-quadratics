@@ -2,7 +2,7 @@ TODO list for graphing-quadratics
 
 DESIGN QUESTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-all: Center equation on tangent that is a bit further from edge of graph, depending on equationNode.width
+all: Center equation on tangent that is equationNode.width/2 from edge of graph
 
 BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
