@@ -20,12 +20,17 @@ define( require => {
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
+
+  // ifphetio
+  const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // images
   const pointToolLeftImage = require( 'image!GRAPHING_QUADRATICS/point_tool_left.png' );
@@ -61,10 +66,12 @@ define( require => {
       const probeNode = new ProbeNode();
 
       const coordinatesProperty = new Property( null, {
-        isValidValue: value => ( value instanceof Vector2 || value === null )
+        isValidValue: value => ( value instanceof Vector2 || value === null ),
+        tandem: options.tandem.createTandem( 'coordinatesProperty' ),
+        phetioType: PropertyIO( NullableIO( Vector2IO ) ),
+        phetioInstanceDocumentation: 'coordinates displayed by this point tool, null if off the graph'
       } );
 
-      //TODO #14 instrument coordinatesNode
       // coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         font: new PhetFont( 15 ),
