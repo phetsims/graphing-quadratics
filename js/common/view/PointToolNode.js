@@ -92,33 +92,37 @@ define( require => {
       options.children = [ backgroundNode, bodyNode, probeNode, coordinatesNode ];
       super( options );
 
-      Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
-        ( location, onQuadratic, graphContentsVisible ) => {
+      pointTool.locationProperty.link( location => {
 
-          // move to location
-          this.translation = modelViewTransform.modelToViewPosition( location );
+        // move to location
+        this.translation = modelViewTransform.modelToViewPosition( location );
 
-          // update coordinates
-          if ( graph.contains( location ) ) {
-            coordinatesProperty.value = location;
-          }
-          else {
-            coordinatesProperty.value = null;
-          }
+        // update coordinates
+        if ( graph.contains( location ) ) {
+          coordinatesProperty.value = location;
+        }
+        else {
+          coordinatesProperty.value = null;
+        }
 
-          // center coordinates in window
-          if ( pointTool.probeLocation === 'left' ) {
-            coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
-          }
-          else {
-            coordinatesNode.centerX = bodyNode.right - VALUE_WINDOW_CENTER_X;
-          }
-          coordinatesNode.centerY = bodyNode.centerY;
+        // center coordinates in window
+        if ( pointTool.probeLocation === 'left' ) {
+          coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
+        }
+        else {
+          coordinatesNode.centerX = bodyNode.right - VALUE_WINDOW_CENTER_X;
+        }
+        coordinatesNode.centerY = bodyNode.centerY;
+      } );
 
-          // updater colors
-          if ( onQuadratic && graphContentsVisible ) {
+      // update colors
+      Property.multilink( [ pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
+        ( quadratic, graphContentsVisible ) => {
+          if ( quadratic && graphContentsVisible ) {
+
+            // color code the display to the quadratic
             coordinatesNode.foreground = options.foregroundHighlightColor;
-            backgroundNode.fill = onQuadratic.color;
+            backgroundNode.fill = quadratic.color;
           }
           else {
             coordinatesNode.foreground = options.foregroundNormalColor;
