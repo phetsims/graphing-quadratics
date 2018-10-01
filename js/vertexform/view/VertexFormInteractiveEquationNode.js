@@ -132,9 +132,9 @@ define( require => {
       quadraticProperty.link( quadratic => {
         if ( !changing ) {
           changing = true;
-          aProperty.value = quadratic.a;
-          hProperty.value = quadratic.vertex.x;
-          kProperty.value = quadratic.vertex.y;
+          aProperty.value = aRange.constrainValue( quadratic.a );
+          hProperty.value = hRange.constrainValue( quadratic.vertex.x );
+          kProperty.value = kRange.constrainValue( quadratic.vertex.y );
           changing = false;
         }
       } );

@@ -121,9 +121,9 @@ define( require => {
       quadraticProperty.link( quadratic => {
         if ( !changing ) {
           changing = true;
-          aProperty.value = quadratic.a;
-          bProperty.value = quadratic.b;
-          cProperty.value = quadratic.c;
+          aProperty.value = aRange.constrainValue( quadratic.a );
+          bProperty.value = bRange.constrainValue( quadratic.b );
+          cProperty.value = cRange.constrainValue( quadratic.c );
           changing = false;
         }
       } );
