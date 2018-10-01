@@ -29,7 +29,7 @@ define( require => {
      * @param {Object} [options]
      * @public
      */
-    createStandardForm: function( quadratic, options ) {
+    createStandardForm( quadratic, options ) {
 
       options = _.extend( {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
@@ -177,7 +177,7 @@ define( require => {
      * @param {Object} [options]
      * @public
      */
-    createVertexForm: function( quadratic, options ) {
+    createVertexForm( quadratic, options ) {
 
       options = _.extend( {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
