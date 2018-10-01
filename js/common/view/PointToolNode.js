@@ -136,7 +136,8 @@ define( require => {
         } );
 
       // interactivity
-      this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph ) );
+      this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph,
+        options.tandem.createTandem( 'dragHandler' ) ) );
     }
   }
 
@@ -194,7 +195,6 @@ define( require => {
 
   graphingQuadratics.register( 'PointToolNode.ProbeNode', ProbeNode );
 
-  //TODO #14 instrument PointToolDragHandler
   class PointToolDragHandler extends SimpleDragHandler {
 
     /**
@@ -202,8 +202,9 @@ define( require => {
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
      * @param {GQGraph} graph
+     * @param {Tandem} tandem
      */
-    constructor( pointTool, modelViewTransform, graph ) {
+    constructor( pointTool, modelViewTransform, graph, tandem ) {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
@@ -249,7 +250,9 @@ define( require => {
           }
 
           pointTool.locationProperty.value = location;
-        }
+        },
+
+        tandem: tandem
       } );
     }
   }
