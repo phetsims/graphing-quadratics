@@ -22,5 +22,4 @@ multi-touch testing
 
 POTENTIAL CHANGES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Separate equations from QuadraticNode, so they can exceed graph bounds?
 VertexQuadratic extends Quadratic?
