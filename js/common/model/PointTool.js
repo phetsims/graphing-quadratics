@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Model of the point tool. Highlights when it is placed on one of the quadratics.
+ * Model of the point tool. Knows when it is placed on one of the quadratics.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
