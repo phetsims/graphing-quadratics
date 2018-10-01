@@ -287,24 +287,25 @@ define( require => {
     getClosestPoint( point ) {
 
       // to improve readability
-      const x = point.x;
-      const y = point.y;
+      const x0 = point.x;
+      const y0 = point.y;
       const a = this.a;
       const b = this.b;
       const c = this.c;
 
-      // Finding the closest point requires solution of a cubic equation.
+      // Finding the closest point requires solving the cubic equation
+      // (2a^2)x^3 + (3ab)x^2 + (b^2 + 2ac - 2ay0 + 1)x + (bc - by0 - x0) = 0
       // See http://mathworld.wolfram.com/Point-QuadraticDistance.html
       const roots = Util.solveCubicRootsReal(
         2 * a * a,
         3 * a * b,
-        b * b + 2 * a * c - 2 * a * y + 1,
-        b * c - b * y - x
+        b * b + 2 * a * c - 2 * a * y0 + 1,
+        b * c - b * y0 - x0
       );
       assert && assert( roots, 'all values are roots' );
       assert && assert( roots.length > 0, 'unexpected number of roots: ' + roots.length );
 
-      // Determine which solution is closest to point
+      // Determine which solution is closest to point (x0,y0)
       let rootPoint;
       let nearestPoint = new Vector2( roots[ 0 ], this.solveY( roots[ 0 ] ) );
       for ( let i = 1; i < roots.length; i++ ) {
