@@ -33,7 +33,8 @@ define( require => {
 
   // constants
   const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of pointToolLeftImage
-
+  const SNAP_DISTANCE = 0.5; // snap to quadratic when <= this distance from the quadratic, in model coordinates
+  
   class PointToolNode extends Node {
 
     /**
@@ -214,25 +215,29 @@ define( require => {
         },
 
         drag: ( event, trail ) => {
+
+          // Convert drag point to model location, constrained to dragBounds
           let parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
           location = pointTool.dragBounds.closestPointTo( location );
+
           if ( graph.contains( location ) ) {
 
-            //TODO what's up here?
-            let distance = 1; // empirically chosen
-            for ( let i = 0; i < pointTool.quadratics.length; i++ ) {
-
-              // snap to quadratic if near
+            // Snap to a quadratic when sufficiently close.
+            // pointTool.quadratics is in reverse rendering order, so traverse in order so that we pick the
+            // quadratic that is in the foreground first.
+            let snapped = false;
+            for ( let i = 0; i < pointTool.quadratics.length && !snapped; i++ ) {
               const quadratic = pointTool.quadratics.get( i );
               const nearestPoint = quadratic.getClosestPoint( location );
-              if ( nearestPoint.distance( location ) < distance ) {
-                distance = nearestPoint.distance( location );
+              if ( nearestPoint.distance( location ) < SNAP_DISTANCE ) {
                 location = nearestPoint;
+                snapped = true;
               }
             }
-            if ( distance === 1 ) { // didn't find a quadratic nearby
-              // snap to the graph's grid
+
+            // If we didn't snap to a quadratic, then snap to grid.
+            if ( !snapped ) {
               location = new Vector2( Util.toFixedNumber( location.x, 0 ), Util.toFixedNumber( location.y, 0 ) );
             }
           }
