@@ -295,7 +295,6 @@ define( require => {
       const b = this.b; // a1
       const c = this.c; // a0
 
-      //TODO use solveRoots here?
       const roots = Util.solveCubicRootsReal(
         2 * a * a,
         3 * a * b,
