@@ -30,7 +30,7 @@ define( require => {
 
   graphingQuadratics.register( 'QuadraticIO', QuadraticIO );
 
-  //TODO return fails when running without phetio, see https://github.com/phetsims/phet-io/issues/1370
+  //TODO https://github.com/phetsims/phet-io/issues/1370, return phetioInherit fails when running without phetio
   phetioInherit( ObjectIO, 'QuadraticIO', QuadraticIO, {}, {
 
     /**
