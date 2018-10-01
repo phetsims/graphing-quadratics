@@ -13,10 +13,9 @@ define( require => {
   const Bounds2 = require( 'DOT/Bounds2' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
+  const GQGraph = require( 'GRAPHING_QUADRATICS/common/model/GQGraph' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  const ObservableArray = require( 'AXON/ObservableArray' );
   const PointTool = require( 'GRAPHING_QUADRATICS/common/model/PointTool' );
   const Property = require( 'AXON/Property' );
   const PropertyIO = require( 'AXON/PropertyIO' );
@@ -40,7 +39,7 @@ define( require => {
     constructor( quadratic, tandem ) {
 
       // @public (read-only) graph
-      this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
+      this.graph = new GQGraph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
       // @public
       this.quadraticProperty = new Property( quadratic, {
@@ -64,17 +63,6 @@ define( require => {
         phetioInstanceDocumentation: 'the saved quadratic, null if there is no saved quadratic'
       } );
 
-      // @public {ObservableArray.<Quadratic>} all quadratics displayed on the graph
-      this.quadratics = new ObservableArray();
-      Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
-        ( quadratic, savedQuadratic ) => {
-        this.quadratics.clear();
-        this.quadratics.add( quadratic );
-        if ( savedQuadratic !== null ) {
-          this.quadratics.add( savedQuadratic );
-        }
-      } );
-
       // transform between model and view coordinate frames
       const modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
         this.graph.xRange.getLength(),
@@ -89,7 +77,7 @@ define( require => {
       );
 
       // @public (read-only)
-      this.rightPointTool = new PointTool( this.quadratics, {
+      this.rightPointTool = new PointTool( this.graph.quadratics, {
         probeSide: 'right',
         location: new Vector2( -2, -12 ),
         dragBounds: new Bounds2(
@@ -100,7 +88,7 @@ define( require => {
       } );
 
       // @public (read-only)
-      this.leftPointTool = new PointTool( this.quadratics, {
+      this.leftPointTool = new PointTool( this.graph.quadratics, {
         probeSide: 'left',
         location: new Vector2( 2, -12 ),
         dragBounds: new Bounds2(
@@ -108,6 +96,15 @@ define( require => {
           this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
         tandem: tandem.createTandem( 'leftPointTool' ),
         phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
+      } );
+
+      Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
+        ( quadratic, savedQuadratic ) => {
+        this.graph.quadratics.clear();
+        this.graph.quadratics.add( quadratic );
+        if ( savedQuadratic !== null ) {
+          this.graph.quadratics.add( savedQuadratic );
+        }
       } );
     }
 
