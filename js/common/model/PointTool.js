@@ -56,7 +56,7 @@ define( require => {
         phetioInstanceDocumentation: 'location of this point tool'
       } );
 
-      // @public
+      // @public {DerivedProperty.<Quadratic|null>}
       this.onQuadraticProperty = new DerivedProperty( [ this.locationProperty, quadratics.lengthProperty ],
         ( location, length ) => {
           for ( let i = 0; i < length; i++ ) {
