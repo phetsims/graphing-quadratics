@@ -36,8 +36,8 @@ define( require => {
       };
 
       super(
-        () => { return new ExploreModel( tandem.createTandem( 'model' ) ); },
-        model => { return new ExploreScreenView( model, tandem.createTandem( 'view' ) ); },
+        () => new ExploreModel( tandem.createTandem( 'model' ) ),
+        model => new ExploreScreenView( model, tandem.createTandem( 'view' ) ),
         options
       );
     }

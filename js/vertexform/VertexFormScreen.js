@@ -36,8 +36,8 @@ define( require => {
       };
 
       super(
-        () => { return new VertexFormModel( tandem.createTandem( 'model' ) ); },
-        model => { return new VertexFormScreenView( model, tandem.createTandem( 'view' ) ); },
+        () => new VertexFormModel( tandem.createTandem( 'model' ) ),
+        model => new VertexFormScreenView( model, tandem.createTandem( 'view' ) ),
         options
       );
     }

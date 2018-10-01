@@ -36,8 +36,8 @@ define( require => {
       };
 
       super(
-        () => { return new StandardFormModel( tandem.createTandem( 'model' ) ); },
-        model => { return new StandardFormScreenView( model, tandem.createTandem( 'view' ) ); },
+        () => new StandardFormModel( tandem.createTandem( 'model' ) ),
+        model => new StandardFormScreenView( model, tandem.createTandem( 'view' ) ),
         options
       );
     }

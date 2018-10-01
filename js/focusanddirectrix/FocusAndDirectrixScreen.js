@@ -36,8 +36,8 @@ define( require => {
       };
 
       super(
-        () => { return new FocusAndDirectrixModel( tandem.createTandem( 'model' ) ); },
-        model => { return new FocusAndDirectrixScreenView( model, tandem.createTandem( 'view' ) ); },
+        () => new FocusAndDirectrixModel( tandem.createTandem( 'model' ) ),
+        model => new FocusAndDirectrixScreenView( model, tandem.createTandem( 'view' ) ),
         options
       );
     }

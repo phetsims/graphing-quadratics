@@ -34,7 +34,7 @@ define( require => {
   // constants
   const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of pointToolLeftImage
   const SNAP_DISTANCE = 0.5; // snap to quadratic when <= this distance from the quadratic, in model coordinates
-  
+
   class PointToolNode extends Node {
 
     /**
@@ -61,7 +61,7 @@ define( require => {
       const probeNode = new ProbeNode();
 
       const coordinatesProperty = new Property( null, {
-        isValidValue: value => { return value instanceof Vector2 || value === null; }
+        isValidValue: value => ( value instanceof Vector2 || value === null )
       } );
 
       //TODO #14 instrument coordinatesNode

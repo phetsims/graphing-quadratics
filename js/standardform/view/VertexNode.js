@@ -46,7 +46,7 @@ define( require => {
       } );
 
       const coordinatesProperty = new Property( null, {
-        isValidValue: value => { return value instanceof Vector2 || value === null; }
+        isValidValue: value => ( value instanceof Vector2 || value === null )
       } );
 
       // displays the vertex coordinates

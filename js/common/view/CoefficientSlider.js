@@ -45,10 +45,10 @@ define( require => {
         tickValues: [ 0 ],
 
         // maps coefficientProperty value to slider value
-        map: value => { return value; },
+        map: value => value,
 
         // maps slider value to coefficientProperty value
-        inverseMap: value => { return value; },
+        inverseMap: value => value,
 
         // whether to skip zero value
         skipZero: false,

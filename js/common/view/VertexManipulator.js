@@ -51,7 +51,7 @@ define( require => {
       //TODO #14 instrument vertexProperty?
       // local Property whose value is the vertex of the current value of quadraticProperty
       const vertexProperty = new Property( quadraticProperty.value.vertex, {
-        isValidValue: value => { return value instanceof Vector2 || value === null; },
+        isValidValue: value => ( value instanceof Vector2 || value === null ),
         reentrant: true //TODO #17
       } );
 

@@ -50,7 +50,7 @@ define( require => {
 
       // coordinates Properties
       const propertyOptions = {
-        isValidValue: value => { return value instanceof Vector2 || value === null; }
+        isValidValue: value => ( value instanceof Vector2 || value === null )
       };
       const leftCoordinatesProperty = new Property( null, propertyOptions );
       const rightCoordinatesProperty = new Property( null, propertyOptions );
