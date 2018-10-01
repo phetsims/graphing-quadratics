@@ -1,5 +1,6 @@
 // Copyright 2018, University of Colorado Boulder
 
+//TODO https://github.com/phetsims/phet-io/issues/1371, phetioInherit doesn't support ES6 class
 /**
  * IO type for Quadratic
  *
