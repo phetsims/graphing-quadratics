@@ -15,7 +15,7 @@ define( require => {
   const Sim = require( 'JOIST/Sim' );
   const SimLauncher = require( 'JOIST/SimLauncher' );
   const StandardFormScreen = require( 'GRAPHING_QUADRATICS/standardform/StandardFormScreen' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const VertexFormScreen = require( 'GRAPHING_QUADRATICS/vertexform/VertexFormScreen' );
 
   // strings

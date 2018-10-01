@@ -9,7 +9,7 @@ define( function( require ) {
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
 
-  var GQQueryParameters = QueryStringMachine.getAll( {
+  const GQQueryParameters = QueryStringMachine.getAll( {
 
     // Checks all check boxes that would otherwise be unchecked by default.
     checkAll: { type: 'flag' }
