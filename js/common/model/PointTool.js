@@ -42,6 +42,11 @@ define( require => {
 
       assert && assert( PROBE_LOCATIONS.includes( options.probeLocation ),
         'invalid probeLocation: ' + options.probeLocation );
+      
+      // @public (read-only)
+      this.quadratics = quadratics;
+      this.probeLocation = options.probeLocation;
+      this.dragBounds = options.dragBounds;
 
       // @public {Vector2}
       this.locationProperty = new Property( options.location, {
@@ -50,11 +55,6 @@ define( require => {
         phetioType: PropertyIO( NullableIO( Vector2IO ) ),
         phetioInstanceDocumentation: 'location of this point tool'
       } );
-
-      // @public (read-only)
-      this.quadratics = quadratics;
-      this.probeLocation = options.probeLocation;
-      this.dragBounds = options.dragBounds;
 
       // @public
       this.onQuadraticProperty = new DerivedProperty( [ this.locationProperty, quadratics.lengthProperty ],
