@@ -27,8 +27,8 @@ define( require => {
   const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // constants
-  const GRID_VIEW_UNITS = 530; // max dimension (width or height) of the grid in view coordinates
-  const ORIGIN_OFFSET = new Vector2( 315, 330 ); // offset of the graph's origin in view coordinates
+  const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates
+  const GRAPH_ORIGIN_OFFSET = new Vector2( 315, 330 ); // offset of the graph's origin, in view coordinates
 
   class GQModel {
 
@@ -63,15 +63,12 @@ define( require => {
         phetioInstanceDocumentation: 'the saved quadratic, null if there is no saved quadratic'
       } );
 
-      // transform between model and view coordinate frames
-      const modelViewTransformScale = GRID_VIEW_UNITS / Math.max(
-        this.graph.xRange.getLength(),
-        this.graph.yRange.getLength()
-      );
+      // scale from model to view
+      const modelViewTransformScale = GRAPH_VIEW_WIDTH / this.graph.xRange.getLength();
 
       // @public (read-only) model-view transform, created in the model because it's dependent on graph axes ranges.
       this.modelViewTransform = ModelViewTransform2.createOffsetXYScaleMapping(
-        ORIGIN_OFFSET,
+        GRAPH_ORIGIN_OFFSET,
         modelViewTransformScale,
         -modelViewTransformScale // y is inverted
       );
