@@ -43,7 +43,6 @@ define( require => {
 
       // coefficients for y = (1/(4p)(x - h)^1 - k
       const pProperty = new NumberProperty( options.pRange.defaultValue, {
-        reentrant: true, //TODO #17
         range: options.pRange,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioInstanceDocumentation: 'coefficient a for the interactive quadratic'
