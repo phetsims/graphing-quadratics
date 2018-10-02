@@ -124,30 +124,25 @@ define( require => {
      * @public
      */
     toStateObject() {
+      return {
 
-      // all Quadratics have these fields, which are sufficient to restore a Quadratic
-      const object = {
+        // These properties are sufficient to restore a Quadratic, see fromStateObject.
         a: this.a,
         b: this.b,
         c: this.c,
-        color: Color.toColor( this.color ).toStateObject()
+        color: Color.toColor( this.color ).toStateObject(),
+
+        // These properties are desired in the event stream, but will be undefined for non-parabolas (a===0).
+        // Because PhET-iO values are based on JSON.stringify, undefined properties will not be present in the
+        // event stream.
+        p: this.p,
+        h: this.h,
+        k: this.k,
+        vertex: ( this.vertex ? this.vertex.toStateObject() : undefined ),
+        focus: ( this.focus ? this.focus.toStateObject() : undefined ),
+        directrix: this.directrix,
+        axisOfSymmetry: this.axisOfSymmetry
       };
-
-      //TODO #14 #38 Is it OK that the fields vary depending on whether Quadratic is a parabola? How/where to document?
-      // parabolas have these additional fields, which are otherwise undefined
-      if ( this.a !== 0 ) {
-        _.extend( object, {
-          p: this.p,
-          h: this.h,
-          k: this.k,
-          vertex: this.vertex.toStateObject(),
-          focus: this.focus.toStateObject(),
-          directrix: this.directrix,
-          axisOfSymmetry: this.axisOfSymmetry
-        } );
-      }
-
-      return object;
     }
 
     /**
