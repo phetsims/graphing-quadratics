@@ -34,7 +34,7 @@ define( require => {
 
       super( model,
         viewProperties,
-        new StandardFormGraphNode( model, viewProperties ),
+        new StandardFormGraphNode( model, viewProperties, tandem ),
         new StandardFormAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, {
           tandem: options.tandem.createTandem( 'equationAccordionBox')
         } ),

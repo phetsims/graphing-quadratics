@@ -14,6 +14,7 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -25,6 +26,10 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( options ) {
+
+      options = _.extend( {
+        tandem: Tandem.required
+      }, options );
 
       const textNode = new Text( noRealRootsString, {
         font: new PhetFont( { size: 18, weight: 'bold' } ),

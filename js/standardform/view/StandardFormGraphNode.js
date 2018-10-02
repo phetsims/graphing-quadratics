@@ -24,10 +24,12 @@ define( require => {
     /**
      * @param {GQModel} model
      * @param {StandardFormViewProperties} viewProperties
+     * @param {Tandem} tandem
      * @param {Object} [options]
      */
-    constructor( model, viewProperties, options ) {
+    constructor( model, viewProperties, tandem, options ) {
 
+      // We do NOT want to instrument the graph, so tandem is not propagated via options
       options = options || {};
 
       // Radius of plotted points, in view coordinate frame
@@ -48,7 +50,8 @@ define( require => {
         model.modelViewTransform,
         viewProperties.rootsVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          radius: pointRadius
+          radius: pointRadius,
+          tandem: tandem.createTandem( 'rootsNode' )
         } );
 
       // Vertex
@@ -58,12 +61,14 @@ define( require => {
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          radius: pointRadius
+          radius: pointRadius,
+          tandem: tandem.createTandem( 'vertexNode' )
         } );
 
       // 'NO REAL ROOTS' label
       const noRealRootsNode = new NoRealRootsNode( {
-        center: model.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) ) // at the origin
+        center: model.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) ), // at the origin
+        tandem: tandem.createTandem( 'noRealRootsNode' )
       } );
       Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],
         ( rootsVisible, quadratic ) => {

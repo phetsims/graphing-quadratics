@@ -12,13 +12,20 @@ define( require => {
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
   const Color = require( 'SCENERY/util/Color' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
+  const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
+
+  // ifphetio
+  const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // constants
   const X_SPACING = 15;
@@ -37,7 +44,8 @@ define( require => {
                  rootsVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
-        radius: 10
+        radius: 10,
+        tandem: Tandem.required
       }, options );
 
       // points
@@ -48,14 +56,23 @@ define( require => {
       const leftPointNode = new Circle( options.radius, pointOptions );
       const rightPointNode = new Circle( options.radius, pointOptions );
 
-      // coordinates Properties
-      const propertyOptions = {
-        isValidValue: value => ( value instanceof Vector2 || value === null )
-      };
-      const leftCoordinatesProperty = new Property( null, propertyOptions );
-      const rightCoordinatesProperty = new Property( null, propertyOptions );
+      // coordinates corresponding to the quadratic's left or single root (if it has roots)
+      const leftCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
+        quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null, {
+          isValidValue: value => ( value instanceof Vector2 || value === null ),
+          phetiOType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
+          phetioInstanceDocumentation: 'coordinates displayed on the left (or single) root'
+        } );
 
-      // coordinates
+      // coordinates corresponding to the quadratic's right root, if it has 2 roots
+      const rightCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
+        quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null, {
+          isValidValue: value => ( value instanceof Vector2 || value === null ),
+          phetiOType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
+          phetioInstanceDocumentation: 'coordinates displayed on the right root'
+        } );
+
+      // coordinate displays
       const coordinatesOptions = {
         foregroundColor: 'white',
         backgroundColor: new Color( GQColors.ROOTS ).withAlpha( 0.75 ),
@@ -85,14 +102,12 @@ define( require => {
           assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
 
           const leftRoot = roots[ 0 ];
-          leftCoordinatesProperty.value = leftRoot;
           leftPointNode.translation = modelViewTransform.modelToViewPosition( leftRoot );
           leftRootNode.visible = graph.contains( leftRoot );
 
           if ( roots.length === 2 ) {
             const rightRoot = roots[ 1 ];
             assert && assert( leftRoot.x < rightRoot.x, 'unexpected order of roots: ' + roots );
-            rightCoordinatesProperty.value = rightRoot;
             rightPointNode.translation = modelViewTransform.modelToViewPosition( rightRoot );
             rightRootNode.visible = graph.contains( rightRoot );
           }
