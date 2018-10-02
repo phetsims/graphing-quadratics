@@ -11,6 +11,7 @@ define( require => {
   'use strict';
 
   // modules
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -277,6 +278,26 @@ define( require => {
       }
 
       return layoutOnBackground( children );
+    },
+
+    /**
+     * Creates the directrix equation, y = directrix
+     * @param {number} directrix
+     * @public
+     */
+    createDirectrix( directrix ) {
+
+      const equationString = StringUtils.fillIn( '{{y}} = {{directrix}}', {
+        y: GQSymbols.y,
+        directrix: Util.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )
+      } );
+
+      const equationNode = new RichText( equationString, {
+        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
+        fill: GQColors.DIRECTRIX
+      } );
+
+      return layoutOnBackground( [ equationNode ] );
     }
   };
 
