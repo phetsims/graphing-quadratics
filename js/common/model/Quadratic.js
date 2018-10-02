@@ -389,5 +389,26 @@ define( require => {
     return roots;
   }
 
+  /**
+   * Documentation for the association IO type, QuadraticIO.  This appears in PhET-iO Studio.
+   * Defined here so that specifics about Quadratic appear in one place.
+   * @type {string}
+   * @public
+   */
+  Quadratic.documentationQuadraticIO =
+    'QuadraticIO is a data structure that describes a quadratic equation in the model. ' +
+    'Its properties are relevant to standard and vertex forms of the quadratic equation. ' +
+    'Non-parabolas (a=0) will have a subset of the properties that parabolas have. ' +
+    '<p>' +
+    'Required properties are related to the standard form y = ax<sup>2</sup> + bx + c, and include:<br>' +
+    '<ul>' +
+    '<li>a: {number} coefficient a</li>' +
+    '<li>b: {number} coefficient b</li>' +
+    '<li>c: {number} coefficient c</li>' +
+    '<li>color: {Color} the color used to draw the associated line</li>' +
+    '</ul>' +
+    '<p>' +
+    'All coefficient values must respect the ranges for those coefficients.';
+
   return graphingQuadratics.register( 'Quadratic', Quadratic );
 } );

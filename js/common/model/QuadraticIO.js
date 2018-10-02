@@ -33,6 +33,9 @@ define( require => {
   //TODO https://github.com/phetsims/phet-io/issues/1370, return phetioInherit fails when running without phetio
   phetioInherit( ObjectIO, 'QuadraticIO', QuadraticIO, {}, {
 
+    // This appears in Studio
+    documentation: Quadratic.documentationQuadraticIO,
+
     /**
      * Encodes the state of a Quadratic instance.
      * @param {Quadratic} quadratic
