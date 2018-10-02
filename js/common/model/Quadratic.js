@@ -118,6 +118,7 @@ define( require => {
       return Quadratic.createFromVertexForm( a, h, k, options );
     }
 
+    //TODO #14 Is it OK that the fields vary depending on whether Quadratic is a parabola? How/where to document?
     /**
      * Encodes a Quadratic instance as a PhET-iO state object
      * @returns {*}
