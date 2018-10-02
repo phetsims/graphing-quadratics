@@ -45,7 +45,6 @@ define( require => {
         tandem: options.tandem.createTandem( 'equationNode' )
       } );
 
-      //TODO #14 instrument sliders
       // coefficient sliders
       const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_A,
