@@ -118,7 +118,6 @@ define( require => {
       return Quadratic.createFromVertexForm( a, h, k, options );
     }
 
-    //TODO #14 Is it OK that the fields vary depending on whether Quadratic is a parabola? How/where to document?
     /**
      * Encodes a Quadratic instance as a PhET-iO state object
      * @returns {*}
@@ -134,6 +133,7 @@ define( require => {
         color: Color.toColor( this.color ).toStateObject()
       };
 
+      //TODO #14 Is it OK that the fields vary depending on whether Quadratic is a parabola? How/where to document?
       // parabolas have these fields
       if ( this.a !== 0 ) {
         _.extend( object, {
