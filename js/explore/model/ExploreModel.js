@@ -37,7 +37,6 @@ define( require => {
 
       // coefficients of y = ax^2 + bx + c
       const aProperty = new NumberProperty( options.aRange.defaultValue, {
-        reentrant: true, //TODO #17
         range: options.aRange,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioInstanceDocumentation: 'coefficient a for the interactive quadratic'
