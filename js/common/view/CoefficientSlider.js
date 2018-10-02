@@ -109,7 +109,7 @@ define( require => {
         font: COEFFICIENT_LABEL_FONT,
         fill: options.labelColor,
         centerX: slider.centerX,
-        bottom: slider.top - 5,
+        bottom: slider.top - 2,
         tandem: options.tandem.createTandem( 'label' )
       } );
 
