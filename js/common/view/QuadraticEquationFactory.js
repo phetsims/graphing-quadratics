@@ -220,41 +220,62 @@ define( require => {
         } );
         children.push( new RichText( yEqualsString, textOptions ) );
 
-        // a(x
-        let axString = null;
-        if ( a === 1 ) {
-          axString = StringUtils.fillIn( '({{x}}', {
-            x: GQSymbols.x
-          } );
-        }
-        else if ( a === -1 ) {
-          axString = StringUtils.fillIn( '{{minus}}({{x}}', {
-            minus: MathSymbols.UNARY_MINUS,
-            x: GQSymbols.x
-          } );
+        // a(x - h)^2
+        let axhString = null;
+        if ( h === 0 ) {
+          if ( a === 1 ) {
+            // x^2
+            axhString = StringUtils.fillIn( '{{x}}<sup>2</sup>', {
+              x: GQSymbols.x
+            } );
+          }
+          else if ( a === -1 ) {
+            // -x^2
+            axhString = StringUtils.fillIn( '{{minus}}{{x}}<sup>2</sup>', {
+              minus: MathSymbols.UNARY_MINUS,
+              x: GQSymbols.x
+            } );
+          }
+          else {
+            // ax^2
+            axhString = StringUtils.fillIn( '{{a}}{{x}}<sup>2</sup>', {
+              a: a,
+              x: GQSymbols.x
+            } );
+          }
         }
         else {
-          axString = StringUtils.fillIn( '{{a}}({{x}}', {
-            a: a,
-            x: GQSymbols.x
-          } );
+          const operator = ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
+          if ( a === 1 ) {
+            // (x - h)^2
+            axhString = StringUtils.fillIn( '({{x}} {{operator}} {{h}})<sup>2</sup>', {
+              x: GQSymbols.x,
+              operator: operator,
+              h: Math.abs( h )
+            } );
+          }
+          else if ( a === -1 ) {
+            // -(x - h)^2
+            axhString = StringUtils.fillIn( '{{minus}}({{x}} {{operator}} {{h}})<sup>2</sup>', {
+              minus: MathSymbols.UNARY_MINUS,
+              x: GQSymbols.x,
+              operator: operator,
+              h: Math.abs( h )
+            } );
+          }
+          else {
+            // a(x - h)^2
+            axhString = StringUtils.fillIn( '{{a}}({{x}} {{operator}} {{h}})<sup>2</sup>', {
+              a: a,
+              x: GQSymbols.x,
+              operator: operator,
+              h: Math.abs( h )
+            } );
+          }
         }
+        children.push( new RichText( axhString, textOptions ) );
 
-        if ( h === 0 ) {
-          axString += ')<sup>2</sup>';
-        }
-        children.push( new RichText( axString, textOptions ) );
-
-        // h
-        if ( h !== 0 ) {
-          const hString = StringUtils.fillIn( '{{operator}} {{h}})<sup>2</sup>', {
-            operator: ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS,
-            h: Math.abs( h )
-          } );
-          children.push( new RichText( hString, textOptions ) );
-        }
-
-        // k
+        // + k
         if ( k !== 0 ) {
           const kString = StringUtils.fillIn( '{{operator}} {{k}}', {
             operator: ( k > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS,
