@@ -1,6 +1,5 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO https://github.com/phetsims/phet-io/issues/1374 how to instrument a VSlider + DynamicProperty
 /**
  * Vertical slider for changing one of the coefficients in a quadratic equation.
  * The default response of this slider is linear.  To change the response, use options map and inverseMap.
@@ -70,6 +69,7 @@ define( require => {
       }, options );
 
       // Map between value domains, determines how the slider responds.
+      // Do not instrument for PhET-iO, see https://github.com/phetsims/phet-io/issues/1374
       const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
         reentrant: true, //TODO #17
         bidirectional: true,
