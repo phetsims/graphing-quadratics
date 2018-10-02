@@ -84,6 +84,14 @@ define( require => {
         tandem: tandem.createTandem( 'leftPointTool' ),
         phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
       } );
+
+      // @private Update the list of quadratics on the graph, in the order that they will be considered by point tools
+      Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
+        ( quadratic, savedQuadratic ) => {
+          this.graph.quadratics.clear();
+          this.graph.quadratics.add( quadratic );
+          savedQuadratic && this.graph.quadratics.add( savedQuadratic );
+        } );
     }
 
     // @public

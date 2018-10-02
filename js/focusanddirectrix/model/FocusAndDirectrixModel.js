@@ -1,6 +1,5 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO lots of duplication here with VertexFormModel
 /**
  * Model for the 'Focus & Directrix' screen.
  *
@@ -62,8 +61,11 @@ define( require => {
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
           phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioInstanceDocumentation: 'the interactive quadratic'
+          phetioInstanceDocumentation: 'the interactive quadratic, derived from p, h, and k'
         } );
+      quadraticProperty.link( quadratic => {
+        phet.log && phet.log( 'quadratic = (1/(4(' + quadratic.p + ')))(x - ' + quadratic.h + ') + ' + quadratic.k );
+      } );
 
       super( quadraticProperty, tandem );
 

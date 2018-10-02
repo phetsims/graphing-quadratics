@@ -15,7 +15,6 @@ define( require => {
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NumberProperty = require( 'AXON/NumberProperty' );
-  const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
@@ -58,8 +57,11 @@ define( require => {
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
           phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioInstanceDocumentation: 'the interactive quadratic'
+          phetioInstanceDocumentation: 'the interactive quadratic, derived from a, h, and k'
         } );
+      quadraticProperty.link( quadratic => {
+        phet.log && phet.log( 'quadratic = ' + quadratic.a + ' (x - ' + quadratic.h + ') + ' + quadratic.k );
+      } );
 
       super( quadraticProperty, tandem );
 
@@ -67,14 +69,6 @@ define( require => {
       this.aProperty = aProperty;
       this.hProperty = hProperty;
       this.kProperty = kProperty;
-
-      // Update the list of quadratics on the graph, in the order that they will be consider by point tools
-      Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
-        ( quadratic, savedQuadratic ) => {
-          this.graph.quadratics.clear();
-          this.graph.quadratics.add( quadratic );
-          savedQuadratic && this.graph.quadratics.add( savedQuadratic );
-        } );
     }
 
     /**
