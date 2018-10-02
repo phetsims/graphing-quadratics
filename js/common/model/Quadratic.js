@@ -118,19 +118,35 @@ define( require => {
       return Quadratic.createFromVertexForm( a, h, k, options );
     }
 
-    //TODO #14 add additional fields that we want to see in the PhET-iO data stream
     /**
      * Encodes a Quadratic instance as a PhET-iO state object
      * @returns {*}
      * @public
      */
     toStateObject() {
-      return {
+
+      // all Quadratics have these fields, and these are sufficient to restore a Quadratic
+      const object = {
         a: this.a,
         b: this.b,
         c: this.c,
         color: Color.toColor( this.color ).toStateObject()
       };
+
+      // parabolas have these fields
+      if ( this.a !== 0 ) {
+        _.extend( object, {
+          p: this.p,
+          h: this.h,
+          k: this.k,
+          vertex: this.vertex.toStateObject(),
+          focus: this.focus.toStateObject(),
+          directrix: this.directrix,
+          axisOfSymmetry: this.axisOfSymmetry
+        } );
+      }
+
+      return object;
     }
 
     /**
