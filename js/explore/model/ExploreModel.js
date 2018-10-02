@@ -106,6 +106,17 @@ define( require => {
           savedQuadratic && this.graph.quadratics.add( savedQuadratic );
         } );
     }
+
+    /**
+     * @public
+     * @override
+     */
+    reset() {
+      super.reset();
+      this.aProperty.reset();
+      this.bProperty.reset();
+      this.cProperty.reset();
+    }
   }
 
   return graphingQuadratics.register( 'ExploreModel', ExploreModel );

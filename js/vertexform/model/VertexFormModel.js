@@ -76,6 +76,17 @@ define( require => {
           savedQuadratic && this.graph.quadratics.add( savedQuadratic );
         } );
     }
+
+    /**
+     * @public
+     * @override
+     */
+    reset() {
+      super.reset();
+      this.aProperty.reset();
+      this.hProperty.reset();
+      this.kProperty.reset();
+    }
   }
 
   return graphingQuadratics.register( 'VertexFormModel', VertexFormModel );

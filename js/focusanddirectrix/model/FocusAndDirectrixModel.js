@@ -95,7 +95,10 @@ define( require => {
       } );
     }
 
-    // @public
+    /**
+     * @public
+     * @override
+     */
     reset() {
       super.reset();
       this.pProperty.reset();
