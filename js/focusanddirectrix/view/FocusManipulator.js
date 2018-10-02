@@ -52,6 +52,7 @@ define( require => {
 
       super( radius, GQColors.FOCUS, options );
 
+      // coordinates correspond to the quadratic's focus
       const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
         quadratic => quadratic.focus, {
           valueType: Vector2,

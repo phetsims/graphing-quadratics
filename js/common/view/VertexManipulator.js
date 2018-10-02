@@ -54,6 +54,7 @@ define( require => {
 
       super( radius, GQColors.VERTEX, options );
 
+      // coordinates correspond to the quadratic's vertex (if it has one)
       const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
         quadratic => ( quadratic.vertex ? quadratic.vertex : null ), {
           isValidValue: value => ( value instanceof Vector2 || value === null ),

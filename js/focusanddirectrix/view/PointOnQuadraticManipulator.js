@@ -47,8 +47,8 @@ define( require => {
 
       super( radius, GQColors.POINT_ON_QUADRATIC, options );
 
-      // This is identical to pointOnQuadraticProperty, but is added here for PhET-iO instrumentation
-      // symmetry with other manipulators.
+      // Coordinates are identical to pointOnQuadraticProperty. We're using a separate Property here
+      // for PhET-iO instrumentation symmetry with other manipulators.
       const coordinatesProperty = new DerivedProperty( [ pointOnQuadraticProperty ],
         pointOnQuadratic => pointOnQuadratic, {
           valueType: Vector2,
