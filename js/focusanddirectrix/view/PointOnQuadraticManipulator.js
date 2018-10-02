@@ -66,7 +66,7 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      // y offset of coordinates from manipulator
+      // x offset of coordinates from manipulator
       const coordinatesXOffset = 1.8 * radius;
 
       // position coordinates based on which side of the curve the point is on
