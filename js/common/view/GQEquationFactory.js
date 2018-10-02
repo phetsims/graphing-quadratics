@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * QuadraticQuadraticEquationFactory creates Nodes that display a quadratic equation in various forms.
+ * GQEquationFactory creates Nodes that display various equations needed by this sim.
  * Equations are reduced so that they don't contain terms that evaluate to zero,
  * and coefficients are displayed as positive decimal numbers.
  *
@@ -24,7 +24,7 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
-  const QuadraticEquationFactory = {
+  const GQEquationFactory = {
 
     /**
      * Creates an equation in standard form, y = ax^2 + bx + c
@@ -346,5 +346,5 @@ define( require => {
     return new Node( { children: [ backgroundNode, hBox ] } );
   }
 
-  return graphingQuadratics.register( 'QuadraticEquationFactory', QuadraticEquationFactory );
+  return graphingQuadratics.register( 'GQEquationFactory', GQEquationFactory );
 } );

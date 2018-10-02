@@ -11,8 +11,8 @@ define( require => {
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const QuadraticEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/QuadraticEquationFactory' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const Property = require( 'AXON/Property' );
@@ -55,7 +55,7 @@ define( require => {
 
           // update the equation
           equationNode && this.removeChild( equationNode );
-          equationNode = QuadraticEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
+          equationNode = GQEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
           this.addChild( equationNode );
 
           // position the equation to avoid overlapping vertex and y axis

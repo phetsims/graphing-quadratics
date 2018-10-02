@@ -12,10 +12,10 @@ define( require => {
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
-  const QuadraticEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/QuadraticEquationFactory' );
   const Range = require( 'DOT/Range' );
   const Shape = require( 'KITE/Shape' );
 
@@ -80,10 +80,10 @@ define( require => {
         equationParent.removeAllChildren();
         let equationNode = null;
         if ( equationForm === 'standard' ) {
-          equationNode = QuadraticEquationFactory.createStandardForm( quadratic );
+          equationNode = GQEquationFactory.createStandardForm( quadratic );
         }
         else {
-          equationNode = QuadraticEquationFactory.createVertexForm( quadratic );
+          equationNode = GQEquationFactory.createVertexForm( quadratic );
         }
         equationParent.addChild( equationNode );
 
