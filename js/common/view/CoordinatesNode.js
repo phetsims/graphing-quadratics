@@ -34,6 +34,7 @@ define( require => {
         font: new PhetFont( 16 ),
         foregroundColor: 'black',
         backgroundColor: 'white',
+        backgroundOpacity: 0.75,
         cornerRadius: 4,
         xMargin: 4,
         yMargin: 2
@@ -48,6 +49,7 @@ define( require => {
       // rectangle behind the coordinates
       const backgroundNode = new Rectangle( 0, 0, 1, 1, {
         fill: options.backgroundColor,
+        opacity: options.backgroundOpacity,
         cornerRadius: options.cornerRadius
       } );
 

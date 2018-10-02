@@ -78,7 +78,7 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         font: new PhetFont( 15 ),
         foregroundColor: 'white',
-        backgroundColor: 'transparent', // don't use the CoordinatesNode background, because it resizes to the value
+        backgroundOpacity: 0, // don't use the CoordinatesNode background, because it resizes to the value
         xMargin: 0,
         yMargin: 0,
         decimals: GQConstants.POINT_TOOL_DECIMALS,

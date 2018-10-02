@@ -9,7 +9,6 @@ define( require => {
   'use strict';
 
   // modules
-  const Color = require( 'SCENERY/util/Color' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
@@ -60,7 +59,7 @@ define( require => {
       // coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
-        backgroundColor: new Color( GQColors.POINT_ON_QUADRATIC ).withAlpha( 0.75 ),
+        backgroundColor: GQColors.POINT_ON_QUADRATIC,
         decimals: GQConstants.POINT_ON_QUADRATIC_DECIMALS,
         pickable: false
       } );

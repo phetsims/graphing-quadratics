@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
-  const Color = require( 'SCENERY/util/Color' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
@@ -65,7 +64,7 @@ define( require => {
       // displays the vertex coordinates
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
-        backgroundColor: new Color( GQColors.VERTEX ).withAlpha( 0.75 ),
+        backgroundColor: GQColors.VERTEX,
         decimals: GQConstants.VERTEX_DECIMALS
       } );
 
