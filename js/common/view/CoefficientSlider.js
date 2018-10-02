@@ -1,5 +1,6 @@
 // Copyright 2018, University of Colorado Boulder
 
+//TODO #14 #38 how to instrument a VSlider + DynamicProperty
 /**
  * Vertical slider for changing one of the coefficients in a quadratic equation.
  * The default response of this slider is linear.  To change the response, use options map and inverseMap.
@@ -68,7 +69,6 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      //TODO #14 instrument sliderProperty? DynamicProperty has no default phetio instrumentation
       // Map between value domains, determines how the slider responds.
       const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
         reentrant: true, //TODO #17
