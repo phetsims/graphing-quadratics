@@ -21,33 +21,31 @@ define( require => {
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
+  // constants
+  const A_RANGE = new RangeWithValue( -6, 6, 1 );
+  const B_RANGE = new RangeWithValue( -6, 6, 0 );
+  const C_RANGE = new RangeWithValue( -6, 6, 0 );
+  
   class ExploreModel extends GQModel {
 
     /**
      * @param {Tandem} tandem
-     * @param {Object} [options]
      */
-    constructor( tandem, options ) {
-
-      options = _.extend( {
-        aRange: new RangeWithValue( -6, 6, 1 ),
-        bRange: new RangeWithValue( -6, 6, 0 ),
-        cRange: new RangeWithValue( -6, 6, 0 )
-      }, options );
+    constructor( tandem ) {
 
       // coefficients of y = ax^2 + bx + c
-      const aProperty = new NumberProperty( options.aRange.defaultValue, {
-        range: options.aRange,
+      const aProperty = new NumberProperty( A_RANGE.defaultValue, {
+        range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioInstanceDocumentation: 'coefficient a for the interactive quadratic'
       } );
-      const bProperty = new NumberProperty( options.bRange.defaultValue, {
-        range: options.bRange,
+      const bProperty = new NumberProperty( B_RANGE.defaultValue, {
+        range: B_RANGE,
         tandem: tandem.createTandem( 'bProperty' ),
         phetioInstanceDocumentation: 'coefficient b for the interactive quadratic'
       } );
-      const cProperty = new NumberProperty( options.cRange.defaultValue, {
-        range: options.cRange,
+      const cProperty = new NumberProperty( C_RANGE.defaultValue, {
+        range: C_RANGE,
         tandem: tandem.createTandem( 'cProperty' ),
         phetioInstanceDocumentation: 'coefficient c for the interactive quadratic'
       } );

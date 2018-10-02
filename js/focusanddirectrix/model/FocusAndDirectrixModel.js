@@ -25,35 +25,31 @@ define( require => {
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // constants
+  const P_RANGE = new RangeWithValue( -9, 9, 2 );
+  const H_RANGE = new RangeWithValue( -6, 6, 0 );
+  const K_RANGE = new RangeWithValue( -6, 6, 0 );
   const POINT_X = 5; // default x value for point on quadratic
 
   class FocusAndDirectrixModel extends GQModel {
 
     /**
      * @param {Tandem} tandem
-     * @param {Object} [options]
      */
-    constructor( tandem, options ) {
-
-      options = _.extend( {
-        pRange: new RangeWithValue( -9, 9, 2 ),
-        hRange: new RangeWithValue( -6, 6, 0 ),
-        kRange: new RangeWithValue( -6, 6, 0 )
-      }, options );
+    constructor( tandem ) {
 
       // coefficients for y = (1/(4p)(x - h)^1 - k
-      const pProperty = new NumberProperty( options.pRange.defaultValue, {
-        range: options.pRange,
+      const pProperty = new NumberProperty( P_RANGE.defaultValue, {
+        range: P_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioInstanceDocumentation: 'coefficient a for the interactive quadratic'
       } );
-      const hProperty = new NumberProperty( options.hRange.defaultValue, {
-        range: options.hRange,
+      const hProperty = new NumberProperty( H_RANGE.defaultValue, {
+        range: H_RANGE,
         tandem: tandem.createTandem( 'bProperty' ),
         phetioInstanceDocumentation: 'coefficient h for the interactive quadratic'
       } );
-      const kProperty = new NumberProperty( options.kRange.defaultValue, {
-        range: options.kRange,
+      const kProperty = new NumberProperty( K_RANGE.defaultValue, {
+        range: K_RANGE,
         tandem: tandem.createTandem( 'cProperty' ),
         phetioInstanceDocumentation: 'coefficient k for the interactive quadratic'
       } );

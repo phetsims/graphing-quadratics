@@ -3,7 +3,6 @@
 /**
  * Model for the 'Vertex Form' screen.
  *
- * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
@@ -21,6 +20,11 @@ define( require => {
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
+  // constants
+  const A_RANGE = new RangeWithValue( -6, 6, 1 );
+  const H_RANGE = new RangeWithValue( -9, 9, 0 );
+  const K_RANGE = new RangeWithValue( -9, 9, 0 );
+          
   class VertexFormModel extends GQModel {
 
     /**
@@ -29,25 +33,19 @@ define( require => {
      */
     constructor( tandem, options ) {
 
-      options = _.extend( {
-        aRange: new RangeWithValue( -6, 6, 1 ),
-        hRange: new RangeWithValue( -9, 9, 0 ),
-        kRange: new RangeWithValue( -9, 9, 0 )
-      }, options );
-
       // coefficients of y = a(x - h)^2 + k
-      const aProperty = new NumberProperty( options.aRange.defaultValue, {
-        range: options.aRange,
+      const aProperty = new NumberProperty( A_RANGE.defaultValue, {
+        range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioInstanceDocumentation: 'coefficient a for the interactive quadratic'
       } );
-      const hProperty = new NumberProperty( options.hRange.defaultValue, {
-        range: options.hRange,
+      const hProperty = new NumberProperty( H_RANGE.defaultValue, {
+        range: H_RANGE,
         tandem: tandem.createTandem( 'bProperty' ),
         phetioInstanceDocumentation: 'coefficient h for the interactive quadratic'
       } );
-      const kProperty = new NumberProperty( options.kRange.defaultValue, {
-        range: options.kRange,
+      const kProperty = new NumberProperty( K_RANGE.defaultValue, {
+        range: K_RANGE,
         tandem: tandem.createTandem( 'cProperty' ),
         phetioInstanceDocumentation: 'coefficient k for the interactive quadratic'
       } );
