@@ -85,6 +85,7 @@ define( require => {
         phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
       } );
 
+      //TODO #22 add terms based on their visibility, maintain correct order
       // @private Update the list of quadratics on the graph, in the order that they will be considered by point tools
       Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
         ( quadratic, savedQuadratic ) => {
