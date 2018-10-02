@@ -33,7 +33,7 @@ define( require => {
      */
     constructor( tandem ) {
 
-      // coefficients of y = ax^2 + bx + c
+      // coefficients for standard form: y = ax^2 + bx + c
       const aProperty = new NumberProperty( A_RANGE.defaultValue, {
         range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),

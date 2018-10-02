@@ -37,7 +37,7 @@ define( require => {
      */
     constructor( tandem ) {
 
-      // coefficients for y = (1/(4p)(x - h)^1 - k
+      // coefficients for alternate vertex form: y = (1/(4p)(x - h)^1 - k
       const pProperty = new NumberProperty( P_RANGE.defaultValue, {
         range: P_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),

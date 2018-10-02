@@ -33,7 +33,7 @@ define( require => {
      */
     constructor( tandem, options ) {
 
-      // coefficients of y = a(x - h)^2 + k
+      // coefficients for vertex form: y = a(x - h)^2 + k
       const aProperty = new NumberProperty( A_RANGE.defaultValue, {
         range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
