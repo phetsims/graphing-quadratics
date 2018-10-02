@@ -20,5 +20,3 @@ stringTest
 multi-touch testing
 
 POTENTIAL CHANGES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-VertexQuadratic extends Quadratic?
