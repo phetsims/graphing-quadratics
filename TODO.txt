@@ -4,6 +4,7 @@ DESIGN QUESTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FD: 3 decimal places for coefficient a on graphed equations?
 all: #21 Center equation on tangent that is equationNode.width/2 from edge of graph
+Should we vertically center control panels?
 
 BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -26,6 +26,9 @@
   "coordinates": {
     "value": "Coordinates"
   },
+  "equations": {
+    "value": "Equations"
+  },
   "noRealRoots": {
     "value": "NO REAL ROOTS"
   },

@@ -12,8 +12,11 @@ define( require => {
   // modules
   const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
   const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
+  const EquationsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/EquationsCheckbox' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HSeparator = require( 'SUN/HSeparator' );
   const Panel = require( 'SUN/Panel' );
   const RootsCheckbox = require( 'GRAPHING_QUADRATICS/standardform/view/RootsCheckbox' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -42,9 +45,16 @@ define( require => {
       const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty, {
         tandem: options.tandem.createTandem( 'rootsCheckbox' )
       } );
+      const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
+        tandem: options.tandem.createTandem( 'equationsCheckbox' )
+      } );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
         tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
       } );
+
+      const maxCheckboxWidth = _.maxBy(
+        [ vertexCheckbox, axisOfSymmetryCheckbox, rootsCheckbox, equationsCheckbox, coordinatesCheckbox ],
+        function( node ) { return node.width; } ).width;
 
       // vertical layout
       const contentNode = new VBox( {
@@ -54,6 +64,8 @@ define( require => {
           vertexCheckbox,
           axisOfSymmetryCheckbox,
           rootsCheckbox,
+          new HSeparator( maxCheckboxWidth, { stroke: GQColors.SEPARATOR } ),
+          equationsCheckbox,
           coordinatesCheckbox
         ]
       } );

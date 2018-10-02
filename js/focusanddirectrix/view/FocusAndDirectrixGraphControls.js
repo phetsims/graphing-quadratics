@@ -11,9 +11,12 @@ define( require => {
   // modules
   const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
   const DirectrixCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/DirectrixCheckbox' );
+  const EquationsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/EquationsCheckbox' );
   const FocusCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusCheckbox' );
+  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HSeparator = require( 'SUN/HSeparator' );
   const Panel = require( 'SUN/Panel' );
   const PointOnQuadraticCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticCheckbox' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -46,9 +49,16 @@ define( require => {
       const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty, {
         tandem: options.tandem.createTandem( 'pointOnQuadraticCheckbox' )
       } );
+      const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
+        tandem: options.tandem.createTandem( 'equationsCheckbox' )
+      } );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
         tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
       } );
+
+      const maxCheckboxWidth = _.maxBy(
+        [ vertexCheckbox, focusCheckbox, directrixCheckbox, pointOnQuadraticCheckbox, equationsCheckbox, coordinatesCheckbox ],
+        function( node ) { return node.width; } ).width;
 
       // vertical layout
       const contentNode = new VBox( {
@@ -59,6 +69,8 @@ define( require => {
           focusCheckbox,
           directrixCheckbox,
           pointOnQuadraticCheckbox,
+          new HSeparator( maxCheckboxWidth, { stroke: GQColors.SEPARATOR } ),
+          equationsCheckbox,
           coordinatesCheckbox
         ]
       } );

@@ -12,10 +12,12 @@ define( require => {
   // modules
   const AccordionBox = require( 'SUN/AccordionBox' );
   const Checkbox = require( 'SUN/Checkbox' );
+  const EquationsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/EquationsCheckbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HSeparator = require( 'SUN/HSeparator' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
@@ -96,6 +98,15 @@ define( require => {
         phetioDocumentation: 'checkbox that makes the constant term (y = c) visible'
       } );
 
+      // Equations
+      const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
+        tandem: options.tandem.createTandem( 'equationsCheckbox' )
+      } );
+
+      const maxCheckboxWidth = _.maxBy(
+        [ quadraticTermCheckbox, linearTermCheckbox, constantTermCheckbox, equationsCheckbox ],
+        function( node ) { return node.width; } ).width;
+
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
@@ -103,7 +114,9 @@ define( require => {
         children: [
           quadraticTermCheckbox,
           linearTermCheckbox,
-          constantTermCheckbox
+          constantTermCheckbox,
+          new HSeparator( Math.max( maxCheckboxWidth, 200 ), { stroke: GQColors.SEPARATOR } ),
+          equationsCheckbox
         ]
       } );
 
