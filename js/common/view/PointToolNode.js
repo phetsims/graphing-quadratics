@@ -13,6 +13,8 @@ define( require => {
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
@@ -20,7 +22,6 @@ define( require => {
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
-  const PropertyIO = require( 'AXON/PropertyIO' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
@@ -65,12 +66,13 @@ define( require => {
 
       const probeNode = new ProbeNode();
 
-      const coordinatesProperty = new Property( null, {
-        isValidValue: value => ( value instanceof Vector2 || value === null ),
-        tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-        phetioType: PropertyIO( NullableIO( Vector2IO ) ),
-        phetioInstanceDocumentation: 'coordinates displayed by this point tool, null if off the graph'
-      } );
+      const coordinatesProperty = new DerivedProperty( [ pointTool.locationProperty ],
+        location => ( graph.contains( location ) ? location : null ), {
+          isValidValue: value => ( value instanceof Vector2 || value === null ),
+          tandem: options.tandem.createTandem( 'coordinatesProperty' ),
+          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
+          phetioInstanceDocumentation: 'coordinates displayed by this point tool, null if off the graph'
+        } );
 
       // coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
@@ -99,28 +101,22 @@ define( require => {
       options.children = [ backgroundNode, bodyNode, probeNode, coordinatesNode ];
       super( options );
 
+      // center coordinates in window
+      coordinatesProperty.link( coordinates => {
+        if ( pointTool.probeSide === 'left' ) {
+          coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
+        }
+        else {
+          coordinatesNode.centerX = bodyNode.right - VALUE_WINDOW_CENTER_X;
+        }
+        coordinatesNode.centerY = bodyNode.centerY;
+      } );
+
       Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
         ( location, quadratic, graphContentsVisible ) => {
 
           // move to location
           this.translation = modelViewTransform.modelToViewPosition( location );
-
-          // update coordinates
-          if ( graph.contains( location ) ) {
-            coordinatesProperty.value = location;
-          }
-          else {
-            coordinatesProperty.value = null;
-          }
-
-          // center coordinates in window
-          if ( pointTool.probeSide === 'left' ) {
-            coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
-          }
-          else {
-            coordinatesNode.centerX = bodyNode.right - VALUE_WINDOW_CENTER_X;
-          }
-          coordinatesNode.centerY = bodyNode.centerY;
 
           // update colors
           if ( graph.contains( location ) && quadratic && graphContentsVisible ) {
