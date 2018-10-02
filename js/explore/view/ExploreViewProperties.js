@@ -29,7 +29,7 @@ define( require => {
       super( options );
 
       // @public
-      this.quadraticTermsAccordionBoxExpandedProperty = new BooleanProperty( true, {
+      this.quadraticTermsAccordionBoxExpandedProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'quadraticTermsAccordionBoxExpandedProperty' ),
         phetioDocumentation: 'whether the Quadratic Terms accordion box is expanded'
       } );
