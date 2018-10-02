@@ -54,7 +54,6 @@ define( require => {
       super( radius, GQColors.VERTEX, options );
 
       const coordinatesProperty = new Property( quadraticProperty.value.vertex, {
-        reentrant: true, //TODO #17
         isValidValue: value => ( value instanceof Vector2 || value === null ),
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioType: PropertyIO( NullableIO( Vector2IO ) ),

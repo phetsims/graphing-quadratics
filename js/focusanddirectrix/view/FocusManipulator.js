@@ -52,7 +52,6 @@ define( require => {
       super( radius, GQColors.FOCUS, options );
 
       const coordinatesProperty = new Property( quadraticProperty.value.focus, {
-        reentrant: true, //TODO #17
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioType: PropertyIO( Vector2IO ),
