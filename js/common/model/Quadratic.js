@@ -133,7 +133,7 @@ define( require => {
         color: Color.toColor( this.color ).toStateObject()
       };
 
-      //TODO #14 Is it OK that the fields vary depending on whether Quadratic is a parabola? How/where to document?
+      //TODO #14 #38 Is it OK that the fields vary depending on whether Quadratic is a parabola? How/where to document?
       // parabolas have these additional fields, which are otherwise undefined
       if ( this.a !== 0 ) {
         _.extend( object, {
