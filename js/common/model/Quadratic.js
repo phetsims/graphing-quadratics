@@ -125,7 +125,7 @@ define( require => {
      */
     toStateObject() {
 
-      // all Quadratics have these fields, and these are sufficient to restore a Quadratic
+      // all Quadratics have these fields, which are sufficient to restore a Quadratic
       const object = {
         a: this.a,
         b: this.b,
