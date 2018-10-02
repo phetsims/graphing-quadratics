@@ -9,7 +9,7 @@ BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 THINGS TO IMPLEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-coordinateProperty should be DerivedProperty for all manipulators and point tools?
+coordinatesProperty should be DerivedProperty for all manipulators and point tools?
 
 E: Make terms available to point tools
 
