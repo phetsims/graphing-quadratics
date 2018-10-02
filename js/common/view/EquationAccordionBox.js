@@ -54,7 +54,7 @@ define( require => {
 
       const vBox = new VBox( {
         align: 'center',
-        spacing: 10,
+        spacing: 8,
         children: [
           new HSeparator( separatorWidth, separatorOptions ),
           content,
