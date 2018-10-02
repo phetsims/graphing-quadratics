@@ -42,8 +42,8 @@ define( require => {
 
       const path = new Path( null, {
         stroke: options.color,
-        lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
-        lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
+        lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
+        lineDash: GQConstants.DIRECTRIX_LINE_DASH
       } );
 
       const equationNode = new RichText( '', {
