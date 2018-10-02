@@ -16,7 +16,9 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
@@ -35,11 +37,7 @@ define( require => {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
         aDecimals: GQConstants.EXPLORE_DECIMALS_A,
         bDecimals: GQConstants.EXPLORE_DECIMALS_B,
-        cDecimals: GQConstants.EXPLORE_DECIMALS_C,
-
-        // HBox options
-        spacing: 5,
-        align: 'bottom'
+        cDecimals: GQConstants.EXPLORE_DECIMALS_C
       }, options );
 
       const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
@@ -165,10 +163,7 @@ define( require => {
         children.push( new RichText( 0, textOptions ) );
       }
 
-      assert && assert( !options.children, 'QuadraticEquationFactory sets children' );
-      options.children = children;
-
-      return new HBox( options );
+      return layoutOnBackground( children );
     },
 
     /**
@@ -183,11 +178,7 @@ define( require => {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
         aDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A,
         hDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H,
-        kDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K,
-
-        // HBox options
-        spacing: 5,
-        align: 'bottom'
+        kDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
       }, options );
 
       const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
@@ -285,12 +276,33 @@ define( require => {
         }
       }
 
-      assert && assert( !options.children, 'QuadraticEquationFactory sets children' );
-      options.children = children;
-
-      return new HBox( options );
+      return layoutOnBackground( children );
     }
   };
+
+  /**
+   * Common method to lay out a set of equation components, and put it on a translucent background.
+   * @param {Node[]}children
+   * @returns {Node}
+   */
+  function layoutOnBackground( children ) {
+
+    // lay out the components horizontally
+    const hBox = new HBox( {
+      spacing: 5,
+      align: 'bottom',
+      children: children
+    } );
+
+    // translucent background, sized to fit
+    const backgroundNode = new Rectangle( 0, 0, hBox.width + 4, hBox.height + 2, {
+      fill: 'white',
+      opacity: 0.75,
+      center: hBox.center
+    } );
+
+    return new Node( { children: [ backgroundNode, hBox ] } );
+  }
 
   return graphingQuadratics.register( 'QuadraticEquationFactory', QuadraticEquationFactory );
 } );
