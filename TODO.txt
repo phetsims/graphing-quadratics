@@ -2,8 +2,6 @@ TODO list for graphing-quadratics
 
 DESIGN QUESTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-FD: 3 decimal places for coefficient a on graphed equations?
-all: #21 Center equation on tangent that is equationNode.width/2 from edge of graph
 Should we vertically center control panels?
 
 BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -11,9 +9,7 @@ BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 THINGS TO IMPLEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 E: Make terms available to point tools
-
 #17 reentrant Properties
-#14 PhET-iO instrumentation
 TODOs in the code
 stringTest
 multi-touch testing
