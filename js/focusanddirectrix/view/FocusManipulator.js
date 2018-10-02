@@ -12,12 +12,13 @@ define( require => {
   // modules
   const Color = require( 'SCENERY/util/Color' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Property = require( 'AXON/Property' );
-  const PropertyIO = require( 'AXON/PropertyIO' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
@@ -51,12 +52,13 @@ define( require => {
 
       super( radius, GQColors.FOCUS, options );
 
-      const coordinatesProperty = new Property( quadraticProperty.value.focus, {
-        valueType: Vector2,
-        tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-        phetioType: PropertyIO( Vector2IO ),
-        phetioInstanceDocumentation: 'coordinates displayed on the focus manipulator'
-      } );
+      const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
+        quadratic => quadratic.focus, {
+          valueType: Vector2,
+          tandem: options.tandem.createTandem( 'coordinatesProperty' ),
+          phetioType: DerivedPropertyIO( Vector2IO ),
+          phetioInstanceDocumentation: 'coordinates displayed on the focus manipulator'
+        } );
 
       // coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
@@ -70,18 +72,8 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      const quadraticListener = quadratic => {
-
-        const focus = quadratic.focus;
-        assert && assert( focus, 'expected focus: ' + focus );
-
-        // move the focus manipulator
-        this.translation = modelViewTransform.modelToViewPosition( focus );
-
-        // update coordinates
-        coordinatesProperty.value = focus;
-
-        // position coordinates based on which way the curve opens
+      // position coordinates based on which way the curve opens
+      coordinatesProperty.link( coordinates => {
         coordinatesNode.centerX = 0;
         if ( quadraticProperty.value.a > 0 ) {
           coordinatesNode.bottom = -coordinatesYOffset;
@@ -89,8 +81,13 @@ define( require => {
         else {
           coordinatesNode.top = coordinatesYOffset;
         }
-      };
-      quadraticProperty.link( quadraticListener );
+      } );
+
+      // move the manipulator
+      quadraticProperty.link( quadratic => {
+        assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
+        this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
+      } );
 
       // visibility
       Property.multilink( [ focusVisibleProperty, quadraticProperty ], ( focusVisible, quadratic ) => {

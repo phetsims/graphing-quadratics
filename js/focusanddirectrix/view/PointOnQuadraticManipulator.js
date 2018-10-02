@@ -11,12 +11,12 @@ define( require => {
   // modules
   const Color = require( 'SCENERY/util/Color' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const Property = require( 'AXON/Property' );
-  const PropertyIO = require( 'AXON/PropertyIO' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -47,12 +47,15 @@ define( require => {
 
       super( radius, GQColors.POINT_ON_QUADRATIC, options );
 
-      const coordinatesProperty = new Property( pointOnQuadraticProperty.value, {
-        valueType: Vector2,
-        tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-        phetioType: PropertyIO( Vector2IO ),
-        phetioInstanceDocumentation: 'coordinates displayed on the point-on-quadratic manipulator'
-      } );
+      // This is identical to pointOnQuadraticProperty, but is added here for PhET-iO instrumentation
+      // symmetry with other manipulators.
+      const coordinatesProperty = new DerivedProperty( [ pointOnQuadraticProperty ],
+        pointOnQuadratic => pointOnQuadratic, {
+          valueType: Vector2,
+          tandem: options.tandem.createTandem( 'coordinatesProperty' ),
+          phetioType: DerivedPropertyIO( Vector2IO ),
+          phetioInstanceDocumentation: 'coordinates displayed on the point-on-quadratic manipulator'
+        } );
 
       // coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
@@ -66,24 +69,21 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesXOffset = 1.8 * radius;
 
-      // move the manipulator
-      pointOnQuadraticProperty.link( point => {
-
-        // move to location
-        this.translation = modelViewTransform.modelToViewPosition( point );
-
-        // update coordinates
-        coordinatesProperty.value = point;
-
-        // position coordinates based on which side of the curve the point is on
+      // position coordinates based on which side of the curve the point is on
+      coordinatesProperty.link( coordinates => {
         const vertex = quadraticProperty.value.vertex;
-        if ( !vertex || ( point.x >= vertex.x ) ) {
+        if ( !vertex || ( coordinates.x >= vertex.x ) ) {
           coordinatesNode.left = coordinatesXOffset;
         }
         else {
           coordinatesNode.right = -coordinatesXOffset;
         }
         coordinatesNode.centerY = 0;
+      } );
+
+      // move the manipulator
+      pointOnQuadraticProperty.link( pointOnQuadratic => {
+        this.translation = modelViewTransform.modelToViewPosition( pointOnQuadratic );
       } );
 
       pointOnQuadraticVisibleProperty.link( visible => { this.visible = visible; } );

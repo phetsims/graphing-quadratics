@@ -9,8 +9,6 @@ BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 THINGS TO IMPLEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-coordinatesProperty should be DerivedProperty for all manipulators and point tools?
-
 E: Make terms available to point tools
 
 #17 reentrant Properties

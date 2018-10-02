@@ -13,12 +13,13 @@ define( require => {
   // modules
   const Color = require( 'SCENERY/util/Color' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Property = require( 'AXON/Property' );
-  const PropertyIO = require( 'AXON/PropertyIO' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
@@ -53,12 +54,13 @@ define( require => {
 
       super( radius, GQColors.VERTEX, options );
 
-      const coordinatesProperty = new Property( quadraticProperty.value.vertex, {
-        isValidValue: value => ( value instanceof Vector2 || value === null ),
-        tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-        phetioType: PropertyIO( NullableIO( Vector2IO ) ),
-        phetioInstanceDocumentation: 'coordinates displayed by the vertex manipulator, null means no vertex'
-      } );
+      const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
+        quadratic => ( quadratic.vertex ? quadratic.vertex : null ), {
+          isValidValue: value => ( value instanceof Vector2 || value === null ),
+          tandem: options.tandem.createTandem( 'coordinatesProperty' ),
+          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
+          phetioInstanceDocumentation: 'coordinates displayed by the vertex manipulator, null means no vertex'
+        } );
 
       // coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
@@ -72,22 +74,9 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      quadraticProperty.link( quadratic => {
-
-        const vertex = quadratic.vertex;
-
-        if ( vertex === undefined ) {
-          coordinatesProperty.value = null;
-        }
-        else {
-
-          // move the vertex manipulator
-          this.translation = modelViewTransform.modelToViewPosition( vertex );
-
-          // update the coordinates
-          coordinatesProperty.value = vertex;
-
-          // position coordinates based on which way the curve opens
+      // position coordinates based on which way the curve opens
+      coordinatesProperty.link( coordinates => {
+        if ( coordinates ) {
           coordinatesNode.centerX = 0;
           if ( quadraticProperty.value.a > 0 ) {
             coordinatesNode.top = coordinatesYOffset;
@@ -95,6 +84,13 @@ define( require => {
           else {
             coordinatesNode.bottom = -coordinatesYOffset;
           }
+        }
+      } );
+
+      // move the manipulator
+      quadraticProperty.link( quadratic => {
+        if ( quadratic.vertex ) {
+          this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
         }
       } );
 
@@ -106,7 +102,7 @@ define( require => {
 
       // @private
       this.addInputListener( new VertexDragHandler( hProperty, kProperty, modelViewTransform,
-        options.tandem.createTandem( 'dragHandler') ) );
+        options.tandem.createTandem( 'dragHandler' ) ) );
     }
   }
 
