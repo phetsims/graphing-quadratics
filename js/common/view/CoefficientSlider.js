@@ -104,8 +104,7 @@ define( require => {
         tandem: options.tandem.createTandem( 'slider' )
       } );
 
-      // Coefficient label that appears above the slider. Position this after rotating the slider,
-      // but before adding ticks, so that the label is horizontally centered on the track.
+      // Coefficient label that appears above the slider.
       const label = new RichText( symbol, {
         font: COEFFICIENT_LABEL_FONT,
         fill: options.labelColor,
@@ -114,7 +113,7 @@ define( require => {
         tandem: options.tandem.createTandem( 'label' )
       } );
 
-      // Create the tick labels, rotated opposite the HSlider, so that they'll look correct on the rotated HSlider.
+      // Create the tick labels
       if ( options.tickValues ) {
         options.tickValues.forEach( tickValue => {
           slider.addMajorTick( options.map( tickValue ), new Text( tickValue, {
