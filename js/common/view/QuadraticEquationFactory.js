@@ -298,6 +298,27 @@ define( require => {
       } );
 
       return layoutOnBackground( [ equationNode ] );
+    },
+
+    /**
+     * Creates the axis of symmetry equation, x = axisOfSymmetry
+     * @param {number} axisOfSymmetry
+     * @public
+     */
+    createAxisOfSymmetry( axisOfSymmetry ) {
+
+      const equationString = StringUtils.fillIn( '{{x}} = {{axisOfSymmetry}}', {
+        x: GQSymbols.x,
+        axisOfSymmetry: Util.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )
+      } );
+
+      const equationNode = new RichText( equationString, {
+        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
+        fill: GQColors.AXIS_OF_SYMMETRY,
+        rotation: Math.PI / 2
+      } );
+
+      return layoutOnBackground( [ equationNode ] );
     }
   };
 

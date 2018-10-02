@@ -11,16 +11,12 @@ define( require => {
   // modules
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const QuadraticEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/QuadraticEquationFactory' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
   const Shape = require( 'KITE/Shape' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Util = require( 'DOT/Util' );
 
   class AxisOfSymmetryNode extends Node {
 
@@ -30,32 +26,20 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} axisOfSymmetryVisibleProperty
      * @param {BooleanProperty} equationsVisibleProperty
-     * @param {Object} [options]
      */
     constructor( quadraticProperty, yRange, modelViewTransform,
-                 axisOfSymmetryVisibleProperty, equationsVisibleProperty, options ) {
+                 axisOfSymmetryVisibleProperty, equationsVisibleProperty ) {
 
-      options = _.extend( {
-        color: GQColors.AXIS_OF_SYMMETRY,
-        decimals: GQConstants.AXIS_OF_SYMMETRY_DECIMALS
-      }, options );
+      super();
 
       const path = new Path( null, {
-        stroke: options.color,
+        stroke: GQColors.AXIS_OF_SYMMETRY,
         lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
         lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
       } );
+      this.addChild( path );
 
-      const equationNode = new RichText( '', {
-        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
-        fill: options.color,
-        rotation: Math.PI / 2
-      } );
-
-      assert && assert( !options.children, 'AxisOfSymmetryNode sets children' );
-      options.children = [ path, equationNode ];
-
-      super( options );
+      let equationNode = null; // created below
 
       const minY = modelViewTransform.modelToViewY( yRange.max );
       const maxY = modelViewTransform.modelToViewY( yRange.min );
@@ -70,10 +54,9 @@ define( require => {
           path.shape = new Shape().moveTo( x, minY ).lineTo( x, maxY );
 
           // update the equation
-          equationNode.text = StringUtils.fillIn( '{{x}} = {{value}}', {
-            x: GQSymbols.x,
-            value: Util.toFixedNumber( quadratic.axisOfSymmetry, options.decimals )
-          } );
+          equationNode && this.removeChild( equationNode );
+          equationNode = QuadraticEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
+          this.addChild( equationNode );
 
           // position the equation to avoid overlapping vertex and y axis
           if ( quadratic.axisOfSymmetry > yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
