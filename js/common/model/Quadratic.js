@@ -134,7 +134,7 @@ define( require => {
       };
 
       //TODO #14 Is it OK that the fields vary depending on whether Quadratic is a parabola? How/where to document?
-      // parabolas have these fields
+      // parabolas have these additional fields, which are otherwise undefined
       if ( this.a !== 0 ) {
         _.extend( object, {
           p: this.p,
