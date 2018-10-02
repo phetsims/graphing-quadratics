@@ -17,33 +17,28 @@ define( require => {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
-  const NumberProperty = require( 'AXON/NumberProperty' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class VertexFormInteractiveEquationNode extends Node {
 
     /**
-     * @param {Property.<Quadratic|undefined>} quadraticProperty
-     * @param {RangeWithValue} aRange
-     * @param {RangeWithValue} hRange
-     * @param {RangeWithValue} kRange
+     * @param {NumberProperty} aProperty
+     * @param {NumberProperty} hProperty
+     * @param {NumberProperty} kProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, aRange, hRange, kRange, options ) {
+    constructor( aProperty, hProperty, kProperty, options ) {
+
+      assert && assert( aProperty.range, 'missing aProperty.range' );
+      assert && assert( hProperty.range, 'missing hProperty.range' );
+      assert && assert( kProperty.range, 'missing kProperty.range' );
 
       options = _.extend( {
         tandem: Tandem.required
       }, options );
-
-      //TODO #14 instrument a, h, k Properties?
-      // Properties for the variables in vertex form
-      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } ); //TODO #17
-      const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange } );
-      const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange } );
 
       // Coefficient pickers
       const numberPickerOptions = {
@@ -115,29 +110,6 @@ define( require => {
       aNumberPicker.centerY = equalToText.centerY;
       hNumberPicker.centerY = equalToText.centerY;
       kNumberPicker.centerY = equalToText.centerY;
-
-      //TODO #17 hack for floating-point error
-      let changing = false;
-
-      // When the coefficients change, update the quadratic.
-      Property.multilink( [ aProperty, hProperty, kProperty ], ( a, h, k ) => {
-        if ( !changing ) {
-          changing = true;
-          quadraticProperty.value = Quadratic.createFromVertexForm( a, h, k, { color: quadraticProperty.value.color } );
-          changing = false;
-        }
-      } );
-
-      // When the quadratic changes, update the coefficients.
-      quadraticProperty.link( quadratic => {
-        if ( !changing ) {
-          changing = true;
-          aProperty.value = aRange.constrainValue( quadratic.a );
-          hProperty.value = hRange.constrainValue( quadratic.vertex.x );
-          kProperty.value = kRange.constrainValue( quadratic.vertex.y );
-          changing = false;
-        }
-      } );
     }
   }
 

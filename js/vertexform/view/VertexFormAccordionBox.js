@@ -32,10 +32,9 @@ define( require => {
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
 
-      const content = new VertexFormInteractiveEquationNode(
-        model.quadraticProperty, model.aRange, model.hRange, model.kRange, {
-          tandem: options.tandem.createTandem( 'content' )
-        } );
+      const content = new VertexFormInteractiveEquationNode( model.aProperty, model.hProperty, model.kProperty, {
+        tandem: options.tandem.createTandem( 'content' )
+      } );
 
       super( model, expandedProperty, titleNode, content, options );
     }

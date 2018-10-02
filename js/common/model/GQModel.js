@@ -1,7 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
 /**
- * Base type for model in Graphing Quadratics.
+ * Abstract base type for model in Graphing Quadratics.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -33,25 +33,17 @@ define( require => {
   class GQModel {
 
     /**
-     * @param {Quadratic} quadratic - the initial quadratic
+     * @param {Property.<Quadratic>} quadraticProperty
      * @param {Tandem} tandem
+     * @abstract
      */
-    constructor( quadratic, tandem ) {
+    constructor( quadraticProperty, tandem ) {
+
+      // @public
+      this.quadraticProperty = quadraticProperty;
 
       // @public (read-only) graph
       this.graph = new GQGraph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
-
-      // @public
-      this.quadraticProperty = new Property( quadratic, {
-        reentrant: true, //TODO #17
-        valueType: Quadratic,
-        tandem: tandem.createTandem( 'quadraticProperty' ),
-        phetioType: PropertyIO( QuadraticIO ),
-        phetioInstanceDocumentation: 'the interactive quadratic'
-      } );
-      this.quadraticProperty.link( quadratic => {
-        phet.log && phet.log( 'quadratic=' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );
-      } );
 
       // @public
       this.savedQuadraticProperty = new Property( null, {
@@ -92,20 +84,10 @@ define( require => {
         tandem: tandem.createTandem( 'leftPointTool' ),
         phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
       } );
-
-      Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
-        ( quadratic, savedQuadratic ) => {
-        this.graph.quadratics.clear();
-        this.graph.quadratics.add( quadratic );
-        if ( savedQuadratic !== null ) {
-          this.graph.quadratics.add( savedQuadratic );
-        }
-      } );
     }
 
     // @public
     reset() {
-      this.quadraticProperty.reset();
       this.savedQuadraticProperty.reset();
       this.rightPointTool.reset();
       this.leftPointTool.reset();

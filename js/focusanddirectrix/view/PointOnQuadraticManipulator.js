@@ -128,7 +128,7 @@ define( require => {
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           const x = modelViewTransform.viewToModelPosition( parentPoint ).x;
 
-          // update model
+          // set to the closest point on the curve that is within the bounds of the graph
           pointOnQuadraticProperty.value = quadraticProperty.value.getClosestPointInRange( x, xRange, yRange );
         },
 

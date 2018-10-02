@@ -20,10 +20,7 @@ define( require => {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
-  const NumberProperty = require( 'AXON/NumberProperty' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Property = require( 'AXON/Property' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -32,23 +29,16 @@ define( require => {
   class FocusAndDirectrixInteractiveEquationNode extends Node {
 
     /**
-     * @param {Property.<Quadratic|undefined>} quadraticProperty
-     * @param {RangeWithValue} pRange
-     * @param {RangeWithValue} hRange
-     * @param {RangeWithValue} kRange
+     * @param {NumberProperty} pProperty
+     * @param {NumberProperty} hProperty
+     * @param {NumberProperty} kProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, pRange, hRange, kRange, options ) {
+    constructor( pProperty, hProperty, kProperty, options ) {
 
       options = _.extend( {
         tandem: Tandem.required
       }, options );
-
-      //TODO #14 instrument p, h, k Properties?
-      // coefficient Properties
-      const pProperty = new NumberProperty( pRange.defaultValue, { range: pRange, reentrant: true } ); //TODO #17
-      const hProperty = new NumberProperty( hRange.defaultValue, { range: hRange, reentrant: true } ); //TODO #17
-      const kProperty = new NumberProperty( kRange.defaultValue, { range: kRange, reentrant: true } ); //TODO #17
 
       // equation
       const equationNode = new EquationNode( pProperty, hProperty, kProperty, {
@@ -91,29 +81,6 @@ define( require => {
       hSlider.top = equationNode.bottom + ySpacing;
       kSlider.centerX = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
       kSlider.top = equationNode.bottom + ySpacing;
-
-      //TODO #17 hack for floating-point error
-      let changing = false;
-
-      // When the coefficients change, update the quadratic.
-      Property.multilink( [ pProperty, hProperty, kProperty ], ( p, h, k ) => {
-        if ( !changing ) {
-          changing = true;
-          quadraticProperty.value = Quadratic.createFromAlternateVertexForm( p, h, k, { color: quadraticProperty.value.color } );
-          changing = false;
-        }
-      } );
-
-      // When the quadratic changes, update the coefficients
-      quadraticProperty.link( quadratic => {
-        if ( !changing ) {
-          changing = true;
-          pProperty.value = pRange.constrainValue( quadratic.p );
-          hProperty.value = hRange.constrainValue( quadratic.h );
-          kProperty.value = kRange.constrainValue( quadratic.k );
-          changing = false;
-        }
-      } );
     }
   }
 

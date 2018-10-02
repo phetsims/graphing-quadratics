@@ -32,10 +32,9 @@ define( require => {
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
 
-      const content = new ExploreInteractiveEquationNode(
-        model.quadraticProperty, model.aRange, model.bRange, model.cRange, {
-          tandem: options.tandem.createTandem( 'content' )
-        } );
+      const content = new ExploreInteractiveEquationNode( model.aProperty, model.bProperty, model.cProperty, {
+        tandem: options.tandem.createTandem( 'content' )
+      } );
 
       super( model, expandedProperty, titleNode, content, options );
     }

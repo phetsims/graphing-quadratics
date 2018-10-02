@@ -44,9 +44,9 @@ define( require => {
       const vertexManipulator = new VertexManipulator(
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
         model.quadraticProperty,
+        model.hProperty,
+        model.kProperty,
         model.graph,
-        model.hRange,
-        model.kRange,
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
@@ -57,7 +57,7 @@ define( require => {
       const focusManipulator = new FocusManipulator(
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
         model.quadraticProperty,
-        model.pRange,
+        model.pProperty,
         model.graph,
         model.modelViewTransform,
         viewProperties.focusVisibleProperty,

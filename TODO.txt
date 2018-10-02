@@ -8,7 +8,7 @@ BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 THINGS TO IMPLEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Model Properties for things that the user can change? (a, b, c, p, h, k, vertex, focus)
+quadraticProperty should be DerivedProperty in all screens?
 
 E: Make terms available to point tools
 

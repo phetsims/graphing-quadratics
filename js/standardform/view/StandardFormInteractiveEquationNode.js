@@ -17,33 +17,28 @@ define( require => {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
-  const NumberProperty = require( 'AXON/NumberProperty' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class StandardFormInteractiveEquationNode extends Node {
 
     /**
-     * @param {Property.<Quadratic|undefined>} quadraticProperty
-     * @param {RangeWithValue} aRange
-     * @param {RangeWithValue} bRange
-     * @param {RangeWithValue} cRange
+     * @param {NumberProperty} aProperty
+     * @param {NumberProperty} bProperty
+     * @param {NumberProperty} cProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, aRange, bRange, cRange, options ) {
+    constructor( aProperty, bProperty, cProperty, options ) {
+
+      assert && assert( aProperty.range, 'missing aProperty.range' );
+      assert && assert( bProperty.range, 'missing bProperty.range' );
+      assert && assert( cProperty.range, 'missing cProperty.range' );
 
       options = _.extend( {
         tandem: Tandem.required
       }, options );
-
-      //TODO #14 instrument a, b, c Properties?
-      // coefficient Properties
-      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } ); //TODO #17
-      const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
-      const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
       // coefficient pickers
       const numberPickerOptions = {
@@ -104,29 +99,6 @@ define( require => {
       aNumberPicker.centerY = equalToText.centerY;
       bNumberPicker.centerY = equalToText.centerY;
       cNumberPicker.centerY = equalToText.centerY;
-
-      //TODO #17 hack for floating-point error
-      let changing = false;
-
-      // When the coefficients change, update the quadratic.
-      Property.multilink( [ aProperty, bProperty, cProperty ], ( a, b, c ) => {
-        if ( !changing ) {
-          changing = true;
-          quadraticProperty.value = new Quadratic( a, b, c, { color: quadraticProperty.value.color } );
-          changing = false;
-        }
-      } );
-
-      // When the quadratic changes, update the coefficients.
-      quadraticProperty.link( quadratic => {
-        if ( !changing ) {
-          changing = true;
-          aProperty.value = aRange.constrainValue( quadratic.a );
-          bProperty.value = bRange.constrainValue( quadratic.b );
-          cProperty.value = cRange.constrainValue( quadratic.c );
-          changing = false;
-        }
-      } );
     }
   }
 

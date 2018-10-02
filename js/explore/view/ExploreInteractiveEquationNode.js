@@ -20,10 +20,7 @@ define( require => {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
-  const NumberProperty = require( 'AXON/NumberProperty' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Property = require( 'AXON/Property' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -32,23 +29,16 @@ define( require => {
   class ExploreInteractiveEquationNode extends Node {
 
     /**
-     * @param {Property.<Quadratic|undefined>} quadraticProperty
-     * @param {RangeWithValue} aRange
-     * @param {RangeWithValue} bRange
-     * @param {RangeWithValue} cRange
+     * @param {NumberProperty} aProperty
+     * @param {NumberProperty} bProperty
+     * @param {NumberProperty} cProperty
      * @param {Object} [options]
      */
-    constructor( quadraticProperty, aRange, bRange, cRange, options ) {
+    constructor( aProperty, bProperty, cProperty, options ) {
 
       options = _.extend( {
         tandem: Tandem.required
       }, options );
-
-      //TODO #14 instrument a, b, c Properties?
-      // coefficient Properties
-      const aProperty = new NumberProperty( aRange.defaultValue, { range: aRange, reentrant: true } ); //TODO #17
-      const bProperty = new NumberProperty( bRange.defaultValue, { range: bRange } );
-      const cProperty = new NumberProperty( cRange.defaultValue, { range: cRange } );
 
       // equation
       const equationNode = new EquationNode( aProperty, bProperty, cProperty, {
@@ -89,29 +79,6 @@ define( require => {
       bSlider.top = equationNode.bottom + ySpacing;
       cSlider.centerX = this.globalToLocalBounds( equationNode.cGlobalBounds ).centerX;
       cSlider.top = equationNode.bottom + ySpacing;
-
-      //TODO #17 hack for floating point error
-      let changing = false;
-
-      // When the coefficients change, update the quadratic.
-      Property.multilink( [ aProperty, bProperty, cProperty ], ( a, b, c ) => {
-        if ( !changing ) {
-          changing = true;
-          quadraticProperty.value = new Quadratic( a, b, c, { color: quadraticProperty.value.color } );
-          changing = false;
-        }
-      } );
-
-      // When the quadratic changes, update the coefficients.
-      quadraticProperty.link( quadratic => {
-        if ( !changing ) {
-          changing = true;
-          aProperty.value = aRange.constrainValue( quadratic.a );
-          bProperty.value = bRange.constrainValue( quadratic.b );
-          cProperty.value = cRange.constrainValue( quadratic.c );
-          changing = false;
-        }
-      } );
     }
   }
 

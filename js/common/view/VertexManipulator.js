@@ -11,7 +11,6 @@ define( require => {
   'use strict';
 
   // modules
-  const Bounds2 = require( 'DOT/Bounds2' );
   const Color = require( 'SCENERY/util/Color' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
@@ -20,7 +19,6 @@ define( require => {
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Property = require( 'AXON/Property' );
   const PropertyIO = require( 'AXON/PropertyIO' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
@@ -35,15 +33,15 @@ define( require => {
     /**
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty
+     * @param {NumberProperty} hProperty
+     * @param {NumberProperty} kProperty
      * @param {GQGraph} graph
-     * @param {Range} hRange
-     * @param {Range} kRange
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, graph, hRange, kRange, modelViewTransform,
+    constructor( radius, quadraticProperty, hProperty, kProperty, graph, modelViewTransform,
                  vertexVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
@@ -77,11 +75,18 @@ define( require => {
 
       quadraticProperty.link( quadratic => {
 
-        if ( quadratic.vertex === undefined ) {
+        const vertex = quadratic.vertex;
+
+        if ( vertex === undefined ) {
           coordinatesProperty.value = null;
         }
         else {
-          coordinatesProperty.value = quadratic.vertex;
+
+          // move the vertex manipulator
+          this.translation = modelViewTransform.modelToViewPosition( vertex );
+
+          // update the coordinates
+          coordinatesProperty.value = vertex;
 
           // position coordinates based on which way the curve opens
           coordinatesNode.centerX = 0;
@@ -94,26 +99,14 @@ define( require => {
         }
       } );
 
-      // When the vertex changes, move the manipulator and create a new quadratic.
-      coordinatesProperty.link( vertex => {
-        if ( vertex ) {
-          this.translation = modelViewTransform.modelToViewPosition( vertex );
-          const quadratic = quadraticProperty.value;
-          if ( !quadratic.vertex || !vertex.equals( quadratic.vertex ) ) {
-            quadraticProperty.value = Quadratic.createFromVertexForm( quadratic.a, vertex.x, vertex.y );
-          }
-        }
-      } );
-
       // visibility
-      Property.multilink( [ vertexVisibleProperty, coordinatesProperty ], ( vertexVisible, vertex ) => {
-        this.visible = !!( vertexVisible && vertex && graph.contains( vertex ) );
+      Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
+        this.visible = !!( vertexVisible && quadratic.vertex && graph.contains( quadratic.vertex ) );
       } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
-      this.addInputListener( new VertexDragHandler( coordinatesProperty, modelViewTransform,
-        new Bounds2( hRange.min, kRange.min, hRange.max, kRange.max ),
+      this.addInputListener( new VertexDragHandler( hProperty, kProperty, modelViewTransform,
         options.tandem.createTandem( 'dragHandler') ) );
     }
   }
@@ -124,12 +117,12 @@ define( require => {
 
     /**
      * Drag handler for vertex.
-     * @param {Property.<Vector2>} vertexProperty
+     * @param {NumberProperty} hProperty
+     * @param {NumberProperty} kProperty
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {Bounds2} bounds
      * @param {Tandem} tandem
      */
-    constructor( vertexProperty, modelViewTransform, bounds, tandem ) {
+    constructor( hProperty, kProperty, modelViewTransform, tandem ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -139,7 +132,7 @@ define( require => {
 
         // note where the drag started
         start: ( event, trail ) => {
-          const location = modelViewTransform.modelToViewPosition( vertexProperty.value );
+          const location = modelViewTransform.modelToViewXY( hProperty.value, kProperty.value );
           startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
@@ -149,11 +142,10 @@ define( require => {
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
 
-          // constrain to graph bounds
-          location = bounds.closestPointTo( location );
-
-          // snap to grid
-          vertexProperty.value = new Vector2( Util.roundSymmetric( location.x ), Util.roundSymmetric( location.y ) );
+          //TODO setting h and k separately results in an intermediate Quadratic
+          // constrain to range and snap to grid
+          hProperty.value = Util.roundSymmetric( hProperty.range.constrainValue( location.x ) );
+          kProperty.value = Util.roundSymmetric( kProperty.range.constrainValue( location.y ) );
         },
 
         tandem: tandem
