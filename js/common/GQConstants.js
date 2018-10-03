@@ -65,7 +65,7 @@ define( require => {
 
     // line widths
     INTERACTIVE_LINE_WIDTH: 4,
-    SAVED_LINE_WIDTH: 2,
+    SAVED_LINE_WIDTH: 3,
     QUADRATIC_TERMS_LINE_WIDTH: 2, // y = ax^2, y = bx, y = c
     AXIS_OF_SYMMETRY_LINE_WIDTH: 3,
     DIRECTRIX_LINE_WIDTH: 3,

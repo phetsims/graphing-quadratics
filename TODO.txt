@@ -6,4 +6,3 @@ TODOs in Quadratic
 #20 i18n, stringTest, maxHeight, maxHeight to account for font height variation
 multi-touch testing
 eliminate need for clipArea in GQGraphNode?
-saved lineWidth is sometimes incorrect
