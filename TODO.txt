@@ -10,6 +10,7 @@ E: Make terms available to point tools
 #17 reentrant Properties
 TODOs in the code
 stringTest
+maxHeight to account for font variation
 multi-touch testing
 
 POTENTIAL CHANGES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
