@@ -1,16 +1,8 @@
 TODO list for graphing-quadratics
 
-DESIGN QUESTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-BUGS TO SQUISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-THINGS TO IMPLEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 E: Make terms available to point tools
-#17 reentrant Properties
-TODOs in the code
-stringTest
-maxHeight to account for font variation
+TODOs in Quadratic
+#17 reentrant DynamicProperty in CoefficientSlider
+#20 stringTest
+#20 maxHeight to account for font variation
 multi-touch testing
-
-POTENTIAL CHANGES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
