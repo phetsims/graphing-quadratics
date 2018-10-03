@@ -30,7 +30,7 @@ define( require => {
       super( options );
 
       // @public
-      this.vertexVisibleProperty = new BooleanProperty( true, {
+      this.vertexVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
         phetioInstanceDocumentation: 'whether the vertex manipulator is visible'
       } );
