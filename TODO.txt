@@ -3,6 +3,6 @@ TODO list for graphing-quadratics
 E: Make terms available to point tools
 TODOs in Quadratic
 #17 reentrant DynamicProperty in CoefficientSlider
-#20 i18n, stringTest, maxHeight, maxHeight to account for font variation
+#20 i18n, stringTest, maxHeight, maxHeight to account for font height variation
 multi-touch testing
 eliminate need for clipArea in GQGraphNode?
