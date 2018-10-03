@@ -13,7 +13,7 @@ define( require => {
   const Bounds2 = require( 'DOT/Bounds2' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const RangeWithValue = require( 'DOT/RangeWithValue' );
+  const Range = require( 'DOT/Range' );
 
   // constants
   const PANEL_CORNER_RADIUS = 5;
@@ -23,8 +23,8 @@ define( require => {
     SCREEN_VIEW_LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ),
     SCREEN_VIEW_X_MARGIN: 20,
     SCREEN_VIEW_Y_MARGIN: 16,
-    X_AXIS_RANGE: new RangeWithValue( -10, 10 ),
-    Y_AXIS_RANGE: new RangeWithValue( -10, 10 ),
+    X_AXIS_RANGE: new Range( -10, 10 ),
+    Y_AXIS_RANGE: new Range( -10, 10 ),
 
     ACCORDION_BOX_OPTIONS: {
       resize: false,
