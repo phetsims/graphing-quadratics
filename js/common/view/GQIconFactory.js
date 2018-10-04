@@ -11,11 +11,12 @@ define( require => {
 
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const DirectrixNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/DirectrixNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const Line = require( 'SCENERY/nodes/Line' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -134,17 +135,15 @@ define( require => {
         pickable: false
       } );
 
-      const directrixNode = new DirectrixNode(
-        new Property( new Quadratic( 1, 0, 0 ) ),
-        new Range( -50, 50 ),
-        new Range( -50, 50 ),
-        ModelViewTransform2.createIdentity(),
-        new BooleanProperty( true ),
-        new BooleanProperty( false ) );
+      const directrixNode = new Line( 0, 0, 60, 0, {
+        stroke: GQColors.DIRECTRIX,
+        lineWidth: 4,
+        lineDash: GQConstants.DIRECTRIX_LINE_DASH
+      } );
 
       const iconNode = new VBox( {
         children: [ focusNode, directrixNode ],
-        spacing: 2
+        spacing: 20
       } );
 
       return new ScreenIcon( iconNode, {
