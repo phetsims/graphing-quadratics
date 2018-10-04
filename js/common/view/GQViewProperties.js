@@ -11,6 +11,7 @@ define( require => {
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
 
@@ -24,7 +25,7 @@ define( require => {
       options = _.extend( {
         equationForm: 'standard', // see GQConstants.EQUATION_FORMS
         graphContentsVisible: true,
-        equationsVisible: true,
+        equationsVisible: GQQueryParameters.checkAll,
         coordinatesVisible: true,
         equationAccordionBoxExpanded: true,
         tandem: Tandem.required
