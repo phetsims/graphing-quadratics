@@ -30,7 +30,7 @@ define( require => {
   const A = 0.03;
   const B = 0;
   const C = 0;
-  const POINT_RADIUS = 12;
+  const POINT_RADIUS = 10;
   const MANIPULATOR_RADIUS = 12;
 
   const GQIconFactory = {
