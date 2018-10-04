@@ -86,15 +86,16 @@ define( require => {
         phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
       } );
 
-      // @public
-      this.specialLines = new ObservableArray();
+      // @public optional quadratic terms to be displayed, in the order that they will be considered by point tools.
+      this.quadraticTerms = new ObservableArray();
 
       // @private Update the list of quadratics on the graph, in the order that they will be considered by point tools.
-      Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty, this.specialLines.lengthProperty ],
-        ( quadratic, savedQuadratic, specialLinesLength ) => {
+      Property.multilink( [ this.quadraticProperty, this.quadraticTerms.lengthProperty, this.savedQuadraticProperty ],
+        ( quadratic, quadraticTermsLength, savedQuadratic ) => {
           this.graph.quadratics.clear();
+          // order is important!
           this.graph.quadratics.add( quadratic );
-          this.graph.quadratics.addAll( this.specialLines.getArray() );
+          this.graph.quadratics.addAll( this.quadraticTerms.getArray() );
           savedQuadratic && this.graph.quadratics.add( savedQuadratic );
         } );
     }
