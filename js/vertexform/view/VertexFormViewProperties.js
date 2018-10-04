@@ -32,13 +32,13 @@ define( require => {
       // @public
       this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the vertex manipulator is visible'
+        phetioDocumentation: 'whether the vertex manipulator is visible'
       } );
 
       // @public
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the axis of symmetry is visible'
+        phetioDocumentation: 'whether the axis of symmetry is visible'
       } );
     }
 

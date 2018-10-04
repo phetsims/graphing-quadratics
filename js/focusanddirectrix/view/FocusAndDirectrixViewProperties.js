@@ -33,25 +33,25 @@ define( require => {
       // @public
       this.vertexVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the vertex manipulator is visible'
+        phetioDocumentation: 'whether the vertex manipulator is visible'
       } );
 
       // @public
       this.focusVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'focusVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the focus manipulator is visible'
+        phetioDocumentation: 'whether the focus manipulator is visible'
       } );
 
       // @public
       this.directrixVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'directrixVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the directrix is visible'
+        phetioDocumentation: 'whether the directrix is visible'
       } );
 
       // @public whether an interactive point is visible on the quadratic
       this.pointOnQuadraticVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'pointOnQuadraticVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the interactive point on the quadratic is visible'
+        phetioDocumentation: 'whether the interactive point on the quadratic is visible'
       } );
     }
 

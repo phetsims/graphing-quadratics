@@ -57,7 +57,7 @@ define( require => {
           valueType: Vector2,
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
           phetioType: DerivedPropertyIO( Vector2IO ),
-          phetioInstanceDocumentation: 'coordinates displayed on the focus manipulator'
+          phetioDocumentation: 'coordinates displayed on the focus manipulator'
         } );
 
       // coordinates display

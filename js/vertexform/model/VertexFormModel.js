@@ -36,17 +36,17 @@ define( require => {
       const aProperty = new NumberProperty( A_RANGE.defaultValue, {
         range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
-        phetioInstanceDocumentation: 'coefficient a for the interactive quadratic'
+        phetioDocumentation: 'coefficient a for the interactive quadratic'
       } );
       const hProperty = new NumberProperty( H_RANGE.defaultValue, {
         range: H_RANGE,
         tandem: tandem.createTandem( 'bProperty' ),
-        phetioInstanceDocumentation: 'coefficient h for the interactive quadratic'
+        phetioDocumentation: 'coefficient h for the interactive quadratic'
       } );
       const kProperty = new NumberProperty( K_RANGE.defaultValue, {
         range: K_RANGE,
         tandem: tandem.createTandem( 'cProperty' ),
-        phetioInstanceDocumentation: 'coefficient k for the interactive quadratic'
+        phetioDocumentation: 'coefficient k for the interactive quadratic'
       } );
 
       // @public {DerivedProperty.<Quadratic>}
@@ -57,7 +57,7 @@ define( require => {
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
           phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioInstanceDocumentation: 'the interactive quadratic, derived from a, h, and k'
+          phetioDocumentation: 'the interactive quadratic, derived from a, h, and k'
         } );
       quadraticProperty.link( quadratic => {
         phet.log && phet.log( 'quadratic = ' + quadratic.a + ' (x - ' + quadratic.h + ') + ' + quadratic.k );

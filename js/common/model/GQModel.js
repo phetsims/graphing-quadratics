@@ -50,7 +50,7 @@ define( require => {
         isValidValue: value => ( value instanceof Quadratic || value === null ),
         tandem: tandem.createTandem( 'savedQuadraticProperty' ),
         phetioType: PropertyIO( NullableIO( QuadraticIO ) ),
-        phetioInstanceDocumentation: 'the saved quadratic, null if there is no saved quadratic'
+        phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic'
       } );
 
       // scale from model to view
@@ -71,7 +71,7 @@ define( require => {
           this.graph.xRange.min - 1, this.graph.yRange.min - 3,
           this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
         tandem: tandem.createTandem( 'rightPointTool' ),
-        phetioInstanceDocumentation: 'the point tool whose probe is on the right side'
+        phetioDocumentation: 'the point tool whose probe is on the right side'
       } );
 
       // @public (read-only)
@@ -82,7 +82,7 @@ define( require => {
           this.graph.xRange.min - 1, this.graph.yRange.min - 3,
           this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
         tandem: tandem.createTandem( 'leftPointTool' ),
-        phetioInstanceDocumentation: 'the point tool whose probe is on the left side'
+        phetioDocumentation: 'the point tool whose probe is on the left side'
       } );
 
       //TODO #22 add terms based on their visibility, maintain correct order

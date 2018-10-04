@@ -58,7 +58,7 @@ define( require => {
           isValidValue: value => ( value instanceof Vector2 || value === null ),
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
           phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
-          phetioInstanceDocumentation: 'coordinates displayed on the vertex point, null means no vertex'
+          phetioDocumentation: 'coordinates displayed on the vertex point, null means no vertex'
         } );
 
       // displays the vertex coordinates

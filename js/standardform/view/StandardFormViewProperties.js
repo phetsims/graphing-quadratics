@@ -31,19 +31,19 @@ define( require => {
       // @public
       this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the vertex point is visible'
+        phetioDocumentation: 'whether the vertex point is visible'
       } );
 
       // @public
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the axis of symmetry is visible'
+        phetioDocumentation: 'whether the axis of symmetry is visible'
       } );
 
       // @public
       this.rootsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'rootsVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the real roots of the quadratic are visible'
+        phetioDocumentation: 'whether the real roots of the quadratic are visible'
       } );
     }
 

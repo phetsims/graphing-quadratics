@@ -50,19 +50,19 @@ define( require => {
         _.extend( {
           color: GQColors.VERTEX_FORM_A,
           tandem: options.tandem.createTandem( 'aNumberPicker' ),
-          phetioInstanceDocumentation: 'picker for coefficient a'
+          phetioDocumentation: 'picker for coefficient a'
         }, numberPickerOptions ) );
       const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_H,
           tandem: options.tandem.createTandem( 'hNumberPicker' ),
-          phetioInstanceDocumentation: 'picker for coefficient h'
+          phetioDocumentation: 'picker for coefficient h'
         }, numberPickerOptions ) );
       const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_K,
           tandem: options.tandem.createTandem( 'kNumberPicker' ),
-          phetioInstanceDocumentation: 'picker for coefficient k'
+          phetioDocumentation: 'picker for coefficient k'
         }, numberPickerOptions ) );
 
       // static parts of the equation

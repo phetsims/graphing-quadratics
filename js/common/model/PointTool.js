@@ -53,7 +53,7 @@ define( require => {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'locationProperty' ),
         phetioType: PropertyIO( NullableIO( Vector2IO ) ),
-        phetioInstanceDocumentation: 'location of this point tool'
+        phetioDocumentation: 'location of this point tool'
       } );
 
       // @public {DerivedProperty.<Quadratic|null>}
@@ -69,7 +69,7 @@ define( require => {
         }, {
           tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
           phetioType: DerivedPropertyIO( NullableIO( QuadraticIO ) ),
-          phetioInstanceDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
+          phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
         } );
     }
 

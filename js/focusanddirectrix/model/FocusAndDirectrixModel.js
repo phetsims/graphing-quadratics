@@ -40,17 +40,17 @@ define( require => {
       const pProperty = new NumberProperty( P_RANGE.defaultValue, {
         range: P_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
-        phetioInstanceDocumentation: 'coefficient a for the interactive quadratic'
+        phetioDocumentation: 'coefficient a for the interactive quadratic'
       } );
       const hProperty = new NumberProperty( H_RANGE.defaultValue, {
         range: H_RANGE,
         tandem: tandem.createTandem( 'bProperty' ),
-        phetioInstanceDocumentation: 'coefficient h for the interactive quadratic'
+        phetioDocumentation: 'coefficient h for the interactive quadratic'
       } );
       const kProperty = new NumberProperty( K_RANGE.defaultValue, {
         range: K_RANGE,
         tandem: tandem.createTandem( 'cProperty' ),
-        phetioInstanceDocumentation: 'coefficient k for the interactive quadratic'
+        phetioDocumentation: 'coefficient k for the interactive quadratic'
       } );
 
       // @public {DerivedProperty.<Quadratic>}
@@ -61,7 +61,7 @@ define( require => {
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
           phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioInstanceDocumentation: 'the interactive quadratic, derived from p, h, and k'
+          phetioDocumentation: 'the interactive quadratic, derived from p, h, and k'
         } );
       quadraticProperty.link( quadratic => {
         phet.log && phet.log( 'quadratic = (1/(4(' + quadratic.p + ')))(x - ' + quadratic.h + ') + ' + quadratic.k );
@@ -81,7 +81,7 @@ define( require => {
         valueType: Vector2,
         tandem: tandem.createTandem( 'pointOnQuadraticProperty' ),
         phetioType: PropertyIO( Vector2IO ),
-        phetioInstanceDocumentation: 'the interactive point on the quadratic'
+        phetioDocumentation: 'the interactive point on the quadratic'
 
       } );
 

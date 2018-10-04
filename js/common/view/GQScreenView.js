@@ -50,7 +50,7 @@ define( require => {
         model.graph,
         viewProperties.graphContentsVisibleProperty, {
           tandem: options.tandem.createTandem( 'rightPointToolNode' ),
-          phetioInstanceDocumentation: 'the point tool Node whose probe is on the right side'
+          phetioDocumentation: 'the point tool Node whose probe is on the right side'
         } ) );
       pointToolsParent.addChild( new PointToolNode(
         model.leftPointTool,
@@ -58,7 +58,7 @@ define( require => {
         model.graph,
         viewProperties.graphContentsVisibleProperty, {
           tandem: options.tandem.createTandem( 'leftPointToolNode' ),
-          phetioInstanceDocumentation: 'the point tool Node whose probe is on the left side'
+          phetioDocumentation: 'the point tool Node whose probe is on the left side'
         } ) );
 
       // Toggle button for showing/hiding contents of graph
@@ -67,7 +67,7 @@ define( require => {
         left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 10,
         bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
         tandem: options.tandem.createTandem( 'eyeToggleButton' ),
-        phetioInstanceDocumentation: 'button that shows/hides the contents of the graph'
+        phetioDocumentation: 'button that shows/hides the contents of the graph'
       } );
 
       const controlPanelMaxWidth = this.layoutBounds.width - graphNode.width - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN ) - X_SPACING;
@@ -103,7 +103,7 @@ define( require => {
         right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
         bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN,
         tandem: options.tandem.createTandem( 'resetAllButton' ),
-        phetioInstanceDocumentation: 'button that resets the screen to its initial state'
+        phetioDocumentation: 'button that resets the screen to its initial state'
       } );
       this.addChild( resetAllButton );
     }

@@ -39,25 +39,25 @@ define( require => {
       // @public
       this.graphContentsVisibleProperty = new BooleanProperty( options.graphContentsVisible, {
         tandem: options.tandem.createTandem( 'graphContentsVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether the contents of the graph are visible'
+        phetioDocumentation: 'whether the contents of the graph are visible'
       } );
 
       // @public
       this.equationsVisibleProperty = new BooleanProperty( options.equationsVisible, {
         tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether equations are visible on the graphed lines'
+        phetioDocumentation: 'whether equations are visible on the graphed lines'
       } );
 
       // @public
       this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible, {
         tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-        phetioInstanceDocumentation: 'whether coordinates are visible on points and manipulators'
+        phetioDocumentation: 'whether coordinates are visible on points and manipulators'
       } );
 
       // @public
       this.equationAccordionBoxExpandedProperty = new BooleanProperty( options.equationAccordionBoxExpanded, {
         tandem: options.tandem.createTandem( 'equationAccordionBoxExpandedProperty' ),
-        phetioInstanceDocumentation: 'whether the equation accordion box is expanded'
+        phetioDocumentation: 'whether the equation accordion box is expanded'
       } );
     }
 

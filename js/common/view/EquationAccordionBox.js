@@ -45,7 +45,7 @@ define( require => {
         model.eraseQuadratic.bind( model ),
         model.savedQuadraticProperty, {
           tandem: options.tandem.createTandem( 'saveEraseButtons' ),
-          phetioInstanceDocumentation: 'buttons to save and erase a quadratic on the graph'
+          phetioDocumentation: 'buttons to save and erase a quadratic on the graph'
         } );
 
       const separatorWidth = Math.max( content.width, saveEraseButtons.width );
