@@ -19,7 +19,6 @@ define( require => {
 
   // strings
   const coordinateUnknownString = require( 'string!GRAPHING_QUADRATICS/coordinateUnknown' );
-  const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
   class CoordinatesNode extends Node {
 
@@ -61,7 +60,7 @@ define( require => {
       coordinatesProperty.link( coordinates => {
 
         // coordinates
-        foregroundNode.text = StringUtils.fillIn( pointXYString, {
+        foregroundNode.text = StringUtils.fillIn( '({{x}}, {{y}})', {
           x: coordinates ? Util.toFixedNumber( coordinates.x, options.decimals ) : coordinateUnknownString,
           y: coordinates ? Util.toFixedNumber( coordinates.y, options.decimals ) : coordinateUnknownString
         } );
