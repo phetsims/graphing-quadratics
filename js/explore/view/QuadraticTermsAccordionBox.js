@@ -50,6 +50,7 @@ define( require => {
       assert && assert( !options.titleNode, 'QuadraticTermsAccordionBox sets titleNode' );
       options.titleNode = new Text( quadraticTermsString, {
         font: new PhetFont( GQConstants.TITLE_FONT_SIZE ),
+        maxWidth: 180, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
 

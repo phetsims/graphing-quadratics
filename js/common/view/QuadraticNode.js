@@ -85,6 +85,7 @@ define( require => {
         else {
           equationNode = GQEquationFactory.createVertexForm( quadratic );
         }
+        equationNode.maxWidth = 200; // determined empirically
         equationParent.addChild( equationNode );
 
         // if ?dev, display a black dot at the equation's origin, for debugging positioning
