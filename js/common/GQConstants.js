@@ -49,7 +49,7 @@ define( require => {
     CHECKBOX_ICON_SPACING: 8,
 
     // maxWidth for all checkboxes, determined empirically
-    CHECKBOX_TEXT_MAX_WIDTH: 200,
+    CHECKBOX_TEXT_MAX_WIDTH: 180,
 
     // vertical space between checkboxes
     CHECKBOXES_Y_SPACING: 15,
