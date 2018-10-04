@@ -124,12 +124,15 @@ define( require => {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
         fill: 'black'
       };
+      const xyOptions = _.extend( {}, equationOptions, {
+        maxWidth: 20 // determined empirically
+      } );
 
-      // y =
-      const yEqualsNode = new RichText( StringUtils.fillIn( '{{y}} {{equals}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO
-      } ), equationOptions );
+      // y
+      const yNode = new RichText( GQSymbols.y, xyOptions );
+
+      // =
+      const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
 
       // a value
       const aNode = new NumberDisplay( aProperty, aProperty.range, _.extend( {}, numberDisplayOptions, {
@@ -137,9 +140,11 @@ define( require => {
         decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
       } ) );
 
+      // x
+      const xNode = new RichText( GQSymbols.x, xyOptions );
+
       // x^2 +
-      const xSquaredPlusNode = new RichText( StringUtils.fillIn( '{{x}}<sup>2</sup> {{plus}}', {
-        x: GQSymbols.x,
+      const squaredPlusNode = new RichText( StringUtils.fillIn( '<sup>2</sup> {{plus}}', {
         plus: MathSymbols.PLUS
       } ), equationOptions );
 
@@ -149,11 +154,11 @@ define( require => {
         decimalPlaces: GQConstants.EXPLORE_DECIMALS_B
       } ) );
 
-      // x +
-      const xPlusNode = new RichText( StringUtils.fillIn( '{{x}} {{plus}}', {
-        x: GQSymbols.x,
-        plus: MathSymbols.PLUS
-      } ), equationOptions );
+      // x
+      const anotherXNode = new RichText( GQSymbols.x, xyOptions );
+      
+      // +
+      const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
 
       // c value
       const cNode = new NumberDisplay( cProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
@@ -163,7 +168,7 @@ define( require => {
 
       // y = ax^2 + bx + c
       assert && assert( !options.children, 'EquationNode sets children' );
-      options.children = [ yEqualsNode, aNode, xSquaredPlusNode, bNode, xPlusNode, cNode ];
+      options.children = [ yNode, equalsNode, aNode, xNode, squaredPlusNode, anotherXNode, bNode, plusNode, cNode ];
 
       super( options );
 
