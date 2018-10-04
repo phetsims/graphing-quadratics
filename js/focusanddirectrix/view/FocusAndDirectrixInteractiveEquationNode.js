@@ -100,6 +100,7 @@ define( require => {
     constructor( pProperty, hProperty, kProperty, options ) {
 
       options = _.extend( {
+        maxWidth: 325, // determined empirically
         tandem: Tandem.required
       }, options );
 

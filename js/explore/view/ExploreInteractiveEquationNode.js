@@ -101,6 +101,7 @@ define( require => {
         // HBox options
         align: 'bottom',
         spacing: 5,
+        maxWidth: 300, // determined empirically
         tandem: Tandem.required
       }, options );
 

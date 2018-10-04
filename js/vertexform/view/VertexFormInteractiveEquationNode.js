@@ -37,6 +37,7 @@ define( require => {
       assert && assert( kProperty.range, 'missing kProperty.range' );
 
       options = _.extend( {
+        maxWidth: 300, // determined empirically
         tandem: Tandem.required
       }, options );
 
