@@ -219,8 +219,9 @@ define( require => {
     solveX( y ) {
       if ( this.a !== 0 ) {
 
-        if ( Math.abs( y ) < Math.abs( this.k ) ) {
-          // there is no solution, y is below the parabola
+        if ( ( this.a > 0 && y < this.vertex.y ) || ( this.a < 0 && y > this.vertex.y ) ) {
+
+          // there is no solution, y is not on the parabola
           return null;
         }
         else {
