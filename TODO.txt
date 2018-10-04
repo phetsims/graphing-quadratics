@@ -4,5 +4,4 @@ TODO list for graphing-quadratics
 #20 fix alignment of sliders with stringTest=long
 #20 SF control panels are rotated with stringTest=long
 #17 reentrant DynamicProperty in CoefficientSlider
-#20 i18n, stringTest, maxWidth
 multi-touch testing
