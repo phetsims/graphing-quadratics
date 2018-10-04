@@ -33,6 +33,7 @@ define( require => {
       titleYMargin: 10,
       buttonLength: 25,
       buttonXMargin: 10,
+      buttonYMargin: 10,
       contentXMargin: 20,
       contentYMargin: 15
     },
