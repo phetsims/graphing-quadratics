@@ -68,8 +68,9 @@ define( require => {
 
       super( model, viewProperties, options );
 
-      // When any term changes, rebuild the list of special lines, to maintain the correct order
-      // that they will be inspected by the point tool.
+      // Make terms available to the point tool if they are visible.
+      // The order of specialLines determines the order that they will be considered by pointTool,
+      // so maintain the order.
       Property.multilink( [
         viewProperties.quadraticTermVisibleProperty, model.quadraticTermProperty,
         viewProperties.linearTermVisibleProperty, model.linearTermProperty,
