@@ -41,7 +41,8 @@ define( require => {
 
           // text
           new Text( focusString, {
-            font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
+            font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ),
+            maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
           } ),
 
           // manipulator icon
