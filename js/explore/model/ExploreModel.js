@@ -47,19 +47,6 @@ define( require => {
           phetioType: DerivedPropertyIO( QuadraticIO ),
           phetioInstanceDocumentation: 'the constant term (y = c) of the interactive quadratic'
         } );
-
-      //TODO add terms
-      // Update the list of quadratics on the graph, in the order that they will be consider by point tools
-      // Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty,
-      //     this.quadraticTermProperty, this.linearTermProperty, this.constantTermProperty ],
-      //   ( quadratic, savedQuadratic, quadraticTerm, linearTerm, constantTerm ) => {
-      //     this.graph.quadratics.clear();
-      //     this.graph.quadratics.add( quadratic );
-      //     this.graph.quadratics.add( quadraticTerm );
-      //     this.graph.quadratics.add( linearTerm );
-      //     this.graph.quadratics.add( constantTerm );
-      //     savedQuadratic && this.graph.quadratics.add( savedQuadratic );
-      //   } );
     }
   }
 
