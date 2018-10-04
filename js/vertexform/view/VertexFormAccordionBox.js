@@ -29,6 +29,7 @@ define( require => {
       }, options );
 
       const titleNode = new VertexFormEquationNode( {
+        maxWidth: 200, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
 

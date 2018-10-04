@@ -4,6 +4,7 @@
  * The 'Standard Form' screen.
  *
  * @author Andrea Lin
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';

@@ -32,9 +32,9 @@ define( require => {
 
     /**
      * @param {number} radius - in view coordinates
-     * @param {Property.<Quadratic>} quadraticProperty
-     * @param {NumberProperty} hProperty
-     * @param {NumberProperty} kProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {NumberProperty} hProperty - h coefficient of the vertex form of the quadratic equation
+     * @param {NumberProperty} kProperty - k coefficient of the vertex form of the quadratic equation
      * @param {GQGraph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
@@ -74,7 +74,7 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      // position coordinates based on which way the curve opens
+      // position coordinates based on which way the parabola opens
       coordinatesProperty.link( coordinates => {
         if ( coordinates ) {
           coordinatesNode.centerX = 0;
@@ -137,7 +137,7 @@ define( require => {
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
 
-          //TODO setting h and k separately results in an intermediate Quadratic
+          // Setting h and k separately results in an intermediate Quadratic - live with it.
           // constrain to range and snap to grid
           hProperty.value = Util.roundSymmetric( hProperty.range.constrainValue( location.x ) );
           kProperty.value = Util.roundSymmetric( kProperty.range.constrainValue( location.y ) );

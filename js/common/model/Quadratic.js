@@ -1,7 +1,11 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * An immutable quadratic, described by the equation y = ax^2 + bx + c.
+ * An immutable quadratic, described by these equations:
+ *
+ * standard form: y = ax^2 + bx + c
+ * vertex form: y = a(x - h)^2 + k
+ * alternate vertex form: y = (1/(4p))(x - h)^2 + k
  *
  * Typically, a quadratic requires a !== 0. But this sim is required to support a === 0.
  * So there is some non-standard behavior herein that is not exactly mathematically correct.
@@ -32,6 +36,7 @@ define( require => {
   class Quadratic {
 
     /**
+     * The constructor uses the standard form equation y = ax^2 + bx +c
      * @param {number} a - coefficient for the quadratic term
      * @param {number} b - coefficient for the linear term
      * @param {number} c - constant term
@@ -209,25 +214,34 @@ define( require => {
       return new Quadratic( 0, 0, this.c, { color: GQColors.CONSTANT_TERM } );
     }
 
-    //TODO this appears to have problems, new Quadratic(1,1,1).solveX( 0.5 ) => [NaN,NaN]
     /**
-     * Given y, solve for x.  If there is more than on solution, they will be in ascending order.
+     * Given y, solve for x.
+     * If there is more than on solution, they will be in ascending order.
      * @param {number} y
-     * @returns {number[]} - one or more solutions
+     * @returns {number[]|null} - one or more solutions, null if there is no solution
      * @public
      */
     solveX( y ) {
       if ( this.a !== 0 ) {
 
-        // For a parabola, use vertex form.
-        // y = a(x - h)^2 + k => x = h +- Math.sqrt((y - k)/a)
-        // This yields 2 solutions
-        const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
-        const x0 = this.h - commonTerm;
-        const x1 = this.h + commonTerm;
-        return [ x0, x1 ].sort( ( x0, x1 ) => x0 - x1 ); // in ascending order
+        if ( ( this.a > 0 && y < this.vertex.y ) || ( this.a < 0 && y > this.vertex.y ) ) {
+
+          // there is no solution, y is not on the parabola
+          return null;
+        }
+        else {
+
+          // For a parabola, use vertex form.
+          // y = a(x - h)^2 + k => x = h +- Math.sqrt((y - k)/a)
+          // This yields 2 solutions
+          const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
+          const x0 = this.h - commonTerm;
+          const x1 = this.h + commonTerm;
+          return [ x0, x1 ].sort( ( x0, x1 ) => x0 - x1 ); // in ascending order
+        }
       }
       else {
+        
         // For a straight line, use slope-intercept form.
         // y = bx + c => x = (y - c)/b
         // This yields one solution.
@@ -348,10 +362,11 @@ define( require => {
         // y is outside range, constrain y and solve for x
         y = yRange.constrainValue( y );
         const xValues = this.solveX( y );
+        assert && assert( xValues, 'No solution exists, the parabola is likely off the graph. ' +
+                                   'x=' + x + ', quadratic=' + this.toString() );
 
         if ( this.a !== 0 ) {
 
-          //TODO does this work correctly when x === this.vertex.x?
           // parabola
           assert && assert( xValues.length === 2, 'unexpected number of xValues: ' + xValues );
           assert && assert( xValues[ 0 ] < xValues[ 1 ], 'unexpected order of xValues: ' + xValues );
@@ -359,7 +374,7 @@ define( require => {
         }
         else {
 
-          //straight line
+          // straight line
           assert && assert( xValues.length === 1, 'unexpected number of xValues: ' + xValues );
           x = xValues[ 0 ];
         }

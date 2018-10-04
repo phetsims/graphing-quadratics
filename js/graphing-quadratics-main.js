@@ -25,7 +25,7 @@ define( require => {
     credits: {
       leadDesign: 'Amanda McGarry',
       softwareDevelopment: 'Chris Malley (PixelZoom, Inc.), Andrea Lin',
-      team: 'Karina K. R. Hensberry, Ariel Paul, Kathy Perkins, Trish Loeblein, Mike Dubson',
+      team: 'Mike Dubson, Karina K. R. Hensberry, Trish Loeblein, Ariel Paul, Kathy Perkins',
       qualityAssurance: '?'
     }
   };

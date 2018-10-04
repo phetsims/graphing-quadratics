@@ -21,8 +21,8 @@ define( require => {
   class FocusAndDirectrixGraphNode extends GQGraphNode {
 
     /**
-     * @param {GQModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {FocusAndDirectrixModel} model
+     * @param {FocusAndDirectrixViewProperties} viewProperties
      * @param {Tandem} tandem
      * @param {Object} [options]
      */
@@ -87,8 +87,8 @@ define( require => {
         viewProperties.focusVisibleProperty,
         viewProperties.directrixVisibleProperty );
 
-      assert && assert( !options.specialLines, 'FocusAndDirectrixGraphNode sets specialLines' );
-      options.specialLines = [ directrixNode, pointOnQuadraticLinesNode ]; // rendered in this order
+      assert && assert( !options.otherLines, 'FocusAndDirectrixGraphNode sets otherLines' );
+      options.otherLines = [ directrixNode, pointOnQuadraticLinesNode ]; // rendered in this order
 
       assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
       options.decorations = [ vertexManipulator, focusManipulator, pointOnQuadraticManipulator ]; // rendered in this order

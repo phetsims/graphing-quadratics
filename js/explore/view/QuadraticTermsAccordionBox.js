@@ -50,6 +50,7 @@ define( require => {
       assert && assert( !options.titleNode, 'QuadraticTermsAccordionBox sets titleNode' );
       options.titleNode = new Text( quadraticTermsString, {
         font: new PhetFont( GQConstants.TITLE_FONT_SIZE ),
+        maxWidth: 180, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
 
@@ -62,7 +63,8 @@ define( require => {
         xSquared: GQSymbols.xSquared
       } ), {
         font: CHECKBOX_EQUATION_FONT,
-        fill: GQColors.QUADRATIC_TERM
+        fill: GQColors.QUADRATIC_TERM,
+        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
       } );
       const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, viewProperties.quadraticTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'quadraticTermCheckbox' ),
@@ -77,7 +79,8 @@ define( require => {
         x: GQSymbols.x
       } ), {
         font: CHECKBOX_EQUATION_FONT,
-        fill: GQColors.LINEAR_TERM
+        fill: GQColors.LINEAR_TERM,
+        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
       } );
       const linearTermCheckbox = new Checkbox( linearTermLabel, viewProperties.linearTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'linearTermCheckbox' ),
@@ -91,7 +94,8 @@ define( require => {
         c: GQSymbols.c
       } ), {
         font: CHECKBOX_EQUATION_FONT,
-        fill: GQColors.CONSTANT_TERM
+        fill: GQColors.CONSTANT_TERM,
+        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
       } );
       const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'constantTermCheckbox' ),
@@ -105,7 +109,7 @@ define( require => {
 
       const maxCheckboxWidth = _.maxBy(
         [ quadraticTermCheckbox, linearTermCheckbox, constantTermCheckbox, equationsCheckbox ],
-        function( node ) { return node.width; } ).width;
+        node => node.width ).width;
 
       // vertical layout
       const contentNode = new VBox( {

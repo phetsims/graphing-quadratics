@@ -24,9 +24,9 @@ define( require => {
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // constants
-  const P_RANGE = new RangeWithValue( -9, 9, 2 );
-  const H_RANGE = new RangeWithValue( -6, 6, 0 );
-  const K_RANGE = new RangeWithValue( -6, 6, 0 );
+  const P_RANGE = new RangeWithValue( -9, 9, 2 ); // p coefficient of alternate vertex form
+  const H_RANGE = new RangeWithValue( -6, 6, 0 ); // h coefficient of alternate vertex form
+  const K_RANGE = new RangeWithValue( -6, 6, 0 ); // k coefficient of alternate vertex form
   const POINT_X = 5; // default x value for point on quadratic
 
   class FocusAndDirectrixModel extends GQModel {
@@ -64,7 +64,7 @@ define( require => {
           phetioDocumentation: 'the interactive quadratic, derived from p, h, and k'
         } );
       quadraticProperty.link( quadratic => {
-        phet.log && phet.log( 'quadratic = (1/(4(' + quadratic.p + ')))(x - ' + quadratic.h + ') + ' + quadratic.k );
+        phet.log && phet.log( 'quadratic: y = (1/(4(' + quadratic.p + ')))(x - ' + quadratic.h + ') + ' + quadratic.k );
       } );
 
       super( quadraticProperty, tandem );

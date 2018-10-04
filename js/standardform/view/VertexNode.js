@@ -31,7 +31,7 @@ define( require => {
   class VertexNode extends Node {
 
     /**
-     * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {GQGraph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
@@ -73,7 +73,7 @@ define( require => {
 
       super( options );
 
-      // position coordinates on the outside of the curve
+      // position coordinates on the outside of the parabola
       coordinatesProperty.link( coordinates => {
         coordinatesNode.centerX = pointNode.centerX;
         if ( quadraticProperty.value.a > 0 ) {

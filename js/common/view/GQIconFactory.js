@@ -10,21 +10,20 @@ define( require => {
   'use strict';
 
   // modules
-  const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const DirectrixNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/DirectrixNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const Line = require( 'SCENERY/nodes/Line' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Property = require( 'AXON/Property' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
-  const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Range = require( 'DOT/Range' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const ScreenIcon = require( 'JOIST/ScreenIcon' );
+  const Shape = require( 'KITE/Shape' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
   const GQIconFactory = {
@@ -39,15 +38,14 @@ define( require => {
         color: GQColors.EXPLORE_INTERACTIVE_CURVE
       } );
 
-      const quadraticNode = new QuadraticNode(
-        new Property( quadratic ),
-        new Range( -50, 50 ),
-        new Range( -50, 50 ),
-        ModelViewTransform2.createIdentity(),
-        'standard',
-        new BooleanProperty( false ), {
-          lineWidth: 5
-        } );
+      const bezierControlPoints = quadratic.getControlPoints( new Range( -50, 50 ) );
+
+      const quadraticNode = new Path( new Shape()
+        .moveToPoint( bezierControlPoints.startPoint )
+        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint ), {
+        lineWidth: 5,
+        stroke: quadratic.color
+      } );
 
       return new ScreenIcon( quadraticNode, {
         fill: GQColors.SCREEN_BACKGROUND,
@@ -134,17 +132,15 @@ define( require => {
         pickable: false
       } );
 
-      const directrixNode = new DirectrixNode(
-        new Property( new Quadratic( 1, 0, 0 ) ),
-        new Range( -50, 50 ),
-        new Range( -50, 50 ),
-        ModelViewTransform2.createIdentity(),
-        new BooleanProperty( true ),
-        new BooleanProperty( false ) );
+      const directrixNode = new Line( 0, 0, 60, 0, {
+        stroke: GQColors.DIRECTRIX,
+        lineWidth: 4,
+        lineDash: GQConstants.DIRECTRIX_LINE_DASH
+      } );
 
       const iconNode = new VBox( {
         children: [ focusNode, directrixNode ],
-        spacing: 2
+        spacing: 20
       } );
 
       return new ScreenIcon( iconNode, {

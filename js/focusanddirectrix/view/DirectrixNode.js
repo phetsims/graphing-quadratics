@@ -21,7 +21,7 @@ define( require => {
   class DirectrixNode extends Node {
 
     /**
-     * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Range} xRange - range of graph's x axis
      * @param {Range} yRange - range of graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
@@ -56,6 +56,7 @@ define( require => {
         // update the equation
         equationNode && this.removeChild( equationNode );
         equationNode = GQEquationFactory.createDirectrix( quadratic.directrix );
+        equationNode.maxWidth = 100; // determined empirically
         this.addChild( equationNode );
 
         // position the equation to avoid overlapping vertex and x axis

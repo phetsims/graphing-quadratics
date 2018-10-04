@@ -32,7 +32,7 @@ define( require => {
         font: new PhetFont( 26 ),
         fill: 'black',
         tandem: Tandem.required
-      } );
+      }, options );
 
       const equation = StringUtils.fillIn(
         '{{y}} {{equals}} {{a}}{{x}}<sup>2</sup> {{plus}} {{b}}{{x}} {{plus}} {{c}}', {

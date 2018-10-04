@@ -68,9 +68,6 @@
   "p": {
     "value": "p"
   },
-  "pointXY": {
-    "value": "({{x}}, {{y}})"
-  },
   "coordinateUnknown": {
     "value": "?"
   }

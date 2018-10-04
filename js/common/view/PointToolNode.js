@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Tool that displays the (x,y) coordinates of a point on the graph.
+ * A point tool displays the (x,y) coordinates of a point on the graph.
  * If it's sufficiently close to a quadratic, it will snap to the quadratic.
  *
  * @author Andrea Lin
@@ -47,7 +47,7 @@ define( require => {
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
      * @param {GQGraph} graph
-     * @param {Property.<Boolean>} graphContentsVisibleProperty
+     * @param {BooleanProperty} graphContentsVisibleProperty
      * @param {Object} [options]
      */
     constructor( pointTool, modelViewTransform, graph, graphContentsVisibleProperty, options ) {

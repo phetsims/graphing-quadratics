@@ -29,6 +29,7 @@ define( require => {
       }, options );
 
       const titleNode = new FocusAndDirectrixEquationNode( {
+        maxWidth: 225, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
 

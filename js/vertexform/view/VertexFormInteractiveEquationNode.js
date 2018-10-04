@@ -25,9 +25,9 @@ define( require => {
   class VertexFormInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} aProperty
-     * @param {NumberProperty} hProperty
-     * @param {NumberProperty} kProperty
+     * @param {NumberProperty} aProperty - a coefficient of vertex form of the quadratic equation
+     * @param {NumberProperty} hProperty - h coefficient of vertex form of the quadratic equation
+     * @param {NumberProperty} kProperty - k coefficient of vertex form of the quadratic equation
      * @param {Object} [options]
      */
     constructor( aProperty, hProperty, kProperty, options ) {
@@ -69,10 +69,13 @@ define( require => {
       const richTextOptions = {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
       };
-      const yText = new RichText( GQSymbols.y, richTextOptions );
+      const xyOptions = _.extend( {}, richTextOptions, {
+        maxWidth: 30 // determined empirically
+      } );
+      const yText = new RichText( GQSymbols.y, xyOptions );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
       const openParenthesisText = new RichText( '(', richTextOptions );
-      const xText = new RichText( GQSymbols.x, richTextOptions );
+      const xText = new RichText( GQSymbols.x, xyOptions );
       const minusText = new RichText( MathSymbols.MINUS, richTextOptions );
       const parenSquaredText = new RichText( ')<sup>2</sup>', richTextOptions );
       const plusText = new RichText( MathSymbols.PLUS, richTextOptions );

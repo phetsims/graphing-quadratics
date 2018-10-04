@@ -20,9 +20,9 @@ define( require => {
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
   // constants
-  const A_RANGE = new RangeWithValue( -6, 6, 1 );
-  const H_RANGE = new RangeWithValue( -9, 9, 0 );
-  const K_RANGE = new RangeWithValue( -9, 9, 0 );
+  const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient of vertex form
+  const H_RANGE = new RangeWithValue( -9, 9, 0 ); // h coefficient of vertex form
+  const K_RANGE = new RangeWithValue( -9, 9, 0 ); // k coefficient of vertex form
           
   class VertexFormModel extends GQModel {
 
@@ -60,7 +60,7 @@ define( require => {
           phetioDocumentation: 'the interactive quadratic, derived from a, h, and k'
         } );
       quadraticProperty.link( quadratic => {
-        phet.log && phet.log( 'quadratic = ' + quadratic.a + ' (x - ' + quadratic.h + ') + ' + quadratic.k );
+        phet.log && phet.log( 'quadratic: y = ' + quadratic.a + ' (x - ' + quadratic.h + ') + ' + quadratic.k );
       } );
 
       super( quadraticProperty, tandem );

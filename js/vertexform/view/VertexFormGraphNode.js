@@ -18,8 +18,8 @@ define( require => {
   class VertexFormGraphNode extends GQGraphNode {
 
     /**
-     * @param {GQModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {VertexFormModel} model
+     * @param {VertexFormViewProperties} viewProperties
      * @param {Tandem} tandem
      * @param {Object} [options]
      */
@@ -49,8 +49,8 @@ define( require => {
           tandem: tandem.createTandem( 'vertexManipulator' )
         } );
 
-      assert && assert( !options.specialLines, 'VertexFormGraphNode sets specialLines' );
-      options.specialLines = [ axisOfSymmetryNode ];
+      assert && assert( !options.otherLines, 'VertexFormGraphNode sets otherLines' );
+      options.otherLines = [ axisOfSymmetryNode ];
 
       assert && assert( !options.decorations, 'VertexFormGraphNode sets decorations' );
       options.decorations = [ vertexManipulator ];

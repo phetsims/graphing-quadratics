@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Displays '(x, y)' coordinates for a location.  If the location is null, this displays '(?, ?)'.
+ * Displays '(x, y)' coordinates.  If the coordinates are null, this displays '(?, ?)'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -19,12 +19,11 @@ define( require => {
 
   // strings
   const coordinateUnknownString = require( 'string!GRAPHING_QUADRATICS/coordinateUnknown' );
-  const pointXYString = require( 'string!GRAPHING_QUADRATICS/pointXY' );
 
   class CoordinatesNode extends Node {
 
     /**
-     * @param {Property.<Vector2|null>}coordinatesProperty
+     * @param {Property.<Vector2|null>} coordinatesProperty
      * @param {Object} [options]
      */
     constructor( coordinatesProperty, options ) {
@@ -61,7 +60,7 @@ define( require => {
       coordinatesProperty.link( coordinates => {
 
         // coordinates
-        foregroundNode.text = StringUtils.fillIn( pointXYString, {
+        foregroundNode.text = StringUtils.fillIn( '({{x}}, {{y}})', {
           x: coordinates ? Util.toFixedNumber( coordinates.x, options.decimals ) : coordinateUnknownString,
           y: coordinates ? Util.toFixedNumber( coordinates.y, options.decimals ) : coordinateUnknownString
         } );

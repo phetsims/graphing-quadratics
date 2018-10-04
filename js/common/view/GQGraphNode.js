@@ -28,8 +28,8 @@ define( require => {
     constructor( model, viewProperties, options ) {
 
       options = _.extend( {
-        specialLines: [], // {Nodes[]}, rendered in the order provided
-        decorations: [] // {Node[]}, rendered in the order provided
+        otherLines: [], // {Nodes[]}, other lines to be displayed (term, directrix,...) rendered in the order provided
+        decorations: [] // {Node[]}, decorations (point, manipulators,...) rendered in the order provided
       }, options );
 
       super( options );
@@ -51,8 +51,8 @@ define( require => {
       // Parent for saved quadratic, to maintain rendering order
       const savedQuadraticLayer = new Node();
 
-      // Parent for special lines, e.g. quadratic terms, axis of symmetry, directrix
-      const specialLinesLayer = new Node( { children: options.specialLines } );
+      // Parent for other lines, e.g. quadratic terms, directrix, axis of symmetry
+      const otherLinesLayer = new Node( { children: options.otherLines } );
 
       // Parent for decorations, e.g. vertex, roots, manipulators
       const decorationsLayer = new Node( { children: options.decorations } );
@@ -65,7 +65,7 @@ define( require => {
           model.graph.xRange.getLength(),
           model.graph.yRange.getLength()
         ).transformed( model.modelViewTransform.getMatrix() ),
-        children: [ savedQuadraticLayer, specialLinesLayer, interactiveQuadraticNode ]
+        children: [ savedQuadraticLayer, otherLinesLayer, interactiveQuadraticNode ]
       } );
 
       // Everything that's on the graph

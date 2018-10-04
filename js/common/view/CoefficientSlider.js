@@ -110,6 +110,7 @@ define( require => {
         fill: options.labelColor,
         centerX: slider.centerX,
         bottom: slider.top - 2,
+        maxWidth: 20, // determined empirically
         tandem: options.tandem.createTandem( 'label' )
       } );
 

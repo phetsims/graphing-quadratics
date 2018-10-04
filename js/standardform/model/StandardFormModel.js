@@ -20,9 +20,9 @@ define( require => {
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
   // constants
-  const A_RANGE = new RangeWithValue( -6, 6, 1 );
-  const B_RANGE = new RangeWithValue( -6, 6, 0 );
-  const C_RANGE = new RangeWithValue( -6, 6, 0 );
+  const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient of standard form
+  const B_RANGE = new RangeWithValue( -6, 6, 0 ); // b coefficient of standard form
+  const C_RANGE = new RangeWithValue( -6, 6, 0 ); // c constant of standard form
 
   class StandardFormModel extends GQModel {
 
@@ -57,7 +57,7 @@ define( require => {
           phetioDocumentation: 'the interactive quadratic, derived from a, b, and c'
         } );
       quadraticProperty.link( quadratic => {
-        phet.log && phet.log( 'quadratic = ' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );
+        phet.log && phet.log( 'quadratic: y = ' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );
       } );
 
       super( quadraticProperty, tandem );

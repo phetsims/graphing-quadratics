@@ -18,8 +18,8 @@ define( require => {
   const Property = require( 'AXON/Property' );
 
   /**
-   * @param {Property.<Quadratic>} quadraticProperty
-   * @param {Property.<Vector2>} pointOnQuadraticProperty
+   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+   * @param {Property.<Vector2>} pointOnQuadraticProperty - a point on the interactive quadratic
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Property.<Boolean>} pointOnQuadraticVisibleProperty
    * @param {Property.<Boolean>} focusVisibleProperty

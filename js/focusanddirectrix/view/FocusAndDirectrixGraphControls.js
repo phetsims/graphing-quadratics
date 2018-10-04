@@ -26,7 +26,7 @@ define( require => {
   class FocusAndDirectrixGraphControls extends Panel {
 
     /**
-     * @param {GQViewProperties} viewProperties
+     * @param {FocusAndDirectrixViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( viewProperties, options ) {
@@ -58,7 +58,7 @@ define( require => {
 
       const maxCheckboxWidth = _.maxBy(
         [ vertexCheckbox, focusCheckbox, directrixCheckbox, pointOnQuadraticCheckbox, equationsCheckbox, coordinatesCheckbox ],
-        function( node ) { return node.width; } ).width;
+        node => node.width ).width;
 
       // vertical layout
       const contentNode = new VBox( {

@@ -16,6 +16,7 @@ define( require => {
   const GQGraph = require( 'GRAPHING_QUADRATICS/common/model/GQGraph' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const ObservableArray = require( 'AXON/ObservableArray' );
   const PointTool = require( 'GRAPHING_QUADRATICS/common/model/PointTool' );
   const Property = require( 'AXON/Property' );
   const PropertyIO = require( 'AXON/PropertyIO' );
@@ -33,7 +34,7 @@ define( require => {
   class GQModel {
 
     /**
-     * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Tandem} tandem
      * @abstract
      */
@@ -85,12 +86,16 @@ define( require => {
         phetioDocumentation: 'the point tool whose probe is on the left side'
       } );
 
-      //TODO #22 add terms based on their visibility, maintain correct order
-      // @private Update the list of quadratics on the graph, in the order that they will be considered by point tools
-      Property.multilink( [ this.quadraticProperty, this.savedQuadraticProperty ],
-        ( quadratic, savedQuadratic ) => {
+      // @public optional quadratic terms to be displayed, in the order that they will be considered by point tools.
+      this.quadraticTerms = new ObservableArray();
+
+      // @private Update the list of quadratics on the graph, in the order that they will be considered by point tools.
+      Property.multilink( [ this.quadraticProperty, this.quadraticTerms.lengthProperty, this.savedQuadraticProperty ],
+        ( quadratic, quadraticTermsLength, savedQuadratic ) => {
           this.graph.quadratics.clear();
+          // order is important!
           this.graph.quadratics.add( quadratic );
+          this.graph.quadratics.addAll( this.quadraticTerms.getArray() );
           savedQuadratic && this.graph.quadratics.add( savedQuadratic );
         } );
     }

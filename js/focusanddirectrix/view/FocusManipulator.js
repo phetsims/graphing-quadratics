@@ -28,8 +28,8 @@ define( require => {
 
     /**
      * @param {number} radius - in view coordinates
-     * @param {Property.<Quadratic>} quadraticProperty
-     * @param {NumberProperty} pProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
      * @param {GQGraph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} focusVisibleProperty
@@ -72,7 +72,7 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      // position coordinates based on which way the curve opens
+      // position coordinates based on which way the parabola opens
       coordinatesProperty.link( coordinates => {
         coordinatesNode.centerX = 0;
         if ( quadraticProperty.value.a > 0 ) {

@@ -25,7 +25,7 @@ define( require => {
   class VertexFormGraphControls extends Panel {
 
     /**
-     * @param {GQViewProperties} viewProperties
+     * @param {VertexFormViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( viewProperties, options ) {
@@ -51,7 +51,7 @@ define( require => {
 
       const maxCheckboxWidth = _.maxBy(
         [ vertexCheckbox, axisOfSymmetryCheckbox, equationsCheckbox, coordinatesCheckbox ],
-        function( node ) { return node.width; } ).width;
+        node => node.width ).width;
 
       // vertical layout
       const contentNode = new VBox( {

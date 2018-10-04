@@ -33,7 +33,7 @@ define( require => {
         fractionFont: new PhetFont( 22 ),
         color: 'black',
         tandem: Tandem.required
-      } );
+      }, options );
 
       // y =
       const leftString = StringUtils.fillIn( '{{y}} {{equals}}', {

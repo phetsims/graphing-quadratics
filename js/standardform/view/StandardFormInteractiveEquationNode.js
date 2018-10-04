@@ -25,9 +25,9 @@ define( require => {
   class StandardFormInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} aProperty
-     * @param {NumberProperty} bProperty
-     * @param {NumberProperty} cProperty
+     * @param {NumberProperty} aProperty - a coefficient of the standard form of the quadratic equation
+     * @param {NumberProperty} bProperty - b coefficient of the standard form of the quadratic equation
+     * @param {NumberProperty} cProperty - c constant of the standard form of the quadratic equation
      * @param {Object} [options]
      */
     constructor( aProperty, bProperty, cProperty, options ) {
@@ -69,11 +69,14 @@ define( require => {
       const richTextOptions = {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
       };
-      const yText = new RichText( GQSymbols.y, richTextOptions );
+      const xyOptions = _.extend( {}, richTextOptions, {
+        maxWidth: 30 // determined empirically
+      } );
+      const yText = new RichText( GQSymbols.y, xyOptions );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
-      const xSquaredText = new RichText( GQSymbols.xSquared, richTextOptions );
+      const xSquaredText = new RichText( GQSymbols.xSquared, xyOptions );
       const plusText = new RichText( MathSymbols.PLUS, richTextOptions );
-      const xText = new RichText( GQSymbols.x, richTextOptions );
+      const xText = new RichText( GQSymbols.x, xyOptions );
       const secondPlusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
       assert && assert( !options.children, 'StandardFormInteractiveEquationNode sets children' );

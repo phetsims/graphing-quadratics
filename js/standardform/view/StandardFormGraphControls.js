@@ -54,7 +54,7 @@ define( require => {
 
       const maxCheckboxWidth = _.maxBy(
         [ vertexCheckbox, axisOfSymmetryCheckbox, rootsCheckbox, equationsCheckbox, coordinatesCheckbox ],
-        function( node ) { return node.width; } ).width;
+        node => node.width ).width;
 
       // vertical layout
       const contentNode = new VBox( {
