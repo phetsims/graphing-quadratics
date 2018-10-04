@@ -330,6 +330,7 @@ define( require => {
       return nearestPoint;
     }
 
+    //TODO if the entire curve is outside range, fail an assertion
     /**
      * Given x, find the closest (x,y) point on the quadratic that is in range.
      * @param {number} x
