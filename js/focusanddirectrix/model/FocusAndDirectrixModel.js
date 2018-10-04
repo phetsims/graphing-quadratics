@@ -24,9 +24,9 @@ define( require => {
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // constants
-  const P_RANGE = new RangeWithValue( -9, 9, 2 );
-  const H_RANGE = new RangeWithValue( -6, 6, 0 );
-  const K_RANGE = new RangeWithValue( -6, 6, 0 );
+  const P_RANGE = new RangeWithValue( -9, 9, 2 ); // p coefficient of alternate vertex form
+  const H_RANGE = new RangeWithValue( -6, 6, 0 ); // h coefficient of alternate vertex form
+  const K_RANGE = new RangeWithValue( -6, 6, 0 ); // k coefficient of alternate vertex form
   const POINT_X = 5; // default x value for point on quadratic
 
   class FocusAndDirectrixModel extends GQModel {

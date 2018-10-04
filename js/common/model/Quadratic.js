@@ -1,7 +1,11 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * An immutable quadratic, described by the equation y = ax^2 + bx + c.
+ * An immutable quadratic, described by these equations:
+ *
+ * standard form: y = ax^2 + bx + c
+ * vertex form: y = a(x - h)^2 + k
+ * alternate vertex form: y = (1/(4p))(x - h)^2 + k
  *
  * Typically, a quadratic requires a !== 0. But this sim is required to support a === 0.
  * So there is some non-standard behavior herein that is not exactly mathematically correct.
@@ -32,6 +36,7 @@ define( require => {
   class Quadratic {
 
     /**
+     * The constructor uses the standard form equation y = ax^2 + bx +c
      * @param {number} a - coefficient for the quadratic term
      * @param {number} b - coefficient for the linear term
      * @param {number} c - constant term

@@ -25,9 +25,9 @@ define( require => {
   class VertexFormInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} aProperty
-     * @param {NumberProperty} hProperty
-     * @param {NumberProperty} kProperty
+     * @param {NumberProperty} aProperty - a coefficient of vertex form of the quadratic equation
+     * @param {NumberProperty} hProperty - h coefficient of vertex form of the quadratic equation
+     * @param {NumberProperty} kProperty - k coefficient of vertex form of the quadratic equation
      * @param {Object} [options]
      */
     constructor( aProperty, hProperty, kProperty, options ) {

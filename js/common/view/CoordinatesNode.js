@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Displays '(x, y)' coordinates for a location.  If the location is null, this displays '(?, ?)'.
+ * Displays '(x, y)' coordinates.  If the coordinates are null, this displays '(?, ?)'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -24,7 +24,7 @@ define( require => {
   class CoordinatesNode extends Node {
 
     /**
-     * @param {Property.<Vector2|null>}coordinatesProperty
+     * @param {Property.<Vector2|null>} coordinatesProperty
      * @param {Object} [options]
      */
     constructor( coordinatesProperty, options ) {

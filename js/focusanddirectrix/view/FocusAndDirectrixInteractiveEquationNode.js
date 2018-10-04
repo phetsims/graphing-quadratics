@@ -29,9 +29,9 @@ define( require => {
   class FocusAndDirectrixInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} pProperty
-     * @param {NumberProperty} hProperty
-     * @param {NumberProperty} kProperty
+     * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
+     * @param {NumberProperty} hProperty - h coefficient of alternate vertex form
+     * @param {NumberProperty} kProperty - k coefficient of alternate vertex form
      * @param {Object} [options]
      */
     constructor( pProperty, hProperty, kProperty, options ) {

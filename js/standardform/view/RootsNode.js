@@ -32,7 +32,7 @@ define( require => {
   class RootsNode extends Node {
 
     /**
-     * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {GQGraph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} rootsVisibleProperty

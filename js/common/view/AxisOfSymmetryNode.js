@@ -21,8 +21,8 @@ define( require => {
   class AxisOfSymmetryNode extends Node {
 
     /**
-     * @param {Property.<Quadratic>} quadraticProperty
-     * @param {Range} yRange
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} axisOfSymmetryVisibleProperty
      * @param {BooleanProperty} equationsVisibleProperty

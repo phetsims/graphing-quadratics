@@ -25,7 +25,7 @@ define( require => {
   class VertexFormGraphControls extends Panel {
 
     /**
-     * @param {GQViewProperties} viewProperties
+     * @param {VertexFormViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( viewProperties, options ) {

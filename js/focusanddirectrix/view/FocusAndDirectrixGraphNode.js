@@ -21,8 +21,8 @@ define( require => {
   class FocusAndDirectrixGraphNode extends GQGraphNode {
 
     /**
-     * @param {GQModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {FocusAndDirectrixModel} model
+     * @param {FocusAndDirectrixViewProperties} viewProperties
      * @param {Tandem} tandem
      * @param {Object} [options]
      */

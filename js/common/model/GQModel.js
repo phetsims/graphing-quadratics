@@ -34,7 +34,7 @@ define( require => {
   class GQModel {
 
     /**
-     * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Tandem} tandem
      * @abstract
      */

@@ -1,6 +1,6 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO https://github.com/phetsims/phet-io/issues/1371, phetioInherit doesn't support ES6 class
+//TODO https://github.com/phetsims/phet-io/issues/1371, convert to ES6 class when phetioInherit supports it
 /**
  * IO type for Quadratic
  *
@@ -33,7 +33,7 @@ define( require => {
   //TODO https://github.com/phetsims/phet-io/issues/1370, return phetioInherit fails when running without phetio
   phetioInherit( ObjectIO, 'QuadraticIO', QuadraticIO, {}, {
 
-    // This appears in Studio
+    // This appears in PhET-iO Studio
     documentation: Quadratic.documentationQuadraticIO,
 
     /**

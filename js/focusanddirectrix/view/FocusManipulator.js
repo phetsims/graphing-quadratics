@@ -28,8 +28,8 @@ define( require => {
 
     /**
      * @param {number} radius - in view coordinates
-     * @param {Property.<Quadratic>} quadraticProperty
-     * @param {NumberProperty} pProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
      * @param {GQGraph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} focusVisibleProperty

@@ -18,8 +18,8 @@ define( require => {
   class VertexFormGraphNode extends GQGraphNode {
 
     /**
-     * @param {GQModel} model
-     * @param {GQViewProperties} viewProperties
+     * @param {VertexFormModel} model
+     * @param {VertexFormViewProperties} viewProperties
      * @param {Tandem} tandem
      * @param {Object} [options]
      */

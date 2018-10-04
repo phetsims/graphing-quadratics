@@ -22,7 +22,7 @@ define( require => {
   class StandardFormGraphNode extends GQGraphNode {
 
     /**
-     * @param {GQModel} model
+     * @param {StandardFormModel} model
      * @param {StandardFormViewProperties} viewProperties
      * @param {Tandem} tandem
      * @param {Object} [options]

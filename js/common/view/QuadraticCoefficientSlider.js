@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Slider for the quadratic term's coefficient. The slider has a quadratic response.
+ * Slider that has a quadratic response.
+ * While the implementation is general, this slider is used for the 'a' coefficient in the Explore screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

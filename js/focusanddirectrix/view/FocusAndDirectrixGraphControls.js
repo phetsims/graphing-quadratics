@@ -26,7 +26,7 @@ define( require => {
   class FocusAndDirectrixGraphControls extends Panel {
 
     /**
-     * @param {GQViewProperties} viewProperties
+     * @param {FocusAndDirectrixViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( viewProperties, options ) {

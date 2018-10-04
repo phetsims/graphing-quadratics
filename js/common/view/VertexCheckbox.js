@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * 'Vertex' checkbox.
+ * 'Vertex' checkbox.  The vertex icon can be displayed as either a point or a manipulator.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

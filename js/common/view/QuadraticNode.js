@@ -22,7 +22,7 @@ define( require => {
   class QuadraticNode extends Node {
 
     /**
-     * @param {Property.<Quadratic>} quadraticProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the quadratic to be rendered
      * @param {Range} xRange - range of the graph's x axis
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform

@@ -29,9 +29,9 @@ define( require => {
   class ExploreInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} aProperty
-     * @param {NumberProperty} bProperty
-     * @param {NumberProperty} cProperty
+     * @param {NumberProperty} aProperty - a coefficient of the standard form of the quadratic equation
+     * @param {NumberProperty} bProperty - b coefficient of the standard form of the quadratic equation
+     * @param {NumberProperty} cProperty - c constant of the standard form of the quadratic equation
      * @param {Object} [options]
      */
     constructor( aProperty, bProperty, cProperty, options ) {

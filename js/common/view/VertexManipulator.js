@@ -32,9 +32,9 @@ define( require => {
 
     /**
      * @param {number} radius - in view coordinates
-     * @param {Property.<Quadratic>} quadraticProperty
-     * @param {NumberProperty} hProperty
-     * @param {NumberProperty} kProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {NumberProperty} hProperty - h coefficient of the vertex form of the quadratic equation
+     * @param {NumberProperty} kProperty - k coefficient of the vertex form of the quadratic equation
      * @param {GQGraph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
