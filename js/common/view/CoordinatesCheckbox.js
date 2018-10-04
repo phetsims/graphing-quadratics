@@ -32,7 +32,8 @@ define( require => {
       }, options );
 
       const label = new Text( coordinatesString, {
-        font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE )
+        font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ),
+        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
       } );
 
       super( label, coordinatesVisibleProperty, options );
