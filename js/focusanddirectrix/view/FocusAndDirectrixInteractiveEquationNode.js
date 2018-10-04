@@ -123,12 +123,15 @@ define( require => {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
         fill: 'black'
       };
+      const xyOptions = _.extend( {}, equationOptions, {
+        maxWidth: 20 // determined empirically
+      } );
 
-      // y =
-      const yEqualsNode = new RichText( StringUtils.fillIn( '{{y}} {{equals}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO
-      } ), equationOptions );
+      // y
+      const yNode = new RichText( GQSymbols.y, xyOptions );
+
+      // =
+      const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
 
       // 1
       const numeratorNode = new RichText( '1', equationOptions );
@@ -164,11 +167,14 @@ define( require => {
         scale: 0.85
       } );
 
-      // (x -
-      const xMinusNode = new RichText( StringUtils.fillIn( '({{x}} {{minus}}', {
-        x: GQSymbols.x,
-        minus: MathSymbols.MINUS
-      } ), equationOptions );
+      // (
+      const anotherParenNode = new RichText( '(', equationOptions );
+
+      // x
+      const xNode = new RichText( GQSymbols.x, xyOptions );
+
+      // -
+      const minusNode = new RichText( MathSymbols.MINUS, equationOptions );
 
       // h value
       const hNode = new NumberDisplay( hProperty, hProperty.range, _.extend( {}, numberDisplayOptions, {
@@ -189,18 +195,22 @@ define( require => {
 
       // layout
       const xSpacing = 5;
-      fractionNode.left = yEqualsNode.right + xSpacing;
-      fractionNode.centerY = yEqualsNode.centerY;
-      xMinusNode.left = fractionNode.right + xSpacing;
-      hNode.left = xMinusNode.right + xSpacing;
-      hNode.centerY = yEqualsNode.centerY;
+      equalsNode.left = yNode.right + xSpacing;
+      fractionNode.left = equalsNode.right + xSpacing;
+      fractionNode.centerY = equalsNode.centerY;
+      anotherParenNode.left = fractionNode.right + xSpacing;
+      xNode.left = anotherParenNode.right + xSpacing;
+      minusNode.left = xNode.right + xSpacing;
+      hNode.left = minusNode.right + xSpacing;
+      hNode.centerY = equalsNode.centerY;
       squaredPlusNode.left = hNode.right + xSpacing;
       kNode.left = squaredPlusNode.right + xSpacing;
-      kNode.centerY = yEqualsNode.centerY;
+      kNode.centerY = equalsNode.centerY;
 
       // y = (1/(4p))(x - h)^2 + k
       assert && assert( !options.children, 'EquationNode sets children' );
-      options.children = [ yEqualsNode, fractionNode, xMinusNode, hNode, squaredPlusNode, kNode ];
+      options.children = [ yNode, equalsNode, fractionNode,
+        anotherParenNode, xNode, minusNode, hNode, squaredPlusNode, kNode ];
 
       super( options );
 
