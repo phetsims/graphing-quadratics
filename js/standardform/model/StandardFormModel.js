@@ -57,7 +57,7 @@ define( require => {
           phetioInstanceDocumentation: 'the interactive quadratic, derived from a, b, and c'
         } );
       quadraticProperty.link( quadratic => {
-        phet.log && phet.log( 'quadratic = ' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );
+        phet.log && phet.log( 'quadratic: y = ' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );
       } );
 
       super( quadraticProperty, tandem );
