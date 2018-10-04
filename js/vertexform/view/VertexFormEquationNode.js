@@ -31,7 +31,7 @@ define( require => {
         font: new PhetFont( 26 ),
         fill: 'black',
         tandem: Tandem.required
-      } );
+      }, options );
 
       const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
         x: GQSymbols.x,
