@@ -137,7 +137,7 @@ define( require => {
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
 
-          //TODO setting h and k separately results in an intermediate Quadratic
+          // Setting h and k separately results in an intermediate Quadratic - live with it.
           // constrain to range and snap to grid
           hProperty.value = Util.roundSymmetric( hProperty.range.constrainValue( location.x ) );
           kProperty.value = Util.roundSymmetric( kProperty.range.constrainValue( location.y ) );
