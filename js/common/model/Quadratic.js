@@ -209,25 +209,33 @@ define( require => {
       return new Quadratic( 0, 0, this.c, { color: GQColors.CONSTANT_TERM } );
     }
 
-    //TODO this appears to have problems, new Quadratic(1,1,1).solveX( 0.5 ) => [NaN,NaN]
     /**
-     * Given y, solve for x.  If there is more than on solution, they will be in ascending order.
+     * Given y, solve for x.
+     * If there is more than on solution, they will be in ascending order.
      * @param {number} y
-     * @returns {number[]} - one or more solutions
+     * @returns {number[]|null} - one or more solutions, null if there is no solution
      * @public
      */
     solveX( y ) {
       if ( this.a !== 0 ) {
 
-        // For a parabola, use vertex form.
-        // y = a(x - h)^2 + k => x = h +- Math.sqrt((y - k)/a)
-        // This yields 2 solutions
-        const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
-        const x0 = this.h - commonTerm;
-        const x1 = this.h + commonTerm;
-        return [ x0, x1 ].sort( ( x0, x1 ) => x0 - x1 ); // in ascending order
+        if ( Math.abs( y ) < Math.abs( this.k ) ) {
+          // there is no solution, y is below the parabola
+          return null;
+        }
+        else {
+
+          // For a parabola, use vertex form.
+          // y = a(x - h)^2 + k => x = h +- Math.sqrt((y - k)/a)
+          // This yields 2 solutions
+          const commonTerm = Math.sqrt( ( y - this.k ) / this.a );
+          const x0 = this.h - commonTerm;
+          const x1 = this.h + commonTerm;
+          return [ x0, x1 ].sort( ( x0, x1 ) => x0 - x1 ); // in ascending order
+        }
       }
       else {
+        
         // For a straight line, use slope-intercept form.
         // y = bx + c => x = (y - c)/b
         // This yields one solution.
@@ -330,7 +338,6 @@ define( require => {
       return nearestPoint;
     }
 
-    //TODO if the entire curve is outside range, fail an assertion
     /**
      * Given x, find the closest (x,y) point on the quadratic that is in range.
      * @param {number} x
@@ -349,6 +356,7 @@ define( require => {
         // y is outside range, constrain y and solve for x
         y = yRange.constrainValue( y );
         const xValues = this.solveX( y );
+        assert && assert( xValues, 'no solution exists, the parabola is likely off the graph' );
 
         if ( this.a !== 0 ) {
 
