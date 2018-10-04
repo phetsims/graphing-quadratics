@@ -56,6 +56,7 @@ define( require => {
         // update the equation
         equationNode && this.removeChild( equationNode );
         equationNode = GQEquationFactory.createDirectrix( quadratic.directrix );
+        equationNode.maxWidth = 100; // determined empirically
         this.addChild( equationNode );
 
         // position the equation to avoid overlapping vertex and x axis
