@@ -1,6 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 //TODO #11 where possible, compute magic numbers herein for layout
+//TODO #11 smooth out the ends of parabolas
+//TODO #11 fill the entire icon width and height
 /**
  * Creates icons for this sim.
  *
