@@ -71,10 +71,12 @@ define( require => {
       } );
 
       const controlPanelMaxWidth = this.layoutBounds.width - graphNode.width - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN ) - X_SPACING;
+      const controlPanelMaxHeight = this.layoutBounds.height - ( 2 * GQConstants.SCREEN_VIEW_Y_MARGIN );
 
       // Parent for all control panels, to simplify layout
       const controlsParent = new VBox( {
         maxWidth: controlPanelMaxWidth,
+        maxHeight: controlPanelMaxHeight,
         resize: false,
         align: 'center',
         spacing: 10,
