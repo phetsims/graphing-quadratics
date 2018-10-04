@@ -137,9 +137,9 @@ define( require => {
         c: this.c,
         color: Color.toColor( this.color ).toStateObject(),
 
-        // These properties are desired in the event stream, but will be undefined for non-parabolas (a===0).
+        // These properties are desired in the data stream, but will be undefined for non-parabolas (a===0).
         // Because PhET-iO values are based on JSON.stringify, undefined properties will not be present in the
-        // event stream.
+        // data stream.
         p: this.p,
         h: this.h,
         k: this.k,
