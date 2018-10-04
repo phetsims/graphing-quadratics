@@ -356,7 +356,8 @@ define( require => {
         // y is outside range, constrain y and solve for x
         y = yRange.constrainValue( y );
         const xValues = this.solveX( y );
-        assert && assert( xValues, 'no solution exists, the parabola is likely off the graph' );
+        assert && assert( xValues, 'No solution exists, the parabola is likely off the graph. ' +
+                                   'x=' + x + ', quadratic=' + this.toString() );
 
         if ( this.a !== 0 ) {
 
@@ -367,7 +368,7 @@ define( require => {
         }
         else {
 
-          //straight line
+          // straight line
           assert && assert( xValues.length === 1, 'unexpected number of xValues: ' + xValues );
           x = xValues[ 0 ];
         }
