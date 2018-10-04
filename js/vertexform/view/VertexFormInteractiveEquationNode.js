@@ -37,7 +37,6 @@ define( require => {
       assert && assert( kProperty.range, 'missing kProperty.range' );
 
       options = _.extend( {
-        maxWidth: 300, // determined empirically
         tandem: Tandem.required
       }, options );
 
@@ -70,10 +69,13 @@ define( require => {
       const richTextOptions = {
         font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
       };
-      const yText = new RichText( GQSymbols.y, richTextOptions );
+      const xyOptions = _.extend( {}, richTextOptions, {
+        maxWidth: 30 // determined empirically
+      } );
+      const yText = new RichText( GQSymbols.y, xyOptions );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
       const openParenthesisText = new RichText( '(', richTextOptions );
-      const xText = new RichText( GQSymbols.x, richTextOptions );
+      const xText = new RichText( GQSymbols.x, xyOptions );
       const minusText = new RichText( MathSymbols.MINUS, richTextOptions );
       const parenSquaredText = new RichText( ')<sup>2</sup>', richTextOptions );
       const plusText = new RichText( MathSymbols.PLUS, richTextOptions );

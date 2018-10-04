@@ -37,7 +37,6 @@ define( require => {
       assert && assert( cProperty.range, 'missing cProperty.range' );
 
       options = _.extend( {
-        maxWidth: 300, // determined empirically
         tandem: Tandem.required
       }, options );
 
@@ -68,13 +67,16 @@ define( require => {
 
       // static parts of the equation
       const richTextOptions = {
-        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
       };
-      const yText = new RichText( GQSymbols.y, richTextOptions );
+      const xyOptions = _.extend( {}, richTextOptions, {
+        maxWidth: 30 // determined empirically
+      } );
+      const yText = new RichText( GQSymbols.y, xyOptions );
       const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
-      const xSquaredText = new RichText( GQSymbols.xSquared, richTextOptions );
+      const xSquaredText = new RichText( GQSymbols.xSquared, xyOptions );
       const plusText = new RichText( MathSymbols.PLUS, richTextOptions );
-      const xText = new RichText( GQSymbols.x, richTextOptions );
+      const xText = new RichText( GQSymbols.x, xyOptions );
       const secondPlusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
       assert && assert( !options.children, 'StandardFormInteractiveEquationNode sets children' );
