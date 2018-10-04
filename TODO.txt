@@ -1,5 +1,5 @@
 TODO list for graphing-quadratics
 
 #17 reentrant DynamicProperty in CoefficientSlider
-#20 i18n, stringTest, maxHeight, maxHeight to account for font height variation
+#20 i18n, stringTest, maxHeight
 multi-touch testing
