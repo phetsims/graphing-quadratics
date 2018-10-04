@@ -67,7 +67,7 @@ define( require => {
 
       // static parts of the equation
       const richTextOptions = {
-        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
       };
       const xyOptions = _.extend( {}, richTextOptions, {
         maxWidth: 30 // determined empirically
