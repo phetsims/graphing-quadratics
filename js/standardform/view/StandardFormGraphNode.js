@@ -75,8 +75,8 @@ define( require => {
           noRealRootsNode.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length === 0 );
         } );
 
-      assert && assert( !options.specialLines, 'StandardFormGraphNode sets specialLines' );
-      options.specialLines = [ axisOfSymmetryNode ];
+      assert && assert( !options.otherLines, 'StandardFormGraphNode sets otherLines' );
+      options.otherLines = [ axisOfSymmetryNode ];
 
       assert && assert( !options.decorations, 'StandardFormGraphNode sets decorations' );
       options.decorations = [ rootsNode, vertexNode, noRealRootsNode ]; // rendered in this order

@@ -74,7 +74,7 @@ define( require => {
       // y offset of coordinates from manipulator
       const coordinatesYOffset = 1.8 * radius;
 
-      // position coordinates based on which way the curve opens
+      // position coordinates based on which way the parabola opens
       coordinatesProperty.link( coordinates => {
         if ( coordinates ) {
           coordinatesNode.centerX = 0;

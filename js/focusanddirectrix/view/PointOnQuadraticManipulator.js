@@ -68,7 +68,7 @@ define( require => {
       // x offset of coordinates from manipulator
       const coordinatesXOffset = 1.8 * radius;
 
-      // position coordinates based on which side of the curve the point is on
+      // position coordinates based on which side of the parabola the point is on
       coordinatesProperty.link( coordinates => {
         const vertex = quadraticProperty.value.vertex;
         if ( !vertex || ( coordinates.x >= vertex.x ) ) {
@@ -127,7 +127,7 @@ define( require => {
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           const x = modelViewTransform.viewToModelPosition( parentPoint ).x;
 
-          // set to the closest point on the curve that is within the bounds of the graph
+          // set to the closest point on the parabola that is within the bounds of the graph
           pointOnQuadraticProperty.value = quadraticProperty.value.getClosestPointInRange( x, xRange, yRange );
         },
 
