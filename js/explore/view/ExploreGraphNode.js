@@ -29,16 +29,16 @@ define( require => {
         lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH
       };
 
-      // constant term, y = bx
-      const constantTermNode = new QuadraticNode(
-        model.constantTermProperty,
+      // quadratic term, y = ax^2
+      const quadraticTermNode = new QuadraticNode(
+        model.quadraticTermProperty,
         model.graph.xRange,
         model.graph.yRange,
         model.modelViewTransform,
         viewProperties.equationForm,
         viewProperties.equationsVisibleProperty,
         termNodeOptions );
-      viewProperties.constantTermVisibleProperty.link( visible => { constantTermNode.visible = visible; } );
+      viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermNode.visible = visible; } );
 
       // linear term, y = bx
       const linearTermNode = new QuadraticNode(
@@ -51,17 +51,17 @@ define( require => {
         termNodeOptions );
       viewProperties.linearTermVisibleProperty.link( visible => { linearTermNode.visible = visible; } );
 
-      // quadratic term, y = ax^2
-      const quadraticTermNode = new QuadraticNode(
-        model.quadraticTermProperty,
+      // constant term, y = bx
+      const constantTermNode = new QuadraticNode(
+        model.constantTermProperty,
         model.graph.xRange,
         model.graph.yRange,
         model.modelViewTransform,
         viewProperties.equationForm,
         viewProperties.equationsVisibleProperty,
         termNodeOptions );
-      viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermNode.visible = visible; } );
-
+      viewProperties.constantTermVisibleProperty.link( visible => { constantTermNode.visible = visible; } );
+      
       assert && assert( !options.specialLines, 'ExploreGraphNode sets specialLines' );
       options.specialLines = [ constantTermNode, linearTermNode, quadraticTermNode ]; // rendered in this order
 
