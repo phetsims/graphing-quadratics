@@ -1,5 +1,4 @@
 TODO list for graphing-quadratics
 
-#20 SF control panels are rotated with stringTest=long
 #17 reentrant DynamicProperty in CoefficientSlider
 multi-touch testing
