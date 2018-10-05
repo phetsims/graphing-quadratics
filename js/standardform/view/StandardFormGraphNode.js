@@ -16,7 +16,6 @@ define( require => {
   const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/NoRealRootsNode' );
   const Property = require( 'AXON/Property' );
   const RootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/RootsNode' );
-  const Vector2 = require( 'DOT/Vector2' );
   const VertexNode = require( 'GRAPHING_QUADRATICS/standardform/view/VertexNode' );
 
   class StandardFormGraphNode extends GQGraphNode {
@@ -67,7 +66,7 @@ define( require => {
 
       // 'NO REAL ROOTS' label
       const noRealRootsNode = new NoRealRootsNode( {
-        center: model.modelViewTransform.modelToViewPosition( new Vector2( 0, 0 ) ), // at the origin
+        center: model.modelViewTransform.modelToViewXY( model.graph.xRange.getCenter(), model.graph.yRange.getCenter() ),
         tandem: tandem.createTandem( 'noRealRootsNode' )
       } );
       Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],

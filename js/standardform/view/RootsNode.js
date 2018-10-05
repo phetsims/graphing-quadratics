@@ -47,10 +47,13 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
+      // view origin, to give everything an initial position that is on the graph
+      const defaultViewPosition = modelViewTransform.modelToViewXY( graph.xRange.getCenter(), graph.yRange.getCenter() );
+
       // points
       const pointOptions = {
         fill: GQColors.ROOTS,
-        center: modelViewTransform.modelToViewPosition( Vector2.ZERO )
+        center: defaultViewPosition
       };
       const leftPointNode = new Circle( options.radius, pointOptions );
       const rightPointNode = new Circle( options.radius, pointOptions );
@@ -70,19 +73,26 @@ define( require => {
           phetiOType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
           phetioDocumentation: 'coordinates displayed on the right root'
         } );
-
+      
       // coordinate displays
       const coordinatesOptions = {
         foregroundColor: 'white',
         backgroundColor: GQColors.ROOTS,
-        decimals: GQConstants.ROOTS_DECIMALS
+        decimals: GQConstants.ROOTS_DECIMALS,
+        center: defaultViewPosition
       };
       const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesOptions );
       const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesOptions );
 
       // group points and coordinates
-      const leftRootNode = new Node( { children: [ leftPointNode, leftCoordinatesNode ] } );
-      const rightRootNode = new Node( { children: [ rightPointNode, rightCoordinatesNode ] } );
+      const leftRootNode = new Node( { 
+        children: [ leftPointNode, leftCoordinatesNode ],
+        center: defaultViewPosition
+      } );
+      const rightRootNode = new Node( { 
+        children: [ rightPointNode, rightCoordinatesNode ],
+        center: defaultViewPosition
+      } );
 
       assert && assert( !options.children, 'RootsNode sets children' );
       options.children = [ leftRootNode, rightRootNode ];
