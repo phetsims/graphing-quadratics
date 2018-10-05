@@ -49,7 +49,8 @@ define( require => {
 
       // points
       const pointOptions = {
-        fill: GQColors.ROOTS
+        fill: GQColors.ROOTS,
+        center: modelViewTransform.modelToViewXY( graph.xRange.getCenter(), graph.yRange.getCenter() )
       };
       const leftRootNode = new Circle( options.radius, pointOptions );
       const rightRootNode = new Circle( options.radius, pointOptions );
