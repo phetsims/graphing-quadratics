@@ -96,7 +96,7 @@ define( require => {
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // @private
-      this.addInputListener( new FocusDragHandler( pProperty, quadraticProperty, modelViewTransform,
+      this.addInputListener( new FocusDragHandler( pProperty, quadraticProperty, graph.yRange, modelViewTransform,
         options.interval, options.tandem.createTandem( 'dragHandler' ) ) );
     }
   }
@@ -107,13 +107,14 @@ define( require => {
 
     /**
      * Drag handler for focus.
-     * @param {NumberProperty} pProperty
-     * @param {Property.<Quadratic>} quadraticProperty
+     * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
      * @param {number} interval
      * @param {Tandem} tandem
      */
-    constructor( pProperty, quadraticProperty, modelViewTransform, interval, tandem ) {
+    constructor( pProperty, quadraticProperty, yRange, modelViewTransform, interval, tandem ) {
 
       assert && assert( pProperty.range, 'pProperty is missing range' );
 
@@ -142,8 +143,11 @@ define( require => {
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           const location = modelViewTransform.viewToModelPosition( parentPoint );
 
+          // constrain to the graph
+          const y = yRange.constrainValue( location.y );
+
           // constrain and round
-          let p = pProperty.range.constrainValue( location.y - vertex.y );
+          let p = pProperty.range.constrainValue( y - vertex.y );
           p = Util.roundToInterval( p, interval );
 
           // skip over p === 0
