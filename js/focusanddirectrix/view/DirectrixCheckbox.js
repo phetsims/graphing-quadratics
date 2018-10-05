@@ -9,7 +9,7 @@ define( require => {
   'use strict';
 
   // modules
-  const CheckboxWithTextAndIcon = require( 'GRAPHING_QUADRATICS/common/view/CheckboxWithTextAndIcon' );
+  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -19,7 +19,7 @@ define( require => {
   // strings
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
 
-  class DirectrixCheckbox extends CheckboxWithTextAndIcon {
+  class DirectrixCheckbox extends GQCheckbox {
 
     /**
      * @param {BooleanProperty} directrixVisibleProperty
@@ -32,13 +32,14 @@ define( require => {
       }, options );
 
       // vertical dashed line
-      const icon = new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
+      assert && assert( !options.icon, 'DirectrixCheckbox sets icon' );
+      options.icon = new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
         stroke: GQColors.DIRECTRIX,
         lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
         lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
       } );
 
-      super( directrixString, icon, directrixVisibleProperty, options );
+      super( directrixString, directrixVisibleProperty, options );
     }
   }
 

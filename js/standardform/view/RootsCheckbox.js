@@ -9,7 +9,7 @@ define( require => {
   'use strict';
 
   // modules
-  const CheckboxWithTextAndIcon = require( 'GRAPHING_QUADRATICS/common/view/CheckboxWithTextAndIcon' );
+  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const Circle = require( 'SCENERY/nodes/Circle' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -22,7 +22,7 @@ define( require => {
   // constants
   const POINT_RADIUS = 6;
 
-  class RootsCheckbox extends CheckboxWithTextAndIcon {
+  class RootsCheckbox extends GQCheckbox {
 
     /**
      * @param {BooleanProperty} rootsVisibleProperty
@@ -34,7 +34,8 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const icon = new HBox( {
+      assert && assert( !options.icon, 'RootsCheckbox sets icon' );
+      options.icon = new HBox( {
         align: 'center',
         spacing: 5,
         children: [
@@ -43,7 +44,7 @@ define( require => {
         ]
       } );
 
-      super( rootsString, icon, rootsVisibleProperty, options );
+      super( rootsString, rootsVisibleProperty, options );
     }
   }
 

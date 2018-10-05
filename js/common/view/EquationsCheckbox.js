@@ -9,17 +9,14 @@ define( require => {
   'use strict';
 
   // modules
-  const Checkbox = require( 'SUN/Checkbox' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Tandem = require( 'TANDEM/Tandem' );
-  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
   const equationsString = require( 'string!GRAPHING_QUADRATICS/equations' );
 
-  class EquationsCheckbox extends Checkbox {
+  class EquationsCheckbox extends GQCheckbox {
 
     /**
      * @param {BooleanProperty} equationsVisibleProperty
@@ -31,12 +28,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const content = new Text( equationsString, {
-        font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) ,
-        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
-      } );
-
-      super( content, equationsVisibleProperty, options );
+      super( equationsString, equationsVisibleProperty, options );
     }
   }
 

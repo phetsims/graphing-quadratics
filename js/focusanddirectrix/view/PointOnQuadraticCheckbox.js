@@ -9,7 +9,7 @@ define( require => {
   'use strict';
 
   // modules
-  const CheckboxWithTextAndIcon = require( 'GRAPHING_QUADRATICS/common/view/CheckboxWithTextAndIcon' );
+  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
@@ -18,7 +18,7 @@ define( require => {
   // strings
   const pointOnQuadraticString = require( 'string!GRAPHING_QUADRATICS/pointOnQuadratic' );
 
-  class PointOnQuadraticCheckbox extends CheckboxWithTextAndIcon {
+  class PointOnQuadraticCheckbox extends GQCheckbox {
 
     /**
      * @param {BooleanProperty} pointOnQuadraticVisibleProperty
@@ -30,9 +30,10 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const icon = new Manipulator( 8, GQColors.POINT_ON_QUADRATIC, { haloAlpha: 0, pickable: false } );
+      assert && assert( !options.icon, 'PointOnQuadraticCheckbox sets icon' );
+      options.icon = new Manipulator( 8, GQColors.POINT_ON_QUADRATIC, { haloAlpha: 0, pickable: false } );
 
-      super( pointOnQuadraticString, icon, pointOnQuadraticVisibleProperty, options );
+      super( pointOnQuadraticString, pointOnQuadraticVisibleProperty, options );
     }
   }
 

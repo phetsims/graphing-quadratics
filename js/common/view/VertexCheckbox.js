@@ -9,8 +9,8 @@ define( require => {
   'use strict';
 
   // modules
-  const CheckboxWithTextAndIcon = require( 'GRAPHING_QUADRATICS/common/view/CheckboxWithTextAndIcon' );
   const Circle = require( 'SCENERY/nodes/Circle' );
+  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
@@ -19,7 +19,7 @@ define( require => {
   // strings
   const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
 
-  class VertexCheckbox extends CheckboxWithTextAndIcon {
+  class VertexCheckbox extends GQCheckbox {
 
     /**
      * @param {BooleanProperty} vertexVisibleProperty
@@ -32,11 +32,12 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const icon = ( options.manipulatorIcon ) ?
+      assert && assert( !options.icon, 'VertexCheckbox sets icon' );
+      options.icon = ( options.manipulatorIcon ) ?
                    new Manipulator( 8, GQColors.VERTEX, { haloAlpha: 0, pickable: false } ) :
                    new Circle( 6, { fill: GQColors.VERTEX } );
 
-      super( vertexString, icon, vertexVisibleProperty, options );
+      super( vertexString, vertexVisibleProperty, options );
     }
   }
 

@@ -9,18 +9,15 @@ define( require => {
   'use strict';
 
   // modules
-  const Checkbox = require( 'SUN/Checkbox' );
+  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  class QuadraticTermCheckbox extends Checkbox {
+  class QuadraticTermCheckbox extends GQCheckbox {
 
     /**
      * @param {BooleanProperty} quadraticTermVisibleProperty
@@ -29,22 +26,19 @@ define( require => {
     constructor( quadraticTermVisibleProperty, options ) {
 
       options = _.extend( {
+        textFill: GQColors.QUADRATIC_TERM,
         tandem: Tandem.required
       }, options );
 
-      const content = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
+      const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
         y: GQSymbols.y,
         equals: MathSymbols.EQUAL_TO,
         a: GQSymbols.a,
         x: GQSymbols.x,
         xSquared: GQSymbols.xSquared
-      } ), {
-        font: new PhetFont( GQConstants.CHECKBOX_EQUATION_FONT_SIZE ),
-        fill: GQColors.QUADRATIC_TERM,
-        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
       } );
 
-      super( content, quadraticTermVisibleProperty, options );
+      super( text, quadraticTermVisibleProperty, options );
     }
   }
 
