@@ -11,23 +11,18 @@ define( require => {
 
   // modules
   const AccordionBox = require( 'SUN/AccordionBox' );
-  const Checkbox = require( 'SUN/Checkbox' );
+  const ConstantTermCheckbox = require( 'GRAPHING_QUADRATICS/explore/view/ConstantTermCheckbox' );
   const EquationsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/EquationsCheckbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
-  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const LinearTermCheckbox = require( 'GRAPHING_QUADRATICS/explore/view/LinearTermCheckbox' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const QuadraticTermCheckbox = require( 'GRAPHING_QUADRATICS/explore/view/QuadraticTermCheckbox' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
   const VBox = require( 'SCENERY/nodes/VBox' );
-
-  // constants
-  const CHECKBOX_EQUATION_FONT = new PhetFont( GQConstants.CHECKBOX_EQUATION_FONT_SIZE );
 
   // strings
   const quadraticTermsString = require( 'string!GRAPHING_QUADRATICS/quadraticTerms' );
@@ -55,49 +50,19 @@ define( require => {
       } );
 
       // y = ax^2
-      const quadraticTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO,
-        a: GQSymbols.a,
-        x: GQSymbols.x,
-        xSquared: GQSymbols.xSquared
-      } ), {
-        font: CHECKBOX_EQUATION_FONT,
-        fill: GQColors.QUADRATIC_TERM,
-        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
-      } );
-      const quadraticTermCheckbox = new Checkbox( quadraticTermLabel, viewProperties.quadraticTermVisibleProperty, {
+      const quadraticTermCheckbox = new QuadraticTermCheckbox( viewProperties.quadraticTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'quadraticTermCheckbox' ),
         phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible'
       } );
 
       // y = bx
-      const linearTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO,
-        b: GQSymbols.b,
-        x: GQSymbols.x
-      } ), {
-        font: CHECKBOX_EQUATION_FONT,
-        fill: GQColors.LINEAR_TERM,
-        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
-      } );
-      const linearTermCheckbox = new Checkbox( linearTermLabel, viewProperties.linearTermVisibleProperty, {
+      const linearTermCheckbox = new LinearTermCheckbox( viewProperties.linearTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'linearTermCheckbox' ),
         phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible'
       } );
 
       // y = c
-      const constantTermLabel = new RichText( StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO,
-        c: GQSymbols.c
-      } ), {
-        font: CHECKBOX_EQUATION_FONT,
-        fill: GQColors.CONSTANT_TERM,
-        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
-      } );
-      const constantTermCheckbox = new Checkbox( constantTermLabel, viewProperties.constantTermVisibleProperty, {
+      const constantTermCheckbox = new ConstantTermCheckbox( viewProperties.constantTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'constantTermCheckbox' ),
         phetioDocumentation: 'checkbox that makes the constant term (y = c) visible'
       } );
