@@ -3,3 +3,4 @@ TODO list for graphing-quadratics
 #17 reentrant DynamicProperty in CoefficientSlider
 multi-touch testing
 pass titleNode and expandedProperty as options to AccordionBox subclasses
+get rid of GQGraph, more this.quadratics to GQModel
