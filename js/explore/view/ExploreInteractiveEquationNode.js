@@ -16,14 +16,12 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class ExploreInteractiveEquationNode extends Node {
@@ -86,7 +84,7 @@ define( require => {
   /**
    * The equation that appears above the sliders.
    */
-  class EquationNode extends HBox {
+  class EquationNode extends Node {
 
     /**
      * @param {NumberProperty} aProperty
@@ -97,11 +95,6 @@ define( require => {
     constructor( aProperty, bProperty, cProperty, options ) {
 
       options = _.extend( {
-
-        // HBox options
-        align: 'bottom',
-        spacing: 5,
-        maxWidth: 300, // determined empirically
         tandem: Tandem.required
       }, options );
 
@@ -143,10 +136,11 @@ define( require => {
       // x
       const xNode = new RichText( GQSymbols.x, xyOptions );
 
-      // x^2 +
-      const squaredPlusNode = new RichText( StringUtils.fillIn( '<sup>2</sup> {{plus}}', {
-        plus: MathSymbols.PLUS
-      } ), equationOptions );
+      // ^2
+      const squaredNode = new RichText( '<sup>2</sup>', equationOptions );
+      
+      // + 
+      const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
 
       // b value
       const bNode = new NumberDisplay( bProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
@@ -158,7 +152,7 @@ define( require => {
       const anotherXNode = new RichText( GQSymbols.x, xyOptions );
       
       // +
-      const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
+      const anotherPlusNode = new RichText( MathSymbols.PLUS, equationOptions );
 
       // c value
       const cNode = new NumberDisplay( cProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
@@ -168,7 +162,26 @@ define( require => {
 
       // y = ax^2 + bx + c
       assert && assert( !options.children, 'EquationNode sets children' );
-      options.children = [ yNode, equalsNode, aNode, xNode, squaredPlusNode, anotherXNode, bNode, plusNode, cNode ];
+      options.children = [
+        yNode, equalsNode, aNode, xNode, squaredNode, plusNode,
+        anotherXNode, bNode, anotherPlusNode, cNode
+      ];
+
+      // layout
+      const operatorSpacing = 8; // space around operators
+      const termSpacing = 4; // space inside a term
+      equalsNode.left = yNode.right + operatorSpacing;
+      aNode.left = equalsNode.right + operatorSpacing;
+      xNode.left = aNode.right + termSpacing;
+      squaredNode.left = xNode.right + termSpacing;
+      plusNode.left = squaredNode.right + operatorSpacing;
+      anotherXNode.left = plusNode.right + operatorSpacing;
+      bNode.left = anotherXNode.right + termSpacing;
+      anotherPlusNode.left = bNode.right + operatorSpacing;
+      cNode.left = anotherPlusNode.right + operatorSpacing;
+      aNode.bottom = equalsNode.bottom;
+      bNode.bottom = equalsNode.bottom;
+      cNode.bottom = equalsNode.bottom;
 
       super( options );
 

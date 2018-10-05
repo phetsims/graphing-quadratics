@@ -22,7 +22,6 @@ define( require => {
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
@@ -182,10 +181,11 @@ define( require => {
         decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
       } ) );
 
-      // )^2 +
-      const squaredPlusNode = new RichText( StringUtils.fillIn( ')<sup>2</sup> {{plus}}', {
-        plus: MathSymbols.PLUS
-      } ), equationOptions );
+      // )^2
+      const parenSquaredNode = new RichText( ')<sup>2</sup>', equationOptions );
+
+      // +
+      const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
 
       // k value
       const kNode = new NumberDisplay( kProperty, kProperty.range, _.extend( {}, numberDisplayOptions, {
@@ -194,23 +194,25 @@ define( require => {
       } ) );
 
       // layout
-      const xSpacing = 5;
-      equalsNode.left = yNode.right + xSpacing;
-      fractionNode.left = equalsNode.right + xSpacing;
+      const operatorSpacing = 8; // space around operators
+      const termSpacing = 4; // space inside a term
+      equalsNode.left = yNode.right + operatorSpacing;
+      fractionNode.left = equalsNode.right + operatorSpacing;
       fractionNode.centerY = equalsNode.centerY;
-      anotherParenNode.left = fractionNode.right + xSpacing;
-      xNode.left = anotherParenNode.right + xSpacing;
-      minusNode.left = xNode.right + xSpacing;
-      hNode.left = minusNode.right + xSpacing;
-      hNode.centerY = equalsNode.centerY;
-      squaredPlusNode.left = hNode.right + xSpacing;
-      kNode.left = squaredPlusNode.right + xSpacing;
-      kNode.centerY = equalsNode.centerY;
+      anotherParenNode.left = fractionNode.right + termSpacing;
+      xNode.left = anotherParenNode.right + termSpacing;
+      minusNode.left = xNode.right + operatorSpacing;
+      hNode.left = minusNode.right + operatorSpacing;
+      parenSquaredNode.left = hNode.right + termSpacing;
+      plusNode.left = parenSquaredNode.right + operatorSpacing;
+      kNode.left = plusNode.right + operatorSpacing;
+      hNode.bottom = equalsNode.bottom;
+      kNode.bottom = equalsNode.bottom;
 
       // y = (1/(4p))(x - h)^2 + k
       assert && assert( !options.children, 'EquationNode sets children' );
       options.children = [ yNode, equalsNode, fractionNode,
-        anotherParenNode, xNode, minusNode, hNode, squaredPlusNode, kNode ];
+        anotherParenNode, xNode, minusNode, hNode, parenSquaredNode, plusNode, kNode ];
 
       super( options );
 
