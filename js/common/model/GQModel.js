@@ -13,7 +13,7 @@ define( require => {
   const Bounds2 = require( 'DOT/Bounds2' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GQGraph = require( 'GRAPHING_QUADRATICS/common/model/GQGraph' );
+  const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const ObservableArray = require( 'AXON/ObservableArray' );
@@ -44,7 +44,7 @@ define( require => {
       this.quadraticProperty = quadraticProperty;
 
       // @public (read-only) graph
-      this.graph = new GQGraph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
+      this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
       // @public
       this.savedQuadraticProperty = new Property( null, {
@@ -63,9 +63,12 @@ define( require => {
         modelViewTransformScale,
         -modelViewTransformScale // y is inverted
       );
+      
+      // Quadratics that are visible to the point tools.
+      const pointToolQuadratics = new ObservableArray();
 
       // @public (read-only)
-      this.rightPointTool = new PointTool( this.graph.quadratics, {
+      this.rightPointTool = new PointTool( pointToolQuadratics, {
         probeSide: 'right',
         location: new Vector2( -2, -12 ),
         dragBounds: new Bounds2(
@@ -76,7 +79,7 @@ define( require => {
       } );
 
       // @public (read-only)
-      this.leftPointTool = new PointTool( this.graph.quadratics, {
+      this.leftPointTool = new PointTool( pointToolQuadratics, {
         probeSide: 'left',
         location: new Vector2( 2, -12 ),
         dragBounds: new Bounds2(
@@ -89,14 +92,14 @@ define( require => {
       // @public optional quadratic terms to be displayed, in the order that they will be considered by point tools.
       this.quadraticTerms = new ObservableArray();
 
-      // @private Update the list of quadratics on the graph, in the order that they will be considered by point tools.
+      // @private Update pointToolQuadratics, in the order that they will be considered by point tools.
       Property.multilink( [ this.quadraticProperty, this.quadraticTerms.lengthProperty, this.savedQuadraticProperty ],
         ( quadratic, quadraticTermsLength, savedQuadratic ) => {
-          this.graph.quadratics.clear();
+          pointToolQuadratics.clear();
           // order is important!
-          this.graph.quadratics.add( quadratic );
-          this.graph.quadratics.addAll( this.quadraticTerms.getArray() );
-          savedQuadratic && this.graph.quadratics.add( savedQuadratic );
+          pointToolQuadratics.add( quadratic );
+          pointToolQuadratics.addAll( this.quadraticTerms.getArray() );
+          savedQuadratic && pointToolQuadratics.add( savedQuadratic );
         } );
     }
 

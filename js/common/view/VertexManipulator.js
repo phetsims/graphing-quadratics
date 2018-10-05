@@ -35,7 +35,7 @@ define( require => {
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {NumberProperty} hProperty - h coefficient of the vertex form of the quadratic equation
      * @param {NumberProperty} kProperty - k coefficient of the vertex form of the quadratic equation
-     * @param {GQGraph} graph
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty

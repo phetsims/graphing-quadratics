@@ -33,7 +33,7 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-     * @param {GQGraph} graph
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} rootsVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
