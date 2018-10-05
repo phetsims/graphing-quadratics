@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Model for the 'Explore' screen.  Extends the 'Standard Form' model by adding quadratic terms.
+ * Model for the 'Explore' screen.  Extends the 'Standard Form' model by adding lines for
+ * the individual terms of the interactive quadratic.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
