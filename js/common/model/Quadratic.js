@@ -177,17 +177,6 @@ define( require => {
     }
 
     /**
-     * Tests whether this quadratic is equal to the given quadratic. Color is not significant.
-     * @param {*} quadratic
-     * @returns {boolean}
-     * @public
-     */
-    equals( quadratic ) {
-      return ( quadratic instanceof Quadratic ) &&
-             ( this.a === quadratic.a ) && ( this.b === quadratic.b ) && ( this.c === quadratic.c );
-    }
-
-    /**
      * Gets the quadratic term, y = ax^2
      * @returns {Quadratic}
      * @public
