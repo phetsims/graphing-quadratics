@@ -74,11 +74,11 @@ define( require => {
 
       // horizontally align sliders under their associated values in the equation
       const ySpacing = 3;
-      pSlider.centerX = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
+      pSlider.x = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
       pSlider.top = equationNode.bottom + ySpacing;
-      hSlider.centerX = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
+      hSlider.x = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
       hSlider.top = equationNode.bottom + ySpacing;
-      kSlider.centerX = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
+      kSlider.x = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
       kSlider.top = equationNode.bottom + ySpacing;
     }
   }

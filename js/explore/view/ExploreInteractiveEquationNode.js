@@ -70,11 +70,11 @@ define( require => {
 
       // horizontally align sliders under their associated values in the equation
       const ySpacing = 3;
-      aSlider.centerX = this.globalToLocalBounds( equationNode.aGlobalBounds ).centerX;
+      aSlider.x = this.globalToLocalBounds( equationNode.aGlobalBounds ).centerX;
       aSlider.top = equationNode.bottom + ySpacing;
-      bSlider.centerX = this.globalToLocalBounds( equationNode.bGlobalBounds ).centerX;
+      bSlider.x = this.globalToLocalBounds( equationNode.bGlobalBounds ).centerX;
       bSlider.top = equationNode.bottom + ySpacing;
-      cSlider.centerX = this.globalToLocalBounds( equationNode.cGlobalBounds ).centerX;
+      cSlider.x = this.globalToLocalBounds( equationNode.cGlobalBounds ).centerX;
       cSlider.top = equationNode.bottom + ySpacing;
     }
   }
