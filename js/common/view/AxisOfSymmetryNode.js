@@ -56,7 +56,7 @@ define( require => {
           // update the equation
           equationNode && this.removeChild( equationNode );
           equationNode = GQEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
-          equationNode.maxWidth = 100; // determined empirically
+          equationNode.maxHeight = 100; // height because equation is rotated, determined empirically
           this.addChild( equationNode );
 
           // position the equation to avoid overlapping vertex and y axis
