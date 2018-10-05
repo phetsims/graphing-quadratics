@@ -82,6 +82,7 @@ define( require => {
 
         // remove any previous line
         savedLineNode && allLinesParent.removeChild( savedLineNode );
+        savedLineNode = null;
 
         if ( savedQuadratic ) {
           savedLineNode = new QuadraticNode(
