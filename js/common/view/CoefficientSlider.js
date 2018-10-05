@@ -62,9 +62,6 @@ define( require => {
         // {Color|string} color of the label that appears above the slider
         labelColor: 'black',
 
-        // superclass options
-        align: 'center',
-
         tandem: Tandem.required
       }, options );
 
