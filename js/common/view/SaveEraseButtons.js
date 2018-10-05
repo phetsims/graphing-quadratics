@@ -31,7 +31,7 @@ define( require => {
     constructor( saveFunction, eraseFunction, savedQuadraticProperty, options ) {
 
       options = _.extend( {
-``
+        
         // HBox options
         spacing: 40,
         tandem: Tandem.required
