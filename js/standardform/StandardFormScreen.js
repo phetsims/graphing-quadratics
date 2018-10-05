@@ -30,7 +30,7 @@ define( require => {
 
       const options = {
 
-        // superclass options
+        // Screen options
         name: screenStandardFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQIconFactory.createStandardFormScreenIcon(),

@@ -29,7 +29,7 @@ define( require => {
 
       const options = {
 
-        // superclass options
+        // Screen options
         name: screenVertexFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQIconFactory.createVertexFormScreenIcon(),
