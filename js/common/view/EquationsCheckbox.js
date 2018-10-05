@@ -31,12 +31,12 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const label = new Text( equationsString, {
+      const content = new Text( equationsString, {
         font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ) ,
         maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
       } );
 
-      super( label, equationsVisibleProperty, options );
+      super( content, equationsVisibleProperty, options );
     }
   }
 

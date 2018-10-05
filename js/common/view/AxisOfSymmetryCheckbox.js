@@ -34,7 +34,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const label = new HBox( {
+      const content = new HBox( {
         align: 'center',
         spacing: GQConstants.CHECKBOX_ICON_SPACING,
         children: [
@@ -54,7 +54,7 @@ define( require => {
         ]
       } );
 
-      super( label, axisOfSymmetryVisibleProperty, options );
+      super( content, axisOfSymmetryVisibleProperty, options );
     }
   }
 

@@ -31,12 +31,12 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const label = new Text( coordinatesString, {
+      const content = new Text( coordinatesString, {
         font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ),
         maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
       } );
 
-      super( label, coordinatesVisibleProperty, options );
+      super( content, coordinatesVisibleProperty, options );
     }
   }
 
