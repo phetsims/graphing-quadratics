@@ -28,7 +28,7 @@ define( require => {
     constructor( vertexVisibleProperty, options ) {
 
       options = _.extend( {
-        manipulatorIcon: false,
+        manipulatorIcon: false, // true: icon is a shaded manipulator, false: icon is a flat point
         tandem: Tandem.required
       }, options );
 
