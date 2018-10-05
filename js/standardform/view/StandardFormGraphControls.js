@@ -37,6 +37,7 @@ define( require => {
 
       // checkboxes
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
+        manipulatorIcon: false,
         tandem: options.tandem.createTandem( 'vertexCheckbox' )
       } );
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty, {
