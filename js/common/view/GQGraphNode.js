@@ -48,8 +48,8 @@ define( require => {
           lineWidth: GQConstants.INTERACTIVE_LINE_WIDTH
         } );
 
-      // Parent for saved quadratic, to maintain rendering order
-      const savedQuadraticLayer = new Node();
+      // {QuadraticNode|null} the saved line
+      let savedLineNode = null;
 
       // Parent for other lines, e.g. quadratic terms, directrix, axis of symmetry
       const otherLinesLayer = new Node( { children: options.otherLines } );
@@ -65,7 +65,7 @@ define( require => {
           model.graph.xRange.getLength(),
           model.graph.yRange.getLength()
         ).transformed( model.modelViewTransform.getMatrix() ),
-        children: [ savedQuadraticLayer, otherLinesLayer, interactiveQuadraticNode ]
+        children: [ otherLinesLayer, interactiveQuadraticNode ]
       } );
 
       // Everything that's on the graph
@@ -79,9 +79,12 @@ define( require => {
 
       // When a quadratic is saved...
       model.savedQuadraticProperty.link( savedQuadratic => {
-        savedQuadraticLayer.removeAllChildren();
+
+        // remove any previous line
+        savedLineNode && allLinesParent.removeChild( savedLineNode );
+
         if ( savedQuadratic ) {
-          savedQuadraticLayer.addChild( new QuadraticNode(
+          savedLineNode = new QuadraticNode(
             new Property( savedQuadratic ),
             model.graph.xRange,
             model.graph.yRange,
@@ -89,8 +92,18 @@ define( require => {
             viewProperties.equationForm,
             viewProperties.equationsVisibleProperty, {
               lineWidth: GQConstants.SAVED_LINE_WIDTH
-            } ) );
+            } );
+
+          // Add it in the foreground, so the user can see it.
+          // See https://github.com/phetsims/graphing-quadratics/issues/36
+          allLinesParent.addChild( savedLineNode );
         }
+      } );
+
+      // When quadraticProperty changes, move saved line to background.
+      // See https://github.com/phetsims/graphing-quadratics/issues/36
+      model.quadraticProperty.link( quadratic => {
+        savedLineNode && savedLineNode.moveToBack();
       } );
 
       // Show/hide the graph contents
