@@ -96,7 +96,7 @@ define( require => {
       } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
-      // @private
+      // add drag handler
       this.addInputListener( new FocusDragHandler( pProperty, quadraticProperty, graph.yRange, modelViewTransform,
         options.interval, options.tandem.createTandem( 'dragHandler' ) ) );
     }

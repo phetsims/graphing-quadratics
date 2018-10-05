@@ -101,7 +101,7 @@ define( require => {
       } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
-      // @private
+      // add drag handler
       this.addInputListener( new VertexDragHandler( hProperty, kProperty, modelViewTransform,
         options.tandem.createTandem( 'dragHandler' ) ) );
     }

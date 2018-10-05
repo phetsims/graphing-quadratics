@@ -89,7 +89,7 @@ define( require => {
       pointOnQuadraticVisibleProperty.link( visible => { this.visible = visible; } );
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
-      // @private
+      // add drag handler
       this.addInputListener( new PointOnQuadraticDragHandler( pointOnQuadraticProperty, quadraticProperty,
         modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragHandler' ) ) );
     }
