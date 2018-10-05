@@ -66,7 +66,7 @@ define( require => {
         foregroundColor: 'white',
         backgroundColor: GQColors.VERTEX,
         decimals: GQConstants.VERTEX_DECIMALS,
-        maxWidth: 60 // determined empirically
+        maxWidth: GQConstants.COORDINATES_MAX_WIDTH
       } );
 
       assert && assert( !options.children, 'VertexNode sets children' );

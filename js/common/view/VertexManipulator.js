@@ -68,7 +68,7 @@ define( require => {
         backgroundColor: GQColors.VERTEX,
         decimals: GQConstants.VERTEX_DECIMALS,
         pickable: false,
-        maxWidth: 60 // determined empirically
+        maxWidth: GQConstants.COORDINATES_MAX_WIDTH
       } );
       this.addChild( coordinatesNode );
 

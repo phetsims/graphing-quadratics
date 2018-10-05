@@ -113,7 +113,10 @@ define( require => {
     EQUATION_Y_MARGIN: 0.5, // distance between equation and top/bottom edges of graph, in model coordinate frame
 
     // space between equation and the line it labels, in view coordinate frame
-    EQUATION_SPACING: 5
+    EQUATION_SPACING: 5,
+
+    // maxWidth for all coordinates display (CoordinateNode instances)
+    COORDINATES_MAX_WIDTH: 100
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );
