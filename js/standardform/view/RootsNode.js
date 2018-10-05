@@ -27,7 +27,7 @@ define( require => {
   const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // constants
-  const X_SPACING = 15;
+  const X_SPACING = 15; // between root point and its coordinates display
 
   class RootsNode extends Node {
 
@@ -52,8 +52,8 @@ define( require => {
         fill: GQColors.ROOTS,
         center: modelViewTransform.modelToViewXY( graph.xRange.getCenter(), graph.yRange.getCenter() )
       };
-      const leftPointNode = new Circle( options.radius, pointOptions );
-      const rightPointNode = new Circle( options.radius, pointOptions );
+      const leftRootNode = new Circle( options.radius, pointOptions );
+      const rightRootNode = new Circle( options.radius, pointOptions );
 
       // coordinates corresponding to the quadratic's left or single root (if it has roots)
       const leftCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
@@ -77,22 +77,12 @@ define( require => {
         backgroundColor: GQColors.ROOTS,
         decimals: GQConstants.ROOTS_DECIMALS
       };
-      const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty,
-        _.extend( {}, coordinatesOptions, {
-          right: leftPointNode.left - X_SPACING
-        } ) );
-      const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty,
-        _.extend( {}, coordinatesOptions, {
-          left: rightPointNode.right + X_SPACING
-        } ) );
+      const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesOptions );
+      const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesOptions );
 
-      // group points and coordinates -- do not position these!
-      const leftRootNode = new Node( { 
-        children: [ leftPointNode, leftCoordinatesNode ]
-      } );
-      const rightRootNode = new Node( { 
-        children: [ rightPointNode, rightCoordinatesNode ]
-      } );
+      // decorate root with coordinates
+      leftRootNode.addChild( leftCoordinatesNode );
+      rightRootNode.addChild( rightCoordinatesNode );
 
       assert && assert( !options.children, 'RootsNode sets children' );
       options.children = [ leftRootNode, rightRootNode ];
@@ -111,21 +101,21 @@ define( require => {
           assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
 
           const leftRoot = roots[ 0 ];
-          leftPointNode.translation = modelViewTransform.modelToViewPosition( leftRoot );
+          leftRootNode.translation = modelViewTransform.modelToViewPosition( leftRoot );
           leftRootNode.visible = graph.contains( leftRoot );
 
           if ( roots.length === 2 ) {
             const rightRoot = roots[ 1 ];
             assert && assert( leftRoot.x < rightRoot.x, 'unexpected order of roots: ' + roots );
-            rightPointNode.translation = modelViewTransform.modelToViewPosition( rightRoot );
+            rightRootNode.translation = modelViewTransform.modelToViewPosition( rightRoot );
             rightRootNode.visible = graph.contains( rightRoot );
           }
 
           // position coordinates to left and right of roots
-          leftCoordinatesNode.right = leftPointNode.left - X_SPACING;
-          leftCoordinatesNode.centerY = leftPointNode.centerY;
-          rightCoordinatesNode.left = rightPointNode.right + X_SPACING;
-          rightCoordinatesNode.centerY = rightPointNode.centerY;
+          leftCoordinatesNode.right = -( options.radius + X_SPACING );
+          leftCoordinatesNode.centerY = 0;
+          rightCoordinatesNode.left = options.radius + X_SPACING;
+          rightCoordinatesNode.centerY = 0;
         }
       } );
 
