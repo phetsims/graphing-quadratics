@@ -80,7 +80,7 @@ define( require => {
       // When a quadratic is saved...
       model.savedQuadraticProperty.link( savedQuadratic => {
 
-        // remove any previous line
+        // remove any previous saved line
         savedLineNode && allLinesParent.removeChild( savedLineNode );
         savedLineNode = null;
 
