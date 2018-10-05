@@ -49,8 +49,7 @@ define( require => {
 
       // points
       const pointOptions = {
-        fill: GQColors.ROOTS,
-        center: modelViewTransform.modelToViewXY( graph.xRange.getCenter(), graph.yRange.getCenter() )
+        fill: GQColors.ROOTS
       };
       const leftRootNode = new Circle( options.radius, pointOptions );
       const rightRootNode = new Circle( options.radius, pointOptions );
@@ -75,7 +74,8 @@ define( require => {
       const coordinatesOptions = {
         foregroundColor: 'white',
         backgroundColor: GQColors.ROOTS,
-        decimals: GQConstants.ROOTS_DECIMALS
+        decimals: GQConstants.ROOTS_DECIMALS,
+        maxWidth: 60 // determined empirically
       };
       const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesOptions );
       const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesOptions );

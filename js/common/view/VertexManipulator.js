@@ -67,7 +67,8 @@ define( require => {
         foregroundColor: 'white',
         backgroundColor: GQColors.VERTEX,
         decimals: GQConstants.VERTEX_DECIMALS,
-        pickable: false
+        pickable: false,
+        maxWidth: 60 // determined empirically
       } );
       this.addChild( coordinatesNode );
 

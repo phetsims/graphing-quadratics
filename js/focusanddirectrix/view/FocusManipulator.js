@@ -65,7 +65,8 @@ define( require => {
         foregroundColor: 'white',
         backgroundColor: GQColors.FOCUS,
         decimals: GQConstants.FOCUS_DECIMALS,
-        pickable: false
+        pickable: false,
+        maxWidth: 60 // determined empirically
       } );
       this.addChild( coordinatesNode );
 
