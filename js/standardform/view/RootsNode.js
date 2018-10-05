@@ -47,13 +47,10 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      // view origin, to give everything an initial position that is on the graph
-      const defaultViewPosition = modelViewTransform.modelToViewXY( graph.xRange.getCenter(), graph.yRange.getCenter() );
-
       // points
       const pointOptions = {
         fill: GQColors.ROOTS,
-        center: defaultViewPosition
+        center: modelViewTransform.modelToViewXY( graph.xRange.getCenter(), graph.yRange.getCenter() )
       };
       const leftPointNode = new Circle( options.radius, pointOptions );
       const rightPointNode = new Circle( options.radius, pointOptions );
@@ -78,20 +75,23 @@ define( require => {
       const coordinatesOptions = {
         foregroundColor: 'white',
         backgroundColor: GQColors.ROOTS,
-        decimals: GQConstants.ROOTS_DECIMALS,
-        center: defaultViewPosition
+        decimals: GQConstants.ROOTS_DECIMALS
       };
-      const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesOptions );
-      const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesOptions );
+      const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty,
+        _.extend( {}, coordinatesOptions, {
+          right: leftPointNode.left - X_SPACING
+        } ) );
+      const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty,
+        _.extend( {}, coordinatesOptions, {
+          left: rightPointNode.right + X_SPACING
+        } ) );
 
-      // group points and coordinates
+      // group points and coordinates -- do not position these!
       const leftRootNode = new Node( { 
-        children: [ leftPointNode, leftCoordinatesNode ],
-        center: defaultViewPosition
+        children: [ leftPointNode, leftCoordinatesNode ]
       } );
       const rightRootNode = new Node( { 
-        children: [ rightPointNode, rightCoordinatesNode ],
-        center: defaultViewPosition
+        children: [ rightPointNode, rightCoordinatesNode ]
       } );
 
       assert && assert( !options.children, 'RootsNode sets children' );
