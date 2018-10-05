@@ -36,6 +36,8 @@ define( require => {
     constructor( viewProperties, options ) {
 
       options = _.extend( {
+
+        // AccordionBox options
         titleAlignX: 'left',
         titleXSpacing: 8,
         tandem: Tandem.required
