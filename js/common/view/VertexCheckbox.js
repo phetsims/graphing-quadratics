@@ -9,21 +9,17 @@ define( require => {
   'use strict';
 
   // modules
-  const Checkbox = require( 'SUN/Checkbox' );
+  const CheckboxWithTextAndIcon = require( 'GRAPHING_QUADRATICS/common/view/CheckboxWithTextAndIcon' );
   const Circle = require( 'SCENERY/nodes/Circle' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Tandem = require( 'TANDEM/Tandem' );
-  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
   const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
 
-  class VertexCheckbox extends Checkbox {
+  class VertexCheckbox extends CheckboxWithTextAndIcon {
 
     /**
      * @param {BooleanProperty} vertexVisibleProperty
@@ -36,25 +32,11 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      const content = new HBox( {
-        align: 'center',
-        spacing: GQConstants.CHECKBOX_ICON_SPACING,
-        children: [
+      const icon = ( options.manipulatorIcon ) ?
+                   new Manipulator( 8, GQColors.VERTEX, { haloAlpha: 0, pickable: false } ) :
+                   new Circle( 6, { fill: GQColors.VERTEX } );
 
-          // text
-          new Text( vertexString, {
-            font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ),
-            maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
-          } ),
-
-          // icon
-          ( options.manipulatorIcon ) ?
-          new Manipulator( 8, GQColors.VERTEX, { haloAlpha: 0, pickable: false } ) :
-          new Circle( 6, { fill: GQColors.VERTEX } )
-        ]
-      } );
-
-      super( content, vertexVisibleProperty, options );
+      super( vertexString, icon, vertexVisibleProperty, options );
     }
   }
 
