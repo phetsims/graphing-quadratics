@@ -36,7 +36,6 @@ define( require => {
     constructor( viewProperties, options ) {
 
       options = _.extend( {
-        expandedProperty: viewProperties.quadraticTermsAccordionBoxExpandedProperty,
         titleAlignX: 'left',
         titleXSpacing: 8,
         tandem: Tandem.required

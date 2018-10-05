@@ -35,10 +35,12 @@ define( require => {
       super( model,
         viewProperties,
         new ExploreGraphNode( model, viewProperties ),
-        new ExploreAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, {
+        new ExploreAccordionBox( model, {
+          expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: tandem.createTandem( 'equationAccordionBox' )
         } ),
         new QuadraticTermsAccordionBox( viewProperties, {
+          expandedProperty: viewProperties.quadraticTermsAccordionBoxExpandedProperty,
           tandem: tandem.createTandem( 'quadraticTermsAccordionBox' )
         } ),
         options

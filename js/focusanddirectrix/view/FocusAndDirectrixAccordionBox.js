@@ -19,16 +19,16 @@ define( require => {
 
     /**
      * @param {VertexFormModel} model
-     * @param {BooleanProperty} expandedProperty
      * @param {Object} [options]
      */
-    constructor( model, expandedProperty, options ) {
+    constructor( model, options ) {
 
       options = _.extend( {
         tandem: Tandem.required
       }, options );
 
-      const titleNode = new FocusAndDirectrixEquationNode( {
+      assert && assert( !options.titleNode, 'FocusAndDirectrixAccordionBox sets titleNode' );
+      options.titleNode = new FocusAndDirectrixEquationNode( {
         maxWidth: 225, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
@@ -37,7 +37,7 @@ define( require => {
         tandem: options.tandem.createTandem( 'content' )
       } );
 
-      super( model, expandedProperty, titleNode, content, options );
+      super( model, content, options );
     }
   }
 

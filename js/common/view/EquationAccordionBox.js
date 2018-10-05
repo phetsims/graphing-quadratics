@@ -22,25 +22,17 @@ define( require => {
 
     /**
      * @param {ExploreModel} model
-     * @param {BooleanProperty} expandedProperty
-     * @param {Node} titleNode
      * @param {Node} content
      * @param {Object} [options]
      * @abstract
      */
-    constructor( model, expandedProperty, titleNode, content, options ) {
+    constructor( model, content, options ) {
 
       options = _.extend( {
         tandem: Tandem.required
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
-      assert && assert( !options.expandedProperty, 'EquationAccordionBox sets expandedProperty' );
-      options.expandedProperty = expandedProperty;
-
-      assert && assert( !options.titleNode, 'EquationAccordionBox sets titleNode' );
-      options.titleNode = titleNode;
-
-      const saveEraseButtons = new SaveEraseButtons( 
+      const saveEraseButtons = new SaveEraseButtons(
         model.saveQuadratic.bind( model ), 
         model.eraseQuadratic.bind( model ),
         model.savedQuadraticProperty, {

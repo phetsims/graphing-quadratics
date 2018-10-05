@@ -29,17 +29,18 @@ define( require => {
       };
 
       const viewProperties = new StandardFormViewProperties( {
-        tandem: options.tandem.createTandem( 'viewProperties')
+        tandem: options.tandem.createTandem( 'viewProperties' )
       } );
 
       super( model,
         viewProperties,
         new StandardFormGraphNode( model, viewProperties, tandem ),
-        new StandardFormAccordionBox( model, viewProperties.equationAccordionBoxExpandedProperty, {
-          tandem: options.tandem.createTandem( 'equationAccordionBox')
+        new StandardFormAccordionBox( model, {
+          expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
+          tandem: options.tandem.createTandem( 'equationAccordionBox' )
         } ),
         new StandardFormGraphControls( viewProperties, {
-          tandem: options.tandem.createTandem( 'graphControls')
+          tandem: options.tandem.createTandem( 'graphControls' )
         } ),
         options
       );
