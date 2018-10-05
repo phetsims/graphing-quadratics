@@ -33,7 +33,8 @@ define( require => {
 
       const textNode = new Text( noRealRootsString, {
         font: new PhetFont( { size: 18, weight: 'bold' } ),
-        fill: 'white'
+        fill: 'white',
+        maxWidth: 300 // determined empirically
       } );
 
       const backgroundNode = new Rectangle( textNode.bounds.dilatedXY( 5, 1 ), {
