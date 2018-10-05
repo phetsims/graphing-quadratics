@@ -2,7 +2,7 @@
 
 Different screens use different forms of the quadratic equation.
 
-_Explore_ and _Standard Form_ screens use the standard form:
+_Explore_ and _Standard Form_ screens use the standard form (sometimes referred to as general form):
 
 _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 
