@@ -112,8 +112,8 @@ define( require => {
 
     /**
      * Drag handler for vertex.
-     * @param {NumberProperty} hProperty
-     * @param {NumberProperty} kProperty
+     * @param {NumberProperty} hProperty - h coefficient of vertex form
+     * @param {NumberProperty} kProperty - k coefficient of vertex form
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Tandem} tandem
      */
