@@ -42,6 +42,7 @@ define( require => {
         tandem: Tandem.required
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
+      // AccordionBox title
       assert && assert( !options.titleNode, 'QuadraticTermsAccordionBox sets titleNode' );
       options.titleNode = new Text( quadraticTermsString, {
         font: new PhetFont( GQConstants.TITLE_FONT_SIZE ),
