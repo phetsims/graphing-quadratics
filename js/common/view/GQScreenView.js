@@ -36,6 +36,8 @@ define( require => {
     constructor( model, viewProperties, graphNode, equationControls, graphControls, options ) {
 
       options = _.extend( {
+
+        // ScreenView options
         layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,
         tandem: Tandem.required
       }, options );
