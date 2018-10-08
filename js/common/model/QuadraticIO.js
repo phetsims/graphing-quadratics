@@ -40,6 +40,7 @@ define( require => {
      * @param {Quadratic} quadratic
      * @returns {*}
      * @public
+     * @override
      */
     toStateObject: function( quadratic ) {
       assert && assertInstanceOf( quadratic, Quadratic );
@@ -51,6 +52,7 @@ define( require => {
      * @param {*} object
      * @returns {Quadratic}
      * @public
+     * @override
      */
     fromStateObject: function( object ) {
       return Quadratic.fromStateObject( object );
