@@ -30,9 +30,6 @@ define( require => {
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
 
-  // constants
-  const EPSILON = 0.01;  // how close is considered to be "on" the quadratic
-
   class Quadratic {
 
     /**
@@ -286,11 +283,13 @@ define( require => {
     /**
      * Does a specified point lie on this quadratic?
      * @param {Vector2} point
+     * @param {number} epsilon - how close is considered to be "on" the quadratic
      * @returns {boolean}
      * @public
      */
-    isOnQuadratic( point ) {
-      return ( Math.abs( this.solveY( point.x ) - point.y ) < EPSILON );
+    isOnQuadratic( point, epsilon ) {
+      assert && assert( epsilon >= 0, 'invalid epsilon: ' + epsilon );
+      return ( Math.abs( this.solveY( point.x ) - point.y ) < epsilon );
     }
 
     /**

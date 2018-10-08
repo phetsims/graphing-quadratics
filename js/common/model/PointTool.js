@@ -24,6 +24,7 @@ define( require => {
 
   // constants
   const PROBE_SIDES = [ 'right', 'left' ];
+  const SNAP_DISTANCE = 0.5; // snap to quadratic when <= this distance from the quadratic, in model coordinates
 
   class PointTool {
 
@@ -47,6 +48,7 @@ define( require => {
       this.quadratics = quadratics;
       this.probeSide = options.probeSide;
       this.dragBounds = options.dragBounds;
+      this.snapDistance = SNAP_DISTANCE;
 
       // @public {Vector2}
       this.locationProperty = new Property( options.location, {
@@ -61,7 +63,7 @@ define( require => {
         ( location, length ) => {
           for ( let i = 0; i < length; i++ ) {
             let quadratic = quadratics.get( i );
-            if ( quadratic.isOnQuadratic( this.locationProperty.value ) ) {
+            if ( quadratic.isOnQuadratic( this.locationProperty.value, this.snapDistance ) ) {
               return quadratic;
             }
           }

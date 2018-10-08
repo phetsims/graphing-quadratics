@@ -39,7 +39,6 @@ define( require => {
 
   // constants
   const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of pointToolLeftImage
-  const SNAP_DISTANCE = 0.5; // snap to quadratic when <= this distance from the quadratic, in model coordinates
 
   class PointToolNode extends Node {
 
@@ -233,7 +232,7 @@ define( require => {
             for ( let i = 0; i < pointTool.quadratics.length && !snapped; i++ ) {
               const quadratic = pointTool.quadratics.get( i );
               const nearestPoint = quadratic.getClosestPoint( location );
-              if ( nearestPoint.distance( location ) < SNAP_DISTANCE ) {
+              if ( nearestPoint.distance( location ) < pointTool.snapDistance ) {
                 location = nearestPoint;
                 snapped = true;
               }
