@@ -74,6 +74,13 @@ define( require => {
 
       super( options );
 
+      // move to the vertex location
+       quadraticProperty.link( quadratic => {
+         if ( quadratic.vertex ) {
+           this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
+         }
+       } );
+
       // position coordinates on the outside of the parabola
       coordinatesProperty.link( coordinates => {
         coordinatesNode.centerX = pointNode.centerX;
@@ -85,20 +92,13 @@ define( require => {
         }
       } );
 
-      // move to the vertex location
-      quadraticProperty.link( quadratic => {
-        if ( quadratic.vertex ) {
-          this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
-        }
-      } );
-
+      // visibility
       Property.multilink( [ vertexVisibleProperty, quadraticProperty ],
         ( vertexVisible, quadratic ) => {
           this.visible = !!( vertexVisible &&
                              quadratic.vertex &&
                              graph.contains( quadratic.vertex ) );
         } );
-
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
     }
   }
