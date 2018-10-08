@@ -120,8 +120,12 @@ define( require => {
           const p = quadratic.getClosestPointInRange( x, xEquationRange, yEquationRange );
           assert && assert( xRange.contains( p.x ) && yRange.contains( p.y ), 'p is off the graph: ' + p );
 
+          // Width of the equation in model coordinates
+          const equationModelWidth = Math.abs( modelViewTransform.viewToModelDeltaX( equationNode.width ) );
+
           if ( options.preventVertexAndEquationOverlap &&
-               p.distance( quadratic.vertex ) <= Math.abs( modelViewTransform.viewToModelDeltaX( equationNode.width ) ) ) {
+               Math.abs( quadratic.a ) >= 0.75 && // a narrow parabola
+               p.distance( quadratic.vertex ) <= equationModelWidth ) {
 
             // When the equation and vertex are liable to overlap, place the equation (not rotated) to the left or right
             // of the parabola. See https://github.com/phetsims/graphing-quadratics/issues/39#issuecomment-426688827
