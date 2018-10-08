@@ -102,7 +102,7 @@ define( require => {
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
       // add drag handler
-      this.addInputListener( new VertexDragHandler( hProperty, kProperty, modelViewTransform,
+      this.addInputListener( new VertexDragHandler( hProperty, kProperty, graph, modelViewTransform,
         options.tandem.createTandem( 'dragHandler' ) ) );
     }
   }
@@ -115,10 +115,11 @@ define( require => {
      * Drag handler for vertex.
      * @param {NumberProperty} hProperty - h coefficient of vertex form
      * @param {NumberProperty} kProperty - k coefficient of vertex form
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Tandem} tandem
      */
-    constructor( hProperty, kProperty, modelViewTransform, tandem ) {
+    constructor( hProperty, kProperty, graph, modelViewTransform, tandem ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -137,6 +138,9 @@ define( require => {
           // transform the drag point from view to model coordinate frame
           const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
+
+          // constrain to the graph
+          location = graph.constrain( location );
 
           // Setting h and k separately results in an intermediate Quadratic - live with it.
           // constrain to range and snap to grid
