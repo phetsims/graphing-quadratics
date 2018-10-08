@@ -2,7 +2,7 @@
 
 /**
  * Draws a quadratic curve, labeled with an equation.
- * Performance optimized to draw only what's visible.
+ * Performance is optimized to update only what's visible.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

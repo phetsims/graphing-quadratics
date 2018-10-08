@@ -2,6 +2,7 @@
 
 /**
  * Displays '(x, y)' coordinates.  If the coordinates are null, this displays '(?, ?)'.
+ * Performance is optimized to update only when visible.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
