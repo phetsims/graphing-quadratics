@@ -11,6 +11,7 @@ define( require => {
   'use strict';
 
   // modules
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
@@ -72,10 +73,20 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      // y offset of coordinates from manipulator
-      const coordinatesYOffset = 1.8 * radius;
+      // add drag handler
+      const dragHandler = new VertexDragHandler( hProperty, kProperty, graph, modelViewTransform,
+        options.tandem.createTandem( 'dragHandler' ) );
+      this.addInputListener( dragHandler );
+
+      // move the manipulator
+      quadraticProperty.link( quadratic => {
+        if ( quadratic.vertex ) {
+          this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
+        }
+      } );
 
       // position coordinates based on which way the parabola opens
+      const coordinatesYOffset = 1.8 * radius;
       coordinatesProperty.link( coordinates => {
         if ( coordinates ) {
           coordinatesNode.centerX = 0;
@@ -88,22 +99,18 @@ define( require => {
         }
       } );
 
-      // move the manipulator
-      quadraticProperty.link( quadratic => {
-        if ( quadratic.vertex ) {
-          this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
-        }
+      // visibility of this Node
+      const visibleProperty = new BooleanProperty( this.visible );
+      visibleProperty.link( visible => {
+        dragHandler.endDrag( null ); // cancel any drag that is in progress
+        this.visible = visible;
       } );
-
-      // visibility
       Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
-        this.visible = !!( vertexVisible && quadratic.vertex && graph.contains( quadratic.vertex ) );
+        visibleProperty.value = !!( vertexVisible && quadratic.vertex && graph.contains( quadratic.vertex ) );
       } );
-      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
-      // add drag handler
-      this.addInputListener( new VertexDragHandler( hProperty, kProperty, graph, modelViewTransform,
-        options.tandem.createTandem( 'dragHandler' ) ) );
+      // visibility of coordinates
+      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
     }
   }
 

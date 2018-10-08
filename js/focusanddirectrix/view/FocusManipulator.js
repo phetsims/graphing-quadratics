@@ -10,6 +10,7 @@ define( require => {
   'use strict';
 
   // modules
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
@@ -70,10 +71,19 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      // y offset of coordinates from manipulator
-      const coordinatesYOffset = 1.8 * radius;
+      // add drag handler
+      const dragHandler = new FocusDragHandler( pProperty, quadraticProperty, graph.yRange, modelViewTransform,
+        options.interval, options.tandem.createTandem( 'dragHandler' ) );
+      this.addInputListener( dragHandler );
+
+      // move the manipulator
+      quadraticProperty.link( quadratic => {
+        assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
+        this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
+      } );
 
       // position coordinates based on which way the parabola opens
+      const coordinatesYOffset = 1.8 * radius;
       coordinatesProperty.link( coordinates => {
         coordinatesNode.centerX = 0;
         if ( quadraticProperty.value.a > 0 ) {
@@ -84,21 +94,18 @@ define( require => {
         }
       } );
 
-      // move the manipulator
-      quadraticProperty.link( quadratic => {
-        assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
-        this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
+      // visibility of this Node
+      const visibleProperty = new BooleanProperty( this.visible );
+      visibleProperty.link( visible => {
+        dragHandler.endDrag( null ); // cancel any drag that is in progress
+        this.visible = visible;
       } );
-
-      // visibility
       Property.multilink( [ focusVisibleProperty, quadraticProperty ], ( focusVisible, quadratic ) => {
-        this.visible = !!( focusVisible && graph.contains( quadratic.focus ) );
+        visibleProperty.value = !!( focusVisible && graph.contains( quadratic.focus ) );
       } );
-      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
 
-      // add drag handler
-      this.addInputListener( new FocusDragHandler( pProperty, quadraticProperty, graph.yRange, modelViewTransform,
-        options.interval, options.tandem.createTandem( 'dragHandler' ) ) );
+      // visibility of coordinates
+      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
     }
   }
 

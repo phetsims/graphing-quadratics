@@ -66,10 +66,18 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      // x offset of coordinates from manipulator
-      const coordinatesXOffset = 1.8 * radius;
+      // add drag handler
+      const dragHandler = new PointOnQuadraticDragHandler( pointOnQuadraticProperty, quadraticProperty,
+        modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragHandler' ) );
+      this.addInputListener( dragHandler );
+
+      // move the manipulator
+      pointOnQuadraticProperty.link( pointOnQuadratic => {
+        this.translation = modelViewTransform.modelToViewPosition( pointOnQuadratic );
+      } );
 
       // position coordinates based on which side of the parabola the point is on
+      const coordinatesXOffset = 1.8 * radius;
       coordinatesProperty.link( coordinates => {
         const vertex = quadraticProperty.value.vertex;
         if ( !vertex || ( coordinates.x >= vertex.x ) ) {
@@ -81,17 +89,14 @@ define( require => {
         coordinatesNode.centerY = 0;
       } );
 
-      // move the manipulator
-      pointOnQuadraticProperty.link( pointOnQuadratic => {
-        this.translation = modelViewTransform.modelToViewPosition( pointOnQuadratic );
+      // visibility of this Node
+      pointOnQuadraticVisibleProperty.link( visible => {
+        dragHandler.endDrag( null ); // cancels any drag that is in progress
+        this.visible = visible;
       } );
 
-      pointOnQuadraticVisibleProperty.link( visible => { this.visible = visible; } );
+      // visibility of coordinates
       coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
-
-      // add drag handler
-      this.addInputListener( new PointOnQuadraticDragHandler( pointOnQuadraticProperty, quadraticProperty,
-        modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragHandler' ) ) );
     }
   }
 
