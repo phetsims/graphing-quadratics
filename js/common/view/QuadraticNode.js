@@ -117,14 +117,10 @@ define( require => {
           const p = quadratic.getClosestPointInRange( x, xEquationRange, yEquationRange );
           assert && assert( xRange.contains( p.x ) && yRange.contains( p.y ), 'p is off the graph: ' + p );
 
-          // If the equation gets crowded between the vertex and the edge of the graph...
-          // This was a problem on the 'Vertex Form' screen,
-          // see https://github.com/phetsims/graphing-quadratics/issues/21#issuecomment-425607873
-          const workaroundYMargin = 3.5; // model coordinates
-          if ( ( p.y > 0 && quadratic.vertex.y > yRange.max - workaroundYMargin ) ||
-               ( p.y < 0 && quadratic.vertex.y < yRange.min + workaroundYMargin ) ) {
+          if ( p.distance( quadratic.vertex ) <= Math.abs( modelViewTransform.viewToModelDeltaX( equationNode.width ) ) ) {
 
-            // Place the equation (not rotated) to the left or right of the parabola.
+            // When the equation and vertex are liable to overlap, place the equation (not rotated) to the left or right
+            // of the parabola. See https://github.com/phetsims/graphing-quadratics/issues/39#issuecomment-426688827
             equationParent.rotation = 0;
             equationParent.translation = modelViewTransform.modelToViewPosition( p );
             if ( p.x < quadratic.vertex.x ) {
