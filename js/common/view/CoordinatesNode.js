@@ -57,28 +57,69 @@ define( require => {
 
       super( options );
 
+      // @private needed by methods
+      // @private
+      this.coordinatesProperty = coordinatesProperty;
+      this.decimals = options.decimals;
+      this.xMargin = options.xMargin;
+      this.yMargin = options.yMargin;
+      this.foregroundNode =  foregroundNode;
+      this.backgroundNode =  backgroundNode;
+
       coordinatesProperty.link( coordinates => {
-
-        // coordinates
-        foregroundNode.text = StringUtils.fillIn( '({{x}}, {{y}})', {
-          x: coordinates ? Util.toFixedNumber( coordinates.x, options.decimals ) : coordinateUnknownString,
-          y: coordinates ? Util.toFixedNumber( coordinates.y, options.decimals ) : coordinateUnknownString
-        } );
-
-        // resize background
-        backgroundNode.setRect( 0, 0,
-          foregroundNode.width + ( 2 * options.xMargin ), foregroundNode.height + ( 2 * options.yMargin ) );
-
-        // center coordinates in background
-        foregroundNode.center = backgroundNode.center;
+        if ( this.visible ) {
+          this.update( coordinates );
+        }
       } );
-
-      // @private used in methods
-      this.foregroundNode = foregroundNode;
-      this.backgroundNode = backgroundNode;
     }
 
+    /**
+     * Sets the foreground color, the color of the coordinates.
+     * @param {Color} color
+     * @public
+     */
     set foreground( color ) { this.foregroundNode.fill = color; }
+
+    /**
+     * Sets the background color, the color of the rectangle behind the coordinates.
+     * @param {Color} color
+     * @public
+     */
+    set background( color ) { this.backgroundNode.fill = color; }
+
+    /**
+     * Sets the visibility of this Node.  Update is deferred until this Node becomes visible.
+     * @param {boolean} visible
+     * @public
+     * @override
+     */
+    setVisible( visible ) {
+      super.setVisible( visible );
+      if ( visible ) {
+        this.update( this.coordinatesProperty.value );
+      }
+    }
+
+    /**
+     * Updates this Node.
+     * @param {Vector2} coordinates
+     * @private
+     */
+    update( coordinates ) {
+
+      // coordinates
+      this.foregroundNode.text = StringUtils.fillIn( '({{x}}, {{y}})', {
+        x: coordinates ? Util.toFixedNumber( coordinates.x, this.decimals ) : coordinateUnknownString,
+        y: coordinates ? Util.toFixedNumber( coordinates.y, this.decimals ) : coordinateUnknownString
+      } );
+
+      // resize background
+      this.backgroundNode.setRect( 0, 0,
+        this.foregroundNode.width + ( 2 * this.xMargin ), this.foregroundNode.height + ( 2 * this.yMargin ) );
+
+      // center coordinates in background
+      this.foregroundNode.center = this.backgroundNode.center;
+    }
   }
 
   return graphingQuadratics.register( 'CoordinatesNode', CoordinatesNode );
