@@ -103,6 +103,7 @@ define( require => {
       // Reset All Button
       const resetAllButton = new ResetAllButton( {
         listener: () => {
+          this.interruptSubtreeInput(); // interrupt all listeners for this screen
           model.reset();
           viewProperties.reset();
         },
