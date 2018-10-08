@@ -76,14 +76,14 @@ define( require => {
 
     /**
      * Sets the foreground color, the color of the coordinates.
-     * @param {Color} color
+     * @param {Color|string} color
      * @public
      */
     set foreground( color ) { this.foregroundNode.fill = color; }
 
     /**
      * Sets the background color, the color of the rectangle behind the coordinates.
-     * @param {Color} color
+     * @param {Color|string} color
      * @public
      */
     set background( color ) { this.backgroundNode.fill = color; }
