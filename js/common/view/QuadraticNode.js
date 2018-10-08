@@ -95,7 +95,9 @@ define( require => {
      */
     setVisible( visible ) {
       super.setVisible( visible );
-      this.update( this.quadraticProperty.value );
+      if ( visible ) {
+        this.update( this.quadraticProperty.value );
+      }
     }
 
     /**
