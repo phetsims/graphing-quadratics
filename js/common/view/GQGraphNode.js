@@ -28,6 +28,7 @@ define( require => {
     constructor( model, viewProperties, options ) {
 
       options = _.extend( {
+        preventVertexAndEquationOverlap: true, // prevent a parabola's vertex and equation from overlapping
         otherLines: [], // {Nodes[]}, other lines to be displayed (term, directrix,...) rendered in the order provided
         decorations: [] // {Node[]}, decorations (point, manipulators,...) rendered in the order provided
       }, options );
@@ -45,7 +46,8 @@ define( require => {
         model.modelViewTransform,
         viewProperties.equationForm,
         viewProperties.equationsVisibleProperty, {
-          lineWidth: GQConstants.INTERACTIVE_LINE_WIDTH
+          lineWidth: GQConstants.INTERACTIVE_LINE_WIDTH,
+          preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
         } );
 
       // {QuadraticNode|null} the saved line
@@ -92,7 +94,8 @@ define( require => {
             model.modelViewTransform,
             viewProperties.equationForm,
             viewProperties.equationsVisibleProperty, {
-              lineWidth: GQConstants.SAVED_LINE_WIDTH
+              lineWidth: GQConstants.SAVED_LINE_WIDTH,
+              preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
             } );
 
           // Add it in the foreground, so the user can see it.

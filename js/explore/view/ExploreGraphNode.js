@@ -24,10 +24,13 @@ define( require => {
      */
     constructor( model, viewProperties, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        preventVertexAndEquationOverlap: false // there is no vertex displayed on this screen
+      }, options );
 
       const termNodeOptions = {
-        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH
+        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH,
+        preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
       };
 
       // quadratic term, y = ax^2
