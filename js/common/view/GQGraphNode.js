@@ -111,7 +111,10 @@ define( require => {
       } );
 
       // Show/hide the graph contents
-      viewProperties.graphContentsVisibleProperty.link( visible => { contentParent.visible = visible; } );
+      viewProperties.graphContentsVisibleProperty.link( visible => {
+        contentParent.visible = visible;
+        !visible && decorationsLayer.interruptSubtreeInput(); // cancel interaction with graph contents
+      } );
     }
   }
 
