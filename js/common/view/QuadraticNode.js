@@ -2,6 +2,7 @@
 
 /**
  * Draws a quadratic curve, labeled with an equation.
+ * Performance optimized to draw only what's visible.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -48,7 +49,12 @@ define( require => {
       super( options );
 
       // @private
+      this.quadraticProperty = quadraticProperty;
+      this.xRange = xRange;
+      this.yRange = yRange;
       this.modelViewTransform = modelViewTransform;
+      this.equationForm = equationForm;
+      this.preventVertexAndEquationOverlap = options.preventVertexAndEquationOverlap;
 
       // @protected quadratic curve, y = ax^2 + bx + c
       this.quadraticPath = new Path( null, {
@@ -56,117 +62,155 @@ define( require => {
       } );
       this.addChild( this.quadraticPath );
 
-      // Makes positioning and rotating the equation a little easier to grok.
+      // @private Makes positioning and rotating the equation a little easier to grok.
       // equationParent will be rotated and translated, equationNode will be translated to adjusts spacing.
-      const equationParent = new Node();
-      this.addChild( equationParent );
+      this.equationParent = new Node();
+      this.addChild( this.equationParent );
 
-      // ranges for equation placement, just inside the edges of the graph
-      const xEquationRange =
+      // @private ranges for equation placement, just inside the edges of the graph
+      this.xEquationRange =
         new Range( xRange.min + GQConstants.EQUATION_X_MARGIN, xRange.max - GQConstants.EQUATION_X_MARGIN );
-      const yEquationRange =
+      this.yEquationRange =
         new Range( yRange.min + GQConstants.EQUATION_Y_MARGIN, yRange.max - GQConstants.EQUATION_Y_MARGIN );
 
       quadraticProperty.link( quadratic => {
-
-        // update shape
-        const bezierControlPoints = quadratic.getControlPoints( xRange );
-        this.quadraticPath.shape = new Shape()
-          .moveToPoint( bezierControlPoints.startPoint )
-          .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
-          .transformed( modelViewTransform.getMatrix() );
-
-        // update color
-        this.quadraticPath.stroke = quadratic.color;
-
-        // update equation
-        equationParent.removeAllChildren();
-        let equationNode = null;
-        if ( equationForm === 'standard' ) {
-          equationNode = GQEquationFactory.createStandardForm( quadratic );
-        }
-        else {
-          equationNode = GQEquationFactory.createVertexForm( quadratic );
-        }
-        equationNode.maxWidth = 200; // determined empirically
-        equationParent.addChild( equationNode );
-
-        // if ?dev, display a black dot at the equation's origin, for debugging positioning
-        if ( phet.chipper.queryParameters.dev ) {
-          equationParent.addChild( new Circle( 3, { fill: 'black' } ) );
-        }
-
-        // Position the equation.
-        if ( quadratic.a === 0 ) {
-
-          // straight line: equation above left end of line
-          const x = xEquationRange.min;
-          const p = quadratic.getClosestPointInRange( x, xEquationRange, yEquationRange );
-          assert && assert( xRange.contains( p.x ) && yRange.contains( p.y ), 'p is off the graph: ' + p );
-
-          // rotate to match line's slope
-          equationParent.rotation = -Math.atan( quadratic.b );
-
-          // move equation to (x,y)
-          equationParent.translation = modelViewTransform.modelToViewPosition( p );
-
-          // space between line and equation
-          equationNode.bottom = -GQConstants.EQUATION_SPACING;
-        }
-        else {
-
-          // parabola: pick a point on the parabola, at the edge of the graph
-          const x = ( quadratic.vertex.x >= 0 ) ? xEquationRange.min : xEquationRange.max;
-          const p = quadratic.getClosestPointInRange( x, xEquationRange, yEquationRange );
-          assert && assert( xRange.contains( p.x ) && yRange.contains( p.y ), 'p is off the graph: ' + p );
-
-          // Width of the equation in model coordinates
-          const equationModelWidth = Math.abs( modelViewTransform.viewToModelDeltaX( equationNode.width ) );
-
-          if ( options.preventVertexAndEquationOverlap &&
-               Math.abs( quadratic.a ) >= 0.75 && // a narrow parabola
-               p.distance( quadratic.vertex ) <= equationModelWidth ) {
-
-            // When the equation and vertex are liable to overlap, place the equation (not rotated) to the left or right
-            // of the parabola. See https://github.com/phetsims/graphing-quadratics/issues/39#issuecomment-426688827
-            equationParent.rotation = 0;
-            equationParent.translation = modelViewTransform.modelToViewPosition( p );
-            if ( p.x < quadratic.vertex.x ) {
-              equationNode.right = -GQConstants.EQUATION_SPACING;
-            }
-            else {
-              equationNode.left = GQConstants.EQUATION_SPACING;
-            }
-            if ( p.y < 0 ) {
-              equationNode.bottom = 0;
-            }
-          }
-          else {
-
-            // Place the equation on outside of the parabola, parallel to tangent, at the edge of the graph.
-            // rotate to match tangent's slope
-            equationParent.rotation = -Math.atan( quadratic.getTangentSlope( p.x ) );
-
-            // move equation to (x,y)
-            equationParent.translation = modelViewTransform.modelToViewPosition( p );
-
-            // when equation is on the right side of parabola, move it's origin to the right end of the equation
-            if ( p.x > quadratic.vertex.x ) {
-              equationNode.right = 0;
-            }
-
-            // space between line and equation
-            if ( quadratic.a >= 0 ) {
-              equationNode.top = GQConstants.EQUATION_SPACING;
-            }
-            else {
-              equationNode.bottom = -GQConstants.EQUATION_SPACING;
-            }
-          }
+        if ( this.visible ) {
+          this.update( quadratic );
         }
       } );
 
-      equationsVisibleProperty.link( visible => { equationParent.visible = visible; } );
+      equationsVisibleProperty.link( visible => {
+        this.equationParent.visible = visible;
+        if ( visible ) {
+          this.updateEquation( this.quadraticProperty.value );
+        }
+      } );
+    }
+
+    /**
+     * Sets the visibility of this Node.  Update is deferred until this Node becomes visible.
+     * @param {boolean} visible
+     * @public
+     * @override
+     */
+    setVisible( visible ) {
+      super.setVisible( visible );
+      this.update( this.quadraticProperty.value );
+    }
+
+    /**
+     * Updates this Node to display the specified quadratic.
+     * @param {Quadratic} quadratic
+     * @private
+     */
+    update( quadratic ) {
+      
+      // update shape
+      const bezierControlPoints = quadratic.getControlPoints( this.xRange );
+      this.quadraticPath.shape = new Shape()
+        .moveToPoint( bezierControlPoints.startPoint )
+        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
+        .transformed( this.modelViewTransform.getMatrix() );
+
+      // update color
+      this.quadraticPath.stroke = quadratic.color;
+
+      // update equation
+      this.updateEquation( quadratic );
+    }
+
+    /**
+     * Updates the equation displayed on the quadratic.
+     * @param {Quadratic} quadratic
+     * @private
+     */
+    updateEquation( quadratic ) {
+
+      this.equationParent.removeAllChildren();
+
+      let equationNode = null;
+      if ( this.equationForm === 'standard' ) {
+        equationNode = GQEquationFactory.createStandardForm( quadratic );
+      }
+      else {
+        equationNode = GQEquationFactory.createVertexForm( quadratic );
+      }
+      equationNode.maxWidth = 200; // determined empirically
+      this.equationParent.addChild( equationNode );
+
+      // if ?dev, display a black dot at the equation's origin, for debugging positioning
+      if ( phet.chipper.queryParameters.dev ) {
+        this.equationParent.addChild( new Circle( 3, { fill: 'black' } ) );
+      }
+
+      // Position the equation.
+      if ( quadratic.a === 0 ) {
+
+        // straight line: equation above left end of line
+        const x = this.xEquationRange.min;
+        const p = quadratic.getClosestPointInRange( x, this.xEquationRange, this.yEquationRange );
+        assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), 'p is off the graph: ' + p );
+
+        // rotate to match line's slope
+        this.equationParent.rotation = -Math.atan( quadratic.b );
+
+        // move equation to (x,y)
+        this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
+
+        // space between line and equation
+        equationNode.bottom = -GQConstants.EQUATION_SPACING;
+      }
+      else {
+
+        // parabola: pick a point on the parabola, at the edge of the graph
+        const x = ( quadratic.vertex.x >= 0 ) ? this.xEquationRange.min : this.xEquationRange.max;
+        const p = quadratic.getClosestPointInRange( x, this.xEquationRange, this.yEquationRange );
+        assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), 'p is off the graph: ' + p );
+
+        // Width of the equation in model coordinates
+        const equationModelWidth = Math.abs( this.modelViewTransform.viewToModelDeltaX( equationNode.width ) );
+
+        if ( this.preventVertexAndEquationOverlap &&
+             Math.abs( quadratic.a ) >= 0.75 && // a narrow parabola
+             p.distance( quadratic.vertex ) <= equationModelWidth ) {
+
+          // When the equation and vertex are liable to overlap, place the equation (not rotated) to the left or right
+          // of the parabola. See https://github.com/phetsims/graphing-quadratics/issues/39#issuecomment-426688827
+          this.equationParent.rotation = 0;
+          this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
+          if ( p.x < quadratic.vertex.x ) {
+            equationNode.right = -GQConstants.EQUATION_SPACING;
+          }
+          else {
+            equationNode.left = GQConstants.EQUATION_SPACING;
+          }
+          if ( p.y < 0 ) {
+            equationNode.bottom = 0;
+          }
+        }
+        else {
+
+          // Place the equation on outside of the parabola, parallel to tangent, at the edge of the graph.
+          // rotate to match tangent's slope
+          this.equationParent.rotation = -Math.atan( quadratic.getTangentSlope( p.x ) );
+
+          // move equation to (x,y)
+          this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
+
+          // when equation is on the right side of parabola, move it's origin to the right end of the equation
+          if ( p.x > quadratic.vertex.x ) {
+            equationNode.right = 0;
+          }
+
+          // space between line and equation
+          if ( quadratic.a >= 0 ) {
+            equationNode.top = GQConstants.EQUATION_SPACING;
+          }
+          else {
+            equationNode.bottom = -GQConstants.EQUATION_SPACING;
+          }
+        }
+      }
     }
   }
 
