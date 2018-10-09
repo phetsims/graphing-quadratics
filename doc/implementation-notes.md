@@ -52,7 +52,7 @@ testing. Sim-specific query parameters are documented in
 
 **Assertions**: The implementation makes liberal use of `assert` to verify pre/post assumptions and perform argument validation. If you are making modifications to this sim, do so with assertions enabled via the `ea` query parameter.
 
-**Memory management**: Unless otherwise documented in the source code, assume that `unlink`, `removeListener`, `dispose`, etc. are generally not needed. Most object instances exist for the lifetime of the sim, and there are no dynamic objects that participate in observer-observable relationships.
+**Memory management**: Unless otherwise documented in the source code, assume that `unlink`, `removeListener`, `dispose`, etc. are generally not needed. Most object instances exist for the lifetime of the sim, and there are no dynamic objects that participate in observer-observable relationships. The exception is `QuadraticNode` for the saved curve.
 
 ## Related simulations
 
