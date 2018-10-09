@@ -7,6 +7,9 @@
  * vertex form: y = a(x - h)^2 + k
  * alternate vertex form: y = (1/(4p))(x - h)^2 + k
  *
+ * Note that this implementation supports only parabolas that open up or down.  It does not support parbolas that
+ * open left or right, which would be described by x = ay^2 + by + c.
+ *
  * Typically, a quadratic requires a !== 0. But this sim is required to support a === 0.
  * So there is some non-standard behavior herein that is not exactly mathematically correct.
  * Specifically:
