@@ -61,7 +61,7 @@ Note that this simulation supports _only_ parabolas that open up or down, i.e. h
 
 [GQModel](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/model/GQModel.js) is the base class for all model "containers".  It includes the model elements that are common to all screens.  Each screen has a subclass of GQModel that adds things that are specific to that screen. For example, [ExploreModel](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/model/ExploreModel.js) is the model container for the _Explore_ screen.
 
-[Quadratic](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/model/Quadratic.js) is the primary model element. It supports creation of a quadratic using standard form (via the constructor), vertex form (via `createFromVertexForm`) and alternate vertex form (via `createFromAlternateVertexForm`).
+[Quadratic](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/model/Quadratic.js) is the primary model element. It is essentially an immutable data structure that describes a quadratic equation. It supports creation of a quadratic using standard form (via the constructor), vertex form (via `createFromVertexForm`) and alternate vertex form (via `createFromAlternateVertexForm`).
 
 ## View
 
