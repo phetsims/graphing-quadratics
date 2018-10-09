@@ -37,7 +37,7 @@ This section describes how this simulation uses patterns that are generally comm
 testing. Sim-specific query parameters are documented in
 [GQQueryParameters](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/GQQueryParameters.js).
 
-**Assertions**: The implementation makes heavy use of `assert` to verify pre/post assumptions and perform type checking. If you are making modifications to this sim, do so with assertions enabled via the `ea` query parameter.
+**Assertions**: The implementation makes liberal use of `assert` to verify pre/post assumptions and perform argument validation. If you are making modifications to this sim, do so with assertions enabled via the `ea` query parameter.
 
 **Memory management**: Unless otherwise documented in the source code, assume that `unlink`, `removeListener`, `dispose`, etc. are generally not needed. Most object instances exist for the lifetime of the sim, and there are no dynamic objects that participate in observer-observable relationships.
 
