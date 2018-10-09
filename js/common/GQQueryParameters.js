@@ -2,6 +2,8 @@
 
 /**
  * Query parameters supported by this simulation.
+ *
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';
