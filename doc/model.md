@@ -6,7 +6,7 @@ _Explore_ and _Standard Form_ screens use standard form (sometimes referred to a
 
 _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 
-_Vertex Form_ screen uses vertex form, where the vertex is (_h_, _k_):
+_Vertex Form_ screen uses vertex form, where (_h_, _k_) is the vertex:
 
 _y_ = _a_(_x_ - _h_)<sup>2</sup> + _k_
 
