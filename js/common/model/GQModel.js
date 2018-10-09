@@ -40,13 +40,13 @@ define( require => {
      */
     constructor( quadraticProperty, tandem ) {
 
-      // @public
+      // @public {Property.<Quadratic>} the interactive quadratic
       this.quadraticProperty = quadraticProperty;
 
       // @public (read-only) graph
       this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
-      // @public
+      // @public {Property.<Quadratic|null>} the saved quadratic, null if nothing is saved
       this.savedQuadraticProperty = new Property( null, {
         isValidValue: value => ( value instanceof Quadratic || value === null ),
         tandem: tandem.createTandem( 'savedQuadraticProperty' ),
@@ -61,11 +61,15 @@ define( require => {
       this.modelViewTransform = ModelViewTransform2.createOffsetXYScaleMapping(
         GRAPH_ORIGIN_OFFSET,
         modelViewTransformScale,
-        -modelViewTransformScale // y is inverted
+        -modelViewTransformScale // y is inverted (+y is up in the model, +y is down in the view)
       );
       
-      // Quadratics that are visible to the point tools.
+      // {ObservableArray.<Quadratic>} Quadratics that are visible to the point tools.
       const pointToolQuadratics = new ObservableArray();
+
+      // @public {ObservableArray.<Quadratic>} optional quadratic terms to be displayed,
+      // in the order that they will be considered by point tools.
+      this.quadraticTerms = new ObservableArray();
 
       // @public (read-only)
       this.rightPointTool = new PointTool( pointToolQuadratics, {
@@ -88,9 +92,6 @@ define( require => {
         tandem: tandem.createTandem( 'leftPointTool' ),
         phetioDocumentation: 'the point tool whose probe is on the left side'
       } );
-
-      // @public optional quadratic terms to be displayed, in the order that they will be considered by point tools.
-      this.quadraticTerms = new ObservableArray();
 
       // @private Update pointToolQuadratics, in the order that they will be considered by point tools.
       Property.multilink( [ this.quadraticProperty, this.quadraticTerms.lengthProperty, this.savedQuadraticProperty ],

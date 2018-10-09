@@ -32,7 +32,7 @@ define( require => {
 
   return phetioInherit( ObjectIO, 'QuadraticIO', QuadraticIO, {}, {
 
-    // This appears in PhET-iO Studio
+    // @public This appears in PhET-iO Studio
     documentation: Quadratic.documentationQuadraticIO,
 
     /**

@@ -253,6 +253,7 @@ define( require => {
      * Gets the slope of the tangent line at point (x,f(x)) on the quadratic.
      * @param {number} x
      * @returns {number}
+     * @public
      */
     getTangentSlope( x ) {
       assert && assert( this.a !== 0, 'not supported for non-parabola' );
@@ -341,6 +342,7 @@ define( require => {
      * @param {Range} xRange
      * @param {Range} yRange
      * @returns {Vector2}
+     * @public
      */
     getClosestPointInRange( x, xRange, yRange ) {
 

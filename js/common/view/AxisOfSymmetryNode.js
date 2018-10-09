@@ -32,6 +32,7 @@ define( require => {
 
       super();
 
+      // the line
       const path = new Path( null, {
         stroke: GQColors.AXIS_OF_SYMMETRY,
         lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
@@ -39,7 +40,8 @@ define( require => {
       } );
       this.addChild( path );
 
-      let equationNode = null; // created below
+      // equation on the line, created below
+      let equationNode = null;
 
       const minY = modelViewTransform.modelToViewY( yRange.max );
       const maxY = modelViewTransform.modelToViewY( yRange.min );
