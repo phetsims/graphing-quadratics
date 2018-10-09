@@ -27,7 +27,7 @@ define( require => {
       }
     },
 
-    //TODO delete this after we decide whether to snap to grid
+    //TODO #47 delete this after we decide whether to snap to grid
     // Causes the point tool to snap to the graph's grid when it doesn't snap to a line.
     // For internal use only, not public facing.
     snapToGrid: {
