@@ -12,16 +12,16 @@ This section defines terminology that you'll see used throughout the internal an
 
 Standard terminology:
 
-constant term
-diretrix
-focus
-line
-linear term
-parabola
-quadratic term
-standard form
-vertex form
-vertex
+* constant term
+* diretrix
+* focus
+* line
+* linear term
+* parabola
+* quadratic term
+* standard form
+* vertex
+* vertex form
 
 PhET-specific terminology:
 
