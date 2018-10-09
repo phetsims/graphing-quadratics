@@ -6,6 +6,8 @@ The audience for this document is software developers who are familiar with Java
 
 Before reading this document, see [model.md](https://github.com/phetsims/graphing-quadratics/blob/master/doc/model.md), which provides a high-level description of the simulation model.
 
+You may also wish to review the design document for this sim, [Graphing Quadratics](https://docs.google.com/document/d/1wgxqGIhs37BLamT2Kpqnm1pswbrM4i6Hd9edGy3bNCg/edit), but note that is not necessarily up to date.
+
 ## Terminology
 
 This section defines terminology that you'll see used throughout the internal and external documentation.  There's no need to memorize this section; skim it once, refer back to it as you explore the implementation.
