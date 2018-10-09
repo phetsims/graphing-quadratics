@@ -67,4 +67,4 @@ TODO
 
 ## Related simulations
 
-This sim borrows a small number of model and view components from Graphing Lines. 
+This sim reuses a very small number of model and view components from Graphing Lines. Search for "GRAPHING_LINES/" to identify what is reused.
