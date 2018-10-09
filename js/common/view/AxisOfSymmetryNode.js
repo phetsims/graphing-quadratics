@@ -42,6 +42,7 @@ define( require => {
       // equation on the line, created below
       let equationNode = null;
 
+      // to improve readability
       const minY = modelViewTransform.modelToViewY( yRange.max );
       const maxY = modelViewTransform.modelToViewY( yRange.min );
 
