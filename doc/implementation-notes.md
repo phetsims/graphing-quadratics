@@ -55,8 +55,7 @@ testing. Sim-specific query parameters are documented in
 
 ## Model
 
-This section provides an overview of the most important model elements, and some miscellaneous topics
-related to the model.
+This section provides an overview of the most important model elements.
 
 Note that this simulation supports _only_ parabolas that open up or down, i.e. have the form _y_ = _ax_<sup>2</sup> + _bx_ + _c_.  It does not support parabolas that open left or right, i.e. have the form _x_ = _ay_<sup>2</sup> + _by_ + _c_.
 
@@ -66,8 +65,7 @@ Note that this simulation supports _only_ parabolas that open up or down, i.e. h
 
 ## View
 
-This section provides an overview of the most important view components, and some miscellaneous topics
-related to the view.
+This section provides an overview of the most important view components.
 
 [GQScreenView](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQScreenView.js) is the base class for all ScreenViews in this sim. It includes the view elements that are common to all screens, and it handles common layout responsibilities. Each screen has a subclass of GQScreenView that adds things that are specific to that screen. For example, [ExploreScreenView](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreScreenView.js) is the view for the _Explore_ screen.
 
