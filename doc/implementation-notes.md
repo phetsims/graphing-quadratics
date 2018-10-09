@@ -77,7 +77,7 @@ This section provides an overview of the most important view components.
 
 Each screen has a class whose name ends with "InteractiveEquationNode", for example, [ExploreInteractiveEquationNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreInteractiveEquationNode.js). This is the UI for modifying the interactive equation using sliders or pickers, depending on the screen.
 
-Each checkbox in this sim is a subclass of `SUN/Checkbox`, and is responsible for creating it's label, which often includes both text and an icon. You can locate a `Checkbox` subclass based on the English text used on checkbox. For example, `FocusCheckbox` is the checkbox labeled with "Focus" and a focus manipulator icon. 
+Each checkbox in this sim is a subclass of `SUN/Checkbox`, and is responsible for creating it's label, which often includes both text and an icon. You can locate a `Checkbox` subclass based on the English text used on checkbox. For example, [FocusCheckbox](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/FocusCheckbox.js) is the checkbox labeled with "Focus" and a focus manipulator icon. 
 
 ## Related simulations
 
