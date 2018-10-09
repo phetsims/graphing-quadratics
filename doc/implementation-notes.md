@@ -73,7 +73,7 @@ This section provides an overview of the most important view components.
 
 [GQGraphNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQGraphNode.js) is the base class for all graphs in this sim. Each screen has a subclass of `GQGraphNode` that adds things that are specific to that screen. For example, [ExploreGraphNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreGraphNode.js) is the graph for the _Explore_ screen.
 
-[GQEquationAccordionBox](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQEquationAccordionBox.js) is the base class for the accordion box that displays the interactive equation. Each screen has a subclass of EquationAccordionBox that adds things that are specific to that screen. For example, [ExploreGraphNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreGraphNode.js) is the graph for the _Explore_ screen.
+[GQEquationAccordionBox](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQEquationAccordionBox.js) is the base class for the accordion box that displays the interactive equation. Each screen has a subclass of EquationAccordionBox that adds things that are specific to that screen. For example, [ExploreGraphNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreGraphNode.js) is the equation accordion box for the _Explore_ screen.
 
 ## Related simulations
 
