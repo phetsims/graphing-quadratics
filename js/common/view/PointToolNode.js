@@ -112,18 +112,18 @@ define( require => {
         coordinatesNode.centerY = bodyNode.centerY;
       } );
 
-      Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
-        ( location, quadratic, graphContentsVisible ) => {
+      Property.multilink( [ pointTool.locationProperty, pointTool.snapQuadraticProperty, graphContentsVisibleProperty ],
+        ( location, snapQuadratic, graphContentsVisible ) => {
 
           // move to location
           this.translation = modelViewTransform.modelToViewPosition( location );
 
           // update colors
-          if ( graph.contains( location ) && quadratic && graphContentsVisible ) {
+          if ( graph.contains( location ) && snapQuadratic && graphContentsVisible ) {
 
-            // color code the display to the quadratic
+            // color code the display to snapQuadratic
             coordinatesNode.foreground = options.foregroundHighlightColor;
-            backgroundNode.fill = quadratic.color;
+            backgroundNode.fill = snapQuadratic.color;
           }
           else {
             coordinatesNode.foreground = options.foregroundNormalColor;

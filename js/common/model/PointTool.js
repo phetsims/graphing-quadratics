@@ -61,7 +61,7 @@ define( require => {
       } );
 
       // @public {DerivedProperty.<Quadratic|null>}
-      this.onQuadraticProperty = new DerivedProperty( [ this.locationProperty, quadratics.lengthProperty ],
+      this.snapQuadraticProperty = new DerivedProperty( [ this.locationProperty, quadratics.lengthProperty ],
         ( location, length ) => {
           for ( let i = 0; i < length; i++ ) {
             let quadratic = quadratics.get( i );
@@ -71,9 +71,9 @@ define( require => {
           }
           return null;
         }, {
-          tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
+          tandem: options.tandem.createTandem( 'snapQuadraticProperty' ),
           phetioType: DerivedPropertyIO( NullableIO( QuadraticIO ) ),
-          phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
+          phetioDocumentation: 'the quadratic that this point tool is snapped to, null if no quadratic'
         } );
     }
 
