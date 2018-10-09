@@ -16,7 +16,7 @@ Standard terminology:
 
 * axis of symmetry - line that intersects the vertex
 * constant term - the term _c_ of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
-* curve - generalization of a line, whose curvature need not be zero
+* curve - generalization of a line, whose curvature need not be zero (geometric definition)
 * directrix - a fixed line used in describing a curve or surface
 * focus - a point on the interior of a parabola, used in the formal definition of the curve
 * line - a straight curve (geometric definition)
@@ -31,12 +31,12 @@ Standard terminology:
 PhET-specific terminology:
 
 * alternative vertex form - see [model.md](https://github.com/phetsims/graphing-quadratics/blob/master/doc/model.md)
-* erase button - button with an eraser icon, used to erase the saved line
+* erase button - button with an eraser icon, used to erase the saved curve
 * graph contents - everything that is displayed on the graph, excluding the grid and axes
 * 'hide graph contents' button - button with an eyeball icon that shows/hides the graph contents
 * interactive quadratic - the quadratic that the user can interact with, via sliders, pickers, and/or manipulators
 * manipulator - shaded sphere that appears on the graph, used to change some aspect of the interactive quadratic
-* saved quadratic - a saved state of the interactive quadratic, appears on the graph as a gray line
+* saved curve - the saved state of the interactive quadratic, appears on the graph as a gray line
 * save button - button with a camera, used to create the saved quadratic
 
 ## Common Patterns
