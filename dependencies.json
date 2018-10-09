@@ -1,11 +1,11 @@
 {
-  "comment": "# graphing-quadratics 1.0.0-dev.29 Mon Oct 08 2018 21:17:55 GMT-0600 (MDT)",
+  "comment": "# graphing-quadratics 1.0.0-dev.30 Tue Oct 09 2018 13:14:47 GMT-0600 (MDT)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "master"
   },
   "axon": {
-    "sha": "45732a3eeee2563b3c57fb55a500ca0ac38e27db",
+    "sha": "d7097417204d4fe0cbc0b4c845a89bc8341ba40b",
     "branch": "master"
   },
   "brand": {
@@ -13,7 +13,7 @@
     "branch": "master"
   },
   "chipper": {
-    "sha": "fc2da2db7fe76eff6a4af53d498bdddc0b9140dd",
+    "sha": "f40326824430f4e9d7f20bd26abc1fc07496e7d7",
     "branch": "master"
   },
   "dot": {
@@ -25,11 +25,11 @@
     "branch": "master"
   },
   "graphing-quadratics": {
-    "sha": "a45b64131e0b8438da029363647a00879afefbe7",
+    "sha": "6ea30eccbab887b39523ebaf63a3dca9d55aedf8",
     "branch": "master"
   },
   "joist": {
-    "sha": "1e34f78e0889b9900c7ce2aa8b6916ee96859df4",
+    "sha": "1430c1d37a3c2701bf3395cd7255ec103c48de99",
     "branch": "master"
   },
   "kite": {
@@ -41,7 +41,7 @@
     "branch": "master"
   },
   "phet-io": {
-    "sha": "7469cf319f86c83cca331d21a250d647931d0c59",
+    "sha": "ed0f0ad593252a662d9ebd92a0aa064fa6dd5dd7",
     "branch": "master"
   },
   "phet-io-wrapper-classroom-activity": {
@@ -69,7 +69,7 @@
     "branch": "master"
   },
   "scenery": {
-    "sha": "9e455062063b207a422edeb8f5f545b871b9dbc4",
+    "sha": "bdb0ae44adcc88d5ab1b0386b6610ca85ff4c129",
     "branch": "master"
   },
   "scenery-phet": {
@@ -81,7 +81,7 @@
     "branch": "master"
   },
   "sun": {
-    "sha": "32e0de79dd3253e7e220f53e5385d2cb0ba59a86",
+    "sha": "deab1c9a625ec6c0ce82e3135775858373516cac",
     "branch": "master"
   },
   "tambo": {
