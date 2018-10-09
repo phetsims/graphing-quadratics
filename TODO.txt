@@ -1,4 +1,3 @@
 TODO list for graphing-quadratics
 
 #17 reentrant DynamicProperty in CoefficientSlider
-#45 test multi-touch
