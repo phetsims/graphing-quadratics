@@ -238,11 +238,6 @@ define( require => {
                 snapped = true;
               }
             }
-
-            // If we didn't snap to a quadratic, then snap to the graph's grid.
-            if ( !snapped && GQQueryParameters.snapToGrid ) {
-              location = new Vector2( Util.roundSymmetric( location.x ), Util.roundSymmetric( location.y ) );
-            }
           }
 
           pointTool.locationProperty.value = location;
