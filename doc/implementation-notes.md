@@ -37,11 +37,11 @@ PhET-specific terminology:
 * interactive quadratic - the quadratic that the user can interact with, via sliders, pickers, and/or manipulators
 * manipulator - shaded sphere that appears on the graph, used to change some aspect of the interactive quadratic
 * saved curve - the saved state of the interactive quadratic, appears on the graph as a gray line
-* save button - button with a camera, used to create the saved quadratic
+* save button - button with a camera icon, used to create the saved curve
 
 ## Common Patterns
 
-This section describes how this simulation uses patterns that are generally common to PhET simulations.
+This section describes how this simulation uses patterns that are common to PhET simulations.
 
 **Model-view transform**: This simulation has a model-view transform that maps from the graph (model) coordinate frame to the view coordinate frame. The origin (0,0) in the model cordinate frame is (not surprisingly) at the orgin of the graph.
 
