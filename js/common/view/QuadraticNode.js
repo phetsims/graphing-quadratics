@@ -73,18 +73,39 @@ define( require => {
       this.yEquationRange =
         new Range( yRange.min + GQConstants.EQUATION_Y_MARGIN, yRange.max - GQConstants.EQUATION_Y_MARGIN );
 
-      quadraticProperty.link( quadratic => {
+      const quadraticListener = quadratic => {
         if ( this.visible ) {
           this.update( quadratic );
         }
-      } );
+      };
+      quadraticProperty.link( quadraticListener ); // unlink required in dispose
 
-      equationsVisibleProperty.link( visible => {
+      const equationsVisibleListener = visible => {
         this.equationParent.visible = visible;
         if ( visible ) {
           this.updateEquation( this.quadraticProperty.value );
         }
-      } );
+      };
+      equationsVisibleProperty.link( equationsVisibleListener ); // unlink required in dispose
+
+      // @private
+      this.disposeQuadraticNode = () => {
+        if ( quadraticProperty.hasListener( quadraticListener ) ) {
+          quadraticProperty.unlink( quadraticListener );
+        }
+        if ( equationsVisibleProperty.hasListener( equationsVisibleListener ) ) {
+          equationsVisibleProperty.unlink( equationsVisibleListener );
+        }
+      };
+    }
+
+    /**
+     * @public
+     * @override
+     */
+    dispose() {
+      super.dispose();
+      this.disposeQuadraticNode();
     }
 
     /**

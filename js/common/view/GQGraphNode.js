@@ -82,9 +82,12 @@ define( require => {
       // When a quadratic is saved...
       model.savedQuadraticProperty.link( savedQuadratic => {
 
-        // remove any previous saved line
-        savedLineNode && allLinesParent.removeChild( savedLineNode );
-        savedLineNode = null;
+        // remove and dispose any previously-saved line
+        if ( savedLineNode ) {
+          allLinesParent.removeChild( savedLineNode );
+          savedLineNode.dispose();
+          savedLineNode = null;
+        }
 
         if ( savedQuadratic ) {
           savedLineNode = new QuadraticNode(
