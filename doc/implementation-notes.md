@@ -14,14 +14,14 @@ This section defines terminology that you'll see used throughout the internal an
 
 Standard terminology:
 
-* constant term - the term _c_ of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
+* constant term - the  _c_ termof _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 * directrix
 * focus
 * line
-* linear term - the term _bx_ of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
+* linear term - the _bx_ term of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 * parabola
 * quadratic
-* quadratic term - the term _ax_<sup>2</sup> of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
+* quadratic term - the _ax_<sup>2</sup> term of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 * standard form - see [model.md](https://github.com/phetsims/graphing-quadratics/blob/master/doc/model.md)
 * vertex
 * vertex form - see [model.md](https://github.com/phetsims/graphing-quadratics/blob/master/doc/model.md)
