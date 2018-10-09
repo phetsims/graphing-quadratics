@@ -12,7 +12,7 @@ define( require => {
   const ExploreModel = require( 'GRAPHING_QUADRATICS/explore/model/ExploreModel' );
   const ExploreScreenView = require( 'GRAPHING_QUADRATICS/explore/view/ExploreScreenView' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQIconFactory' );
+  const GQScreenIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQScreenIconFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Property = require( 'AXON/Property' );
   const Screen = require( 'JOIST/Screen' );
@@ -32,7 +32,7 @@ define( require => {
         // Screen options
         name: screenExploreString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
-        homeScreenIcon: GQIconFactory.createExploreScreenIcon(),
+        homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
         tandem: tandem
       };
 

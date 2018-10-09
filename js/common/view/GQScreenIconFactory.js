@@ -42,7 +42,7 @@ define( require => {
   const B = 0;
   const C = 0;
 
-  const GQIconFactory = {
+  const GQScreenIconFactory = {
 
     /**
      * Creates the icon for the Explore screen.
@@ -223,5 +223,5 @@ define( require => {
     }
   };
 
-  return graphingQuadratics.register( 'GQIconFactory', GQIconFactory );
+  return graphingQuadratics.register( 'GQScreenIconFactory', GQScreenIconFactory );
 } );

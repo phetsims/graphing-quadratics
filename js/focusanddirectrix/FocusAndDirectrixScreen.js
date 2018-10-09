@@ -12,7 +12,7 @@ define( require => {
   const FocusAndDirectrixModel = require( 'GRAPHING_QUADRATICS/focusanddirectrix/model/FocusAndDirectrixModel' );
   const FocusAndDirectrixScreenView = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixScreenView' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQIconFactory' );
+  const GQScreenIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQScreenIconFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Property = require( 'AXON/Property' );
   const Screen = require( 'JOIST/Screen' );
@@ -32,7 +32,7 @@ define( require => {
         // Screen options
         name: screenFocusAndDirectrixString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
-        homeScreenIcon: GQIconFactory.createFocusAndDirectrixScreenIcon(),
+        homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
         tandem: tandem
       };
 
