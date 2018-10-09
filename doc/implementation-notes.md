@@ -14,7 +14,7 @@ This section defines terminology that you'll see used throughout the internal an
 
 Standard terminology:
 
-* constant term - the  _c_ termof _y_ = _ax_<sup>2</sup> + _bx_ + _c_
+* constant term - the  _c_ term of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 * directrix
 * focus
 * line
