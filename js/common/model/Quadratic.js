@@ -409,7 +409,7 @@ define( require => {
     '<li>a: {NumberIO} coefficient a</li>' +
     '<li>b: {NumberIO} coefficient b</li>' +
     '<li>c: {NumberIO} coefficient c</li>' +
-    '<li>color: {ColorIO} the color used to draw the associated line</li>' +
+    '<li>color: {ColorIO} the color used to draw the associated curve</li>' +
     '</ul>' +
     'All coefficient values must respect the ranges for those coefficients.';
 

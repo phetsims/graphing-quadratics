@@ -68,8 +68,8 @@ define( require => {
     GRAPH_EQUATION_FONT_SIZE: 18,
 
     // line widths
-    INTERACTIVE_LINE_WIDTH: 4,
-    SAVED_LINE_WIDTH: 3,
+    INTERACTIVE_QUADRATIC_LINE_WIDTH: 4,
+    SAVED_QUADRATIC_LINE_WIDTH: 3,
     QUADRATIC_TERMS_LINE_WIDTH: 2, // y = ax^2, y = bx, y = c
     AXIS_OF_SYMMETRY_LINE_WIDTH: 3,
     DIRECTRIX_LINE_WIDTH: 3,
@@ -112,7 +112,7 @@ define( require => {
     EQUATION_X_MARGIN: 1.5, // distance between equation and left/right edges of graph, in model coordinate frame
     EQUATION_Y_MARGIN: 0.5, // distance between equation and top/bottom edges of graph, in model coordinate frame
 
-    // space between equation and the line it labels, in view coordinate frame
+    // space between equation and the curve that it labels, in view coordinate frame
     EQUATION_SPACING: 5,
 
     // maxWidth for all coordinates display (CoordinateNode instances)

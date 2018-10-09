@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * The buttons used to save and erase a line, grouped together in a horizontal layout.
+ * The buttons used to save and erase a curve, grouped together in a horizontal layout.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

@@ -87,8 +87,8 @@ define( require => {
         viewProperties.focusVisibleProperty,
         viewProperties.directrixVisibleProperty );
 
-      assert && assert( !options.otherLines, 'FocusAndDirectrixGraphNode sets otherLines' );
-      options.otherLines = [ directrixNode, pointOnQuadraticLinesNode ]; // rendered in this order
+      assert && assert( !options.otherCurves, 'FocusAndDirectrixGraphNode sets otherCurves' );
+      options.otherCurves = [ directrixNode, pointOnQuadraticLinesNode ]; // rendered in this order
 
       assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
       options.decorations = [ vertexManipulator, focusManipulator, pointOnQuadraticManipulator ]; // rendered in this order

@@ -29,7 +29,7 @@ define( require => {
 
       options = _.extend( {
         preventVertexAndEquationOverlap: true, // prevent a parabola's vertex and equation from overlapping
-        otherLines: [], // {Nodes[]}, other lines to be displayed (term, directrix,...) rendered in the order provided
+        otherCurves: [], // {Nodes[]}, other curves to be displayed (term, directrix,...) rendered in the order provided
         decorations: [] // {Node[]}, decorations (point, manipulators,...) rendered in the order provided
       }, options );
 
@@ -46,7 +46,7 @@ define( require => {
         model.modelViewTransform,
         viewProperties.equationForm,
         viewProperties.equationsVisibleProperty, {
-          lineWidth: GQConstants.INTERACTIVE_LINE_WIDTH,
+          lineWidth: GQConstants.INTERACTIVE_QUADRATIC_LINE_WIDTH,
           preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
         } );
 
@@ -54,7 +54,7 @@ define( require => {
       let savedLineNode = null;
 
       // Parent for other lines, e.g. quadratic terms, directrix, axis of symmetry
-      const otherLinesLayer = new Node( { children: options.otherLines } );
+      const otherCurvesLayer = new Node( { children: options.otherCurves } );
 
       // Parent for decorations, e.g. vertex, roots, manipulators
       const decorationsLayer = new Node( { children: options.decorations } );
@@ -67,7 +67,7 @@ define( require => {
           model.graph.xRange.getLength(),
           model.graph.yRange.getLength()
         ).transformed( model.modelViewTransform.getMatrix() ),
-        children: [ otherLinesLayer, interactiveQuadraticNode ]
+        children: [ otherCurvesLayer, interactiveQuadraticNode ]
       } );
 
       // Everything that's on the graph
@@ -94,7 +94,7 @@ define( require => {
             model.modelViewTransform,
             viewProperties.equationForm,
             viewProperties.equationsVisibleProperty, {
-              lineWidth: GQConstants.SAVED_LINE_WIDTH,
+              lineWidth: GQConstants.SAVED_QUADRATIC_LINE_WIDTH,
               preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
             } );
 

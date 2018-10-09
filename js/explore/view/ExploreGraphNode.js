@@ -66,8 +66,8 @@ define( require => {
         termNodeOptions );
       viewProperties.constantTermVisibleProperty.link( visible => { constantTermNode.visible = visible; } );
 
-      assert && assert( !options.otherLines, 'ExploreGraphNode sets otherLines' );
-      options.otherLines = [ constantTermNode, linearTermNode, quadraticTermNode ]; // rendered in this order
+      assert && assert( !options.otherCurves, 'ExploreGraphNode sets otherCurves' );
+      options.otherCurves = [ constantTermNode, linearTermNode, quadraticTermNode ]; // rendered in this order
 
       super( model, viewProperties, options );
 

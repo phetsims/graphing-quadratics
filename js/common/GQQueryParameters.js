@@ -17,7 +17,7 @@ define( require => {
     // For internal use only, not public facing.
     checkAll: { type: 'flag' },
 
-    // Point tool will snap to a line when <= this distance from the line, in model coordinates.
+    // Point tool will snap to a curve when <= this distance from the curve, in model coordinates.
     // For internal use only, not public facing.
     snapDistance: {
       type: 'number',

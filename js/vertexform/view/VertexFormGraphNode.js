@@ -49,8 +49,8 @@ define( require => {
           tandem: tandem.createTandem( 'vertexManipulator' )
         } );
 
-      assert && assert( !options.otherLines, 'VertexFormGraphNode sets otherLines' );
-      options.otherLines = [ axisOfSymmetryNode ];
+      assert && assert( !options.otherCurves, 'VertexFormGraphNode sets otherCurves' );
+      options.otherCurves = [ axisOfSymmetryNode ];
 
       assert && assert( !options.decorations, 'VertexFormGraphNode sets decorations' );
       options.decorations = [ vertexManipulator ];

@@ -34,7 +34,7 @@ define( require => {
       assert && assert( GQConstants.EQUATION_FORMS.includes( options.equationForm ),
         'invalid equationForm: ' + options.equationForm );
 
-      // @public form of equations used to label lines
+      // @public form of equations used to label curves
       this.equationForm = options.equationForm;
 
       // @public
@@ -46,7 +46,7 @@ define( require => {
       // @public
       this.equationsVisibleProperty = new BooleanProperty( options.equationsVisible, {
         tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
-        phetioDocumentation: 'whether equations are visible on the graphed lines'
+        phetioDocumentation: 'whether equations are visible on the graphed curves'
       } );
 
       // @public

@@ -27,7 +27,7 @@ define( require => {
      * @param {Range} xRange - range of the graph's x axis
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {string} equationForm - form of the equation displayed on the line, see GQConstants.EQUATION_FORMS
+     * @param {string} equationForm - form of the equation displayed on the curve, see GQConstants.EQUATION_FORMS
      * @param {BooleanProperty} equationsVisibleProperty
      * @param {Object} [options]
      */
@@ -192,7 +192,7 @@ define( require => {
         }
         else {
 
-          // Place the equation on outside of the parabola, parallel to tangent, at the edge of the graph.
+          // Place the equation on outside of the parabola, parallel to tangent line, at the edge of the graph.
           // rotate to match tangent's slope
           this.equationParent.rotation = -Math.atan( quadratic.getTangentSlope( p.x ) );
 
@@ -204,7 +204,7 @@ define( require => {
             equationNode.right = 0;
           }
 
-          // space between line and equation
+          // space between tangent line and equation
           if ( quadratic.a >= 0 ) {
             equationNode.top = GQConstants.EQUATION_SPACING;
           }
