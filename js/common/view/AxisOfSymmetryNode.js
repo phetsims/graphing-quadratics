@@ -13,10 +13,9 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const Path = require( 'SCENERY/nodes/Path' );
   const Property = require( 'AXON/Property' );
-  const Shape = require( 'KITE/Shape' );
 
   class AxisOfSymmetryNode extends Node {
 
@@ -33,12 +32,12 @@ define( require => {
       super();
 
       // the line
-      const path = new Path( null, {
+      const lineNode = new Line( 0, 0, 0, 1, {
         stroke: GQColors.AXIS_OF_SYMMETRY,
         lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
         lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
       } );
-      this.addChild( path );
+      this.addChild( lineNode );
 
       // equation on the line, created below
       let equationNode = null;
@@ -53,7 +52,7 @@ define( require => {
 
           // update the line
           const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
-          path.shape = new Shape().moveTo( x, minY ).lineTo( x, maxY );
+          lineNode.setLine( x, minY, x, maxY );
 
           // update the equation
           equationNode && this.removeChild( equationNode );
@@ -65,22 +64,22 @@ define( require => {
           if ( quadratic.axisOfSymmetry > yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
 
             // axis is at far right of graph, so put equation on left of axis
-            equationNode.right = path.left - GQConstants.EQUATION_SPACING;
+            equationNode.right = lineNode.left - GQConstants.EQUATION_SPACING;
           }
           else if ( quadratic.axisOfSymmetry < yRange.min + GQConstants.EQUATION_Y_MARGIN ) {
 
             // axis is at far left of graph, so put equation on right of axis
-            equationNode.left = path.right + GQConstants.EQUATION_SPACING;
+            equationNode.left = lineNode.right + GQConstants.EQUATION_SPACING;
           }
           else if ( quadratic.axisOfSymmetry >= 0 ) {
 
             // axis is at or to right of origin, so put equation on left of axis
-            equationNode.left = path.right + GQConstants.EQUATION_SPACING;
+            equationNode.left = lineNode.right + GQConstants.EQUATION_SPACING;
           }
           else {
 
             // axis is to left of origin, os put equation on right of axis
-            equationNode.right = path.left - GQConstants.EQUATION_SPACING;
+            equationNode.right = lineNode.left - GQConstants.EQUATION_SPACING;
           }
 
           // space between the equation and axis
