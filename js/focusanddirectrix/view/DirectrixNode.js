@@ -13,10 +13,9 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const Path = require( 'SCENERY/nodes/Path' );
   const Property = require( 'AXON/Property' );
-  const Shape = require( 'KITE/Shape' );
 
   class DirectrixNode extends Node {
 
@@ -32,15 +31,18 @@ define( require => {
 
       super();
 
-      const path = new Path( null, {
+      // the line
+      const lineNode = new Line( 0, 0, 0, 1, {
         stroke: GQColors.DIRECTRIX,
         lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
         lineDash: GQConstants.DIRECTRIX_LINE_DASH
       } );
-      this.addChild( path );
+      this.addChild( lineNode );
 
-      let equationNode = null; // created below
+      // equation on the line, created below
+      let equationNode = null;
 
+      // to improve readability
       const minX = modelViewTransform.modelToViewX( xRange.min );
       const maxX = modelViewTransform.modelToViewX( xRange.max );
 
@@ -51,7 +53,7 @@ define( require => {
 
         // update the line
         const y = modelViewTransform.modelToViewY( quadratic.directrix );
-        path.shape = new Shape().moveTo( minX, y ).lineTo( maxX, y );
+        lineNode.setLine( minX, y, maxX, y );
 
         // update the equation
         equationNode && this.removeChild( equationNode );
@@ -72,10 +74,10 @@ define( require => {
 
         // space between the equation and directrix
         if ( quadratic.directrix > xRange.max - 1 ) {
-          equationNode.top = path.bottom + GQConstants.EQUATION_SPACING;
+          equationNode.top = lineNode.bottom + GQConstants.EQUATION_SPACING;
         }
         else {
-          equationNode.bottom = path.top - GQConstants.EQUATION_SPACING;
+          equationNode.bottom = lineNode.top - GQConstants.EQUATION_SPACING;
         }
       } );
 
