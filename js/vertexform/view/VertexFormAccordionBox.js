@@ -9,13 +9,13 @@ define( require => {
   'use strict';
 
   // modules
-  const EquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/EquationAccordionBox' );
+  const GQEquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/GQEquationAccordionBox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
   const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
   const VertexFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormInteractiveEquationNode' );
 
-  class VertexFormAccordionBox extends EquationAccordionBox {
+  class VertexFormAccordionBox extends GQEquationAccordionBox {
 
     /**
      * @param {VertexFormModel} model

@@ -18,7 +18,7 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
-  class EquationAccordionBox extends AccordionBox {
+  class GQEquationAccordionBox extends AccordionBox {
 
     /**
      * @param {ExploreModel} model
@@ -59,5 +59,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'EquationAccordionBox', EquationAccordionBox );
+  return graphingQuadratics.register( 'GQEquationAccordionBox', GQEquationAccordionBox );
 } );
