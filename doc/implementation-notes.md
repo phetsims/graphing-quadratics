@@ -69,6 +69,8 @@ This section provides an overview of the most important view components.
 
 [GQScreenView](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQScreenView.js) is the base class for all ScreenViews in this sim. It includes the view elements that are common to all screens, and it handles common layout responsibilities. Each screen has a subclass of GQScreenView that adds things that are specific to that screen. For example, [ExploreScreenView](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreScreenView.js) is the view for the _Explore_ screen.
 
+[QuadraticNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/QuadraticNode.js) is the primary view component, responsible for rendering the curve that corresponds to a `Quadratic` model element, and labeling the curve with an equation. While `QuadraticNode` is responsible for the placement of the equation relative to the curve, [GQEquationFactory](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQEquationFactory.js) is responsible for creation of equations.
+
 ## Related simulations
 
 This sim reuses a very small number of model and view components from Graphing Lines. Search for "GRAPHING_LINES/" to identify what is reused.
