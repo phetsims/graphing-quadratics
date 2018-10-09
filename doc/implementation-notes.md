@@ -25,7 +25,7 @@ Standard terminology:
 
 PhET-specific terminology:
 
-alternative vertex form
+* alternative vertex form
 
 ## Common Patterns
 
