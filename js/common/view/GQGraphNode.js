@@ -1,7 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
 /**
- * Base type for displaying the graph.
+ * Base class for displaying the graph.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

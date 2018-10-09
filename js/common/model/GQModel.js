@@ -1,7 +1,7 @@
 // Copyright 2014-2018, University of Colorado Boulder
 
 /**
- * Abstract base type for model in Graphing Quadratics.
+ * Abstract base class for model in Graphing Quadratics.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

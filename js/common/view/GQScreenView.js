@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Base type for ScreenViews in this sim.
+ * Base class for ScreenViews in this sim.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
