@@ -59,17 +59,17 @@ This section provides an overview of the most important model components.
 
 Note that this simulation supports _only_ parabolas that open up or down, i.e. have the form _y_ = _ax_<sup>2</sup> + _bx_ + _c_.  It does not support parabolas that open left or right, i.e. have the form _x_ = _ay_<sup>2</sup> + _by_ + _c_.
 
-[GQModel](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/model/GQModel.js) is the base class for all model "containers".  It includes the model components that are common to all screens.  Each screen has a subclass of GQModel that adds things that are specific to that screen. For example, [ExploreModel](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/model/ExploreModel.js) is the model container for the _Explore_ screen.
-
 [Quadratic](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/model/Quadratic.js) is the primary model component. It is essentially an immutable data structure that describes a quadratic equation. It supports instantiation using standard form (via the constructor), vertex form (via `createFromVertexForm`) and alternate vertex form (via `createFromAlternateVertexForm`).
+
+[GQModel](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/model/GQModel.js) is the base class for all model "containers".  It includes the model components that are common to all screens.  Each screen has a subclass of GQModel that adds things that are specific to that screen. For example, [ExploreModel](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/model/ExploreModel.js) is the model container for the _Explore_ screen.
 
 ## View
 
 This section provides an overview of the most important view components.
 
-[GQScreenView](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQScreenView.js) is the base class for all ScreenViews in this sim. It includes the view components that are common to all screens, and it handles common layout responsibilities. Each screen has a subclass of GQScreenView that adds things that are specific to that screen. For example, [ExploreScreenView](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreScreenView.js) is the view for the _Explore_ screen.
-
 [QuadraticNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/QuadraticNode.js) is the primary view component, responsible for rendering the curve that corresponds to a `Quadratic` instance, and labeling the curve with an equation. While `QuadraticNode` is responsible for the placement of the equation relative to the curve, [GQEquationFactory](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQEquationFactory.js) is responsible for creation of equations.
+
+[GQScreenView](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQScreenView.js) is the base class for all ScreenViews in this sim. It includes the view components that are common to all screens, and it handles common layout responsibilities. Each screen has a subclass of GQScreenView that adds things that are specific to that screen. For example, [ExploreScreenView](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreScreenView.js) is the view for the _Explore_ screen.
 
 ## Related simulations
 
