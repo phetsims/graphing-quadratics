@@ -43,7 +43,7 @@ PhET-specific terminology:
 
 This section describes how this simulation uses patterns that are generally common to PhET simulations.
 
-**Model-view transform**: This simulation has a model-view transform that maps from the graph (model) coordinate frame to the view coordinate frame. 
+**Model-view transform**: This simulation has a model-view transform that maps from the graph (model) coordinate frame to the view coordinate frame. The origin (0,0) in the model cordinate frame is (not surprisingly) at the orgin of the graph.
 
 **Query parameters**: Query parameters are used to enable sim-specific features, mainly for debugging and
 testing. Sim-specific query parameters are documented in
