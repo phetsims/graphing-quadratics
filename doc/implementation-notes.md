@@ -75,6 +75,8 @@ This section provides an overview of the most important view components.
 
 [GQEquationAccordionBox](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQEquationAccordionBox.js) is the base class for the accordion box that displays the interactive equation. Each screen has a subclass of EquationAccordionBox that adds things that are specific to that screen. For example, [ExploreGraphNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreGraphNode.js) is the equation accordion box for the _Explore_ screen.
 
+Each checkbox in this sim is a subclass of `SUN/Checkbox`, and is responsible for creating it's label (which often includes both text and an icon). You can locate a `Checkbox` subclass based on the English text used on checkbox. For example, `FocusCheckbox` is the checkbox labeled with "Focus" and a focus manipulator icon. 
+
 ## Related simulations
 
 This sim reuses a very small number of model and view components from Graphing Lines. Search for "GRAPHING_LINES/" to identify what is reused.
