@@ -16,6 +16,7 @@ define( require => {
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -239,7 +240,7 @@ define( require => {
             }
 
             // If we didn't snap to a quadratic, then snap to the graph's grid.
-            if ( !snapped ) {
+            if ( !snapped && GQQueryParameters.snapToGrid ) {
               location = new Vector2( Util.roundSymmetric( location.x ), Util.roundSymmetric( location.y ) );
             }
           }

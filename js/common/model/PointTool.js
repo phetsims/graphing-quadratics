@@ -11,6 +11,7 @@ define( require => {
   // modules
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Property = require( 'AXON/Property' );
   const PropertyIO = require( 'AXON/PropertyIO' );
@@ -24,7 +25,8 @@ define( require => {
 
   // constants
   const PROBE_SIDES = [ 'right', 'left' ];
-  const SNAP_DISTANCE = 0.5; // snap to quadratic when <= this distance from the quadratic, in model coordinates
+  // snap to quadratic when <= this distance from the quadratic, in model coordinates
+  const SNAP_DISTANCE = GQQueryParameters.snapDistance;
 
   class PointTool {
 
