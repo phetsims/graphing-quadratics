@@ -14,13 +14,19 @@ This section defines terminology that you'll see used throughout the internal an
 
 Standard terminology:
 
-* constant term
+* constant term - the term _c_ of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 * diretrix
+* 'erase line' button
 * focus
+* graph contents - everything that is displayed on the graph, excluding the grid and axes
+* 'hide graph contents' button - button with an eyeball icon that shows/hides the graph contents
+* interactive quadratic
 * line
-* linear term
+* linear term - the term _bx_ of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 * parabola
-* quadratic term
+* quadratic term - the term _ax_<sup>2</sup> of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
+* saved quadratic
+* 'save line' button - button with a camera that saves the current state of the interactive quadratic
 * standard form
 * vertex
 * vertex form
