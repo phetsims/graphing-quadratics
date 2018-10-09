@@ -16,18 +16,12 @@ Standard terminology:
 
 * constant term - the term _c_ of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
 * directrix
-* 'erase line' button - button with an eraser icon, used to erase the saved term
 * focus
-* graph contents - everything that is displayed on the graph, excluding the grid and axes
-* 'hide graph contents' button - button with an eyeball icon that shows/hides the graph contents
-* interactive quadratic - the quadraric that the user can interact with, via sliders, pickers, and/or manipulators
 * line
 * linear term - the term _bx_ of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
-* manipulator - shaded sphere that appears on the graph, used to change some aspect of the interactive quadratic
 * parabola
+* quadratic
 * quadratic term - the term _ax_<sup>2</sup> of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
-* saved quadratic - a saved state of the interactive term, appears on the graph as a gray line
-* 'save line' button - button with a camera, used to create the saved term
 * standard form - see [model.md](https://github.com/phetsims/graphing-quadratics/blob/master/doc/model.md)
 * vertex
 * vertex form - see [model.md](https://github.com/phetsims/graphing-quadratics/blob/master/doc/model.md)
@@ -35,6 +29,13 @@ Standard terminology:
 PhET-specific terminology:
 
 * alternative vertex form - see [model.md](https://github.com/phetsims/graphing-quadratics/blob/master/doc/model.md)
+* erase button - button with an eraser icon, used to erase the saved line
+* graph contents - everything that is displayed on the graph, excluding the grid and axes
+* 'hide graph contents' button - button with an eyeball icon that shows/hides the graph contents
+* interactive quadratic - the quadratic that the user can interact with, via sliders, pickers, and/or manipulators
+* manipulator - shaded sphere that appears on the graph, used to change some aspect of the interactive quadratic
+* saved quadratic - a saved state of the interactive quadratic, appears on the graph as a gray line
+* save button - button with a camera, used to create the saved quadratic
 
 ## Common Patterns
 
