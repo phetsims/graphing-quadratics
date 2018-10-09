@@ -53,6 +53,10 @@ testing. Sim-specific query parameters are documented in
 
 **Memory management**: Unless otherwise documented in the source code, assume that `unlink`, `removeListener`, `dispose`, etc. are generally not needed. Most object instances exist for the lifetime of the sim, and there are no dynamic objects that participate in observer-observable relationships.
 
+## Related simulations
+
+This sim reuses a very small number of model and view components from Graphing Lines. Search for "GRAPHING_LINES/" to identify what is reused.
+
 ## Model
 
 This section provides an overview of the most important model components.
@@ -80,7 +84,3 @@ Each screen has a class whose name ends with "InteractiveEquationNode", for exam
 Manipulators are the shaded spheres that appear on the graph. They allow the user to modify the interactive quadratic by interacting directly with its curve. The [Manipulator](https://github.com/phetsims/graphing-lines/blob/master/js/common/view/manipulator/Manipulator.js) base class is reused from the Graphing Lines sim.  The 3 subclasses are [VertexManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/VertexManipulator.js), [FocusManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/FocusManipulator.js) and [PointOnQuadraticManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/PointOnQuadraticManipulator.js), for changing the vertex, focus, and point on the quadratic respectively.
 
 Each checkbox in this sim is a subclass of `SUN/Checkbox`, and is responsible for creating it's label, which often includes both text and an icon. You can locate a `Checkbox` subclass based on the English text used on checkbox. For example, [FocusCheckbox](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/FocusCheckbox.js) is the checkbox labeled with "Focus" and a focus manipulator icon.
-
-## Related simulations
-
-This sim reuses a very small number of model and view components from Graphing Lines. Search for "GRAPHING_LINES/" to identify what is reused.
