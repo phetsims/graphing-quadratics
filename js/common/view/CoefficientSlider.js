@@ -41,22 +41,22 @@ define( require => {
 
       options = _.extend( {
 
-        // {Array.<number>|null} values where tick marks will be placed
+        // {Array.<number>|null} values where major tick marks will be placed
         tickValues: [ 0 ],
 
-        // maps coefficientProperty value to slider value
+        // maps coefficientProperty.value to slider value
         map: value => value,
 
-        // maps slider value to coefficientProperty value
+        // maps slider value to coefficientProperty.value
         inverseMap: value => value,
 
         // whether to skip zero value
         skipZero: false,
 
-        // If the absolute value of coefficientProperty is less than this value, snap to zero.
+        // snap to zero if |coefficientProperty.value| < snapToZeroEpsilon
         snapToZeroEpsilon: 0.1,
 
-        // value will be a multiple of this interval
+        // coefficientProperty.value will be a multiple of this interval
         interval: 1,
 
         // {Color|string} color of the label that appears above the slider
