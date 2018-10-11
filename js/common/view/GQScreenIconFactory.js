@@ -56,9 +56,7 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens downward
-      const parabolaNode = new Path( createQuadraticShape( A, B, C, RANGE ), {
-        lineWidth: PARABOLA_LINE_WIDTH,
-        stroke: PARABOLA_COLOR,
+      const parabolaNode = createQuadraticNode( A, B, C, RANGE, {
         centerX: rectangle.centerX,
         top: rectangle.top + ( 0.2 * rectangle.height )
       } );
@@ -82,9 +80,7 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens upward
-      const parabolaNode = new Path( createQuadraticShape( -A, B, C, RANGE ), {
-        lineWidth: PARABOLA_LINE_WIDTH,
-        stroke: PARABOLA_COLOR,
+      const parabolaNode = createQuadraticNode( -A, B, C, RANGE, {
         centerX: rectangle.centerX,
         y: 0.85 * rectangle.height
       } );
@@ -138,9 +134,7 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens downward
-      const parabolaNode = new Path( createQuadraticShape( A, B, C, RANGE ), {
-        lineWidth: PARABOLA_LINE_WIDTH,
-        stroke: PARABOLA_COLOR,
+      const parabolaNode = createQuadraticNode( A, B, C, RANGE, {
         centerX: rectangle.centerX,
         top: rectangle.top + ( 0.2 * ICON_SIZE.height )
       } );
@@ -172,9 +166,7 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens upward
-      const parabolaNode = new Path( createQuadraticShape( -A, B, C, RANGE ), {
-        lineWidth: PARABOLA_LINE_WIDTH,
-        stroke: PARABOLA_COLOR,
+      const parabolaNode = createQuadraticNode( -A, B, C, RANGE, {
         centerX: rectangle.centerX,
         y: 0.55 * ICON_SIZE.height
       } );
@@ -210,19 +202,24 @@ define( require => {
   };
 
   /**
-   * Create the Shape for quadratic y = ax^2 + bx + c
+   * Create a Node for quadratic y = ax^2 + bx + c
    * @param {number} a
    * @param {number} b
    * @param {number} c
    * @param {Range} range
+   * @param {Object} [options]
    * @returns {Shape}
    */
-  function createQuadraticShape( a, b, c, range ) {
+  function createQuadraticNode( a, b, c, range, options ) {
     const quadratic = new Quadratic( a, b, c );
     const bezierControlPoints = quadratic.getControlPoints( range );
-    return new Shape()
+    const shape = new Shape()
       .moveToPoint( bezierControlPoints.startPoint )
       .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint );
+    return new Path( shape, _.extend( {
+      lineWidth: PARABOLA_LINE_WIDTH,
+      stroke: PARABOLA_COLOR
+    }, options ) );
   }
 
   return graphingQuadratics.register( 'GQScreenIconFactory', GQScreenIconFactory );
