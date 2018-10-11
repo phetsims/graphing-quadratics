@@ -27,6 +27,7 @@ define( require => {
   // constants
   const ICON_SIZE = Screen.MINIMUM_HOME_SCREEN_ICON_SIZE; // so we can draw to the edges of the icons
   const CLIP_AREA = Shape.rect( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
+  const PARABOLA_COLOR = 'black';
   const LINE_WIDTH = 20;
   const POINT_RADIUS = 35;
   const VERTEX_MANIPULATOR_RADIUS = 40;
@@ -54,13 +55,9 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens downward
-      const quadratic = new Quadratic( A, B, C, { color: 'black' } );
-      const bezierControlPoints = quadratic.getControlPoints( new Range( -250, 250 ) );
-      const parabolaNode = new Path( new Shape()
-        .moveToPoint( bezierControlPoints.startPoint )
-        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint ), {
+      const parabolaNode = new Path( createQuadraticShape( A, B, C ), {
         lineWidth: LINE_WIDTH,
-        stroke: quadratic.color,
+        stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
         top: rectangle.top + ( 0.2 * rectangle.height )
       } );
@@ -84,13 +81,9 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens upward
-      const quadratic = new Quadratic( -A, B, C, { color: 'black' } );
-      const bezierControlPoints = quadratic.getControlPoints( new Range( -250, 250 ) );
-      const parabolaNode = new Path( new Shape()
-        .moveToPoint( bezierControlPoints.startPoint )
-        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint ), {
+      const parabolaNode = new Path( createQuadraticShape( -A, B, C ), {
         lineWidth: LINE_WIDTH,
-        stroke: quadratic.color,
+        stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
         y: 0.85 * rectangle.height
       } );
@@ -144,13 +137,9 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens downward
-      const quadratic = new Quadratic( A, B, C, { color: 'black' } );
-      const bezierControlPoints = quadratic.getControlPoints( new Range( -250, 250 ) );
-      const parabolaNode = new Path( new Shape()
-        .moveToPoint( bezierControlPoints.startPoint )
-        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint ), {
+      const parabolaNode = new Path( createQuadraticShape( A, B, C ), {
         lineWidth: LINE_WIDTH,
-        stroke: quadratic.color,
+        stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
         top: rectangle.top + ( 0.2 * ICON_SIZE.height )
       } );
@@ -182,13 +171,9 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens upward
-      const quadratic = new Quadratic( -A, B, C, { color: 'black' } );
-      const bezierControlPoints = quadratic.getControlPoints( new Range( -250, 250 ) );
-      const parabolaNode = new Path( new Shape()
-        .moveToPoint( bezierControlPoints.startPoint )
-        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint ), {
+      const parabolaNode = new Path( createQuadraticShape( -A, B, C ), {
         lineWidth: LINE_WIDTH,
-        stroke: quadratic.color,
+        stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
         y: 0.55 * ICON_SIZE.height
       } );
@@ -222,6 +207,21 @@ define( require => {
       return new ScreenIcon( iconNode, SCREEN_ICON_OPTIONS );
     }
   };
+
+  /**
+   * Create the Shape for quadratic y = ax^2 + bx + c
+   * @param {number} a
+   * @param {number} b
+   * @param {number} c
+   * @returns {Shape}
+   */
+  function createQuadraticShape( a, b, c ) {
+    const quadratic = new Quadratic( a, b, c );
+    const bezierControlPoints = quadratic.getControlPoints( new Range( -250, 250 ) );
+    return new Shape()
+      .moveToPoint( bezierControlPoints.startPoint )
+      .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint );
+  }
 
   return graphingQuadratics.register( 'GQScreenIconFactory', GQScreenIconFactory );
 } );
