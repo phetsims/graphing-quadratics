@@ -38,10 +38,11 @@ define( require => {
     maxIconHeightProportion: 1
   };
 
-  // coefficients for the quadratic curve used in every icon
+  // coefficients and range the describe the quadratic curve used in every icon
   const A = 0.0075;
   const B = 0;
   const C = 0;
+  const RANGE = new Range( -250, 250 );
 
   const GQScreenIconFactory = {
 
@@ -55,7 +56,7 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens downward
-      const parabolaNode = new Path( createQuadraticShape( A, B, C ), {
+      const parabolaNode = new Path( createQuadraticShape( A, B, C, RANGE ), {
         lineWidth: LINE_WIDTH,
         stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
@@ -81,7 +82,7 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens upward
-      const parabolaNode = new Path( createQuadraticShape( -A, B, C ), {
+      const parabolaNode = new Path( createQuadraticShape( -A, B, C, RANGE ), {
         lineWidth: LINE_WIDTH,
         stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
@@ -137,7 +138,7 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens downward
-      const parabolaNode = new Path( createQuadraticShape( A, B, C ), {
+      const parabolaNode = new Path( createQuadraticShape( A, B, C, RANGE ), {
         lineWidth: LINE_WIDTH,
         stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
@@ -171,7 +172,7 @@ define( require => {
       const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
 
       // parabola that opens upward
-      const parabolaNode = new Path( createQuadraticShape( -A, B, C ), {
+      const parabolaNode = new Path( createQuadraticShape( -A, B, C, RANGE ), {
         lineWidth: LINE_WIDTH,
         stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
@@ -213,11 +214,12 @@ define( require => {
    * @param {number} a
    * @param {number} b
    * @param {number} c
+   * @param {Range} range
    * @returns {Shape}
    */
-  function createQuadraticShape( a, b, c ) {
+  function createQuadraticShape( a, b, c, range ) {
     const quadratic = new Quadratic( a, b, c );
-    const bezierControlPoints = quadratic.getControlPoints( new Range( -250, 250 ) );
+    const bezierControlPoints = quadratic.getControlPoints( range );
     return new Shape()
       .moveToPoint( bezierControlPoints.startPoint )
       .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint );
