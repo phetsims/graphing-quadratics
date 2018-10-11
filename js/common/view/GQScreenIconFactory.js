@@ -28,7 +28,7 @@ define( require => {
   const ICON_SIZE = Screen.MINIMUM_HOME_SCREEN_ICON_SIZE; // so we can draw to the edges of the icons
   const CLIP_AREA = Shape.rect( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
   const PARABOLA_COLOR = 'black';
-  const LINE_WIDTH = 20;
+  const PARABOLA_LINE_WIDTH = 20;
   const POINT_RADIUS = 35;
   const VERTEX_MANIPULATOR_RADIUS = 40;
   const FOCUS_MANIPULATOR_RADIUS = 25;
@@ -57,7 +57,7 @@ define( require => {
 
       // parabola that opens downward
       const parabolaNode = new Path( createQuadraticShape( A, B, C, RANGE ), {
-        lineWidth: LINE_WIDTH,
+        lineWidth: PARABOLA_LINE_WIDTH,
         stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
         top: rectangle.top + ( 0.2 * rectangle.height )
@@ -83,7 +83,7 @@ define( require => {
 
       // parabola that opens upward
       const parabolaNode = new Path( createQuadraticShape( -A, B, C, RANGE ), {
-        lineWidth: LINE_WIDTH,
+        lineWidth: PARABOLA_LINE_WIDTH,
         stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
         y: 0.85 * rectangle.height
@@ -139,7 +139,7 @@ define( require => {
 
       // parabola that opens downward
       const parabolaNode = new Path( createQuadraticShape( A, B, C, RANGE ), {
-        lineWidth: LINE_WIDTH,
+        lineWidth: PARABOLA_LINE_WIDTH,
         stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
         top: rectangle.top + ( 0.2 * ICON_SIZE.height )
@@ -173,7 +173,7 @@ define( require => {
 
       // parabola that opens upward
       const parabolaNode = new Path( createQuadraticShape( -A, B, C, RANGE ), {
-        lineWidth: LINE_WIDTH,
+        lineWidth: PARABOLA_LINE_WIDTH,
         stroke: PARABOLA_COLOR,
         centerX: rectangle.centerX,
         y: 0.55 * ICON_SIZE.height
