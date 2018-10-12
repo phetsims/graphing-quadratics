@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Vertical slider for changing one of the coefficients in a quadratic equation.
+ * A labeled vertical slider for changing one of the coefficients in a quadratic equation.
  * The default response of this slider is linear.  To change the response, use options map and inverseMap.
  *
  * @author Andrea Lin
@@ -30,7 +30,7 @@ define( require => {
   const TRACK_SIZE = new Dimension2( 130, 1 );
   const THUMB_SIZE = new Dimension2( 20, 40 );
 
-  class CoefficientSlider extends Node {
+  class CoefficientControl extends Node {
 
     /**
      * @param {string} symbol - the coefficient's symbol
@@ -120,12 +120,12 @@ define( require => {
         } );
       }
 
-      assert && assert( !options.children, 'CoefficientSlider sets children' );
+      assert && assert( !options.children, 'CoefficientControl sets children' );
       options.children = [ label, slider ];
 
       super( options );
     }
   }
 
-  return graphingQuadratics.register( 'CoefficientSlider', CoefficientSlider );
+  return graphingQuadratics.register( 'CoefficientControl', CoefficientControl );
 } );

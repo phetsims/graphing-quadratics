@@ -11,7 +11,7 @@ define( require => {
   'use strict';
 
   // modules
-  const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
+  const CoefficientControl = require( 'GRAPHING_QUADRATICS/common/view/CoefficientControl' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
@@ -20,7 +20,7 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
+  const QuadraticCoefficientControl = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientControl' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
 
@@ -43,39 +43,39 @@ define( require => {
         tandem: options.tandem.createTandem( 'equationNode' )
       } );
 
-      // coefficient sliders
-      const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty, {
+      // coefficient controls (labeled sliders)
+      const aControl = new QuadraticCoefficientControl( GQSymbols.a, aProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_A,
         labelColor: GQColors.EXPLORE_A,
-        tandem: options.tandem.createTandem( 'aSlider' ),
-        phetioDocumentation: 'slider for coefficient a'
+        tandem: options.tandem.createTandem( 'aControl' ),
+        phetioDocumentation: 'control for coefficient a'
       } );
-      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, {
+      const bControl = new CoefficientControl( GQSymbols.b, bProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_B,
         labelColor: GQColors.EXPLORE_B,
-        tandem: options.tandem.createTandem( 'bSlider' ),
-        phetioDocumentation: 'slider for coefficient b'
+        tandem: options.tandem.createTandem( 'bControl' ),
+        phetioDocumentation: 'control for coefficient b'
       } );
-      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, {
+      const cControl = new CoefficientControl( GQSymbols.c, cProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_C,
         labelColor: GQColors.EXPLORE_C,
-        tandem: options.tandem.createTandem( 'cSlider' ),
-        phetioDocumentation: 'slider for constant c'
+        tandem: options.tandem.createTandem( 'cControl' ),
+        phetioDocumentation: 'control for constant c'
       } );
 
       assert && assert( !options.children, 'ExploreInteractiveEquationNode sets children' );
-      options.children = [ equationNode, aSlider, bSlider, cSlider ];
+      options.children = [ equationNode, aControl, bControl, cControl ];
 
       super( options );
 
       // horizontally align sliders under their associated values in the equation
       const ySpacing = 3;
-      aSlider.x = this.globalToLocalBounds( equationNode.aGlobalBounds ).centerX;
-      aSlider.top = equationNode.bottom + ySpacing;
-      bSlider.x = this.globalToLocalBounds( equationNode.bGlobalBounds ).centerX;
-      bSlider.top = equationNode.bottom + ySpacing;
-      cSlider.x = this.globalToLocalBounds( equationNode.cGlobalBounds ).centerX;
-      cSlider.top = equationNode.bottom + ySpacing;
+      aControl.x = this.globalToLocalBounds( equationNode.aGlobalBounds ).centerX;
+      aControl.top = equationNode.bottom + ySpacing;
+      bControl.x = this.globalToLocalBounds( equationNode.bGlobalBounds ).centerX;
+      bControl.top = equationNode.bottom + ySpacing;
+      cControl.x = this.globalToLocalBounds( equationNode.cGlobalBounds ).centerX;
+      cControl.top = equationNode.bottom + ySpacing;
     }
   }
 
