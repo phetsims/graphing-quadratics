@@ -40,11 +40,13 @@ define( require => {
       const bProperty = new NumberProperty( B_RANGE.defaultValue, {
         range: B_RANGE,
         tandem: tandem.createTandem( 'bProperty' ),
+        reentrant: true, // this fixes a problem in studio, see https://github.com/phetsims/graphing-quadratics/issues/52
         phetioDocumentation: 'coefficient b for the interactive quadratic'
       } );
       const cProperty = new NumberProperty( C_RANGE.defaultValue, {
         range: C_RANGE,
         tandem: tandem.createTandem( 'cProperty' ),
+        reentrant: true, // this fixes a problem in studio, see https://github.com/phetsims/graphing-quadratics/issues/52
         phetioDocumentation: 'coefficient c for the interactive quadratic'
       } );
 
