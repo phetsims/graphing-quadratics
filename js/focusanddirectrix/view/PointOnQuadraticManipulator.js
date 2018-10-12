@@ -26,16 +26,16 @@ define( require => {
     /**
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-     * @param {Property.<Vector2>} pointOnQuadraticProperty - point on the interactive quadratic
+     * @param {Property.<Vector2>} pointOnParabolaProperty - point on the interactive quadratic
      * @param {Range} xRange - range of the graph's x axis
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {BooleanProperty} pointOnQuadraticVisibleProperty
+     * @param {BooleanProperty} pointOnParabolaVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, pointOnQuadraticProperty, xRange, yRange, modelViewTransform,
-                 pointOnQuadraticVisibleProperty, coordinatesVisibleProperty, options ) {
+    constructor( radius, quadraticProperty, pointOnParabolaProperty, xRange, yRange, modelViewTransform,
+                 pointOnParabolaVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
 
@@ -46,10 +46,10 @@ define( require => {
 
       super( radius, GQColors.POINT_ON_QUADRATIC, options );
 
-      // Coordinates are identical to pointOnQuadraticProperty. We're using a separate Property here
+      // Coordinates are identical to pointOnParabolaProperty. We're using a separate Property here
       // for PhET-iO instrumentation symmetry with other manipulators.
-      const coordinatesProperty = new DerivedProperty( [ pointOnQuadraticProperty ],
-        pointOnQuadratic => pointOnQuadratic, {
+      const coordinatesProperty = new DerivedProperty( [ pointOnParabolaProperty ],
+        pointOnParabola => pointOnParabola, {
           valueType: Vector2,
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
           phetioType: DerivedPropertyIO( Vector2IO ),
@@ -67,13 +67,13 @@ define( require => {
       this.addChild( coordinatesNode );
 
       // add drag handler
-      const dragHandler = new PointOnQuadraticDragHandler( pointOnQuadraticProperty, quadraticProperty,
+      const dragHandler = new PointOnQuadraticDragHandler( pointOnParabolaProperty, quadraticProperty,
         modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragHandler' ) );
       this.addInputListener( dragHandler );
 
       // move the manipulator
-      pointOnQuadraticProperty.link( pointOnQuadratic => {
-        this.translation = modelViewTransform.modelToViewPosition( pointOnQuadratic );
+      pointOnParabolaProperty.link( pointOnParabola => {
+        this.translation = modelViewTransform.modelToViewPosition( pointOnParabola );
       } );
 
       // position coordinates based on which side of the parabola the point is on
@@ -90,7 +90,7 @@ define( require => {
       } );
 
       // visibility of this Node
-      pointOnQuadraticVisibleProperty.link( visible => {
+      pointOnParabolaVisibleProperty.link( visible => {
         dragHandler.endDrag( null ); // cancels any drag that is in progress
         this.visible = visible;
       } );
@@ -106,14 +106,14 @@ define( require => {
 
     /**
      * Drag handler for point on the quadratic.
-     * @param {Property.<Vector2>} pointOnQuadraticProperty - point on the interactive quadratic
+     * @param {Property.<Vector2>} pointOnParabolaProperty - point on the interactive quadratic
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Range} xRange
      * @param {Range} yRange
      * @param {Tandem} tandem
      */
-    constructor( pointOnQuadraticProperty, quadraticProperty, modelViewTransform, xRange, yRange, tandem ) {
+    constructor( pointOnParabolaProperty, quadraticProperty, modelViewTransform, xRange, yRange, tandem ) {
 
       let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
 
@@ -123,7 +123,7 @@ define( require => {
 
         // note where the drag started
         start: ( event, trail ) => {
-          const location = modelViewTransform.modelToViewPosition( pointOnQuadraticProperty.value );
+          const location = modelViewTransform.modelToViewPosition( pointOnParabolaProperty.value );
           startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
@@ -134,7 +134,7 @@ define( require => {
           const x = modelViewTransform.viewToModelPosition( parentPoint ).x;
 
           // set to the closest point on the parabola that is within the bounds of the graph
-          pointOnQuadraticProperty.value = quadraticProperty.value.getClosestPointInRange( x, xRange, yRange );
+          pointOnParabolaProperty.value = quadraticProperty.value.getClosestPointInRange( x, xRange, yRange );
         },
 
         tandem: tandem

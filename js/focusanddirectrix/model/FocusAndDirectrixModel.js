@@ -77,11 +77,11 @@ define( require => {
       const initialPoint = new Vector2( POINT_X, this.quadraticProperty.value.solveY( POINT_X ) );
 
       // @public
-      this.pointOnQuadraticProperty = new Property( initialPoint, {
+      this.pointOnParabolaProperty = new Property( initialPoint, {
         valueType: Vector2,
-        tandem: tandem.createTandem( 'pointOnQuadraticProperty' ),
+        tandem: tandem.createTandem( 'pointOnParabolaProperty' ),
         phetioType: PropertyIO( Vector2IO ),
-        phetioDocumentation: 'the interactive point on the quadratic'
+        phetioDocumentation: 'the interactive point on the parabola'
 
       } );
 
@@ -92,8 +92,8 @@ define( require => {
         assert && assert( oldQuadratic.vertex, 'expected oldQuadratic.vertex: ' + oldQuadratic.vertex );
 
         const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
-        const x = this.pointOnQuadraticProperty.value.x + dx;
-        this.pointOnQuadraticProperty.value = quadratic.getClosestPointInRange( x, this.graph.xRange, this.graph.yRange );
+        const x = this.pointOnParabolaProperty.value.x + dx;
+        this.pointOnParabolaProperty.value = quadratic.getClosestPointInRange( x, this.graph.xRange, this.graph.yRange );
       } );
     }
 
@@ -106,7 +106,7 @@ define( require => {
       this.pProperty.reset();
       this.hProperty.reset();
       this.kProperty.reset();
-      this.pointOnQuadraticProperty.reset();
+      this.pointOnParabolaProperty.reset();
     }
   }
 

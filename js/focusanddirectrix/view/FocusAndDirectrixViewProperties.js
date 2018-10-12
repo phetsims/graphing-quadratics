@@ -49,8 +49,8 @@ define( require => {
       } );
 
       // @public whether an interactive point is visible on the quadratic
-      this.pointOnQuadraticVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
-        tandem: options.tandem.createTandem( 'pointOnQuadraticVisibleProperty' ),
+      this.pointOnParabolaVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: options.tandem.createTandem( 'pointOnParabolaVisibleProperty' ),
         phetioDocumentation: 'whether the interactive point on the quadratic is visible'
       } );
     }
@@ -64,7 +64,7 @@ define( require => {
       this.vertexVisibleProperty.reset();
       this.focusVisibleProperty.reset();
       this.directrixVisibleProperty.reset();
-      this.pointOnQuadraticVisibleProperty.reset();
+      this.pointOnParabolaVisibleProperty.reset();
     }
   }
 

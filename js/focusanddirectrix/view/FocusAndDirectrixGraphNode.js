@@ -66,32 +66,32 @@ define( require => {
         } );
 
       // Point on Quadratic manipulator
-      const pointOnQuadraticManipulator = new PointOnQuadraticManipulator(
+      const pointOnParabolaManipulator = new PointOnQuadraticManipulator(
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
         model.quadraticProperty,
-        model.pointOnQuadraticProperty,
+        model.pointOnParabolaProperty,
         model.graph.xRange,
         model.graph.yRange,
         model.modelViewTransform,
-        viewProperties.pointOnQuadraticVisibleProperty,
+        viewProperties.pointOnParabolaVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'pointOnQuadraticManipulator' )
+          tandem: tandem.createTandem( 'pointOnParabolaManipulator' )
         } );
 
       // Lines that connect the point on the quadratic to the focus and directrix
-      const pointOnQuadraticLinesNode = new PointOnQuadraticLinesNode(
+      const pointOnParabolaLinesNode = new PointOnQuadraticLinesNode(
         model.quadraticProperty,
-        model.pointOnQuadraticProperty,
+        model.pointOnParabolaProperty,
         model.modelViewTransform,
-        viewProperties.pointOnQuadraticVisibleProperty,
+        viewProperties.pointOnParabolaVisibleProperty,
         viewProperties.focusVisibleProperty,
         viewProperties.directrixVisibleProperty );
 
       assert && assert( !options.otherCurves, 'FocusAndDirectrixGraphNode sets otherCurves' );
-      options.otherCurves = [ directrixNode, pointOnQuadraticLinesNode ]; // rendered in this order
+      options.otherCurves = [ directrixNode, pointOnParabolaLinesNode ]; // rendered in this order
 
       assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
-      options.decorations = [ vertexManipulator, focusManipulator, pointOnQuadraticManipulator ]; // rendered in this order
+      options.decorations = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ]; // rendered in this order
 
       super( model, viewProperties, options );
     }

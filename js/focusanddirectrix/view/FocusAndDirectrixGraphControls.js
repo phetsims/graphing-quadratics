@@ -45,8 +45,8 @@ define( require => {
       const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty, {
         tandem: options.tandem.createTandem( 'directrixCheckbox' )
       } );
-      const pointOnQuadraticCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnQuadraticVisibleProperty, {
-        tandem: options.tandem.createTandem( 'pointOnQuadraticCheckbox' )
+      const pointOnParabolaCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnParabolaVisibleProperty, {
+        tandem: options.tandem.createTandem( 'pointOnParabolaCheckbox' )
       } );
       const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
         tandem: options.tandem.createTandem( 'equationsCheckbox' )
@@ -56,7 +56,7 @@ define( require => {
       } );
 
       const maxCheckboxWidth = _.maxBy(
-        [ vertexCheckbox, focusCheckbox, directrixCheckbox, pointOnQuadraticCheckbox, equationsCheckbox, coordinatesCheckbox ],
+        [ vertexCheckbox, focusCheckbox, directrixCheckbox, pointOnParabolaCheckbox, equationsCheckbox, coordinatesCheckbox ],
         node => node.width ).width;
 
       // vertical layout
@@ -67,7 +67,7 @@ define( require => {
           vertexCheckbox,
           focusCheckbox,
           directrixCheckbox,
-          pointOnQuadraticCheckbox,
+          pointOnParabolaCheckbox,
           new HSeparator( maxCheckboxWidth, { stroke: GQColors.SEPARATOR } ),
           equationsCheckbox,
           coordinatesCheckbox

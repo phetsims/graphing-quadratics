@@ -16,15 +16,15 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  const pointOnQuadraticString = require( 'string!GRAPHING_QUADRATICS/pointOnQuadratic' );
+  const pointOnParabolaString = require( 'string!GRAPHING_QUADRATICS/pointOnParabola' );
 
   class PointOnQuadraticCheckbox extends GQCheckbox {
 
     /**
-     * @param {BooleanProperty} pointOnQuadraticVisibleProperty
+     * @param {BooleanProperty} pointOnParabolaVisibleProperty
      * @param {Object} [options]
      */
-    constructor( pointOnQuadraticVisibleProperty, options ) {
+    constructor( pointOnParabolaVisibleProperty, options ) {
 
       options = _.extend( {
         tandem: Tandem.required
@@ -33,7 +33,7 @@ define( require => {
       assert && assert( !options.icon, 'PointOnQuadraticCheckbox sets icon' );
       options.icon = new Manipulator( 8, GQColors.POINT_ON_QUADRATIC, { haloAlpha: 0, pickable: false } );
 
-      super( pointOnQuadraticString, pointOnQuadraticVisibleProperty, options );
+      super( pointOnParabolaString, pointOnParabolaVisibleProperty, options );
     }
   }
 

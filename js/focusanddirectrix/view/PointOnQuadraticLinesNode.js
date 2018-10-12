@@ -19,16 +19,16 @@ define( require => {
 
   /**
    * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Property.<Vector2>} pointOnQuadraticProperty - a point on the interactive quadratic
+   * @param {Property.<Vector2>} pointOnParabolaProperty - a point on the interactive quadratic
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Property.<Boolean>} pointOnQuadraticVisibleProperty
+   * @param {Property.<Boolean>} pointOnParabolaVisibleProperty
    * @param {Property.<Boolean>} focusVisibleProperty
    * @param {Property.<Boolean>} directrixVisibleProperty
    */
   class PointOnQuadraticLinesNode extends Node {
 
-    constructor( quadraticProperty, pointOnQuadraticProperty, modelViewTransform,
-                 pointOnQuadraticVisibleProperty, focusVisibleProperty, directrixVisibleProperty ) {
+    constructor( quadraticProperty, pointOnParabolaProperty, modelViewTransform,
+                 pointOnParabolaVisibleProperty, focusVisibleProperty, directrixVisibleProperty ) {
 
       const pathOptions = {
         stroke: GQColors.POINT_ON_QUADRATIC,
@@ -45,13 +45,13 @@ define( require => {
       super( { children: [ focusLine, directrixLine ] } );
 
       // update the lines
-      Property.multilink( [ quadraticProperty, pointOnQuadraticProperty ],
-        ( quadratic, pointOnQuadratic ) => {
+      Property.multilink( [ quadraticProperty, pointOnParabolaProperty ],
+        ( quadratic, pointOnParabola ) => {
 
           assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
           assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );
 
-          const pointView = modelViewTransform.modelToViewPosition( pointOnQuadratic );
+          const pointView = modelViewTransform.modelToViewPosition( pointOnParabola );
           const focusView = modelViewTransform.modelToViewPosition( quadratic.focus );
           const directrixView = modelViewTransform.modelToViewY( quadratic.directrix );
 
@@ -60,10 +60,10 @@ define( require => {
         } );
 
       // visibility
-      Property.multilink( [ pointOnQuadraticVisibleProperty, focusVisibleProperty, directrixVisibleProperty ],
-        ( pointOnQuadraticVisible, focusVisibleProperty, directrixVisible ) => {
-          focusLine.visible = ( pointOnQuadraticVisible && focusVisibleProperty );
-          directrixLine.visible = ( pointOnQuadraticVisible && directrixVisible );
+      Property.multilink( [ pointOnParabolaVisibleProperty, focusVisibleProperty, directrixVisibleProperty ],
+        ( pointOnParabolaVisible, focusVisibleProperty, directrixVisible ) => {
+          focusLine.visible = ( pointOnParabolaVisible && focusVisibleProperty );
+          directrixLine.visible = ( pointOnParabolaVisible && directrixVisible );
         } );
     }
   }
