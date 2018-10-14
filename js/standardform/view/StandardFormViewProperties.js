@@ -31,7 +31,7 @@ define( require => {
       // @public
       this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-        phetioDocumentation: 'whether the vertex point is visible'
+        phetioDocumentation: 'whether the vertex is visible'
       } );
 
       // @public
@@ -43,7 +43,13 @@ define( require => {
       // @public
       this.rootsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'rootsVisibleProperty' ),
-        phetioDocumentation: 'whether the real roots of the quadratic are visible'
+        phetioDocumentation: 'whether the roots of the quadratic are visible'
+      } );
+
+      // @public
+      this.coordinatesVisibleProperty = new BooleanProperty( true, {
+        tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
+        phetioDocumentation: 'whether coordinates are visible on the vertex and roots'
       } );
     }
 
@@ -56,6 +62,7 @@ define( require => {
       this.vertexVisibleProperty.reset();
       this.axisOfSymmetryVisibleProperty.reset();
       this.rootsVisibleProperty.reset();
+      this.coordinatesVisibleProperty.reset();
     }
   }
 

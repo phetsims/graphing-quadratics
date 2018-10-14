@@ -25,9 +25,8 @@ define( require => {
       options = _.extend( {
         equationForm: 'standard', // see GQConstants.EQUATION_FORMS
         graphContentsVisible: true,
-        equationsVisible: GQQueryParameters.checkAll,
-        coordinatesVisible: true,
         equationAccordionBoxExpanded: true,
+        equationsVisible: GQQueryParameters.checkAll,
         tandem: Tandem.required
       }, options );
 
@@ -44,21 +43,15 @@ define( require => {
       } );
 
       // @public
-      this.equationsVisibleProperty = new BooleanProperty( options.equationsVisible, {
-        tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
-        phetioDocumentation: 'whether equations are visible on the graphed curves'
-      } );
-
-      // @public
-      this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible, {
-        tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-        phetioDocumentation: 'whether coordinates are visible on points and manipulators'
-      } );
-
-      // @public
       this.equationAccordionBoxExpandedProperty = new BooleanProperty( options.equationAccordionBoxExpanded, {
         tandem: options.tandem.createTandem( 'equationAccordionBoxExpandedProperty' ),
         phetioDocumentation: 'whether the equation accordion box is expanded'
+      } );
+
+      // @public
+      this.equationsVisibleProperty = new BooleanProperty( options.equationsVisible, {
+        tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
+        phetioDocumentation: 'whether equations are visible on graphed curves'
       } );
     }
 
@@ -67,9 +60,8 @@ define( require => {
      */
     reset() {
       this.graphContentsVisibleProperty.reset();
-      this.equationsVisibleProperty.reset();
-      this.coordinatesVisibleProperty.reset();
       this.equationAccordionBoxExpandedProperty.reset();
+      this.equationsVisibleProperty.reset();
     }
   }
 

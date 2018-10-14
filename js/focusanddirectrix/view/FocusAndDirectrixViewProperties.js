@@ -24,7 +24,6 @@ define( require => {
 
       options = _.extend( {
         equationForm: 'vertex',
-        coordinatesVisible: GQQueryParameters.checkAll,
         tandem: Tandem.required
       }, options );
 
@@ -51,7 +50,13 @@ define( require => {
       // @public whether an interactive point is visible on the quadratic
       this.pointOnParabolaVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'pointOnParabolaVisibleProperty' ),
-        phetioDocumentation: 'whether the interactive point on the quadratic is visible'
+        phetioDocumentation: 'whether the manipulator for the point on the parabola is visible'
+      } );
+
+      // @public
+      this.coordinatesVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+        tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
+        phetioDocumentation: 'whether coordinates are visible on manipulators (vertex, focus, point on parabola)'
       } );
     }
 
@@ -65,6 +70,7 @@ define( require => {
       this.focusVisibleProperty.reset();
       this.directrixVisibleProperty.reset();
       this.pointOnParabolaVisibleProperty.reset();
+      this.coordinatesVisibleProperty.reset();
     }
   }
 
