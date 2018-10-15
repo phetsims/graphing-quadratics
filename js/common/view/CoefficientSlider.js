@@ -39,23 +39,24 @@ define( require => {
 
       options = _.extend( {
 
-        // {Array.<number>|null} values where major tick marks will be placed
-        tickValues: [ 0 ],
-
-        // maps coefficientProperty.value to slider value
+        // maps coefficientProperty.value to slider value (model to view)
         map: value => value,
 
-        // maps slider value to coefficientProperty.value
+        // maps slider value to coefficientProperty.value (view to model)
         inverseMap: value => value,
+
+        // coefficientProperty.value will be set to a multiple of this value
+        interval: 1,
 
         // whether to skip zero value
         skipZero: false,
 
-        // snap to zero if |coefficientProperty.value| < snapToZeroEpsilon
+        // snap to zero if |coefficientProperty.value| < snapToZeroEpsilon,
+        // set to 0 to disable snap to zero, ignored if skipZero:true
         snapToZeroEpsilon: 0.1,
 
-        // coefficientProperty.value will be set to a multiple of this value
-        interval: 1,
+        // {Array.<number>|null} values where major tick marks will be placed
+        tickValues: [ 0 ],
 
         // {Color|string} color of the label that appears above the slider
         labelColor: 'black',
@@ -74,22 +75,21 @@ define( require => {
       options.majorTickLength = ( options.thumbSize.height / 2 ) + 3;
 
       assert && assert( !options.constrainValue, 'CoefficientSlider sets constrainValue' );
-      options.constrainValue = value => {                                               
+      options.constrainValue = value => {
         let coefficientValue = options.inverseMap( value );
-        if ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) {
-          if ( options.skipZero ) {
-            // skip zero
-            coefficientValue = ( coefficientProperty.value < 0 ) ? options.interval : -options.interval;
-          }
-          else {
-            // snap to zero
-            coefficientValue = 0;
-          }
+        if ( options.skipZero && ( Math.abs( coefficientValue ) < options.interval ) ) {
+          // skip zero
+          coefficientValue = ( coefficientProperty.value < 0 ) ? options.interval : -options.interval;
+        }
+        else if ( ( options.snapToZeroEpsilon !== 0 ) &&
+                  ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) ) {
+          // snap to zero
+          coefficientValue = 0;
         }
         return options.map( coefficientValue );
       };
 
-      // Map between value domains, determines how the slider responds.
+      // Map between model and view domains, determines how the slider responds.
       // Do not instrument for PhET-iO, see https://github.com/phetsims/phet-io/issues/1374
       const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
         reentrant: true, //TODO #17
