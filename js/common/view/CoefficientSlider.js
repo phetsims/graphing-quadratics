@@ -93,13 +93,14 @@ define( require => {
       // Do not instrument for PhET-iO, see https://github.com/phetsims/phet-io/issues/1374
       const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
         bidirectional: true,
-        map: options.map,
 
-        // apply options.interval to options.inverseMap (view to model)
+        // map from model to view, apply options.interval to model value
+        map: value => options.map( Util.roundToInterval( value, options.interval ) ),
+
+        // map from view to model, apply options.interval to model value
         inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval ),
 
-        // Reentry is necessary because this DynamicProperty is bidirectional, and when mapping from
-        // view-to-model in inverseMap, our requirement is to snap to options.interval.  See #17.
+        // See #17. Necessary because bidirectional:true and we're snapping to options.interval.
         reentrant: true
       } );
 
