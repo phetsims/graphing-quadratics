@@ -25,7 +25,7 @@ define( require => {
 
   // constants
   const PROBE_SIDES = [ 'right', 'left' ];
-  // snap to quadratic when <= this distance from the quadratic, in model coordinates
+  // snap to curve when <= this distance from the curve, in model coordinates
   const SNAP_DISTANCE = GQQueryParameters.snapDistance;
 
   class PointTool {

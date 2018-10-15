@@ -149,10 +149,14 @@ define( require => {
           // constrain to the graph
           location = graph.constrain( location );
 
-          // Setting h and k separately results in an intermediate Quadratic - live with it.
-          // constrain to range and snap to grid
-          hProperty.value = Util.roundSymmetric( hProperty.range.constrainValue( location.x ) );
-          kProperty.value = Util.roundSymmetric( kProperty.range.constrainValue( location.y ) );
+          // constrain to range and snap to integer grid
+          const h = Util.roundSymmetric( hProperty.range.constrainValue( location.x ) );
+          const k = Util.roundSymmetric( kProperty.range.constrainValue( location.y ) );
+
+          // Setting h and k separately results in an intermediate Quadratic.
+          // We decided that this is OK, and we can live with it.
+          hProperty.value = h;
+          kProperty.value = k;
         },
 
         tandem: tandem
