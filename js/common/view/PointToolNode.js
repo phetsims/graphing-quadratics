@@ -2,7 +2,7 @@
 
 /**
  * A point tool displays the (x,y) coordinates of a point on the graph.
- * If it's sufficiently close to a curve, it will snap to the curve.
+ * If it's sufficiently close to a curve, it will snap to that curve.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
