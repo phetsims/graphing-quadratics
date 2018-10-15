@@ -43,7 +43,7 @@ define( require => {
         baseColor: PhetColorScheme.BUTTON_YELLOW,
         listener: saveFunction,
         tandem: options.tandem.createTandem( 'saveButton' ),
-        phetioReadOnly: true // we don't want the client to modify this button
+        phetioReadOnly: true // we don't want the client to modify this button, see #60
       } );
 
       // Erase button
@@ -51,7 +51,7 @@ define( require => {
         iconWidth: BUTTON_ICON_WIDTH,
         listener: eraseFunction,
         tandem: options.tandem.createTandem( 'eraseButton' ),
-        phetioReadOnly: true // we don't want the client to modify this button
+        phetioReadOnly: true // we don't want the client to modify this button, see #60
       } );
 
       assert && assert( !options.children, 'SaveEraseButtonGroup sets children' );
