@@ -41,13 +41,17 @@ define( require => {
       const saveButton = new RectangularPushButton( {
         content: new FontAwesomeNode( 'camera', { maxWidth: BUTTON_ICON_WIDTH } ),
         baseColor: PhetColorScheme.BUTTON_YELLOW,
-        listener: saveFunction
+        listener: saveFunction,
+        tandem: options.tandem.createTandem( 'saveButton' ),
+        phetioReadOnly: true // we don't want the client to modify this button
       } );
 
       // Erase button
       const eraseButton = new EraserButton( {
         iconWidth: BUTTON_ICON_WIDTH,
-        listener: eraseFunction
+        listener: eraseFunction,
+        tandem: options.tandem.createTandem( 'eraseButton' ),
+        phetioReadOnly: true // we don't want the client to modify this button
       } );
 
       assert && assert( !options.children, 'SaveEraseButtonGroup sets children' );
