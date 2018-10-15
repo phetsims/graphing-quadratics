@@ -54,7 +54,7 @@ define( require => {
         // snap to zero if |coefficientProperty.value| < snapToZeroEpsilon
         snapToZeroEpsilon: 0.1,
 
-        // coefficientProperty.value will be a multiple of this interval
+        // coefficientProperty.value will be set to a multiple of this value
         interval: 1,
 
         // {Color|string} color of the label that appears above the slider

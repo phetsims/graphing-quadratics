@@ -42,7 +42,7 @@ define( require => {
 
       options = _.extend( {
 
-        // interval of p value, in model coordinate frame
+        // dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
 
         // Manipulator options
