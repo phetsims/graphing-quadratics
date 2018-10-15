@@ -45,7 +45,7 @@ define( require => {
         // maps slider value to coefficientProperty.value (view to model)
         inverseMap: value => value,
 
-        // coefficientProperty.value will be set to a multiple of this value
+        // coefficientProperty.value will be set to a multiple of this value, in model coordinates
         interval: 1,
 
         // whether to skip zero value
