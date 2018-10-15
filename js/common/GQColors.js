@@ -19,7 +19,7 @@ define( require => {
 
   const GQColors = {
 
-    // interactive curves in each screen
+    // interactive curves on each screen
     EXPLORE_INTERACTIVE_CURVE: PhetColorScheme.RED_COLORBLIND,
     STANDARD_FORM_INTERACTIVE_CURVE: PhetColorScheme.RED_COLORBLIND,
     VERTEX_FORM_INTERACTIVE_CURVE: 'black',
