@@ -25,7 +25,7 @@ define( require => {
     VERTEX_FORM_INTERACTIVE_CURVE: 'black',
     FOCUS_AND_DIRECTRIX_INTERACTIVE_CURVE: 'black',
 
-    // quadratic terms on the Explore screen
+    // quadratic equation terms on the Explore screen
     QUADRATIC_TERM: 'blue',
     LINEAR_TERM: 'green',
     CONSTANT_TERM: 'magenta',
