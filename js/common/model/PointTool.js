@@ -56,7 +56,7 @@ define( require => {
       this.locationProperty = new Property( options.location, {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'locationProperty' ),
-        phetioType: PropertyIO( NullableIO( Vector2IO ) ),
+        phetioType: PropertyIO( Vector2IO ),
         phetioDocumentation: 'location of this point tool'
       } );
 
