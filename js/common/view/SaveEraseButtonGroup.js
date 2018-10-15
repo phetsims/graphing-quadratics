@@ -20,7 +20,7 @@ define( require => {
   // constants
   const BUTTON_ICON_WIDTH = 30;
 
-  class SaveEraseButtons extends HBox {
+  class SaveEraseButtonGroup extends HBox {
 
     /**
      * @param {function} saveFunction
@@ -50,7 +50,7 @@ define( require => {
         listener: eraseFunction
       } );
 
-      assert && assert( !options.children, 'SaveEraseButtons sets children' );
+      assert && assert( !options.children, 'SaveEraseButtonGroup sets children' );
       options.children = [ saveButton, eraseButton ];
 
       super( options );
@@ -62,5 +62,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'SaveEraseButtons', SaveEraseButtons );
+  return graphingQuadratics.register( 'SaveEraseButtonGroup', SaveEraseButtonGroup );
 } ); 
