@@ -52,10 +52,10 @@ define( require => {
         skipZero: false,
 
         // snap to zero if |coefficientProperty.value| < snapToZeroEpsilon,
-        // set to 0 to disable snap to zero, ignored if skipZero:true
+        // set to 0 to disable snap to zero, ignored if skipZero:true, in model coordinates
         snapToZeroEpsilon: 0.1,
 
-        // {Array.<number>|null} values where major tick marks will be placed
+        // {Array.<number>|null} model values where major tick marks will be placed
         tickValues: [ 0 ],
 
         // {Color|string} color of the label that appears above the slider
