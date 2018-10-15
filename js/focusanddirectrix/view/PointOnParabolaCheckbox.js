@@ -18,7 +18,7 @@ define( require => {
   // strings
   const pointOnParabolaString = require( 'string!GRAPHING_QUADRATICS/pointOnParabola' );
 
-  class PointOnQuadraticCheckbox extends GQCheckbox {
+  class PointOnParabolaCheckbox extends GQCheckbox {
 
     /**
      * @param {BooleanProperty} pointOnParabolaVisibleProperty
@@ -30,12 +30,12 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      assert && assert( !options.icon, 'PointOnQuadraticCheckbox sets icon' );
-      options.icon = new Manipulator( 8, GQColors.POINT_ON_QUADRATIC, { haloAlpha: 0, pickable: false } );
+      assert && assert( !options.icon, 'PointOnParabolaCheckbox sets icon' );
+      options.icon = new Manipulator( 8, GQColors.POINT_ON_PARABOLA, { haloAlpha: 0, pickable: false } );
 
       super( pointOnParabolaString, pointOnParabolaVisibleProperty, options );
     }
   }
 
-  return graphingQuadratics.register( 'PointOnQuadraticCheckbox', PointOnQuadraticCheckbox );
+  return graphingQuadratics.register( 'PointOnParabolaCheckbox', PointOnParabolaCheckbox );
 } );

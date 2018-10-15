@@ -25,15 +25,15 @@ define( require => {
    * @param {Property.<Boolean>} focusVisibleProperty
    * @param {Property.<Boolean>} directrixVisibleProperty
    */
-  class PointOnQuadraticLinesNode extends Node {
+  class PointOnParabolaLinesNode extends Node {
 
     constructor( quadraticProperty, pointOnParabolaProperty, modelViewTransform,
                  pointOnParabolaVisibleProperty, focusVisibleProperty, directrixVisibleProperty ) {
 
       const pathOptions = {
-        stroke: GQColors.POINT_ON_QUADRATIC,
-        lineWidth: GQConstants.POINT_ON_QUADRATIC_LINE_WIDTH,
-        lineDash: GQConstants.POINT_ON_QUADRATIC_LINE_DASH
+        stroke: GQColors.POINT_ON_PARABOLA,
+        lineWidth: GQConstants.POINT_ON_PARABOLA_LINE_WIDTH,
+        lineDash: GQConstants.POINT_ON_PARABOLA_LINE_DASH
       };
 
       // line connecting point and focus
@@ -68,5 +68,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'PointOnQuadraticLinesNode', PointOnQuadraticLinesNode );
+  return graphingQuadratics.register( 'PointOnParabolaLinesNode', PointOnParabolaLinesNode );
 } );

@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Manipulator for editing a point on a quadratic. Displays the coordinates of the point.
+ * Manipulator for editing a point on a parabola. Displays the coordinates of the point.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -21,12 +21,12 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
-  class PointOnQuadraticManipulator extends Manipulator {
+  class PointOnParabolaManipulator extends Manipulator {
 
     /**
      * @param {number} radius - in view coordinates
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-     * @param {Property.<Vector2>} pointOnParabolaProperty - point on the interactive quadratic
+     * @param {Property.<Vector2>} pointOnParabolaProperty - the point
      * @param {Range} xRange - range of the graph's x axis
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
@@ -44,7 +44,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      super( radius, GQColors.POINT_ON_QUADRATIC, options );
+      super( radius, GQColors.POINT_ON_PARABOLA, options );
 
       // Coordinates are identical to pointOnParabolaProperty. We're using a separate Property here
       // for PhET-iO instrumentation symmetry with other manipulators.
@@ -59,15 +59,15 @@ define( require => {
       // coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
-        backgroundColor: GQColors.POINT_ON_QUADRATIC,
-        decimals: GQConstants.POINT_ON_QUADRATIC_DECIMALS,
+        backgroundColor: GQColors.POINT_ON_PARABOLA,
+        decimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
         pickable: false,
         maxWidth: GQConstants.COORDINATES_MAX_WIDTH
       } );
       this.addChild( coordinatesNode );
 
       // add drag handler
-      const dragHandler = new PointOnQuadraticDragHandler( pointOnParabolaProperty, quadraticProperty,
+      const dragHandler = new PointOnParabolaDragHandler( pointOnParabolaProperty, quadraticProperty,
         modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragHandler' ) );
       this.addInputListener( dragHandler );
 
@@ -100,13 +100,13 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'PointOnQuadraticManipulator', PointOnQuadraticManipulator );
+  graphingQuadratics.register( 'PointOnParabolaManipulator', PointOnParabolaManipulator );
 
-  class PointOnQuadraticDragHandler extends SimpleDragHandler {
+  class PointOnParabolaDragHandler extends SimpleDragHandler {
 
     /**
-     * Drag handler for point on the quadratic.
-     * @param {Property.<Vector2>} pointOnParabolaProperty - point on the interactive quadratic
+     * Drag handler for point on the parabola.
+     * @param {Property.<Vector2>} pointOnParabolaProperty - the point
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Range} xRange
@@ -142,7 +142,7 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'PointOnQuadraticManipulator.PointOnQuadraticDragHandler', PointOnQuadraticDragHandler );
+  graphingQuadratics.register( 'PointOnParabolaManipulator.PointOnParabolaDragHandler', PointOnParabolaDragHandler );
 
-  return PointOnQuadraticManipulator;
+  return PointOnParabolaManipulator;
 } );

@@ -18,7 +18,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
   const Panel = require( 'SUN/Panel' );
-  const PointOnQuadraticCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticCheckbox' );
+  const PointOnParabolaCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnParabolaCheckbox' );
   const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
@@ -45,7 +45,7 @@ define( require => {
       const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty, {
         tandem: options.tandem.createTandem( 'directrixCheckbox' )
       } );
-      const pointOnParabolaCheckbox = new PointOnQuadraticCheckbox( viewProperties.pointOnParabolaVisibleProperty, {
+      const pointOnParabolaCheckbox = new PointOnParabolaCheckbox( viewProperties.pointOnParabolaVisibleProperty, {
         tandem: options.tandem.createTandem( 'pointOnParabolaCheckbox' )
       } );
       const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {

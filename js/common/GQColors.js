@@ -59,7 +59,7 @@ define( require => {
     VERTEX: VERTEX,
     AXIS_OF_SYMMETRY: VERTEX,
     ROOTS: '#0071bc',
-    POINT_ON_QUADRATIC: PhetColorScheme.RED_COLORBLIND,
+    POINT_ON_PARABOLA: PhetColorScheme.RED_COLORBLIND,
     SEPARATOR: 'rgb( 212, 212, 212 )',
 
     // transparency of all manipulator halos, which appear on pointer over

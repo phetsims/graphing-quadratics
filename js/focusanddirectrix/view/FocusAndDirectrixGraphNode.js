@@ -14,8 +14,8 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const PointOnQuadraticLinesNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticLinesNode' );
-  const PointOnQuadraticManipulator = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnQuadraticManipulator' );
+  const PointOnParabolaLinesNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnParabolaLinesNode' );
+  const PointOnParabolaManipulator = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnParabolaManipulator' );
   const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
 
   class FocusAndDirectrixGraphNode extends GQGraphNode {
@@ -66,7 +66,7 @@ define( require => {
         } );
 
       // Point on Quadratic manipulator
-      const pointOnParabolaManipulator = new PointOnQuadraticManipulator(
+      const pointOnParabolaManipulator = new PointOnParabolaManipulator(
         model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
         model.quadraticProperty,
         model.pointOnParabolaProperty,
@@ -79,7 +79,7 @@ define( require => {
         } );
 
       // Lines that connect the point on the quadratic to the focus and directrix
-      const pointOnParabolaLinesNode = new PointOnQuadraticLinesNode(
+      const pointOnParabolaLinesNode = new PointOnParabolaLinesNode(
         model.quadraticProperty,
         model.pointOnParabolaProperty,
         model.modelViewTransform,
