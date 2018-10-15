@@ -33,7 +33,7 @@ define( require => {
         name: screenFocusAndDirectrixString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
-        navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(), //TODO workaround for #51
+        navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(), //TODO #51 delete workaround
         tandem: tandem
       };
 

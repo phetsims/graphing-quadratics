@@ -33,7 +33,7 @@ define( require => {
         name: screenVertexFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
-        navigationBarIcon: GQScreenIconFactory.createVertexFormScreenIcon(), //TODO workaround for #51
+        navigationBarIcon: GQScreenIconFactory.createVertexFormScreenIcon(), //TODO #51 delete workaround
         tandem: tandem
       };
 

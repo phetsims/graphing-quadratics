@@ -33,7 +33,7 @@ define( require => {
         name: screenExploreString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
-        navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(), //TODO workaround for #51
+        navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(), //TODO #51 delete workaround
         tandem: tandem
       };
 

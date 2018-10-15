@@ -34,7 +34,7 @@ define( require => {
         name: screenStandardFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
-        navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(), //TODO workaround for #51
+        navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(), //TODO #51 delete workaround
         tandem: tandem
       };
 
