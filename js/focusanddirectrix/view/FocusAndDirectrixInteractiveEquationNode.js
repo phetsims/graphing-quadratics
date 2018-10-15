@@ -10,7 +10,7 @@ define( require => {
   'use strict';
 
   // modules
-  const CoefficientControl = require( 'GRAPHING_QUADRATICS/common/view/CoefficientControl' );
+  const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
@@ -45,41 +45,41 @@ define( require => {
       } );
 
       // coefficient controls (labeled sliders)
-      const pControl = new CoefficientControl( GQSymbols.p, pProperty, {
+      const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
 
         // p=0 is not supported by this sim, see https://github.com/phetsims/graphing-quadratics/issues/31
         skipZero: true,
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_P,
-        tandem: options.tandem.createTandem( 'pControl' ),
-        phetioDocumentation: 'control for coefficient p'
+        tandem: options.tandem.createTandem( 'pSlider' ),
+        phetioDocumentation: 'slider for coefficient p'
       } );
-      const hControl = new CoefficientControl( GQSymbols.h, hProperty, {
+      const hSlider = new CoefficientSlider( GQSymbols.h, hProperty, {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
-        tandem: options.tandem.createTandem( 'hControl' ),
-        phetioDocumentation: 'control for coefficient h'
+        tandem: options.tandem.createTandem( 'hSlider' ),
+        phetioDocumentation: 'slider for coefficient h'
       } );
-      const kControl = new CoefficientControl( GQSymbols.k, kProperty, {
+      const kSlider = new CoefficientSlider( GQSymbols.k, kProperty, {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
-        tandem: options.tandem.createTandem( 'kControl' ),
-        phetioDocumentation: 'control for coefficient k'
+        tandem: options.tandem.createTandem( 'kSlider' ),
+        phetioDocumentation: 'slider for coefficient k'
       } );
 
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
-      options.children = [ equationNode, pControl, hControl, kControl ];
+      options.children = [ equationNode, pSlider, hSlider, kSlider ];
 
       super( options );
 
       // horizontally align sliders under their associated values in the equation
       const ySpacing = 3;
-      pControl.x = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
-      pControl.top = equationNode.bottom + ySpacing;
-      hControl.x = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
-      hControl.top = equationNode.bottom + ySpacing;
-      kControl.x = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
-      kControl.top = equationNode.bottom + ySpacing;
+      pSlider.x = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
+      pSlider.top = equationNode.bottom + ySpacing;
+      hSlider.x = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
+      hSlider.top = equationNode.bottom + ySpacing;
+      kSlider.x = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
+      kSlider.top = equationNode.bottom + ySpacing;
     }
   }
 

@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * A labeled vertical slider that has a quadratic response.
+ * A CoefficientSlider that has a quadratic response.
  * While the implementation is general, this slider is used for the 'a' coefficient in the Explore screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -10,12 +10,12 @@ define( require => {
   'use strict';
 
   // modules
-  const CoefficientControl = require( 'GRAPHING_QUADRATICS/common/view/CoefficientControl' );
+  const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
 
-  class QuadraticCoefficientControl extends CoefficientControl {
+  class QuadraticCoefficientSlider extends CoefficientSlider {
 
     /**
      * @param {string} symbol - the coefficient's symbol
@@ -36,16 +36,16 @@ define( require => {
       const a = 1 / coefficientProperty.range.max;
 
       // map coefficientProperty value to slider value, x = sqrt( y / a )
-      assert && assert( !options.map, 'QuadraticCoefficientControl sets map' );
+      assert && assert( !options.map, 'QuadraticCoefficientSlider sets map' );
       options.map = value => ( Util.sign( value ) * Math.sqrt( Math.abs( value ) / a ) );
 
       // map slider value to coefficientProperty value, y = ax^2
-      assert && assert( !options.inverseMap, 'QuadraticCoefficientControl sets inverseMap' );
+      assert && assert( !options.inverseMap, 'QuadraticCoefficientSlider sets inverseMap' );
       options.inverseMap = value => ( Util.sign( value ) * a * value * value );
 
       super( symbol, coefficientProperty, options );
     }
   }
 
-  return graphingQuadratics.register( 'QuadraticCoefficientControl', QuadraticCoefficientControl );
+  return graphingQuadratics.register( 'QuadraticCoefficientSlider', QuadraticCoefficientSlider );
 } );

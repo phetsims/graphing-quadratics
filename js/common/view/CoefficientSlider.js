@@ -1,8 +1,9 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * A labeled vertical slider for changing one of the coefficients in a quadratic equation.
- * The default response of this slider is linear.  To change the response, use options map and inverseMap.
+ * A vertical slider for changing one of the coefficients in a quadratic equation, decorated with a label
+ * above the slider. The default response of this slider is linear.  To change the response, use options 
+ * map and inverseMap.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -15,7 +16,6 @@ define( require => {
   const DynamicProperty = require( 'AXON/DynamicProperty' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
@@ -27,10 +27,8 @@ define( require => {
   // constants
   const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
   const TICK_LABEL_FONT = new PhetFont( GQConstants.SLIDER_TICK_LABEL_FONT_SIZE );
-  const TRACK_SIZE = new Dimension2( 130, 1 );
-  const THUMB_SIZE = new Dimension2( 20, 40 );
 
-  class CoefficientControl extends Node {
+  class CoefficientSlider extends VSlider {
 
     /**
      * @param {string} symbol - the coefficient's symbol
@@ -62,8 +60,34 @@ define( require => {
         // {Color|string} color of the label that appears above the slider
         labelColor: 'black',
 
+        // Slider options
+        trackFill: 'black',
+        trackSize: new Dimension2( 130, 1 ),
+        thumbSize: new Dimension2( 20, 40 ),
+        thumbTouchAreaYDilation: 8,
         tandem: Tandem.required
+
       }, options );
+
+      // make ticks extend past the thumb
+      assert && assert( options.majorTickLength === undefined, 'CoefficientSlider sets majorTickLength' );
+      options.majorTickLength = ( options.thumbSize.height / 2 ) + 3;
+
+      assert && assert( !options.constrainValue, 'CoefficientSlider sets constrainValue' );
+      options.constrainValue = value => {                                               
+        let coefficientValue = options.inverseMap( value );
+        if ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) {
+          if ( options.skipZero ) {
+            // skip zero
+            coefficientValue = ( coefficientProperty.value < 0 ) ? options.interval : -options.interval;
+          }
+          else {
+            // snap to zero
+            coefficientValue = 0;
+          }
+        }
+        return options.map( coefficientValue );
+      };
 
       // Map between value domains, determines how the slider responds.
       // Do not instrument for PhET-iO, see https://github.com/phetsims/phet-io/issues/1374
@@ -76,56 +100,29 @@ define( require => {
         inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
       } );
 
-      const slider = new VSlider( sliderProperty, coefficientProperty.range, {
-
-        trackFill: 'black',
-        trackSize: TRACK_SIZE,
-        thumbSize: THUMB_SIZE,
-        thumbTouchAreaYDilation: 8,
-        majorTickLength: ( THUMB_SIZE.height / 2 ) + 3, // so that ticks extends past thumb
-
-        constrainValue: value => {
-          let coefficientValue = options.inverseMap( value );
-          if ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) {
-            if ( options.skipZero ) {
-              // skip zero
-              coefficientValue = ( coefficientProperty.value < 0 ) ? options.interval : -options.interval;
-            }
-            else {
-              // snap to zero
-              coefficientValue = 0;
-            }
-          }
-          return options.map( coefficientValue );
-        },
-        tandem: options.tandem.createTandem( 'slider' )
-      } );
-
-      // Coefficient label that appears above the slider.
-      const label = new RichText( symbol, {
-        font: COEFFICIENT_LABEL_FONT,
-        fill: options.labelColor,
-        centerX: slider.centerX,
-        bottom: slider.top - 2,
-        maxWidth: 20, // determined empirically
-        tandem: options.tandem.createTandem( 'label' )
-      } );
+      super( sliderProperty, coefficientProperty.range, options );
 
       // Create the tick labels
       if ( options.tickValues ) {
         options.tickValues.forEach( tickValue => {
-          slider.addMajorTick( options.map( tickValue ), new Text( tickValue, {
+          this.addMajorTick( options.map( tickValue ), new Text( tickValue, {
             font: TICK_LABEL_FONT
           } ) );
         } );
       }
 
-      assert && assert( !options.children, 'CoefficientControl sets children' );
-      options.children = [ label, slider ];
-
-      super( options );
+      // Label that appears above the slider.
+      const label = new RichText( symbol, {
+        font: COEFFICIENT_LABEL_FONT,
+        fill: options.labelColor,
+        centerX: this.x,
+        bottom: this.top - 2,
+        maxWidth: 20, // determined empirically
+        tandem: options.tandem.createTandem( 'label' )
+      } );
+      this.addChild( label );
     }
   }
 
-  return graphingQuadratics.register( 'CoefficientControl', CoefficientControl );
+  return graphingQuadratics.register( 'CoefficientSlider', CoefficientSlider );
 } );
