@@ -3,6 +3,9 @@
 /**
  * Query parameters supported by this simulation.
  *
+ * Running with ?log will print these query parameters and their values to the console,
+ * as well as changes to selective model Properties.
+ *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
@@ -29,6 +32,9 @@ define( require => {
   } );
 
   graphingQuadratics.register( 'GQQueryParameters', GQQueryParameters );
+
+  // log the values of all sim-specific query parameters
+  phet.log && phet.log( 'query parameters: ' + JSON.stringify( GQQueryParameters, null, 2 ) );
 
   return GQQueryParameters;
 } );
