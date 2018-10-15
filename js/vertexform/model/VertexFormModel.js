@@ -2,6 +2,7 @@
 
 /**
  * Model for the 'Vertex Form' screen.
+ * Vertex form of the quadratic equation is: y = a(x - h)^2 + k
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,9 +21,9 @@ define( require => {
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
   // constants
-  const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient of vertex form
-  const H_RANGE = new RangeWithValue( -9, 9, 0 ); // h coefficient of vertex form
-  const K_RANGE = new RangeWithValue( -9, 9, 0 ); // k coefficient of vertex form
+  const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
+  const H_RANGE = new RangeWithValue( -9, 9, 0 ); // h coefficient
+  const K_RANGE = new RangeWithValue( -9, 9, 0 ); // k coefficient
           
   class VertexFormModel extends GQModel {
 
@@ -32,7 +33,7 @@ define( require => {
      */
     constructor( tandem, options ) {
 
-      // coefficients for vertex form: y = a(x - h)^2 + k
+      // coefficients for vertex form
       const aProperty = new NumberProperty( A_RANGE.defaultValue, {
         range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),

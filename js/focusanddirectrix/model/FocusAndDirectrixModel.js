@@ -2,6 +2,7 @@
 
 /**
  * Model for the 'Focus & Directrix' screen.
+ * Alternate vertex form of the quadratic equation is: y = (1/(4p)(x - h)^1 - k
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -24,10 +25,10 @@ define( require => {
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // constants
-  const P_RANGE = new RangeWithValue( -9, 9, 2 ); // p coefficient of alternate vertex form
-  const H_RANGE = new RangeWithValue( -6, 6, 0 ); // h coefficient of alternate vertex form
-  const K_RANGE = new RangeWithValue( -6, 6, 0 ); // k coefficient of alternate vertex form
-  const POINT_X = 5; // default x value for point on quadratic
+  const P_RANGE = new RangeWithValue( -9, 9, 2 ); // p coefficient
+  const H_RANGE = new RangeWithValue( -6, 6, 0 ); // h coefficient
+  const K_RANGE = new RangeWithValue( -6, 6, 0 ); // k coefficient
+  const POINT_X = 5; // default x value for point on parabola
 
   class FocusAndDirectrixModel extends GQModel {
 
@@ -36,7 +37,7 @@ define( require => {
      */
     constructor( tandem ) {
 
-      // coefficients for alternate vertex form: y = (1/(4p)(x - h)^1 - k
+      // coefficients for alternate vertex form
       const pProperty = new NumberProperty( P_RANGE.defaultValue, {
         range: P_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),

@@ -2,6 +2,7 @@
 
 /**
  * Model for the 'Standard Form' screen.
+ * Standard form of the quadratic equation is: y = ax^2 + bx + c
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,9 +21,9 @@ define( require => {
   const RangeWithValue = require( 'DOT/RangeWithValue' );
 
   // constants
-  const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient of standard form
-  const B_RANGE = new RangeWithValue( -6, 6, 0 ); // b coefficient of standard form
-  const C_RANGE = new RangeWithValue( -6, 6, 0 ); // c constant of standard form
+  const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
+  const B_RANGE = new RangeWithValue( -6, 6, 0 ); // b coefficient
+  const C_RANGE = new RangeWithValue( -6, 6, 0 ); // c constant
 
   class StandardFormModel extends GQModel {
 
@@ -31,7 +32,7 @@ define( require => {
      */
     constructor( tandem ) {
 
-      // coefficients for standard form: y = ax^2 + bx + c
+      // coefficients for standard form
       const aProperty = new NumberProperty( A_RANGE.defaultValue, {
         range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),

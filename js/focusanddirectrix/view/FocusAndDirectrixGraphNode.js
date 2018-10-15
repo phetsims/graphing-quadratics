@@ -78,7 +78,7 @@ define( require => {
           tandem: tandem.createTandem( 'pointOnParabolaManipulator' )
         } );
 
-      // Lines that connect the point on the quadratic to the focus and directrix
+      // Lines that connect the point on the parabola to the focus and directrix
       const pointOnParabolaLinesNode = new PointOnParabolaLinesNode(
         model.quadraticProperty,
         model.pointOnParabolaProperty,

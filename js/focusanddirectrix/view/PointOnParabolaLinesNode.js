@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Dashed lines that connect the 'point on quadratic' to the focus and directrix.
+ * Dashed lines that connect the 'point on parabola' to the focus and directrix.
  * This is implemented as 2 Lines (rather than 1 Path) so that their visibility can be controlled independently.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -19,7 +19,7 @@ define( require => {
 
   /**
    * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Property.<Vector2>} pointOnParabolaProperty - a point on the interactive quadratic
+   * @param {Property.<Vector2>} pointOnParabolaProperty - the point
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Property.<Boolean>} pointOnParabolaVisibleProperty
    * @param {Property.<Boolean>} focusVisibleProperty
