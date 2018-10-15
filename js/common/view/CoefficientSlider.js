@@ -96,7 +96,7 @@ define( require => {
         bidirectional: true,
         map: options.map,
 
-        // apply interval to options.inverseMap (view to model)
+        // apply options.interval to options.inverseMap (view to model)
         inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
       } );
 
