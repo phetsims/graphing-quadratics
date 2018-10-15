@@ -82,7 +82,6 @@ define( require => {
         tandem: tandem.createTandem( 'pointOnParabolaProperty' ),
         phetioType: PropertyIO( Vector2IO ),
         phetioDocumentation: 'the interactive point on the parabola'
-
       } );
 
       // update the point
