@@ -60,7 +60,8 @@ define( require => {
         quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null, {
           isValidValue: value => ( value instanceof Vector2 || value === null ),
           phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
-          phetioDocumentation: 'coordinates displayed on the left (or single) root, or null if there are no roots'
+          phetioDocumentation: 'coordinates displayed on the left (first) root, ' +
+                               'null if there are no roots or if all points are roots'
         } );
 
       // coordinates corresponding to the quadratic's right root, if it has 2 roots
@@ -68,9 +69,10 @@ define( require => {
         quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null, {
           isValidValue: value => ( value instanceof Vector2 || value === null ),
           phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
-          phetioDocumentation: 'coordinates displayed on the right root, or null if there is 1 or less root'
+          phetioDocumentation: 'coordinates displayed on the right (second) root, ' +
+                               'null if there are less that two roots or if all points are roots'
         } );
-      
+
       // coordinate displays
       const coordinatesOptions = {
         foregroundColor: 'white',
