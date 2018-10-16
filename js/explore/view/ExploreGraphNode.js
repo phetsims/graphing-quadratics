@@ -71,8 +71,9 @@ define( require => {
 
       super( model, viewProperties, options );
 
-      // Make quadratic terms available to the point tool, if they are visible. The order of model.quadraticTerms
-      // determines the order that the terms will be considered by point tools, so maintain the order.
+      // Make quadratic terms available to the point tool, if they are visible. The order of
+      // model.quadraticTermsProperty determines the order that the terms will be considered by
+      // point tools, so maintain the order.
       Property.multilink( [
         viewProperties.quadraticTermVisibleProperty, model.quadraticTermProperty,
         viewProperties.linearTermVisibleProperty, model.linearTermProperty,
@@ -82,11 +83,12 @@ define( require => {
         linearTermVisible, linearTerm,
         constantTermVisible, constantTerm
       ) => {
-        model.quadraticTerms.clear();
-        // order is important!
-        quadraticTermVisible && model.quadraticTerms.add( quadraticTerm );
-        linearTermVisible && model.quadraticTerms.add( linearTerm );
-        constantTermVisible && model.quadraticTerms.add( constantTerm );
+        // order is important! compact to remove falsy values
+        model.quadraticTermsProperty.value = _.compact( [
+          quadraticTermVisible && quadraticTerm,
+          linearTermVisible && linearTerm,
+          constantTermVisible && constantTerm
+        ] );
       } );
     }
   }

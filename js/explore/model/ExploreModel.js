@@ -48,6 +48,9 @@ define( require => {
           phetioType: DerivedPropertyIO( QuadraticIO ),
           phetioDocumentation: 'the constant term (y = c) of the interactive quadratic'
         } );
+
+      //XXX
+      phet.leftPointTool = this.leftPointTool;
     }
   }
 

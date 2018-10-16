@@ -16,6 +16,7 @@ define( require => {
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -38,6 +39,8 @@ define( require => {
 
   // constants
   const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of pointToolLeftImage
+  // snap to curve when <= this distance from the curve, in model coordinates
+  const SNAP_DISTANCE = GQQueryParameters.snapDistance;
 
   class PointToolNode extends Node {
 
@@ -110,18 +113,18 @@ define( require => {
         coordinatesNode.centerY = bodyNode.centerY;
       } );
 
-      Property.multilink( [ pointTool.locationProperty, pointTool.snapQuadraticProperty, graphContentsVisibleProperty ],
-        ( location, snapQuadratic, graphContentsVisible ) => {
+      Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
+        ( location, onQuadratic, graphContentsVisible ) => {
 
           // move to location
           this.translation = modelViewTransform.modelToViewPosition( location );
 
           // update colors
-          if ( graph.contains( location ) && snapQuadratic && graphContentsVisible ) {
+          if ( graph.contains( location ) && onQuadratic && graphContentsVisible ) {
 
-            // color code the display to snapQuadratic
+            // color code the display to onQuadratic
             coordinatesNode.foreground = options.foregroundHighlightColor;
-            backgroundNode.fill = snapQuadratic.color;
+            backgroundNode.fill = onQuadratic.color;
           }
           else {
             coordinatesNode.foreground = options.foregroundNormalColor;
@@ -217,27 +220,20 @@ define( require => {
 
         drag: ( event, trail ) => {
 
-          // Convert drag point to model location, constrained to dragBounds
+          // Convert drag point to model location
           let parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
+
+          // constrained to dragBounds
           location = pointTool.dragBounds.closestPointTo( location );
 
-          if ( graph.contains( location ) ) {
-
-            // Snap to a quadratic when sufficiently close.
-            // pointTool.quadratics is in reverse rendering order, so traverse in order so that we pick the
-            // quadratic that is in the foreground first.
-            let snapped = false;
-            for ( let i = 0; i < pointTool.quadratics.length && !snapped; i++ ) {
-              const quadratic = pointTool.quadratics.get( i );
-              const nearestPoint = quadratic.getClosestPoint( location );
-              if ( nearestPoint.distance( location ) < pointTool.snapDistance ) {
-                location = nearestPoint;
-                snapped = true;
-              }
-            }
+          // snap to a quadratic, if we're close enough
+          const snapQuadratic = pointTool.getQuadraticNear( location, SNAP_DISTANCE );
+          if ( snapQuadratic ) {
+            location = snapQuadratic.getClosestPoint( location );
           }
 
+          // move the point tool
           pointTool.locationProperty.value = location;
         },
 

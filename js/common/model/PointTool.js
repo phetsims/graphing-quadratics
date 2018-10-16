@@ -9,10 +9,8 @@ define( require => {
   'use strict';
 
   // modules
-  const DerivedProperty = require( 'AXON/DerivedProperty' );
-  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const Property = require( 'AXON/Property' );
   const PropertyIO = require( 'AXON/PropertyIO' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
@@ -25,16 +23,14 @@ define( require => {
 
   // constants
   const PROBE_SIDES = [ 'right', 'left' ];
-  // snap to curve when <= this distance from the curve, in model coordinates
-  const SNAP_DISTANCE = GQQueryParameters.snapDistance;
 
   class PointTool {
 
     /**
-     * @param {ObservableArray.<Quadratic>} quadratics - Quadratics that the tool might intersect
+     * @param {Property.<Quadratic[]>} quadraticsProperty - Quadratics that the tool might intersect
      * @param {Object} [options]
      */
-    constructor( quadratics, options ) {
+    constructor( quadraticsProperty, options ) {
 
       options = _.extend( {
         location: Vector2.ZERO, // {Vector2} initial location
@@ -45,36 +41,66 @@ define( require => {
 
       assert && assert( PROBE_SIDES.includes( options.probeSide ),
         'invalid probeSide: ' + options.probeSide );
-      
+
       // @public (read-only)
-      this.quadratics = quadratics;
       this.probeSide = options.probeSide;
       this.dragBounds = options.dragBounds;
-      this.snapDistance = SNAP_DISTANCE;
+
+      // @private
+      this.quadraticsProperty = quadraticsProperty;
 
       // @public {Vector2}
       this.locationProperty = new Property( options.location, {
+        // reentrant: true, // because changing location may result in snapping to a quadratic, see #17
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'locationProperty' ),
         phetioType: PropertyIO( Vector2IO ),
         phetioDocumentation: 'location of this point tool'
       } );
 
-      // @public {DerivedProperty.<Quadratic|null>}
-      this.snapQuadraticProperty = new DerivedProperty( [ this.locationProperty, quadratics.lengthProperty ],
-        ( location, length ) => {
-          for ( let i = 0; i < length; i++ ) {
-            let quadratic = quadratics.get( i );
-            if ( quadratic.isOnQuadratic( this.locationProperty.value, this.snapDistance ) ) {
-              return quadratic;
-            }
+      // @public (read-only) {Property.<Quadratic|null>}
+      this.onQuadraticProperty = new Property( null, {
+        isValidValue: value => ( value instanceof Quadratic || value === null ),
+        tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
+        phetioType: PropertyIO( NullableIO( QuadraticIO ) ),
+        phetioReadOnly: true,
+        phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
+      } );
+
+      // @private flag to prevent infinite recursion when calling snapToCurve
+      this.snapping = false;
+
+      // Determine whether we're on a quadratic, using a small distance error.
+      Property.multilink( [ this.locationProperty, quadraticsProperty ], ( location, quadratics ) => {
+        this.onQuadraticProperty.value = this.getQuadraticNear( location, 0.01 );
+      } );
+    }
+
+    /**
+     * Gets the quadratic that is close to a specified location, within a specified distance. 
+     * This algorithm prefers to return the quadratic that the point tool is already on.
+     * If that quadratic is too far away, then examine all quadratics, in foreground-to-background order.
+     * See #47.
+     * @param {Vector2} location - the point tool's location
+     * @param {number} distance - how close we need to be
+     * @returns {Quadratic|null} null if no quadratic is close enough
+     * @public
+     */
+    getQuadraticNear( location, distance ) {
+      let onQuadratic = this.onQuadraticProperty.value;
+      const quadratics = this.quadraticsProperty.value;
+      if ( !onQuadratic ||
+           quadratics.indexOf( onQuadratic ) === -1 ||
+           !onQuadratic.isOnQuadratic( location, distance ) ) {
+        onQuadratic = null;
+        for ( let i = 0; i < quadratics.length && !onQuadratic; i++ ) {
+          let quadratic = quadratics[ i ];
+          if ( quadratic.isOnQuadratic( location, distance ) ) {
+            onQuadratic = quadratic;
           }
-          return null;
-        }, {
-          tandem: options.tandem.createTandem( 'snapQuadraticProperty' ),
-          phetioType: DerivedPropertyIO( NullableIO( QuadraticIO ) ),
-          phetioDocumentation: 'the quadratic that this point tool is snapped to, null if no quadratic'
-        } );
+        }
+      }
+      return onQuadratic;
     }
 
     // @public

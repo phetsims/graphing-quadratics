@@ -16,7 +16,6 @@ define( require => {
   const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  const ObservableArray = require( 'AXON/ObservableArray' );
   const PointTool = require( 'GRAPHING_QUADRATICS/common/model/PointTool' );
   const Property = require( 'AXON/Property' );
   const PropertyIO = require( 'AXON/PropertyIO' );
@@ -64,15 +63,17 @@ define( require => {
         -modelViewTransformScale // y is inverted (+y is up in the model, +y is down in the view)
       );
       
-      // {ObservableArray.<Quadratic>} Quadratics that are visible to the point tools.
-      const pointToolQuadratics = new ObservableArray();
+      // {Property.<Quadratic[]>} Quadratics that are visible to the point tools.
+      // Not using ObservableArray here because we need to change the entire array contents atomically.
+      const pointToolQuadraticsProperty = new Property( [] );
 
-      // @public {ObservableArray.<Quadratic>} optional quadratic terms to be displayed,
+      // @public {Property.<Quadratic[]>} optional quadratic terms to be displayed,
       // in the order that they will be considered by point tools.
-      this.quadraticTerms = new ObservableArray();
+      // Not using ObservableArray here because we need to change the entire array contents atomically.
+      this.quadraticTermsProperty = new Property( [] );
 
       // @public (read-only)
-      this.rightPointTool = new PointTool( pointToolQuadratics, {
+      this.rightPointTool = new PointTool( pointToolQuadraticsProperty, {
         probeSide: 'right',
         location: new Vector2( -2, -12 ),
         dragBounds: new Bounds2(
@@ -83,7 +84,7 @@ define( require => {
       } );
 
       // @public (read-only)
-      this.leftPointTool = new PointTool( pointToolQuadratics, {
+      this.leftPointTool = new PointTool( pointToolQuadraticsProperty, {
         probeSide: 'left',
         location: new Vector2( 2, -12 ),
         dragBounds: new Bounds2(
@@ -94,13 +95,10 @@ define( require => {
       } );
 
       // @private Update pointToolQuadratics, in the order that they will be considered by point tools.
-      Property.multilink( [ this.quadraticProperty, this.quadraticTerms.lengthProperty, this.savedQuadraticProperty ],
-        ( quadratic, quadraticTermsLength, savedQuadratic ) => {
-          pointToolQuadratics.clear();
-          // order is important!
-          pointToolQuadratics.add( quadratic );
-          pointToolQuadratics.addAll( this.quadraticTerms.getArray() );
-          savedQuadratic && pointToolQuadratics.add( savedQuadratic );
+      Property.multilink( [ this.quadraticProperty, this.quadraticTermsProperty, this.savedQuadraticProperty ],
+        ( quadratic, quadraticTerms, savedQuadratic ) => {
+          // order is important! compact to remove nulls
+          pointToolQuadraticsProperty.value = _.compact( [ quadratic, ...quadraticTerms, savedQuadratic ] );
         } );
     }
 
