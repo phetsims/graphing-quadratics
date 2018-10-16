@@ -285,15 +285,16 @@ define( require => {
     }
 
     /**
-     * Does a specified point lie on this quadratic?
+     * Is the specified point a solution to this quadratic equation?
      * @param {Vector2} point
-     * @param {number} epsilon - how close is considered to be "on" the quadratic
+     * @param {number} [distance] - how close the point must be to the solution, defaults to 0 for exact solution
      * @returns {boolean}
      * @public
      */
-    hasPoint( point, epsilon ) {
-      assert && assert( epsilon >= 0, 'invalid epsilon: ' + epsilon );
-      return ( Math.abs( this.solveY( point.x ) - point.y ) < epsilon );
+    hasSolution( point, distance ) {
+      distance = distance || 0;
+      const closestPoint = this.getClosestPoint( point );
+      return point.distance( closestPoint ) <= distance;
     }
 
     /**

@@ -91,11 +91,11 @@ define( require => {
       const quadratics = this.quadraticsProperty.value;
       if ( !onQuadratic ||
            quadratics.indexOf( onQuadratic ) === -1 ||
-           !onQuadratic.hasPoint( location, distance ) ) {
+           !onQuadratic.hasSolution( location, distance ) ) {
         onQuadratic = null;
         for ( let i = 0; i < quadratics.length && !onQuadratic; i++ ) {
           let quadratic = quadratics[ i ];
-          if ( quadratic.hasPoint( location, distance ) ) {
+          if ( quadratic.hasSolution( location, distance ) ) {
             onQuadratic = quadratic;
           }
         }
