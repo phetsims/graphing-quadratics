@@ -70,12 +70,12 @@ define( require => {
       };
 
       // {Property.<Quadratic[]>} Quadratics that are visible to the point tools.
-      // Not using ObservableArray here because we need to change the entire array contents atomically.
+      // ObservableArray is not used here because we need to change the entire array contents atomically.
       const pointToolQuadraticsProperty = new Property( [], optionsPropertyQuadraticArray );
 
       // @public {Property.<Quadratic[]>} optional quadratic terms to be displayed,
       // in the order that they will be considered by point tools.
-      // Not using ObservableArray here because we need to change the entire array contents atomically.
+      // ObservableArray is not used here because we need to change the entire array contents atomically.
       this.quadraticTermsProperty = new Property( [], optionsPropertyQuadraticArray );
 
       // @public (read-only)
