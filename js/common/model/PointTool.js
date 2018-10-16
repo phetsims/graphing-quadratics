@@ -51,7 +51,6 @@ define( require => {
 
       // @public {Vector2}
       this.locationProperty = new Property( options.location, {
-        // reentrant: true, // because changing location may result in snapping to a quadratic, see #17
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'locationProperty' ),
         phetioType: PropertyIO( Vector2IO ),
