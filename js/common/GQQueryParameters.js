@@ -24,7 +24,7 @@ define( require => {
     // For internal use only, not public facing.
     snapDistance: {
       type: 'number',
-      defaultValue: 0.5,
+      defaultValue: 1,
       isValidValue: function( value ) {
         return value > 0;
       }
