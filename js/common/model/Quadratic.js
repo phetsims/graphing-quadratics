@@ -291,7 +291,7 @@ define( require => {
      * @returns {boolean}
      * @public
      */
-    isOnQuadratic( point, epsilon ) {
+    hasPoint( point, epsilon ) {
       assert && assert( epsilon >= 0, 'invalid epsilon: ' + epsilon );
       return ( Math.abs( this.solveY( point.x ) - point.y ) < epsilon );
     }
