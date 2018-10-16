@@ -205,7 +205,7 @@ define( require => {
 
     /**
      * Given y, solve for x.
-     * If there is more than on solution, they will be in ascending order.
+     * If there is more than one solution, they will be in ascending order.
      * @param {number} y
      * @returns {number[]|null} - one or more solutions, null if there is no solution
      * @public
@@ -269,6 +269,7 @@ define( require => {
      */
     getControlPoints( xRange ) {
 
+      // to improve readability
       const minX = xRange.min;
       const maxX = xRange.max;
       const length = xRange.getLength();
@@ -277,11 +278,11 @@ define( require => {
       const bPrime = ( 2 * this.a * minX * length ) + ( this.b * length );
       const cPrime = ( this.a * minX * minX ) + ( this.b * minX ) + this.c;
 
-      const startPoint = new Vector2( minX, cPrime );
-      const controlPoint = new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime );
-      const endPoint = new Vector2( maxX, aPrime + bPrime + cPrime );
-
-      return { startPoint, controlPoint, endPoint }; // caution! ES6 object shorthand
+      return {
+        startPoint: new Vector2( minX, cPrime ),
+        controlPoint: new Vector2( ( minX + maxX ) / 2, bPrime / 2 + cPrime ),
+        endPoint: new Vector2( maxX, aPrime + bPrime + cPrime )
+      };
     }
 
     /**
@@ -298,7 +299,7 @@ define( require => {
     }
 
     /**
-     * Gets the point on this quadratic that is closest to a specified point.
+     * Gets the point on this curve that is closest to a specified point.
      * @param {Vector2} point
      * @returns {Vector2}
      * @public
@@ -338,7 +339,7 @@ define( require => {
     }
 
     /**
-     * Given x, find the closest (x,y) point on the quadratic that is in range.
+     * Given x, find the closest point on the curve that is in range.
      * @param {number} x
      * @param {Range} xRange
      * @param {Range} yRange
