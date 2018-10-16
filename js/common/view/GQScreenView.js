@@ -64,11 +64,11 @@ define( require => {
         } ) );
 
       // Toggle button for showing/hiding contents of graph
-      const eyeToggleButton = new GraphContentsToggleButton( viewProperties.graphContentsVisibleProperty, {
+      const graphContentsToggleButton = new GraphContentsToggleButton( viewProperties.graphContentsVisibleProperty, {
         scale: 0.75,
         left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 10,
         bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
-        tandem: options.tandem.createTandem( 'eyeToggleButton' ),
+        tandem: options.tandem.createTandem( 'graphContentsToggleButton' ),
         phetioDocumentation: 'button that shows/hides the contents of the graph'
       } );
 
@@ -93,7 +93,7 @@ define( require => {
       // rendering order
       this.addChild( controlsParent );
       this.addChild( graphNode );
-      this.addChild( eyeToggleButton );
+      this.addChild( graphContentsToggleButton );
       this.addChild( pointToolsParent );
 
       // Horizontally center controls in the space to the right of the graph.
