@@ -24,12 +24,7 @@ define( require => {
       super( graphContentsVisibleProperty, options );
 
       graphContentsVisibleProperty.link( visible => {
-        if ( visible ) {
-          this.setBaseColor( 'white' );
-        }
-        else {
-          this.setBaseColor( PhetColorScheme.BUTTON_YELLOW );
-        }
+        this.setBaseColor( visible ? 'white' : PhetColorScheme.BUTTON_YELLOW );
       } );
     }
   }
