@@ -59,109 +59,112 @@ define( require => {
       } );
       children.push( new RichText( yEqualsString, textOptions ) );
 
-      // ax^2 term
-      if ( a !== 0 ) {
+      if ( a === 0 && b === 0 && c === 0 ) {
 
-        let aTermString = null;
-
-        if ( a === 1 ) {
-          // x^2
-          aTermString = StringUtils.fillIn( '{{x}}<sup>2</sup>', {
-            x: GQSymbols.x
-          } );
-        }
-        else if ( a === -1 ) {
-          // -x^2
-          aTermString = StringUtils.fillIn( '{{minus}}{{x}}<sup>2</sup>', {
-            minus: MathSymbols.UNARY_MINUS,
-            x: GQSymbols.x
-          } );
-        }
-        else {
-          // ax^2
-          aTermString = StringUtils.fillIn( '{{a}}{{x}}<sup>2</sup>', {
-            a: a,
-            x: GQSymbols.x
-          } );
-        }
-        children.push( new RichText( aTermString, textOptions ) );
+        // y = 0
+        children.push( new RichText( 0, textOptions ) );
       }
+      else {
 
-      // bx term
-      if ( b !== 0 ) {
+        // ax^2 term
+        if ( a !== 0 ) {
 
-        let bTermString = null;
+          let aTermString = null;
 
-        if ( a === 0 ) {
-          if ( b === 1 ) {
-            // x
-            bTermString = GQSymbols.x;
+          if ( a === 1 ) {
+            // x^2
+            aTermString = StringUtils.fillIn( '{{x}}<sup>2</sup>', {
+              x: GQSymbols.x
+            } );
           }
-          else if ( b === -1 ) {
-            // -x
-            bTermString = StringUtils.fillIn( '{{minus}}{{x}}', {
+          else if ( a === -1 ) {
+            // -x^2
+            aTermString = StringUtils.fillIn( '{{minus}}{{x}}<sup>2</sup>', {
               minus: MathSymbols.UNARY_MINUS,
               x: GQSymbols.x
             } );
           }
           else {
-            // bx
-            bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
-              b: b,
+            // ax^2
+            aTermString = StringUtils.fillIn( '{{a}}{{x}}<sup>2</sup>', {
+              a: a,
               x: GQSymbols.x
             } );
           }
+          children.push( new RichText( aTermString, textOptions ) );
         }
-        else {
 
-          // plus or minus operator
-          if ( b > 0 ) {
-            children.push( new RichText( MathSymbols.PLUS, textOptions ) );
-          }
-          else if ( b < 0 ) {
-            children.push( new RichText( MathSymbols.MINUS, textOptions ) );
-          }
+        // bx term
+        if ( b !== 0 ) {
 
-          if ( Math.abs( b ) === 1 ) {
-            // x
-            bTermString = GQSymbols.x;
+          let bTermString = null;
+
+          if ( a === 0 ) {
+            if ( b === 1 ) {
+              // x
+              bTermString = GQSymbols.x;
+            }
+            else if ( b === -1 ) {
+              // -x
+              bTermString = StringUtils.fillIn( '{{minus}}{{x}}', {
+                minus: MathSymbols.UNARY_MINUS,
+                x: GQSymbols.x
+              } );
+            }
+            else {
+              // bx
+              bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
+                b: b,
+                x: GQSymbols.x
+              } );
+            }
           }
           else {
-            // |b|x
-            bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
-              b: Math.abs( b ),
-              x: GQSymbols.x
-            } );
+
+            // plus or minus operator
+            if ( b > 0 ) {
+              children.push( new RichText( MathSymbols.PLUS, textOptions ) );
+            }
+            else if ( b < 0 ) {
+              children.push( new RichText( MathSymbols.MINUS, textOptions ) );
+            }
+
+            if ( Math.abs( b ) === 1 ) {
+              // x
+              bTermString = GQSymbols.x;
+            }
+            else {
+              // |b|x
+              bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
+                b: Math.abs( b ),
+                x: GQSymbols.x
+              } );
+            }
+          }
+          children.push( new RichText( bTermString, textOptions ) );
+        }
+
+        // c term
+        if ( c !== 0 ) {
+
+          if ( a === 0 && b === 0 ) {
+            // c
+            children.push( new RichText( c, textOptions ) );
+          }
+          else {
+
+            // plus or minus operator
+            if ( c > 0 ) {
+              children.push( new RichText( MathSymbols.PLUS, textOptions ) );
+            }
+            else if ( c < 0 ) {
+              children.push( new RichText( MathSymbols.MINUS, textOptions ) );
+            }
+
+            // |c|
+            children.push( new RichText( Math.abs( c ), textOptions ) );
           }
         }
-        children.push( new RichText( bTermString, textOptions ) );
-      }
-
-      // c term
-      if ( c !== 0 ) {
-
-        if ( a === 0 && b === 0 ) {
-          // c
-          children.push( new RichText( c, textOptions ) );
-        }
-        else {
-
-          // plus or minus operator
-          if ( c > 0 ) {
-            children.push( new RichText( MathSymbols.PLUS, textOptions ) );
-          }
-          else if ( c < 0 ) {
-            children.push( new RichText( MathSymbols.MINUS, textOptions ) );
-          }
-
-          // |c|
-          children.push( new RichText( Math.abs( c ), textOptions ) );
-        }
-      }
-
-      // y = 0
-      if ( a === 0 && b === 0 && c === 0 ) {
-        children.push( new RichText( 0, textOptions ) );
       }
 
       return layoutOnBackground( children );
