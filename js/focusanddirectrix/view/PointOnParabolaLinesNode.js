@@ -2,7 +2,7 @@
 
 /**
  * Dashed lines that connect the 'point on parabola' to the focus and directrix.
- * This is implemented as 2 Lines (rather than 1 Path) so that their visibility can be controlled independently.
+ * The visibility of the point-focus and point-directrix lines is controlled independently.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -59,10 +59,15 @@ define( require => {
           directrixLine.setLine( pointView.x, pointView.y, pointView.x, directrixView );
         } );
 
-      // visibility
-      Property.multilink( [ pointOnParabolaVisibleProperty, focusVisibleProperty, directrixVisibleProperty ],
-        ( pointOnParabolaVisible, focusVisibleProperty, directrixVisible ) => {
+      // visibility of point-focus line
+      Property.multilink( [ pointOnParabolaVisibleProperty, focusVisibleProperty ],
+        ( pointOnParabolaVisible, focusVisibleProperty ) => {
           focusLine.visible = ( pointOnParabolaVisible && focusVisibleProperty );
+        } );
+
+      // visibility of point-directrix line
+      Property.multilink( [ pointOnParabolaVisibleProperty, directrixVisibleProperty ],
+        ( pointOnParabolaVisible, directrixVisible ) => {
           directrixLine.visible = ( pointOnParabolaVisible && directrixVisible );
         } );
     }
