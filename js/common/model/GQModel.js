@@ -117,7 +117,7 @@ define( require => {
     }
 
     /**
-     * Saves the current quadratic.
+     * Saves the interactive quadratic.
      * @public
      */
     saveQuadratic() {
