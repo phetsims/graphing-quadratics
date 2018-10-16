@@ -62,15 +62,21 @@ define( require => {
         modelViewTransformScale,
         -modelViewTransformScale // y is inverted (+y is up in the model, +y is down in the view)
       );
-      
+
+      // Options for {Property.<Quadratic[]>} 
+      const optionsPropertyQuadraticArray = {
+        valueType: Array,
+        isValidValue: array => _.every( array, function( value ) { return value instanceof Quadratic; } )
+      };
+
       // {Property.<Quadratic[]>} Quadratics that are visible to the point tools.
       // Not using ObservableArray here because we need to change the entire array contents atomically.
-      const pointToolQuadraticsProperty = new Property( [] );
+      const pointToolQuadraticsProperty = new Property( [], optionsPropertyQuadraticArray );
 
       // @public {Property.<Quadratic[]>} optional quadratic terms to be displayed,
       // in the order that they will be considered by point tools.
       // Not using ObservableArray here because we need to change the entire array contents atomically.
-      this.quadraticTermsProperty = new Property( [] );
+      this.quadraticTermsProperty = new Property( [], optionsPropertyQuadraticArray );
 
       // @public (read-only)
       this.rightPointTool = new PointTool( pointToolQuadraticsProperty, {
@@ -94,7 +100,8 @@ define( require => {
         phetioDocumentation: 'the point tool whose probe is on the left side'
       } );
 
-      // @private Update pointToolQuadratics, in the order that they will be considered by point tools.
+      // @private Update the list of quadratics visible to the point tools,
+      // in the order that they will be considered by the point tools.
       Property.multilink( [ this.quadraticProperty, this.quadraticTermsProperty, this.savedQuadraticProperty ],
         ( quadratic, quadraticTerms, savedQuadratic ) => {
           // order is important! compact to remove nulls
