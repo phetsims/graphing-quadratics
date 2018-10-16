@@ -142,7 +142,8 @@ define( require => {
   class ProbeNode extends Node {
 
     /**
-     * Draw the probe for attachment to left side of the tool.
+     * The probe that is attached to the side of the point tool.
+     * Drawn for attachment to left side.
      * @param {Object} [options]
      */
     constructor( options ) {
