@@ -28,9 +28,15 @@ define( require => {
     constructor( model, viewProperties, options ) {
 
       options = _.extend( {
-        preventVertexAndEquationOverlap: true, // prevent a parabola's vertex and equation from overlapping
-        otherCurves: [], // {Nodes[]}, other curves to be displayed (term, directrix,...) rendered in the order provided
-        decorations: [] // {Node[]}, decorations (point, manipulators,...) rendered in the order provided
+
+        // prevent a parabola's vertex and equation from overlapping
+        preventVertexAndEquationOverlap: true,
+
+        // {Node[]}, other curves to be displayed (terms, directrix, axis of symmetry) rendered in the order provided
+        otherCurves: [],
+
+        // {Node[]}, decorations (manipulators, roots,...) rendered in the order provided
+        decorations: []
       }, options );
 
       super( options );
