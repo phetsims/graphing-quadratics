@@ -31,7 +31,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      // vertical dashed line
+      // icon is a horizontal dashed line
       assert && assert( !options.icon, 'DirectrixCheckbox sets icon' );
       options.icon = new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
         stroke: GQColors.DIRECTRIX,

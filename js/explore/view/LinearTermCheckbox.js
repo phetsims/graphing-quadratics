@@ -30,6 +30,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
+      // y = bx
       const text = StringUtils.fillIn( '{{y}} {{equals}} {{b}}{{x}}', {
         y: GQSymbols.y,
         equals: MathSymbols.EQUAL_TO,

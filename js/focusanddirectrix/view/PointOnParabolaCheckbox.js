@@ -30,6 +30,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
+      // icon is a manipulator (3D sphere)
       assert && assert( !options.icon, 'PointOnParabolaCheckbox sets icon' );
       options.icon = new Manipulator( 8, GQColors.POINT_ON_PARABOLA, { haloAlpha: 0, pickable: false } );
 

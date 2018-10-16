@@ -34,6 +34,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
+      // icon is a pair of circles
       assert && assert( !options.icon, 'RootsCheckbox sets icon' );
       options.icon = new HBox( {
         align: 'center',

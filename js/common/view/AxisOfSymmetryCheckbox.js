@@ -31,7 +31,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      // vertical dashed line
+      // icon is a vertical dashed line
       assert && assert( !options.icon, 'AxisOfSymmetryCheckbox sets icon' );
       options.icon = new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[ 0 ], {
         stroke: GQColors.AXIS_OF_SYMMETRY,

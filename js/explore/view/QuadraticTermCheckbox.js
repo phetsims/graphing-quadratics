@@ -30,6 +30,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
+      // y = ax^2
       const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
         y: GQSymbols.y,
         equals: MathSymbols.EQUAL_TO,
