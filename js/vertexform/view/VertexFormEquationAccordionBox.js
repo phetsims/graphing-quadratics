@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Equation accordion box in the 'Explore' screen.
+ * Accordion box in the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -9,16 +9,16 @@ define( require => {
   'use strict';
 
   // modules
-  const ExploreInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/explore/view/ExploreInteractiveEquationNode' );
   const GQEquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/GQEquationAccordionBox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
   const Tandem = require( 'TANDEM/Tandem' );
+  const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
+  const VertexFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormInteractiveEquationNode' );
 
-  class ExploreAccordionBox extends GQEquationAccordionBox {
+  class VertexFormEquationAccordionBox extends GQEquationAccordionBox {
 
     /**
-     * @param {ExploreModel} model
+     * @param {VertexFormModel} model
      * @param {Object} [options]
      */
     constructor( model, options ) {
@@ -27,13 +27,13 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      assert && assert( !options.titleNode, 'ExploreAccordionBox sets titleNode' );
-      options.titleNode = new StandardFormEquationNode( {
+      assert && assert( !options.titleNode, 'VertexFormEquationAccordionBox sets titleNode' );
+      options.titleNode = new VertexFormEquationNode( {
         maxWidth: 200, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' )
       } );
 
-      const content = new ExploreInteractiveEquationNode( model.aProperty, model.bProperty, model.cProperty, {
+      const content = new VertexFormInteractiveEquationNode( model.aProperty, model.hProperty, model.kProperty, {
         tandem: options.tandem.createTandem( 'content' )
       } );
 
@@ -41,5 +41,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'ExploreAccordionBox', ExploreAccordionBox );
+  return graphingQuadratics.register( 'VertexFormEquationAccordionBox', VertexFormEquationAccordionBox );
 } );

@@ -15,7 +15,7 @@ define( require => {
   const StandardFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormInteractiveEquationNode' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  class StandardFormAccordionBox extends GQEquationAccordionBox {
+  class StandardFormEquationAccordionBox extends GQEquationAccordionBox {
 
     /**
      * @param {StandardFormModel} model
@@ -27,7 +27,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      assert && assert( !options.titleNode, 'StandardFormAccordionBox sets titleNode' );
+      assert && assert( !options.titleNode, 'StandardFormEquationAccordionBox sets titleNode' );
       options.titleNode = new StandardFormEquationNode( {
         maxWidth: 200, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' )
@@ -41,5 +41,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'StandardFormAccordionBox', StandardFormAccordionBox );
+  return graphingQuadratics.register( 'StandardFormEquationAccordionBox', StandardFormEquationAccordionBox );
 } );

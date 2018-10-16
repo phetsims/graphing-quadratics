@@ -9,7 +9,7 @@ define( require => {
   'use strict';
 
   // modules
-  const ExploreAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/ExploreAccordionBox' );
+  const ExploreEquationAccordionBox = require( 'GRAPHING_QUADRATICS/explore/view/ExploreEquationAccordionBox' );
   const ExploreGraphNode = require( 'GRAPHING_QUADRATICS/explore/view/ExploreGraphNode' );
   const ExploreViewProperties = require( 'GRAPHING_QUADRATICS/explore/view/ExploreViewProperties' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
@@ -35,7 +35,7 @@ define( require => {
       super( model,
         viewProperties,
         new ExploreGraphNode( model, viewProperties ),
-        new ExploreAccordionBox( model, {
+        new ExploreEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: tandem.createTandem( 'equationAccordionBox' )
         } ),

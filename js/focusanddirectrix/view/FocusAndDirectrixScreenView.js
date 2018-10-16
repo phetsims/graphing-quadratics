@@ -9,7 +9,7 @@ define( require => {
   'use strict';
 
   // modules
-  const FocusAndDirectrixAccordionBox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixAccordionBox' );
+  const FocusAndDirectrixEquationAccordionBox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixEquationAccordionBox' );
   const FocusAndDirectrixGraphControls = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphControls' );
   const FocusAndDirectrixGraphNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphNode' );
   const FocusAndDirectrixViewProperties = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixViewProperties' );
@@ -35,7 +35,7 @@ define( require => {
       super( model,
         viewProperties,
         new FocusAndDirectrixGraphNode( model, viewProperties, tandem ),
-        new FocusAndDirectrixAccordionBox( model, {
+        new FocusAndDirectrixEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: options.tandem.createTandem( 'equationAccordionBox')
         } ),

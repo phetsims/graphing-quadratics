@@ -11,7 +11,7 @@ define( require => {
   // modules
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const VertexFormAccordionBox = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormAccordionBox' );
+  const VertexFormEquationAccordionBox = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationAccordionBox' );
   const VertexFormGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphControls' );
   const VertexFormGraphNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphNode' );
   const VertexFormViewProperties = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormViewProperties' );
@@ -35,7 +35,7 @@ define( require => {
       super( model,
         viewProperties,
         new VertexFormGraphNode( model, viewProperties, tandem ),
-        new VertexFormAccordionBox( model, {
+        new VertexFormEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: options.tandem.createTandem( 'equationAccordionBox' )
         } ),

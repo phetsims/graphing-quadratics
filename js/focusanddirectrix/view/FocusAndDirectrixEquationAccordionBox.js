@@ -15,7 +15,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  class FocusAndDirectrixAccordionBox extends GQEquationAccordionBox {
+  class FocusAndDirectrixEquationAccordionBox extends GQEquationAccordionBox {
 
     /**
      * @param {VertexFormModel} model
@@ -27,7 +27,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      assert && assert( !options.titleNode, 'FocusAndDirectrixAccordionBox sets titleNode' );
+      assert && assert( !options.titleNode, 'FocusAndDirectrixEquationAccordionBox sets titleNode' );
       options.titleNode = new FocusAndDirectrixEquationNode( {
         maxWidth: 225, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' )
@@ -41,5 +41,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'FocusAndDirectrixAccordionBox', FocusAndDirectrixAccordionBox );
+  return graphingQuadratics.register( 'FocusAndDirectrixEquationAccordionBox', FocusAndDirectrixEquationAccordionBox );
 } );

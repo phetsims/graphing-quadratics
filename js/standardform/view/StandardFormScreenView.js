@@ -11,7 +11,7 @@ define( require => {
   // modules
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const StandardFormAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormAccordionBox' );
+  const StandardFormEquationAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationAccordionBox' );
   const StandardFormGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControls' );
   const StandardFormGraphNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphNode' );
   const StandardFormViewProperties = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormViewProperties' );
@@ -35,7 +35,7 @@ define( require => {
       super( model,
         viewProperties,
         new StandardFormGraphNode( model, viewProperties, tandem ),
-        new StandardFormAccordionBox( model, {
+        new StandardFormEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: options.tandem.createTandem( 'equationAccordionBox' )
         } ),
