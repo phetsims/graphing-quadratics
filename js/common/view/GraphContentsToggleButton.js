@@ -23,6 +23,7 @@ define( require => {
 
       super( graphContentsVisibleProperty, options );
 
+      // change the button color to emphasize when the graph contents are hidden
       graphContentsVisibleProperty.link( visible => {
         this.setBaseColor( visible ? 'white' : PhetColorScheme.BUTTON_YELLOW );
       } );
