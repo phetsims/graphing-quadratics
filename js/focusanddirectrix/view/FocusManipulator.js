@@ -126,7 +126,7 @@ define( require => {
 
       assert && assert( pProperty.range, 'pProperty is missing range' );
 
-      let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
+      let startOffset; // where the drag started, relative to the manipulator
 
       super( {
 

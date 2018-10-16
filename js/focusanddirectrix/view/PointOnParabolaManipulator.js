@@ -115,7 +115,7 @@ define( require => {
      */
     constructor( pointOnParabolaProperty, quadraticProperty, modelViewTransform, xRange, yRange, tandem ) {
 
-      let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
+      let startOffset; // where the drag started, relative to the manipulator
 
       super( {
 

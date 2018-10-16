@@ -128,7 +128,7 @@ define( require => {
      */
     constructor( hProperty, kProperty, graph, modelViewTransform, tandem ) {
 
-      let startOffset; // where the drag started, relative to the slope manipulator, in parent view coordinates
+      let startOffset; // where the drag started, relative to the manipulator
 
       super( {
 
