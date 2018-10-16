@@ -26,7 +26,7 @@ define( require => {
   const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // constants
-  const Y_SPACING = 5;
+  const COORDINATES_Y_SPACING = 5;
 
   class VertexNode extends Node {
 
@@ -85,10 +85,10 @@ define( require => {
       coordinatesProperty.link( coordinates => {
         coordinatesNode.centerX = pointNode.centerX;
         if ( quadraticProperty.value.a > 0 ) {
-          coordinatesNode.top = pointNode.bottom + Y_SPACING;
+          coordinatesNode.top = pointNode.bottom + COORDINATES_Y_SPACING;
         }
         else {
-          coordinatesNode.bottom = pointNode.top - Y_SPACING;
+          coordinatesNode.bottom = pointNode.top - COORDINATES_Y_SPACING;
         }
       } );
 

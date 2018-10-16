@@ -27,7 +27,7 @@ define( require => {
   const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   // constants
-  const X_SPACING = 15; // between root point and its coordinates display
+  const COORDINATES_X_SPACING = 15; // between root point and its coordinates display
 
   class RootsNode extends Node {
 
@@ -115,9 +115,9 @@ define( require => {
           }
 
           // position coordinates to left and right of roots
-          leftCoordinatesNode.right = -( options.radius + X_SPACING );
+          leftCoordinatesNode.right = -( options.radius + COORDINATES_X_SPACING );
           leftCoordinatesNode.centerY = 0;
-          rightCoordinatesNode.left = options.radius + X_SPACING;
+          rightCoordinatesNode.left = options.radius + COORDINATES_X_SPACING;
           rightCoordinatesNode.centerY = 0;
         }
       } );
