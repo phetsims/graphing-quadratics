@@ -31,7 +31,7 @@ define( require => {
 
       super();
 
-      // the line
+      // horizontal line
       const lineNode = new Line( 0, 0, 0, 1, {
         stroke: GQColors.DIRECTRIX,
         lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
@@ -51,7 +51,7 @@ define( require => {
         assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );
         assert && assert( quadratic.vertex, 'expected vertex: ' + quadratic.vertex );
 
-        // update the line
+        // update the horizontal line
         const y = modelViewTransform.modelToViewY( quadratic.directrix );
         lineNode.setLine( minX, y, maxX, y );
 

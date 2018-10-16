@@ -31,7 +31,7 @@ define( require => {
 
       super();
 
-      // the line
+      // vertical line
       const lineNode = new Line( 0, 0, 0, 1, {
         stroke: GQColors.AXIS_OF_SYMMETRY,
         lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
@@ -51,7 +51,7 @@ define( require => {
         if ( quadratic.axisOfSymmetry !== undefined ) {
           assert && assert( quadratic.vertex, 'expected vertex: ' + quadratic.vertex );
 
-          // update the line
+          // update the vertical line
           const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
           lineNode.setLine( x, minY, x, maxY );
 
