@@ -66,9 +66,6 @@ define( require => {
         phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
       } );
 
-      // @private flag to prevent infinite recursion when calling snapToCurve
-      this.snapping = false;
-
       // Determine whether we're on a quadratic, using a small distance error.
       Property.multilink( [ this.locationProperty, quadraticsProperty ], ( location, quadratics ) => {
         this.onQuadraticProperty.value = this.getQuadraticNear( location, 0.01 );
