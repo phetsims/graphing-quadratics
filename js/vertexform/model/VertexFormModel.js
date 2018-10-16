@@ -55,7 +55,7 @@ define( require => {
       } );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
 
-      // @public {DerivedProperty.<Quadratic>}
+      // {DerivedProperty.<Quadratic>}
       const quadraticProperty = new DerivedProperty(
         [ aProperty, hProperty, kProperty ],
         ( a, h, k ) => Quadratic.createFromVertexForm( a, h, k, {

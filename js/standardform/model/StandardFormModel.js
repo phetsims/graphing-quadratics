@@ -54,7 +54,7 @@ define( require => {
       } );
       phet.log && cProperty.link( c => { phet.log( 'c=' + c ); } );
 
-      // @public {DerivedProperty.<Quadratic>}
+      // {DerivedProperty.<Quadratic>}
       const quadraticProperty = new DerivedProperty(
         [ aProperty, bProperty, cProperty ],
         ( a, b, c ) => new Quadratic( a, b, c, { color: GQColors.EXPLORE_INTERACTIVE_CURVE } ), {

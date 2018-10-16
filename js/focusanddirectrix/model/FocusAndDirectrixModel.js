@@ -59,7 +59,7 @@ define( require => {
       } );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
 
-      // @public {DerivedProperty.<Quadratic>}
+      // {DerivedProperty.<Quadratic>}
       const quadraticProperty = new DerivedProperty(
         [ pProperty, hProperty, kProperty ],
         ( p, h, k ) => Quadratic.createFromAlternateVertexForm( p, h, k, {
@@ -82,7 +82,7 @@ define( require => {
 
       const initialPoint = new Vector2( POINT_X, this.quadraticProperty.value.solveY( POINT_X ) );
 
-      // @public
+      // @public {Property.<Vector>}
       this.pointOnParabolaProperty = new Property( initialPoint, {
         valueType: Vector2,
         tandem: tandem.createTandem( 'pointOnParabolaProperty' ),
