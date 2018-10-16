@@ -39,8 +39,6 @@ define( require => {
 
   // constants
   const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of pointToolLeftImage
-  // snap to curve when <= this distance from the curve, in model coordinates
-  const SNAP_DISTANCE = GQQueryParameters.snapDistance;
 
   class PointToolNode extends Node {
 
@@ -228,7 +226,7 @@ define( require => {
           location = pointTool.dragBounds.closestPointTo( location );
 
           // snap to a quadratic, if we're close enough
-          const snapQuadratic = pointTool.getQuadraticNear( location, SNAP_DISTANCE );
+          const snapQuadratic = pointTool.getQuadraticNear( location, GQQueryParameters.snapDistance );
           if ( snapQuadratic ) {
             location = snapQuadratic.getClosestPoint( location );
           }
