@@ -38,7 +38,7 @@ define( require => {
     maxIconHeightProportion: 1
   };
 
-  // coefficients and range the describe the quadratic curve used in every icon
+  // coefficients and range that describe the parabola used in every icon
   const A = 0.0075;
   const B = 0;
   const C = 0;
@@ -100,7 +100,7 @@ define( require => {
         centerY: parabolaNode.y
       } );
 
-      // eyeballed - horizontal distance from vertex.x
+      // horizontal distance from vertex.x - determined empirically
       const root = 152;
 
       // roots
@@ -171,7 +171,7 @@ define( require => {
         y: 0.55 * ICON_SIZE.height
       } );
 
-      // eyeballed - vertical distance between focus and vertex, focus and directrix
+      // vertical distance between focus and vertex, focus, and directrix - determined empirically
       const p = 100;
 
       // focus above the parabola's vertex

@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Abstract base class for an accordion box that displays the interactive equation and related controls.
+ * Abstract base class for the accordion box that displays the interactive equation and related controls.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
