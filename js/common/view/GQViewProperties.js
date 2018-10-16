@@ -33,7 +33,7 @@ define( require => {
       assert && assert( GQConstants.EQUATION_FORMS.includes( options.equationForm ),
         'invalid equationForm: ' + options.equationForm );
 
-      // @public form of equations used to label curves
+      // @public {string} form of equations used to label curves. It is not necessary to expose this via PhET-iO.
       this.equationForm = options.equationForm;
 
       // @public
