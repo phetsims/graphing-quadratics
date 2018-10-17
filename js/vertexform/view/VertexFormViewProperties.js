@@ -44,7 +44,7 @@ define( require => {
       // @public
       this.coordinatesVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-        phetioDocumentation: 'whether (x,y) coordinates are visible on the vertex manipulator'
+        phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
       } );
     }
 
