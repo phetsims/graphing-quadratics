@@ -12,7 +12,6 @@ define( require => {
   // modules
   const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
 
   class QuadraticCoefficientSlider extends CoefficientSlider {
@@ -25,8 +24,7 @@ define( require => {
     constructor( symbol, coefficientProperty, options ) {
 
       options = _.extend( {
-        snapToZeroEpsilon: 0.03,
-        tandem: Tandem.required
+        snapToZeroEpsilon: 0.03
       }, options );
 
       assert && assert( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,

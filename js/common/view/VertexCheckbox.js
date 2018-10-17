@@ -14,7 +14,6 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
@@ -28,8 +27,7 @@ define( require => {
     constructor( vertexVisibleProperty, options ) {
 
       options = _.extend( {
-        manipulatorIcon: true, // true: icon is a shaded manipulator, false: icon is a flat point
-        tandem: Tandem.required
+        manipulatorIcon: true // true: icon is a shaded manipulator, false: icon is a flat point
       }, options );
 
       // icon is either a manipulator (3D sphere) or a flat circle

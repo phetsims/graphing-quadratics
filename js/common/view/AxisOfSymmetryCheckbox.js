@@ -14,7 +14,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
-  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
@@ -27,9 +26,7 @@ define( require => {
      */
     constructor( axisOfSymmetryVisibleProperty, options ) {
 
-      options = _.extend( {
-        tandem: Tandem.required
-      }, options );
+      options = options || {};
 
       // icon is a vertical dashed line
       assert && assert( !options.icon, 'AxisOfSymmetryCheckbox sets icon' );

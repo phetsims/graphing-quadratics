@@ -11,7 +11,6 @@ define( require => {
   // modules
   const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   const coordinatesString = require( 'string!GRAPHING_QUADRATICS/coordinates' );
@@ -23,11 +22,6 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( coordinatesVisibleProperty, options ) {
-
-      options = _.extend( {
-        tandem: Tandem.required
-      }, options );
-
       super( coordinatesString, coordinatesVisibleProperty, options );
     }
   }

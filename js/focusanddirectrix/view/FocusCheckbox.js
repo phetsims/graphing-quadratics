@@ -13,7 +13,6 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   const focusString = require( 'string!GRAPHING_QUADRATICS/focus' );
@@ -26,9 +25,7 @@ define( require => {
      */
     constructor( focusVisibleProperty, options ) {
 
-      options = _.extend( {
-        tandem: Tandem.required
-      }, options );
+      options = options || {};
 
       // icon is a manipulator (3D sphere)
       assert && assert( !options.icon, 'FocusCheckbox sets icon' );

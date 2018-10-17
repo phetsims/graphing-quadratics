@@ -14,7 +14,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
-  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   const directrixString = require( 'string!GRAPHING_QUADRATICS/directrix' );
@@ -27,9 +26,7 @@ define( require => {
      */
     constructor( directrixVisibleProperty, options ) {
 
-      options = _.extend( {
-        tandem: Tandem.required
-      }, options );
+      options = options || {};
 
       // icon is a horizontal dashed line
       assert && assert( !options.icon, 'DirectrixCheckbox sets icon' );

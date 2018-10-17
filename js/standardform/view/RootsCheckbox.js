@@ -14,7 +14,6 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
-  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   const rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
@@ -30,9 +29,7 @@ define( require => {
      */
     constructor( rootsVisibleProperty, options ) {
 
-      options = _.extend( {
-        tandem: Tandem.required
-      }, options );
+      options = options || {};
 
       // icon is a pair of circles
       assert && assert( !options.icon, 'RootsCheckbox sets icon' );

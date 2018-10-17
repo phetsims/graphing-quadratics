@@ -15,7 +15,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Tandem = require( 'TANDEM/Tandem' );
 
   class LinearTermCheckbox extends GQCheckbox {
 
@@ -26,8 +25,7 @@ define( require => {
     constructor( linearTermVisibleProperty, options ) {
 
       options = _.extend( {
-        textFill: GQColors.LINEAR_TERM,
-        tandem: Tandem.required
+        textFill: GQColors.LINEAR_TERM
       }, options );
 
       // y = bx
