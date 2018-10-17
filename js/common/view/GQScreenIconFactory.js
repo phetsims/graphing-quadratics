@@ -146,6 +146,8 @@ define( require => {
         centerX: parabolaNode.centerX,
         centerY: parabolaNode.y
       } );
+      vertexNode.mouseArea = null;
+      vertexNode.touchArea = null;
 
       // put all of the pieces together, clipped to the icon size
       const iconNode = new Node( {
@@ -181,6 +183,8 @@ define( require => {
         centerX: parabolaNode.centerX,
         centerY: parabolaNode.y - p
       } );
+      focusNode.mouseArea = null;
+      focusNode.touchArea = null;
 
       // directrix below the parabola's vertex, fills the width of the icon
       const directrixNode = new Line( 0, 0, ICON_SIZE.width, 0, {
