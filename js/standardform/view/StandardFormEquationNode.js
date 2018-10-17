@@ -14,12 +14,13 @@ define( require => {
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  class StandardFormEquationNode extends RichText {
+  class StandardFormEquationNode extends Node {
 
     /**
      * @param {Object} [options]
@@ -27,14 +28,10 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
-
-        // RichText options
-        font: new PhetFont( 26 ),
-        fill: 'black',
         tandem: Tandem.required
       }, options );
 
-      const equation = StringUtils.fillIn(
+      const text = StringUtils.fillIn(
         '{{y}} {{equals}} {{a}}{{x}}<sup>2</sup> {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
           x: GQSymbols.x,
           y: GQSymbols.y,
@@ -45,7 +42,16 @@ define( require => {
           plus: MathSymbols.PLUS
         } );
 
-      super( equation, options );
+      const textNode = new RichText( text, {
+        font: new PhetFont( 26 ),
+        fill: 'black'
+      } );
+
+      // Wrap the RichText so that its API is not accessible to clients or PhET-iO.
+      assert && assert( !options.children, 'StandardFormEquationNode sets children' );
+      options.children = [ textNode ];
+
+      super( options );
     }
   }
 
