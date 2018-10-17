@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.0.0-dev.33 Tue Oct 16 2018 16:13:53 GMT-0600 (MDT)",
+  "comment": "# graphing-quadratics 1.0.0-dev.34 Wed Oct 17 2018 17:07:41 GMT-0600 (MDT)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "master"
@@ -25,7 +25,7 @@
     "branch": "master"
   },
   "graphing-quadratics": {
-    "sha": "be8b4a6042b62680a8ee6e4d0fbd19c2f68da7da",
+    "sha": "cc293d5c3536c73ef71eba93ffee0961a679f54e",
     "branch": "master"
   },
   "joist": {
@@ -61,7 +61,7 @@
     "branch": "master"
   },
   "phetcommon": {
-    "sha": "33aef589f2f8a6049772398d1387e19b797e3dce",
+    "sha": "a2a1aaba2c667470a965601902f9a39441d5e2bd",
     "branch": "master"
   },
   "query-string-machine": {
@@ -69,11 +69,11 @@
     "branch": "master"
   },
   "scenery": {
-    "sha": "f402eed4ef7c4360e6d4825a4ea5fc0fa4f8f6bc",
+    "sha": "d7e6c53eeedc0df3202817cc1ebb2e46f89d3766",
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "5b73dee442888275f7689b999216b1fdb38f3752",
+    "sha": "c0e139f748bd94d54825821a776f9a96d522073b",
     "branch": "master"
   },
   "sherpa": {
@@ -81,7 +81,7 @@
     "branch": "master"
   },
   "sun": {
-    "sha": "d78f8bd06ca42a81d07b256bccc120ee611176a5",
+    "sha": "8e41410bb9fa1174bf17af2037b6d87e76277fc2",
     "branch": "master"
   },
   "tambo": {
