@@ -16,6 +16,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   class GQCheckbox extends Checkbox {
 
@@ -28,7 +29,8 @@ define( require => {
 
       options = _.extend( {
         textFill: 'black',
-        icon: null // {Node|null} optional icon, to the right of text
+        icon: null, // {Node|null} optional icon, to the right of text
+        tandem: Tandem.required // {Tandem} all Checkboxes in this sim must be instrumented
       }, options );
 
       const textNode = new RichText( text, {
