@@ -56,7 +56,7 @@ define( require => {
       // @public
       this.coordinatesVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-        phetioDocumentation: 'whether coordinates are visible on manipulators (vertex, focus, point on parabola)'
+        phetioDocumentation: 'whether (x,y) coordinates are visible on manipulators'
       } );
     }
 

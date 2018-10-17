@@ -39,7 +39,7 @@ define( require => {
       // @public
       this.graphContentsVisibleProperty = new BooleanProperty( options.graphContentsVisible, {
         tandem: options.tandem.createTandem( 'graphContentsVisibleProperty' ),
-        phetioDocumentation: 'whether the contents of the graph are visible'
+        phetioDocumentation: 'whether the contents (curves, plotted points, manipulators) of the graph are visible'
       } );
 
       // @public

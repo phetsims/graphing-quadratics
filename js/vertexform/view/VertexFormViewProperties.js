@@ -32,7 +32,7 @@ define( require => {
       // @public
       this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-        phetioDocumentation: 'whether the vertex is visible'
+        phetioDocumentation: 'whether the vertex manipulator is visible'
       } );
 
       // @public
@@ -44,7 +44,7 @@ define( require => {
       // @public
       this.coordinatesVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-        phetioDocumentation: 'whether coordinates are visible on the vertex'
+        phetioDocumentation: 'whether (x,y) coordinates are visible on the vertex manipulator'
       } );
     }
 
