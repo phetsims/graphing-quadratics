@@ -43,6 +43,7 @@ define( require => {
         baseColor: PhetColorScheme.BUTTON_YELLOW,
         listener: saveFunction,
         tandem: options.tandem.createTandem( 'saveButton' ),
+        phetioDocumentation: 'the button used to save a quadratic',
         phetioReadOnly: true // we don't want the client to modify this button, see #60
       } );
 
@@ -51,6 +52,7 @@ define( require => {
         iconWidth: BUTTON_ICON_WIDTH,
         listener: eraseFunction,
         tandem: options.tandem.createTandem( 'eraseButton' ),
+        phetioDocumentation: 'the button used to erase the saved quadratic',
         phetioReadOnly: true // we don't want the client to modify this button, see #60
       } );
 

@@ -30,11 +30,13 @@ define( require => {
       assert && assert( !options.titleNode, 'StandardFormEquationAccordionBox sets titleNode' );
       options.titleNode = new StandardFormEquationNode( {
         maxWidth: 200, // determined empirically
-        tandem: options.tandem.createTandem( 'titleNode' )
+        tandem: options.tandem.createTandem( 'titleNode' ),
+        phetioDocumentation: 'the equation shown at the top of this accordion box'
       } );
 
       const content = new StandardFormInteractiveEquationNode( model.aProperty, model.bProperty, model.cProperty, {
-        tandem: options.tandem.createTandem( 'content' )
+        tandem: options.tandem.createTandem( 'content' ),
+        phetioDocumentation: 'the interactive equation in this accordion box'
       } );
 
       super( model, content, options );

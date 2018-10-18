@@ -29,18 +29,21 @@ define( require => {
       };
 
       const viewProperties = new VertexFormViewProperties( {
-        tandem: options.tandem.createTandem( 'viewProperties' )
+        tandem: options.tandem.createTandem( 'viewProperties' ),
+        phetioDocumentation: 'Properties that are specific to the view for this screen'
       } );
 
       super( model,
         viewProperties,
-        new VertexFormGraphNode( model, viewProperties, tandem ),
+        new VertexFormGraphNode( model, viewProperties, tandem ), //TODO #71 move tandem to options, add phetioDocumentation
         new VertexFormEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
-          tandem: options.tandem.createTandem( 'equationAccordionBox' )
+          tandem: options.tandem.createTandem( 'equationAccordionBox' ),
+          phetioDocumentation: 'the accordion box that contains the interactive equation for this screen'
         } ),
         new VertexFormGraphControls( viewProperties, {
-          tandem: options.tandem.createTandem( 'graphControls' )
+          tandem: options.tandem.createTandem( 'graphControls' ),
+          phetioDocumentation: 'the panel that contains the graph controls for this screen'
         } ),
         options
       );

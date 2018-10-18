@@ -29,19 +29,22 @@ define( require => {
       };
 
       const viewProperties = new ExploreViewProperties( {
-        tandem: tandem.createTandem( 'viewProperties' )
+        tandem: tandem.createTandem( 'viewProperties' ),
+        phetioDocumentation: 'Properties that are specific to the view for this screen'
       } );
 
       super( model,
         viewProperties,
-        new ExploreGraphNode( model, viewProperties ),
+        new ExploreGraphNode( model, viewProperties ), // do not instrument for PhET-iO
         new ExploreEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
-          tandem: tandem.createTandem( 'equationAccordionBox' )
+          tandem: tandem.createTandem( 'equationAccordionBox' ),
+          phetioDocumentation: 'the accordion box that contains the interactive equation for this screen'
         } ),
         new QuadraticTermsAccordionBox( viewProperties, {
           expandedProperty: viewProperties.quadraticTermsAccordionBoxExpandedProperty,
-          tandem: tandem.createTandem( 'quadraticTermsAccordionBox' )
+          tandem: tandem.createTandem( 'quadraticTermsAccordionBox' ),
+          phetioDocumentation: 'the Quadratic Terms accordion box'
         } ),
         options
       );

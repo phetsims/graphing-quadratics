@@ -29,7 +29,8 @@ define( require => {
     constructor( model, content, options ) {
 
       options = _.extend( {
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'the accordion box that contains the interactive equation'
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
       const saveEraseButtonGroup = new SaveEraseButtonGroup(

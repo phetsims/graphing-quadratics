@@ -47,7 +47,8 @@ define( require => {
 
         // Manipulator options
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'a manipulator for the focus'
       }, options );
 
       super( radius, GQColors.FOCUS, options );
@@ -71,6 +72,7 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
+      //TODO #711 add options to pass tandem and phetioDocumentation
       // add drag listener
       this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange, modelViewTransform,
         options.interval, options.tandem.createTandem( 'dragListener' ) ) );

@@ -46,7 +46,8 @@ define( require => {
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'vertexManipulator' )
+          tandem: tandem.createTandem( 'vertexManipulator' ),
+          phetioDocumentation: 'manipulator for the vertex'
         } );
 
       assert && assert( !options.otherCurves, 'VertexFormGraphNode sets otherCurves' );

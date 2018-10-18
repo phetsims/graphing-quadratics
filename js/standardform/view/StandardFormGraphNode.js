@@ -50,7 +50,8 @@ define( require => {
         viewProperties.rootsVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
           radius: pointRadius,
-          tandem: tandem.createTandem( 'rootsNode' )
+          tandem: tandem.createTandem( 'rootsNode' ),
+          phetioDocumentation: 'displays the roots of the interactive quadratic'
         } );
 
       // Vertex
@@ -61,13 +62,15 @@ define( require => {
         viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
           radius: pointRadius,
-          tandem: tandem.createTandem( 'vertexNode' )
+          tandem: tandem.createTandem( 'vertexNode' ),
+          phetioDocumentation: 'displays the vertex of the interactive quadratic'
         } );
 
       // 'NO REAL ROOTS' label
       const noRealRootsNode = new NoRealRootsNode( {
         center: model.modelViewTransform.modelToViewXY( model.graph.xRange.getCenter(), model.graph.yRange.getCenter() ),
-        tandem: tandem.createTandem( 'noRealRootsNode' )
+        tandem: tandem.createTandem( 'noRealRootsNode' ),
+        phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
       } );
       Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],
         ( rootsVisible, quadratic ) => {

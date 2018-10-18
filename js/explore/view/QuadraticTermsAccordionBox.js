@@ -48,30 +48,32 @@ define( require => {
       options.titleNode = new Text( quadraticTermsString, {
         font: new PhetFont( GQConstants.TITLE_FONT_SIZE ),
         maxWidth: 180, // determined empirically
-        tandem: options.tandem.createTandem( 'titleNode' )
+        tandem: options.tandem.createTandem( 'titleNode' ),
+        phetioDocumentation: 'the title on this accordion box'
       } );
 
       // y = ax^2
       const quadraticTermCheckbox = new QuadraticTermCheckbox( viewProperties.quadraticTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'quadraticTermCheckbox' ),
-        phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible'
+        phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible the graph'
       } );
 
       // y = bx
       const linearTermCheckbox = new LinearTermCheckbox( viewProperties.linearTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'linearTermCheckbox' ),
-        phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible'
+        phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
       } );
 
       // y = c
       const constantTermCheckbox = new ConstantTermCheckbox( viewProperties.constantTermVisibleProperty, {
         tandem: options.tandem.createTandem( 'constantTermCheckbox' ),
-        phetioDocumentation: 'checkbox that makes the constant term (y = c) visible'
+        phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
       } );
 
       // Equations
       const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'equationsCheckbox' )
+        tandem: options.tandem.createTandem( 'equationsCheckbox' ),
+        phetioDocumentation: 'checkbox that shows equations on graphed curves'
       } );
 
       const maxCheckboxWidth = _.maxBy(

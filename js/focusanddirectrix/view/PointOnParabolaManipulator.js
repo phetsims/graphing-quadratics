@@ -41,7 +41,8 @@ define( require => {
 
         // Manipulator options
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'a manipulator for a point on the parabola'
       }, options );
 
       super( radius, GQColors.POINT_ON_PARABOLA, options );
@@ -66,6 +67,7 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
+      //TODO #711 add options to pass tandem and phetioDocumentation
       // add drag handler
       this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
         modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragListener' ) ) );

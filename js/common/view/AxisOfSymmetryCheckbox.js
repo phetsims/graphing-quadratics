@@ -26,7 +26,9 @@ define( require => {
      */
     constructor( axisOfSymmetryVisibleProperty, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph'
+      }, options );
 
       // icon is a vertical dashed line
       assert && assert( !options.icon, 'AxisOfSymmetryCheckbox sets icon' );

@@ -50,7 +50,8 @@ define( require => {
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'vertexManipulator' )
+          tandem: tandem.createTandem( 'vertexManipulator' ),
+          phetioDocumentation: 'the manipulator for changing the vertex'
         } );
 
       // Focus manipulator
@@ -62,7 +63,8 @@ define( require => {
         model.modelViewTransform,
         viewProperties.focusVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'focusManipulator' )
+          tandem: tandem.createTandem( 'focusManipulator' ),
+          phetioDocumentation: 'the manipulator for changing the focus'
         } );
 
       // Point on Quadratic manipulator
@@ -75,7 +77,8 @@ define( require => {
         model.modelViewTransform,
         viewProperties.pointOnParabolaVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'pointOnParabolaManipulator' )
+          tandem: tandem.createTandem( 'pointOnParabolaManipulator' ),
+          phetioDocumentation: 'the manipulator for changing the point on the parabola'
         } );
 
       // Lines that connect the point on the parabola to the focus and directrix

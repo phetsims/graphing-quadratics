@@ -36,16 +36,20 @@ define( require => {
 
       // checkboxes
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
-        tandem: options.tandem.createTandem( 'vertexCheckbox' )
+        tandem: options.tandem.createTandem( 'vertexCheckbox' ),
+        phetioDocumentation: 'checkbox that shows the vertex on the graph'
       } );
       const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty, {
-        tandem: options.tandem.createTandem( 'axisOfSymmetryCheckbox' )
+        tandem: options.tandem.createTandem( 'axisOfSymmetryCheckbox' ),
+        phetioDocumentation: 'checkbox that shows the axis of symmetry on the graph'
       } );
       const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'equationsCheckbox' )
+        tandem: options.tandem.createTandem( 'equationsCheckbox' ),
+        phetioDocumentation: 'checkbox that shows equations on graphed curves'
       } );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
-        tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
+        tandem: options.tandem.createTandem( 'coordinatesCheckbox' ),
+        phetioDocumentation: 'checkbox that show (x,y) coordinates on point on the graph'
       } );
 
       const maxCheckboxWidth = _.maxBy(

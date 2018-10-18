@@ -29,18 +29,20 @@ define( require => {
       };
 
       const viewProperties = new FocusAndDirectrixViewProperties( {
-        tandem: options.tandem.createTandem( 'viewProperties')
+        tandem: options.tandem.createTandem( 'viewProperties'),
+        phetioDocumentation: 'Properties that are specific to the view for this screen'
       } );
 
       super( model,
         viewProperties,
-        new FocusAndDirectrixGraphNode( model, viewProperties, tandem ),
+        new FocusAndDirectrixGraphNode( model, viewProperties, tandem ), //TODO #71 move tandem to options, add phetioDocumentation
         new FocusAndDirectrixEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: options.tandem.createTandem( 'equationAccordionBox')
         } ),
         new FocusAndDirectrixGraphControls( viewProperties, {
-          tandem: options.tandem.createTandem( 'graphControls' )
+          tandem: options.tandem.createTandem( 'graphControls' ),
+          phetioDocumentation: 'the panel that contains the graph controls for this screen'
         } ),
         options
       );

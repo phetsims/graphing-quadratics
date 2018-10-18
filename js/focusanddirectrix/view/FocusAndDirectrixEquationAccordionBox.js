@@ -30,11 +30,13 @@ define( require => {
       assert && assert( !options.titleNode, 'FocusAndDirectrixEquationAccordionBox sets titleNode' );
       options.titleNode = new FocusAndDirectrixEquationNode( {
         maxWidth: 225, // determined empirically
-        tandem: options.tandem.createTandem( 'titleNode' )
+        tandem: options.tandem.createTandem( 'titleNode' ),
+        phetioDocumentation: 'the equation shown at the top of this accordion box'
       } );
 
       const content = new FocusAndDirectrixInteractiveEquationNode( model.pProperty, model.hProperty, model.kProperty, {
-        tandem: options.tandem.createTandem( 'content' )
+        tandem: options.tandem.createTandem( 'content' ),
+        phetioDocumentation: 'the interactive equation in this accordion box'
       } );
 
       super( model, content, options );

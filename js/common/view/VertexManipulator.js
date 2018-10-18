@@ -49,7 +49,8 @@ define( require => {
 
         // Manipulator options
         haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'a manipulator for the vertex'
       }, options );
 
       super( radius, GQColors.VERTEX, options );
@@ -73,6 +74,7 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
+      //TODO #711 add options to pass tandem and phetioDocumentation
       // add drag listener
       this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform,
         options.tandem.createTandem( 'dragListener' ) ) );

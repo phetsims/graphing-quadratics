@@ -130,6 +130,7 @@ define( require => {
           }
         } );
 
+      //TODO #711 add options to pass tandem and phetioDocumentation
       // interactivity
       this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
         graphContentsVisibleProperty, options.tandem.createTandem( 'dragListener' ) ) );

@@ -122,7 +122,8 @@ define( require => {
         centerX: this.x,
         bottom: this.top - 2,
         maxWidth: 20, // determined empirically
-        tandem: options.tandem.createTandem( 'label' )
+        tandem: options.tandem.createTandem( 'label' ),
+        phetioDocumentation: 'the label above this slider'
       } );
       this.addChild( label );
     }
