@@ -78,8 +78,8 @@ define( require => {
      * If that quadratic is too far away, then examine all quadratics, in foreground-to-background order.
      * See #47.
      * @param {Vector2} location - the point tool's location
-     * @param {number} offDistance - greater than this distance from the curve that we're on moves us off of it
-     * @param {number} onDistance - less than or equal to this distance moves us onto a curve
+     * @param {number} offDistance - less than or equal to this distance snaps ON to a curve
+     * @param {number} onDistance - greater than this distance snaps OFF of a curve
      * @returns {Quadratic|null} null if no quadratic is close enough
      * @public
      */
