@@ -32,7 +32,6 @@ define( require => {
 
   SimLauncher.launch( () => {
     const screens = [
-      //TODO #71 change to options and add phetioDocumentation
       new ExploreScreen( Tandem.rootTandem.createTandem( 'exploreScreen' ) ),
       new StandardFormScreen( Tandem.rootTandem.createTandem( 'standardFormScreen' ) ),
       new VertexFormScreen( Tandem.rootTandem.createTandem( 'vertexFormScreen' ) ),
