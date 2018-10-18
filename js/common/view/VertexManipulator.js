@@ -27,7 +27,7 @@ define( require => {
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // ifphetio
-  const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
+  const NullableIO = require( 'TANDEM/types/NullableIO' );
 
   class VertexManipulator extends Manipulator {
 

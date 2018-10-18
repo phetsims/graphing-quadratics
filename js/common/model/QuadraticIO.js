@@ -15,7 +15,7 @@ define( require => {
 
   // ifphetio
   const assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  const ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   const phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**

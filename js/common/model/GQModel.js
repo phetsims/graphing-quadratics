@@ -24,7 +24,7 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // ifphetio
-  const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
+  const NullableIO = require( 'TANDEM/types/NullableIO' );
 
   // constants
   const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates

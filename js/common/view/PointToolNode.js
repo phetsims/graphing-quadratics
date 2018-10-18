@@ -31,7 +31,7 @@ define( require => {
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // ifphetio
-  const NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
+  const NullableIO = require( 'TANDEM/types/NullableIO' );
 
   // images
   const pointToolLeftImage = require( 'image!GRAPHING_QUADRATICS/point_tool_left.png' );
