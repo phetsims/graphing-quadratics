@@ -231,7 +231,8 @@ define( require => {
           if ( graph.contains( location ) ) {
 
             // snap to a quadratic, if we're close enough
-            const snapQuadratic = pointTool.getQuadraticNear( location, GQQueryParameters.snapDistance );
+            const snapQuadratic = pointTool.getQuadraticNear( location,
+              GQQueryParameters.snapOffDistance, GQQueryParameters.snapOnDistance );
             if ( snapQuadratic ) {
               location = snapQuadratic.getClosestPoint( location );
             }

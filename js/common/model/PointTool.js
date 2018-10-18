@@ -66,9 +66,9 @@ define( require => {
         phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
       } );
 
-      // Determine whether we're on a quadratic, using a small distance error.
+      // Determine whether we're on a quadratic, using small distances.
       Property.multilink( [ this.locationProperty, quadraticsProperty ], ( location, quadratics ) => {
-        this.onQuadraticProperty.value = this.getQuadraticNear( location, 0.01 );
+        this.onQuadraticProperty.value = this.getQuadraticNear( location, 0.01, 0.01 );
       } );
     }
 
@@ -78,20 +78,21 @@ define( require => {
      * If that quadratic is too far away, then examine all quadratics, in foreground-to-background order.
      * See #47.
      * @param {Vector2} location - the point tool's location
-     * @param {number} distance - how close we need to be
+     * @param {number} offDistance - greater this distance from the curve that we're on moves us off of it
+     * @param {number} onDistance - less than or equal to this distance moves us onto a curve
      * @returns {Quadratic|null} null if no quadratic is close enough
      * @public
      */
-    getQuadraticNear( location, distance ) {
+    getQuadraticNear( location, offDistance, onDistance ) {
       let onQuadratic = this.onQuadraticProperty.value;
       const quadratics = this.quadraticsProperty.value;
       if ( !onQuadratic ||
            quadratics.indexOf( onQuadratic ) === -1 ||
-           !onQuadratic.hasSolution( location, distance ) ) {
+           !onQuadratic.hasSolution( location, offDistance ) ) {
         onQuadratic = null;
         for ( let i = 0; i < quadratics.length && !onQuadratic; i++ ) {
           let quadratic = quadratics[ i ];
-          if ( quadratic.hasSolution( location, distance ) ) {
+          if ( quadratic.hasSolution( location, onDistance ) ) {
             onQuadratic = quadratic;
           }
         }

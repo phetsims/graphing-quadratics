@@ -22,9 +22,19 @@ define( require => {
 
     // Point tool will snap to a curve when <= this distance from the curve, in model coordinates.
     // For internal use only, not public facing.
-    snapDistance: {
+    snapOnDistance: {
       type: 'number',
-      defaultValue: 1,
+      defaultValue: 0.5,
+      isValidValue: function( value ) {
+        return value > 0;
+      }
+    },
+
+    // Point tool will snap off of a curve when > this far away, in model coordinates.
+    // For internal use only, not public facing.
+    snapOffDistance: {
+      type: 'number',
+      defaultValue: 2,
       isValidValue: function( value ) {
         return value > 0;
       }
