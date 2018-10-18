@@ -1,6 +1,5 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO split this into 2 classes?
 /**
  * 'Vertex' checkbox.  The vertex icon can be displayed as either a manipulator or a flat circle.
  *
