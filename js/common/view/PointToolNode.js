@@ -15,6 +15,7 @@ define( require => {
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const DragListener = require( 'SCENERY/listeners/DragListener' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -25,7 +26,6 @@ define( require => {
   const Property = require( 'AXON/Property' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Shape = require( 'KITE/Shape' );
-  const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
@@ -131,8 +131,8 @@ define( require => {
         } );
 
       // interactivity
-      this.addInputListener( new PointToolDragHandler( pointTool, modelViewTransform, graph,
-        options.tandem.createTandem( 'dragHandler' ) ) );
+      this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
+        options.tandem.createTandem( 'dragListener' ) ) );
     }
   }
 
@@ -191,16 +191,17 @@ define( require => {
 
   graphingQuadratics.register( 'PointToolNode.ProbeNode', ProbeNode );
 
-  class PointToolDragHandler extends SimpleDragHandler {
+  class PointToolDragListener extends DragListener {
 
     /**
      * Drag handler for the point tool.
+     * @param {Node} targetNode - the Node that we attached this listener to
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
      * @param {Tandem} tandem
      */
-    constructor( pointTool, modelViewTransform, graph, tandem ) {
+    constructor( targetNode, pointTool, modelViewTransform, graph, tandem ) {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
@@ -209,18 +210,18 @@ define( require => {
         allowTouchSnag: true,
 
         // note where the drag started
-        start: ( event, trail ) => {
+        start: ( event, listener ) => {
           // Note the mouse-click offset when dragging starts.
           let location = modelViewTransform.modelToViewPosition( pointTool.locationProperty.value );
-          startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
+          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
           // Move the tool that we're dragging to the foreground.
           event.currentTarget.moveToFront();
         },
 
-        drag: ( event, trail ) => {
+        drag: ( event, listener ) => {
 
           // Convert drag point to model location
-          let parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
+          let parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
 
           // constrained to dragBounds
@@ -245,7 +246,7 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'PointToolNode.PointToolDragHandler', PointToolDragHandler );
+  graphingQuadratics.register( 'PointToolNode.PointToolDragListener', PointToolDragListener );
 
   return PointToolNode;
 } );

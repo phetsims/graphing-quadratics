@@ -14,12 +14,12 @@ define( require => {
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const DragListener = require( 'SCENERY/listeners/DragListener' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Property = require( 'AXON/Property' );
-  const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -71,10 +71,9 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      // add drag handler
-      const dragHandler = new FocusDragHandler( pProperty, quadraticProperty, graph.yRange, modelViewTransform,
-        options.interval, options.tandem.createTandem( 'dragHandler' ) );
-      this.addInputListener( dragHandler );
+      // add drag listener
+      this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange, modelViewTransform,
+        options.interval, options.tandem.createTandem( 'dragListener' ) ) );
 
       // move the manipulator
       quadraticProperty.link( quadratic => {
@@ -97,7 +96,7 @@ define( require => {
       // visibility of this Node
       const visibleProperty = new BooleanProperty( this.visible );
       visibleProperty.link( visible => {
-        dragHandler.endDrag( null ); // cancel any drag that is in progress
+        this.interruptSubtreeInput(); // cancel any drag that is in progress
         this.visible = visible;
       } );
       Property.multilink( [ focusVisibleProperty, quadraticProperty ], ( focusVisible, quadratic ) => {
@@ -111,10 +110,11 @@ define( require => {
 
   graphingQuadratics.register( 'FocusManipulator', FocusManipulator );
 
-  class FocusDragHandler extends SimpleDragHandler {
+  class FocusDragListener extends DragListener {
 
     /**
      * Drag handler for focus.
+     * @param {Node} targetNode - the Node that we attached this listener to
      * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Range} yRange - range of the graph's y axis
@@ -122,7 +122,7 @@ define( require => {
      * @param {number} interval
      * @param {Tandem} tandem
      */
-    constructor( pProperty, quadraticProperty, yRange, modelViewTransform, interval, tandem ) {
+    constructor( targetNode, pProperty, quadraticProperty, yRange, modelViewTransform, interval, tandem ) {
 
       assert && assert( pProperty.range, 'pProperty is missing range' );
 
@@ -133,22 +133,22 @@ define( require => {
         allowTouchSnag: true,
 
         // note where the drag started
-        start: ( event, trail ) => {
+        start: ( event, listener ) => {
 
           const focus = quadraticProperty.value.focus;
           assert && assert( focus, 'expected focus: ' + focus );
 
           const location = modelViewTransform.modelToViewPosition( focus );
-          startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
+          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
-        drag: ( event, trail ) => {
+        drag: ( event, listener ) => {
 
           const vertex = quadraticProperty.value.vertex;
           assert && assert( vertex, 'expected vertex: ' + vertex );
 
           // transform the drag point from view to model coordinate frame
-          const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
+          const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
           const location = modelViewTransform.viewToModelPosition( parentPoint );
 
           // constrain to the graph
@@ -172,7 +172,7 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'FocusManipulator.FocusDragHandler', FocusDragHandler );
+  graphingQuadratics.register( 'FocusManipulator.FocusDragListener', FocusDragListener );
 
   return FocusManipulator;
 } );

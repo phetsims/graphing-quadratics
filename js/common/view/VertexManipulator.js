@@ -15,12 +15,12 @@ define( require => {
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const DragListener = require( 'SCENERY/listeners/DragListener' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Property = require( 'AXON/Property' );
-  const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -73,10 +73,9 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      // add drag handler
-      const dragHandler = new VertexDragHandler( hProperty, kProperty, graph, modelViewTransform,
-        options.tandem.createTandem( 'dragHandler' ) );
-      this.addInputListener( dragHandler );
+      // add drag listener
+      this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform,
+        options.tandem.createTandem( 'dragListener' ) ) );
 
       // move the manipulator
       quadraticProperty.link( quadratic => {
@@ -102,7 +101,7 @@ define( require => {
       // visibility of this Node
       const visibleProperty = new BooleanProperty( this.visible );
       visibleProperty.link( visible => {
-        dragHandler.endDrag( null ); // cancel any drag that is in progress
+        this.interruptSubtreeInput(); // cancel any drag that is in progress
         this.visible = visible;
       } );
       Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
@@ -116,17 +115,18 @@ define( require => {
 
   graphingQuadratics.register( 'VertexManipulator', VertexManipulator );
 
-  class VertexDragHandler extends SimpleDragHandler {
+  class VertexDragListener extends DragListener {
 
     /**
      * Drag handler for vertex.
+     * @param {Node} targetNode - the Node that we attached this listener to
      * @param {NumberProperty} hProperty - h coefficient of vertex form
      * @param {NumberProperty} kProperty - k coefficient of vertex form
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Tandem} tandem
      */
-    constructor( hProperty, kProperty, graph, modelViewTransform, tandem ) {
+    constructor( targetNode, hProperty, kProperty, graph, modelViewTransform, tandem ) {
 
       let startOffset; // where the drag started, relative to the manipulator
 
@@ -135,15 +135,15 @@ define( require => {
         allowTouchSnag: true,
 
         // note where the drag started
-        start: ( event, trail ) => {
+        start: ( event, listener ) => {
           const location = modelViewTransform.modelToViewXY( hProperty.value, kProperty.value );
-          startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
+          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
-        drag: ( event, trail ) => {
+        drag: ( event, listener ) => {
 
           // transform the drag point from view to model coordinate frame
-          const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
+          const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
 
           // constrain to the graph
@@ -164,7 +164,7 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'VertexManipulator.VertexDragHandler', VertexDragHandler );
+  graphingQuadratics.register( 'VertexManipulator.VertexDragListener', VertexDragListener );
 
   return VertexManipulator;
 } );

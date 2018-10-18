@@ -12,11 +12,11 @@ define( require => {
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const DragListener = require( 'SCENERY/listeners/DragListener' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
@@ -67,9 +67,8 @@ define( require => {
       this.addChild( coordinatesNode );
 
       // add drag handler
-      const dragHandler = new PointOnParabolaDragHandler( pointOnParabolaProperty, quadraticProperty,
-        modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragHandler' ) );
-      this.addInputListener( dragHandler );
+      this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
+        modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragListener' ) ) );
 
       // move the manipulator
       pointOnParabolaProperty.link( pointOnParabola => {
@@ -91,7 +90,7 @@ define( require => {
 
       // visibility of this Node
       pointOnParabolaVisibleProperty.link( visible => {
-        dragHandler.endDrag( null ); // cancels any drag that is in progress
+        this.interruptSubtreeInput(); // cancel any drag that is in progress
         this.visible = visible;
       } );
 
@@ -102,10 +101,11 @@ define( require => {
 
   graphingQuadratics.register( 'PointOnParabolaManipulator', PointOnParabolaManipulator );
 
-  class PointOnParabolaDragHandler extends SimpleDragHandler {
+  class PointOnParabolaDragListener extends DragListener {
 
     /**
      * Drag handler for point on the parabola.
+     * @param {Node} targetNode - the Node that we attached this listener to
      * @param {Property.<Vector2>} pointOnParabolaProperty - the point
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {ModelViewTransform2} modelViewTransform
@@ -113,7 +113,7 @@ define( require => {
      * @param {Range} yRange
      * @param {Tandem} tandem
      */
-    constructor( pointOnParabolaProperty, quadraticProperty, modelViewTransform, xRange, yRange, tandem ) {
+    constructor( targetNode, pointOnParabolaProperty, quadraticProperty, modelViewTransform, xRange, yRange, tandem ) {
 
       let startOffset; // where the drag started, relative to the manipulator
 
@@ -122,15 +122,15 @@ define( require => {
         allowTouchSnag: true,
 
         // note where the drag started
-        start: ( event, trail ) => {
+        start: ( event, listener ) => {
           const location = modelViewTransform.modelToViewPosition( pointOnParabolaProperty.value );
-          startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
+          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
         },
 
-        drag: ( event, trail ) => {
+        drag: ( event, listener ) => {
 
           // transform the drag point from view to model coordinate frame
-          const parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
+          const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
           const x = modelViewTransform.viewToModelPosition( parentPoint ).x;
 
           // set to the closest point on the parabola that is within the bounds of the graph
@@ -142,7 +142,7 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'PointOnParabolaManipulator.PointOnParabolaDragHandler', PointOnParabolaDragHandler );
+  graphingQuadratics.register( 'PointOnParabolaManipulator.PointOnParabolaDragListener', PointOnParabolaDragListener );
 
   return PointOnParabolaManipulator;
 } );
