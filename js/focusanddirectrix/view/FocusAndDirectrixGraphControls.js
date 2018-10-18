@@ -37,28 +37,22 @@ define( require => {
 
       // checkboxes
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
-        tandem: options.tandem.createTandem( 'vertexCheckbox' ),
-        phetioDocumentation: 'checkbox that shows the vertex on the graph'
+        tandem: options.tandem.createTandem( 'vertexCheckbox' )
       } );
       const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty, {
-        tandem: options.tandem.createTandem( 'focusCheckbox' ),
-        phetioDocumentation: 'checkbox that shows the focus on the graph'
+        tandem: options.tandem.createTandem( 'focusCheckbox' )
       } );
       const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty, {
-        tandem: options.tandem.createTandem( 'directrixCheckbox' ),
-        phetioDocumentation: 'checkbox that shows the directrix on the graph'
+        tandem: options.tandem.createTandem( 'directrixCheckbox' )
       } );
       const pointOnParabolaCheckbox = new PointOnParabolaCheckbox( viewProperties.pointOnParabolaVisibleProperty, {
-        tandem: options.tandem.createTandem( 'pointOnParabolaCheckbox' ),
-        phetioDocumentation: 'checkbox that shows the point on the parabola on the grpah'
+        tandem: options.tandem.createTandem( 'pointOnParabolaCheckbox' )
       } );
       const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'equationsCheckbox' ),
-        phetioDocumentation: 'checkbox that shows equations on graphed curves'
+        tandem: options.tandem.createTandem( 'equationsCheckbox' )
       } );
       const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
-        tandem: options.tandem.createTandem( 'coordinatesCheckbox' ),
-        phetioDocumentation: 'checkbox that show (x,y) coordinates on point on the graph'
+        tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
       } );
 
       const maxCheckboxWidth = _.maxBy(

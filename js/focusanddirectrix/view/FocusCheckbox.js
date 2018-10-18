@@ -25,7 +25,9 @@ define( require => {
      */
     constructor( focusVisibleProperty, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        phetioDocumentation: 'checkbox that shows the focus on the graph'
+      }, options );
 
       // icon is a manipulator (3D sphere)
       assert && assert( !options.icon, 'FocusCheckbox sets icon' );

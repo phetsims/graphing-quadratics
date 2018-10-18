@@ -25,7 +25,8 @@ define( require => {
     constructor( constantTermVisibleProperty, options ) {
 
       options = _.extend( {
-        textFill: GQColors.CONSTANT_TERM
+        textFill: GQColors.CONSTANT_TERM,
+        phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
       }, options );
 
       // y = c

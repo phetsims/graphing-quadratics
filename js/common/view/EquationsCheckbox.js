@@ -22,6 +22,9 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( equationsVisibleProperty, options ) {
+      options = _.extend( {
+        phetioDocumentation: 'checkbox that shows equations on graphed curves'
+      }, options );
       super( equationsString, equationsVisibleProperty, options );
     }
   }

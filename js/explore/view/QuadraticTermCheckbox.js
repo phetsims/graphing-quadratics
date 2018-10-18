@@ -25,7 +25,8 @@ define( require => {
     constructor( quadraticTermVisibleProperty, options ) {
 
       options = _.extend( {
-        textFill: GQColors.QUADRATIC_TERM
+        textFill: GQColors.QUADRATIC_TERM,
+        phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible the graph'
       }, options );
 
       // y = ax^2

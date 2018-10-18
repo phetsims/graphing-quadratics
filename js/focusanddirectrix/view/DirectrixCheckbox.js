@@ -26,7 +26,9 @@ define( require => {
      */
     constructor( directrixVisibleProperty, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        phetioDocumentation: 'checkbox that shows the directrix on the graph'
+      }, options );
 
       // icon is a horizontal dashed line
       assert && assert( !options.icon, 'DirectrixCheckbox sets icon' );

@@ -25,7 +25,9 @@ define( require => {
      */
     constructor( pointOnParabolaVisibleProperty, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'
+      }, options );
 
       // icon is a manipulator (3D sphere)
       assert && assert( !options.icon, 'PointOnParabolaCheckbox sets icon' );

@@ -1,5 +1,6 @@
 // Copyright 2018, University of Colorado Boulder
 
+//TODO split this into 2 classes?
 /**
  * 'Vertex' checkbox.  The vertex icon can be displayed as either a manipulator or a flat circle.
  *
@@ -29,6 +30,16 @@ define( require => {
       options = _.extend( {
         manipulatorIcon: true // true: icon is a shaded manipulator, false: icon is a flat point
       }, options );
+
+      // phetioDocumentation that is appropriate for icon type
+      if ( options.phetioDocumentation === undefined ) {
+        if ( options.manipulatorIcon ) {
+          options.phetioDocumentation ='checkbox that shows the vertex manipulator on the graph';
+        }
+        else {
+          options.phetioDocumentation ='checkbox that shows the vertex on the graph';
+        }
+      }
 
       // icon is either a manipulator (3D sphere) or a flat circle
       assert && assert( !options.icon, 'VertexCheckbox sets icon' );

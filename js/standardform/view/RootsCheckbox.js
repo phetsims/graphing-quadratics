@@ -29,7 +29,9 @@ define( require => {
      */
     constructor( rootsVisibleProperty, options ) {
 
-      options = options || {};
+      options = _.extend( {
+        phetioDocumentation: 'checkbox that shows roots on the graph'
+      }, options );
 
       // icon is a pair of circles
       assert && assert( !options.icon, 'RootsCheckbox sets icon' );

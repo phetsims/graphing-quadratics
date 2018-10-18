@@ -25,7 +25,8 @@ define( require => {
     constructor( linearTermVisibleProperty, options ) {
 
       options = _.extend( {
-        textFill: GQColors.LINEAR_TERM
+        textFill: GQColors.LINEAR_TERM,
+        phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
       }, options );
 
       // y = bx
