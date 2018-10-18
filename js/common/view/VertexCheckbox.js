@@ -30,6 +30,15 @@ define( require => {
         manipulatorIcon: true // true: icon is a shaded manipulator, false: icon is a flat point
       }, options );
 
+      // icon is either a manipulator (3D sphere) or a flat circle
+      assert && assert( !options.icon, 'VertexCheckbox sets icon' );
+      if ( options.manipulatorIcon ) {
+        options.icon = new Manipulator( 8, GQColors.VERTEX, { haloAlpha: 0, pickable: false } );
+      }
+      else {
+        options.icon = new Circle( 6, { fill: GQColors.VERTEX } );
+      }
+      
       // phetioDocumentation that is appropriate for icon type
       if ( options.phetioDocumentation === undefined ) {
         if ( options.manipulatorIcon ) {
@@ -38,15 +47,6 @@ define( require => {
         else {
           options.phetioDocumentation ='checkbox that shows the vertex on the graph';
         }
-      }
-
-      // icon is either a manipulator (3D sphere) or a flat circle
-      assert && assert( !options.icon, 'VertexCheckbox sets icon' );
-      if ( options.manipulatorIcon ) {
-        options.icon = new Manipulator( 8, GQColors.VERTEX, { haloAlpha: 0, pickable: false } );
-      }
-      else {
-        options.icon = new Circle( 6, { fill: GQColors.VERTEX } );
       }
 
       super( vertexString, vertexVisibleProperty, options );
