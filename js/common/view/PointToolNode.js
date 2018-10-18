@@ -226,10 +226,14 @@ define( require => {
           // constrained to dragBounds
           location = pointTool.dragBounds.closestPointTo( location );
 
-          // snap to a quadratic, if we're close enough
-          const snapQuadratic = pointTool.getQuadraticNear( location, GQQueryParameters.snapDistance );
-          if ( snapQuadratic ) {
-            location = snapQuadratic.getClosestPoint( location );
+          // If we're on the graph...
+          if ( graph.contains( location ) ) {
+
+            // snap to a quadratic, if we're close enough
+            const snapQuadratic = pointTool.getQuadraticNear( location, GQQueryParameters.snapDistance );
+            if ( snapQuadratic ) {
+              location = snapQuadratic.getClosestPoint( location );
+            }
           }
 
           // move the point tool
