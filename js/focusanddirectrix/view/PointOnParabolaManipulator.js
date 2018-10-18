@@ -67,7 +67,6 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      //TODO #711 add options to pass tandem and phetioDocumentation
       // add drag handler
       this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
         modelViewTransform, xRange, yRange, {
