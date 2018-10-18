@@ -37,7 +37,6 @@ define( require => {
         tandem: tandem
       };
 
-      //TODO #71 add options to pass tandem and phetioDocumentation
       super(
         () => new ExploreModel( tandem.createTandem( 'model' ) ),
         model => new ExploreScreenView( model, tandem.createTandem( 'view' ) ),

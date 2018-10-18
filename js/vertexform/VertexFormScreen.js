@@ -37,7 +37,6 @@ define( require => {
         tandem: tandem
       };
 
-      //TODO #71 add options to pass tandem and phetioDocumentation
       super(
         () => new VertexFormModel( tandem.createTandem( 'model' ) ),
         model => new VertexFormScreenView( model, tandem.createTandem( 'view' ) ),
