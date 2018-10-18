@@ -15,7 +15,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  //TODO #71 GQViewProperties extends PhetioObject, so that we can see phetioDocumentation in Studio
   /**
    * @param {Object} [options]
    */

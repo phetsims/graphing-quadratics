@@ -35,7 +35,7 @@ define( require => {
 
       super( model,
         viewProperties,
-        new FocusAndDirectrixGraphNode( model, viewProperties, tandem ), //TODO #71 move tandem to options, add phetioDocumentation
+        new FocusAndDirectrixGraphNode( model, viewProperties, tandem ),
         new FocusAndDirectrixEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: options.tandem.createTandem( 'equationAccordionBox')

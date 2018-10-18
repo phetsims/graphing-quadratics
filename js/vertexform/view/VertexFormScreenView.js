@@ -35,7 +35,7 @@ define( require => {
 
       super( model,
         viewProperties,
-        new VertexFormGraphNode( model, viewProperties, tandem ), //TODO #71 move tandem to options, add phetioDocumentation
+        new VertexFormGraphNode( model, viewProperties, tandem ),
         new VertexFormEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: options.tandem.createTandem( 'equationAccordionBox' ),
