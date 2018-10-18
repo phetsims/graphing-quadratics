@@ -1,11 +1,11 @@
 {
-  "comment": "# graphing-quadratics 1.0.0-dev.36 Wed Oct 17 2018 21:35:45 GMT-0600 (MDT)",
+  "comment": "# graphing-quadratics 1.0.0-dev.37 Thu Oct 18 2018 11:32:00 GMT-0600 (MDT)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "master"
   },
   "axon": {
-    "sha": "7751fab50cc37447a5603b50d776cc267bd437ac",
+    "sha": "644353d6ff9172ebd5d0290af50e2a1b6013f5c0",
     "branch": "master"
   },
   "brand": {
@@ -25,7 +25,7 @@
     "branch": "master"
   },
   "graphing-quadratics": {
-    "sha": "f841e9677de19088e741e777d68c0360a7e397c3",
+    "sha": "272ed96119d732f381e599cb4844b9a34b24271c",
     "branch": "master"
   },
   "joist": {
@@ -37,11 +37,11 @@
     "branch": "master"
   },
   "phet-core": {
-    "sha": "4404c06bc434f5fdc0184fcc827638a45d0fe360",
+    "sha": "269c4c8a2d10e8c2e11fe94c5be69fe783bfc39b",
     "branch": "master"
   },
   "phet-io": {
-    "sha": "a7436d70e1671c0a12e007356b9a4c8d42e6e5b3",
+    "sha": "ce77e2410a5ee1d982f25e07afe2899ee7bda0e6",
     "branch": "master"
   },
   "phet-io-wrapper-classroom-activity": {
@@ -73,7 +73,7 @@
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "c0e139f748bd94d54825821a776f9a96d522073b",
+    "sha": "344597e6dfa905addefbc7045ed0348092d78c98",
     "branch": "master"
   },
   "sherpa": {
@@ -81,7 +81,7 @@
     "branch": "master"
   },
   "sun": {
-    "sha": "8e41410bb9fa1174bf17af2037b6d87e76277fc2",
+    "sha": "289fce232727252d18c79658215152212a8ded9a",
     "branch": "master"
   },
   "tambo": {
@@ -89,7 +89,7 @@
     "branch": "master"
   },
   "tandem": {
-    "sha": "f9cfcc67c13c21c30b1787fe628b0def4c09be58",
+    "sha": "2c4b970a7f5b02e12f1b9093d6bf29a42418552a",
     "branch": "master"
   }
 }
