@@ -1,8 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
-//TODO rename this and similar classes to *Panel ?
 /**
- * Controls for various features related to the graph on the 'Standard Form' screen.
+ * Panel that contains controls for various features related to the graph on the 'Standard Form' screen.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -24,7 +23,7 @@ define( require => {
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 
-  class StandardFormGraphControls extends Panel {
+  class StandardFormGraphControlPanel extends Panel {
 
     /**
      * @param {StandardFormViewProperties} viewProperties
@@ -76,5 +75,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'StandardFormGraphControls', StandardFormGraphControls );
+  return graphingQuadratics.register( 'StandardFormGraphControlPanel', StandardFormGraphControlPanel );
 } );

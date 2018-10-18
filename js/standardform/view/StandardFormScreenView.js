@@ -12,7 +12,7 @@ define( require => {
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const StandardFormEquationAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationAccordionBox' );
-  const StandardFormGraphControls = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControls' );
+  const StandardFormGraphControlPanel = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControlPanel' );
   const StandardFormGraphNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphNode' );
   const StandardFormViewProperties = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormViewProperties' );
 
@@ -39,11 +39,11 @@ define( require => {
         new StandardFormEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: options.tandem.createTandem( 'equationAccordionBox' ),
-          phetioDocumentation: 'the accordion box that contains the interactive equation for this screen'
+          phetioDocumentation: 'accordion box that contains the interactive equation'
         } ),
-        new StandardFormGraphControls( viewProperties, {
-          tandem: options.tandem.createTandem( 'graphControls' ),
-          phetioDocumentation: 'the panel that contains the graph controls for this screen'
+        new StandardFormGraphControlPanel( viewProperties, {
+          tandem: options.tandem.createTandem( 'graphControlPanel' ),
+          phetioDocumentation: 'panel that contains controls related to the graph'
         } ),
         options
       );

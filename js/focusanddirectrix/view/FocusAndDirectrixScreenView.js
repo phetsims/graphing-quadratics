@@ -10,7 +10,7 @@ define( require => {
 
   // modules
   const FocusAndDirectrixEquationAccordionBox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixEquationAccordionBox' );
-  const FocusAndDirectrixGraphControls = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphControls' );
+  const FocusAndDirectrixGraphControlPanel = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphControlPanel' );
   const FocusAndDirectrixGraphNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixGraphNode' );
   const FocusAndDirectrixViewProperties = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixViewProperties' );
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
@@ -38,11 +38,12 @@ define( require => {
         new FocusAndDirectrixGraphNode( model, viewProperties, tandem ),
         new FocusAndDirectrixEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
-          tandem: options.tandem.createTandem( 'equationAccordionBox')
+          tandem: options.tandem.createTandem( 'equationAccordionBox'),
+          phetioDocumentation: 'accordion box that contains the interactive equation'
         } ),
-        new FocusAndDirectrixGraphControls( viewProperties, {
-          tandem: options.tandem.createTandem( 'graphControls' ),
-          phetioDocumentation: 'the panel that contains the graph controls for this screen'
+        new FocusAndDirectrixGraphControlPanel( viewProperties, {
+          tandem: options.tandem.createTandem( 'graphControlPanel' ),
+          phetioDocumentation: 'panel that contains controls related to the graph'
         } ),
         options
       );

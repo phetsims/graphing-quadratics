@@ -2,6 +2,7 @@
 
 /**
  * Base class for ScreenViews in this sim.
+ * Responsible for creating Nodes that are common to all screens, and for common layout.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -29,11 +30,11 @@ define( require => {
      * @param {GQModel} model
      * @param {GQViewProperties} viewProperties
      * @param {Node} graphNode
-     * @param {Node} equationControls
-     * @param {Node} graphControls
+     * @param {Node} equationAccordionBox
+     * @param {Node} graphControlPanel
      * @param {Object} options
      */
-    constructor( model, viewProperties, graphNode, equationControls, graphControls, options ) {
+    constructor( model, viewProperties, graphNode, equationAccordionBox, graphControlPanel, options ) {
 
       options = _.extend( {
 
@@ -76,8 +77,8 @@ define( require => {
       // Set maxWidth for each control panel individually
       const controlPanelMaxWidth = this.layoutBounds.width - graphNode.width - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN ) - X_SPACING;
       assert && assert( controlPanelMaxWidth >= 0, 'unexpected controlPanelMaxWidth: ' + controlPanelMaxWidth );
-      equationControls.maxWidth = controlPanelMaxWidth;
-      graphControls.maxWidth = controlPanelMaxWidth;
+      equationAccordionBox.maxWidth = controlPanelMaxWidth;
+      graphControlPanel.maxWidth = controlPanelMaxWidth;
 
       // Parent for all control panels, to simplify layout
       const controlsParent = new VBox( {
@@ -86,8 +87,8 @@ define( require => {
         align: 'center',
         spacing: 10,
         children: [
-          equationControls,
-          graphControls
+          equationAccordionBox,
+          graphControlPanel
         ]
       } );
 

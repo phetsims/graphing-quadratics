@@ -12,7 +12,7 @@ define( require => {
   const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const VertexFormEquationAccordionBox = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationAccordionBox' );
-  const VertexFormGraphControls = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphControls' );
+  const VertexFormGraphControlPanel = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphControlPanel' );
   const VertexFormGraphNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormGraphNode' );
   const VertexFormViewProperties = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormViewProperties' );
 
@@ -39,11 +39,11 @@ define( require => {
         new VertexFormEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: options.tandem.createTandem( 'equationAccordionBox' ),
-          phetioDocumentation: 'the accordion box that contains the interactive equation for this screen'
+          phetioDocumentation: 'accordion box that contains the interactive equation'
         } ),
-        new VertexFormGraphControls( viewProperties, {
-          tandem: options.tandem.createTandem( 'graphControls' ),
-          phetioDocumentation: 'the panel that contains the graph controls for this screen'
+        new VertexFormGraphControlPanel( viewProperties, {
+          tandem: options.tandem.createTandem( 'graphControlPanel' ),
+          phetioDocumentation: 'panel that contains controls related to the graph'
         } ),
         options
       );

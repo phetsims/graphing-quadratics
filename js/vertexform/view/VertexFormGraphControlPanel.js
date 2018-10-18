@@ -1,32 +1,31 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Controls for various features related to the graph on the 'Focus and Directrix' screen.
+ * Panel that contains controls for various features related to the graph on the 'Vertex Form' screen.
  *
+ * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( require => {
   'use strict';
 
   // modules
+  const AxisOfSymmetryCheckbox = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryCheckbox' );
   const CoordinatesCheckbox = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesCheckbox' );
-  const DirectrixCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/DirectrixCheckbox' );
   const EquationsCheckbox = require( 'GRAPHING_QUADRATICS/common/view/EquationsCheckbox' );
-  const FocusCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusCheckbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
   const Panel = require( 'SUN/Panel' );
-  const PointOnParabolaCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnParabolaCheckbox' );
   const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const VertexCheckbox = require( 'GRAPHING_QUADRATICS/common/view/VertexCheckbox' );
 
-  class FocusAndDirectrixGraphControls extends Panel {
+  class VertexFormGraphControlPanel extends Panel {
 
     /**
-     * @param {FocusAndDirectrixViewProperties} viewProperties
+     * @param {VertexFormViewProperties} viewProperties
      * @param {Object} [options]
      */
     constructor( viewProperties, options ) {
@@ -39,14 +38,8 @@ define( require => {
       const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
         tandem: options.tandem.createTandem( 'vertexCheckbox' )
       } );
-      const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty, {
-        tandem: options.tandem.createTandem( 'focusCheckbox' )
-      } );
-      const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty, {
-        tandem: options.tandem.createTandem( 'directrixCheckbox' )
-      } );
-      const pointOnParabolaCheckbox = new PointOnParabolaCheckbox( viewProperties.pointOnParabolaVisibleProperty, {
-        tandem: options.tandem.createTandem( 'pointOnParabolaCheckbox' )
+      const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty, {
+        tandem: options.tandem.createTandem( 'axisOfSymmetryCheckbox' )
       } );
       const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
         tandem: options.tandem.createTandem( 'equationsCheckbox' )
@@ -56,7 +49,7 @@ define( require => {
       } );
 
       const maxCheckboxWidth = _.maxBy(
-        [ vertexCheckbox, focusCheckbox, directrixCheckbox, pointOnParabolaCheckbox, equationsCheckbox, coordinatesCheckbox ],
+        [ vertexCheckbox, axisOfSymmetryCheckbox, equationsCheckbox, coordinatesCheckbox ],
         node => node.width ).width;
 
       // vertical layout
@@ -65,9 +58,7 @@ define( require => {
         spacing: GQConstants.CHECKBOXES_Y_SPACING,
         children: [
           vertexCheckbox,
-          focusCheckbox,
-          directrixCheckbox,
-          pointOnParabolaCheckbox,
+          axisOfSymmetryCheckbox,
           new HSeparator( maxCheckboxWidth, { stroke: GQColors.SEPARATOR } ),
           equationsCheckbox,
           coordinatesCheckbox
@@ -78,5 +69,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'FocusAndDirectrixGraphControls', FocusAndDirectrixGraphControls );
+  return graphingQuadratics.register( 'VertexFormGraphControlPanel', VertexFormGraphControlPanel );
 } );

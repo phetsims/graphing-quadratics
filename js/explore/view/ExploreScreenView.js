@@ -39,7 +39,7 @@ define( require => {
         new ExploreEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
           tandem: tandem.createTandem( 'equationAccordionBox' ),
-          phetioDocumentation: 'the accordion box that contains the interactive equation for this screen'
+          phetioDocumentation: 'accordion box that contains the interactive equation'
         } ),
         new QuadraticTermsAccordionBox( viewProperties, {
           expandedProperty: viewProperties.quadraticTermsAccordionBoxExpandedProperty,
