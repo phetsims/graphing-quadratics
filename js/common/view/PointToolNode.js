@@ -132,7 +132,7 @@ define( require => {
 
       // interactivity
       this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
-        options.tandem.createTandem( 'dragListener' ) ) );
+        graphContentsVisibleProperty, options.tandem.createTandem( 'dragListener' ) ) );
     }
   }
 
@@ -199,9 +199,10 @@ define( require => {
      * @param {PointTool} pointTool
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
+     * @param {BooleanProperty} graphContentsVisibleProperty
      * @param {Tandem} tandem
      */
-    constructor( targetNode, pointTool, modelViewTransform, graph, tandem ) {
+    constructor( targetNode, pointTool, modelViewTransform, graph, graphContentsVisibleProperty, tandem ) {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
@@ -227,8 +228,8 @@ define( require => {
           // constrained to dragBounds
           location = pointTool.dragBounds.closestPointTo( location );
 
-          // If we're on the graph...
-          if ( graph.contains( location ) ) {
+          // If we're on the graph and the contents of the graph are visible...
+          if ( graph.contains( location ) && graphContentsVisibleProperty.value ) {
 
             // snap to a quadratic, if we're close enough
             const snapQuadratic = pointTool.getQuadraticNear( location,
