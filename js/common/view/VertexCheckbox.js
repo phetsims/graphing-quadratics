@@ -42,9 +42,12 @@ define( require => {
 
       // icon is either a manipulator (3D sphere) or a flat circle
       assert && assert( !options.icon, 'VertexCheckbox sets icon' );
-      options.icon = ( options.manipulatorIcon ) ?
-                   new Manipulator( 8, GQColors.VERTEX, { haloAlpha: 0, pickable: false } ) :
-                   new Circle( 6, { fill: GQColors.VERTEX } );
+      if ( options.manipulatorIcon ) {
+        options.icon = new Manipulator( 8, GQColors.VERTEX, { haloAlpha: 0, pickable: false } );
+      }
+      else {
+        options.icon = new Circle( 6, { fill: GQColors.VERTEX } );
+      }
 
       super( vertexString, vertexVisibleProperty, options );
     }
