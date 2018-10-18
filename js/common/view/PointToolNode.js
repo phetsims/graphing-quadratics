@@ -75,7 +75,7 @@ define( require => {
 
       // coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
-        font: new PhetFont( 15 ),
+        font: new PhetFont( { size: 15, weight: 'bold' } ),
         foregroundColor: 'white',
         backgroundOpacity: 0, // don't use the CoordinatesNode background, because it resizes to the value
         xMargin: 0,
