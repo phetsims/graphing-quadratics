@@ -31,7 +31,7 @@ define( require => {
 
       options = _.extend( {
         decimals: 0,
-        font: new PhetFont( 16 ),
+        font: new PhetFont( { size: 16, weight: 'bold' } ),
         foregroundColor: 'black',
         backgroundColor: 'white',
         backgroundOpacity: 0.75,
