@@ -130,10 +130,12 @@ define( require => {
           }
         } );
 
-      //TODO #711 add options to pass tandem and phetioDocumentation
-      // interactivity
+      // add the drag listener
       this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
-        graphContentsVisibleProperty, options.tandem.createTandem( 'dragListener' ) ) );
+        graphContentsVisibleProperty, {
+          tandem: options.tandem.createTandem( 'dragListener' ),
+          phetioDocumentation: 'the drag listener for this point tool'
+        } ) );
     }
   }
 
@@ -201,13 +203,13 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
      * @param {BooleanProperty} graphContentsVisibleProperty
-     * @param {Tandem} tandem
+     * @param {Options} [options]
      */
-    constructor( targetNode, pointTool, modelViewTransform, graph, graphContentsVisibleProperty, tandem ) {
+    constructor( targetNode, pointTool, modelViewTransform, graph, graphContentsVisibleProperty, options ) {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
-      super( {
+      options = _.extend( {
 
         allowTouchSnag: true,
 
@@ -242,10 +244,10 @@ define( require => {
 
           // move the point tool
           pointTool.locationProperty.value = location;
-        },
+        }
+      }, options );
 
-        tandem: tandem
-      } );
+      super( options );
     }
   }
 

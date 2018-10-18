@@ -70,7 +70,10 @@ define( require => {
       //TODO #711 add options to pass tandem and phetioDocumentation
       // add drag handler
       this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
-        modelViewTransform, xRange, yRange, options.tandem.createTandem( 'dragListener' ) ) );
+        modelViewTransform, xRange, yRange, {
+          tandem: options.tandem.createTandem( 'dragListener' ),
+          phetioDocumentation: 'the drag listener for this point-on-parabola manipulator'
+        } ) );
 
       // move the manipulator
       pointOnParabolaProperty.link( pointOnParabola => {
@@ -113,13 +116,13 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Range} xRange
      * @param {Range} yRange
-     * @param {Tandem} tandem
+     * @param {Object} [options]
      */
-    constructor( targetNode, pointOnParabolaProperty, quadraticProperty, modelViewTransform, xRange, yRange, tandem ) {
+    constructor( targetNode, pointOnParabolaProperty, quadraticProperty, modelViewTransform, xRange, yRange, options ) {
 
       let startOffset; // where the drag started, relative to the manipulator
 
-      super( {
+      options = _.extend( {
 
         allowTouchSnag: true,
 
@@ -137,10 +140,10 @@ define( require => {
 
           // set to the closest point on the parabola that is within the bounds of the graph
           pointOnParabolaProperty.value = quadraticProperty.value.getClosestPointInRange( x, xRange, yRange );
-        },
+        }
+      }, options );
 
-        tandem: tandem
-      } );
+      super( options );
     }
   }
 

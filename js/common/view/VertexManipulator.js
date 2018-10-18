@@ -74,10 +74,11 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      //TODO #711 add options to pass tandem and phetioDocumentation
-      // add drag listener
-      this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform,
-        options.tandem.createTandem( 'dragListener' ) ) );
+      // add the drag listener
+      this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform, {
+        tandem: options.tandem.createTandem( 'dragListener' ),
+        phetioDocumentation: 'the drag listener for this vertex manipulator'
+      } ) );
 
       // move the manipulator
       quadraticProperty.link( quadratic => {
@@ -126,13 +127,13 @@ define( require => {
      * @param {NumberProperty} kProperty - k coefficient of vertex form
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {Tandem} tandem
+     * @param {Object} [options]
      */
-    constructor( targetNode, hProperty, kProperty, graph, modelViewTransform, tandem ) {
+    constructor( targetNode, hProperty, kProperty, graph, modelViewTransform, options ) {
 
       let startOffset; // where the drag started, relative to the manipulator
 
-      super( {
+      options = _.extend( {
 
         allowTouchSnag: true,
 
@@ -159,10 +160,10 @@ define( require => {
           // We decided that this is OK, and we can live with it.
           hProperty.value = h;
           kProperty.value = k;
-        },
+        }
+      }, options );
 
-        tandem: tandem
-      } );
+      super( options );
     }
   }
 

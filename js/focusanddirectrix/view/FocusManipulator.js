@@ -72,10 +72,12 @@ define( require => {
       } );
       this.addChild( coordinatesNode );
 
-      //TODO #711 add options to pass tandem and phetioDocumentation
-      // add drag listener
-      this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange, modelViewTransform,
-        options.interval, options.tandem.createTandem( 'dragListener' ) ) );
+      // add the drag listener
+      this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange,
+        modelViewTransform, options.interval, {
+          tandem: options.tandem.createTandem( 'dragListener' ),
+          phetioDocumentation: 'the drag listener for this focus manipulator'
+        } ) );
 
       // move the manipulator
       quadraticProperty.link( quadratic => {
@@ -122,15 +124,15 @@ define( require => {
      * @param {Range} yRange - range of the graph's y axis
      * @param {ModelViewTransform2} modelViewTransform
      * @param {number} interval
-     * @param {Tandem} tandem
+     * @param {Object} [options]
      */
-    constructor( targetNode, pProperty, quadraticProperty, yRange, modelViewTransform, interval, tandem ) {
+    constructor( targetNode, pProperty, quadraticProperty, yRange, modelViewTransform, interval, options ) {
 
       assert && assert( pProperty.range, 'pProperty is missing range' );
 
       let startOffset; // where the drag started, relative to the manipulator
 
-      super( {
+      options = _.extend( {
 
         allowTouchSnag: true,
 
@@ -167,10 +169,10 @@ define( require => {
           assert && assert( p !== 0, 'p=0 is not supported' );
 
           pProperty.value = p;
-        },
+        }
+      }, options );
 
-        tandem: tandem
-      } );
+      super( options );
     }
   }
 
