@@ -87,13 +87,13 @@ define( require => {
       // background behind the coordinates, sized to the body so that it shows through the window
       const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10 );
 
-      // put probe on correct side of body
+      // Put probe on correct side of body. Move the body, since the probe estabishes the origin.
       if ( pointTool.probeSide === 'left' ) {
-        bodyNode.left = probeNode.right;
+        bodyNode.left = probeNode.right - 1; // -1 for overlap, so you don't see a gap
       }
       else {
         probeNode.setScaleMagnitude( -1, 1 ); // reflect about the y axis
-        bodyNode.right = probeNode.left;
+        bodyNode.right = probeNode.left + 1; // +1 for overlap, so you don't see a gap
       }
       backgroundNode.center = bodyNode.center;
 
