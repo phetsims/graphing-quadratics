@@ -18,13 +18,11 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const NullableIO = require( 'TANDEM/types/NullableIO' );
   const Property = require( 'AXON/Property' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
-
-  // ifphetio
-  const NullableIO = require( 'TANDEM/types/NullableIO' );
 
   // constants
   const COORDINATES_X_SPACING = 15; // between root point and its coordinates display

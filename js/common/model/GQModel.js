@@ -16,15 +16,13 @@ define( require => {
   const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const NullableIO = require( 'TANDEM/types/NullableIO' );
   const PointTool = require( 'GRAPHING_QUADRATICS/common/model/PointTool' );
   const Property = require( 'AXON/Property' );
   const PropertyIO = require( 'AXON/PropertyIO' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const Vector2 = require( 'DOT/Vector2' );
-
-  // ifphetio
-  const NullableIO = require( 'TANDEM/types/NullableIO' );
 
   // constants
   const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates

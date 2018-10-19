@@ -21,6 +21,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const NullableIO = require( 'TANDEM/types/NullableIO' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
@@ -29,9 +30,6 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
-
-  // ifphetio
-  const NullableIO = require( 'TANDEM/types/NullableIO' );
 
   // images
   const pointToolLeftImage = require( 'image!GRAPHING_QUADRATICS/point_tool_left.png' );

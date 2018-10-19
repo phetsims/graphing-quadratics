@@ -11,15 +11,13 @@ define( require => {
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
+  const NullableIO = require( 'TANDEM/types/NullableIO' );
   const Property = require( 'AXON/Property' );
   const PropertyIO = require( 'AXON/PropertyIO' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
-
-  // ifphetio
-  const NullableIO = require( 'TANDEM/types/NullableIO' );
 
   // constants
   const PROBE_SIDES = [ 'right', 'left' ];
