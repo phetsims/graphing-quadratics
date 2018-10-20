@@ -10,7 +10,6 @@ define( require => {
   'use strict';
 
   // modules
-  const BooleanProperty = require( 'AXON/BooleanProperty' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
@@ -19,7 +18,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const Property = require( 'AXON/Property' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -98,17 +96,19 @@ define( require => {
       } );
 
       // visibility of this Node
-      const visibleProperty = new BooleanProperty( this.visible );
+      const visibleProperty = new DerivedProperty(
+        [ focusVisibleProperty, quadraticProperty ],
+        ( focusVisible, quadratic ) =>
+          focusVisible && // the Focus checkbox is checked
+          graph.contains( quadratic.focus ) // the focus is on the graph
+      );
       visibleProperty.link( visible => {
         this.interruptSubtreeInput(); // cancel any drag that is in progress
         this.visible = visible;
       } );
-      Property.multilink( [ focusVisibleProperty, quadraticProperty ], ( focusVisible, quadratic ) => {
-        visibleProperty.value = !!( focusVisible && graph.contains( quadratic.focus ) );
-      } );
 
       // visibility of coordinates
-      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
+      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
     }
   }
 

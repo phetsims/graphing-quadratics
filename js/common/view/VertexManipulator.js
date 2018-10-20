@@ -11,7 +11,6 @@ define( require => {
   'use strict';
 
   // modules
-  const BooleanProperty = require( 'AXON/BooleanProperty' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
@@ -21,7 +20,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const Property = require( 'AXON/Property' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -100,17 +98,20 @@ define( require => {
       } );
 
       // visibility of this Node
-      const visibleProperty = new BooleanProperty( this.visible );
+      const visibleProperty = new DerivedProperty(
+        [ vertexVisibleProperty, quadraticProperty ],
+        ( vertexVisible, quadratic ) =>
+          vertexVisible &&  // the Vertex checkbox is checked
+          quadratic.vertex !== undefined &&  // the quadratic has a vertex
+          graph.contains( quadratic.vertex ) // the vertex is on the graph
+      );
       visibleProperty.link( visible => {
         this.interruptSubtreeInput(); // cancel any drag that is in progress
         this.visible = visible;
       } );
-      Property.multilink( [ vertexVisibleProperty, quadraticProperty ], ( vertexVisible, quadratic ) => {
-        visibleProperty.value = !!( vertexVisible && quadratic.vertex && graph.contains( quadratic.vertex ) );
-      } );
 
       // visibility of coordinates
-      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
+      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
     }
   }
 

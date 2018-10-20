@@ -18,7 +18,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const Property = require( 'AXON/Property' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
@@ -90,14 +89,18 @@ define( require => {
         }
       } );
 
-      // visibility
-      Property.multilink( [ vertexVisibleProperty, quadraticProperty ],
-        ( vertexVisible, quadratic ) => {
-          this.visible = !!( vertexVisible &&
-                             quadratic.vertex &&
-                             graph.contains( quadratic.vertex ) );
-        } );
-      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
+      // visibility of this Node
+      const visibleProperty = new DerivedProperty(
+        [ vertexVisibleProperty, quadraticProperty ],
+        (  vertexVisible, quadratic  ) =>
+          vertexVisible &&  // the Vertex checkbox is checked
+          quadratic.vertex !== undefined &&  // the quadratic has a vertex
+          graph.contains( quadratic.vertex ) // the vertex is on the graph
+      );
+      visibleProperty.linkAttribute( this, 'visible' );
+
+      // visibility of coordinates
+      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
     }
   }
 

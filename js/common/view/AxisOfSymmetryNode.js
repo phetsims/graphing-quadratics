@@ -9,24 +9,24 @@ define( require => {
   'use strict';
 
   // modules
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const Property = require( 'AXON/Property' );
 
   class AxisOfSymmetryNode extends Node {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-     * @param {Range} yRange - range of the graph's y axis
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} axisOfSymmetryVisibleProperty
      * @param {BooleanProperty} equationsVisibleProperty
      */
-    constructor( quadraticProperty, yRange, modelViewTransform,
+    constructor( quadraticProperty, graph, modelViewTransform,
                  axisOfSymmetryVisibleProperty, equationsVisibleProperty ) {
 
       super();
@@ -42,9 +42,9 @@ define( require => {
       // equation on the line, created below
       let equationNode = null;
 
-      // to improve readability
-      const minY = modelViewTransform.modelToViewY( yRange.max );
-      const maxY = modelViewTransform.modelToViewY( yRange.min );
+      // endpoints of the line in model coordinates, note that y is inverted
+      const minY = modelViewTransform.modelToViewY( graph.yRange.max );
+      const maxY = modelViewTransform.modelToViewY( graph.yRange.min );
 
       quadraticProperty.link( quadratic => {
 
@@ -63,12 +63,12 @@ define( require => {
           this.addChild( equationNode );
 
           // position the equation to avoid overlapping vertex and y axis
-          if ( quadratic.axisOfSymmetry > yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
+          if ( quadratic.axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
 
             // axis is at far right of graph, so put equation on left of axis
             equationNode.right = lineNode.left - GQConstants.EQUATION_SPACING;
           }
-          else if ( quadratic.axisOfSymmetry < yRange.min + GQConstants.EQUATION_Y_MARGIN ) {
+          else if ( quadratic.axisOfSymmetry < graph.yRange.min + GQConstants.EQUATION_Y_MARGIN ) {
 
             // axis is at far left of graph, so put equation on right of axis
             equationNode.left = lineNode.right + GQConstants.EQUATION_SPACING;
@@ -86,22 +86,26 @@ define( require => {
 
           // space between the equation and axis
           if ( quadratic.vertex.y >= 0 ) {
-            equationNode.bottom = modelViewTransform.modelToViewY( yRange.min + 1 );
+            equationNode.bottom = modelViewTransform.modelToViewY( graph.yRange.min + 1 );
           }
           else {
-            equationNode.top = modelViewTransform.modelToViewY( yRange.max - 1 );
+            equationNode.top = modelViewTransform.modelToViewY( graph.yRange.max - 1 );
           }
         }
       } );
 
-      Property.multilink( [ axisOfSymmetryVisibleProperty, quadraticProperty ],
-        ( axisOfSymmetryVisible, quadratic ) => {
-          this.visible = !!( axisOfSymmetryVisible &&
-                             quadratic.axisOfSymmetry !== undefined &&
-                             yRange.contains( quadratic.axisOfSymmetry ) );
-        } );
+      // visibility of this Node
+      const visibleProperty = new DerivedProperty(
+        [ axisOfSymmetryVisibleProperty, quadraticProperty ],
+        ( axisOfSymmetryVisible, quadratic ) =>
+          axisOfSymmetryVisible && // the Axis of Symmetry checkbox is checked
+          quadratic.axisOfSymmetry !== undefined && // the quadratic has an axis of symmetry
+          graph.xRange.contains( quadratic.axisOfSymmetry ) // the axis of symmetry (x=N) is on the graph
+      );
+      visibleProperty.linkAttribute( this, 'visible' );
 
-      equationsVisibleProperty.link( visible => { equationNode.visible = visible; } );
+      // visibility of the equation                                                
+      equationsVisibleProperty.linkAttribute( equationNode, 'visible' );
     }
   }
 

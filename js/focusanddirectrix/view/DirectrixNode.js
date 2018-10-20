@@ -9,25 +9,24 @@ define( require => {
   'use strict';
 
   // modules
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const Property = require( 'AXON/Property' );
 
   class DirectrixNode extends Node {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-     * @param {Range} xRange - range of graph's x axis
-     * @param {Range} yRange - range of graph's y axis
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} directrixVisibleProperty
      * @param {BooleanProperty} equationsVisibleProperty
      */
-    constructor( quadraticProperty, xRange, yRange, modelViewTransform, directrixVisibleProperty, equationsVisibleProperty ) {
+    constructor( quadraticProperty, graph, modelViewTransform, directrixVisibleProperty, equationsVisibleProperty ) {
 
       super();
 
@@ -42,9 +41,9 @@ define( require => {
       // equation on the line, created below
       let equationNode = null;
 
-      // to improve readability
-      const minX = modelViewTransform.modelToViewX( xRange.min );
-      const maxX = modelViewTransform.modelToViewX( xRange.max );
+      // endpoints of the line in model coordinates
+      const minX = modelViewTransform.modelToViewX( graph.xRange.min );
+      const maxX = modelViewTransform.modelToViewX( graph.xRange.max );
 
       quadraticProperty.link( quadratic => {
 
@@ -66,15 +65,15 @@ define( require => {
         if ( quadratic.vertex.x >= 0 ) {
 
           // vertex is at or to the right of origin, so put equation on left end of line
-          equationNode.left = modelViewTransform.modelToViewX( xRange.min + GQConstants.EQUATION_X_MARGIN );
+          equationNode.left = modelViewTransform.modelToViewX( graph.xRange.min + GQConstants.EQUATION_X_MARGIN );
         }
         else {
           // vertex is to the left of origin, so put equation on right end of line
-          equationNode.right = modelViewTransform.modelToViewX( xRange.max - GQConstants.EQUATION_X_MARGIN );
+          equationNode.right = modelViewTransform.modelToViewX( graph.xRange.max - GQConstants.EQUATION_X_MARGIN );
         }
 
         // space between the equation and directrix
-        if ( quadratic.directrix > xRange.max - 1 ) {
+        if ( quadratic.directrix > graph.xRange.max - 1 ) {
           equationNode.top = lineNode.bottom + GQConstants.EQUATION_SPACING;
         }
         else {
@@ -82,11 +81,17 @@ define( require => {
         }
       } );
 
-      Property.multilink( [ directrixVisibleProperty, quadraticProperty ], ( directrixVisible, quadratic ) => {
-        this.visible = !!( directrixVisible && yRange.contains( quadratic.directrix ) );
-      } );
+      // visibility of this Node
+      const visibleProperty = new DerivedProperty(
+        [ directrixVisibleProperty, quadraticProperty ],
+        ( directrixVisible, quadratic ) =>
+          directrixVisible &&  // the Directrix checkbox is checked
+          graph.yRange.contains( quadratic.directrix ) // the directrix (y=N) is on the graph
+      );
+      visibleProperty.linkAttribute( this, 'visible' );
 
-      equationsVisibleProperty.link( visible => { equationNode.visible = visible; } );
+      // visibility of equation
+      equationsVisibleProperty.linkAttribute( equationNode, 'visible' );
     }
   }
 

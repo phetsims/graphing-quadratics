@@ -19,7 +19,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const Property = require( 'AXON/Property' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
@@ -120,14 +119,19 @@ define( require => {
         }
       } );
 
-      Property.multilink( [ rootsVisibleProperty, quadraticProperty ], ( rootsVisible, quadratic ) => {
-        this.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length !== 0 );
-      } );
+      // visibility of this Node
+      const visibileProperty = new DerivedProperty(
+        [ rootsVisibleProperty, quadraticProperty ],
+        ( rootsVisible, quadratic ) =>
+          rootsVisible &&  // the Roots checkbox is checked
+          !!quadratic.roots && // it is not the case that all points on the quadratic are roots
+          quadratic.roots.length !== 0 // there is a least one root
+        );
+      visibileProperty.linkAttribute( this, 'visible' );
 
-      coordinatesVisibleProperty.link( visible => {
-        leftCoordinatesNode.visible = visible;
-        rightCoordinatesNode.visible = visible;
-      } );
+      // visibility of coordinates
+      coordinatesVisibleProperty.linkAttribute( leftCoordinatesNode, 'visible' );
+      coordinatesVisibleProperty.linkAttribute( rightCoordinatesNode, 'visible' );
     }
   }
 

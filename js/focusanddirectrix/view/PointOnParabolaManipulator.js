@@ -99,7 +99,7 @@ define( require => {
       } );
 
       // visibility of coordinates
-      coordinatesVisibleProperty.link( visible => { coordinatesNode.visible = visible; } );
+      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
     }
   }
 

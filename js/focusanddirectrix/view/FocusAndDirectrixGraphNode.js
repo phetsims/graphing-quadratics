@@ -34,8 +34,7 @@ define( require => {
       // Directrix
       const directrixNode = new DirectrixNode(
         model.quadraticProperty,
-        model.graph.xRange,
-        model.graph.yRange,
+        model.graph,
         model.modelViewTransform,
         viewProperties.directrixVisibleProperty,
         viewProperties.equationsVisibleProperty );
