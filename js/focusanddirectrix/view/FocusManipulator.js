@@ -10,20 +10,19 @@ define( require => {
   'use strict';
 
   // modules
-  const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const DragListener = require( 'SCENERY/listeners/DragListener' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
-  class FocusManipulator extends Manipulator {
+  class FocusManipulator extends GQManipulator {
 
     /**
      * @param {number} radius - in view coordinates
@@ -43,13 +42,27 @@ define( require => {
         // dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
 
-        // Manipulator options
-        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
+        // GQManipulator options
+        coordinatesForegroundColor: 'white',
+        coordinatesBackgroundColor: GQColors.FOCUS,
+        coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
         tandem: Tandem.required,
-        phetioDocumentation: 'a manipulator for the focus'
+        phetioDocumentation: 'manipulator for the focus'
+
       }, options );
 
-      super( radius, GQColors.FOCUS, options );
+      // position coordinates based on which way the parabola opens
+      assert && assert( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );
+      options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
+        const coordinatesYOffset = 1.8 * radius;
+        coordinatesNode.centerX = 0;
+        if ( quadraticProperty.value.a > 0 ) {
+          coordinatesNode.bottom = -coordinatesYOffset;
+        }
+        else {
+          coordinatesNode.top = coordinatesYOffset;
+        }
+      };
 
       // coordinates correspond to the quadratic's focus
       const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
@@ -60,39 +73,19 @@ define( require => {
           phetioDocumentation: 'coordinates displayed on the focus manipulator'
         } );
 
-      // coordinates display
-      const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
-        foregroundColor: 'white',
-        backgroundColor: GQColors.FOCUS,
-        decimals: GQConstants.FOCUS_DECIMALS,
-        pickable: false,
-        maxWidth: GQConstants.COORDINATES_MAX_WIDTH
-      } );
-      this.addChild( coordinatesNode );
+      super( radius, GQColors.FOCUS, coordinatesProperty, coordinatesVisibleProperty, options );
 
       // add the drag listener
       this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange,
         modelViewTransform, options.interval, {
           tandem: options.tandem.createTandem( 'dragListener' ),
-          phetioDocumentation: 'the drag listener for this focus manipulator'
+          phetioDocumentation: 'drag listener for this focus manipulator'
         } ) );
 
       // move the manipulator
       quadraticProperty.link( quadratic => {
         assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
         this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
-      } );
-
-      // position coordinates based on which way the parabola opens
-      const coordinatesYOffset = 1.8 * radius;
-      coordinatesProperty.link( coordinates => {
-        coordinatesNode.centerX = 0;
-        if ( quadraticProperty.value.a > 0 ) {
-          coordinatesNode.bottom = -coordinatesYOffset;
-        }
-        else {
-          coordinatesNode.top = coordinatesYOffset;
-        }
       } );
 
       // visibility of this Node
@@ -106,9 +99,6 @@ define( require => {
         this.interruptSubtreeInput(); // cancel any drag that is in progress
         this.visible = visible;
       } );
-
-      // visibility of coordinates
-      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
     }
   }
 

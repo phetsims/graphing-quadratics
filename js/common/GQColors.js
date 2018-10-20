@@ -60,10 +60,7 @@ define( require => {
     AXIS_OF_SYMMETRY: VERTEX,
     ROOTS: '#0071bc',
     POINT_ON_PARABOLA: PhetColorScheme.RED_COLORBLIND,
-    SEPARATOR: 'rgb( 212, 212, 212 )',
-
-    // transparency of all manipulator halos, which appear on pointer over
-    MANIPULATOR_HALO_ALPHA: 0.15
+    SEPARATOR: 'rgb( 212, 212, 212 )'
   };
 
   return graphingQuadratics.register( 'GQColors', GQColors );

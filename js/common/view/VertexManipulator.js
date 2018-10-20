@@ -11,21 +11,20 @@ define( require => {
   'use strict';
 
   // modules
-  const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const DragListener = require( 'SCENERY/listeners/DragListener' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
-  class VertexManipulator extends Manipulator {
+  class VertexManipulator extends GQManipulator {
 
     /**
      * @param {number} radius - in view coordinates
@@ -43,13 +42,28 @@ define( require => {
 
       options = _.extend( {
 
-        // Manipulator options
-        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
+        // GQManipulator options
+        coordinatesForegroundColor: 'white',
+        coordinatesBackgroundColor: GQColors.VERTEX,
+        coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
         tandem: Tandem.required,
         phetioDocumentation: 'a manipulator for the vertex'
       }, options );
 
-      super( radius, GQColors.VERTEX, options );
+      // position coordinates based on which way the parabola opens
+      assert && assert( !options.layoutCoordinates, 'VertexManipulator sets layoutCoordinates' );
+      options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
+        const coordinatesYOffset = 1.8 * radius;
+        if ( coordinates ) {
+          coordinatesNode.centerX = 0;
+          if ( quadraticProperty.value.a > 0 ) {
+            coordinatesNode.top = coordinatesYOffset;
+          }
+          else {
+            coordinatesNode.bottom = -coordinatesYOffset;
+          }
+        }
+      };
 
       // coordinates correspond to the quadratic's vertex (if it has one)
       const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
@@ -60,15 +74,7 @@ define( require => {
           phetioDocumentation: 'coordinates displayed by on vertex manipulator, null means no vertex'
         } );
 
-      // coordinates display
-      const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
-        foregroundColor: 'white',
-        backgroundColor: GQColors.VERTEX,
-        decimals: GQConstants.VERTEX_DECIMALS,
-        pickable: false,
-        maxWidth: GQConstants.COORDINATES_MAX_WIDTH
-      } );
-      this.addChild( coordinatesNode );
+      super( radius, GQColors.VERTEX, coordinatesProperty, coordinatesVisibleProperty, options );
 
       // add the drag listener
       this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform, {
@@ -80,20 +86,6 @@ define( require => {
       quadraticProperty.link( quadratic => {
         if ( quadratic.vertex ) {
           this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
-        }
-      } );
-
-      // position coordinates based on which way the parabola opens
-      const coordinatesYOffset = 1.8 * radius;
-      coordinatesProperty.link( coordinates => {
-        if ( coordinates ) {
-          coordinatesNode.centerX = 0;
-          if ( quadraticProperty.value.a > 0 ) {
-            coordinatesNode.top = coordinatesYOffset;
-          }
-          else {
-            coordinatesNode.bottom = -coordinatesYOffset;
-          }
         }
       } );
 
@@ -109,9 +101,6 @@ define( require => {
         this.interruptSubtreeInput(); // cancel any drag that is in progress
         this.visible = visible;
       } );
-
-      // visibility of coordinates
-      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
     }
   }
 

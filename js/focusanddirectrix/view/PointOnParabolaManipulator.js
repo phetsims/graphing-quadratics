@@ -9,19 +9,18 @@ define( require => {
   'use strict';
 
   // modules
-  const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const DragListener = require( 'SCENERY/listeners/DragListener' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
-  class PointOnParabolaManipulator extends Manipulator {
+  class PointOnParabolaManipulator extends GQManipulator {
 
     /**
      * @param {number} radius - in view coordinates
@@ -39,13 +38,27 @@ define( require => {
 
       options = _.extend( {
 
-        // Manipulator options
-        haloAlpha: GQColors.MANIPULATOR_HALO_ALPHA,
+        // GQManipulator options
+        coordinatesForegroundColor: 'white',
+        coordinatesBackgroundColor: GQColors.POINT_ON_PARABOLA,
+        coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
         tandem: Tandem.required,
         phetioDocumentation: 'a manipulator for a point on the parabola'
       }, options );
 
-      super( radius, GQColors.POINT_ON_PARABOLA, options );
+      // position coordinates based on which side of the parabola the point is on
+      assert && assert( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );
+      options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
+        const coordinatesXOffset = 1.8 * radius;
+        const vertex = quadraticProperty.value.vertex;
+        if ( !vertex || ( coordinates.x >= vertex.x ) ) {
+          coordinatesNode.left = coordinatesXOffset;
+        }
+        else {
+          coordinatesNode.right = -coordinatesXOffset;
+        }
+        coordinatesNode.centerY = 0;
+      };
 
       // Coordinates are identical to pointOnParabolaProperty. We're using a separate Property here
       // for PhET-iO instrumentation symmetry with other manipulators.
@@ -57,15 +70,7 @@ define( require => {
           phetioDocumentation: 'coordinates displayed on the point-on-quadratic manipulator'
         } );
 
-      // coordinates display
-      const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
-        foregroundColor: 'white',
-        backgroundColor: GQColors.POINT_ON_PARABOLA,
-        decimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
-        pickable: false,
-        maxWidth: GQConstants.COORDINATES_MAX_WIDTH
-      } );
-      this.addChild( coordinatesNode );
+      super( radius, GQColors.POINT_ON_PARABOLA, coordinatesProperty, coordinatesVisibleProperty, options );
 
       // add drag handler
       this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
@@ -79,27 +84,11 @@ define( require => {
         this.translation = modelViewTransform.modelToViewPosition( pointOnParabola );
       } );
 
-      // position coordinates based on which side of the parabola the point is on
-      const coordinatesXOffset = 1.8 * radius;
-      coordinatesProperty.link( coordinates => {
-        const vertex = quadraticProperty.value.vertex;
-        if ( !vertex || ( coordinates.x >= vertex.x ) ) {
-          coordinatesNode.left = coordinatesXOffset;
-        }
-        else {
-          coordinatesNode.right = -coordinatesXOffset;
-        }
-        coordinatesNode.centerY = 0;
-      } );
-
       // visibility of this Node
       pointOnParabolaVisibleProperty.link( visible => {
         this.interruptSubtreeInput(); // cancel any drag that is in progress
         this.visible = visible;
       } );
-
-      // visibility of coordinates
-      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
     }
   }
 
