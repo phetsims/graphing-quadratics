@@ -31,7 +31,7 @@ define( require => {
 
       // icon is a manipulator (3D sphere)
       assert && assert( !options.icon, 'FocusCheckbox sets icon' );
-      options.icon = new Manipulator( 8, GQColors.FOCUS, { haloAlpha: 0, pickable: false } );
+      options.icon = Manipulator.createIcon( 8, GQColors.FOCUS );
 
       super( focusString, focusVisibleProperty, options );
     }
