@@ -48,20 +48,20 @@ define( require => {
       // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
       const pointToolsParent = new Node();
       pointToolsParent.addChild( new PointToolNode(
-        model.rightPointTool,
-        model.modelViewTransform,
-        model.graph,
-        viewProperties.graphContentsVisibleProperty, {
-          tandem: options.tandem.createTandem( 'rightPointToolNode' ),
-          phetioDocumentation: 'the point tool Node whose probe is on the right side'
-        } ) );
-      pointToolsParent.addChild( new PointToolNode(
         model.leftPointTool,
         model.modelViewTransform,
         model.graph,
         viewProperties.graphContentsVisibleProperty, {
           tandem: options.tandem.createTandem( 'leftPointToolNode' ),
-          phetioDocumentation: 'the point tool Node whose probe is on the left side'
+          phetioDocumentation: 'the point tool that is initially on the left'
+        } ) );
+      pointToolsParent.addChild( new PointToolNode(
+        model.rightPointTool,
+        model.modelViewTransform,
+        model.graph,
+        viewProperties.graphContentsVisibleProperty, {
+          tandem: options.tandem.createTandem( 'rightPointToolNode' ),
+          phetioDocumentation: 'the point tool that is initially on the right'
         } ) );
 
       // Toggle button for showing/hiding contents of graph

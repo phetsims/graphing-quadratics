@@ -77,25 +77,25 @@ define( require => {
       this.quadraticTermsProperty = new Property( [], optionsPropertyQuadraticArray );
 
       // @public (read-only)
-      this.rightPointTool = new PointTool( pointToolQuadraticsProperty, {
-        probeSide: 'right',
+      this.leftPointTool = new PointTool( pointToolQuadraticsProperty, {
+        probeSide: 'right', // probe is attached to the right side
         location: new Vector2( -2, -12 ),
         dragBounds: new Bounds2(
           this.graph.xRange.min - 1, this.graph.yRange.min - 3,
           this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
-        tandem: tandem.createTandem( 'rightPointTool' ),
-        phetioDocumentation: 'the point tool whose probe is on the right side'
+        tandem: tandem.createTandem( 'leftPointTool' ),
+        phetioDocumentation: 'the point tool that is initially on the left'
       } );
 
       // @public (read-only)
-      this.leftPointTool = new PointTool( pointToolQuadraticsProperty, {
-        probeSide: 'left',
+      this.rightPointTool = new PointTool( pointToolQuadraticsProperty, {
+        probeSide: 'left', // probe is attached to the left side
         location: new Vector2( 2, -12 ),
         dragBounds: new Bounds2(
           this.graph.xRange.min - 1, this.graph.yRange.min - 3,
           this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
-        tandem: tandem.createTandem( 'leftPointTool' ),
-        phetioDocumentation: 'the point tool whose probe is on the left side'
+        tandem: tandem.createTandem( 'rightPointTool' ),
+        phetioDocumentation: 'the point tool that is initially on the right'
       } );
 
       // @private Update the list of quadratics visible to the point tools,
@@ -110,7 +110,7 @@ define( require => {
     // @public
     reset() {
       this.savedQuadraticProperty.reset();
-      this.rightPointTool.reset();
+      this.leftPointTool.reset();
       this.leftPointTool.reset();
     }
 
