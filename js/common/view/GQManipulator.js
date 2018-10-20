@@ -17,16 +17,17 @@ define( require => {
   class GQManipulator extends Manipulator {
 
     /**
-     * @param {number} radius radius of the sphere
-     * @param {Color|String} color base color used to shade the sphere
-     * @param {Object} [options]
      * @param {Property.<Vector2|null>} coordinatesProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
-     * @param options
+     * @param {Object} [options]
      */
-    constructor( radius, color, coordinatesProperty, coordinatesVisibleProperty, options ) {
+    constructor( coordinatesProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
+
+        //TODO move to Manipulator options
+        radius: 10,
+        color: 'black',
 
         // options passed to CoordinatesNode
         coordinatesBackgroundColor: 'black',
@@ -42,7 +43,7 @@ define( require => {
 
       }, options );
 
-      super( radius, color, options );
+      super( options.radius, options.color, options );
 
       // add coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {

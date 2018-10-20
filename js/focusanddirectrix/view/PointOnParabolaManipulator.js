@@ -23,22 +23,22 @@ define( require => {
   class PointOnParabolaManipulator extends GQManipulator {
 
     /**
-     * @param {number} radius - in view coordinates
-     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Property.<Vector2>} pointOnParabolaProperty - the point
-     * @param {Range} xRange - range of the graph's x axis
-     * @param {Range} yRange - range of the graph's y axis
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} pointOnParabolaVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, pointOnParabolaProperty, xRange, yRange, modelViewTransform,
+    constructor( pointOnParabolaProperty, quadraticProperty, graph, modelViewTransform,
                  pointOnParabolaVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
 
         // GQManipulator options
+        radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        color: GQColors.POINT_ON_PARABOLA,
         coordinatesForegroundColor: 'white',
         coordinatesBackgroundColor: GQColors.POINT_ON_PARABOLA,
         coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
@@ -49,7 +49,7 @@ define( require => {
       // position coordinates based on which side of the parabola the point is on
       assert && assert( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );
       options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
-        const coordinatesXOffset = 1.8 * radius;
+        const coordinatesXOffset = 1.8 * options.radius;
         const vertex = quadraticProperty.value.vertex;
         if ( !vertex || ( coordinates.x >= vertex.x ) ) {
           coordinatesNode.left = coordinatesXOffset;
@@ -70,11 +70,11 @@ define( require => {
           phetioDocumentation: 'coordinates displayed on the point-on-quadratic manipulator'
         } );
 
-      super( radius, GQColors.POINT_ON_PARABOLA, coordinatesProperty, coordinatesVisibleProperty, options );
+      super( coordinatesProperty, coordinatesVisibleProperty, options );
 
       // add drag handler
       this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
-        modelViewTransform, xRange, yRange, {
+        modelViewTransform, graph, {
           tandem: options.tandem.createTandem( 'dragListener' ),
           phetioDocumentation: 'the drag listener for this point-on-parabola manipulator'
         } ) );
@@ -102,11 +102,10 @@ define( require => {
      * @param {Property.<Vector2>} pointOnParabolaProperty - the point
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {ModelViewTransform2} modelViewTransform
-     * @param {Range} xRange
-     * @param {Range} yRange
+     * @param {Graph} graph
      * @param {Object} [options]
      */
-    constructor( targetNode, pointOnParabolaProperty, quadraticProperty, modelViewTransform, xRange, yRange, options ) {
+    constructor( targetNode, pointOnParabolaProperty, quadraticProperty, modelViewTransform, graph, options ) {
 
       let startOffset; // where the drag started, relative to the manipulator
 
@@ -127,7 +126,7 @@ define( require => {
           const x = modelViewTransform.viewToModelPosition( parentPoint ).x;
 
           // set to the closest point on the parabola that is within the bounds of the graph
-          pointOnParabolaProperty.value = quadraticProperty.value.getClosestPointInRange( x, xRange, yRange );
+          pointOnParabolaProperty.value = quadraticProperty.value.getClosestPointInRange( x, graph.xRange, graph.yRange );
         }
       }, options );
 

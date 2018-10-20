@@ -11,7 +11,6 @@ define( require => {
   // modules
   const DirectrixNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/DirectrixNode' );
   const FocusManipulator = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusManipulator' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const PointOnParabolaLinesNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnParabolaLinesNode' );
@@ -41,10 +40,9 @@ define( require => {
 
       // Vertex manipulator
       const vertexManipulator = new VertexManipulator(
-        model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-        model.quadraticProperty,
         model.hProperty,
         model.kProperty,
+        model.quadraticProperty,
         model.graph,
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
@@ -55,9 +53,8 @@ define( require => {
 
       // Focus manipulator
       const focusManipulator = new FocusManipulator(
-        model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-        model.quadraticProperty,
         model.pProperty,
+        model.quadraticProperty,
         model.graph,
         model.modelViewTransform,
         viewProperties.focusVisibleProperty,
@@ -68,11 +65,9 @@ define( require => {
 
       // Point on Quadratic manipulator
       const pointOnParabolaManipulator = new PointOnParabolaManipulator(
-        model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-        model.quadraticProperty,
         model.pointOnParabolaProperty,
-        model.graph.xRange,
-        model.graph.yRange,
+        model.quadraticProperty,
+        model.graph,
         model.modelViewTransform,
         viewProperties.pointOnParabolaVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {

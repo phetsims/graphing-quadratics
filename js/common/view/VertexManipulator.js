@@ -27,22 +27,23 @@ define( require => {
   class VertexManipulator extends GQManipulator {
 
     /**
-     * @param {number} radius - in view coordinates
-     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {NumberProperty} hProperty - h coefficient of the vertex form of the quadratic equation
      * @param {NumberProperty} kProperty - k coefficient of the vertex form of the quadratic equation
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} vertexVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, hProperty, kProperty, graph, modelViewTransform,
+    constructor( hProperty, kProperty, quadraticProperty, graph, modelViewTransform,
                  vertexVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
 
         // GQManipulator options
+        radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        color: GQColors.VERTEX,
         coordinatesForegroundColor: 'white',
         coordinatesBackgroundColor: GQColors.VERTEX,
         coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
@@ -53,7 +54,7 @@ define( require => {
       // position coordinates based on which way the parabola opens
       assert && assert( !options.layoutCoordinates, 'VertexManipulator sets layoutCoordinates' );
       options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
-        const coordinatesYOffset = 1.8 * radius;
+        const coordinatesYOffset = 1.8 * options.radius;
         if ( coordinates ) {
           coordinatesNode.centerX = 0;
           if ( quadraticProperty.value.a > 0 ) {
@@ -74,7 +75,7 @@ define( require => {
           phetioDocumentation: 'coordinates displayed by on vertex manipulator, null means no vertex'
         } );
 
-      super( radius, GQColors.VERTEX, coordinatesProperty, coordinatesVisibleProperty, options );
+      super( coordinatesProperty, coordinatesVisibleProperty, options );
 
       // add the drag listener
       this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform, {

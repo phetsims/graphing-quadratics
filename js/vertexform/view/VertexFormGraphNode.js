@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
@@ -38,10 +37,9 @@ define( require => {
 
       // Vertex
       const vertexManipulator = new VertexManipulator(
-        model.modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-        model.quadraticProperty,
         model.hProperty,
         model.kProperty,
+        model.quadraticProperty,
         model.graph,
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,

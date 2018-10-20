@@ -25,16 +25,15 @@ define( require => {
   class FocusManipulator extends GQManipulator {
 
     /**
-     * @param {number} radius - in view coordinates
-     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
      * @param {BooleanProperty} focusVisibleProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
-    constructor( radius, quadraticProperty, pProperty, graph, modelViewTransform,
+    constructor( pProperty, quadraticProperty, graph, modelViewTransform,
                  focusVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
@@ -43,6 +42,8 @@ define( require => {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
 
         // GQManipulator options
+        radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        color: GQColors.FOCUS,
         coordinatesForegroundColor: 'white',
         coordinatesBackgroundColor: GQColors.FOCUS,
         coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
@@ -54,7 +55,7 @@ define( require => {
       // position coordinates based on which way the parabola opens
       assert && assert( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );
       options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
-        const coordinatesYOffset = 1.8 * radius;
+        const coordinatesYOffset = 1.8 * options.radius;
         coordinatesNode.centerX = 0;
         if ( quadraticProperty.value.a > 0 ) {
           coordinatesNode.bottom = -coordinatesYOffset;
@@ -73,7 +74,7 @@ define( require => {
           phetioDocumentation: 'coordinates displayed on the focus manipulator'
         } );
 
-      super( radius, GQColors.FOCUS, coordinatesProperty, coordinatesVisibleProperty, options );
+      super( coordinatesProperty, coordinatesVisibleProperty, options );
 
       // add the drag listener
       this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange,
