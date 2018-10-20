@@ -104,8 +104,8 @@ define( require => {
       );
       visibleProperty.linkAttribute( this, 'visible' );
 
-      // visibility of the equation                                                
-      equationsVisibleProperty.linkAttribute( equationNode, 'visible' );
+      // visibility of equation, don't use linkAttribute because equationNode changes
+      equationsVisibleProperty.link( visible => {equationNode.visible = visible;} );
     }
   }
 
