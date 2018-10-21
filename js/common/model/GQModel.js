@@ -111,7 +111,7 @@ define( require => {
     reset() {
       this.savedQuadraticProperty.reset();
       this.leftPointTool.reset();
-      this.leftPointTool.reset();
+      this.rightPointTool.reset();
     }
 
     /**
