@@ -15,17 +15,12 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const RichText = require( 'SCENERY/nodes/RichText' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
-
-  // constants
-  const SUP2 = '<sup>2</sup>'; // html markup for superscript 2, used for the quadratic term ax^2
 
   const GQEquationFactory = {
 
@@ -44,136 +39,82 @@ define( require => {
         cDecimals: GQConstants.EXPLORE_DECIMALS_C
       }, options );
 
+      // use toFixedNumber so we don't have trailing zeros
       const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
       const b = Util.toFixedNumber( quadratic.b, options.bDecimals );
       const c = Util.toFixedNumber( quadratic.c, options.cDecimals );
 
-      const children = [];
-
-      const textOptions = {
-        fill: quadratic.color,
-        font: options.font
-      };
-
       // y =
-      const yEqualsString = StringUtils.fillIn( '{{y}} {{equals}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO
-      } );
-      children.push( new RichText( yEqualsString, textOptions ) );
+      let equationString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ';
 
       if ( a === 0 && b === 0 && c === 0 ) {
 
         // y = 0
-        children.push( new RichText( 0, textOptions ) );
+        equationString += '0';
       }
       else {
 
         // ax^2 term
         if ( a !== 0 ) {
 
-          let aTermString = null;
+          if ( a === -1 ) {
+            equationString += MathSymbols.UNARY_MINUS; // -x^2
+          }
+          else if ( a !== 1 ) {
+            equationString += a; // ax^2
+          }
 
-          if ( a === 1 ) {
-            // x^2
-            aTermString = StringUtils.fillIn( '{{x}}{{sup2}}', {
-              x: GQSymbols.x,
-              sup2: SUP2
-            } );
+          equationString += GQSymbols.xSquared;
+
+          if ( b !== 0 || c !== 0 ) {
+            equationString += ' ';
           }
-          else if ( a === -1 ) {
-            // -x^2
-            aTermString = StringUtils.fillIn( '{{minus}}{{x}}{{sup2}}', {
-              minus: MathSymbols.UNARY_MINUS,
-              x: GQSymbols.x,
-              sup2: SUP2
-            } );
-          }
-          else {
-            // ax^2
-            aTermString = StringUtils.fillIn( '{{a}}{{x}}{{sup2}}', {
-              a: a,
-              x: GQSymbols.x,
-              sup2: SUP2
-            } );
-          }
-          children.push( new RichText( aTermString, textOptions ) );
         }
 
         // bx term
         if ( b !== 0 ) {
 
-          let bTermString = null;
-
           if ( a === 0 ) {
-            if ( b === 1 ) {
-              // x
-              bTermString = GQSymbols.x;
+            if ( b === -1 ) {
+              equationString += MathSymbols.UNARY_MINUS; // -x
             }
-            else if ( b === -1 ) {
-              // -x
-              bTermString = StringUtils.fillIn( '{{minus}}{{x}}', {
-                minus: MathSymbols.UNARY_MINUS,
-                x: GQSymbols.x
-              } );
+            else if ( b !== 1 ) {
+              equationString += b; // bx
             }
-            else {
-              // bx
-              bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
-                b: b,
-                x: GQSymbols.x
-              } );
-            }
+            equationString += GQSymbols.x;
           }
           else {
-
-            // plus or minus operator
-            if ( b > 0 ) {
-              children.push( new RichText( MathSymbols.PLUS, textOptions ) );
+            equationString += ( b > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS;
+            equationString += ' ';
+            if ( Math.abs( b ) !== 1 ) {
+              equationString += Math.abs( b );
             }
-            else if ( b < 0 ) {
-              children.push( new RichText( MathSymbols.MINUS, textOptions ) );
-            }
-
-            if ( Math.abs( b ) === 1 ) {
-              // x
-              bTermString = GQSymbols.x;
-            }
-            else {
-              // |b|x
-              bTermString = StringUtils.fillIn( '{{b}}{{x}}', {
-                b: Math.abs( b ),
-                x: GQSymbols.x
-              } );
-            }
+            equationString += GQSymbols.x;
           }
-          children.push( new RichText( bTermString, textOptions ) );
+
+          if ( c !== 0 ) {
+            equationString += ' ';
+          }
         }
 
         // c term
         if ( c !== 0 ) {
-
           if ( a === 0 && b === 0 ) {
-            // c
-            children.push( new RichText( c, textOptions ) );
+            equationString += c;
           }
           else {
-
-            // plus or minus operator
-            if ( c > 0 ) {
-              children.push( new RichText( MathSymbols.PLUS, textOptions ) );
-            }
-            else if ( c < 0 ) {
-              children.push( new RichText( MathSymbols.MINUS, textOptions ) );
-            }
-
-            // |c|
-            children.push( new RichText( Math.abs( c ), textOptions ) );
+            equationString += ( c > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS;
+            equationString += ' ' + Math.abs( c );
           }
         }
       }
 
-      return layoutOnBackground( children );
+      const equationNode = new RichText( equationString, {
+        fill: quadratic.color,
+        font: options.font
+      } );
+
+      return withBackground( equationNode );
     },
 
     /**
@@ -191,141 +132,96 @@ define( require => {
         kDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
       }, options );
 
+      // use toFixedNumber so we don't have trailing zeros
       const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
       const h = Util.toFixedNumber( quadratic.h, options.hDecimals );
       const k = Util.toFixedNumber( quadratic.k, options.kDecimals );
 
-      const children = [];
+      // y =
+      let equationString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ';
 
-      const textOptions = {
-        fill: quadratic.color,
-        font: options.font
-      };
+      if ( a === 0 && k === 0 ) {
 
-      if ( a === 0 ) {
-
-        // y = k
-        const yEqualsString = StringUtils.fillIn( '{{y}} {{equals}} {{k}}', {
-          y: GQSymbols.y,
-          equals: MathSymbols.EQUAL_TO,
-          k: k
-        } );
-        children.push( new RichText( yEqualsString, textOptions ) );
+        // y = 0
+        equationString += '0';
       }
       else {
 
-        // y =
-        const yEqualsString = StringUtils.fillIn( '{{y}} {{equals}}', {
-          y: GQSymbols.y,
-          equals: MathSymbols.EQUAL_TO
-        } );
-        children.push( new RichText( yEqualsString, textOptions ) );
+        // a(x - h)^2 term
+        if ( a !== 0 ) {
 
-        // a(x - h)^2
-        let axhString = null;
-        if ( h === 0 ) {
-          if ( a === 1 ) {
-            // x^2
-            axhString = StringUtils.fillIn( '{{x}}{{sup2}}', {
-              x: GQSymbols.x,
-              sup2: SUP2
-            } );
+          if ( a === -1 ) {
+            equationString += MathSymbols.UNARY_MINUS;
           }
-          else if ( a === -1 ) {
-            // -x^2
-            axhString = StringUtils.fillIn( '{{minus}}{{x}}{{sup2}}', {
-              minus: MathSymbols.UNARY_MINUS,
-              x: GQSymbols.x,
-              sup2: SUP2
-            } );
+          else if ( a !== 1 ) {
+            equationString += a;
+          }
+
+          if ( h === 0 ) {
+            equationString += GQSymbols.xSquared;
           }
           else {
-            // ax^2
-            axhString = StringUtils.fillIn( '{{a}}{{x}}{{sup2}}', {
-              a: a,
-              x: GQSymbols.x,
-              sup2: SUP2
-            } );
+            equationString += '(' + GQSymbols.x + ' ';
+            equationString += ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
+            equationString += ' ' + Math.abs( h );
+            equationString += ')<sup>2</sup>';
           }
-        }
-        else {
-          const operator = ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
-          if ( a === 1 ) {
-            // (x - h)^2
-            axhString = StringUtils.fillIn( '({{x}} {{operator}} {{h}}){{sup2}}', {
-              x: GQSymbols.x,
-              operator: operator,
-              h: Math.abs( h ),
-              sup2: SUP2
-            } );
-          }
-          else if ( a === -1 ) {
-            // -(x - h)^2
-            axhString = StringUtils.fillIn( '{{minus}}({{x}} {{operator}} {{h}}){{sup2}}', {
-              minus: MathSymbols.UNARY_MINUS,
-              x: GQSymbols.x,
-              operator: operator,
-              h: Math.abs( h ),
-              sup2: SUP2
-            } );
-          }
-          else {
-            // a(x - h)^2
-            axhString = StringUtils.fillIn( '{{a}}({{x}} {{operator}} {{h}}){{sup2}}', {
-              a: a,
-              x: GQSymbols.x,
-              operator: operator,
-              h: Math.abs( h ),
-              sup2: SUP2
-            } );
-          }
-        }
-        children.push( new RichText( axhString, textOptions ) );
 
-        // + k
+          if ( k !== 0 ) {
+            equationString += ' ';
+          }
+        }
+
+        // k term
         if ( k !== 0 ) {
-          const kString = StringUtils.fillIn( '{{operator}} {{k}}', {
-            operator: ( k > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS,
-            k: Math.abs( k )
-          } );
-          children.push( new RichText( kString, textOptions ) );
+          if ( a === 0 ) {
+            equationString += k;
+          }
+          else {
+            equationString += ( k > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS;
+            equationString += ' ' + Math.abs( k );
+          }
         }
       }
 
-      return layoutOnBackground( children );
+      const equationNode = new RichText( equationString, {
+        fill: quadratic.color,
+        font: options.font
+      } );
+
+      return withBackground( equationNode );
     },
 
     /**
-     * Creates the directrix equation, y = directrix
+     * Creates the directrix equation.
      * @param {number} directrix
      * @public
      */
     createDirectrix( directrix ) {
 
-      const equationString = StringUtils.fillIn( '{{y}} = {{directrix}}', {
-        y: GQSymbols.y,
-        directrix: Util.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )
-      } );
+      // y = N
+      const equationString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' +
+                             Util.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS );
 
       const equationNode = new RichText( equationString, {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
         fill: GQColors.DIRECTRIX
       } );
 
-      return layoutOnBackground( [ equationNode ] );
-    },
+      return withBackground( equationNode );
+    }
+    ,
 
     /**
-     * Creates the axis of symmetry equation, x = axisOfSymmetry
+     * Creates the axis of symmetry equation.
      * @param {number} axisOfSymmetry
      * @public
      */
     createAxisOfSymmetry( axisOfSymmetry ) {
 
-      const equationString = StringUtils.fillIn( '{{x}} = {{axisOfSymmetry}}', {
-        x: GQSymbols.x,
-        axisOfSymmetry: Util.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )
-      } );
+      // x = N
+      const equationString = GQSymbols.x + ' ' + MathSymbols.EQUAL_TO + ' ' +
+                             Util.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS );
 
       const equationNode = new RichText( equationString, {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
@@ -333,33 +229,27 @@ define( require => {
         rotation: Math.PI / 2
       } );
 
-      return layoutOnBackground( [ equationNode ] );
+      return withBackground( equationNode );
     }
   };
 
   /**
-   * Common method to lay out a set of equation components, and put it on a translucent background.
-   * @param {Node[]}children
+   * Common method to put an equation on a translucent background.
+   * @param {Node} node
    * @returns {Node}
    */
-  function layoutOnBackground( children ) {
-
-    // lay out the components horizontally
-    const hBox = new HBox( {
-      spacing: 5,
-      align: 'bottom',
-      children: children
-    } );
+  function withBackground( node ) {
 
     // translucent background, sized to fit
-    const backgroundNode = new Rectangle( 0, 0, hBox.width + 4, hBox.height + 2, {
+    const backgroundNode = new Rectangle( 0, 0, node.width + 4, node.height + 2, {
       fill: 'white',
       opacity: 0.75,
-      center: hBox.center
+      center: node.center
     } );
 
-    return new Node( { children: [ backgroundNode, hBox ] } );
+    return new Node( { children: [ backgroundNode, node ] } );
   }
 
   return graphingQuadratics.register( 'GQEquationFactory', GQEquationFactory );
-} );
+} )
+;
