@@ -139,7 +139,6 @@ define( require => {
 
   graphingQuadratics.register( 'PointToolNode', PointToolNode );
 
-
   class ProbeNode extends Node {
 
     /**
