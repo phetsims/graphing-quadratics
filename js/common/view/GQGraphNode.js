@@ -85,7 +85,7 @@ define( require => {
       this.addChild( graphNode );
       this.addChild( contentParent );
 
-      // When a quadratic is saved...
+      // When the saved quadratic changes...
       model.savedQuadraticProperty.link( savedQuadratic => {
 
         // remove and dispose any previously-saved line
