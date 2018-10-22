@@ -45,6 +45,7 @@ define( require => {
       const minX = modelViewTransform.modelToViewX( graph.xRange.min );
       const maxX = modelViewTransform.modelToViewX( graph.xRange.max );
 
+      // update when the interactive quadratic changes
       quadraticProperty.link( quadratic => {
 
         assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );

@@ -59,7 +59,6 @@ define( require => {
       super( options );
 
       // @private needed by methods
-      // @private
       this.coordinatesProperty = coordinatesProperty;
       this.decimals = options.decimals;
       this.xMargin = options.xMargin;

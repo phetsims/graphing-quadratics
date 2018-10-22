@@ -24,6 +24,9 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
 
+  // constants
+  const SUP2 = '<sup>2</sup>'; // html markup for superscript 2, used for the quadratic term ax^2
+
   const GQEquationFactory = {
 
     /**
@@ -73,22 +76,25 @@ define( require => {
 
           if ( a === 1 ) {
             // x^2
-            aTermString = StringUtils.fillIn( '{{x}}<sup>2</sup>', {
-              x: GQSymbols.x
+            aTermString = StringUtils.fillIn( '{{x}}{{sup2}}', {
+              x: GQSymbols.x,
+              sup2: SUP2
             } );
           }
           else if ( a === -1 ) {
             // -x^2
-            aTermString = StringUtils.fillIn( '{{minus}}{{x}}<sup>2</sup>', {
+            aTermString = StringUtils.fillIn( '{{minus}}{{x}}{{sup2}}', {
               minus: MathSymbols.UNARY_MINUS,
-              x: GQSymbols.x
+              x: GQSymbols.x,
+              sup2: SUP2
             } );
           }
           else {
             // ax^2
-            aTermString = StringUtils.fillIn( '{{a}}{{x}}<sup>2</sup>', {
+            aTermString = StringUtils.fillIn( '{{a}}{{x}}{{sup2}}', {
               a: a,
-              x: GQSymbols.x
+              x: GQSymbols.x,
+              sup2: SUP2
             } );
           }
           children.push( new RichText( aTermString, textOptions ) );
@@ -220,22 +226,25 @@ define( require => {
         if ( h === 0 ) {
           if ( a === 1 ) {
             // x^2
-            axhString = StringUtils.fillIn( '{{x}}<sup>2</sup>', {
-              x: GQSymbols.x
+            axhString = StringUtils.fillIn( '{{x}}{{sup2}}', {
+              x: GQSymbols.x,
+              sup2: SUP2
             } );
           }
           else if ( a === -1 ) {
             // -x^2
-            axhString = StringUtils.fillIn( '{{minus}}{{x}}<sup>2</sup>', {
+            axhString = StringUtils.fillIn( '{{minus}}{{x}}{{sup2}}', {
               minus: MathSymbols.UNARY_MINUS,
-              x: GQSymbols.x
+              x: GQSymbols.x,
+              sup2: SUP2
             } );
           }
           else {
             // ax^2
-            axhString = StringUtils.fillIn( '{{a}}{{x}}<sup>2</sup>', {
+            axhString = StringUtils.fillIn( '{{a}}{{x}}{{sup2}}', {
               a: a,
-              x: GQSymbols.x
+              x: GQSymbols.x,
+              sup2: SUP2
             } );
           }
         }
@@ -243,28 +252,31 @@ define( require => {
           const operator = ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
           if ( a === 1 ) {
             // (x - h)^2
-            axhString = StringUtils.fillIn( '({{x}} {{operator}} {{h}})<sup>2</sup>', {
+            axhString = StringUtils.fillIn( '({{x}} {{operator}} {{h}}){{sup2}}', {
               x: GQSymbols.x,
               operator: operator,
-              h: Math.abs( h )
+              h: Math.abs( h ),
+              sup2: SUP2
             } );
           }
           else if ( a === -1 ) {
             // -(x - h)^2
-            axhString = StringUtils.fillIn( '{{minus}}({{x}} {{operator}} {{h}})<sup>2</sup>', {
+            axhString = StringUtils.fillIn( '{{minus}}({{x}} {{operator}} {{h}}){{sup2}}', {
               minus: MathSymbols.UNARY_MINUS,
               x: GQSymbols.x,
               operator: operator,
-              h: Math.abs( h )
+              h: Math.abs( h ),
+              sup2: SUP2
             } );
           }
           else {
             // a(x - h)^2
-            axhString = StringUtils.fillIn( '{{a}}({{x}} {{operator}} {{h}})<sup>2</sup>', {
+            axhString = StringUtils.fillIn( '{{a}}({{x}} {{operator}} {{h}}){{sup2}}', {
               a: a,
               x: GQSymbols.x,
               operator: operator,
-              h: Math.abs( h )
+              h: Math.abs( h ),
+              sup2: SUP2
             } );
           }
         }

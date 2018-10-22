@@ -41,8 +41,8 @@ define( require => {
           phetioDocumentation: 'buttons to save and erase a quadratic on the graph'
         } );
 
+      // properties of the horizontal separators
       const separatorWidth = Math.max( content.width, saveEraseButtonGroup.width );
-
       const separatorOptions = { stroke: GQColors.SEPARATOR };
 
       const vBox = new VBox( {

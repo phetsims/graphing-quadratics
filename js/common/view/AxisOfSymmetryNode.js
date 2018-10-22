@@ -46,6 +46,7 @@ define( require => {
       const minY = modelViewTransform.modelToViewY( graph.yRange.max );
       const maxY = modelViewTransform.modelToViewY( graph.yRange.min );
 
+      // update if the interactive quadratic is a parabola
       quadraticProperty.link( quadratic => {
 
         if ( quadratic.axisOfSymmetry !== undefined ) {
