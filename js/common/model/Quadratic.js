@@ -45,7 +45,10 @@ define( require => {
     constructor( a, b, c, options ) {
 
       options = _.extend( {
-        color: 'black' // {Color|string} color used to render the curve
+
+        // {Color|string} color used to render the curve.
+        // This is in the model to support color-coding of the point tool.
+        color: 'black'
       }, options );
 
       // @public (read-only)
