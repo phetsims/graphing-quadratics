@@ -23,9 +23,12 @@ define( require => {
     SCREEN_VIEW_LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ),
     SCREEN_VIEW_X_MARGIN: 20,
     SCREEN_VIEW_Y_MARGIN: 16,
+
+    // range of the graph
     X_AXIS_RANGE: new Range( -10, 10 ),
     Y_AXIS_RANGE: new Range( -10, 10 ),
 
+    // options applied to all AccordionBoxes
     ACCORDION_BOX_OPTIONS: {
       resize: false,
       fill: GQColors.CONTROL_PANEL_BACKGROUND,
@@ -38,6 +41,7 @@ define( require => {
       contentYMargin: 15
     },
 
+    // options applied to all Panels
     PANEL_OPTIONS: {
       fill: GQColors.CONTROL_PANEL_BACKGROUND,
       cornerRadius: PANEL_CORNER_RADIUS,
