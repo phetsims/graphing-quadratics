@@ -20,7 +20,7 @@ define( require => {
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // constants
-  const PROBE_SIDES = [ 'right', 'left' ];
+  const PROBE_SIDES = [ 'right', 'left' ]; // which side the probe is on
 
   class PointTool {
 
