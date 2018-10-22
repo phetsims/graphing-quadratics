@@ -25,8 +25,8 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
+  const GRAPH_VIEW_ORIGIN = new Vector2( 315, 330 ); // location of the graph's origin, in view coordinates
   const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates
-  const GRAPH_ORIGIN_OFFSET = new Vector2( 315, 330 ); // offset of the graph's origin, in view coordinates
 
   class GQModel {
 
@@ -56,7 +56,7 @@ define( require => {
 
       // @public (read-only) model-view transform, created in the model because it's dependent on graph axes ranges.
       this.modelViewTransform = ModelViewTransform2.createOffsetXYScaleMapping(
-        GRAPH_ORIGIN_OFFSET,
+        GRAPH_VIEW_ORIGIN,
         modelViewTransformScale,
         -modelViewTransformScale // y is inverted (+y is up in the model, +y is down in the view)
       );
