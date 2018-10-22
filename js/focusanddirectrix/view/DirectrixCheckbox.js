@@ -34,8 +34,8 @@ define( require => {
       assert && assert( !options.icon, 'DirectrixCheckbox sets icon' );
       options.icon = new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
         stroke: GQColors.DIRECTRIX,
-        lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
-        lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
+        lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
+        lineDash: GQConstants.DIRECTRIX_LINE_DASH
       } );
 
       super( directrixString, directrixVisibleProperty, options );
