@@ -25,10 +25,6 @@ define( require => {
 
       options = _.extend( {
 
-        //TODO move to Manipulator options
-        radius: 10,
-        color: 'black',
-
         // options passed to CoordinatesNode
         coordinatesBackgroundColor: 'black',
         coordinatesForegroundColor: 'white',
@@ -37,6 +33,10 @@ define( require => {
         // {function( coordinates:Vector2, coordinatesNode:Node )}
         // positions the coordinates when coordinatesProperty changes
         layoutCoordinates: ( coordinates, coordinatesNode ) => {},
+
+        // Manipulator constructor args
+        radius: 10,
+        color: 'black',
 
         // Manipulator options
         haloAlpha: 0.15
