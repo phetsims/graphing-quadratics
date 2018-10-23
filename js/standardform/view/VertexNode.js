@@ -9,23 +9,20 @@ define( require => {
   'use strict';
 
   // modules
-  const Circle = require( 'SCENERY/nodes/Circle' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Node = require( 'SCENERY/nodes/Node' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const Tandem = require( 'TANDEM/Tandem' );
+  const PointNode = require( 'GRAPHING_QUADRATICS/common/view/PointNode' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // constants
   const COORDINATES_Y_SPACING = 5;
 
-  class VertexNode extends Node {
+  class VertexNode extends PointNode {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
@@ -39,15 +36,25 @@ define( require => {
                  vertexVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
-        radius: 10,
-        tandem: Tandem.required
+
+        // PointNode options
+        radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
+        coordinatesForegroundColor: 'white',
+        coordinatesBackgroundColor: GQColors.VERTEX,
+        coordinatesDecimals: GQConstants.VERTEX_DECIMALS
       }, options );
 
-      const pointNode = new Circle( options.radius, {
-        fill: GQColors.VERTEX,
-        x: 0,
-        y: 0
-      } );
+      // position coordinates on the outside of the parabola
+      assert && assert( !options.layoutCoordinates, 'VertexNode sets layoutCoordinates' );
+      options.layoutCoordinates = ( coordinates, coordinatesNode, pointNode ) => {
+        coordinatesNode.centerX = pointNode.centerX;
+        if ( quadraticProperty.value.a > 0 ) {
+          coordinatesNode.top = pointNode.bottom + COORDINATES_Y_SPACING;
+        }
+        else {
+          coordinatesNode.bottom = pointNode.top - COORDINATES_Y_SPACING;
+        }
+      };
 
       // coordinates correspond to the quadratic's vertex (if it has one)
       const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
@@ -58,48 +65,24 @@ define( require => {
           phetioDocumentation: 'coordinates displayed on the vertex point, null means no vertex'
         } );
 
-      // displays the vertex coordinates
-      const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
-        foregroundColor: 'white',
-        backgroundColor: GQColors.VERTEX,
-        decimals: GQConstants.VERTEX_DECIMALS
-      } );
-
-      assert && assert( !options.children, 'VertexNode sets children' );
-      options.children = [ pointNode, coordinatesNode ];
-
-      super( options );
+      super( coordinatesProperty, coordinatesVisibleProperty, options );
 
       // move to the vertex location
-       quadraticProperty.link( quadratic => {
-         if ( quadratic.vertex ) {
-           this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
-         }
-       } );
-
-      // position coordinates on the outside of the parabola
-      coordinatesProperty.link( coordinates => {
-        coordinatesNode.centerX = pointNode.centerX;
-        if ( quadraticProperty.value.a > 0 ) {
-          coordinatesNode.top = pointNode.bottom + COORDINATES_Y_SPACING;
-        }
-        else {
-          coordinatesNode.bottom = pointNode.top - COORDINATES_Y_SPACING;
+      quadraticProperty.link( quadratic => {
+        if ( quadratic.vertex ) {
+          this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
         }
       } );
 
       // visibility of this Node
       const visibleProperty = new DerivedProperty(
         [ vertexVisibleProperty, quadraticProperty ],
-        (  vertexVisible, quadratic  ) =>
+        ( vertexVisible, quadratic ) =>
           vertexVisible &&  // the Vertex checkbox is checked
           quadratic.vertex !== undefined &&  // the quadratic has a vertex
           graph.contains( quadratic.vertex ) // the vertex is on the graph
       );
       visibleProperty.linkAttribute( this, 'visible' );
-
-      // visibility of coordinates
-      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
     }
   }
 

@@ -2,7 +2,6 @@
 
 /**
  * Displays the roots of a quadratic as non-interactive points with coordinate labels.
- * There may be 0, 1 or 2 roots.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -10,15 +9,14 @@ define( require => {
   'use strict';
 
   // modules
-  const Circle = require( 'SCENERY/nodes/Circle' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
+  const PointNode = require( 'GRAPHING_QUADRATICS/common/view/PointNode' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
@@ -40,20 +38,9 @@ define( require => {
                  rootsVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
-        radius: 10,
         tandem: Tandem.required
       }, options );
 
-      // options common to both points
-      const pointOptions = {
-        fill: GQColors.ROOTS,
-        center: modelViewTransform.modelToViewXY( graph.xRange.getCenter(), graph.yRange.getCenter() )
-      };
-
-      // points
-      const leftRootNode = new Circle( options.radius, pointOptions );
-      const rightRootNode = new Circle( options.radius, pointOptions );
-      
       // options common to both Property instances
       const coordinatesPropertyOptions = {
         isValidValue: value => ( value instanceof Vector2 || value === null ),
@@ -64,6 +51,7 @@ define( require => {
       const leftCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
         quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null, 
         _.extend( {}, coordinatesPropertyOptions, {
+          tandem: options.tandem.createTandem( 'leftCoordinatesProperty' ),
           phetioDocumentation: 'coordinates displayed on the left (first) root, ' +
                                'null if there are no roots or if all points are roots'
         } ) );
@@ -72,24 +60,42 @@ define( require => {
       const rightCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
         quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null, 
         _.extend( {}, coordinatesPropertyOptions, {
+          tandem: options.tandem.createTandem( 'rightCoordinatesProperty' ),
           phetioDocumentation: 'coordinates displayed on the right (second) root, ' +
                                'null if there are less that two roots or if all points are roots'
         } ) );
 
-      // options common to both CoordinatesNode instances 
-      const coordinatesNodeOptions = {
-        foregroundColor: 'white',
-        backgroundColor: GQColors.ROOTS,
-        decimals: GQConstants.ROOTS_DECIMALS
+      // options common to both PointNode instances
+      const pointNodeOptions = {
+        radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
+        coordinatesForegroundColor: 'white',
+        coordinatesBackgroundColor: GQColors.ROOTS,
+        coordinatesDecimals: GQConstants.ROOTS_DECIMALS,
+        x: modelViewTransform.modelToViewX( graph.xRange.getCenter() ),
+        y: modelViewTransform.modelToViewY( graph.yRange.getCenter() )
       };
       
-      // coordinate displays
-      const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesNodeOptions );
-      const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesNodeOptions );
+      // left root
+      const leftRootNode = new PointNode( leftCoordinatesProperty, coordinatesVisibleProperty,
+        _.extend( {}, pointNodeOptions, {
+          layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {
+            coordinatesNode.right = pointNode.left - COORDINATES_X_SPACING;
+            coordinatesNode.centerY = pointNode.centerY;
+          },
+          tandem: options.tandem.createTandem( 'leftRootNode' ),
+          phetioDocumentation: 'the left (first) root'
+        } ) );
 
-      // decorate root with coordinates
-      leftRootNode.addChild( leftCoordinatesNode );
-      rightRootNode.addChild( rightCoordinatesNode );
+      // right root
+      const rightRootNode = new PointNode( rightCoordinatesProperty, coordinatesVisibleProperty,
+        _.extend( {}, pointNodeOptions, {
+          layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {
+            coordinatesNode.left = pointNode.right + COORDINATES_X_SPACING;
+            coordinatesNode.centerY = pointNode.centerY;
+          },
+          tandem: options.tandem.createTandem( 'rightRootNode' ),
+          phetioDocumentation: 'the right (second) root'
+        } ) );
 
       assert && assert( !options.children, 'RootsNode sets children' );
       options.children = [ leftRootNode, rightRootNode ];
@@ -117,28 +123,18 @@ define( require => {
             rightRootNode.translation = modelViewTransform.modelToViewPosition( rightRoot );
             rightRootNode.visible = graph.contains( rightRoot );
           }
-
-          // position coordinates to left and right of roots
-          leftCoordinatesNode.right = -( options.radius + COORDINATES_X_SPACING );
-          leftCoordinatesNode.centerY = 0;
-          rightCoordinatesNode.left = options.radius + COORDINATES_X_SPACING;
-          rightCoordinatesNode.centerY = 0;
         }
       } );
 
       // visibility of this Node
-      const visibileProperty = new DerivedProperty(
+      const visibleProperty = new DerivedProperty(
         [ rootsVisibleProperty, quadraticProperty ],
         ( rootsVisible, quadratic ) =>
           rootsVisible &&  // the Roots checkbox is checked
           !!quadratic.roots && // it is not the case that all points on the quadratic are roots
           quadratic.roots.length !== 0 // there is a least one root
         );
-      visibileProperty.linkAttribute( this, 'visible' );
-
-      // visibility of coordinates
-      coordinatesVisibleProperty.linkAttribute( leftCoordinatesNode, 'visible' );
-      coordinatesVisibleProperty.linkAttribute( rightCoordinatesNode, 'visible' );
+      visibleProperty.linkAttribute( this, 'visible' );
     }
   }
 
