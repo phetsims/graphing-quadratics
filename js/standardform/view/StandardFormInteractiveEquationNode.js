@@ -41,29 +41,24 @@ define( require => {
       }, options );
 
       // coefficient pickers
-      const numberPickerOptions = {
-        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
-        xMargin: 5,
-        touchAreaXDilation: GQConstants.PICKER_TOUCH_AREA_X_DILATION
-      };
       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_A,
           tandem: options.tandem.createTandem( 'aNumberPicker' ),
           phetioDocumentation: 'picker for coefficient a'
-        }, numberPickerOptions ) );
+        }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_B,
           tandem: options.tandem.createTandem( 'bNumberPicker' ),
           phetioDocumentation: 'picker for coefficient b'
-        }, numberPickerOptions ) );
+        }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_C,
           tandem: options.tandem.createTandem( 'cNumberPicker' ),
           phetioDocumentation: 'picker for constant c'
-        }, numberPickerOptions ) );
+        }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 
       // static parts of the equation
       const richTextOptions = {

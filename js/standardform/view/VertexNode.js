@@ -62,8 +62,7 @@ define( require => {
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         foregroundColor: 'white',
         backgroundColor: GQColors.VERTEX,
-        decimals: GQConstants.VERTEX_DECIMALS,
-        maxWidth: GQConstants.COORDINATES_MAX_WIDTH
+        decimals: GQConstants.VERTEX_DECIMALS
       } );
 
       assert && assert( !options.children, 'VertexNode sets children' );

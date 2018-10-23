@@ -13,6 +13,7 @@ define( require => {
   const Bounds2 = require( 'DOT/Bounds2' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Range = require( 'DOT/Range' );
 
   // constants
@@ -49,22 +50,19 @@ define( require => {
       yMargin: 15
     },
 
-    // horizontal space between checkbox text and icon
-    CHECKBOX_ICON_SPACING: 8,
-
-    // maxWidth for all checkboxes, determined empirically
-    CHECKBOX_TEXT_MAX_WIDTH: 180,
+    // options applied to all NumberPickers
+    NUMBER_PICKER_OPTIONS: {
+      font: new PhetFont( 26 ),
+      xMargin: 5,
+      touchAreaXDilation: 30
+    },
 
     // vertical space between checkboxes
     CHECKBOXES_Y_SPACING: 15,
 
-    PICKER_TOUCH_AREA_X_DILATION: 30,
-
-    // radius of manipulators, in model coordinates
-    MANIPULATOR_RADIUS: 0.425,
-
-    // radius of non-interactive points, in model coordinates
-    POINT_RADIUS: 0.25,
+    // radii
+    MANIPULATOR_RADIUS: 0.425,  // radius of manipulators, in model coordinates
+    POINT_RADIUS: 0.25, // radius of non-interactive points, in model coordinates
 
     // font sizes
     TITLE_FONT_SIZE: 20,
@@ -121,10 +119,7 @@ define( require => {
     EQUATION_Y_MARGIN: 0.5, // distance between equation and top/bottom edges of graph, in model coordinate frame
 
     // space between equation and the curve that it labels, in view coordinate frame
-    EQUATION_SPACING: 5,
-
-    // maxWidth for all coordinates displays (CoordinateNode instances)
-    COORDINATES_MAX_WIDTH: 100
+    EQUATION_SPACING: 5
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );

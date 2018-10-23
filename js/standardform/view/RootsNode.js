@@ -74,8 +74,7 @@ define( require => {
       const coordinatesOptions = {
         foregroundColor: 'white',
         backgroundColor: GQColors.ROOTS,
-        decimals: GQConstants.ROOTS_DECIMALS,
-        maxWidth: GQConstants.COORDINATES_MAX_WIDTH
+        decimals: GQConstants.ROOTS_DECIMALS
       };
       const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesOptions );
       const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesOptions );

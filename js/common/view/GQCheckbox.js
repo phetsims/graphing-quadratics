@@ -36,14 +36,14 @@ define( require => {
       const textNode = new RichText( text, {
         fill: options.textFill,
         font: new PhetFont( GQConstants.CHECKBOX_LABEL_FONT_SIZE ),
-        maxWidth: GQConstants.CHECKBOX_TEXT_MAX_WIDTH
+        maxWidth: 180 // determined empirically
       } );
 
       let content = null;
       if ( options.icon ) {
         content = new HBox( {
           align: 'center',
-          spacing: GQConstants.CHECKBOX_ICON_SPACING,
+          spacing: 8,
           children: [ textNode, options.icon ]
         } );
       }

@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
 
@@ -50,8 +49,7 @@ define( require => {
         backgroundColor: options.coordinatesBackgroundColor,
         foregroundColor: options.coordinatesForegroundColor,
         decimals: options.coordinatesDecimals,
-        pickable: false,
-        maxWidth: GQConstants.COORDINATES_MAX_WIDTH
+        pickable: false
       } );
       this.addChild( coordinatesNode );
 
