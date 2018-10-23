@@ -200,7 +200,7 @@ define( require => {
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph
      * @param {BooleanProperty} graphContentsVisibleProperty
-     * @param {Options} [options]
+     * @param {Object} [options]
      */
     constructor( targetNode, pointTool, modelViewTransform, graph, graphContentsVisibleProperty, options ) {
 
