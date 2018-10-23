@@ -113,7 +113,7 @@ define( require => {
 
     // enums
     EQUATION_FORMS: [ 'standard', 'vertex' ], // form of equations on curves
-    PROBE_SIDES: [ 'right', 'left' ], // which side the probe is attached to for the point tool
+    PROBE_SIDES: [ 'right', 'left' ], // which side the point tool's probe is on
 
     // margins between equations and edges of graph
     // Caution! Changing these may cause an equation to go off the graph. Test thoroughly!
