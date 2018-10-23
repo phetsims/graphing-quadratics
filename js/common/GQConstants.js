@@ -60,7 +60,10 @@ define( require => {
 
     PICKER_TOUCH_AREA_X_DILATION: 30,
 
+    // radius of manipulators, in model coordinates
     MANIPULATOR_RADIUS: 0.425,
+
+    // radius of non-interactive points, in model coordinates
     POINT_RADIUS: 0.25,
 
     // font sizes
