@@ -12,6 +12,7 @@ define( require => {
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   class GQManipulator extends Manipulator {
 
@@ -29,6 +30,7 @@ define( require => {
         coordinatesForegroundColor: 'white',
         coordinatesDecimals: 0,
 
+        //TODO provide default that puts coordinates above manipulator
         // {function( coordinates:Vector2, coordinatesNode:Node )}
         // positions the coordinates when coordinatesProperty changes
         layoutCoordinates: ( coordinates, coordinatesNode ) => {},
@@ -38,7 +40,8 @@ define( require => {
         color: 'black',
 
         // Manipulator options
-        haloAlpha: 0.15
+        haloAlpha: 0.15,
+        tandem: Tandem.required
 
       }, options );
 
@@ -49,7 +52,9 @@ define( require => {
         backgroundColor: options.coordinatesBackgroundColor,
         foregroundColor: options.coordinatesForegroundColor,
         decimals: options.coordinatesDecimals,
-        pickable: false
+        pickable: false,
+        tandem: options.tandem.createTandem( 'coordinatesNode' ),
+        phetioDocumentation: 'coordinates displayed on this manipulator'
       } );
       this.addChild( coordinatesNode );
 
