@@ -112,7 +112,8 @@ define( require => {
     FOCUS_AND_DIRECTRIX_INTERVAL_K: 0.1,
 
     // enums
-    EQUATION_FORMS: [ 'standard', 'vertex' ],
+    EQUATION_FORMS: [ 'standard', 'vertex' ], // form of equations on curves
+    PROBE_SIDES: [ 'right', 'left' ], // which side the probe is attached to for the point tool
 
     // margins between equations and edges of graph
     // Caution! Changing these may cause an equation to go off the graph. Test thoroughly!

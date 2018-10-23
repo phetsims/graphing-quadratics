@@ -9,6 +9,7 @@ define( require => {
   'use strict';
 
   // modules
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
@@ -18,9 +19,6 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
-
-  // constants
-  const PROBE_SIDES = [ 'right', 'left' ]; // which side the probe is on
 
   class PointTool {
 
@@ -32,12 +30,12 @@ define( require => {
 
       options = _.extend( {
         location: Vector2.ZERO, // {Vector2} initial location
-        probeSide: 'left', // {string} which side the probe is on, see PROBE_SIDES
+        probeSide: 'left', // {string} which side the probe is on, see GQConstants.PROBE_SIDES
         dragBounds: null, // {Bounds2|null} drag bounds, in model coordinate frame
         tandem: Tandem.required
       }, options );
 
-      assert && assert( PROBE_SIDES.includes( options.probeSide ),
+      assert && assert( GQConstants.PROBE_SIDES.includes( options.probeSide ),
         'invalid probeSide: ' + options.probeSide );
 
       // @public (read-only)
