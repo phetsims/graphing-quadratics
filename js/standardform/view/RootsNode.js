@@ -51,33 +51,39 @@ define( require => {
       };
       const leftRootNode = new Circle( options.radius, pointOptions );
       const rightRootNode = new Circle( options.radius, pointOptions );
+      
+      // options common to both Property instances
+      const coordinatesPropertyOptions = {
+        isValidValue: value => ( value instanceof Vector2 || value === null ),
+        phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )
+      };
 
       // coordinates corresponding to the quadratic's left or single root (if it has roots)
       const leftCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
-        quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null, {
-          isValidValue: value => ( value instanceof Vector2 || value === null ),
-          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
+        quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null, 
+        _.extend( {}, coordinatesPropertyOptions, {
           phetioDocumentation: 'coordinates displayed on the left (first) root, ' +
                                'null if there are no roots or if all points are roots'
-        } );
+        } ) );
 
       // coordinates corresponding to the quadratic's right root, if it has 2 roots
       const rightCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
-        quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null, {
-          isValidValue: value => ( value instanceof Vector2 || value === null ),
-          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
+        quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null, 
+        _.extend( {}, coordinatesPropertyOptions, {
           phetioDocumentation: 'coordinates displayed on the right (second) root, ' +
                                'null if there are less that two roots or if all points are roots'
-        } );
+        } ) );
 
-      // coordinate displays
-      const coordinatesOptions = {
+      // options common to both CoordinatesNode instances 
+      const coordinatesNodeOptions = {
         foregroundColor: 'white',
         backgroundColor: GQColors.ROOTS,
         decimals: GQConstants.ROOTS_DECIMALS
       };
-      const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesOptions );
-      const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesOptions );
+      
+      // coordinate displays
+      const leftCoordinatesNode = new CoordinatesNode( leftCoordinatesProperty, coordinatesNodeOptions );
+      const rightCoordinatesNode = new CoordinatesNode( rightCoordinatesProperty, coordinatesNodeOptions );
 
       // decorate root with coordinates
       leftRootNode.addChild( leftCoordinatesNode );
