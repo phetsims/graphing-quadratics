@@ -123,7 +123,7 @@ define( require => {
     // space between equation and the curve that it labels, in view coordinate frame
     EQUATION_SPACING: 5,
 
-    // maxWidth for all coordinates display (CoordinateNode instances)
+    // maxWidth for all coordinates displays (CoordinateNode instances)
     COORDINATES_MAX_WIDTH: 100
   };
 
