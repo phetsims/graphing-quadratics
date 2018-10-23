@@ -24,7 +24,7 @@ define( require => {
     SCREEN_VIEW_X_MARGIN: 20,
     SCREEN_VIEW_Y_MARGIN: 16,
 
-    // range of the graph
+    // range of the graph's axes
     X_AXIS_RANGE: new Range( -10, 10 ),
     Y_AXIS_RANGE: new Range( -10, 10 ),
 
