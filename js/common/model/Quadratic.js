@@ -60,7 +60,7 @@ define( require => {
       // @public (read-only) {Vector2[]|null} null means that all points are roots (y = 0)
       this.roots = solveRoots( a, b, c );
 
-      // Strictly speaking, we don't have a quadratic if a === 0.
+      // Strictly speaking, we don't have a quadratic (or a parabola) if a === 0.
       // If that's the case, then the fields in this if block will be undefined.
       if ( a !== 0 ) {
 
