@@ -31,7 +31,7 @@ define( require => {
         coordinatesDecimals: 0,
 
         // {function( coordinates:Vector2, coordinatesNode:Node )}
-        // positions the coordinates when coordinatesProperty changes
+        // Positions the coordinates when coordinatesProperty changes, default is centered above the manipulator.
         layoutCoordinates: ( coordinates, coordinatesNode ) => {
           coordinatesNode.centerX = 0;
           coordinatesNode.bottom = -20;
