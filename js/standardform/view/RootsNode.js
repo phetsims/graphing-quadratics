@@ -44,11 +44,13 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      // points
+      // options common to both points
       const pointOptions = {
         fill: GQColors.ROOTS,
         center: modelViewTransform.modelToViewXY( graph.xRange.getCenter(), graph.yRange.getCenter() )
       };
+
+      // points
       const leftRootNode = new Circle( options.radius, pointOptions );
       const rightRootNode = new Circle( options.radius, pointOptions );
       
