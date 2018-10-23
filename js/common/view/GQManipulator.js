@@ -30,10 +30,12 @@ define( require => {
         coordinatesForegroundColor: 'white',
         coordinatesDecimals: 0,
 
-        //TODO provide default that puts coordinates above manipulator
         // {function( coordinates:Vector2, coordinatesNode:Node )}
         // positions the coordinates when coordinatesProperty changes
-        layoutCoordinates: ( coordinates, coordinatesNode ) => {},
+        layoutCoordinates: ( coordinates, coordinatesNode ) => {
+          coordinatesNode.centerX = 0;
+          coordinatesNode.bottom = -20;
+        },
 
         // Manipulator constructor args
         radius: 10,

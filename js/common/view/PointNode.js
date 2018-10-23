@@ -34,10 +34,12 @@ define( require => {
         coordinatesForegroundColor: 'white',
         coordinatesDecimals: 0,
 
-        //TODO provide default that puts coordinates above point
         // {function( coordinates:Vector2, coordinatesNode:Node, pointNode:Node )}
         // positions the coordinates when coordinatesProperty changes
-        layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {},
+        layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {
+          coordinatesNode.centerX = pointNode.centerX;
+          coordinatesNode.bottom = pointNode.top - 5;
+        },
 
         // Node options
         tandem: Tandem.required
