@@ -16,7 +16,7 @@ define( require => {
   const Range = require( 'DOT/Range' );
 
   // constants
-  const PANEL_CORNER_RADIUS = 5;
+  const PANEL_CORNER_RADIUS = 5; // corner radius for all panel-like containers
 
   const GQConstants = {
 
