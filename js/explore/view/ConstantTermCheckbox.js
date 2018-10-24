@@ -14,7 +14,6 @@ define( require => {
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   class ConstantTermCheckbox extends GQCheckbox {
 
@@ -30,11 +29,7 @@ define( require => {
       }, options );
 
       // y = c
-      const text = StringUtils.fillIn( '{{y}} {{equals}} {{c}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO,
-        c: GQSymbols.c
-      } );
+      const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.c;
 
       super( text, constantTermVisibleProperty, options );
     }

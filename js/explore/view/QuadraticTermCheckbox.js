@@ -14,7 +14,6 @@ define( require => {
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   class QuadraticTermCheckbox extends GQCheckbox {
 
@@ -30,13 +29,7 @@ define( require => {
       }, options );
 
       // y = ax^2
-      const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO,
-        a: GQSymbols.a,
-        x: GQSymbols.x,
-        xSquared: GQSymbols.xSquared
-      } );
+      const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.a + GQSymbols.xSquared;
 
       super( text, quadraticTermVisibleProperty, options );
     }
