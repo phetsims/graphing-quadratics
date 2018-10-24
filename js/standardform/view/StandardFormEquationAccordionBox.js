@@ -29,7 +29,7 @@ define( require => {
 
       assert && assert( !options.titleNode, 'StandardFormEquationAccordionBox sets titleNode' );
       options.titleNode = new StandardFormEquationNode( {
-        maxWidth: 200, // determined empirically
+        maxWidth: 225, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' ),
         phetioDocumentation: 'the equation shown at the top of this accordion box'
       } );

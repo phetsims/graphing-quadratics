@@ -22,14 +22,14 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( model, options ) {
-
+                                              
       options = _.extend( {
         tandem: Tandem.required
       }, options );
 
       assert && assert( !options.titleNode, 'ExploreEquationAccordionBox sets titleNode' );
       options.titleNode = new StandardFormEquationNode( {
-        maxWidth: 200, // determined empirically
+        maxWidth: 225, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' ),
         phetioDocumentation: 'the equation shown at the top of this accordion box'
       } );
