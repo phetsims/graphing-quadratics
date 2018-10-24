@@ -32,8 +32,9 @@ define( require => {
       }, options );
 
       const text = StringUtils.fillIn(
-        '{{y}} {{equals}} {{a}}{{x}}<sup>2</sup> {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
+        '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
           x: GQSymbols.x,
+          xSquared: GQSymbols.xSquared,
           y: GQSymbols.y,
           a: GQSymbols.a,
           b: GQSymbols.b,
