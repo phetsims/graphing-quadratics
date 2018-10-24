@@ -9,6 +9,7 @@ define( require => {
   'use strict';
 
   // modules
+  const Bounds2 = require( 'DOT/Bounds2' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -20,6 +21,11 @@ define( require => {
 
   // strings
   const noRealRootsString = require( 'string!GRAPHING_QUADRATICS/noRealRoots' );
+
+  // constants
+  // Part of the graph where 'NO REAL ROOTS' overlaps with vertex coordinates.
+  // See https://github.com/phetsims/graphing-quadratics/issues/88
+  const VERTEX_OVERLAP_BOUNDS = new Bounds2( -4, -1, 4, 1 );
 
   class NoRealRootsNode extends Node {
 
@@ -74,12 +80,12 @@ define( require => {
                coordinatesVisible && // the Coordinates checkbox is checked
                ( quadratic.roots && quadratic.roots.length === 0 ) && // no roots
                // vertex is in a position where its coordinates will overlap
-               quadraticProperty.value.vertex &&
-               Math.abs( quadratic.vertex.y ) <= 1 &&
-               Math.abs( quadratic.vertex.x ) < 4 ) {
+               ( quadratic.vertex && VERTEX_OVERLAP_BOUNDS.containsPoint( quadratic.vertex ) ) ) {
+            // center above or below the x axis
             return modelViewTransform.modelToViewXY( 0, ( quadratic.a > 0 ? -1 : 1 ) );
           }
           else {
+            // center at the origin
             return modelViewTransform.modelToViewXY( 0, 0 );
           }
         }
