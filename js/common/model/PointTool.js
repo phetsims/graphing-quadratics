@@ -10,6 +10,7 @@ define( require => {
 
   // modules
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
@@ -64,7 +65,8 @@ define( require => {
 
       // Determine whether we're on a quadratic, using small distances.
       Property.multilink( [ this.locationProperty, quadraticsProperty ], ( location, quadratics ) => {
-        this.onQuadraticProperty.value = this.getQuadraticNear( location, 0.01, 0.01 );
+        this.onQuadraticProperty.value = this.getQuadraticNear( location,
+          GQQueryParameters.pointToolThreshold, GQQueryParameters.pointToolThreshold );
       } );
     }
 

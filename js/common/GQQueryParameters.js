@@ -21,6 +21,7 @@ define( require => {
     checkAll: { type: 'flag' },
 
     // Point tools will snap ON to a curve when <= this distance from the curve, in model coordinates.
+    // See https://github.com/phetsims/graphing-quadratics/issues/47
     // For internal use only, not public facing.
     snapOnDistance: {
       type: 'number',
@@ -31,10 +32,22 @@ define( require => {
     },
 
     // Point tools will snap OFF of a curve when > this distance from the curve, in model coordinates.
+    // See https://github.com/phetsims/graphing-quadratics/issues/47
     // For internal use only, not public facing.
     snapOffDistance: {
       type: 'number',
       defaultValue: 2,
+      isValidValue: function( value ) {
+        return value > 0;
+      }
+    },
+    
+    // Distance that a point tool must be from a curve in order to register as being ON the curve, in model coordinates.
+    // See https://github.com/phetsims/graphing-quadratics/issues/81
+    // For internal use only, not public facing.
+    pointToolThreshold: {
+      type: 'number',
+      defaultValue: 0.1,
       isValidValue: function( value ) {
         return value > 0;
       }
