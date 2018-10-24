@@ -14,7 +14,6 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
 
@@ -109,10 +108,9 @@ define( require => {
     update( coordinates ) {
 
       // coordinates
-      this.foregroundNode.text = StringUtils.fillIn( '({{x}}, {{y}})', {
-        x: coordinates ? Util.toFixedNumber( coordinates.x, this.decimals ) : coordinateUnknownString,
-        y: coordinates ? Util.toFixedNumber( coordinates.y, this.decimals ) : coordinateUnknownString
-      } );
+      const x = coordinates ? Util.toFixedNumber( coordinates.x, this.decimals ) : coordinateUnknownString;
+      const y = coordinates ? Util.toFixedNumber( coordinates.y, this.decimals ) : coordinateUnknownString;
+      this.foregroundNode.text = '(' +  x + ', ' + y + ')';
 
       // resize background
       this.backgroundNode.setRect( 0, 0,
