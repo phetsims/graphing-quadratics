@@ -9,6 +9,7 @@ define( require => {
   'use strict';
 
   // modules
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -23,9 +24,11 @@ define( require => {
   class NoRealRootsNode extends Node {
 
     /**
+     * @param {BooleanProperty} rootsVisibleProperty
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Object} [options]
      */
-    constructor( options ) {
+    constructor( rootsVisibleProperty, quadraticProperty, options ) {
 
       options = _.extend( {
         tandem: Tandem.required
@@ -48,6 +51,14 @@ define( require => {
       options.children = [ backgroundNode, textNode ];
 
       super( options );
+
+      const visibleProperty = new DerivedProperty(
+        [ rootsVisibleProperty, quadraticProperty ],
+        ( rootsVisible, quadratic ) =>
+          rootsVisible && // the Roots checkbox is checked
+          !!( quadratic.roots && quadratic.roots.length === 0 ) // the interactive quadratic has no roots
+        );
+      visibleProperty.linkAttribute( this, 'visible' );
     }
   }
 

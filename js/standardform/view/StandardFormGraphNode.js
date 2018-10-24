@@ -14,7 +14,6 @@ define( require => {
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/NoRealRootsNode' );
-  const Property = require( 'AXON/Property' );
   const RootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/RootsNode' );
   const VertexNode = require( 'GRAPHING_QUADRATICS/standardform/view/VertexNode' );
 
@@ -67,15 +66,11 @@ define( require => {
         } );
 
       // 'NO REAL ROOTS' label
-      const noRealRootsNode = new NoRealRootsNode( {
+      const noRealRootsNode = new NoRealRootsNode( viewProperties.rootsVisibleProperty, model.quadraticProperty, {
         center: model.modelViewTransform.modelToViewXY( model.graph.xRange.getCenter(), model.graph.yRange.getCenter() ),
         tandem: tandem.createTandem( 'noRealRootsNode' ),
         phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
       } );
-      Property.multilink( [ viewProperties.rootsVisibleProperty, model.quadraticProperty ],
-        ( rootsVisible, quadratic ) => {
-          noRealRootsNode.visible = !!( rootsVisible && quadratic.roots && quadratic.roots.length === 0 );
-        } );
 
       assert && assert( !options.otherCurves, 'StandardFormGraphNode sets otherCurves' );
       options.otherCurves = [ axisOfSymmetryNode ];
