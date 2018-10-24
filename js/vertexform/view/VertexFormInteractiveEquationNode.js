@@ -92,17 +92,15 @@ define( require => {
       super( options );
 
       // layout
-      const operatorSpacing = 10; // space around operators
-      const termSpacing = 6; // space inside terms
-      equalToText.left = yText.right + operatorSpacing;
-      aNumberPicker.left = equalToText.right + operatorSpacing;
-      openParenthesisText.left = aNumberPicker.right + termSpacing;
-      xText.left = openParenthesisText.right + termSpacing;
-      minusText.left = xText.right + operatorSpacing;
-      hNumberPicker.left = minusText.right + operatorSpacing;
-      parenSquaredText.left = hNumberPicker.right + termSpacing;
-      plusText.left = parenSquaredText.right + operatorSpacing;
-      kNumberPicker.left = plusText.right + operatorSpacing;
+      equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      aNumberPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      openParenthesisText.left = aNumberPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      xText.left = openParenthesisText.right + GQConstants.EQUATION_TERM_SPACING;
+      minusText.left = xText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      hNumberPicker.left = minusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      parenSquaredText.left = hNumberPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      plusText.left = parenSquaredText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      kNumberPicker.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
 
       // vertically center pickers on equals
       aNumberPicker.centerY = equalToText.centerY;

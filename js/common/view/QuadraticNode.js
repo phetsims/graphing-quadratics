@@ -181,7 +181,7 @@ define( require => {
         this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
 
         // space between line and equation
-        equationNode.bottom = -GQConstants.EQUATION_SPACING;
+        equationNode.bottom = -GQConstants.EQUATION_CURVE_SPACING;
       }
       else {
 
@@ -202,10 +202,10 @@ define( require => {
           this.equationParent.rotation = 0;
           this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
           if ( p.x < quadratic.vertex.x ) {
-            equationNode.right = -GQConstants.EQUATION_SPACING;
+            equationNode.right = -GQConstants.EQUATION_CURVE_SPACING;
           }
           else {
-            equationNode.left = GQConstants.EQUATION_SPACING;
+            equationNode.left = GQConstants.EQUATION_CURVE_SPACING;
           }
           if ( p.y < 0 ) {
             equationNode.bottom = 0;
@@ -227,10 +227,10 @@ define( require => {
 
           // space between tangent line and equation
           if ( quadratic.a >= 0 ) {
-            equationNode.top = GQConstants.EQUATION_SPACING;
+            equationNode.top = GQConstants.EQUATION_CURVE_SPACING;
           }
           else {
-            equationNode.bottom = -GQConstants.EQUATION_SPACING;
+            equationNode.bottom = -GQConstants.EQUATION_CURVE_SPACING;
           }
         }
       }

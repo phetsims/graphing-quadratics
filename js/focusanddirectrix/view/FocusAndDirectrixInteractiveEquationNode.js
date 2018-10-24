@@ -194,18 +194,16 @@ define( require => {
       } ) );
 
       // layout
-      const operatorSpacing = 10; // space around operators
-      const termSpacing = 4; // space inside a term
-      equalsNode.left = yNode.right + operatorSpacing;
-      fractionNode.left = equalsNode.right + operatorSpacing;
+      equalsNode.left = yNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      fractionNode.left = equalsNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
       fractionNode.centerY = equalsNode.centerY;
-      anotherParenNode.left = fractionNode.right + termSpacing;
-      xNode.left = anotherParenNode.right + termSpacing;
-      minusNode.left = xNode.right + operatorSpacing;
-      hNode.left = minusNode.right + operatorSpacing;
-      parenSquaredNode.left = hNode.right + termSpacing;
-      plusNode.left = parenSquaredNode.right + operatorSpacing;
-      kNode.left = plusNode.right + operatorSpacing;
+      anotherParenNode.left = fractionNode.right + GQConstants.EQUATION_TERM_SPACING;
+      xNode.left = anotherParenNode.right + GQConstants.EQUATION_TERM_SPACING;
+      minusNode.left = xNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      hNode.left = minusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      parenSquaredNode.left = hNode.right + GQConstants.EQUATION_TERM_SPACING;
+      plusNode.left = parenSquaredNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      kNode.left = plusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
       hNode.bottom = equalsNode.bottom;
       kNode.bottom = equalsNode.bottom;
 

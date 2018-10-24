@@ -82,16 +82,14 @@ define( require => {
       super( options );
 
       // layout
-      const operatorSpacing = 10; // space around operators
-      const termSpacing = 6; // space inside terms
-      equalToText.left = yText.right + operatorSpacing;
-      aNumberPicker.left = equalToText.right + operatorSpacing;
-      xSquaredText.left = aNumberPicker.right + termSpacing;
-      plusText.left = xSquaredText.right + operatorSpacing;
-      bNumberPicker.left = plusText.right + operatorSpacing;
-      xText.left = bNumberPicker.right + termSpacing;
-      secondPlusText.left = xText.right + operatorSpacing;
-      cNumberPicker.left = secondPlusText.right + operatorSpacing;
+      equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      aNumberPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      xSquaredText.left = aNumberPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      plusText.left = xSquaredText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      bNumberPicker.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      xText.left = bNumberPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      secondPlusText.left = xText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      cNumberPicker.left = secondPlusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
 
       // vertically center pickers on equals
       aNumberPicker.centerY = equalToText.centerY;

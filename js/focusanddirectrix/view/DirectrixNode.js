@@ -75,10 +75,10 @@ define( require => {
 
         // space between the equation and directrix
         if ( quadratic.directrix > graph.xRange.max - 1 ) {
-          equationNode.top = lineNode.bottom + GQConstants.EQUATION_SPACING;
+          equationNode.top = lineNode.bottom + GQConstants.EQUATION_CURVE_SPACING;
         }
         else {
-          equationNode.bottom = lineNode.top - GQConstants.EQUATION_SPACING;
+          equationNode.bottom = lineNode.top - GQConstants.EQUATION_CURVE_SPACING;
         }
       } );
 

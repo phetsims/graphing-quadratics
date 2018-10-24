@@ -67,22 +67,22 @@ define( require => {
           if ( quadratic.axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
 
             // axis is at far right of graph, so put equation on left of axis
-            equationNode.right = lineNode.left - GQConstants.EQUATION_SPACING;
+            equationNode.right = lineNode.left - GQConstants.EQUATION_CURVE_SPACING;
           }
           else if ( quadratic.axisOfSymmetry < graph.yRange.min + GQConstants.EQUATION_Y_MARGIN ) {
 
             // axis is at far left of graph, so put equation on right of axis
-            equationNode.left = lineNode.right + GQConstants.EQUATION_SPACING;
+            equationNode.left = lineNode.right + GQConstants.EQUATION_CURVE_SPACING;
           }
           else if ( quadratic.axisOfSymmetry >= 0 ) {
 
             // axis is at or to right of origin, so put equation on left of axis
-            equationNode.left = lineNode.right + GQConstants.EQUATION_SPACING;
+            equationNode.left = lineNode.right + GQConstants.EQUATION_CURVE_SPACING;
           }
           else {
 
             // axis is to left of origin, os put equation on right of axis
-            equationNode.right = lineNode.left - GQConstants.EQUATION_SPACING;
+            equationNode.right = lineNode.left - GQConstants.EQUATION_CURVE_SPACING;
           }
 
           // space between the equation and axis

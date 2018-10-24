@@ -134,12 +134,9 @@ define( require => {
         decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
       } ) );
 
-      // x
-      const xNode = new RichText( GQSymbols.x, xyOptions );
+      // x^2
+      const xSquaredNode = new RichText( GQSymbols.xSquared, xyOptions );
 
-      // ^2
-      const squaredNode = new RichText( '<sup>2</sup>', equationOptions );
-      
       // + 
       const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
 
@@ -150,7 +147,7 @@ define( require => {
       } ) );
 
       // x
-      const anotherXNode = new RichText( GQSymbols.x, xyOptions );
+      const xNode = new RichText( GQSymbols.x, xyOptions );
       
       // +
       const anotherPlusNode = new RichText( MathSymbols.PLUS, equationOptions );
@@ -164,22 +161,19 @@ define( require => {
       // y = ax^2 + bx + c
       assert && assert( !options.children, 'EquationNode sets children' );
       options.children = [
-        yNode, equalsNode, aNode, xNode, squaredNode, plusNode,
-        anotherXNode, bNode, anotherPlusNode, cNode
+        yNode, equalsNode, aNode, xSquaredNode, plusNode,
+        xNode, bNode, anotherPlusNode, cNode
       ];
 
       // layout
-      const operatorSpacing = 8; // space around operators
-      const termSpacing = 4; // space inside a term
-      equalsNode.left = yNode.right + operatorSpacing;
-      aNode.left = equalsNode.right + operatorSpacing;
-      xNode.left = aNode.right + termSpacing;
-      squaredNode.left = xNode.right + termSpacing;
-      plusNode.left = squaredNode.right + operatorSpacing;
-      bNode.left = plusNode.right + operatorSpacing;
-      anotherXNode.left = bNode.right + termSpacing;
-      anotherPlusNode.left = anotherXNode.right + operatorSpacing;
-      cNode.left = anotherPlusNode.right + operatorSpacing;
+      equalsNode.left = yNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      aNode.left = equalsNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      xSquaredNode.left = aNode.right + GQConstants.EQUATION_TERM_SPACING;
+      plusNode.left = xSquaredNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      bNode.left = plusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      xNode.left = bNode.right + GQConstants.EQUATION_TERM_SPACING;
+      anotherPlusNode.left = xNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      cNode.left = anotherPlusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
       aNode.bottom = equalsNode.bottom;
       bNode.bottom = equalsNode.bottom;
       cNode.bottom = equalsNode.bottom;
