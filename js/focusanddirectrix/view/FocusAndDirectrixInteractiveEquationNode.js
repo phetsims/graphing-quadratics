@@ -153,7 +153,7 @@ define( require => {
       } );
 
       // horizontal line between numerator and denominator
-      const fractionLineLength = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
+      const fractionLineLength = 1.1 * Math.max( numeratorNode.width, denominatorNode.width );
       const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
         stroke: 'black',
         lineWidth: 1
