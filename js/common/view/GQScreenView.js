@@ -32,7 +32,7 @@ define( require => {
      * @param {Node} graphNode
      * @param {Node} equationAccordionBox
      * @param {Node} graphControlPanel
-     * @param {Object} options
+     * @param {Object} [options]
      */
     constructor( model, viewProperties, graphNode, equationAccordionBox, graphControlPanel, options ) {
 

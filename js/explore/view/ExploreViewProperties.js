@@ -18,7 +18,7 @@ define( require => {
   class ExploreViewProperties extends GQViewProperties {
 
     /**
-     * @param {Object} options
+     * @param {Object} [options]
      */
     constructor( options ) {
 
