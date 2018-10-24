@@ -100,7 +100,6 @@ define( require => {
     constructor( pProperty, hProperty, kProperty, options ) {
 
       options = _.extend( {
-        maxWidth: 325, // determined empirically
         tandem: Tandem.required
       }, options );
 
@@ -195,7 +194,7 @@ define( require => {
       } ) );
 
       // layout
-      const operatorSpacing = 8; // space around operators
+      const operatorSpacing = 10; // space around operators
       const termSpacing = 4; // space inside a term
       equalsNode.left = yNode.right + operatorSpacing;
       fractionNode.left = equalsNode.right + operatorSpacing;
