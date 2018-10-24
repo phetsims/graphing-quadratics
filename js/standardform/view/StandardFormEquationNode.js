@@ -32,17 +32,16 @@ define( require => {
       }, options );
 
       // y = ax^2 + bx + c
-      const text = StringUtils.fillIn(
-        '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
-          x: GQSymbols.x,
-          xSquared: GQSymbols.xSquared,
-          y: GQSymbols.y,
-          a: GQSymbols.a,
-          b: GQSymbols.b,
-          c: GQSymbols.c,
-          equals: MathSymbols.EQUAL_TO,
-          plus: MathSymbols.PLUS
-        } );
+      const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
+        x: GQSymbols.x,
+        xSquared: GQSymbols.xSquared,
+        y: GQSymbols.y,
+        a: GQSymbols.a,
+        b: GQSymbols.b,
+        c: GQSymbols.c,
+        equals: MathSymbols.EQUAL_TO,
+        plus: MathSymbols.PLUS
+      } );
 
       const textNode = new RichText( text, {
         font: new PhetFont( 26 ),
