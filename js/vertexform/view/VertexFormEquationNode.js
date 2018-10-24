@@ -33,6 +33,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
+      // y = a(x - h)^2 + k
       const equation = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
         x: GQSymbols.x,
         y: GQSymbols.y,
