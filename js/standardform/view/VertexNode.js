@@ -20,7 +20,6 @@ define( require => {
   const Vector2IO = require( 'DOT/Vector2IO' );
 
   // constants
-  const COORDINATES_X_SPACING = 15;
   const COORDINATES_Y_SPACING = 5;
 
   class VertexNode extends PointNode {
@@ -48,27 +47,14 @@ define( require => {
       // position coordinates on the outside of the parabola
       assert && assert( !options.layoutCoordinates, 'VertexNode sets layoutCoordinates' );
       options.layoutCoordinates = ( coordinates, coordinatesNode, pointNode ) => {
-        const quadratic = quadraticProperty.value;
         coordinatesNode.centerX = pointNode.centerX;
-        if ( ( quadratic.roots && quadratic.roots.length === 0 ) && // no roots
-             quadraticProperty.value.vertex &&
-             Math.abs( quadratic.vertex.y ) <= 1 &&
-             Math.abs( quadratic.vertex.x ) < 4 ) {
-          // When the vertex would overlap with 'NO REAL ROOTS', move the coordinates to left of point.
-          // See https://github.com/phetsims/graphing-quadratics/issues/75#issuecomment-432336382
-          coordinatesNode.right = pointNode.left - COORDINATES_X_SPACING;
-          coordinatesNode.centerY = pointNode.centerY;
+        if ( quadraticProperty.value.a > 0 ) {
+          // center coordinates below a parabola that opens down
+          coordinatesNode.top = pointNode.bottom + COORDINATES_Y_SPACING;
         }
         else {
-          coordinatesNode.centerX = pointNode.centerX;
-          if ( quadraticProperty.value.a > 0 ) {
-            // center coordinates below a parabola that opens down
-            coordinatesNode.top = pointNode.bottom + COORDINATES_Y_SPACING;
-          }
-          else {
-            // center coordinates above a parabola that opens up
-            coordinatesNode.bottom = pointNode.top - COORDINATES_Y_SPACING;
-          }
+          // center coordinates above a parabola that opens up
+          coordinatesNode.bottom = pointNode.top - COORDINATES_Y_SPACING;
         }
       };
 
