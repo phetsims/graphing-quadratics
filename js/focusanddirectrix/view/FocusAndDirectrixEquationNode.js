@@ -36,11 +36,8 @@ define( require => {
       }, options );
 
       // y =
-      const leftString = StringUtils.fillIn( '{{y}} {{equals}}', {
-        y: GQSymbols.y,
-        equals: MathSymbols.EQUAL_TO
-      } );
-      const leftNode = new RichText( leftString, {
+      const yEqualsString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO;
+      const yEqualsNode = new RichText( yEqualsString, {
         font: options.font,
         fill: options.color
       } );
@@ -52,9 +49,7 @@ define( require => {
       } );
 
       // 4p
-      const denominatorString = StringUtils.fillIn( '4{{p}}', {
-        p: GQSymbols.p
-      } );
+      const denominatorString = '4' + GQSymbols.p;
       const denominatorNode = new RichText( denominatorString, {
         font: options.fractionFont,
         fill: options.color
@@ -87,11 +82,11 @@ define( require => {
       } );
 
       assert && assert( !options.children, 'FocusAndDirectrixEquationNode sets children' );
-      options.children = [ leftNode, fractionNode, rightNode ];
+      options.children = [ yEqualsNode, fractionNode, rightNode ];
 
       const xSpacing = 5;
-      fractionNode.left = leftNode.right + xSpacing;
-      fractionNode.centerY = leftNode.centerY;
+      fractionNode.left = yEqualsNode.right + xSpacing;
+      fractionNode.centerY = yEqualsNode.centerY;
       rightNode.left = fractionNode.right + xSpacing;
 
       super( options );
