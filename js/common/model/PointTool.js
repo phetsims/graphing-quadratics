@@ -25,9 +25,10 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic[]>} quadraticsProperty - Quadratics that the tool might intersect
+     * @param {Graph} graph
      * @param {Object} [options]
      */
-    constructor( quadraticsProperty, options ) {
+    constructor( quadraticsProperty, graph, options ) {
 
       options = _.extend( {
         location: Vector2.ZERO, // {Vector2} initial location
@@ -65,8 +66,13 @@ define( require => {
 
       // Determine whether we're on a quadratic, using small distances.
       Property.multilink( [ this.locationProperty, quadraticsProperty ], ( location, quadratics ) => {
-        this.onQuadraticProperty.value = this.getQuadraticNear( location,
-          GQQueryParameters.pointToolThreshold, GQQueryParameters.pointToolThreshold );
+        if ( graph.contains( location ) ) {
+          this.onQuadraticProperty.value = this.getQuadraticNear( location,
+            GQQueryParameters.pointToolThreshold, GQQueryParameters.pointToolThreshold );
+        }
+        else {
+          this.onQuadraticProperty.value = null;
+        }
       } );
     }
 

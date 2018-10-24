@@ -77,7 +77,7 @@ define( require => {
       this.quadraticTermsProperty = new Property( [], optionsPropertyQuadraticArray );
 
       // @public (read-only)
-      this.leftPointTool = new PointTool( pointToolQuadraticsProperty, {
+      this.leftPointTool = new PointTool( pointToolQuadraticsProperty, this.graph, {
         probeSide: 'right', // probe is attached to the right side
         location: new Vector2( -2, -12 ),
         dragBounds: new Bounds2(
@@ -88,7 +88,7 @@ define( require => {
       } );
 
       // @public (read-only)
-      this.rightPointTool = new PointTool( pointToolQuadraticsProperty, {
+      this.rightPointTool = new PointTool( pointToolQuadraticsProperty, this.graph, {
         probeSide: 'left', // probe is attached to the left side
         location: new Vector2( 2, -12 ),
         dragBounds: new Bounds2(
