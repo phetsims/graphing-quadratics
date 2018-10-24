@@ -25,10 +25,14 @@ define( require => {
 
     /**
      * @param {BooleanProperty} rootsVisibleProperty
+     * @param {BooleanProperty} vertexVisibleProperty
+     * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {ModelViewTransform2} modelViewTransform
      * @param {Object} [options]
      */
-    constructor( rootsVisibleProperty, quadraticProperty, options ) {
+    constructor( rootsVisibleProperty, vertexVisibleProperty, coordinatesVisibleProperty,
+                 quadraticProperty, modelViewTransform, options ) {
 
       options = _.extend( {
         tandem: Tandem.required
@@ -59,6 +63,28 @@ define( require => {
           !!( quadratic.roots && quadratic.roots.length === 0 ) // the interactive quadratic has no roots
         );
       visibleProperty.linkAttribute( this, 'visible' );
+
+      // Center on the origin, except when that would overlap the vertex's coordinates.
+      // In that case, position above or below the x axis.
+      // See https://github.com/phetsims/graphing-quadratics/issues/88
+      const centerProperty = new DerivedProperty(
+        [ vertexVisibleProperty, coordinatesVisibleProperty, quadraticProperty ],
+        ( vertexVisible, coordinatesVisible, quadratic ) => {
+          if ( vertexVisible && // the Vertex checkbox is checked
+               coordinatesVisible && // the Coordinates checkbox is checked
+               ( quadratic.roots && quadratic.roots.length === 0 ) && // no roots
+               // vertex is in a position where its coordinates will overlap
+               quadraticProperty.value.vertex &&
+               Math.abs( quadratic.vertex.y ) <= 1 &&
+               Math.abs( quadratic.vertex.x ) < 4 ) {
+            return modelViewTransform.modelToViewXY( 0, ( quadratic.a > 0 ? -1 : 1 ) );
+          }
+          else {
+            return modelViewTransform.modelToViewXY( 0, 0 );
+          }
+        }
+      );
+      centerProperty.linkAttribute( this, 'center' );
     }
   }
 

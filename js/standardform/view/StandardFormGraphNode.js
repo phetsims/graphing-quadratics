@@ -66,11 +66,16 @@ define( require => {
         } );
 
       // 'NO REAL ROOTS' label
-      const noRealRootsNode = new NoRealRootsNode( viewProperties.rootsVisibleProperty, model.quadraticProperty, {
-        center: model.modelViewTransform.modelToViewXY( model.graph.xRange.getCenter(), model.graph.yRange.getCenter() ),
-        tandem: tandem.createTandem( 'noRealRootsNode' ),
-        phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
-      } );
+      const noRealRootsNode = new NoRealRootsNode(
+        viewProperties.rootsVisibleProperty,
+        viewProperties.vertexVisibleProperty,
+        viewProperties.coordinatesVisibleProperty,
+        model.quadraticProperty,
+        model.modelViewTransform, {
+          center: model.modelViewTransform.modelToViewXY( model.graph.xRange.getCenter(), model.graph.yRange.getCenter() ),
+          tandem: tandem.createTandem( 'noRealRootsNode' ),
+          phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
+        } );
 
       assert && assert( !options.otherCurves, 'StandardFormGraphNode sets otherCurves' );
       options.otherCurves = [ axisOfSymmetryNode ];
