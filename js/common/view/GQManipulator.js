@@ -50,6 +50,10 @@ define( require => {
 
       super( options.radius, options.color, options );
 
+      // Determine the actual radius of the manipulator (sphere + optional halo) before adding coordinates.
+      // This will be used to layout the coordinates relative to the sphere + halo.
+      const actualRadius = this.width / 2;
+
       // add coordinates display
       const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
         backgroundColor: options.coordinatesBackgroundColor,
@@ -63,7 +67,7 @@ define( require => {
 
       // update layout
       coordinatesProperty.link( coordinates => {
-        options.layoutCoordinates( coordinates, coordinatesNode, this.actualRadius );
+        options.layoutCoordinates( coordinates, coordinatesNode, actualRadius );
       } );
 
       // visibility
