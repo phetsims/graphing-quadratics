@@ -60,7 +60,6 @@ define( require => {
       options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
         coordinatesNode.centerX = 0;
         const yOffset = radius + COORDINATES_Y_SPACING;
-        console.log( 'yOffset=' + yOffset );//XXX
         if ( quadraticProperty.value.a > 0 ) {
           coordinatesNode.bottom = -yOffset;
         }
