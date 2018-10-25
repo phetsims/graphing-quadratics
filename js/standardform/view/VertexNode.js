@@ -15,7 +15,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const PointNode = require( 'GRAPHING_QUADRATICS/common/view/PointNode' );
+  const PointNode = require( 'GRAPHING_QUADRATICS/standardform/view/PointNode' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
