@@ -1,11 +1,11 @@
 {
-  "comment": "# graphing-quadratics 1.0.0-dev.40 Wed Oct 24 2018 14:07:44 GMT-0600 (MDT)",
+  "comment": "# graphing-quadratics 1.0.0-dev.41 Thu Oct 25 2018 10:07:27 GMT-0400 (EDT)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "master"
   },
   "axon": {
-    "sha": "79f5d47945d78e8ad9cd9a02279b4306eb3ca72c",
+    "sha": "2b9b4665baea880c33a60885344fbce382d37223",
     "branch": "master"
   },
   "brand": {
@@ -25,11 +25,11 @@
     "branch": "master"
   },
   "graphing-quadratics": {
-    "sha": "201fce342a894d6780b1b56475b2f5f8a30a937c",
+    "sha": "3b17d348ef016e69db7b0219b35c4778560c6d64",
     "branch": "master"
   },
   "joist": {
-    "sha": "ee553a73aaa85380583905deb363b1586f0a7118",
+    "sha": "284d4bdfcec18b523ca191e33724a60d67be92ae",
     "branch": "master"
   },
   "kite": {
@@ -69,11 +69,11 @@
     "branch": "master"
   },
   "scenery": {
-    "sha": "1a11d0a8956133daab9dfbd7bd2f70617192de9b",
+    "sha": "a94f22c2eaba6b3cd8f460f9f5ca93f8bacd6abf",
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "ea760151a129aceaeb22d9ba564e42b4db1d0db9",
+    "sha": "bd5d09ac8b03611c303632a04cd8a8c46cf65261",
     "branch": "master"
   },
   "sherpa": {
@@ -81,7 +81,7 @@
     "branch": "master"
   },
   "sun": {
-    "sha": "e5b1309aff0cc8c094b67705561b2b28b05fbbed",
+    "sha": "b810db8f3bc1f9a4f87c0f2b64dc93bac5fd00c8",
     "branch": "master"
   },
   "tambo": {
