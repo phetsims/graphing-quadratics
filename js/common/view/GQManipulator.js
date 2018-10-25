@@ -34,7 +34,7 @@ define( require => {
         // Positions the coordinates when coordinatesProperty changes, default is centered above the manipulator.
         layoutCoordinates: ( coordinates, coordinatesNode, radius ) => {
           coordinatesNode.centerX = 0;
-          coordinatesNode.bottom = -( radius + 2 );
+          coordinatesNode.bottom = -( radius + 1 );
         },
 
         // Manipulator constructor args
