@@ -71,7 +71,7 @@ define( require => {
         bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
         tandem: options.tandem.createTandem( 'graphContentsToggleButton' ),
         phetioDocumentation: 'button that shows/hides the contents of the graph',
-        phetioReadOnly: true // we don't want the client to modify this button
+        phetioReadOnly: true
       } );
 
       // Set maxWidth for each control panel individually

@@ -53,7 +53,7 @@ define( require => {
         listener: eraseFunction,
         tandem: options.tandem.createTandem( 'eraseButton' ),
         phetioDocumentation: 'the button used to erase the saved quadratic',
-        phetioReadOnly: true // we don't want the client to modify this button, see #60
+        phetioReadOnly: true
       } );
 
       assert && assert( !options.children, 'SaveEraseButtonGroup sets children' );
