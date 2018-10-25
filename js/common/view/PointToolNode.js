@@ -79,7 +79,9 @@ define( require => {
         xMargin: 0,
         yMargin: 0,
         decimals: GQConstants.POINT_TOOL_DECIMALS,
-        maxWidth: 60 // constrain width, determined empirically, dependent on bodyNode
+        maxWidth: 60, // constrain width, determined empirically, dependent on bodyNode
+        tandem: options.tandem.createTandem( 'coordinatesNode' ),
+        phetioDocumentation: 'coordinates displayed by this point tool'
       } );
 
       // background behind the coordinates, sized to the body so that it shows through the window

@@ -43,7 +43,8 @@ define( require => {
 
         // Manipulator options
         haloAlpha: 0.15,
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioReadOnly: true // see https://github.com/phetsims/graphing-quadratics/issues/80
 
       }, options );
 

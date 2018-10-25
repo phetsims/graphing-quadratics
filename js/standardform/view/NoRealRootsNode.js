@@ -36,7 +36,8 @@ define( require => {
                  quadraticProperty, modelViewTransform, options ) {
 
       options = _.extend( {
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioReadOnly: true
       }, options );
 
       const textNode = new Text( noRealRootsString, {
