@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/NoRealRootsNode' );
@@ -30,9 +29,6 @@ define( require => {
       // We do NOT want to instrument the graph, so tandem is not propagated via options
       options = options || {};
 
-      // Radius of plotted points, in view coordinate frame
-      const pointRadius = model.modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS );
-
       // Axis of symmetry
       const axisOfSymmetryNode = new AxisOfSymmetryNode(
         model.quadraticProperty,
@@ -48,7 +44,6 @@ define( require => {
         model.modelViewTransform,
         viewProperties.rootsVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          radius: pointRadius,
           tandem: tandem.createTandem( 'rootsNode' ),
           phetioDocumentation: 'displays the roots of the interactive quadratic'
         } );
@@ -60,7 +55,6 @@ define( require => {
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          radius: pointRadius,
           tandem: tandem.createTandem( 'vertexNode' ),
           phetioDocumentation: 'displays the vertex of the interactive quadratic'
         } );
