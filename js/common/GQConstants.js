@@ -103,11 +103,11 @@ define( require => {
 
     // slider intervals
     EXPLORE_INTERVAL_A: 0.01,
-    EXPLORE_INTERVAL_B: 0.1,
-    EXPLORE_INTERVAL_C: 0.1,
-    FOCUS_AND_DIRECTRIX_INTERVAL_P: 0.1,
-    FOCUS_AND_DIRECTRIX_INTERVAL_H: 0.1,
-    FOCUS_AND_DIRECTRIX_INTERVAL_K: 0.1,
+    EXPLORE_INTERVAL_B: 0.5,
+    EXPLORE_INTERVAL_C: 0.5,
+    FOCUS_AND_DIRECTRIX_INTERVAL_P: 0.5,
+    FOCUS_AND_DIRECTRIX_INTERVAL_H: 0.5,
+    FOCUS_AND_DIRECTRIX_INTERVAL_K: 0.5,
 
     // enums
     EQUATION_FORMS: [ 'standard', 'vertex' ], // form of equations on curves
