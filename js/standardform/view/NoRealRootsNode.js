@@ -22,11 +22,6 @@ define( require => {
   // strings
   const noRealRootsString = require( 'string!GRAPHING_QUADRATICS/noRealRoots' );
 
-  // constants
-  // Part of the graph where 'NO REAL ROOTS' overlaps with vertex coordinates.
-  // See https://github.com/phetsims/graphing-quadratics/issues/88
-  const VERTEX_OVERLAP_BOUNDS = new Bounds2( -4, -1, 4, 1 );
-
   class NoRealRootsNode extends Node {
 
     /**
@@ -62,6 +57,13 @@ define( require => {
 
       super( options );
 
+      // Part of the graph where 'NO REAL ROOTS' may overlap with vertex coordinates.
+      // when 'NO REAL ROOTS' is typically centered at the origin.
+      // See https://github.com/phetsims/graphing-quadratics/issues/88
+      const vertexOverlapBounds = new Bounds2(
+        modelViewTransform.viewToModelDeltaX( -this.width / 2 ), -1,
+        modelViewTransform.viewToModelDeltaX( this.width / 2 ), 1 );
+
       const visibleProperty = new DerivedProperty(
         [ rootsVisibleProperty, quadraticProperty ],
         ( rootsVisible, quadratic ) =>
@@ -80,7 +82,7 @@ define( require => {
                coordinatesVisible && // the Coordinates checkbox is checked
                ( quadratic.roots && quadratic.roots.length === 0 ) && // no roots
                // vertex is in a position where its coordinates will overlap
-               ( quadratic.vertex && VERTEX_OVERLAP_BOUNDS.containsPoint( quadratic.vertex ) ) ) {
+               ( quadratic.vertex && vertexOverlapBounds.containsPoint( quadratic.vertex ) ) ) {
             // center above or below the x axis
             return modelViewTransform.modelToViewXY( 0, ( quadratic.a > 0 ? -1 : 1 ) );
           }
