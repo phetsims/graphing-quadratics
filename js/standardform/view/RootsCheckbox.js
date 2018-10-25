@@ -9,8 +9,8 @@ define( require => {
   'use strict';
 
   // modules
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const Circle = require( 'SCENERY/nodes/Circle' );
+  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );

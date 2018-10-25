@@ -12,8 +12,8 @@ define( require => {
   // modules
   const Checkbox = require( 'SUN/Checkbox' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );

@@ -27,8 +27,8 @@ define( require => {
 
   // modules
   const Color = require( 'SCENERY/util/Color' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );

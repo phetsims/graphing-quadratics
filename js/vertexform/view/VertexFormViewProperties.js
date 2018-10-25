@@ -10,9 +10,9 @@ define( require => {
 
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
+  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class VertexFormViewProperties extends GQViewProperties {

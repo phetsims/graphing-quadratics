@@ -12,8 +12,8 @@ define( require => {
   // modules
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const phetioInherit = require( 'TANDEM/phetioInherit' );
+  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
 
   // ifphetio
   const assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
