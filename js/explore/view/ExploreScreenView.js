@@ -29,8 +29,7 @@ define( require => {
       };
 
       const viewProperties = new ExploreViewProperties( {
-        tandem: tandem.createTandem( 'viewProperties' ),
-        phetioDocumentation: 'Properties that are specific to the view for this screen'
+        tandem: tandem.createTandem( 'viewProperties' )
       } );
 
       super( model,

@@ -29,8 +29,7 @@ define( require => {
       };
 
       const viewProperties = new FocusAndDirectrixViewProperties( {
-        tandem: options.tandem.createTandem( 'viewProperties'),
-        phetioDocumentation: 'Properties that are specific to the view for this screen'
+        tandem: options.tandem.createTandem( 'viewProperties')
       } );
 
       super( model,
