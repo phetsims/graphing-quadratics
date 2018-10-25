@@ -52,9 +52,11 @@ define( require => {
       // position coordinates based on which side of the parabola the point is on
       assert && assert( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );
       options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
+        assert && assert( coordinates, 'expected coordinates' );
         const vertex = quadraticProperty.value.vertex;
+        assert && assert( vertex, 'expected a parabola' );
         const xOffset = radius + COORDINATES_X_SPACING;
-        if ( !vertex || ( coordinates.x >= vertex.x ) ) {
+        if ( coordinates.x >= vertex.x ) {
           coordinatesNode.left = xOffset;
         }
         else {

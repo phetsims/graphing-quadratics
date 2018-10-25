@@ -58,6 +58,7 @@ define( require => {
       // position coordinates based on which way the parabola opens
       assert && assert( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );
       options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
+        assert && assert( coordinates, 'expected coordinates' );
         coordinatesNode.centerX = 0;
         const yOffset = radius + COORDINATES_Y_SPACING;
         if ( quadraticProperty.value.a > 0 ) {
