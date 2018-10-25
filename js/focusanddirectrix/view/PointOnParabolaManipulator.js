@@ -20,6 +20,9 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
+  // constants
+  const COORDINATES_X_SPACING = 1;
+
   class PointOnParabolaManipulator extends GQManipulator {
 
     /**
@@ -48,14 +51,14 @@ define( require => {
 
       // position coordinates based on which side of the parabola the point is on
       assert && assert( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );
-      options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
-        const coordinatesXOffset = 1.8 * options.radius;
+      options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
         const vertex = quadraticProperty.value.vertex;
+        const xOffset = radius + COORDINATES_X_SPACING;
         if ( !vertex || ( coordinates.x >= vertex.x ) ) {
-          coordinatesNode.left = coordinatesXOffset;
+          coordinatesNode.left = xOffset;
         }
         else {
-          coordinatesNode.right = -coordinatesXOffset;
+          coordinatesNode.right = -xOffset;
         }
         coordinatesNode.centerY = 0;
       };

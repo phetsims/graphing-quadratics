@@ -22,6 +22,9 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
+  // constants
+  const COORDINATES_Y_SPACING = 1;
+
   class FocusManipulator extends GQManipulator {
 
     /**
@@ -54,14 +57,15 @@ define( require => {
 
       // position coordinates based on which way the parabola opens
       assert && assert( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );
-      options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
-        const coordinatesYOffset = 1.8 * options.radius;
+      options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
         coordinatesNode.centerX = 0;
+        const yOffset = radius + COORDINATES_Y_SPACING;
+        console.log( 'yOffset=' + yOffset );//XXX
         if ( quadraticProperty.value.a > 0 ) {
-          coordinatesNode.bottom = -coordinatesYOffset;
+          coordinatesNode.bottom = -yOffset;
         }
         else {
-          coordinatesNode.top = coordinatesYOffset;
+          coordinatesNode.top = yOffset;
         }
       };
 

@@ -24,6 +24,9 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
+  // constants
+  const COORDINATES_Y_SPACING = 1;
+
   class VertexManipulator extends GQManipulator {
 
     /**
@@ -53,15 +56,15 @@ define( require => {
 
       // position coordinates based on which way the parabola opens
       assert && assert( !options.layoutCoordinates, 'VertexManipulator sets layoutCoordinates' );
-      options.layoutCoordinates = ( coordinates, coordinatesNode ) => {
-        const coordinatesYOffset = 1.8 * options.radius;
+      options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
         if ( coordinates ) {
           coordinatesNode.centerX = 0;
+          const yOffset = radius + COORDINATES_Y_SPACING;
           if ( quadraticProperty.value.a > 0 ) {
-            coordinatesNode.top = coordinatesYOffset;
+            coordinatesNode.top = yOffset;
           }
           else {
-            coordinatesNode.bottom = -coordinatesYOffset;
+            coordinatesNode.bottom = -yOffset;
           }
         }
       };

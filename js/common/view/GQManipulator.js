@@ -30,11 +30,11 @@ define( require => {
         coordinatesForegroundColor: 'white',
         coordinatesDecimals: 0,
 
-        // {function( coordinates:Vector2, coordinatesNode:Node )}
+        // {function( coordinates:Vector2, coordinatesNode:Node, radius:number )}
         // Positions the coordinates when coordinatesProperty changes, default is centered above the manipulator.
-        layoutCoordinates: ( coordinates, coordinatesNode ) => {
+        layoutCoordinates: ( coordinates, coordinatesNode, radius ) => {
           coordinatesNode.centerX = 0;
-          coordinatesNode.bottom = -20;
+          coordinatesNode.bottom = -( radius + 2 );
         },
 
         // Manipulator constructor args
@@ -62,7 +62,9 @@ define( require => {
       this.addChild( coordinatesNode );
 
       // update layout
-      coordinatesProperty.link( coordinates => { options.layoutCoordinates( coordinates, coordinatesNode ); } );
+      coordinatesProperty.link( coordinates => {
+        options.layoutCoordinates( coordinates, coordinatesNode, this.actualRadius );
+      } );
 
       // visibility
       coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
