@@ -24,6 +24,7 @@ define( require => {
   const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
   const H_RANGE = new RangeWithValue( -9, 9, 0 ); // h coefficient
   const K_RANGE = new RangeWithValue( -9, 9, 0 ); // k coefficient
+  const COEFFICIENT_NUMBER_TYPE = 'Integer';
           
   class VertexFormModel extends GQModel {
 
@@ -36,6 +37,7 @@ define( require => {
       // coefficients for vertex form
       const aProperty = new NumberProperty( A_RANGE.defaultValue, {
         range: A_RANGE,
+        numberType: COEFFICIENT_NUMBER_TYPE,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioDocumentation: 'coefficient a for the interactive quadratic'
       } );
@@ -43,6 +45,7 @@ define( require => {
 
       const hProperty = new NumberProperty( H_RANGE.defaultValue, {
         range: H_RANGE,
+        numberType: COEFFICIENT_NUMBER_TYPE,
         tandem: tandem.createTandem( 'bProperty' ),
         phetioDocumentation: 'coefficient h for the interactive quadratic'
       } );
@@ -50,6 +53,7 @@ define( require => {
 
       const kProperty = new NumberProperty( K_RANGE.defaultValue, {
         range: K_RANGE,
+        numberType: COEFFICIENT_NUMBER_TYPE,
         tandem: tandem.createTandem( 'cProperty' ),
         phetioDocumentation: 'coefficient k for the interactive quadratic'
       } );

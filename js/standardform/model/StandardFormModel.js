@@ -29,12 +29,20 @@ define( require => {
 
     /**
      * @param {Tandem} tandem
+     * @param {Object} [options]
      */
-    constructor( tandem ) {
+    constructor( tandem, options ) {
+
+      options = _.extend( {
+
+        // NumberProperty options, for coefficients
+        numberType: 'Integer'
+      }, options );
 
       // coefficients for standard form
       const aProperty = new NumberProperty( A_RANGE.defaultValue, {
         range: A_RANGE,
+        numberType: options.numberType,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioDocumentation: 'coefficient a for the interactive quadratic'
       } );
@@ -42,6 +50,7 @@ define( require => {
 
       const bProperty = new NumberProperty( B_RANGE.defaultValue, {
         range: B_RANGE,
+        numberType: options.numberType,
         tandem: tandem.createTandem( 'bProperty' ),
         phetioDocumentation: 'coefficient b for the interactive quadratic'
       } );
@@ -49,6 +58,7 @@ define( require => {
 
       const cProperty = new NumberProperty( C_RANGE.defaultValue, {
         range: C_RANGE,
+        numberType: options.numberType,
         tandem: tandem.createTandem( 'cProperty' ),
         phetioDocumentation: 'coefficient c for the interactive quadratic'
       } );

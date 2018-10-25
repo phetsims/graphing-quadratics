@@ -23,7 +23,9 @@ define( require => {
      */
     constructor( tandem ) {
 
-      super( tandem );
+      super( tandem, {
+        numberType: 'FloatingPoint' // NumberProperty coefficients values in this screen
+      } );
 
       // @public {DerivedProperty.<Quadratic>}
       this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
