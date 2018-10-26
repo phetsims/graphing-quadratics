@@ -1,8 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Standard form equation with integer coefficients that can be changed.
- * Form is y = ax^2 + bx + c, where a, b, and c can be changed with number pickers
+ * Standard form equation, y = ax^2 + bx + c, with integer coefficients that can be changed via pickers.
  *
  * @author Andrea Lin
  */
@@ -25,9 +24,10 @@ define( require => {
   class StandardFormInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} aProperty - a coefficient of the standard form of the quadratic equation
-     * @param {NumberProperty} bProperty - b coefficient of the standard form of the quadratic equation
-     * @param {NumberProperty} cProperty - c constant of the standard form of the quadratic equation
+     * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
+     * @param {NumberProperty} aProperty
+     * @param {NumberProperty} bProperty
+     * @param {NumberProperty} cProperty
      * @param {Object} [options]
      */
     constructor( aProperty, bProperty, cProperty, options ) {

@@ -1,8 +1,9 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Standard form equation with integer coefficients that can be changed.
- * Form is y = ax^2 + bx + c, where a, b, and c can be changed with sliders.
+ * Standard form equation, y = ax^2 + bx + c, with coefficients that can be changed via sliders.
+ * The slider for coefficient 'a' has a quadratic taper (since it's modifying a quadratic term), while
+ * the other sliders are linear.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -27,9 +28,10 @@ define( require => {
   class ExploreInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} aProperty - a coefficient of the standard form of the quadratic equation
-     * @param {NumberProperty} bProperty - b coefficient of the standard form of the quadratic equation
-     * @param {NumberProperty} cProperty - c constant of the standard form of the quadratic equation
+     * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
+     * @param {NumberProperty} aProperty
+     * @param {NumberProperty} bProperty
+     * @param {NumberProperty} cProperty
      * @param {Object} [options]
      */
     constructor( aProperty, bProperty, cProperty, options ) {

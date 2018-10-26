@@ -1,8 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Vertex form equation with coefficients that can be changed.
- * Form is y = ax^2 + bx + c, where a, b, and c can be changed with number pickers.
+ * Vertex form equation, y = ax^2 + bx + c, with integer coefficients that can be changed via pickers.
  *
  * @author Andrea Lin
  */
@@ -25,9 +24,10 @@ define( require => {
   class VertexFormInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} aProperty - a coefficient of vertex form of the quadratic equation
-     * @param {NumberProperty} hProperty - h coefficient of vertex form of the quadratic equation
-     * @param {NumberProperty} kProperty - k coefficient of vertex form of the quadratic equation
+     * Constructor parameters are coefficients of the vertex form: y = ax^2 + bx + c
+     * @param {NumberProperty} aProperty
+     * @param {NumberProperty} hProperty
+     * @param {NumberProperty} kProperty
      * @param {Object} [options]
      */
     constructor( aProperty, hProperty, kProperty, options ) {

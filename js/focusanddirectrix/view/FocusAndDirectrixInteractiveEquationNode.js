@@ -1,8 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Alternate vertex form equation with coefficients that can be changed via sliders.
- * Form is y = (1/(4p))(x - h)^2 + k, where p, h, and k can be changed with number pickers
+ * Alternate vertex form equation, y = (1/(4p))(x - h)^2 + k, with coefficients that can be changed via sliders.
+ * All sliders have a linear taper.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -28,9 +28,10 @@ define( require => {
   class FocusAndDirectrixInteractiveEquationNode extends Node {
 
     /**
-     * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
-     * @param {NumberProperty} hProperty - h coefficient of alternate vertex form
-     * @param {NumberProperty} kProperty - k coefficient of alternate vertex form
+     * Constructor parmeters are coefficients of the alternate vertex form: y = (1/(4p))(x - h)^2 + k
+     * @param {NumberProperty} pProperty
+     * @param {NumberProperty} hProperty
+     * @param {NumberProperty} kProperty
      * @param {Object} [options]
      */
     constructor( pProperty, hProperty, kProperty, options ) {
