@@ -58,9 +58,9 @@ define( require => {
 
       super( options );
 
-      // Part of the graph where 'NO REAL ROOTS' may overlap with vertex coordinates.
-      // when 'NO REAL ROOTS' is typically centered at the origin.
-      // See https://github.com/phetsims/graphing-quadratics/issues/88
+      // Part of the graph where 'NO REAL ROOTS' may overlap with vertex coordinates, when 'NO REAL ROOTS' is
+      // typically centered at the origin. Width is based on translated string width, height was determined
+      // empirically. See https://github.com/phetsims/graphing-quadratics/issues/88
       const vertexOverlapBounds = new Bounds2(
         modelViewTransform.viewToModelDeltaX( -this.width / 2 ), -1,
         modelViewTransform.viewToModelDeltaX( this.width / 2 ), 1 );
