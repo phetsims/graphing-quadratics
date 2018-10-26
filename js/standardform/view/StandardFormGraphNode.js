@@ -29,7 +29,7 @@ define( require => {
       // We do NOT want to instrument the graph, so tandem is not propagated via options
       options = options || {};
 
-      // Axis of symmetry
+      // Axis of symmetry line
       const axisOfSymmetryNode = new AxisOfSymmetryNode(
         model.quadraticProperty,
         model.graph,

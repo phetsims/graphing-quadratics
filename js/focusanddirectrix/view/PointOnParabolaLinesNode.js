@@ -58,13 +58,13 @@ define( require => {
           directrixLine.setLine( pointView.x, pointView.y, pointView.x, directrixView );
         } );
 
-      // visibility of point-focus line
+      // visibility of line connecting point and focus
       Property.multilink( [ pointOnParabolaVisibleProperty, focusVisibleProperty ],
         ( pointOnParabolaVisible, focusVisibleProperty ) => {
           focusLine.visible = ( pointOnParabolaVisible && focusVisibleProperty );
         } );
 
-      // visibility of point-directrix line
+      // visibility of line connecting point and directrix
       Property.multilink( [ pointOnParabolaVisibleProperty, directrixVisibleProperty ],
         ( pointOnParabolaVisible, directrixVisible ) => {
           directrixLine.visible = ( pointOnParabolaVisible && directrixVisible );

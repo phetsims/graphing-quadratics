@@ -30,7 +30,7 @@ define( require => {
       // We do NOT want to instrument the graph, so tandem is not propagated via options
       options = options || {};
 
-      // Directrix
+      // Directrix line
       const directrixNode = new DirectrixNode(
         model.quadraticProperty,
         model.graph,
