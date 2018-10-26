@@ -149,8 +149,9 @@ define( require => {
       // )
       const parenNode = new RichText( ')', equationOptions );
 
-      // 1/4(p)
+      // 4(p)
       const denominatorNode = new HBox( {
+        align: 'center',
         children: [ fourParenNode, pNode, parenNode ]
       } );
 
@@ -164,6 +165,7 @@ define( require => {
       // 1/4p
       const fractionNode = new VBox( {
         spacing: 2,
+        align: 'center',
         children: [ numeratorNode, fractionLine, denominatorNode ],
         scale: 0.85
       } );

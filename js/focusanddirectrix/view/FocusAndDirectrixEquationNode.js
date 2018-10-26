@@ -65,6 +65,7 @@ define( require => {
       // 1/4p
       const fractionNode = new VBox( {
         spacing: 2,
+        align: 'center',
         children: [ numeratorNode, fractionLine, denominatorNode ]
       } );
 

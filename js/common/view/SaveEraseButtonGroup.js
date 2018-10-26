@@ -34,6 +34,7 @@ define( require => {
         
         // HBox options
         spacing: 40,
+        align: 'center',
         tandem: Tandem.required
       }, options );
 
