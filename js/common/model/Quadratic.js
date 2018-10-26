@@ -297,6 +297,7 @@ define( require => {
      */
     hasSolution( point, distance ) {
       distance = distance || 0;
+      assert && assert( distance >= 0, 'invalid distance: ' + distance );
       const closestPoint = this.getClosestPoint( point );
       return point.distance( closestPoint ) <= distance;
     }
@@ -384,7 +385,7 @@ define( require => {
 
   /**
    * Returns the real roots of the quadratic y = ax^2 + bx + c.
-   * If there is more than one roots, they will be in ascending order of x coordinate.
+   * If there is more than one root, they will be in ascending order of x coordinate.
    * @param {number} a
    * @param {number} b
    * @param {number} c
@@ -403,7 +404,7 @@ define( require => {
   }
 
   /**
-   * Documentation for the association IO type, QuadraticIO.  This appears in PhET-iO Studio.
+   * Documentation for the associated IO type, QuadraticIO.  This appears in PhET-iO Studio.
    * Defined here so that specifics about Quadratic appear in one place.
    * @type {string}
    * @public
