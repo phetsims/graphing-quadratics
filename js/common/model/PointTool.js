@@ -9,6 +9,8 @@ define( require => {
   'use strict';
 
   // modules
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -55,29 +57,27 @@ define( require => {
         phetioDocumentation: 'location of this point tool'
       } );
 
-      // @public (read-only) {Property.<Quadratic|null>}
-      this.onQuadraticProperty = new Property( null, {
-        isValidValue: value => ( value instanceof Quadratic || value === null ),
-        tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
-        phetioType: PropertyIO( NullableIO( QuadraticIO ) ),
-        phetioReadOnly: true,
-        phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
-      } );
-
-      // Determine whether we're on a quadratic.
-      Property.multilink( [ this.locationProperty, quadraticsProperty ], ( location, quadratics ) => {
-        if ( graph.contains( location ) ) {
-          this.onQuadraticProperty.value = this.getQuadraticNear( location,
-            GQQueryParameters.pointToolThreshold, GQQueryParameters.pointToolThreshold );
-        }
-        else {
-          this.onQuadraticProperty.value = null;
-        }
-      } );
+      // @public {DerivedProperty.<Quadratic|null>}
+      this.onQuadraticProperty = new DerivedProperty(
+        [ this.locationProperty, quadraticsProperty ],
+        ( location, quadratics ) => {
+          if ( graph.contains( location ) ) {
+            return this.getQuadraticNear( location,
+              GQQueryParameters.pointToolThreshold, GQQueryParameters.pointToolThreshold );
+          }
+          else {
+            return null;
+          }
+        }, {
+          isValidValue: value => ( value instanceof Quadratic || value === null ),
+          tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
+          phetioType: DerivedPropertyIO( NullableIO( QuadraticIO ) ),
+          phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
+        } );
     }
 
     /**
-     * Gets the quadratic that is close to a specified location, within a specified distance. 
+     * Gets the quadratic that is close to a specified location, within a specified distance.
      * This algorithm prefers to return the quadratic that the point tool is already on.
      * If that quadratic is too far away, then examine all quadratics, in foreground-to-background order.
      * See #47.
