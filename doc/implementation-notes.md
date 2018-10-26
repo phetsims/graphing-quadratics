@@ -52,7 +52,7 @@ testing. Sim-specific query parameters are documented in
 
 **Assertions**: The implementation makes liberal use of `assert` to verify pre/post assumptions and perform argument validation. If you are making modifications to this sim, do so with assertions enabled via the `ea` query parameter.
 
-**Memory management**: Unless otherwise documented in the source code, assume that `unlink`, `removeListener`, `dispose`, etc. are generally not needed. Most object instances exist for the lifetime of the sim, and there are no dynamic objects that participate in observer-observable relationships. The exception is `QuadraticNode` for the saved curve.
+**Memory management**: Unless otherwise documented in the source code, assume that `unlink`, `removeListener`, `dispose`, etc. are generally not needed. Most object instances exist for the lifetime of the sim. The exception is `QuadraticNode` for the saved curve.
 
 ## Related simulations
 
@@ -62,7 +62,7 @@ This sim reuses a very small number of model and view components from Graphing L
 
 This section provides an overview of the most important model components.
 
-Note that this simulation supports _only_ parabolas that open up or down, i.e. have the form _y_ = _ax_<sup>2</sup> + _bx_ + _c_.  It does not support parabolas that open left or right, i.e. have the form _x_ = _ay_<sup>2</sup> + _by_ + _c_.
+Note that this simulation supports _only_ parabolas that open up or down, i.e. have the form _y_ = _ax_<sup>2</sup> + _bx_ + _c_.  It does not support parabolas that open left or right, i.e. that have the form _x_ = _ay_<sup>2</sup> + _by_ + _c_.
 
 [Quadratic](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/model/Quadratic.js) is the primary model component. It is essentially an immutable data structure that describes a quadratic equation. It supports instantiation using standard form (via the constructor), vertex form (via `createFromVertexForm`) and alternate vertex form (via `createFromAlternateVertexForm`).
 
@@ -82,6 +82,6 @@ This section provides an overview of the most important view components.
 
 Each screen has a class whose name ends with "InteractiveEquationNode", for example, [ExploreInteractiveEquationNode](https://github.com/phetsims/graphing-quadratics/blob/master/js/explore/view/ExploreInteractiveEquationNode.js). This is the UI for modifying the interactive quadratic indirectly, using sliders or pickers. _Explore_ and _Focus & Directrix_ screens use sliders, _Standard Form_ and _Vertex Form_ screens use pickers.
 
-Manipulators are the shaded spheres that appear on the graph. They allow the user to modify the interactive quadratic directly, by interacting with its curve. The [Manipulator](https://github.com/phetsims/graphing-lines/blob/master/js/common/view/manipulator/Manipulator.js) base class is reused from the Graphing Lines sim.  The 3 subclasses are [VertexManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/VertexManipulator.js), [FocusManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/FocusManipulator.js) and [PointOnQuadraticManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/PointOnQuadraticManipulator.js), for changing the vertex, focus, and point on the quadratic respectively.
+Manipulators are the shaded spheres that appear on the graph. They allow the user to modify the interactive quadratic directly, by interacting with its curve. The [Manipulator](https://github.com/phetsims/graphing-lines/blob/master/js/common/view/manipulator/Manipulator.js) base class is reused from the Graphing Lines sim, and is extended in the [GQManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQManipulator.js) base class, which adds optional (x,y) coordinates.  The 3 subclasses of `GQManipulator` are [VertexManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/VertexManipulator.js), [FocusManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/FocusManipulator.js) and [PointOnParabolaManipulator](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/PointOnParabolaManipulator.js), for changing the vertex, focus, and point on the parabola respectively.
 
-Each checkbox in this sim is a subclass of `SUN/Checkbox`, and is responsible for creating it's label, which often includes both text and an icon. You can locate a `Checkbox` subclass based on the English text used on checkbox. For example, [FocusCheckbox](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/FocusCheckbox.js) is the checkbox labeled with "Focus" and a focus manipulator icon.
+Each checkbox in this sim is a subclass of [GQCheckBox](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/view/GQCheckbox.js), a subtype of `SUN/Checkbox` that supports labeling with an optional icon, and provides standardization of various properties (font, fill,...) You can locate a `Checkbox` subclass based on the English text used on checkbox. For example, [FocusCheckbox](https://github.com/phetsims/graphing-quadratics/blob/master/js/focusanddirectrix/view/FocusCheckbox.js) is the checkbox labeled with "Focus" and a focus manipulator icon.
