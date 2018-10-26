@@ -35,13 +35,13 @@ define( require => {
      */
     constructor( viewProperties, options ) {
 
-      options = _.extend( {
+      options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, {
 
         // AccordionBox options
         titleAlignX: 'left',
         titleXSpacing: 8,
         tandem: Tandem.required
-      }, GQConstants.ACCORDION_BOX_OPTIONS, options );
+      }, options );
 
       // AccordionBox title
       assert && assert( !options.titleNode, 'QuadraticTermsAccordionBox sets titleNode' );
