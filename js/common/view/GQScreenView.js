@@ -82,6 +82,8 @@ define( require => {
 
       // Parent for all control panels, to simplify layout
       const controlsParent = new VBox( {
+
+        // set maxHeight to guard against font size differences across suppported browsers
         maxHeight: this.layoutBounds.height - ( 2 * GQConstants.SCREEN_VIEW_Y_MARGIN ),
         resize: false,
         align: 'center',
