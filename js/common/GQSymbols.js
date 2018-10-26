@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * String for mathematical symbols, with markup for RichText.
+ * Strings for mathematical symbols, with markup for RichText.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
