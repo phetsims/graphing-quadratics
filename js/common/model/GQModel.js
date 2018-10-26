@@ -11,6 +11,7 @@ define( require => {
 
   // modules
   const Bounds2 = require( 'DOT/Bounds2' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const Graph = require( 'GRAPHING_LINES/common/model/Graph' );
@@ -67,14 +68,20 @@ define( require => {
         isValidValue: array => _.every( array, function( value ) { return value instanceof Quadratic; } )
       };
 
-      // {Property.<Quadratic[]>} Quadratics that are visible to the point tools.
-      // ObservableArray is not used here because we need to change the entire array contents atomically.
-      const pointToolQuadraticsProperty = new Property( [], optionsPropertyQuadraticArray );
-
       // @public {Property.<Quadratic[]>} optional quadratic terms to be displayed,
-      // in the order that they will be considered by point tools.
+      // in the order that they will be considered by point tools (foreground to background).
       // ObservableArray is not used here because we need to change the entire array contents atomically.
       this.quadraticTermsProperty = new Property( [], optionsPropertyQuadraticArray );
+
+      // {DerivedProperty.<Quadratic[]>} Quadratics that are visible to the point tools,
+      // in the order that they will be considered by point tools (foreground to background).
+      // ObservableArray is not used here because we need to change the entire array contents atomically.
+      const pointToolQuadraticsProperty = new DerivedProperty(
+        [ this.quadraticProperty, this.quadraticTermsProperty, this.savedQuadraticProperty ],
+        ( quadratic, quadraticTerms, savedQuadratic ) => {
+          // order is important! compact to remove nulls
+          return _.compact( [ quadratic, ...quadraticTerms, savedQuadratic ] );
+        }, optionsPropertyQuadraticArray );
 
       // @public (read-only)
       this.leftPointTool = new PointTool( pointToolQuadraticsProperty, this.graph, {
@@ -97,14 +104,6 @@ define( require => {
         tandem: tandem.createTandem( 'rightPointTool' ),
         phetioDocumentation: 'the point tool that is initially on the right'
       } );
-
-      // @private Update the list of quadratics visible to the point tools,
-      // in the order that they will be considered by the point tools.
-      Property.multilink( [ this.quadraticProperty, this.quadraticTermsProperty, this.savedQuadraticProperty ],
-        ( quadratic, quadraticTerms, savedQuadratic ) => {
-          // order is important! compact to remove nulls
-          pointToolQuadraticsProperty.value = _.compact( [ quadratic, ...quadraticTerms, savedQuadratic ] );
-        } );
     }
 
     // @public
