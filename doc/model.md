@@ -10,7 +10,7 @@ _Vertex Form_ screen uses **vertex form**, where (_h_, _k_) is the vertex:
 
 _y_ = _a_(_x_ - _h_)<sup>2</sup> + _k_
 
-_Focus & Directrix_ screen uses an **alternative vertex form**, where _a_ is replaced with 1/(4 _p_ ), and _p_ is the vertical equidistance of the vertex from the focus and directrix.
+_Focus & Directrix_ screen uses an **alternative vertex form**, where _a_ is replaced with 1/(4 _p_ ), and _p_ is the equidistance of the vertex from the focus and directrix.
 
 _y_ = (1/(4 _p_))(_x_ - _h_)<sup>2</sup> + _k_
 
