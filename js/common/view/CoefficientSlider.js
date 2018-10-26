@@ -2,7 +2,7 @@
 
 /**
  * A vertical slider for changing one of the coefficients in a quadratic equation, decorated with a label above
- * the slider. The default taper (relationship between position of the thumb and value) is linear.
+ * the slider. The default taper (relationship between value and position of the thumb) is linear.
  * To change the taper, use options map and inverseMap.
  *
  * @author Andrea Lin
