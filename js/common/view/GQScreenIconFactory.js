@@ -49,6 +49,7 @@ define( require => {
     /**
      * Creates the icon for the Explore screen.
      * @returns {Node}
+     * @public
      */
     createExploreScreenIcon() {
 
@@ -73,6 +74,7 @@ define( require => {
     /**
      * Creates the icon for the Standard Form screen.
      * @returns {Node}
+     * @public
      */
     createStandardFormScreenIcon() {
 
@@ -127,6 +129,7 @@ define( require => {
     /**
      * Creates the icon for the Vertex Form screen.
      * @returns {Node}
+     * @public
      */
     createVertexFormScreenIcon() {
 
@@ -157,6 +160,7 @@ define( require => {
     /**
      * Creates the icon for the Focus & Directrix screen.
      * @returns {Node}
+     * @public
      */
     createFocusAndDirectrixScreenIcon() {
 
