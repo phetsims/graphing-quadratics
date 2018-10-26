@@ -64,7 +64,7 @@ define( require => {
         phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
       } );
 
-      // Determine whether we're on a quadratic, using small distances.
+      // Determine whether we're on a quadratic.
       Property.multilink( [ this.locationProperty, quadraticsProperty ], ( location, quadratics ) => {
         if ( graph.contains( location ) ) {
           this.onQuadraticProperty.value = this.getQuadraticNear( location,
