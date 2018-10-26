@@ -48,8 +48,7 @@ define( require => {
       Property.multilink( [ quadraticProperty, pointOnParabolaProperty ],
         ( quadratic, pointOnParabola ) => {
 
-          assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
-          assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );
+          assert && assert( quadratic.isaParabola(), 'expected a parabola, quadratic=' + quadratic );
 
           const pointView = modelViewTransform.modelToViewPosition( pointOnParabola );
           const focusView = modelViewTransform.modelToViewPosition( quadratic.focus );

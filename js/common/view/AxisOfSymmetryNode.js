@@ -46,11 +46,10 @@ define( require => {
       const minY = modelViewTransform.modelToViewY( graph.yRange.max );
       const maxY = modelViewTransform.modelToViewY( graph.yRange.min );
 
-      // update if the interactive quadratic is a parabola
+      // update if the interactive quadratic is a parabola, and therefore has an axis of symmetry
       quadraticProperty.link( quadratic => {
 
-        if ( quadratic.axisOfSymmetry !== undefined ) {
-          assert && assert( quadratic.vertex, 'expected vertex: ' + quadratic.vertex );
+        if ( quadratic.isaParabola() ) {
 
           // update the vertical line
           const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
@@ -100,7 +99,7 @@ define( require => {
         [ axisOfSymmetryVisibleProperty, quadraticProperty ],
         ( axisOfSymmetryVisible, quadratic ) =>
           axisOfSymmetryVisible && // the Axis of Symmetry checkbox is checked
-          quadratic.axisOfSymmetry !== undefined && // the quadratic has an axis of symmetry
+          quadratic.isaParabola() && // the quadratic is a parabola, so has an axis of symmetry
           graph.xRange.contains( quadratic.axisOfSymmetry ) // the axis of symmetry (x=N) is on the graph
       );
       visibleProperty.linkAttribute( this, 'visible' );

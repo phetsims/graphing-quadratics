@@ -48,8 +48,7 @@ define( require => {
       // update when the interactive quadratic changes
       quadraticProperty.link( quadratic => {
 
-        assert && assert( quadratic.directrix !== undefined, 'undefined directrix is not supported' );
-        assert && assert( quadratic.vertex, 'expected vertex: ' + quadratic.vertex );
+        assert && assert( quadratic.isaParabola(), 'expected a parabola, quadratic=' + quadratic );
 
         // update the horizontal line
         const y = modelViewTransform.modelToViewY( quadratic.directrix );

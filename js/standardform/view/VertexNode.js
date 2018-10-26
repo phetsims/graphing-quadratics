@@ -81,7 +81,7 @@ define( require => {
         [ vertexVisibleProperty, quadraticProperty ],
         ( vertexVisible, quadratic ) =>
           vertexVisible &&  // the Vertex checkbox is checked
-          quadratic.vertex !== undefined &&  // the quadratic has a vertex
+          quadratic.isaParabola() &&  // the quadratic is a parabola, so has a vertex
           graph.contains( quadratic.vertex ) // the vertex is on the graph
       );
       visibleProperty.linkAttribute( this, 'visible' );

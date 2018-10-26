@@ -207,6 +207,16 @@ define( require => {
     }
 
     /**
+     * Does this quadratic describe a parabola?
+     * Typically, a quadratic requires a !== 0. But this sim is required to support a === 0, so this
+     * method is used in places where we need to determine whether we're dealing with a parabola.
+     * @returns {boolean}
+     */
+    isaParabola() {
+      return ( this.a !== 0 );
+    }
+
+    /**
      * Given y, solve for x.
      * If there is more than one solution, they will be in ascending order.
      * @param {number} y
@@ -214,7 +224,7 @@ define( require => {
      * @public
      */
     solveX( y ) {
-      if ( this.a !== 0 ) {
+      if ( this.isaParabola() ) {
 
         if ( ( this.a > 0 && y < this.vertex.y ) || ( this.a < 0 && y > this.vertex.y ) ) {
 
@@ -259,7 +269,7 @@ define( require => {
      * @public
      */
     getTangentSlope( x ) {
-      assert && assert( this.a !== 0, 'not supported for non-parabola' );
+      assert && assert( this.isaParabola(), 'not supported for non-parabola' );
       return ( 2 * this.a * x ) + this.b; // first derivative
     }
 
@@ -364,7 +374,7 @@ define( require => {
         assert && assert( xValues, 'No solution exists, the parabola is likely off the graph. ' +
                                    'x=' + x + ', quadratic=' + this.toString() );
 
-        if ( this.a !== 0 ) {
+        if ( this.isaParabola() ) {
 
           // parabola
           assert && assert( xValues.length === 2, 'unexpected number of xValues: ' + xValues );
