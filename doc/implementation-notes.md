@@ -62,7 +62,7 @@ This sim reuses a very small number of model and view components from Graphing L
 
 This section provides an overview of the most important model components.
 
-Note that this simulation supports _only_ parabolas that open up or down, i.e. have the form _y_ = _ax_<sup>2</sup> + _bx_ + _c_.  It does not support parabolas that open left or right, i.e. have the form _x_ = _ay_<sup>2</sup> + _by_ + _c_.
+Note that this simulation supports _only_ parabolas that open up or down, i.e. have the form _y_ = _ax_<sup>2</sup> + _bx_ + _c_.  It does not support parabolas that open left or right, i.e. that have the form _x_ = _ay_<sup>2</sup> + _by_ + _c_.
 
 [Quadratic](https://github.com/phetsims/graphing-quadratics/blob/master/js/common/model/Quadratic.js) is the primary model component. It is essentially an immutable data structure that describes a quadratic equation. It supports instantiation using standard form (via the constructor), vertex form (via `createFromVertexForm`) and alternate vertex form (via `createFromAlternateVertexForm`).
 
