@@ -65,16 +65,8 @@ define( require => {
         modelViewTransform.viewToModelDeltaX( -this.width / 2 ), -1,
         modelViewTransform.viewToModelDeltaX( this.width / 2 ), 1 );
 
-      const visibleProperty = new DerivedProperty(
-        [ rootsVisibleProperty, quadraticProperty ],
-        ( rootsVisible, quadratic ) =>
-          rootsVisible && // the Roots checkbox is checked
-          !!( quadratic.roots && quadratic.roots.length === 0 ) // the interactive quadratic has no roots
-        );
-      visibleProperty.linkAttribute( this, 'visible' );
-
-      // Center on the origin, except when that would overlap the vertex's coordinates.
-      // In that case, position above or below the x axis.
+      // The center of this Node, typically at the origin, except when that would overlap the vertex's coordinates.
+      // In that case, position above or below the x axis, depending on which way the parabola opens.
       // See https://github.com/phetsims/graphing-quadratics/issues/88
       const centerProperty = new DerivedProperty(
         [ vertexVisibleProperty, coordinatesVisibleProperty, quadraticProperty ],
@@ -94,6 +86,14 @@ define( require => {
         }
       );
       centerProperty.linkAttribute( this, 'center' );
+
+      const visibleProperty = new DerivedProperty(
+        [ rootsVisibleProperty, quadraticProperty ],
+        ( rootsVisible, quadratic ) =>
+          rootsVisible && // the Roots checkbox is checked
+          !!( quadratic.roots && quadratic.roots.length === 0 ) // the interactive quadratic has no roots
+        );
+      visibleProperty.linkAttribute( this, 'visible' );
     }
   }
 
