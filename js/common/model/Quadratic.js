@@ -36,10 +36,10 @@ define( require => {
   class Quadratic {
 
     /**
-     * The constructor uses the standard form equation y = ax^2 + bx +c
-     * @param {number} a - coefficient for the quadratic term
-     * @param {number} b - coefficient for the linear term
-     * @param {number} c - constant term
+     * Constructor parameters are coefficients of the standard form equation: y = ax^2 + bx +c
+     * @param {number} a
+     * @param {number} b
+     * @param {number} c
      * @param {Object} [options]
      */
     constructor( a, b, c, options ) {
@@ -91,7 +91,7 @@ define( require => {
     }
 
     /**
-     * Creates a Quadratic based on the vertex form equation y = a(x - h)^2 + k
+     * Creates a Quadratic using coefficients of the vertex form equation: y = a(x - h)^2 + k
      * @param {number} a
      * @param {number} h
      * @param {number} k
@@ -112,7 +112,7 @@ define( require => {
     }
 
     /**
-     * Creates a Quadratic based on the equation y = (1/(4p))(x - h)^2 + k
+     * Creates a Quadratic using coefficients of the alternate vertex form equation: y = (1/(4p))(x - h)^2 + k
      * This is an alternate vertex form, where 1/(4p) is substituted for a.
      * @param {number} p
      * @param {number} h
