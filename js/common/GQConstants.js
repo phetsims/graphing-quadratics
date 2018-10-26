@@ -109,7 +109,7 @@ define( require => {
     FOCUS_AND_DIRECTRIX_INTERVAL_H: 0.1,
     FOCUS_AND_DIRECTRIX_INTERVAL_K: 0.1,
 
-    // enums
+    // enums - We decided not to use Enumeration, see https://github.com/phetsims/graphing-quadratics/issues/62.
     EQUATION_FORMS: [ 'standard', 'vertex' ], // form of equations on curves
     PROBE_SIDES: [ 'right', 'left' ], // which side the point tool's probe is on
 
