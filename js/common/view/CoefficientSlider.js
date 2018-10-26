@@ -1,9 +1,9 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * A vertical slider for changing one of the coefficients in a quadratic equation, decorated with a label
- * above the slider. The default response of this slider is linear.  To change the response, use options 
- * map and inverseMap.
+ * A vertical slider for changing one of the coefficients in a quadratic equation, decorated with a label above
+ * the slider. The default taper (relationship between position of the thumb and value) is linear.
+ * To change the taper, use options map and inverseMap.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
