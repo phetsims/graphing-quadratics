@@ -12,7 +12,7 @@ define( require => {
 
   // modules
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GraphContentsToggleButton = require( 'GRAPHING_QUADRATICS/common/view/GraphContentsToggleButton' );
+  const GraphContentsToggleButton = require( 'GRAPHING_LINES/common/view/GraphContentsToggleButton' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PointToolNode = require( 'GRAPHING_QUADRATICS/common/view/PointToolNode' );
