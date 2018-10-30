@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.0.0-dev.42 Tue Oct 30 2018 11:27:11 GMT-0600 (MDT)",
+  "comment": "# graphing-quadratics 1.0.0-dev.43 Tue Oct 30 2018 15:53:50 GMT-0600 (MDT)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "master"
@@ -25,7 +25,7 @@
     "branch": "master"
   },
   "graphing-quadratics": {
-    "sha": "d877990d5865ec492a11c2f06d4dcd2fca0b515b",
+    "sha": "cb74d522e840657d32d1f799cd29a2855772111b",
     "branch": "master"
   },
   "joist": {
@@ -81,7 +81,7 @@
     "branch": "master"
   },
   "sun": {
-    "sha": "88090897c089681ff3234a27c3cb63e95543d484",
+    "sha": "6857efc293bc0de9c74da926914f74d027f8fdc5",
     "branch": "master"
   },
   "tambo": {
