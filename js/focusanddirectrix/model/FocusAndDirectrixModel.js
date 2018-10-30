@@ -40,21 +40,21 @@ define( require => {
       // coefficients for alternate vertex form
       const pProperty = new NumberProperty( P_RANGE.defaultValue, {
         range: P_RANGE,
-        tandem: tandem.createTandem( 'aProperty' ),
+        tandem: tandem.createTandem( 'pProperty' ),
         phetioDocumentation: 'coefficient a for the interactive quadratic'
       } );
       phet.log && pProperty.link( p => { phet.log( 'p=' + p ); } );
 
       const hProperty = new NumberProperty( H_RANGE.defaultValue, {
         range: H_RANGE,
-        tandem: tandem.createTandem( 'bProperty' ),
+        tandem: tandem.createTandem( 'hProperty' ),
         phetioDocumentation: 'coefficient h for the interactive quadratic'
       } );
       phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
 
       const kProperty = new NumberProperty( K_RANGE.defaultValue, {
         range: K_RANGE,
-        tandem: tandem.createTandem( 'cProperty' ),
+        tandem: tandem.createTandem( 'kProperty' ),
         phetioDocumentation: 'coefficient k for the interactive quadratic'
       } );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );

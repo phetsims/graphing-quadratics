@@ -46,7 +46,7 @@ define( require => {
       const hProperty = new NumberProperty( H_RANGE.defaultValue, {
         range: H_RANGE,
         numberType: COEFFICIENT_NUMBER_TYPE,
-        tandem: tandem.createTandem( 'bProperty' ),
+        tandem: tandem.createTandem( 'hProperty' ),
         phetioDocumentation: 'coefficient h for the interactive quadratic'
       } );
       phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
@@ -54,7 +54,7 @@ define( require => {
       const kProperty = new NumberProperty( K_RANGE.defaultValue, {
         range: K_RANGE,
         numberType: COEFFICIENT_NUMBER_TYPE,
-        tandem: tandem.createTandem( 'cProperty' ),
+        tandem: tandem.createTandem( 'kProperty' ),
         phetioDocumentation: 'coefficient k for the interactive quadratic'
       } );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
