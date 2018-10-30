@@ -33,7 +33,8 @@ define( require => {
         name: screenVertexFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
-        navigationBarIcon: GQScreenIconFactory.createVertexFormScreenIcon(), //TODO #51 delete workaround
+        //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+        navigationBarIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
         tandem: tandem
       };
 

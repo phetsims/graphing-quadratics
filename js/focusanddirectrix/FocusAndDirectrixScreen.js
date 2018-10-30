@@ -33,7 +33,8 @@ define( require => {
         name: screenFocusAndDirectrixString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
-        navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(), //TODO #51 delete workaround
+        //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+        navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
         tandem: tandem
       };
 

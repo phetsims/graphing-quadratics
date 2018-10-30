@@ -33,7 +33,8 @@ define( require => {
         name: screenExploreString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
-        navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(), //TODO #51 delete workaround
+        //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+        navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(),
         tandem: tandem
       };
 

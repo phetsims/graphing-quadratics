@@ -34,7 +34,8 @@ define( require => {
         name: screenStandardFormString,
         backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
         homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
-        navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(), //TODO #51 delete workaround
+        //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+        navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
         tandem: tandem
       };
 
