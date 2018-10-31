@@ -39,29 +39,35 @@ define( require => {
         numberType: 'Integer'
       }, options );
 
-      // coefficients for standard form
-      const aProperty = new NumberProperty( A_RANGE.defaultValue, {
-        range: A_RANGE,
+      // Options used in all of the coefficient Properties
+      const coefficientPropertyOptions = {
         numberType: options.numberType,
+
+        // This NumberProperty can be controlled directly in the simulation, hence we do not require a redundant
+        // slider in Studio, see https://github.com/phetsims/graphing-quadratics/issues/52
+        phetioStudioControl: false
+      };
+
+      // coefficients for standard form
+      const aProperty = new NumberProperty( A_RANGE.defaultValue, _.extend( {
+        range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioDocumentation: 'coefficient a for the interactive quadratic'
-      } );
+      }, coefficientPropertyOptions ) );
       phet.log && aProperty.link( a => { phet.log( 'a=' + a ); } );
 
-      const bProperty = new NumberProperty( B_RANGE.defaultValue, {
+      const bProperty = new NumberProperty( B_RANGE.defaultValue, _.extend( {
         range: B_RANGE,
-        numberType: options.numberType,
         tandem: tandem.createTandem( 'bProperty' ),
         phetioDocumentation: 'coefficient b for the interactive quadratic'
-      } );
+      }, coefficientPropertyOptions ) );
       phet.log && bProperty.link( b => { phet.log( 'b=' + b ); } );
 
-      const cProperty = new NumberProperty( C_RANGE.defaultValue, {
+      const cProperty = new NumberProperty( C_RANGE.defaultValue, _.extend( {
         range: C_RANGE,
-        numberType: options.numberType,
         tandem: tandem.createTandem( 'cProperty' ),
         phetioDocumentation: 'coefficient c for the interactive quadratic'
-      } );
+      }, coefficientPropertyOptions ) );
       phet.log && cProperty.link( c => { phet.log( 'c=' + c ); } );
 
       // {DerivedProperty.<Quadratic>}
