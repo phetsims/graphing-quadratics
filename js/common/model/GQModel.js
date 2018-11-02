@@ -86,7 +86,7 @@ define( require => {
       // @public (read-only)
       this.leftPointTool = new PointTool( pointToolQuadraticsProperty, this.graph, {
         probeSide: 'right', // probe is attached to the right side
-        location: new Vector2( -2, -12 ),
+        location: new Vector2( -2, this.graph.yRange.min - 2 ), // below the graph
         dragBounds: new Bounds2(
           this.graph.xRange.min - 1, this.graph.yRange.min - 3,
           this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
@@ -97,7 +97,7 @@ define( require => {
       // @public (read-only)
       this.rightPointTool = new PointTool( pointToolQuadraticsProperty, this.graph, {
         probeSide: 'left', // probe is attached to the left side
-        location: new Vector2( 2, -12 ),
+        location: new Vector2( 2, this.graph.yRange.min - 2 ), // below the graph
         dragBounds: new Bounds2(
           this.graph.xRange.min - 1, this.graph.yRange.min - 3,
           this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
