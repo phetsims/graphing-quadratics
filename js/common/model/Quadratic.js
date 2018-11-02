@@ -31,7 +31,7 @@ define( require => {
   class Quadratic {
 
     /**
-     * Constructor parameters are coefficients of the standard form equation: y = ax^2 + bx +c
+     * Constructor parameters are coefficients of the standard form equation: y = ax^2 + bx + c
      * @param {number} a
      * @param {number} b
      * @param {number} c
