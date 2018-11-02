@@ -145,31 +145,33 @@ define( require => {
         // y = 0
         equationString += '0';
       }
+      else if ( a === 0 ) {
+
+        // y = c
+        equationString += Util.toFixedNumber( quadratic.c, options.kDecimals );
+      }
       else {
 
         // a(x - h)^2 term
-        if ( a !== 0 ) {
+        if ( a === -1 ) {
+          equationString += MathSymbols.UNARY_MINUS;
+        }
+        else if ( a !== 1 ) {
+          equationString += a;
+        }
 
-          if ( a === -1 ) {
-            equationString += MathSymbols.UNARY_MINUS;
-          }
-          else if ( a !== 1 ) {
-            equationString += a;
-          }
+        if ( h === 0 ) {
+          equationString += GQSymbols.xSquared;
+        }
+        else {
+          equationString += '(' + GQSymbols.x + ' ';
+          equationString += ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
+          equationString += ' ' + Math.abs( h );
+          equationString += ')<sup>2</sup>';
+        }
 
-          if ( h === 0 ) {
-            equationString += GQSymbols.xSquared;
-          }
-          else {
-            equationString += '(' + GQSymbols.x + ' ';
-            equationString += ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
-            equationString += ' ' + Math.abs( h );
-            equationString += ')<sup>2</sup>';
-          }
-
-          if ( k !== 0 ) {
-            equationString += ' ';
-          }
+        if ( k !== 0 ) {
+          equationString += ' ';
         }
 
         // k term

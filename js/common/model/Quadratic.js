@@ -12,12 +12,7 @@
  *
  * Typically, a quadratic requires a !== 0. But this sim is required to support a === 0.
  * So there is some non-standard behavior herein that is not exactly mathematically correct.
- * Specifically:
- *
- * (1) When a === 0, Quadratic behaves like a straight line.  See for example solveX.
- *
- * (2) When a === 0, y = c (standard form) and y = k (vertex form) describe the same horizontal line.
- *     See for example createFromVertexForm.
+ * Specifically, when a === 0, Quadratic behaves like a straight line.  See for example solveX.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -74,9 +69,6 @@ define( require => {
         this.focus = new Vector2( this.h, this.k + this.p );
         this.directrix = this.k - this.p; // y = directrix
         this.axisOfSymmetry = this.h; // x = h
-      }
-      else {
-        this.k = c; // to support y = k when a === 0 in vertex form
       }
     }
 
