@@ -105,20 +105,9 @@ define( require => {
       assert && assert( bProperty.range, 'missing bProperty.range' );
       assert && assert( cProperty.range, 'missing cProperty.range' );
 
-      // common options for NumberDisplay instances
-      const numberDisplayOptions = {
-        font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
-        backgroundFill: null,
-        backgroundStroke: null,
-        backgroundLineWidth: 0,
-        xMargin: 0,
-        yMargin: 0
-      };
-
-      // options for other parts of the equation
+      // options for parts of the equation
       const equationOptions = {
-        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
-        fill: 'black'
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
       };
       const xyOptions = _.extend( {}, equationOptions, {
         maxWidth: 20 // determined empirically
@@ -131,10 +120,11 @@ define( require => {
       const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
 
       // a value
-      const aNode = new NumberDisplay( aProperty, aProperty.range, _.extend( {}, numberDisplayOptions, {
-        numberFill: GQColors.EXPLORE_A,
-        decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
-      } ) );
+      const aNode = new NumberDisplay( aProperty, aProperty.range,
+        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+          numberFill: GQColors.EXPLORE_A,
+          decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
+        } ) );
 
       // x^2
       const xSquaredNode = new RichText( GQSymbols.xSquared, xyOptions );
@@ -143,22 +133,24 @@ define( require => {
       const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
 
       // b value
-      const bNode = new NumberDisplay( bProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
-        numberFill: GQColors.EXPLORE_B,
-        decimalPlaces: GQConstants.EXPLORE_DECIMALS_B
-      } ) );
+      const bNode = new NumberDisplay( bProperty, bProperty.range,
+        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+          numberFill: GQColors.EXPLORE_B,
+          decimalPlaces: GQConstants.EXPLORE_DECIMALS_B
+        } ) );
 
       // x
       const xNode = new RichText( GQSymbols.x, xyOptions );
-      
+
       // +
       const anotherPlusNode = new RichText( MathSymbols.PLUS, equationOptions );
 
       // c value
-      const cNode = new NumberDisplay( cProperty, bProperty.range, _.extend( {}, numberDisplayOptions, {
-        numberFill: GQColors.EXPLORE_C,
-        decimalPlaces: GQConstants.EXPLORE_DECIMALS_C
-      } ) );
+      const cNode = new NumberDisplay( cProperty, bProperty.range,
+        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+          numberFill: GQColors.EXPLORE_C,
+          decimalPlaces: GQConstants.EXPLORE_DECIMALS_C
+        } ) );
 
       // y = ax^2 + bx + c
       assert && assert( !options.children, 'EquationNode sets children' );

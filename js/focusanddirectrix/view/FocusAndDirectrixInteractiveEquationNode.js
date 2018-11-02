@@ -109,20 +109,9 @@ define( require => {
       assert && assert( hProperty.range, 'missing hProperty.range' );
       assert && assert( kProperty.range, 'missing kProperty.range' );
 
-      // common options for NumberDisplay instances
-      const numberDisplayOptions = {
-        font: new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } ),
-        backgroundFill: null,
-        backgroundStroke: null,
-        backgroundLineWidth: 0,
-        xMargin: 0,
-        yMargin: 0
-      };
-
-      // options for other parts of the equation
+      // options for parts of the equation
       const equationOptions = {
-        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE ),
-        fill: 'black'
+        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
       };
       const xyOptions = _.extend( {}, equationOptions, {
         maxWidth: 20 // determined empirically
@@ -141,10 +130,11 @@ define( require => {
       const fourParenNode = new RichText( '4(', equationOptions );
 
       // p value
-      const pNode = new NumberDisplay( pProperty, pProperty.range, _.extend( {}, numberDisplayOptions, {
-        numberFill: GQColors.FOCUS_AND_DIRECTRIX_P,
-        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
-      } ) );
+      const pNode = new NumberDisplay( pProperty, pProperty.range,
+        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+          numberFill: GQColors.FOCUS_AND_DIRECTRIX_P,
+          decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
+        } ) );
 
       // )
       const parenNode = new RichText( ')', equationOptions );
@@ -180,10 +170,11 @@ define( require => {
       const minusNode = new RichText( MathSymbols.MINUS, equationOptions );
 
       // h value
-      const hNode = new NumberDisplay( hProperty, hProperty.range, _.extend( {}, numberDisplayOptions, {
-        numberFill: GQColors.FOCUS_AND_DIRECTRIX_H,
-        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
-      } ) );
+      const hNode = new NumberDisplay( hProperty, hProperty.range,
+        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+          numberFill: GQColors.FOCUS_AND_DIRECTRIX_H,
+          decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
+        } ) );
 
       // )^2
       const parenSquaredNode = new RichText( ')<sup>2</sup>', equationOptions );
@@ -192,10 +183,11 @@ define( require => {
       const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
 
       // k value
-      const kNode = new NumberDisplay( kProperty, kProperty.range, _.extend( {}, numberDisplayOptions, {
-        numberFill: GQColors.FOCUS_AND_DIRECTRIX_K,
-        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
-      } ) );
+      const kNode = new NumberDisplay( kProperty, kProperty.range,
+        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+          numberFill: GQColors.FOCUS_AND_DIRECTRIX_K,
+          decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
+        } ) );
 
       // layout
       equalsNode.left = yNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
