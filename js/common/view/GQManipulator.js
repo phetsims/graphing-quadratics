@@ -44,8 +44,11 @@ define( require => {
         // Manipulator options
         haloAlpha: 0.15,
         tandem: Tandem.required,
-        phetioReadOnly: true // see https://github.com/phetsims/graphing-quadratics/issues/80
-
+        phetioComponentOptions: {
+          visibleProperty: {
+            phetioReadOnly: true
+          }
+        }
       }, options );
 
       super( options.radius, options.color, options );
