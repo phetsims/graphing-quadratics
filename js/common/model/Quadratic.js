@@ -84,6 +84,7 @@ define( require => {
 
     /**
      * Creates a Quadratic using coefficients of the vertex form equation: y = a(x - h)^2 + k
+     * This method is used in the Vertex Form screen, where the user controls a, h, and k.
      * @param {number} a
      * @param {number} h
      * @param {number} k
@@ -99,7 +100,7 @@ define( require => {
 
     /**
      * Creates a Quadratic using coefficients of the alternate vertex form equation: y = (1/(4p))(x - h)^2 + k
-     * This is an alternate vertex form, where 1/(4p) is substituted for a.
+     * This method is used in the Focus & Directrix screen, where the user controls p, h, and k.
      * @param {number} p
      * @param {number} h
      * @param {number} k
