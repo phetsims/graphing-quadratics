@@ -64,8 +64,8 @@ define( require => {
 
       // Options for {Property.<Quadratic[]>} 
       const optionsPropertyQuadraticArray = {
-        valueType: Array,
-        isValidValue: array => _.every( array, function( value ) { return value instanceof Quadratic; } )
+        isValidValue: array => Array.isArray( array ) &&
+                               _.every( array, function( value ) { return value instanceof Quadratic; } )
       };
 
       // @public {Property.<Quadratic[]>} optional quadratic terms to be displayed,
