@@ -92,15 +92,9 @@ define( require => {
      * @public
      */
     static createFromVertexForm( a, h, k, options ) {
-      if ( a !== 0 ) {
-        const b = -2 * a * h;
-        const c = ( a * h * h ) + k;
-        return new Quadratic( a, b, c, options );
-      }
-      else {
-        // to support y = k when a === 0 in vertex form
-        return new Quadratic( 0, 0, k, options );
-      }
+      const b = -2 * a * h;
+      const c = ( a * h * h ) + k;
+      return new Quadratic( a, b, c, options );
     }
 
     /**
