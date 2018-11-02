@@ -108,6 +108,7 @@ define( require => {
      * @public
      */
     static createFromAlternateVertexForm( p, h, k, options ) {
+      assert && assert( p !== 0, 'p cannot be zero' );
       const a = 1 / ( 4 * p );
       return Quadratic.createFromVertexForm( a, h, k, options );
     }
