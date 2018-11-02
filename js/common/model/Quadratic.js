@@ -12,12 +12,7 @@
  *
  * Typically, a quadratic requires a !== 0. But this sim is required to support a === 0.
  * So there is some non-standard behavior herein that is not exactly mathematically correct.
- * Specifically:
- *
- * (1) When a === 0, Quadratic behaves like a straight line.  See for example solveX.
- *
- * (2) When a === 0, y = c (standard form) and y = k (vertex form) describe the same horizontal line.
- *     See for example createFromVertexForm.
+ * Specifically, when a === 0, Quadratic behaves like a straight line.  See for example solveX.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -75,9 +70,6 @@ define( require => {
         this.directrix = this.k - this.p; // y = directrix
         this.axisOfSymmetry = this.h; // x = h
       }
-      else {
-        this.k = c; // to support y = k when a === 0 in vertex form
-      }
     }
 
     /**
@@ -100,15 +92,9 @@ define( require => {
      * @public
      */
     static createFromVertexForm( a, h, k, options ) {
-      if ( a !== 0 ) {
-        const b = -2 * a * h;
-        const c = ( a * h * h ) + k;
-        return new Quadratic( a, b, c, options );
-      }
-      else {
-        // to support y = k when a === 0 in vertex form
-        return new Quadratic( 0, 0, k, options );
-      }
+      const b = -2 * a * h;
+      const c = ( a * h * h ) + k;
+      return new Quadratic( a, b, c, options );
     }
 
     /**
@@ -122,6 +108,7 @@ define( require => {
      * @public
      */
     static createFromAlternateVertexForm( p, h, k, options ) {
+      assert && assert( p !== 0, 'p cannot be zero' );
       const a = 1 / ( 4 * p );
       return Quadratic.createFromVertexForm( a, h, k, options );
     }

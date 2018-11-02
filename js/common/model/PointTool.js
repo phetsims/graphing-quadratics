@@ -88,7 +88,7 @@ define( require => {
      * @public
      */
     getQuadraticNear( location, offDistance, onDistance ) {
-      let onQuadratic = this.onQuadraticProperty.value;
+      let onQuadratic = this.onQuadraticProperty && this.onQuadraticProperty.value;
       const quadratics = this.quadraticsProperty.value;
       if ( !onQuadratic ||
            quadratics.indexOf( onQuadratic ) === -1 ||

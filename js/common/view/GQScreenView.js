@@ -76,14 +76,14 @@ define( require => {
 
       // Set maxWidth for each control panel individually
       const controlPanelMaxWidth = this.layoutBounds.width - graphNode.width - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN ) - X_SPACING;
-      assert && assert( controlPanelMaxWidth >= 0, 'unexpected controlPanelMaxWidth: ' + controlPanelMaxWidth );
+      assert && assert( controlPanelMaxWidth > 0, 'unexpected controlPanelMaxWidth: ' + controlPanelMaxWidth );
       equationAccordionBox.maxWidth = controlPanelMaxWidth;
       graphControlPanel.maxWidth = controlPanelMaxWidth;
 
       // Parent for all control panels, to simplify layout
       const controlsParent = new VBox( {
 
-        // set maxHeight to guard against font size differences across suppported browsers
+        // set maxHeight to guard against font size differences across supported browsers
         maxHeight: this.layoutBounds.height - ( 2 * GQConstants.SCREEN_VIEW_Y_MARGIN ),
         resize: false,
         align: 'center',

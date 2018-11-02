@@ -10,6 +10,7 @@ define( require => {
   'use strict';
 
   // modules
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -59,16 +60,20 @@ define( require => {
         } );
 
       // visibility of line connecting point and focus
-      Property.multilink( [ pointOnParabolaVisibleProperty, focusVisibleProperty ],
+      const focusLineVisibleProperty = new DerivedProperty(
+        [ pointOnParabolaVisibleProperty, focusVisibleProperty ],
         ( pointOnParabolaVisible, focusVisibleProperty ) => {
-          focusLine.visible = ( pointOnParabolaVisible && focusVisibleProperty );
+          return ( pointOnParabolaVisible && focusVisibleProperty );
         } );
+      focusLineVisibleProperty.linkAttribute( focusLine, 'visible' );
 
       // visibility of line connecting point and directrix
-      Property.multilink( [ pointOnParabolaVisibleProperty, directrixVisibleProperty ],
+      const directrixLineVisibleProperty = new DerivedProperty(
+        [ pointOnParabolaVisibleProperty, directrixVisibleProperty ],
         ( pointOnParabolaVisible, directrixVisible ) => {
-          directrixLine.visible = ( pointOnParabolaVisible && directrixVisible );
+          return ( pointOnParabolaVisible && directrixVisible );
         } );
+      directrixLineVisibleProperty.linkAttribute( directrixLine, 'visible' );
     }
   }
 

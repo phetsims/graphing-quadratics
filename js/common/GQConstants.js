@@ -29,7 +29,7 @@ define( require => {
     X_AXIS_RANGE: new Range( -10, 10 ),
     Y_AXIS_RANGE: new Range( -10, 10 ),
 
-    // options applied to all AccordionBoxes
+    // options for all AccordionBox instances
     ACCORDION_BOX_OPTIONS: {
       resize: false,
       fill: GQColors.CONTROL_PANEL_BACKGROUND,
@@ -42,7 +42,7 @@ define( require => {
       contentYMargin: 15
     },
 
-    // options applied to all Panels
+    // options for all Panel instances
     PANEL_OPTIONS: {
       fill: GQColors.CONTROL_PANEL_BACKGROUND,
       cornerRadius: PANEL_CORNER_RADIUS,
@@ -50,11 +50,21 @@ define( require => {
       yMargin: 15
     },
 
-    // options applied to all NumberPickers
+    // options for all NumberPicker instances
     NUMBER_PICKER_OPTIONS: {
       font: new PhetFont( 26 ),
       xMargin: 5,
       touchAreaXDilation: 30
+    },
+
+    // options for all NumberDisplay instances
+    NUMBER_DISPLAY_OPTIONS: {
+      font: new PhetFont( { size: 26, weight: 'bold' } ),
+      backgroundFill: null,
+      backgroundStroke: null,
+      backgroundLineWidth: 0,
+      xMargin: 0,
+      yMargin: 0
     },
 
     // vertical space between checkboxes
