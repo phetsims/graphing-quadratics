@@ -66,8 +66,8 @@ define( require => {
       this.decimals = options.decimals;
       this.xMargin = options.xMargin;
       this.yMargin = options.yMargin;
-      this.foregroundNode =  foregroundNode;
-      this.backgroundNode =  backgroundNode;
+      this.foregroundNode = foregroundNode;
+      this.backgroundNode = backgroundNode;
 
       coordinatesProperty.link( coordinates => {
         if ( this.visible ) {
@@ -91,7 +91,7 @@ define( require => {
     set background( color ) { this.backgroundNode.fill = color; }
 
     /**
-     * Sets the visibility of this Node.  Update is deferred until this Node becomes visible.
+     * Sets the visibility of this Node. Update is deferred until this Node becomes visible.
      * @param {boolean} visible
      * @public
      * @override
@@ -113,7 +113,7 @@ define( require => {
       // coordinates
       const x = coordinates ? Util.toFixedNumber( coordinates.x, this.decimals ) : coordinateUnknownString;
       const y = coordinates ? Util.toFixedNumber( coordinates.y, this.decimals ) : coordinateUnknownString;
-      this.foregroundNode.text = '(' +  x + ', ' + y + ')';
+      this.foregroundNode.text = '(' + x + ', ' + y + ')';
 
       // resize background
       this.backgroundNode.setRect( 0, 0,
