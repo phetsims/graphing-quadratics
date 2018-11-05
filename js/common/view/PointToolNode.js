@@ -212,6 +212,7 @@ define( require => {
 
         allowTouchSnag: true,
 
+        //REVIEW: Blank lines should be added before the two comments in start() unless there is a reason not to.
         // note where the drag started
         start: ( event, listener ) => {
           // Note the mouse-click offset when dragging starts.
