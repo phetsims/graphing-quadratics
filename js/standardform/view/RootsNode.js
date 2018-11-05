@@ -133,7 +133,7 @@ define( require => {
           rootsVisible &&  // the Roots checkbox is checked
           !!quadratic.roots && // it is not the case that all points on the quadratic are roots
           quadratic.roots.length !== 0 // there is at least one root
-        );
+      );
       visibleProperty.linkAttribute( this, 'visible' );
     }
   }
