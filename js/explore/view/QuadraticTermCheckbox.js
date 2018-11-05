@@ -25,7 +25,7 @@ define( require => {
 
       options = _.extend( {
         textFill: GQColors.QUADRATIC_TERM,
-        phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible the graph'
+        phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
       }, options );
 
       // y = ax^2
