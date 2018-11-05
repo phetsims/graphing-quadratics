@@ -15,7 +15,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  //Review: I believe this JSDoc should go above the constructor
+  //REVIEW I believe this JSDoc should go above the constructor
   /**
    * @param {Object} [options]
    */
