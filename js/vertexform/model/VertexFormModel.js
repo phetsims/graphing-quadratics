@@ -51,6 +51,7 @@ define( require => {
       }, coefficientPropertyOptions ) );
       phet.log && aProperty.link( a => { phet.log( 'a=' + a ); } );
 
+      //REVIEW: Since h and k are duplicated in FocusAndDirectrixModel.js, should there be comments that note they should stay in sync?
       const hProperty = new NumberProperty( H_RANGE.defaultValue, _.extend( {
         range: H_RANGE,
         tandem: tandem.createTandem( 'hProperty' ),
