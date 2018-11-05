@@ -42,10 +42,10 @@ define( require => {
       // phetioDocumentation that is appropriate for icon type
       if ( options.phetioDocumentation === undefined ) {
         if ( options.manipulatorIcon ) {
-          options.phetioDocumentation ='checkbox that shows the vertex manipulator on the graph';
+          options.phetioDocumentation = 'checkbox that shows the vertex manipulator on the graph';
         }
         else {
-          options.phetioDocumentation ='checkbox that shows the vertex on the graph';
+          options.phetioDocumentation = 'checkbox that shows the vertex on the graph';
         }
       }
 
