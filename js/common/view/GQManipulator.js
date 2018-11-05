@@ -46,7 +46,7 @@ define( require => {
         tandem: Tandem.required,
         phetioComponentOptions: {
           visibleProperty: {
-            phetioReadOnly: true
+            phetioReadOnly: true // see https://github.com/phetsims/graphing-quadratics/issues/80
           }
         }
       }, options );
