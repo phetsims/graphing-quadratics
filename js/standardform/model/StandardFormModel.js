@@ -48,6 +48,7 @@ define( require => {
         phetioStudioControl: false
       };
 
+      //REVIEW: Since aProperty is duplicated in VertexFormModel.js, should there a comment that notes they should stay in sync?
       // coefficients for standard form
       const aProperty = new NumberProperty( A_RANGE.defaultValue, _.extend( {
         range: A_RANGE,
