@@ -92,7 +92,7 @@ define( require => {
         ( rootsVisible, quadratic ) =>
           rootsVisible && // the Roots checkbox is checked
           !!( quadratic.roots && quadratic.roots.length === 0 ) // the interactive quadratic has no roots
-        );
+      );
       visibleProperty.linkAttribute( this, 'visible' );
     }
   }
