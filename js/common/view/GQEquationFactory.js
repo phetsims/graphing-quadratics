@@ -44,6 +44,7 @@ define( require => {
       const b = Util.toFixedNumber( quadratic.b, options.bDecimals );
       const c = Util.toFixedNumber( quadratic.c, options.cDecimals );
 
+      //REVIEW: Looks like this same string is built on line 142, should it be a constant for this file?
       // y =
       let equationString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ';
 
