@@ -211,8 +211,7 @@ define( require => {
       } );
 
       return withBackground( equationNode );
-    }
-    ,
+    },
 
     /**
      * Creates the axis of symmetry equation.
