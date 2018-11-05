@@ -91,9 +91,6 @@ define( require => {
 
       super( options );
 
-      //REVIEW: For this layout (and the other three screens), did you consider using a loop for the spacing? I think it
-      //could be nice because it would be much shorter, and still plenty readable since the contents of options.children
-      //are viewable directly above. Right now this seems a little mucky for the same thing being done repeatedly.
       // layout
       equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
       aNumberPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
