@@ -28,20 +28,20 @@ define( function( require ) {
         yMargin: 2
       }, options );
 
-      // translucent background
-      const backgroundNode = new Rectangle( 0, 0, 1, 1, {
+      // translucent rectangle
+      const rectangle = new Rectangle( 0, 0, 1, 1, {
         fill: options.backgroundFill,
         opacity: options.backgroundOpacity
       } );
 
-      // size the background to fit the node
+      // size the rectangle to fit the node
       node.on( 'bounds', function() {
-        backgroundNode.setRect( 0, 0, node.width + 2 * options.xMargin, node.height + 2 * options.yMargin );
-        node.center = backgroundNode.center;
+        rectangle.setRect( 0, 0, node.width + 2 * options.xMargin, node.height + 2 * options.yMargin );
+        node.center = rectangle.center;
       });
 
       assert && assert( !options.children, 'BackgroundNode sets children' );
-      options.children = [ backgroundNode, node ];
+      options.children = [ rectangle, node ];
       
       super( options );
     }
