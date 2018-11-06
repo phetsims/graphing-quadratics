@@ -29,7 +29,7 @@ define( require => {
       };
 
       const viewProperties = new FocusAndDirectrixViewProperties( {
-        tandem: options.tandem.createTandem( 'viewProperties')
+        tandem: options.tandem.createTandem( 'viewProperties' )
       } );
 
       super( model,
@@ -37,7 +37,7 @@ define( require => {
         new FocusAndDirectrixGraphNode( model, viewProperties, tandem ),
         new FocusAndDirectrixEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
-          tandem: options.tandem.createTandem( 'equationAccordionBox'),
+          tandem: options.tandem.createTandem( 'equationAccordionBox' ),
           phetioDocumentation: 'accordion box that contains the interactive equation'
         } ),
         new FocusAndDirectrixGraphControlPanel( viewProperties, {
