@@ -212,12 +212,13 @@ define( require => {
 
         allowTouchSnag: true,
 
-        //REVIEW: Blank lines should be added before the two comments in start() unless there is a reason not to.
         // note where the drag started
         start: ( event, listener ) => {
+
           // Note the mouse-click offset when dragging starts.
           let location = modelViewTransform.modelToViewPosition( pointTool.locationProperty.value );
           startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
+
           // Move the tool that we're dragging to the foreground.
           event.currentTarget.moveToFront();
         },
