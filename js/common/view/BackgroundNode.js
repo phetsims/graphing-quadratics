@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  const Circle = require( 'SCENERY/nodes/Circle' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -22,7 +23,7 @@ define( function( require ) {
     constructor( node, options ) {
 
       options = _.extend( {
-        backgroundFill: 'white',
+        backgroundFill: 'yellow',
         backgroundOpacity: 0.75,
         xMargin: 2,
         yMargin: 2
@@ -44,6 +45,11 @@ define( function( require ) {
       options.children = [ rectangle, node ];
       
       super( options );
+      
+      // red dot at origin
+      if ( phet.chipper.queryParameters.dev ) {
+        this.addChild( new Circle( 3, { fill: 'red' } ) );
+      }
     }
   }
 
