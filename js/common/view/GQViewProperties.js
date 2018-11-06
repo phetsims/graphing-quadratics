@@ -15,12 +15,11 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  //REVIEW I believe this JSDoc should go above the constructor
-  /**
-   * @param {Object} [options]
-   */
   class GQViewProperties {
 
+    /**
+     * @param {Object} [options]
+     */
     constructor( options ) {
 
       options = _.extend( {
