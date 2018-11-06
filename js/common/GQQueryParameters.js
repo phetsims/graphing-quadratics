@@ -51,7 +51,11 @@ define( require => {
       isValidValue: function( value ) {
         return value > 0;
       }
-    }
+    },
+
+    // Puts a red dot at the origin of Nodes that required transform debugging during implementation.
+    // For internal use only, not public facing.
+    showOrigin: { type: 'flag' }
   } );
 
   graphingQuadratics.register( 'GQQueryParameters', GQQueryParameters );

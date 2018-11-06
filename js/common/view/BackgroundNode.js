@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   const Circle = require( 'SCENERY/nodes/Circle' );
+  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -46,8 +47,8 @@ define( function( require ) {
       
       super( options );
       
-      // red dot at origin
-      if ( phet.chipper.queryParameters.dev ) {
+      // put a red dot at the origin, for debugging positioning
+      if ( GQQueryParameters.showOrigin ) {
         this.addChild( new Circle( 3, { fill: 'red' } ) );
       }
     }

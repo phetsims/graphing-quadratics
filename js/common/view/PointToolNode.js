@@ -136,6 +136,11 @@ define( require => {
           tandem: options.tandem.createTandem( 'dragListener' ),
           phetioDocumentation: 'the drag listener for this point tool'
         } ) );
+
+      // put a red dot at the origin, for debugging positioning
+      if ( GQQueryParameters.showOrigin ) {
+        this.addChild( new Circle( 3, { fill: 'red' } ) );
+      }
     }
   }
 
