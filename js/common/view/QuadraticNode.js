@@ -175,6 +175,10 @@ define( require => {
       // update the equation color
       this.equationText.fill = quadratic.color;
 
+      // reset the origin for the equation + background
+      this.equationNode.x = 0;
+      this.equationNode.y = 0;
+
       // Position the equation.
       if ( quadratic.a === 0 ) {
 
