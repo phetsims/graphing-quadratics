@@ -29,6 +29,9 @@ define( require => {
 
       super( options );
 
+      //REVIEW: Since this Property is exactly duplicated in FocusAndDirectrixViewProperties.js, should there be comments
+      //that note that the documentation should stay in sync? Along with the other duplicated view Properties, like
+      //axisOfSymmetryVisibleProperty and coordinatesVisibleProperty.
       // @public
       this.vertexVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
