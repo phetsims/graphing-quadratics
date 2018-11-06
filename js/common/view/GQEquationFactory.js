@@ -22,6 +22,9 @@ define( require => {
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Util = require( 'DOT/Util' );
 
+  // constants
+  const Y_EQUALS_STRING = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO; // 'y ='
+
   const GQEquationFactory = {
 
     /**
@@ -44,9 +47,8 @@ define( require => {
       const b = Util.toFixedNumber( quadratic.b, options.bDecimals );
       const c = Util.toFixedNumber( quadratic.c, options.cDecimals );
 
-      //REVIEW: Looks like this same string is built on line 142, should it be a constant for this file?
       // y =
-      let equationString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ';
+      let equationString = Y_EQUALS_STRING + ' ';
 
       if ( a === 0 && b === 0 && c === 0 ) {
 
@@ -139,7 +141,7 @@ define( require => {
       const k = Util.toFixedNumber( quadratic.k, options.kDecimals );
 
       // y =
-      let equationString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ';
+      let equationString = Y_EQUALS_STRING + ' ';
 
       if ( a === 0 && k === 0 ) {
 
@@ -203,8 +205,7 @@ define( require => {
     createDirectrix( directrix ) {
 
       // y = N
-      const equationString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' +
-                             Util.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS );
+      const equationString = Y_EQUALS_STRING + ' ' + Util.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS );
 
       const equationNode = new RichText( equationString, {
         font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
