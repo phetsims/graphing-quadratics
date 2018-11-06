@@ -12,7 +12,6 @@ define( require => {
 
   // modules
   const BackgroundNode = require( 'GRAPHING_QUADRATICS/common/view/BackgroundNode' );
-  const Circle = require( 'SCENERY/nodes/Circle' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -175,11 +174,6 @@ define( require => {
 
       // update the equation color
       this.equationText.fill = quadratic.color;
-
-      // if ?dev, display a black dot at the equation's origin, for debugging positioning
-      if ( phet.chipper.queryParameters.dev ) {
-        this.equationParent.addChild( new Circle( 3, { fill: 'black' } ) );
-      }
 
       // Position the equation.
       if ( quadratic.a === 0 ) {
