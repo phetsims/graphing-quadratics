@@ -43,9 +43,7 @@ define( require => {
       // equation
       const equationNode = new EquationNode( pProperty, hProperty, kProperty, {
         tandem: options.tandem.createTandem( 'equationNode' ),
-        //REVIEW: suggested phetioDocumentation: 'the equation that changes as the sliders are adjusted'. after a quick
-        //search, i'm not seeing any uses of second person for phet-io documentation. also see ExploreInteractiveEquationNode.js
-        phetioDocumentation: 'the equation that changes as you adjust the sliders'
+        phetioDocumentation: 'the equation that changes as the sliders are adjusted'
       } );
 
       // coefficient controls (labeled sliders)
