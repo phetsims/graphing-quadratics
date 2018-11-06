@@ -55,7 +55,14 @@ define( require => {
 
     // Puts a red dot at the origin of Nodes that required transform debugging during implementation.
     // For internal use only, not public facing.
-    showOrigin: { type: 'flag' }
+    showOrigin: { type: 'flag' },
+
+    // CSS color used for the translucent background behind equations on curves. Used for debugging.
+    // For internal use only, not public facing.
+    equationsBackgroundColor: {
+      type: 'string',
+      defaultValue: 'white'
+    }
   } );
 
   graphingQuadratics.register( 'GQQueryParameters', GQQueryParameters );

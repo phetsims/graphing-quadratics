@@ -24,7 +24,7 @@ define( function( require ) {
     constructor( node, options ) {
 
       options = _.extend( {
-        backgroundFill: 'yellow',
+        backgroundFill: GQQueryParameters.equationsBackgroundColor,
         backgroundOpacity: 0.75,
         xMargin: 2,
         yMargin: 2
