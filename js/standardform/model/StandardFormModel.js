@@ -13,12 +13,14 @@ define( require => {
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
 
   // constants
   const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
@@ -35,40 +37,41 @@ define( require => {
 
       options = _.extend( {
 
-        // NumberProperty options, for coefficients
+        // NumberProperty options
         numberType: 'Integer'
       }, options );
 
-      // Options used in all of the coefficient Properties
-      const coefficientPropertyOptions = {
+      // Options for NumberProperty instances
+      const numberPropertyOptions = {
         numberType: options.numberType,
 
-        // This NumberProperty can be controlled directly in the simulation, hence we do not require a redundant
+        // Can be controlled directly in the simulation, hence we do not require a redundant
         // slider in Studio, see https://github.com/phetsims/graphing-quadratics/issues/52
         phetioStudioControl: false
       };
 
-      //REVIEW: Since aProperty is duplicated in VertexFormModel.js, should there be comments that note that the
-      //documentation should stay in sync?
+      // a
       const aProperty = new NumberProperty( A_RANGE.defaultValue, _.extend( {
         range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
-        phetioDocumentation: 'coefficient a for the interactive quadratic'
-      }, coefficientPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'a' } )
+      }, numberPropertyOptions ) );
       phet.log && aProperty.link( a => { phet.log( 'a=' + a ); } );
 
+      // b
       const bProperty = new NumberProperty( B_RANGE.defaultValue, _.extend( {
         range: B_RANGE,
         tandem: tandem.createTandem( 'bProperty' ),
-        phetioDocumentation: 'coefficient b for the interactive quadratic'
-      }, coefficientPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
+      }, numberPropertyOptions ) );
       phet.log && bProperty.link( b => { phet.log( 'b=' + b ); } );
 
+      // c
       const cProperty = new NumberProperty( C_RANGE.defaultValue, _.extend( {
         range: C_RANGE,
         tandem: tandem.createTandem( 'cProperty' ),
-        phetioDocumentation: 'coefficient c for the interactive quadratic'
-      }, coefficientPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
+      }, numberPropertyOptions ) );
       phet.log && cProperty.link( c => { phet.log( 'c=' + c ); } );
 
       // {DerivedProperty.<Quadratic>}

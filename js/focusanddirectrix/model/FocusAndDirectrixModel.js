@@ -2,7 +2,7 @@
 
 /**
  * Model for the 'Focus & Directrix' screen.
- * Alternate vertex form of the quadratic equation is: y = (1/(4p)(x - h)^1 - k
+ * Alternate vertex form of the quadratic equation is: y = (1/(4p)(x - h)^2 - k
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -13,6 +13,7 @@ define( require => {
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NumberProperty = require( 'AXON/NumberProperty' );
@@ -21,6 +22,7 @@ define( require => {
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
@@ -37,34 +39,36 @@ define( require => {
      */
     constructor( tandem ) {
 
-      // Options used in all of the coefficient Properties
-      const coefficientPropertyOptions = {
+      // Options for NumberProperty instances
+      const numberPropertyOptions = {
 
-        // This NumberProperty can be controlled directly in the simulation, hence we do not require a redundant
+        // Can be controlled directly in the simulation, hence we do not require a redundant
         // slider in Studio, see https://github.com/phetsims/graphing-quadratics/issues/52
         phetioStudioControl: false
       };
 
-      // coefficients for alternate vertex form
+      // p
       const pProperty = new NumberProperty( P_RANGE.defaultValue, _.extend( {
         range: P_RANGE,
         tandem: tandem.createTandem( 'pProperty' ),
-        phetioDocumentation: 'coefficient a for the interactive quadratic'
-      }, coefficientPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
+      }, numberPropertyOptions ) );
       phet.log && pProperty.link( p => { phet.log( 'p=' + p ); } );
 
+      // h
       const hProperty = new NumberProperty( H_RANGE.defaultValue, _.extend( {
         range: H_RANGE,
         tandem: tandem.createTandem( 'hProperty' ),
-        phetioDocumentation: 'coefficient h for the interactive quadratic'
-      }, coefficientPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'h' } )
+      }, numberPropertyOptions ) );
       phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
 
+      // k
       const kProperty = new NumberProperty( K_RANGE.defaultValue, _.extend( {
         range: K_RANGE,
         tandem: tandem.createTandem( 'kProperty' ),
-        phetioDocumentation: 'coefficient k for the interactive quadratic'
-      }, coefficientPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'k' } )
+      }, numberPropertyOptions ) );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
 
       // {DerivedProperty.<Quadratic>}
