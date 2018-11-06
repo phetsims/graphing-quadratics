@@ -40,7 +40,7 @@ define( function( require ) {
       node.on( 'bounds', function() {
         rectangle.setRect( 0, 0, node.width + 2 * options.xMargin, node.height + 2 * options.yMargin );
         node.center = rectangle.center;
-      });
+      } );
 
       assert && assert( !options.children, 'BackgroundNode sets children' );
       options.children = [ rectangle, node ];
