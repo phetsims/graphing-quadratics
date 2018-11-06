@@ -28,7 +28,7 @@ define( require => {
   class FocusAndDirectrixInteractiveEquationNode extends Node {
 
     /**
-     * Constructor parmeters are coefficients of the alternate vertex form: y = (1/(4p))(x - h)^2 + k
+     * Constructor parameters are coefficients of the alternate vertex form: y = (1/(4p))(x - h)^2 + k
      * @param {NumberProperty} pProperty
      * @param {NumberProperty} hProperty
      * @param {NumberProperty} kProperty
