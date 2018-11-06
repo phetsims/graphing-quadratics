@@ -24,9 +24,6 @@ define( require => {
 
       options = _.extend( {
         equationForm: 'standard', // see GQConstants.EQUATION_FORMS
-        graphContentsVisible: true,
-        equationAccordionBoxExpanded: true,
-        equationsVisible: GQQueryParameters.checkAll,
         tandem: Tandem.required
       }, options );
 
@@ -37,19 +34,19 @@ define( require => {
       this.equationForm = options.equationForm;
 
       // @public
-      this.graphContentsVisibleProperty = new BooleanProperty( options.graphContentsVisible, {
+      this.graphContentsVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'graphContentsVisibleProperty' ),
         phetioDocumentation: 'whether the contents (curves, plotted points, manipulators) of the graph are visible'
       } );
 
       // @public
-      this.equationAccordionBoxExpandedProperty = new BooleanProperty( options.equationAccordionBoxExpanded, {
+      this.equationAccordionBoxExpandedProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'equationAccordionBoxExpandedProperty' ),
         phetioDocumentation: 'whether the equation accordion box is expanded'
       } );
 
       // @public
-      this.equationsVisibleProperty = new BooleanProperty( options.equationsVisible, {
+      this.equationsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
         tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
         phetioDocumentation: 'whether equations are visible on graphed curves'
       } );
