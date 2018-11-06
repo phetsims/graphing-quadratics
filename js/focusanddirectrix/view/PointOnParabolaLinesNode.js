@@ -18,17 +18,16 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
 
-  //Review: This JSDoc should go above the constructor
-  /**
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Property.<Vector2>} pointOnParabolaProperty - the point
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Property.<Boolean>} pointOnParabolaVisibleProperty
-   * @param {Property.<Boolean>} focusVisibleProperty
-   * @param {Property.<Boolean>} directrixVisibleProperty
-   */
   class PointOnParabolaLinesNode extends Node {
 
+    /**
+     * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
+     * @param {Property.<Vector2>} pointOnParabolaProperty - the point
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {Property.<Boolean>} pointOnParabolaVisibleProperty
+     * @param {Property.<Boolean>} focusVisibleProperty
+     * @param {Property.<Boolean>} directrixVisibleProperty
+     */
     constructor( quadraticProperty, pointOnParabolaProperty, modelViewTransform,
                  pointOnParabolaVisibleProperty, focusVisibleProperty, directrixVisibleProperty ) {
 
