@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * GQEquationFactory creates Nodes that display various equations needed by this sim.
+ * GQEquationFactory creates strings that display various equations needed by this sim.
+ * The strings contain markup that is compatible with SCENERY/RichText.
  * Equations are reduced so that they don't contain terms that evaluate to zero,
  * and coefficients are displayed as positive decimal numbers.
  *
@@ -11,15 +12,10 @@ define( require => {
   'use strict';
 
   // modules
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const Node = require( 'SCENERY/nodes/Node' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
   const Util = require( 'DOT/Util' );
 
   // constants
@@ -28,15 +24,15 @@ define( require => {
   const GQEquationFactory = {
 
     /**
-     * Creates an equation in standard form, y = ax^2 + bx + c
+     * Creates the string for an equation in standard form, y = ax^2 + bx + c
      * @param {Quadratic} quadratic
      * @param {Object} [options]
+     * @returns {string} - compatible with RichText
      * @public
      */
     createStandardForm( quadratic, options ) {
 
       options = _.extend( {
-        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
         aDecimals: GQConstants.EXPLORE_DECIMALS_A,
         bDecimals: GQConstants.EXPLORE_DECIMALS_B,
         cDecimals: GQConstants.EXPLORE_DECIMALS_C
@@ -112,24 +108,19 @@ define( require => {
         }
       }
 
-      const equationNode = new RichText( equationString, {
-        fill: quadratic.color,
-        font: options.font
-      } );
-
-      return withBackground( equationNode );
+      return equationString;
     },
 
     /**
-     * Creates an equation in vertex form, y = a(x - h)^2 + k
+     * Creates the string for an equation in vertex form, y = a(x - h)^2 + k
      * @param {Quadratic} quadratic
      * @param {Object} [options]
+     * @return {string} - compatible with RichText
      * @public
      */
     createVertexForm( quadratic, options ) {
 
       options = _.extend( {
-        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
         aDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A,
         hDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H,
         kDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
@@ -189,70 +180,30 @@ define( require => {
         }
       }
 
-      const equationNode = new RichText( equationString, {
-        fill: quadratic.color,
-        font: options.font
-      } );
-
-      return withBackground( equationNode );
+      return equationString;
     },
 
     /**
-     * Creates the directrix equation.
+     * Creates the string for the directrix equation.
      * @param {number} directrix
+     * @returns {string} - compatible with RichText
      * @public
      */
     createDirectrix( directrix ) {
-
-      // y = N
-      const equationString = Y_EQUALS_STRING + ' ' + Util.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS );
-
-      const equationNode = new RichText( equationString, {
-        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
-        fill: GQColors.DIRECTRIX
-      } );
-
-      return withBackground( equationNode );
+      return Y_EQUALS_STRING + ' ' + Util.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS );
     },
 
     /**
-     * Creates the axis of symmetry equation.
+     * Creates the string for the axis of symmetry equation.
      * @param {number} axisOfSymmetry
+     * @returns {string} - compatible with RichText
      * @public
      */
     createAxisOfSymmetry( axisOfSymmetry ) {
-
-      // x = N
-      const equationString = GQSymbols.x + ' ' + MathSymbols.EQUAL_TO + ' ' +
-                             Util.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS );
-
-      const equationNode = new RichText( equationString, {
-        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
-        fill: GQColors.AXIS_OF_SYMMETRY,
-        rotation: Math.PI / 2
-      } );
-
-      return withBackground( equationNode );
+      return GQSymbols.x + ' ' + MathSymbols.EQUAL_TO + ' ' +
+             Util.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS );
     }
   };
 
-  /**
-   * Common method to put an equation on a translucent background.
-   * @param {Node} node
-   * @returns {Node}
-   */
-  function withBackground( node ) {
-
-    // translucent background, sized to fit
-    const backgroundNode = new Rectangle( 0, 0, node.width + 4, node.height + 2, {
-      fill: 'white',
-      opacity: 0.75,
-      center: node.center
-    } );
-
-    return new Node( { children: [ backgroundNode, node ] } );
-  }
-
   return graphingQuadratics.register( 'GQEquationFactory', GQEquationFactory );
-} )
-;
+} );

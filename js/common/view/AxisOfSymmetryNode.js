@@ -9,6 +9,7 @@ define( require => {
   'use strict';
 
   // modules
+  const BackgroundNode = require( 'GRAPHING_QUADRATICS/common/view/BackgroundNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
@@ -16,6 +17,8 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
 
   class AxisOfSymmetryNode extends Node {
 
@@ -39,8 +42,18 @@ define( require => {
       } );
       this.addChild( lineNode );
 
-      // equation on the line, created below
-      let equationNode = null;
+      // text of the equation
+      const equationText = new RichText( '', {
+        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
+        fill: GQColors.AXIS_OF_SYMMETRY,
+        rotation: Math.PI / 2
+      } );
+
+      // equation text on a translucent background
+      const equationNode = new BackgroundNode( equationText, {
+        maxHeight: 100 // maxHeight because equation is rotated, determined empirically
+      } );
+      this.addChild( equationNode );
 
       // endpoints of the line in model coordinates, note that y is inverted
       const minY = modelViewTransform.modelToViewY( graph.yRange.max );
@@ -55,12 +68,8 @@ define( require => {
           const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
           lineNode.setLine( x, minY, x, maxY );
 
-          // update the equation
-          equationNode && this.removeChild( equationNode );
-          equationNode = GQEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
-          equationNode.maxHeight = 100; // maxHeight because equation is rotated, determined empirically
-          equationNode.visible = equationsVisibleProperty.value;
-          this.addChild( equationNode );
+          // update the equation's text
+          equationText.text = GQEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
 
           // position the equation to avoid overlapping vertex and y axis
           if ( quadratic.axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
@@ -104,8 +113,8 @@ define( require => {
       );
       visibleProperty.linkAttribute( this, 'visible' );
 
-      // visibility of equation, don't use linkAttribute because equationNode changes
-      equationsVisibleProperty.link( visible => { equationNode.visible = visible; } );
+      // visibility of equation
+      equationsVisibleProperty.linkAttribute( equationNode, 'visible' );
     }
   }
 

@@ -11,13 +11,16 @@ define( require => {
   'use strict';
 
   // modules
+  const BackgroundNode = require( 'GRAPHING_QUADRATICS/common/view/BackgroundNode' );
   const Circle = require( 'SCENERY/nodes/Circle' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Range = require( 'DOT/Range' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
   const Shape = require( 'KITE/Shape' );
 
   class QuadraticNode extends Node {
@@ -62,9 +65,20 @@ define( require => {
       } );
       this.addChild( this.quadraticPath );
 
+      // @private the equation's text
+      this.equationText = new RichText( '', {
+        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE )
+      } );
+
+      // @private equation text on a translucent background
+      this.equationNode = new BackgroundNode( this.equationText, {
+        maxWidth: 200 // determined empirically
+      } );
+
       // @private Makes positioning and rotating the equation a little easier to grok.
-      // equationParent will be rotated and translated, equationNode will be translated to adjusts spacing.
-      this.equationParent = new Node();
+      // equationParent will be rotated and translated, equationNode will be translated to adjust spacing
+      // between the equation and its associated curve.
+      this.equationParent = new Node( { children: [ this.equationNode ] } );
       this.addChild( this.equationParent );
 
       // @private ranges for equation placement, just inside the edges of the graph
@@ -73,6 +87,7 @@ define( require => {
       this.yEquationRange =
         new Range( yRange.min + GQConstants.EQUATION_Y_MARGIN, yRange.max - GQConstants.EQUATION_Y_MARGIN );
 
+      // updates the equation, but only when it's visible
       const quadraticListener = quadratic => {
         if ( this.visible ) {
           this.update( quadratic );
@@ -80,6 +95,7 @@ define( require => {
       };
       quadraticProperty.link( quadraticListener ); // unlink required in dispose
 
+      // updates the equation when it is made visible
       const equationsVisibleListener = visible => {
         this.equationParent.visible = visible;
         if ( visible ) {
@@ -149,17 +165,16 @@ define( require => {
      */
     updateEquation( quadratic ) {
 
-      this.equationParent.removeAllChildren();
-
-      let equationNode = null;
+      // update the equation text
       if ( this.equationForm === 'standard' ) {
-        equationNode = GQEquationFactory.createStandardForm( quadratic );
+        this.equationText.text = GQEquationFactory.createStandardForm( quadratic );
       }
       else {
-        equationNode = GQEquationFactory.createVertexForm( quadratic );
+        this.equationText.text = GQEquationFactory.createVertexForm( quadratic );
       }
-      equationNode.maxWidth = 200; // determined empirically
-      this.equationParent.addChild( equationNode );
+
+      // update the equation color
+      this.equationText.fill = quadratic.color;
 
       // if ?dev, display a black dot at the equation's origin, for debugging positioning
       if ( phet.chipper.queryParameters.dev ) {
@@ -181,7 +196,7 @@ define( require => {
         this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
 
         // space between line and equation
-        equationNode.bottom = -GQConstants.EQUATION_CURVE_SPACING;
+        this.equationNode.bottom = -GQConstants.EQUATION_CURVE_SPACING;
       }
       else {
 
@@ -191,7 +206,7 @@ define( require => {
         assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), 'p is off the graph: ' + p );
 
         // Width of the equation in model coordinates
-        const equationModelWidth = Math.abs( this.modelViewTransform.viewToModelDeltaX( equationNode.width ) );
+        const equationModelWidth = Math.abs( this.modelViewTransform.viewToModelDeltaX( this.equationNode.width ) );
 
         if ( this.preventVertexAndEquationOverlap &&
              Math.abs( quadratic.a ) >= 0.75 && // a narrow parabola
@@ -202,13 +217,13 @@ define( require => {
           this.equationParent.rotation = 0;
           this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
           if ( p.x < quadratic.vertex.x ) {
-            equationNode.right = -GQConstants.EQUATION_CURVE_SPACING;
+            this.equationNode.right = -GQConstants.EQUATION_CURVE_SPACING;
           }
           else {
-            equationNode.left = GQConstants.EQUATION_CURVE_SPACING;
+            this.equationNode.left = GQConstants.EQUATION_CURVE_SPACING;
           }
           if ( p.y < 0 ) {
-            equationNode.bottom = 0;
+            this.equationNode.bottom = 0;
           }
         }
         else {
@@ -222,15 +237,15 @@ define( require => {
 
           // when equation is on the right side of parabola, move it's origin to the right end of the equation
           if ( p.x > quadratic.vertex.x ) {
-            equationNode.right = 0;
+            this.equationNode.right = 0;
           }
 
           // space between tangent line and equation
           if ( quadratic.a >= 0 ) {
-            equationNode.top = GQConstants.EQUATION_CURVE_SPACING;
+            this.equationNode.top = GQConstants.EQUATION_CURVE_SPACING;
           }
           else {
-            equationNode.bottom = -GQConstants.EQUATION_CURVE_SPACING;
+            this.equationNode.bottom = -GQConstants.EQUATION_CURVE_SPACING;
           }
         }
       }

@@ -9,6 +9,7 @@ define( require => {
   'use strict';
 
   // modules
+  const BackgroundNode = require( 'GRAPHING_QUADRATICS/common/view/BackgroundNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
@@ -16,6 +17,8 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const RichText = require( 'SCENERY/nodes/RichText' );
 
   class DirectrixNode extends Node {
 
@@ -38,8 +41,17 @@ define( require => {
       } );
       this.addChild( lineNode );
 
-      // equation on the line, created below
-      let equationNode = null;
+      // text of the equation
+      const equationText = new RichText( '', {
+        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
+        fill: GQColors.DIRECTRIX
+      } );
+
+      // equation text on a translucent background
+      const equationNode = new BackgroundNode( equationText, {
+        maxWidth: 100 // determined empirically
+      } );
+      this.addChild( equationNode );
 
       // endpoints of the line in model coordinates
       const minX = modelViewTransform.modelToViewX( graph.xRange.min );
@@ -54,12 +66,8 @@ define( require => {
         const y = modelViewTransform.modelToViewY( quadratic.directrix );
         lineNode.setLine( minX, y, maxX, y );
 
-        // update the equation
-        equationNode && this.removeChild( equationNode );
-        equationNode = GQEquationFactory.createDirectrix( quadratic.directrix );
-        equationNode.maxWidth = 100; // determined empirically
-        equationNode.visible = equationsVisibleProperty.value;
-        this.addChild( equationNode );
+        // update the equation's text
+        equationText.text = GQEquationFactory.createDirectrix( quadratic.directrix );
 
         // position the equation to avoid overlapping vertex and x axis
         if ( quadratic.vertex.x >= 0 ) {
@@ -90,8 +98,8 @@ define( require => {
       );
       visibleProperty.linkAttribute( this, 'visible' );
 
-      // visibility of equation, don't use linkAttribute because equationNode changes
-      equationsVisibleProperty.link( visible => { equationNode.visible = visible; } );
+      // visibility of equation
+      equationsVisibleProperty.linkAttribute( equationNode, 'visible' );
     }
   }
 
