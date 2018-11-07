@@ -26,8 +26,10 @@ define( require => {
         // {string} form of equations used to label curves on the graph, see GQConstants.EQUATION_FORMS
         equationForm: 'standard',
 
-        // {boolean|null} initial values for optional BooleanProperties,
-        // null means to omit the corresponding BooleanProperty
+        // {boolean|null} initial values for optional BooleanProperties
+        // A null value means to omit the corresponding BooleanProperty.
+        // This pattern was applied to address duplication of 3 contentious BooleanProperties.
+        // See https://github.com/phetsims/graphing-quadratics/issues/55
         vertexVisible: null,
         axisOfSymmetryVisible: null,
         coordinatesVisible: null,
