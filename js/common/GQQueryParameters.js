@@ -16,10 +16,6 @@ define( require => {
 
   const GQQueryParameters = QueryStringMachine.getAll( {
 
-    // Checks all check boxes that would otherwise be unchecked by default.
-    // For internal use only, not public facing.
-    checkAll: { type: 'flag' },
-
     // Point tools will snap ON to a curve when <= this distance from the curve, in model coordinates.
     // See https://github.com/phetsims/graphing-quadratics/issues/47
     // For internal use only, not public facing.

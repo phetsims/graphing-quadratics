@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -35,19 +34,19 @@ define( require => {
       } );
 
       // @public
-      this.quadraticTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+      this.quadraticTermVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'quadraticTermVisibleProperty' ),
         phetioDocumentation: 'whether the quadratic term (y = ax^2) is visible'
       } );
 
       // @public
-      this.linearTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+      this.linearTermVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'linearTermVisibleProperty' ),
         phetioDocumentation: 'whether the linear term (y = bx) is visible'
       } );
 
       // @public
-      this.constantTermVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+      this.constantTermVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'constantTermVisibleProperty' ),
         phetioDocumentation: 'whether the constant term (y = c) is visible'
       } );

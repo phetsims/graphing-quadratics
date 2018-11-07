@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -23,17 +22,19 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
+
+        // {string} form of equations used to label curves on the graph, see GQConstants.EQUATION_FORMS
         equationForm: 'vertex',
+
+        // {boolean} values for optional BooleanProperties
+        vertexVisible: true,
+        coordinatesVisible: true,
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 
       super( options );
-
-      // @public
-      this.vertexVisibleProperty = new BooleanProperty( true, {
-        tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-        phetioDocumentation: 'whether the vertex manipulator is visible'
-      } );
 
       // @public
       this.focusVisibleProperty = new BooleanProperty( true, {
@@ -48,15 +49,9 @@ define( require => {
       } );
 
       // @public whether an interactive point is visible on the quadratic
-      this.pointOnParabolaVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+      this.pointOnParabolaVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'pointOnParabolaVisibleProperty' ),
         phetioDocumentation: 'whether the manipulator for the point on the parabola is visible'
-      } );
-
-      // @public
-      this.coordinatesVisibleProperty = new BooleanProperty( true, {
-        tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-        phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
       } );
     }
 
@@ -66,11 +61,9 @@ define( require => {
      */
     reset() {
       super.reset();
-      this.vertexVisibleProperty.reset();
       this.focusVisibleProperty.reset();
       this.directrixVisibleProperty.reset();
       this.pointOnParabolaVisibleProperty.reset();
-      this.coordinatesVisibleProperty.reset();
     }
   }
 

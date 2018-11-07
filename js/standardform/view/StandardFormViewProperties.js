@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -23,33 +22,22 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
+
+        // {boolean} values for optional BooleanProperties
+        vertexVisible: false,
+        axisOfSymmetryVisible: false,
+        coordinatesVisible: true,
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 
       super( options );
 
       // @public
-      this.vertexVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
-        tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-        phetioDocumentation: 'whether the vertex is visible'
-      } );
-
-      // @public
-      this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
-        tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
-        phetioDocumentation: 'whether the axis of symmetry is visible'
-      } );
-
-      // @public
-      this.rootsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+      this.rootsVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'rootsVisibleProperty' ),
         phetioDocumentation: 'whether the roots of the quadratic are visible'
-      } );
-
-      // @public
-      this.coordinatesVisibleProperty = new BooleanProperty( true, {
-        tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-        phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
       } );
     }
 
@@ -59,10 +47,7 @@ define( require => {
      */
     reset() {
       super.reset();
-      this.vertexVisibleProperty.reset();
-      this.axisOfSymmetryVisibleProperty.reset();
       this.rootsVisibleProperty.reset();
-      this.coordinatesVisibleProperty.reset();
     }
   }
 

@@ -9,8 +9,6 @@ define( require => {
   'use strict';
 
   // modules
-  const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -23,43 +21,20 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
+
+        // {string} form of equations used to label curves on the graph, see GQConstants.EQUATION_FORMS
         equationForm: 'vertex',
+
+        // {boolean} values for optional BooleanProperties
+        vertexVisible: true,
+        axisOfSymmetryVisible: false,
+        coordinatesVisible: true,
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 
       super( options );
-
-      //REVIEW: Since this Property is exactly duplicated in FocusAndDirectrixViewProperties.js, should there be comments
-      //that note that the documentation should stay in sync? Along with the other duplicated view Properties, like
-      //axisOfSymmetryVisibleProperty and coordinatesVisibleProperty.
-      // @public
-      this.vertexVisibleProperty = new BooleanProperty( true, {
-        tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-        phetioDocumentation: 'whether the vertex manipulator is visible'
-      } );
-
-      // @public
-      this.axisOfSymmetryVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
-        tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
-        phetioDocumentation: 'whether the axis of symmetry is visible'
-      } );
-
-      // @public
-      this.coordinatesVisibleProperty = new BooleanProperty( true, {
-        tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-        phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
-      } );
-    }
-
-    /**
-     * @public
-     * @override
-     */
-    reset() {
-      super.reset();
-      this.vertexVisibleProperty.reset();
-      this.axisOfSymmetryVisibleProperty.reset();
-      this.coordinatesVisibleProperty.reset();
     }
   }
 

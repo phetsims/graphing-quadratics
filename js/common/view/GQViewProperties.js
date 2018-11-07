@@ -1,7 +1,7 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * View-specific Properties and properties that are common to all screens.
+ * View-specific Properties and properties that are common to more than one screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -11,7 +11,6 @@ define( require => {
   // modules
   const BooleanProperty = require( 'AXON/BooleanProperty' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Tandem = require( 'TANDEM/Tandem' );
 
@@ -23,7 +22,17 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
-        equationForm: 'standard', // see GQConstants.EQUATION_FORMS
+
+        // {string} form of equations used to label curves on the graph, see GQConstants.EQUATION_FORMS
+        equationForm: 'standard',
+
+        // {boolean|null} initial values for optional BooleanProperties,
+        // null means to omit the corresponding BooleanProperty
+        vertexVisible: null,
+        axisOfSymmetryVisible: null,
+        coordinatesVisible: null,
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 
@@ -32,6 +41,8 @@ define( require => {
 
       // @public {string} form of equations used to label curves. It is not necessary to expose this via PhET-iO.
       this.equationForm = options.equationForm;
+
+      // Properties that are common to all screens ---------------------------------------------------------------------
 
       // @public
       this.graphContentsVisibleProperty = new BooleanProperty( true, {
@@ -46,19 +57,52 @@ define( require => {
       } );
 
       // @public
-      this.equationsVisibleProperty = new BooleanProperty( GQQueryParameters.checkAll, {
+      this.equationsVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
         phetioDocumentation: 'whether equations are visible on graphed curves'
       } );
+
+      // Properties that are optional ----------------------------------------------------------------------------------
+
+      if ( options.vertexVisible !== null ) {
+        // @public
+        this.vertexVisibleProperty = new BooleanProperty( options.vertexVisible, {
+          tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
+          phetioDocumentation: 'whether the vertex point or manipulator is visible'
+        } );
+      }
+
+      if ( options.axisOfSymmetryVisible !== null ) {
+        // @public
+        this.axisOfSymmetryVisibleProperty = new BooleanProperty( options.axisOfSymmetryVisible, {
+          tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
+          phetioDocumentation: 'whether the axis of symmetry is visible'
+        } );
+      }
+
+      if ( options.coordinatesVisible !== null ) {
+        // @public
+        this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible, {
+          tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
+          phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
+        } );
+      }
     }
 
     /**
      * @public
      */
     reset() {
+
+      // Properties that are common to all screens
       this.graphContentsVisibleProperty.reset();
       this.equationAccordionBoxExpandedProperty.reset();
       this.equationsVisibleProperty.reset();
+
+      // Properties that are optional
+      this.vertexVisibleProperty && this.vertexVisibleProperty.reset();
+      this.axisOfSymmetryVisibleProperty && this.axisOfSymmetryVisibleProperty.reset();
+      this.coordinatesVisibleProperty && this.coordinatesVisibleProperty.reset();
     }
   }
 
