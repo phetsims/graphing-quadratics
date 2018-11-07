@@ -28,13 +28,13 @@ define( require => {
 
         // {boolean|null} initial values for optional BooleanProperties
         // A null value means to omit the corresponding BooleanProperty.
-        // This pattern was applied to address duplication of 3 contentious BooleanProperties.
+        // These options were added to address the duplication of 3 contentious BooleanProperties.
         // See https://github.com/phetsims/graphing-quadratics/issues/55
         vertexVisible: null,
         axisOfSymmetryVisible: null,
         coordinatesVisible: null,
 
-        // phet-io
+        // phet-io                                                                                                              
         tandem: Tandem.required
       }, options );
 
