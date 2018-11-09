@@ -51,7 +51,7 @@ define( require => {
       const pProperty = new NumberProperty( P_RANGE.defaultValue, _.extend( {
         range: P_RANGE,
         tandem: tandem.createTandem( 'pProperty' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
       }, numberPropertyOptions ) );
       phet.log && pProperty.link( p => { phet.log( 'p=' + p ); } );
 
@@ -59,7 +59,7 @@ define( require => {
       const hProperty = new NumberProperty( H_RANGE.defaultValue, _.extend( {
         range: H_RANGE,
         tandem: tandem.createTandem( 'hProperty' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'h' } )
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'h' } )
       }, numberPropertyOptions ) );
       phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
 
@@ -67,7 +67,7 @@ define( require => {
       const kProperty = new NumberProperty( K_RANGE.defaultValue, _.extend( {
         range: K_RANGE,
         tandem: tandem.createTandem( 'kProperty' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.PHETIO_DOCUMENTATION_PATTERN, { symbol: 'k' } )
+        phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'k' } )
       }, numberPropertyOptions ) );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
 

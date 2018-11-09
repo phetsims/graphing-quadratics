@@ -139,7 +139,7 @@ define( require => {
 
     // PhET-iO documentation for NumberProperty instances that correspond to equation values.
     // See https://github.com/phetsims/graphing-quadratics/issues/103
-    PHETIO_DOCUMENTATION_PATTERN: 'the value of \'{{symbol}}\' in the interactive equation'
+    PHET_IO_DOCUMENTATION_PATTERN: 'the value of \'{{symbol}}\' in the interactive equation'
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );
