@@ -26,9 +26,7 @@ define( require => {
 
   // constants
   const ICON_SIZE = Screen.MINIMUM_HOME_SCREEN_ICON_SIZE; // so we can draw to the edges of the icons
-  const CLIP_AREA = Shape.rect( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
-  const PARABOLA_COLOR = 'black';
-  const PARABOLA_LINE_WIDTH = 20;
+  const CLIP_AREA = Shape.rect( 0, 0, ICON_SIZE.width, ICON_SIZE.height ); // clip to size of ScreenIcon
   const POINT_RADIUS = 35;
   const VERTEX_MANIPULATOR_RADIUS = 40;
   const FOCUS_MANIPULATOR_RADIUS = 25;
@@ -36,6 +34,10 @@ define( require => {
     fill: GQColors.SCREEN_BACKGROUND,
     maxIconWidthProportion: 1,
     maxIconHeightProportion: 1
+  };
+  const DEFAULT_PATH_OPTIONS = {
+    lineWidth: 20,
+    stroke: 'black'
   };
 
   // coefficients and range that describe the parabola used in every icon
@@ -216,10 +218,7 @@ define( require => {
     const shape = new Shape()
       .moveToPoint( bezierControlPoints.startPoint )
       .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint );
-    return new Path( shape, _.extend( {
-      lineWidth: PARABOLA_LINE_WIDTH,
-      stroke: PARABOLA_COLOR
-    }, options ) );
+    return new Path( shape, _.extend( {}, DEFAULT_PATH_OPTIONS, options ) );
   }
 
   return graphingQuadratics.register( 'GQScreenIconFactory', GQScreenIconFactory );
