@@ -12,9 +12,9 @@ define( require => {
   const Bounds2 = require( 'DOT/Bounds2' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -41,7 +41,7 @@ define( require => {
       }, options );
 
       const textNode = new Text( noRealRootsString, {
-        font: new PhetFont( { size: 18, weight: 'bold' } ),
+        font: GQConstants.NO_REAL_ROOTS_FONT,
         fill: 'white',
         maxWidth: 300 // determined empirically
       } );

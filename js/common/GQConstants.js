@@ -82,6 +82,7 @@ define( require => {
     GRAPHED_EQUATION_FONT: new PhetFont( 18 ),
     INTERACTIVE_EQUATION_FONT: new PhetFont( 26 ),
     COORDINATES_FONT: new PhetFont( { size: 16, weight: 'bold' } ),
+    NO_REAL_ROOTS_FONT: new PhetFont( { size: 18, weight: 'bold' } ),
 
     // line widths
     INTERACTIVE_QUADRATIC_LINE_WIDTH: 4,
