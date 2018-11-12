@@ -23,6 +23,12 @@ define( require => {
   const Util = require( 'DOT/Util' );
   const VSlider = require( 'SUN/VSlider' );
 
+  // constants
+  const DEFAULT_MAP = value => value;
+  const DEFAULT_TICK_VALUES = [ 0 ];
+  const DEFAULT_TRACK_SIZE = new Dimension2( 130, 1 );
+  const DEFAULT_THUMB_SIZE = new Dimension2( 20, 40 );
+
   class CoefficientSlider extends VSlider {
 
     /**
@@ -35,10 +41,10 @@ define( require => {
       options = _.extend( {
 
         // maps coefficientProperty.value to slider value (model to view)
-        map: value => value,
+        map: DEFAULT_MAP,
 
         // maps slider value to coefficientProperty.value (view to model)
-        inverseMap: value => value,
+        inverseMap: DEFAULT_MAP,
 
         // coefficientProperty.value will be set to a multiple of this value, in model coordinates
         interval: 1,
@@ -51,15 +57,15 @@ define( require => {
         snapToZeroEpsilon: 0.1,
 
         // {Array.<number>|null} model values where major tick marks will be placed
-        tickValues: [ 0 ],
+        tickValues: DEFAULT_TICK_VALUES,
 
         // {Color|string} color of the label that appears above the slider
         labelColor: 'black',
 
         // Slider options
         trackFill: 'black',
-        trackSize: new Dimension2( 130, 1 ),
-        thumbSize: new Dimension2( 20, 40 ),
+        trackSize: DEFAULT_TRACK_SIZE,
+        thumbSize: DEFAULT_THUMB_SIZE,
         thumbTouchAreaYDilation: 8,
         tandem: Tandem.required
 
