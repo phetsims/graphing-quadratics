@@ -41,6 +41,7 @@ define( require => {
         numberType: 'Integer',
 
         // Whether coefficient 'a' is controllable via Studio.
+        // See https://github.com/phetsims/graphing-quadratics/issues/52
         aPhetioStudioControl: true
       }, options );
 
