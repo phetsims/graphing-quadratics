@@ -81,6 +81,7 @@ define( require => {
     CHECKBOX_LABEL_FONT: new PhetFont( 20 ),
     GRAPHED_EQUATION_FONT: new PhetFont( 18 ),
     INTERACTIVE_EQUATION_FONT: new PhetFont( 26 ),
+    INTERACTIVE_EQUATION_FRACTION_FONT: new PhetFont( 22 ),
     COORDINATES_FONT: new PhetFont( { size: 16, weight: 'bold' } ),
     NO_REAL_ROOTS_FONT: new PhetFont( { size: 18, weight: 'bold' } ),
 

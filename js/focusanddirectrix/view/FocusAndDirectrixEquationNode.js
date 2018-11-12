@@ -10,12 +10,12 @@ define( require => {
   'use strict';
 
   // modules
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -29,8 +29,8 @@ define( require => {
     constructor( options ) {
 
       options = _.extend( {
-        font: new PhetFont( 26 ),
-        fractionFont: new PhetFont( 22 ),
+        font: GQConstants.INTERACTIVE_EQUATION_FONT,
+        fractionFont: GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT,
         color: 'black',
         tandem: Tandem.required
       }, options );
