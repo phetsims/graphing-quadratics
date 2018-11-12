@@ -24,7 +24,13 @@ define( require => {
     constructor( tandem ) {
 
       super( tandem, {
-        numberType: 'FloatingPoint' // NumberProperty coefficients values in this screen
+
+        // NumberProperty coefficients values in this screen are continuous, controlled by sliders
+        numberType: 'FloatingPoint',
+
+        // Coefficient 'a' is controlled via a quadratic-taper slider, so cannot be controlled via a generic Studio slider.
+        // See https://github.com/phetsims/graphing-quadratics/issues/52
+        aPhetioStudioControl: false
       } );
 
       // @public {DerivedProperty.<Quadratic>}

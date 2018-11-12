@@ -37,13 +37,7 @@ define( require => {
 
       // Options for NumberProperty instances
       const numberPropertyOptions = {
-
-        // Values are controlled by integer pickers
-        numberType: 'Integer',
-
-        // Can be controlled directly in the simulation, hence we do not require a redundant
-        // slider in Studio, see https://github.com/phetsims/graphing-quadratics/issues/52
-        phetioStudioControl: false
+        numberType: 'Integer' // Values are controlled by integer pickers
       };
 
       // a

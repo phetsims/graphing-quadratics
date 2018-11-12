@@ -39,20 +39,18 @@ define( require => {
      */
     constructor( tandem ) {
 
-      // Options for NumberProperty instances
-      const numberPropertyOptions = {
-
-        // Can be controlled directly in the simulation, hence we do not require a redundant
-        // slider in Studio, see https://github.com/phetsims/graphing-quadratics/issues/52
-        phetioStudioControl: false
-      };
-
       // p
       const pProperty = new NumberProperty( P_RANGE.defaultValue, _.extend( {
         range: P_RANGE,
+        isValidValue: value => ( value !== 0 ), // zero is not supported
         tandem: tandem.createTandem( 'pProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
-      }, numberPropertyOptions ) );
+      }, {
+
+        // p is controlled by a slider that skips over zero, so it cannot be controlled using a generic Studio slider.
+        // See https://github.com/phetsims/graphing-quadratics/issues/52
+        phetioStudioControl: false
+      } ) );
       phet.log && pProperty.link( p => { phet.log( 'p=' + p ); } );
 
       // h
@@ -60,7 +58,7 @@ define( require => {
         range: H_RANGE,
         tandem: tandem.createTandem( 'hProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'h' } )
-      }, numberPropertyOptions ) );
+      } ) );
       phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
 
       // k
@@ -68,7 +66,7 @@ define( require => {
         range: K_RANGE,
         tandem: tandem.createTandem( 'kProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'k' } )
-      }, numberPropertyOptions ) );
+      } ) );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
 
       // {DerivedProperty.<Quadratic>}
