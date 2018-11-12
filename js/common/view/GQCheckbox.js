@@ -30,6 +30,8 @@ define( require => {
         textFill: 'black',
         font: GQConstants.CHECKBOX_LABEL_FONT,
         icon: null, // {Node|null} optional icon, to the right of text
+
+        // phet-io
         tandem: Tandem.required // {Tandem} all Checkboxes in this sim must be instrumented
       }, options );
 

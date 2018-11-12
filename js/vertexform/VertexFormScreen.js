@@ -35,6 +35,8 @@ define( require => {
         homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
         //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
         navigationBarIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
+
+        // phet-io
         tandem: tandem
       };
 

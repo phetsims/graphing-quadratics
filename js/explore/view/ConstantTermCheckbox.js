@@ -25,6 +25,8 @@ define( require => {
 
       options = _.extend( {
         textFill: GQColors.CONSTANT_TERM,
+
+        // phet-io
         phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
       }, options );
 

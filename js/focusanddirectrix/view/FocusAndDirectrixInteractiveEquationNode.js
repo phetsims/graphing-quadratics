@@ -36,6 +36,8 @@ define( require => {
     constructor( pProperty, hProperty, kProperty, options ) {
 
       options = _.extend( {
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

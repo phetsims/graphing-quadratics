@@ -27,6 +27,8 @@ define( require => {
     constructor( directrixVisibleProperty, options ) {
 
       options = _.extend( {
+
+        // phet-io
         phetioDocumentation: 'checkbox that shows the directrix on the graph'
       }, options );
 

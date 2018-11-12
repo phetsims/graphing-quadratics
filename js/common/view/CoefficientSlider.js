@@ -67,6 +67,8 @@ define( require => {
         trackSize: DEFAULT_TRACK_SIZE,
         thumbSize: DEFAULT_THUMB_SIZE,
         thumbTouchAreaYDilation: 8,
+
+        // phet-io
         tandem: Tandem.required
 
       }, options );

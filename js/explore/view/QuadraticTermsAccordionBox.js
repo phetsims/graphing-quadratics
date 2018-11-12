@@ -39,6 +39,8 @@ define( require => {
         // AccordionBox options
         titleAlignX: 'left',
         titleXSpacing: 8,
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

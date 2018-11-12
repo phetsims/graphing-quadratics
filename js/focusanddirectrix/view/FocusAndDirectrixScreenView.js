@@ -25,6 +25,8 @@ define( require => {
     constructor( model, tandem ) {
 
       const options = {
+
+        // phet-io
         tandem: tandem
       };
 

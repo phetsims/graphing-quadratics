@@ -32,6 +32,8 @@ define( require => {
         font: GQConstants.INTERACTIVE_EQUATION_FONT,
         fractionFont: GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT,
         color: 'black',
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

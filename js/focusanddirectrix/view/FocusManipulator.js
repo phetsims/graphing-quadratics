@@ -17,7 +17,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
@@ -50,7 +49,8 @@ define( require => {
         coordinatesForegroundColor: 'white',
         coordinatesBackgroundColor: GQColors.FOCUS,
         coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
-        tandem: Tandem.required,
+
+        // phet-io
         phetioDocumentation: 'manipulator for the focus'
 
       }, options );

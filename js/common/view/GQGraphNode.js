@@ -43,6 +43,8 @@ define( require => {
         decorations: DEFAULT_DECORATIONS
       }, options );
 
+      assert && assert( !options.tandem, 'GQGraphNode should not be instrumented' );
+
       super( options );
 
       // Cartesian coordinates graph

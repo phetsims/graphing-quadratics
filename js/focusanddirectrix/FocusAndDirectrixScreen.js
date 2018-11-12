@@ -35,6 +35,8 @@ define( require => {
         homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
         //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
         navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
+
+        // phet-io
         tandem: tandem
       };
 

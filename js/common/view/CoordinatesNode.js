@@ -39,6 +39,8 @@ define( require => {
         xMargin: 4,
         yMargin: 2,
         maxWidth: 100, // determined empirically
+
+        // phet-io
         tandem: Tandem.required,
         phetioReadOnly: true
       }, options );

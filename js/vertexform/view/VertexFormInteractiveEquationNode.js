@@ -36,6 +36,8 @@ define( require => {
       assert && assert( kProperty.range, 'missing kProperty.range' );
 
       options = _.extend( {
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

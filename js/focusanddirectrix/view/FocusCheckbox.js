@@ -26,6 +26,8 @@ define( require => {
     constructor( focusVisibleProperty, options ) {
 
       options = _.extend( {
+
+        // phet-io
         phetioDocumentation: 'checkbox that shows the focus on the graph'
       }, options );
 

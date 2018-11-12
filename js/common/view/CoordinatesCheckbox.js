@@ -22,9 +22,13 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( coordinatesVisibleProperty, options ) {
+
       options = _.extend( {
+
+        // phet-io
         phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph'
       }, options );
+
       super( coordinatesString, coordinatesVisibleProperty, options );
     }
   }

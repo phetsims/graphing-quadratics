@@ -36,6 +36,8 @@ define( require => {
         location: Vector2.ZERO, // {Vector2} initial location
         probeSide: 'left', // {string} which side the probe is on, see GQConstants.PROBE_SIDES
         dragBounds: null, // {Bounds2|null} drag bounds, in model coordinate frame
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

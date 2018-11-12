@@ -26,6 +26,8 @@ define( require => {
     constructor( pointOnParabolaVisibleProperty, options ) {
 
       options = _.extend( {
+
+        // phet-io
         phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'
       }, options );
 

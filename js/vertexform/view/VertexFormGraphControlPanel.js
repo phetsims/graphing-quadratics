@@ -31,6 +31,8 @@ define( require => {
     constructor( viewProperties, options ) {
 
       options = _.extend( {
+
+        // phet-io
         tandem: Tandem.required
       }, GQConstants.PANEL_OPTIONS, options );
 

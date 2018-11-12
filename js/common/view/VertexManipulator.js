@@ -19,7 +19,6 @@ define( require => {
   const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const Tandem = require( 'TANDEM/Tandem' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
@@ -50,7 +49,8 @@ define( require => {
         coordinatesForegroundColor: 'white',
         coordinatesBackgroundColor: GQColors.VERTEX,
         coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
-        tandem: Tandem.required,
+
+        // phet-io
         phetioDocumentation: 'a manipulator for the vertex'
       }, options );
 

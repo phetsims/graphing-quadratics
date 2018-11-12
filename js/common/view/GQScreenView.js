@@ -40,6 +40,8 @@ define( require => {
 
         // ScreenView options
         layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

@@ -30,6 +30,8 @@ define( require => {
     constructor( rootsVisibleProperty, options ) {
 
       options = _.extend( {
+
+        // phet-io
         phetioDocumentation: 'checkbox that shows roots on the graph'
       }, options );
 

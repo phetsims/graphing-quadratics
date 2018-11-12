@@ -35,6 +35,8 @@ define( require => {
         homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
         //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
         navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(),
+
+        // phet-io
         tandem: tandem
       };
 

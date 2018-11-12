@@ -24,6 +24,8 @@ define( require => {
     constructor( model, options ) {
                                               
       options = _.extend( {
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

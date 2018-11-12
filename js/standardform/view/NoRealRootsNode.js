@@ -36,6 +36,8 @@ define( require => {
                  quadraticProperty, modelViewTransform, options ) {
 
       options = _.extend( {
+
+        // phet-io
         tandem: Tandem.required,
         phetioReadOnly: true
       }, options );

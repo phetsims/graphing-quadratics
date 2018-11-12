@@ -54,6 +54,8 @@ define( require => {
         backgroundNormalColor: 'white',
         foregroundNormalColor: 'black',
         foregroundHighlightColor: 'white',
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

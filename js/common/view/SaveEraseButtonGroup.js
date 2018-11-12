@@ -35,6 +35,8 @@ define( require => {
         // HBox options
         spacing: 40,
         align: 'center',
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 

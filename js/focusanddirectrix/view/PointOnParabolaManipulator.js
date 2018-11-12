@@ -16,7 +16,6 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
@@ -45,7 +44,8 @@ define( require => {
         coordinatesForegroundColor: 'white',
         coordinatesBackgroundColor: GQColors.POINT_ON_PARABOLA,
         coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
-        tandem: Tandem.required,
+
+        // phet-io
         phetioDocumentation: 'a manipulator for a point on the parabola'
       }, options );
 

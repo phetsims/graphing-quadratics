@@ -29,6 +29,8 @@ define( require => {
     constructor( model, content, options ) {
 
       options = _.extend( {
+
+        // phet-io
         tandem: Tandem.required,
         phetioDocumentation: 'the accordion box that contains the interactive equation'
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );

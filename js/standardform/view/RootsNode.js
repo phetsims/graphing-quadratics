@@ -38,6 +38,8 @@ define( require => {
                  rootsVisibleProperty, coordinatesVisibleProperty, options ) {
 
       options = _.extend( {
+
+        // phet-io
         tandem: Tandem.required
       }, options );
 
