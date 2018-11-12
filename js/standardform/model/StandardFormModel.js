@@ -38,22 +38,27 @@ define( require => {
       options = _.extend( {
 
         // NumberProperty options
-        numberType: 'Integer',
-
-        // Whether coefficient 'a' is controllable via Studio.
-        // See https://github.com/phetsims/graphing-quadratics/issues/52
-        aPhetioStudioControl: true
+        numberType: 'Integer'
       }, options );
+
+      // Options for all NumberProperty instances
+      const numberPropertyOptions = {
+        numberType: options.numberType,
+
+        // Non-integer NumberProperty instances will be controlled via CoefficientSlider and QuadraticCoefficientSlider.
+        // These sliders impose additional constraints (mapping, interval) that make it impossible to control
+        // NumberProperty instances via a generic slider in Studio.  So if we have non-integer numberType,
+        // opt-out of showing a slider for these NumberProperties in Studio.
+        // See https://github.com/phetsims/graphing-quadratics/issues/52.
+        phetioStudioControl: ( options.numberType === 'Integer' )
+      };
 
       // a
       const aProperty = new NumberProperty( A_RANGE.defaultValue, _.extend( {
         range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'a' } )
-      }, {
-        numberType: options.numberType,
-        phetioStudioControl: options.aPhetioStudioControl
-      } ) );
+      }, numberPropertyOptions ) );
       phet.log && aProperty.link( a => { phet.log( 'a=' + a ); } );
 
       // b
@@ -61,9 +66,7 @@ define( require => {
         range: B_RANGE,
         tandem: tandem.createTandem( 'bProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
-      }, {
-        numberType: options.numberType
-      } ) );
+      }, numberPropertyOptions ) );
       phet.log && bProperty.link( b => { phet.log( 'b=' + b ); } );
 
       // c
@@ -71,9 +74,7 @@ define( require => {
         range: C_RANGE,
         tandem: tandem.createTandem( 'cProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
-      }, {
-        numberType: options.numberType
-      } ) );
+      }, numberPropertyOptions ) );
       phet.log && cProperty.link( c => { phet.log( 'c=' + c ); } );
 
       // {DerivedProperty.<Quadratic>}
