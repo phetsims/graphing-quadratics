@@ -18,6 +18,10 @@ define( require => {
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
   const Shape = require( 'KITE/Shape' );
 
+  // constants
+  const DEFAULT_OTHER_CURVES = [];
+  const DEFAULT_DECORATIONS = [];
+
   class GQGraphNode extends Node {
 
     /**
@@ -33,10 +37,10 @@ define( require => {
         preventVertexAndEquationOverlap: true,
 
         // {Node[]}, other curves to be displayed (terms, directrix, axis of symmetry) rendered in the order provided
-        otherCurves: [],
+        otherCurves: DEFAULT_OTHER_CURVES,
 
         // {Node[]}, decorations (manipulators, roots,...) rendered in the order provided
-        decorations: []
+        decorations: DEFAULT_DECORATIONS
       }, options );
 
       super( options );
