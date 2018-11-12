@@ -14,6 +14,21 @@ define( require => {
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
   const Tandem = require( 'TANDEM/Tandem' );
 
+  // constants
+  const DEFAULT_LAYOUT_COORDINATES = ( coordinates, coordinatesNode, radius ) => {
+    // centered above the manipulator
+    coordinatesNode.centerX = 0;
+    coordinatesNode.bottom = -( radius + 1 );
+  };
+  const DEFAULT_PHET_IO_COMPONENT_OPTIONS = {
+    // Visibility of manipulators is derived and should not be set directly.
+    // See https://github.com/phetsims/graphing-quadratics/issues/80
+    visibleProperty: {
+      phetioReadOnly: true
+    }
+  };
+
+
   class GQManipulator extends Manipulator {
 
     /**
@@ -31,11 +46,8 @@ define( require => {
         coordinatesDecimals: 0,
 
         // {function( coordinates:Vector2, coordinatesNode:Node, radius:number )}
-        // Positions the coordinates when coordinatesProperty changes, default is centered above the manipulator.
-        layoutCoordinates: ( coordinates, coordinatesNode, radius ) => {
-          coordinatesNode.centerX = 0;
-          coordinatesNode.bottom = -( radius + 1 );
-        },
+        // Positions the coordinates when coordinatesProperty changes
+        layoutCoordinates: DEFAULT_LAYOUT_COORDINATES,
 
         // Manipulator constructor args
         radius: 10,
@@ -43,12 +55,11 @@ define( require => {
 
         // Manipulator options
         haloAlpha: 0.15,
+
+        // phet-io
         tandem: Tandem.required,
-        phetioComponentOptions: {
-          visibleProperty: {
-            phetioReadOnly: true // see https://github.com/phetsims/graphing-quadratics/issues/80
-          }
-        }
+        phetioComponentOptions: DEFAULT_PHET_IO_COMPONENT_OPTIONS
+
       }, options );
 
       super( options.radius, options.color, options );

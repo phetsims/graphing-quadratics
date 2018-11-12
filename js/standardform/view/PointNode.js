@@ -15,6 +15,13 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const Tandem = require( 'TANDEM/Tandem' );
 
+  // constants
+  const DEFAULT_LAYOUT_COORDINATES = ( coordinates, coordinatesNode, pointNode ) => {
+    // centered above the point
+    coordinatesNode.centerX = pointNode.centerX;
+    coordinatesNode.bottom = pointNode.top - 5;
+  };
+
   class PointNode extends Node {
 
     /**
@@ -35,15 +42,13 @@ define( require => {
         coordinatesDecimals: 0,
 
         // {function( coordinates:Vector2, coordinatesNode:Node, pointNode:Node )}
-        // Positions the coordinates when coordinatesProperty changes, default is centered above the point.
-        layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {
-          coordinatesNode.centerX = pointNode.centerX;
-          coordinatesNode.bottom = pointNode.top - 5;
-        },
+        // Positions the coordinates when coordinatesProperty changes
+        layoutCoordinates: DEFAULT_LAYOUT_COORDINATES,
 
-        // Node options
+        // phet-io
         tandem: Tandem.required,
         phetioReadOnly: true // see https://github.com/phetsims/graphing-quadratics/issues/80
+
       }, options );
 
       // the point
