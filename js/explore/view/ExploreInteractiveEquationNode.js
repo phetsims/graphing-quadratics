@@ -20,7 +20,6 @@ define( require => {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -107,7 +106,7 @@ define( require => {
 
       // options for parts of the equation
       const equationOptions = {
-        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
+        font: GQConstants.INTERACTIVE_EQUATION_FONT
       };
       const xyOptions = _.extend( {}, equationOptions, {
         maxWidth: 20 // determined empirically

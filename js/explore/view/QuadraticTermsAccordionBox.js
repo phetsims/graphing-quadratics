@@ -18,7 +18,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
   const LinearTermCheckbox = require( 'GRAPHING_QUADRATICS/explore/view/LinearTermCheckbox' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const QuadraticTermCheckbox = require( 'GRAPHING_QUADRATICS/explore/view/QuadraticTermCheckbox' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -46,7 +45,7 @@ define( require => {
       // AccordionBox title
       assert && assert( !options.titleNode, 'QuadraticTermsAccordionBox sets titleNode' );
       options.titleNode = new Text( quadraticTermsString, {
-        font: new PhetFont( GQConstants.TITLE_FONT_SIZE ),
+        font: GQConstants.TITLE_FONT,
         maxWidth: 180, // determined empirically
         tandem: options.tandem.createTandem( 'titleNode' ),
         phetioDocumentation: 'the title on this accordion box'

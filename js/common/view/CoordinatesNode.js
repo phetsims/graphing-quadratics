@@ -10,9 +10,9 @@ define( require => {
   'use strict';
 
   // modules
+  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -31,7 +31,7 @@ define( require => {
 
       options = _.extend( {
         decimals: 0,
-        font: new PhetFont( { size: 16, weight: 'bold' } ),
+        font: GQConstants.COORDINATES_FONT,
         foregroundColor: 'black',
         backgroundColor: 'white',
         backgroundOpacity: 0.75,

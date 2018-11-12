@@ -16,17 +16,12 @@ define( require => {
   const DynamicProperty = require( 'AXON/DynamicProperty' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
   const VSlider = require( 'SUN/VSlider' );
-
-  // constants
-  const COEFFICIENT_LABEL_FONT = new PhetFont( { size: GQConstants.INTERACTIVE_EQUATION_FONT_SIZE, weight: 'bold' } );
-  const TICK_LABEL_FONT = new PhetFont( GQConstants.SLIDER_TICK_LABEL_FONT_SIZE );
 
   class CoefficientSlider extends VSlider {
 
@@ -110,14 +105,14 @@ define( require => {
       if ( options.tickValues ) {
         options.tickValues.forEach( tickValue => {
           this.addMajorTick( options.map( tickValue ), new Text( tickValue, {
-            font: TICK_LABEL_FONT
+            font: GQConstants.SLIDER_TICK_LABEL_FONT
           } ) );
         } );
       }
 
       // Label that appears above the slider.
       const label = new RichText( symbol, {
-        font: COEFFICIENT_LABEL_FONT,
+        font: GQConstants.SLIDER_LABEL_FONT,
         fill: options.labelColor,
         centerX: this.x,
         bottom: this.top - 2,

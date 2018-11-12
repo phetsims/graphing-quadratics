@@ -17,7 +17,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Range = require( 'DOT/Range' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Shape = require( 'KITE/Shape' );
@@ -66,7 +65,7 @@ define( require => {
 
       // @private the equation's text
       this.equationText = new RichText( '', {
-        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE )
+        font: GQConstants.GRAPHED_EQUATION_FONT
       } );
 
       // @private equation text on a translucent background

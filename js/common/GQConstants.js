@@ -74,13 +74,14 @@ define( require => {
     MANIPULATOR_RADIUS: 0.425,  // radius of manipulators, in model coordinates
     POINT_RADIUS: 0.25, // radius of non-interactive points, in model coordinates
 
-    // font sizes
-    TITLE_FONT_SIZE: 20,
-    INTERACTIVE_EQUATION_FONT_SIZE: 26,
-    SLIDER_TICK_LABEL_FONT_SIZE: 16,
-    CHECKBOX_LABEL_FONT_SIZE: 20,
-    CHECKBOX_EQUATION_FONT_SIZE: 22,
-    GRAPH_EQUATION_FONT_SIZE: 18,
+    // fonts
+    TITLE_FONT: new PhetFont( 20 ),
+    SLIDER_LABEL_FONT: new PhetFont( { size: 26, weight: 'bold' } ),
+    SLIDER_TICK_LABEL_FONT: new PhetFont( 16 ),
+    CHECKBOX_LABEL_FONT: new PhetFont( 20 ),
+    GRAPHED_EQUATION_FONT: new PhetFont( 18 ),
+    INTERACTIVE_EQUATION_FONT: new PhetFont( 26 ),
+    COORDINATES_FONT: new PhetFont( { size: 16, weight: 'bold' } ),
 
     // line widths
     INTERACTIVE_QUADRATIC_LINE_WIDTH: 4,

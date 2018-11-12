@@ -16,7 +16,6 @@ define( require => {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -62,7 +61,7 @@ define( require => {
 
       // static parts of the equation
       const richTextOptions = {
-        font: new PhetFont( GQConstants.INTERACTIVE_EQUATION_FONT_SIZE )
+        font: GQConstants.INTERACTIVE_EQUATION_FONT
       };
       const xyOptions = _.extend( {}, richTextOptions, {
         maxWidth: 30 // determined empirically

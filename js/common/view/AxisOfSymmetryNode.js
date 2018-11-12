@@ -17,7 +17,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
 
   class AxisOfSymmetryNode extends Node {
@@ -44,7 +43,7 @@ define( require => {
 
       // text of the equation
       const equationText = new RichText( '', {
-        font: new PhetFont( GQConstants.GRAPH_EQUATION_FONT_SIZE ),
+        font: GQConstants.GRAPHED_EQUATION_FONT,
         fill: GQColors.AXIS_OF_SYMMETRY,
         rotation: Math.PI / 2
       } );
