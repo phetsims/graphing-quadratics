@@ -95,16 +95,17 @@ define( require => {
       // Map between model and view domains, determines how the slider responds.
       // Do not instrument for PhET-iO, see https://github.com/phetsims/phet-io/issues/1374
       const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
+
         bidirectional: true,
+
+        // See #17. Necessary because bidirectional:true and we're snapping to options.interval.
+        reentrant: true,
 
         // map from model to view, apply options.interval to model value
         map: value => options.map( Util.roundToInterval( value, options.interval ) ),
 
         // map from view to model, apply options.interval to model value
-        inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval ),
-
-        // See #17. Necessary because bidirectional:true and we're snapping to options.interval.
-        reentrant: true
+        inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
       } );
 
       super( sliderProperty, coefficientProperty.range, options );
