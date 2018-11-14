@@ -73,6 +73,9 @@ define( require => {
 
       }, options );
 
+      assert && assert( options.interval > 0, 'invalid interval: ' + options.interval );
+      assert && assert( options.snapToZeroEpsilon >= 0, 'invalid snapToZeroEpsilon: ' + options.snapToZeroEpsilon );
+
       // make ticks extend past the thumb
       assert && assert( options.majorTickLength === undefined, 'CoefficientSlider sets majorTickLength' );
       options.majorTickLength = ( options.thumbSize.height / 2 ) + 3;
