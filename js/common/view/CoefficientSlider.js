@@ -77,19 +77,26 @@ define( require => {
       assert && assert( options.majorTickLength === undefined, 'CoefficientSlider sets majorTickLength' );
       options.majorTickLength = ( options.thumbSize.height / 2 ) + 3;
 
+      // apply constrains to the view value
       assert && assert( !options.constrainValue, 'CoefficientSlider sets constrainValue' );
-      options.constrainValue = value => {
-        let coefficientValue = options.inverseMap( value );
-        if ( options.skipZero && ( Math.abs( coefficientValue ) < options.interval ) ) {
-          // skip zero
-          coefficientValue = ( coefficientProperty.value < 0 ) ? options.interval : -options.interval;
+      options.constrainValue = viewValue => {
+
+        // map from view to model, because constraint decisions are based on model value
+        let modelValue = options.inverseMap( viewValue );
+
+        // skip zero
+        if ( options.skipZero && ( Math.abs( modelValue ) < options.interval ) ) {
+          return options.map( ( coefficientProperty.value < 0 ) ? options.interval : -options.interval );
         }
-        else if ( ( options.snapToZeroEpsilon !== 0 ) &&
-                  ( Math.abs( coefficientValue ) < options.snapToZeroEpsilon ) ) {
-          // snap to zero
-          coefficientValue = 0;
+        
+        // snap to zero
+        if ( ( options.snapToZeroEpsilon !== 0 ) && ( Math.abs( modelValue ) < options.snapToZeroEpsilon ) ) {
+
+          return options.map( 0 );
         }
-        return options.map( coefficientValue );
+
+        // no constraint applied
+        return viewValue;
       };
 
       // Map between model and view domains, determines how the slider responds.
@@ -101,8 +108,8 @@ define( require => {
         // See #17. Necessary because bidirectional:true and we're snapping to options.interval.
         reentrant: true,
 
-        // map from model to view, apply options.interval to model value
-        map: value => options.map( Util.roundToInterval( value, options.interval ) ),
+        // map from model to view
+        map: value => options.map( value ),
 
         // map from view to model, apply options.interval to model value
         inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
