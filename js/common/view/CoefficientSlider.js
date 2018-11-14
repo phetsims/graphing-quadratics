@@ -89,15 +89,20 @@ define( require => {
           return options.map( ( coefficientProperty.value < 0 ) ? options.interval : -options.interval );
         }
         
-        // snap to zero
-        if ( ( options.snapToZeroEpsilon !== 0 ) && ( Math.abs( modelValue ) < options.snapToZeroEpsilon ) ) {
-
-          return options.map( 0 );
-        }
-
         // no constraint applied
         return viewValue;
       };
+
+      // snap to zero when the drag ends
+      assert && assert( !options.endDrag, 'CoefficientSlider sets endDrag' );
+      if ( !options.skipZero && options.snapToZeroEpsilon !== 0 ) {
+        options.endDrag = () => {
+          const modelValue = options.inverseMap( coefficientProperty.value );
+          if ( ( Math.abs( modelValue ) < options.snapToZeroEpsilon ) ) {
+            coefficientProperty.value = options.map( 0 );
+          }
+        };
+      }
 
       // Map between model and view domains, determines how the slider responds.
       // Do not instrument for PhET-iO, see https://github.com/phetsims/phet-io/issues/1374
