@@ -91,7 +91,6 @@ define( require => {
 
           // skip zero
           if ( Math.abs( newModelValue ) < options.interval ) {
-            console.log( 'newModelValue=' + newModelValue );//XXX
             return options.map( ( newModelValue > 0 ) ? options.interval : -options.interval );
           }
         }
