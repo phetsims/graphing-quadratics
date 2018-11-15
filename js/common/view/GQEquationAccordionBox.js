@@ -35,16 +35,16 @@ define( require => {
         phetioDocumentation: 'the accordion box that contains the interactive equation'
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
-      const saveEraseButtonGroup = new SaveEraseButtonGroup(
+      const buttonGroup = new SaveEraseButtonGroup(
         model.saveQuadratic.bind( model ), 
         model.eraseQuadratic.bind( model ),
         model.savedQuadraticProperty, {
-          tandem: options.tandem.createTandem( 'saveEraseButtonGroup' ),
-          phetioDocumentation: 'buttons to save and erase a quadratic on the graph'
+          tandem: options.tandem.createTandem( 'buttonGroup' ),
+          phetioDocumentation: 'buttons that appear below the interactive equation'
         } );
 
       // properties of the horizontal separators
-      const separatorWidth = Math.max( interactiveEquationNode.width, saveEraseButtonGroup.width );
+      const separatorWidth = Math.max( interactiveEquationNode.width, buttonGroup.width );
       const separatorOptions = { stroke: GQColors.SEPARATOR };
 
       const contentNode = new VBox( {
@@ -54,7 +54,7 @@ define( require => {
           new HSeparator( separatorWidth, separatorOptions ),
           interactiveEquationNode,
           new HSeparator( separatorWidth, separatorOptions ),
-          saveEraseButtonGroup
+          buttonGroup
         ]
       } );
 
