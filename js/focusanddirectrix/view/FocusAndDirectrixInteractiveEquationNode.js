@@ -50,7 +50,7 @@ define( require => {
       // coefficient controls (labeled sliders)
       const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
 
-        // p=0 is not supported by this sim because it results in division by zero,
+        // p=0 is not supported by this sim because it results in division by zero for 1/(4p).
         // see https://github.com/phetsims/graphing-quadratics/issues/31
         skipZero: true,
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
