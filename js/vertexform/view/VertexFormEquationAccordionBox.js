@@ -36,12 +36,13 @@ define( require => {
         phetioDocumentation: 'the equation shown at the top of this accordion box'
       } );
 
-      const content = new VertexFormInteractiveEquationNode( model.aProperty, model.hProperty, model.kProperty, {
-        tandem: options.tandem.createTandem( 'content' ),
-        phetioDocumentation: 'the interactive equation in this accordion box'
-      } );
+      const interactiveEquationNode = new VertexFormInteractiveEquationNode(
+        model.aProperty, model.hProperty, model.kProperty, {
+          tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
+          phetioDocumentation: 'the interactive equation in this accordion box'
+        } );
 
-      super( model, content, options );
+      super( model, interactiveEquationNode, options );
     }
   }
 

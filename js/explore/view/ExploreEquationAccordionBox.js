@@ -22,7 +22,7 @@ define( require => {
      * @param {Object} [options]
      */
     constructor( model, options ) {
-                                              
+
       options = _.extend( {
 
         // phet-io
@@ -36,12 +36,13 @@ define( require => {
         phetioDocumentation: 'the equation shown at the top of this accordion box'
       } );
 
-      const content = new ExploreInteractiveEquationNode( model.aProperty, model.bProperty, model.cProperty, {
-        tandem: options.tandem.createTandem( 'content' ),
-        phetioDocumentation: 'the interactive equation in this accordion box'
-      } );
+      const interactiveEquationNode = new ExploreInteractiveEquationNode(
+        model.aProperty, model.bProperty, model.cProperty, {
+          tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
+          phetioDocumentation: 'the interactive equation in this accordion box'
+        } );
 
-      super( model, content, options );
+      super( model, interactiveEquationNode, options );
     }
   }
 

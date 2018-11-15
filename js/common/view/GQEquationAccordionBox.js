@@ -22,11 +22,11 @@ define( require => {
 
     /**
      * @param {ExploreModel} model
-     * @param {Node} content
+     * @param {Node} interactiveEquationNode
      * @param {Object} [options]
      * @abstract
      */
-    constructor( model, content, options ) {
+    constructor( model, interactiveEquationNode, options ) {
 
       options = _.extend( {
 
@@ -44,21 +44,21 @@ define( require => {
         } );
 
       // properties of the horizontal separators
-      const separatorWidth = Math.max( content.width, saveEraseButtonGroup.width );
+      const separatorWidth = Math.max( interactiveEquationNode.width, saveEraseButtonGroup.width );
       const separatorOptions = { stroke: GQColors.SEPARATOR };
 
-      const vBox = new VBox( {
+      const contentNode = new VBox( {
         align: 'center',
         spacing: 8,
         children: [
           new HSeparator( separatorWidth, separatorOptions ),
-          content,
+          interactiveEquationNode,
           new HSeparator( separatorWidth, separatorOptions ),
           saveEraseButtonGroup
         ]
       } );
 
-      super( vBox, options );
+      super( contentNode, options );
     }
   }
 
