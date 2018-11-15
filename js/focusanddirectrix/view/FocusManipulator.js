@@ -159,7 +159,7 @@ define( require => {
 
           // skip over p === 0
           if ( p === 0 ) {
-            p = ( pProperty.value < 0 ) ? interval : -interval;
+            p = ( pProperty.value > 0 ) ? interval : -interval;
           }
           assert && assert( p !== 0, 'p=0 is not supported' );
 

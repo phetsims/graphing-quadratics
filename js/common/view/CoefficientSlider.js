@@ -84,12 +84,16 @@ define( require => {
       assert && assert( !options.constrainValue, 'CoefficientSlider sets constrainValue' );
       options.constrainValue = viewValue => {
 
-        // map from view to model, because constraint decisions are based on model value
-        let modelValue = options.inverseMap( viewValue );
+        if ( options.skipZero ) {
 
-        // skip zero
-        if ( options.skipZero && ( Math.abs( modelValue ) < options.interval ) ) {
-          return options.map( ( coefficientProperty.value < 0 ) ? options.interval : -options.interval );
+          // map from view to model
+          const newModelValue = options.inverseMap( viewValue );
+
+          // skip zero
+          if ( Math.abs( newModelValue ) < options.interval ) {
+            console.log( 'newModelValue=' + newModelValue );//XXX
+            return options.map( ( newModelValue > 0 ) ? options.interval : -options.interval );
+          }
         }
         
         // no constraint applied
