@@ -88,7 +88,7 @@ define( require => {
           'invalid snapToZeroEpsilon: ' + options.snapToZeroEpsilon );
       }
 
-      // make ticks extend past the thumb
+      // make tick mark lines extend past the thumb
       assert && assert( options.majorTickLength === undefined, 'CoefficientSlider sets majorTickLength' );
       options.majorTickLength = ( options.thumbSize.height / 2 ) + 3;
 
@@ -144,6 +144,7 @@ define( require => {
         options.map( coefficientProperty.range.max )
       );
 
+      // Provide view Property and Range to VSlider
       super( sliderProperty, sliderRange, options );
 
       // Create the tick labels
