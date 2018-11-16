@@ -25,7 +25,7 @@ define( require => {
   const VSlider = require( 'SUN/VSlider' );
 
   // constants
-  const DEFAULT_MAP = value => value;
+  const IDENTITY_FUNCTION = value => value;
   const DEFAULT_TICK_VALUES = [ 0 ];
   const DEFAULT_TRACK_SIZE = new Dimension2( 130, 1 );
   const DEFAULT_THUMB_SIZE = new Dimension2( 20, 40 );
@@ -42,10 +42,10 @@ define( require => {
       options = _.extend( {
 
         // maps from model to view (coefficientProperty to sliderProperty)
-        map: DEFAULT_MAP,
+        map: IDENTITY_FUNCTION,
 
         // maps from view to model (sliderProperty to coefficientProperty)
-        inverseMap: DEFAULT_MAP,
+        inverseMap: IDENTITY_FUNCTION,
 
         // coefficientProperty.value will be set to a multiple of this value, in model coordinates
         interval: 1,
