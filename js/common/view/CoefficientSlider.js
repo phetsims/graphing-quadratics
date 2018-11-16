@@ -41,10 +41,10 @@ define( require => {
 
       options = _.extend( {
 
-        // maps coefficientProperty.value to slider value (model to view)
+        // maps from model to view (coefficientProperty to sliderProperty)
         map: DEFAULT_MAP,
 
-        // maps slider value to coefficientProperty.value (view to model)
+        // maps from view to model (sliderProperty to coefficientProperty)
         inverseMap: DEFAULT_MAP,
 
         // coefficientProperty.value will be set to a multiple of this value, in model coordinates
