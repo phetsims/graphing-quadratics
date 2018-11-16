@@ -53,9 +53,12 @@ define( require => {
         // whether to skip zero value
         skipZero: false,
 
-        // snap to zero if |coefficientProperty.value| < snapToZeroEpsilon,
-        // set to 0 to disable snap to zero, ignored if skipZero:true, in model coordinates
-        snapToZeroEpsilon: 0.1,
+        // whether to snap to zero when the drag ends
+        snapToZero: true,
+
+        // {number|null} snap to zero when this close to zero. Ignored if snapToZero:false.
+        // Must be >= options.interval, and defaults to options.interval
+        snapToZeroEpsilon: null,
 
         // {Array.<number>|null} model values where major tick marks will be placed
         tickValues: DEFAULT_TICK_VALUES,
@@ -75,7 +78,15 @@ define( require => {
       }, options );
 
       assert && assert( options.interval > 0, 'invalid interval: ' + options.interval );
-      assert && assert( options.snapToZeroEpsilon >= 0, 'invalid snapToZeroEpsilon: ' + options.snapToZeroEpsilon );
+
+      // default and validation for options.snapToZeroEpsilon
+      if ( options.snapToZero ) {
+        if ( options.snapToZeroEpsilon === null ) {
+          options.snapToZeroEpsilon = options.interval;
+        }
+        assert && assert( ( options.snapToZeroEpsilon >= 0 ) && ( options.snapToZeroEpsilon >= options.interval ),
+          'invalid snapToZeroEpsilon: ' + options.snapToZeroEpsilon );
+      }
 
       // make ticks extend past the thumb
       assert && assert( options.majorTickLength === undefined, 'CoefficientSlider sets majorTickLength' );
@@ -102,11 +113,10 @@ define( require => {
 
       // snap to zero when the drag ends
       assert && assert( !options.endDrag, 'CoefficientSlider sets endDrag' );
-      if ( !options.skipZero && options.snapToZeroEpsilon !== 0 ) {
+      if ( !options.skipZero && options.snapToZero ) {
         options.endDrag = () => {
-          const modelValue = options.inverseMap( coefficientProperty.value );
-          if ( ( Math.abs( modelValue ) < options.snapToZeroEpsilon ) ) {
-            coefficientProperty.value = options.map( 0 );
+          if ( ( Math.abs( coefficientProperty.value ) < options.snapToZeroEpsilon ) ) {
+            coefficientProperty.value = 0;
           }
         };
       }
@@ -120,10 +130,10 @@ define( require => {
         // See #17. Necessary because bidirectional:true and we're snapping to options.interval.
         reentrant: true,
 
-        // map from model to view
+        // map from model to view (coefficientProperty to sliderProperty)
         map: value => options.map( value ),
 
-        // map from view to model, apply options.interval to model value
+        // map from view to model (sliderProperty to coefficientProperty), apply options.interval to model value
         inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
       } );
 

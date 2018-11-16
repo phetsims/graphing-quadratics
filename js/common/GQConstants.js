@@ -116,6 +116,7 @@ define( require => {
 
     // slider intervals
     EXPLORE_INTERVAL_A: 0.01,
+    EXPLORE_SNAP_TO_ZERO_EPSILON_A: 0.03,
     EXPLORE_INTERVAL_B: 0.1,
     EXPLORE_INTERVAL_C: 0.1,
     FOCUS_AND_DIRECTRIX_INTERVAL_P: 0.1,

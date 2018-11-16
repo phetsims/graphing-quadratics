@@ -23,9 +23,7 @@ define( require => {
      */
     constructor( symbol, coefficientProperty, options ) {
 
-      options = _.extend( {
-        snapToZeroEpsilon: 0.03
-      }, options );
+      options = options || {};
 
       assert && assert( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,
         'symmetrical range is required: ' + coefficientProperty.range );

@@ -48,6 +48,7 @@ define( require => {
       // coefficient controls (labeled sliders)
       const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_A,
+        snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
         labelColor: GQColors.EXPLORE_A,
         tandem: options.tandem.createTandem( 'aSlider' ),
         phetioDocumentation: 'slider for coefficient a'
