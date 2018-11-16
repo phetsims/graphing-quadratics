@@ -127,7 +127,7 @@ define( require => {
 
         bidirectional: true,
 
-        // See #17. Necessary because bidirectional:true and we're snapping to options.interval.
+        // See #17 and #52. Necessary because bidirectional:true and we're snapping to options.interval.
         reentrant: true,
 
         // map from model to view (coefficientProperty to sliderProperty)
