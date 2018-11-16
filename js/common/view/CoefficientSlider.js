@@ -17,6 +17,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Property = require( 'AXON/Property' );
+  const Range = require( 'DOT/Range' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -126,7 +127,14 @@ define( require => {
         inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
       } );
 
-      super( sliderProperty, coefficientProperty.range, options );
+      // Convert the range from model to view
+      assert && assert( coefficientProperty.range, 'coefficientProperty.range is missing' );
+      const sliderRange = new Range(
+        options.map( coefficientProperty.range.min ),
+        options.map( coefficientProperty.range.max )
+      );
+
+      super( sliderProperty, sliderRange, options );
 
       // Create the tick labels
       if ( options.tickValues ) {
