@@ -46,19 +46,22 @@ define( require => {
         _.extend( {
           color: GQColors.STANDARD_FORM_A,
           tandem: options.tandem.createTandem( 'aNumberPicker' ),
-          phetioDocumentation: 'picker for coefficient a'
+          phetioDocumentation: 'picker for coefficient a',
+          phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_B,
           tandem: options.tandem.createTandem( 'bNumberPicker' ),
-          phetioDocumentation: 'picker for coefficient b'
+          phetioDocumentation: 'picker for coefficient b',
+          phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_C,
           tandem: options.tandem.createTandem( 'cNumberPicker' ),
-          phetioDocumentation: 'picker for constant c'
+          phetioDocumentation: 'picker for constant c',
+          phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 
       // static parts of the equation

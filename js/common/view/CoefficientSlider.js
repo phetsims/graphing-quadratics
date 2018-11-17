@@ -72,6 +72,10 @@ define( require => {
         thumbSize: DEFAULT_THUMB_SIZE,
         thumbTouchAreaYDilation: 8,
 
+        enabledPropertyOptions: {
+          phetioFeatured: true
+        },
+
         // phet-io
         tandem: Tandem.required
 

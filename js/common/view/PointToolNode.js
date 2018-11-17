@@ -56,7 +56,8 @@ define( require => {
         foregroundHighlightColor: 'white',
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // All point tool nodes in this sim can be made invisible
       }, options );
 
       // use the image file that corresponds to the probeSide

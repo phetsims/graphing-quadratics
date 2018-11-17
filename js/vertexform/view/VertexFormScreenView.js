@@ -44,7 +44,8 @@ define( require => {
         } ),
         new VertexFormGraphControlPanel( viewProperties, {
           tandem: options.tandem.createTandem( 'graphControlPanel' ),
-          phetioDocumentation: 'panel that contains controls related to the graph'
+          phetioDocumentation: 'panel that contains controls related to the graph',
+          phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
         } ),
         options
       );

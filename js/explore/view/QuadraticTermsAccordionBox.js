@@ -41,7 +41,8 @@ define( require => {
         titleXSpacing: 8,
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
       }, options );
 
       // AccordionBox title
