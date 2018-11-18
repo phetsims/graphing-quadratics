@@ -1,7 +1,8 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * Draws a quadratic curve, labeled with an equation.
+ * Draws the curve that is described by a quadratic equation.
+ * The curve is labeled with the equation.
  * Performance is optimized to update only what's visible.
  *
  * @author Andrea Lin
