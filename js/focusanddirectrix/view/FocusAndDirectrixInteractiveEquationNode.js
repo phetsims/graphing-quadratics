@@ -10,9 +10,9 @@ define( require => {
   'use strict';
 
   // modules
-  const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQSlider = require( 'GRAPHING_QUADRATICS/common/view/GQSlider' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
@@ -52,8 +52,8 @@ define( require => {
         }
       } );
 
-      // coefficient controls (labeled sliders)
-      const pSlider = new CoefficientSlider( GQSymbols.p, pProperty, {
+      // value sliders
+      const pSlider = new GQSlider( GQSymbols.p, pProperty, {
 
         // p=0 is not supported by this sim because it results in division by zero for 1/(4p).
         // see https://github.com/phetsims/graphing-quadratics/issues/31
@@ -61,19 +61,19 @@ define( require => {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_P,
         tandem: options.tandem.createTandem( 'pSlider' ),
-        phetioDocumentation: 'slider for coefficient p'
+        phetioDocumentation: 'slider for \'p\' value'
       } );
-      const hSlider = new CoefficientSlider( GQSymbols.h, hProperty, {
+      const hSlider = new GQSlider( GQSymbols.h, hProperty, {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
         tandem: options.tandem.createTandem( 'hSlider' ),
-        phetioDocumentation: 'slider for coefficient h'
+        phetioDocumentation: 'slider for \'h\' value'
       } );
-      const kSlider = new CoefficientSlider( GQSymbols.k, kProperty, {
+      const kSlider = new GQSlider( GQSymbols.k, kProperty, {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
         tandem: options.tandem.createTandem( 'kSlider' ),
-        phetioDocumentation: 'slider for coefficient k'
+        phetioDocumentation: 'slider for \'k\' value'
       } );
 
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );

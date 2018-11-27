@@ -12,7 +12,7 @@ define( require => {
   'use strict';
 
   // modules
-  const CoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/CoefficientSlider' );
+  const GQSlider = require( 'GRAPHING_QUADRATICS/common/view/GQSlider' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
@@ -20,7 +20,7 @@ define( require => {
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
-  const QuadraticCoefficientSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticCoefficientSlider' );
+  const QuadraticSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
 
@@ -51,24 +51,24 @@ define( require => {
       } );
 
       // coefficient controls (labeled sliders)
-      const aSlider = new QuadraticCoefficientSlider( GQSymbols.a, aProperty, {
+      const aSlider = new QuadraticSlider( GQSymbols.a, aProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_A,
         snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
         labelColor: GQColors.EXPLORE_A,
         tandem: options.tandem.createTandem( 'aSlider' ),
-        phetioDocumentation: 'slider for coefficient a'
+        phetioDocumentation: 'slider for \'a\' value'
       } );
-      const bSlider = new CoefficientSlider( GQSymbols.b, bProperty, {
+      const bSlider = new GQSlider( GQSymbols.b, bProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_B,
         labelColor: GQColors.EXPLORE_B,
         tandem: options.tandem.createTandem( 'bSlider' ),
-        phetioDocumentation: 'slider for coefficient b'
+        phetioDocumentation: 'slider for \'b\' value'
       } );
-      const cSlider = new CoefficientSlider( GQSymbols.c, cProperty, {
+      const cSlider = new GQSlider( GQSymbols.c, cProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_C,
         labelColor: GQColors.EXPLORE_C,
         tandem: options.tandem.createTandem( 'cSlider' ),
-        phetioDocumentation: 'slider for constant c'
+        phetioDocumentation: 'slider for \'c\' value'
       } );
 
       assert && assert( !options.children, 'ExploreInteractiveEquationNode sets children' );
