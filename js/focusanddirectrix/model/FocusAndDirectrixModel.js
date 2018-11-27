@@ -39,37 +39,33 @@ define( require => {
      */
     constructor( tandem ) {
 
-      // NumberProperty instances in this screen will be controlled via CoefficientSlider.  And CoefficientSlider
-      // imposes additional constraints (mapping, interval) that make it impossible to control NumberProperty
-      // instances via a generic slider in Studio.  So opt-out of showing a slider for these NumberProperties
-      // in Studio. See https://github.com/phetsims/graphing-quadratics/issues/52.
-      const numberPropertyOptions = {
-        phetioStudioControl: false
-      };
-
       // p
       const pProperty = new NumberProperty( P_RANGE.defaultValue, _.extend( {
         range: P_RANGE,
         isValidValue: value => ( value !== 0 ), // zero is not supported
         tandem: tandem.createTandem( 'pProperty' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'p' } )
-      }, numberPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'p' } )
+      }, {
+        // Opt out of providing a slider in Studio. A generic slider will cause problems, since zero is not supported.
+        // See https://github.com/phetsims/graphing-quadratics/issues/52
+        phetioStudioControl: false
+      } ) );
       phet.log && pProperty.link( p => { phet.log( 'p=' + p ); } );
 
       // h
       const hProperty = new NumberProperty( H_RANGE.defaultValue, _.extend( {
         range: H_RANGE,
         tandem: tandem.createTandem( 'hProperty' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'h' } )
-      }, numberPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } )
+      } ) );
       phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
 
       // k
       const kProperty = new NumberProperty( K_RANGE.defaultValue, _.extend( {
         range: K_RANGE,
         tandem: tandem.createTandem( 'kProperty' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.PHET_IO_DOCUMENTATION_PATTERN, { symbol: 'k' } )
-      }, numberPropertyOptions ) );
+        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } )
+      } ) );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
 
       // {DerivedProperty.<Quadratic>}

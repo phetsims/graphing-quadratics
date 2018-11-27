@@ -18,6 +18,7 @@ define( require => {
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class VertexFormInteractiveEquationNode extends Node {
@@ -41,26 +42,26 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      // Coefficient pickers
-      const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
+      // value pickers
+      const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_A,
-          tandem: options.tandem.createTandem( 'aNumberPicker' ),
-          phetioDocumentation: 'picker for coefficient a',
+          tandem: options.tandem.createTandem( 'aPicker' ),
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
-      const hNumberPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
+      const hPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_H,
-          tandem: options.tandem.createTandem( 'hNumberPicker' ),
-          phetioDocumentation: 'picker for coefficient h',
+          tandem: options.tandem.createTandem( 'hPicker' ),
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
-      const kNumberPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
+      const kPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_K,
-          tandem: options.tandem.createTandem( 'kNumberPicker' ),
-          phetioDocumentation: 'picker for coefficient k',
+          tandem: options.tandem.createTandem( 'kPicker' ),
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 
@@ -83,33 +84,33 @@ define( require => {
       options.children = [
         yText,
         equalToText,
-        aNumberPicker,
+        aPicker,
         openParenthesisText,
         xText,
         minusText,
-        hNumberPicker,
+        hPicker,
         parenSquaredText,
         plusText,
-        kNumberPicker
+        kPicker
       ];
 
       super( options );
 
       // layout
       equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      aNumberPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      openParenthesisText.left = aNumberPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      aPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      openParenthesisText.left = aPicker.right + GQConstants.EQUATION_TERM_SPACING;
       xText.left = openParenthesisText.right + GQConstants.EQUATION_TERM_SPACING;
       minusText.left = xText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      hNumberPicker.left = minusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      parenSquaredText.left = hNumberPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      hPicker.left = minusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      parenSquaredText.left = hPicker.right + GQConstants.EQUATION_TERM_SPACING;
       plusText.left = parenSquaredText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      kNumberPicker.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      kPicker.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
 
       // vertically center pickers on equals
-      aNumberPicker.centerY = equalToText.centerY;
-      hNumberPicker.centerY = equalToText.centerY;
-      kNumberPicker.centerY = equalToText.centerY;
+      aPicker.centerY = equalToText.centerY;
+      hPicker.centerY = equalToText.centerY;
+      kPicker.centerY = equalToText.centerY;
     }
   }
 

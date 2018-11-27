@@ -1,9 +1,13 @@
 // Copyright 2018, University of Colorado Boulder
 
 /**
- * A vertical slider for changing one of the coefficients in a quadratic equation, decorated with a label above
- * the slider. The default taper (relationship between value and position of the thumb) is linear.
- * To change the taper, use options map and inverseMap.
+ * GQSlider is the base type for sliders in this sim. It adds the following features to VSlider:
+ *
+ * - snap to interval (see interval)
+ * - snap to zero (see snapToZero)
+ * - skip zero (see skipZero)
+ * - change the taper (see map and inverseMap)
+ * - a label about the slider
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -30,7 +34,7 @@ define( require => {
   const DEFAULT_TRACK_SIZE = new Dimension2( 130, 1 );
   const DEFAULT_THUMB_SIZE = new Dimension2( 20, 40 );
 
-  class CoefficientSlider extends VSlider {
+  class GQSlider extends VSlider {
 
     /**
      * @param {string} symbol - the coefficient's symbol
@@ -93,11 +97,11 @@ define( require => {
       }
 
       // make tick mark lines extend past the thumb
-      assert && assert( options.majorTickLength === undefined, 'CoefficientSlider sets majorTickLength' );
+      assert && assert( options.majorTickLength === undefined, 'GQSlider sets majorTickLength' );
       options.majorTickLength = ( options.thumbSize.height / 2 ) + 3;
 
       // apply constrains to the view value
-      assert && assert( !options.constrainValue, 'CoefficientSlider sets constrainValue' );
+      assert && assert( !options.constrainValue, 'GQSlider sets constrainValue' );
       options.constrainValue = viewValue => {
 
         if ( options.skipZero ) {
@@ -116,7 +120,7 @@ define( require => {
       };
 
       // snap to zero when the drag ends
-      assert && assert( !options.endDrag, 'CoefficientSlider sets endDrag' );
+      assert && assert( !options.endDrag, 'GQSlider sets endDrag' );
       if ( !options.skipZero && options.snapToZero ) {
         options.endDrag = () => {
           if ( ( Math.abs( coefficientProperty.value ) < options.snapToZeroEpsilon ) ) {
@@ -130,9 +134,6 @@ define( require => {
       const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
 
         bidirectional: true,
-
-        // Necessary because bidirectional:true and we're snapping to options.interval. See #17 and #52. 
-        reentrant: true,
 
         // map from model to view (coefficientProperty to sliderProperty)
         map: value => options.map( value ),
@@ -174,5 +175,5 @@ define( require => {
     }
   }
 
-  return graphingQuadratics.register( 'CoefficientSlider', CoefficientSlider );
+  return graphingQuadratics.register( 'GQSlider', GQSlider );
 } );

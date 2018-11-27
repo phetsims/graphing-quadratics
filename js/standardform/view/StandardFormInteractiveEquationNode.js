@@ -18,6 +18,7 @@ define( require => {
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class StandardFormInteractiveEquationNode extends Node {
@@ -42,25 +43,25 @@ define( require => {
       }, options );
 
       // coefficient pickers
-      const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
+      const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_A,
-          tandem: options.tandem.createTandem( 'aNumberPicker' ),
-          phetioDocumentation: 'picker for coefficient a',
+          tandem: options.tandem.createTandem( 'aPicker' ),
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
-      const bNumberPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
+      const bPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_B,
-          tandem: options.tandem.createTandem( 'bNumberPicker' ),
-          phetioDocumentation: 'picker for coefficient b',
+          tandem: options.tandem.createTandem( 'bPicker' ),
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'b' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
-      const cNumberPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
+      const cPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_C,
-          tandem: options.tandem.createTandem( 'cNumberPicker' ),
-          phetioDocumentation: 'picker for constant c',
+          tandem: options.tandem.createTandem( 'cPicker' ),
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'c' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 
@@ -80,25 +81,25 @@ define( require => {
 
       assert && assert( !options.children, 'StandardFormInteractiveEquationNode sets children' );
       options.children = [
-        yText, equalToText, aNumberPicker, xSquaredText, plusText, bNumberPicker, xText, secondPlusText, cNumberPicker
+        yText, equalToText, aPicker, xSquaredText, plusText, bPicker, xText, secondPlusText, cPicker
       ];
 
       super( options );
 
       // layout
       equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      aNumberPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      xSquaredText.left = aNumberPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      aPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      xSquaredText.left = aPicker.right + GQConstants.EQUATION_TERM_SPACING;
       plusText.left = xSquaredText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      bNumberPicker.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      xText.left = bNumberPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      bPicker.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      xText.left = bPicker.right + GQConstants.EQUATION_TERM_SPACING;
       secondPlusText.left = xText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      cNumberPicker.left = secondPlusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      cPicker.left = secondPlusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
 
       // vertically center pickers on equals
-      aNumberPicker.centerY = equalToText.centerY;
-      bNumberPicker.centerY = equalToText.centerY;
-      cNumberPicker.centerY = equalToText.centerY;
+      aPicker.centerY = equalToText.centerY;
+      bPicker.centerY = equalToText.centerY;
+      cPicker.centerY = equalToText.centerY;
     }
   }
 
