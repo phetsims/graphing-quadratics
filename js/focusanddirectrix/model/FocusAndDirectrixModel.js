@@ -46,7 +46,7 @@ define( require => {
         tandem: tandem.createTandem( 'pProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'p' } )
       }, {
-        // Opt out of providing a slider in Studio, since zero is not supported.
+        // Opt out of providing a slider in Studio. A generic slider will cause problems, since zero is not supported.
         // See https://github.com/phetsims/graphing-quadratics/issues/52
         phetioStudioControl: false
       } ) );
