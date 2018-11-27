@@ -21,6 +21,7 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
@@ -61,19 +62,19 @@ define( require => {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_P,
         tandem: options.tandem.createTandem( 'pSlider' ),
-        phetioDocumentation: 'slider for \'p\' value'
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
       } );
       const hSlider = new GQSlider( GQSymbols.h, hProperty, {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
         tandem: options.tandem.createTandem( 'hSlider' ),
-        phetioDocumentation: 'slider for \'h\' value'
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
       } );
       const kSlider = new GQSlider( GQSymbols.k, kProperty, {
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
         labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
         tandem: options.tandem.createTandem( 'kSlider' ),
-        phetioDocumentation: 'slider for \'k\' value'
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
       } );
 
       assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );

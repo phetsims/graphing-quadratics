@@ -18,6 +18,7 @@ define( require => {
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class VertexFormInteractiveEquationNode extends Node {
@@ -46,21 +47,21 @@ define( require => {
         _.extend( {
           color: GQColors.VERTEX_FORM_A,
           tandem: options.tandem.createTandem( 'aPicker' ),
-          phetioDocumentation: 'picker for \'a\' value',
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const hPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_H,
           tandem: options.tandem.createTandem( 'hPicker' ),
-          phetioDocumentation: 'picker for \'h\' value',
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const kPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_K,
           tandem: options.tandem.createTandem( 'kPicker' ),
-          phetioDocumentation: 'picker for \'k\' value',
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 

@@ -141,9 +141,10 @@ define( require => {
     // spacing within terms in interactive equations
     EQUATION_TERM_SPACING: 6,
 
-    // PhET-iO documentation for NumberProperty instances that correspond to equation values.
-    // See https://github.com/phetsims/graphing-quadratics/issues/103
-    PHET_IO_DOCUMENTATION_PATTERN: 'the value of \'{{symbol}}\' in the interactive equation'
+    // PhET-iO documentation patterns
+    VALUE_DOC: 'value of \'{{symbol}}\' in the interactive equation',
+    PICKER_DOC: 'picker for \'{{symbol}}\' value',
+    SLIDER_DOC: 'slider for \'{{symbol}}\' value'
   };
 
   return graphingQuadratics.register( 'GQConstants', GQConstants );

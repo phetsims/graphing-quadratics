@@ -22,6 +22,7 @@ define( require => {
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const QuadraticSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticSlider' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class ExploreInteractiveEquationNode extends Node {
@@ -56,19 +57,19 @@ define( require => {
         snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
         labelColor: GQColors.EXPLORE_A,
         tandem: options.tandem.createTandem( 'aSlider' ),
-        phetioDocumentation: 'slider for \'a\' value'
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
       } );
       const bSlider = new GQSlider( GQSymbols.b, bProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_B,
         labelColor: GQColors.EXPLORE_B,
         tandem: options.tandem.createTandem( 'bSlider' ),
-        phetioDocumentation: 'slider for \'b\' value'
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
       } );
       const cSlider = new GQSlider( GQSymbols.c, cProperty, {
         interval: GQConstants.EXPLORE_INTERVAL_C,
         labelColor: GQColors.EXPLORE_C,
         tandem: options.tandem.createTandem( 'cSlider' ),
-        phetioDocumentation: 'slider for \'c\' value'
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
       } );
 
       assert && assert( !options.children, 'ExploreInteractiveEquationNode sets children' );

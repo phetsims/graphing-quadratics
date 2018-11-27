@@ -18,6 +18,7 @@ define( require => {
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const Property = require( 'AXON/Property' );
   const RichText = require( 'SCENERY/nodes/RichText' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   class StandardFormInteractiveEquationNode extends Node {
@@ -46,21 +47,21 @@ define( require => {
         _.extend( {
           color: GQColors.STANDARD_FORM_A,
           tandem: options.tandem.createTandem( 'aPicker' ),
-          phetioDocumentation: 'picker for \'a\' value',
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const bPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_B,
           tandem: options.tandem.createTandem( 'bPicker' ),
-          phetioDocumentation: 'picker for \'b\' value',
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'b' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const cPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
         _.extend( {
           color: GQColors.STANDARD_FORM_C,
           tandem: options.tandem.createTandem( 'cPicker' ),
-          phetioDocumentation: 'picker for \'c\' value',
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'c' } ),
           phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 
