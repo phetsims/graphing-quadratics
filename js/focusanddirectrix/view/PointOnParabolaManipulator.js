@@ -80,6 +80,7 @@ define( require => {
       // add drag handler
       this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
         modelViewTransform, graph, {
+          phetioFeatured: true,
           tandem: options.tandem.createTandem( 'dragListener' ),
           phetioDocumentation: 'the drag listener for this point-on-parabola manipulator'
         } ) );
