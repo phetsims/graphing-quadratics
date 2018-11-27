@@ -43,14 +43,7 @@ define( require => {
 
       // Options for all NumberProperty instances
       const numberPropertyOptions = {
-        numberType: options.numberType,
-
-        // Non-integer NumberProperty instances will be controlled via CoefficientSlider and QuadraticCoefficientSlider.
-        // These sliders impose additional constraints (mapping, interval) that make it impossible to control
-        // NumberProperty instances via a generic slider in Studio.  So if we have non-integer numberType,
-        // opt-out of showing a slider for these NumberProperties in Studio.
-        // See https://github.com/phetsims/graphing-quadratics/issues/52.
-        phetioStudioControl: ( options.numberType === 'Integer' )
+        numberType: options.numberType
       };
 
       // a
