@@ -37,7 +37,8 @@ define( require => {
       // @public
       this.rootsVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'rootsVisibleProperty' ),
-        phetioDocumentation: 'whether the roots of the quadratic are visible'
+        phetioDocumentation: 'whether the roots of the quadratic are visible',
+        phetioFeatured: true
       } );
     }
 

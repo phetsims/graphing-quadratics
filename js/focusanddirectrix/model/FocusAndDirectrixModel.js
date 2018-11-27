@@ -79,6 +79,7 @@ define( require => {
           color: GQColors.FOCUS_AND_DIRECTRIX_INTERACTIVE_CURVE
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
+          phetioFeatured: true,
           phetioType: DerivedPropertyIO( QuadraticIO ),
           phetioDocumentation: 'the interactive quadratic, derived from p, h, and k'
         } );

@@ -32,25 +32,29 @@ define( require => {
       // @public
       this.quadraticTermsAccordionBoxExpandedProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'quadraticTermsAccordionBoxExpandedProperty' ),
-        phetioDocumentation: 'whether the Quadratic Terms accordion box is expanded'
+        phetioDocumentation: 'whether the Quadratic Terms accordion box is expanded',
+        phetioFeatured: true
       } );
 
       // @public
       this.quadraticTermVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'quadraticTermVisibleProperty' ),
-        phetioDocumentation: 'whether the quadratic term (y = ax^2) is visible'
+        phetioDocumentation: 'whether the quadratic term (y = ax^2) is visible',
+        phetioFeatured: true
       } );
 
       // @public
       this.linearTermVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'linearTermVisibleProperty' ),
-        phetioDocumentation: 'whether the linear term (y = bx) is visible'
+        phetioDocumentation: 'whether the linear term (y = bx) is visible',
+        phetioFeatured: true
       } );
 
       // @public
       this.constantTermVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'constantTermVisibleProperty' ),
-        phetioDocumentation: 'whether the constant term (y = c) is visible'
+        phetioDocumentation: 'whether the constant term (y = c) is visible',
+        phetioFeatured: true
       } );
     }
 

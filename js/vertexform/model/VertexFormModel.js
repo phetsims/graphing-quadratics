@@ -71,6 +71,7 @@ define( require => {
           color: GQColors.VERTEX_FORM_INTERACTIVE_CURVE
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
+          phetioFeatured: true,
           phetioType: DerivedPropertyIO( QuadraticIO ),
           phetioDocumentation: 'the interactive quadratic, derived from a, h, and k'
         } );

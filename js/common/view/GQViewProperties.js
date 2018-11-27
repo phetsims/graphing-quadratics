@@ -49,19 +49,22 @@ define( require => {
       // @public
       this.graphContentsVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'graphContentsVisibleProperty' ),
-        phetioDocumentation: 'whether the contents of the graph (curves, plotted points, manipulators) are visible'
+        phetioDocumentation: 'whether the contents of the graph (curves, plotted points, manipulators) are visible',
+        phetioFeatured: true
       } );
 
       // @public
       this.equationAccordionBoxExpandedProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'equationAccordionBoxExpandedProperty' ),
-        phetioDocumentation: 'whether the equation accordion box is expanded'
+        phetioDocumentation: 'whether the equation accordion box is expanded',
+        phetioFeatured: true
       } );
 
       // @public
       this.equationsVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
-        phetioDocumentation: 'whether equations are visible on graphed curves'
+        phetioDocumentation: 'whether equations are visible on graphed curves',
+        phetioFeatured: true
       } );
 
       // Properties that are optional ----------------------------------------------------------------------------------
@@ -70,7 +73,8 @@ define( require => {
         // @public
         this.vertexVisibleProperty = new BooleanProperty( options.vertexVisible, {
           tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
-          phetioDocumentation: 'whether the vertex point or manipulator is visible'
+          phetioDocumentation: 'whether the vertex point or manipulator is visible',
+          phetioFeatured: true
         } );
       }
 
@@ -78,7 +82,8 @@ define( require => {
         // @public
         this.axisOfSymmetryVisibleProperty = new BooleanProperty( options.axisOfSymmetryVisible, {
           tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
-          phetioDocumentation: 'whether the axis of symmetry is visible'
+          phetioDocumentation: 'whether the axis of symmetry is visible',
+          phetioFeatured: true
         } );
       }
 
@@ -86,7 +91,8 @@ define( require => {
         // @public
         this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible, {
           tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
-          phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
+          phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph',
+          phetioFeatured: true
         } );
       }
     }
