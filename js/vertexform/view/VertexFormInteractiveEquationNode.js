@@ -41,7 +41,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      // Coefficient pickers
+      // Value pickers
       const aNumberPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_A,
