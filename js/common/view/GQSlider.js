@@ -80,6 +80,7 @@ define( require => {
         enabledPropertyOptions: {
           phetioFeatured: true
         },
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } },
 
         // phet-io
         tandem: Tandem.required
@@ -115,7 +116,7 @@ define( require => {
             return options.map( ( newModelValue > 0 ) ? options.interval : -options.interval );
           }
         }
-        
+
         // no constraint applied
         return viewValue;
       };
