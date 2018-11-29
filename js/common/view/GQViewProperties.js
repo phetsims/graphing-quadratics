@@ -12,9 +12,10 @@ define( require => {
   const BooleanProperty = require( 'AXON/BooleanProperty' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const PhetioObject = require( 'TANDEM/PhetioObject' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  class GQViewProperties {
+  class GQViewProperties extends PhetioObject {
 
     /**
      * @param {Object} [options]
@@ -35,11 +36,16 @@ define( require => {
         coordinatesVisible: null,
 
         // phet-io                                                                                                              
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'Properties that are specific to the view',
+        phetioState: false
+
       }, options );
 
       assert && assert( GQConstants.EQUATION_FORMS.includes( options.equationForm ),
         'invalid equationForm: ' + options.equationForm );
+
+      super( options );
 
       // @public {string} form of equations used to label curves. It is not necessary to expose this via PhET-iO.
       this.equationForm = options.equationForm;
