@@ -40,7 +40,7 @@ define( require => {
         model.saveQuadratic.bind( model ),
         model.eraseQuadratic.bind( model ),
         model.savedQuadraticProperty, {
-          tandem: options.tandem.createTandem( 'saveEraseButtonGroup' ),
+          tandem: options.tandem.createTandem( 'buttonGroup' ),
           phetioDocumentation: 'buttons that appear below the interactive equation',
           phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
         } );
