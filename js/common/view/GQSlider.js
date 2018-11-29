@@ -80,7 +80,6 @@ define( require => {
         enabledPropertyOptions: {
           phetioFeatured: true
         },
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } },
 
         // phet-io
         tandem: Tandem.required
