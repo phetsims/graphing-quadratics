@@ -57,7 +57,7 @@ define( require => {
 
         // phet-io
         tandem: Tandem.required,
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // feature visibleProperty
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
 
       }, options );
 

@@ -33,7 +33,7 @@ define( require => {
         // phet-io
         tandem: Tandem.required,
         phetioDocumentation: 'the accordion box that contains the interactive equation',
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // feature visibleProperty
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
 
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 

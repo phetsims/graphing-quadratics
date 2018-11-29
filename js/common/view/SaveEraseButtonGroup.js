@@ -39,7 +39,7 @@ define( require => {
         // phet-io
         tandem: Tandem.required,
         phetioDocumentation: 'buttons that appear below the interactive equation',
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // feature visibleProperty
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
 
       }, options );
 
