@@ -44,8 +44,8 @@ define( require => {
         range: P_RANGE,
         isValidValue: value => ( value !== 0 ), // zero is not supported
         tandem: tandem.createTandem( 'pProperty' ),
-        phetioFeatured: true,
-        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'p' } )
+        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'p' } ),
+        phetioFeatured: true
       }, {
         // Opt out of providing a slider in Studio. A generic slider will cause problems, since zero is not supported.
         // See https://github.com/phetsims/graphing-quadratics/issues/52
@@ -57,8 +57,8 @@ define( require => {
       const hProperty = new NumberProperty( H_RANGE.defaultValue, _.extend( {
         range: H_RANGE,
         tandem: tandem.createTandem( 'hProperty' ),
-        phetioFeatured: true,
-        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } )
+        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } ),
+        phetioFeatured: true
       } ) );
       phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
 
@@ -66,8 +66,8 @@ define( require => {
       const kProperty = new NumberProperty( K_RANGE.defaultValue, _.extend( {
         range: K_RANGE,
         tandem: tandem.createTandem( 'kProperty' ),
-        phetioFeatured: true,
-        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } )
+        phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } ),
+        phetioFeatured: true
       } ) );
       phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
 
