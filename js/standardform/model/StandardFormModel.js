@@ -75,9 +75,9 @@ define( require => {
         [ aProperty, bProperty, cProperty ],
         ( a, b, c ) => new Quadratic( a, b, c, { color: GQColors.EXPLORE_INTERACTIVE_CURVE } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
-          phetioFeatured: true,
           phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioDocumentation: 'the interactive quadratic, derived from a, b, and c'
+          phetioDocumentation: 'the interactive quadratic, derived from a, b, and c',
+          phetioFeatured: true
         } );
       phet.log && quadraticProperty.link( quadratic => {
         phet.log( 'quadratic: y = ' + quadratic.a + ' x^2 + ' + quadratic.b + ' x + ' + quadratic.c );

@@ -27,6 +27,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'checkbox that shows equations on graphed curves'
+
       }, options );
 
       super( equationsString, equationsVisibleProperty, options );

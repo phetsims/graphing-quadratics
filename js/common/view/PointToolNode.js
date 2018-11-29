@@ -57,7 +57,8 @@ define( require => {
 
         // phet-io
         tandem: Tandem.required,
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // All point tool nodes in this sim can be made invisible
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // feature visibleProperty
+
       }, options );
 
       // use the image file that corresponds to the probeSide
@@ -70,8 +71,8 @@ define( require => {
         location => ( graph.contains( location ) ? location : null ), {
           isValidValue: value => ( value instanceof Vector2 || value === null ),
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
-          phetioDocumentation: 'coordinates displayed by this point tool, null if off the graph'
+          phetioDocumentation: 'coordinates displayed by this point tool, null if off the graph',
+          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )
         } );
 
       // coordinates display

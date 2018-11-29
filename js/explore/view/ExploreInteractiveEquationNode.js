@@ -37,18 +37,18 @@ define( require => {
     constructor( aProperty, bProperty, cProperty, options ) {
 
       options = _.extend( {
-        tandem: Tandem.required
+
+        // phet-io
+        tandem: Tandem.required,
+        phetioDocumentation: 'accordion box that contains the interactive equation'
+
       }, options );
 
       // equation
       const equationNode = new EquationNode( aProperty, bProperty, cProperty, {
         tandem: options.tandem.createTandem( 'equationNode' ),
         phetioDocumentation: 'the equation that changes as the sliders are adjusted',
-        phetioComponentOptions: {
-          visibleProperty: {
-            phetioFeatured: true
-          }
-        }
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
       } );
 
       // coefficient controls (labeled sliders)

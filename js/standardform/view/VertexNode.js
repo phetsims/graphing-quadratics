@@ -63,8 +63,8 @@ define( require => {
         quadratic => ( quadratic.vertex ? quadratic.vertex : null ), {
           isValidValue: value => ( value instanceof Vector2 || value === null ),
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
-          phetioDocumentation: 'coordinates displayed on the vertex point, null means no vertex'
+          phetioDocumentation: 'coordinates displayed on the vertex point, null means no vertex',
+          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )
         } );
 
       super( coordinatesProperty, coordinatesVisibleProperty, options );

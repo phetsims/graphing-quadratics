@@ -33,6 +33,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'checkbox that shows roots on the graph'
+
       }, options );
 
       // icon is a pair of circles

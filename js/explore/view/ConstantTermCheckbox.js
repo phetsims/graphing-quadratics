@@ -28,6 +28,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
+
       }, options );
 
       // y = c

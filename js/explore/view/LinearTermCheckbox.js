@@ -28,6 +28,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
+
       }, options );
 
       // y = bx

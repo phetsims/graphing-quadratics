@@ -75,9 +75,9 @@ define( require => {
           color: GQColors.FOCUS_AND_DIRECTRIX_INTERACTIVE_CURVE
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
-          phetioFeatured: true,
+          phetioDocumentation: 'the interactive quadratic, derived from p, h, and k',
           phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioDocumentation: 'the interactive quadratic, derived from p, h, and k'
+          phetioFeatured: true
         } );
       phet.log && quadraticProperty.link( quadratic => {
         phet.log( 'quadratic: y = (1/(4(' + quadratic.p + ')))(x - ' + quadratic.h + ')^2 + ' + quadratic.k );
@@ -96,8 +96,8 @@ define( require => {
       this.pointOnParabolaProperty = new Property( initialPoint, {
         valueType: Vector2,
         tandem: tandem.createTandem( 'pointOnParabolaProperty' ),
-        phetioType: PropertyIO( Vector2IO ),
-        phetioDocumentation: 'the interactive point on the parabola'
+        phetioDocumentation: 'the interactive point on the parabola',
+        phetioType: PropertyIO( Vector2IO )
       } );
 
       // update the point

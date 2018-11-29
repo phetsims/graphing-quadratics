@@ -34,7 +34,10 @@ define( require => {
       options = _.extend( {
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'panel that contains controls related to the graph',
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+
       }, GQConstants.PANEL_OPTIONS, options );
 
       // checkboxes

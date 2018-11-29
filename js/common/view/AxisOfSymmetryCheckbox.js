@@ -30,6 +30,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph'
+
       }, options );
 
       // icon is a vertical dashed line

@@ -48,8 +48,8 @@ define( require => {
       this.savedQuadraticProperty = new Property( null, {
         isValidValue: value => ( value instanceof Quadratic || value === null ),
         tandem: tandem.createTandem( 'savedQuadraticProperty' ),
-        phetioType: PropertyIO( NullableIO( QuadraticIO ) ),
-        phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic'
+        phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic',
+        phetioType: PropertyIO( NullableIO( QuadraticIO ) )
       } );
 
       // scale from model to view

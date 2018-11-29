@@ -39,13 +39,11 @@ define( require => {
         new ExploreGraphNode( model, viewProperties ), // do not instrument for PhET-iO
         new ExploreEquationAccordionBox( model, {
           expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
-          tandem: tandem.createTandem( 'equationAccordionBox' ),
-          phetioDocumentation: 'accordion box that contains the interactive equation'
+          tandem: tandem.createTandem( 'equationAccordionBox' )
         } ),
         new QuadraticTermsAccordionBox( viewProperties, {
           expandedProperty: viewProperties.quadraticTermsAccordionBoxExpandedProperty,
-          tandem: tandem.createTandem( 'quadraticTermsAccordionBox' ),
-          phetioDocumentation: 'the Quadratic Terms accordion box'
+          tandem: tandem.createTandem( 'quadraticTermsAccordionBox' )
         } ),
         options
       );

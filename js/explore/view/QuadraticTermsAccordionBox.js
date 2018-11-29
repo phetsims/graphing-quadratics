@@ -42,7 +42,9 @@ define( require => {
 
         // phet-io
         tandem: Tandem.required,
+        phetioDocumentation: 'the Quadratic Terms accordion box',
         phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+
       }, options );
 
       // AccordionBox title

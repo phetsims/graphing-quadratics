@@ -39,7 +39,9 @@ define( require => {
       options = _.extend( {
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'accordion box that contains the interactive equation'
+
       }, options );
 
       // value pickers

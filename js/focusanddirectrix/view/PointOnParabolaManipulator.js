@@ -47,6 +47,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'a manipulator for a point on the parabola'
+        
       }, options );
 
       // position coordinates based on which side of the parabola the point is on
@@ -71,8 +72,8 @@ define( require => {
         pointOnParabola => pointOnParabola, {
           valueType: Vector2,
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-          phetioType: DerivedPropertyIO( Vector2IO ),
-          phetioDocumentation: 'coordinates displayed on the point-on-quadratic manipulator'
+          phetioDocumentation: 'coordinates displayed on the point-on-quadratic manipulator',
+          phetioType: DerivedPropertyIO( Vector2IO )
         } );
 
       super( coordinatesProperty, coordinatesVisibleProperty, options );
@@ -80,9 +81,9 @@ define( require => {
       // add drag handler
       this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
         modelViewTransform, graph, {
-          phetioFeatured: true,
           tandem: options.tandem.createTandem( 'dragListener' ),
-          phetioDocumentation: 'the drag listener for this point-on-parabola manipulator'
+          phetioDocumentation: 'the drag listener for this point-on-parabola manipulator',
+          phetioFeatured: true
         } ) );
 
       // move the manipulator

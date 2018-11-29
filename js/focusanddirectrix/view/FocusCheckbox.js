@@ -29,6 +29,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'checkbox that shows the focus on the graph'
+
       }, options );
 
       // icon is a manipulator (3D sphere)

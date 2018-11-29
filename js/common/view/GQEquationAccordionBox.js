@@ -33,16 +33,15 @@ define( require => {
         // phet-io
         tandem: Tandem.required,
         phetioDocumentation: 'the accordion box that contains the interactive equation',
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // feature visibleProperty
+
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
       const buttonGroup = new SaveEraseButtonGroup(
         model.saveQuadratic.bind( model ),
         model.eraseQuadratic.bind( model ),
         model.savedQuadraticProperty, {
-          tandem: options.tandem.createTandem( 'buttonGroup' ),
-          phetioDocumentation: 'buttons that appear below the interactive equation',
-          phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+          tandem: options.tandem.createTandem( 'buttonGroup' )
         } );
 
       // properties of the horizontal separators

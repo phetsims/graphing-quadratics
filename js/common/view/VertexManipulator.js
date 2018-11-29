@@ -52,6 +52,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'a manipulator for the vertex'
+
       }, options );
 
       // position coordinates based on which way the parabola opens
@@ -74,17 +75,17 @@ define( require => {
         quadratic => ( quadratic.vertex ? quadratic.vertex : null ), {
           isValidValue: value => ( value instanceof Vector2 || value === null ),
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
-          phetioDocumentation: 'coordinates displayed by on vertex manipulator, null means no vertex'
+          phetioDocumentation: 'coordinates displayed by on vertex manipulator, null means no vertex',
+          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )
         } );
 
       super( coordinatesProperty, coordinatesVisibleProperty, options );
 
       // add the drag listener
       this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform, {
-        phetioFeatured: true,
         tandem: options.tandem.createTandem( 'dragListener' ),
-        phetioDocumentation: 'the drag listener for this vertex manipulator'
+        phetioDocumentation: 'the drag listener for this vertex manipulator',
+        phetioFeatured: true
       } ) );
 
       // move the manipulator

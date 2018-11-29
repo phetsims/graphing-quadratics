@@ -71,9 +71,9 @@ define( require => {
           color: GQColors.VERTEX_FORM_INTERACTIVE_CURVE
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
-          phetioFeatured: true,
+          phetioDocumentation: 'the interactive quadratic, derived from a, h, and k',
           phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioDocumentation: 'the interactive quadratic, derived from a, h, and k'
+          phetioFeatured: true
         } );
       phet.log && quadraticProperty.link( quadratic => {
         phet.log( 'quadratic: y = ' + quadratic.a + ' (x - ' + quadratic.h + ')^2 + ' + quadratic.k );

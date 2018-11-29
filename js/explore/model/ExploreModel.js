@@ -33,24 +33,24 @@ define( require => {
       this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => quadratic.getQuadraticTerm(), {
           tandem: tandem.createTandem( 'quadraticTermProperty' ),
-          phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioDocumentation: 'the quadratic term (y = ax^2) of the interactive quadratic'
+          phetioDocumentation: 'the quadratic term (y = ax^2) of the interactive quadratic',
+          phetioType: DerivedPropertyIO( QuadraticIO )
         } );
 
       // @public {DerivedProperty.<Quadratic>}
       this.linearTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => quadratic.getLinearTerm(), {
           tandem: tandem.createTandem( 'linearTermProperty' ),
-          phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioDocumentation: 'the linear term (y = bx) of the interactive quadratic'
+          phetioDocumentation: 'the linear term (y = bx) of the interactive quadratic',
+          phetioType: DerivedPropertyIO( QuadraticIO )
         } );
 
       // @public {DerivedProperty.<Quadratic>}
       this.constantTermProperty = new DerivedProperty( [ this.quadraticProperty ],
         quadratic => quadratic.getConstantTerm(), {
           tandem: tandem.createTandem( 'constantTermProperty' ),
-          phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioDocumentation: 'the constant term (y = c) of the interactive quadratic'
+          phetioDocumentation: 'the constant term (y = c) of the interactive quadratic',
+          phetioType: DerivedPropertyIO( QuadraticIO )
         } );
     }
   }

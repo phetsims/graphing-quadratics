@@ -26,7 +26,9 @@ define( require => {
       options = _.extend( {
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'accordion box that contains the interactive equation'
+
       }, options );
 
       assert && assert( !options.titleNode, 'FocusAndDirectrixEquationAccordionBox sets titleNode' );

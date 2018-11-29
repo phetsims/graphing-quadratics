@@ -30,6 +30,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'checkbox that shows the directrix on the graph'
+
       }, options );
 
       // icon is a horizontal dashed line

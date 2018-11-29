@@ -32,8 +32,9 @@ define( require => {
         icon: null, // {Node|null} optional icon, to the right of text
 
         // phet-io
-        tandem: Tandem.required, // {Tandem} all Checkboxes in this sim must be instrumented
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // All Checkboxes in this sim can be made invisible
+        tandem: Tandem.required,
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } } // feature visibleProperty
+
       }, options );
 
       const textNode = new RichText( text, {

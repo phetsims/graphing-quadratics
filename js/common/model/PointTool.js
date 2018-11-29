@@ -55,8 +55,8 @@ define( require => {
       this.locationProperty = new Property( options.location, {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'locationProperty' ),
-        phetioType: PropertyIO( Vector2IO ),
-        phetioDocumentation: 'location of this point tool'
+        phetioDocumentation: 'location of this point tool',
+        phetioType: PropertyIO( Vector2IO )
       } );
 
       // @public {DerivedProperty.<Quadratic|null>}
@@ -73,8 +73,8 @@ define( require => {
         }, {
           isValidValue: value => ( value instanceof Quadratic || value === null ),
           tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
-          phetioType: DerivedPropertyIO( NullableIO( QuadraticIO ) ),
-          phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic'
+          phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic',
+          phetioType: DerivedPropertyIO( NullableIO( QuadraticIO ) )
         } );
     }
 

@@ -27,6 +27,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph'
+
       }, options );
 
       super( coordinatesString, coordinatesVisibleProperty, options );
