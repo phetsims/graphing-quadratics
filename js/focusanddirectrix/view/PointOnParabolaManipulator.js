@@ -47,7 +47,7 @@ define( require => {
 
         // phet-io
         phetioDocumentation: 'a manipulator for a point on the parabola'
-        
+
       }, options );
 
       // position coordinates based on which side of the parabola the point is on
@@ -130,10 +130,30 @@ define( require => {
 
           // transform the drag point from view to model coordinate frame
           const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-          const x = modelViewTransform.viewToModelPosition( parentPoint ).x;
+          const point = modelViewTransform.viewToModelPosition( parentPoint );
 
-          // set to the closest point on the parabola that is within the bounds of the graph
-          pointOnParabolaProperty.value = quadraticProperty.value.getClosestPointInRange( x, graph.xRange, graph.yRange );
+          // get the closest point on the parabola
+          const pointOnParabola = quadraticProperty.value.getClosestPoint( point );
+
+          // constrain to the range of the graph
+          if ( !graph.xRange.contains( pointOnParabola.x ) ) {
+
+            // x is out of range, so constrain x, and solve for y
+            pointOnParabola.setX( graph.xRange.constrainValue( pointOnParabola.x ) );
+            pointOnParabola.setY( quadraticProperty.value.solveY( pointOnParabola.x ) );
+          }
+          else if ( !graph.yRange.contains( pointOnParabola.y ) ) {
+
+            // y is out of range, so constrain y, solve for x, and choose the closer of the 2 solutions
+            pointOnParabola.setY( graph.yRange.constrainValue( pointOnParabola.y ) );
+            const xSolutions = quadraticProperty.value.solveX( pointOnParabola.y );
+            assert && assert( xSolutions && xSolutions.length === 2, 'expected 2 solutions for x: ' + xSolutions );
+            const xClosest = ( Math.abs( xSolutions[ 0 ] - pointOnParabola.x ) < Math.abs( xSolutions[ 1 ] - pointOnParabola.x ) )
+                             ? xSolutions[ 0 ] : xSolutions[ 1 ];
+            pointOnParabola.setX( xClosest );
+          }
+
+          pointOnParabolaProperty.value = pointOnParabola;
         }
       }, options );
 
