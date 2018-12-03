@@ -21,8 +21,12 @@ define( require => {
 
   const GQConstants = {
 
-    SCREEN_VIEW_LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ),
-    SCREEN_VIEW_X_MARGIN: 20,
+    // Custom layout bounds because this sim is part of the Graphing Lines family, which was ported to Java.
+    // We used Java's layoutBounds in order to avoid changing sizes, fonts, etc. during the port.
+    // The bounds with was modified to match the default HTML5 layoutBounds aspect ratio.
+    // See https://github.com/phetsims/graphing-quadratics/issues/121
+    SCREEN_VIEW_LAYOUT_BOUNDS: new Bounds2( 0, 0, 1160, 700 ),
+    SCREEN_VIEW_X_MARGIN: 50,
     SCREEN_VIEW_Y_MARGIN: 16,
 
     // range of the graph's axes
