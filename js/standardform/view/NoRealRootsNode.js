@@ -22,6 +22,9 @@ define( require => {
   // strings
   const noRealRootsString = require( 'string!GRAPHING_QUADRATICS/noRealRoots' );
 
+  // const
+  const Y_OFFSET = 2; // min offset from vertex, determined empirically
+
   class NoRealRootsNode extends Node {
 
     /**
@@ -64,8 +67,8 @@ define( require => {
       // typically centered at the origin. Width is based on translated string width, height was determined
       // empirically. See https://github.com/phetsims/graphing-quadratics/issues/88
       const vertexOverlapBounds = new Bounds2(
-        modelViewTransform.viewToModelDeltaX( -this.width / 2 ), -1,
-        modelViewTransform.viewToModelDeltaX( this.width / 2 ), 1 );
+        modelViewTransform.viewToModelDeltaX( -this.width / 2 ), -Y_OFFSET,
+        modelViewTransform.viewToModelDeltaX( this.width / 2 ), Y_OFFSET );
 
       // The center of this Node, typically at the origin, except when that would overlap the vertex's coordinates.
       // In that case, position above or below the x axis, depending on which way the parabola opens.
@@ -78,8 +81,9 @@ define( require => {
                ( quadratic.roots && quadratic.roots.length === 0 ) && // no roots
                // vertex is in a position where its coordinates will overlap
                ( quadratic.vertex && vertexOverlapBounds.containsPoint( quadratic.vertex ) ) ) {
-            // center above or below the x axis
-            return modelViewTransform.modelToViewXY( 0, ( quadratic.a > 0 ? -1 : 1 ) );
+            // center above or below the x axis, y offset determined empirically
+            const y = quadratic.vertex.y + ( quadratic.a > 0 ? -Y_OFFSET : Y_OFFSET );
+            return modelViewTransform.modelToViewXY( 0, y );
           }
           else {
             // center at the origin
