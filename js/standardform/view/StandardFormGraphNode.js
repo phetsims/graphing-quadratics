@@ -44,8 +44,7 @@ define( require => {
         model.modelViewTransform,
         viewProperties.rootsVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'rootsNode' ),
-          phetioDocumentation: 'displays the roots of the interactive quadratic'
+          tandem: tandem.createTandem( 'rootsNode' )
         } );
 
       // Vertex
@@ -55,8 +54,7 @@ define( require => {
         model.modelViewTransform,
         viewProperties.vertexVisibleProperty,
         viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'vertexNode' ),
-          phetioDocumentation: 'displays the vertex of the interactive quadratic'
+          tandem: tandem.createTandem( 'vertexNode' )
         } );
 
       // 'NO REAL ROOTS' label
@@ -66,8 +64,7 @@ define( require => {
         viewProperties.coordinatesVisibleProperty,
         model.quadraticProperty,
         model.modelViewTransform, {
-          tandem: tandem.createTandem( 'noRealRootsNode' ),
-          phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
+          tandem: tandem.createTandem( 'noRealRootsNode' )
         } );
 
       assert && assert( !options.otherCurves, 'StandardFormGraphNode sets otherCurves' );

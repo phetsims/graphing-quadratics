@@ -40,7 +40,9 @@ define( require => {
       options = _.extend( {
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioDocumentation: 'displays the roots of the interactive quadratic'
+
       }, options );
 
       // options common to both Property instances
