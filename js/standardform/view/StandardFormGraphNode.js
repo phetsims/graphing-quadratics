@@ -66,7 +66,6 @@ define( require => {
         viewProperties.coordinatesVisibleProperty,
         model.quadraticProperty,
         model.modelViewTransform, {
-          center: model.modelViewTransform.modelToViewXY( model.graph.xRange.getCenter(), model.graph.yRange.getCenter() ),
           tandem: tandem.createTandem( 'noRealRootsNode' ),
           phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
         } );
