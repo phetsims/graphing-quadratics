@@ -41,7 +41,11 @@ define( require => {
         radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
         coordinatesForegroundColor: 'white',
         coordinatesBackgroundColor: GQColors.VERTEX,
-        coordinatesDecimals: GQConstants.VERTEX_DECIMALS
+        coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
+
+        // phet-io
+        phetioDocumentation: 'displays the vertex of the interactive quadratic'
+
       }, options );
 
       // position coordinates on the outside of the parabola
