@@ -78,7 +78,12 @@ define( require => {
       } );
 
       // visibility
-      coordinatesVisibleProperty.linkAttribute( coordinatesNode, 'visible' );
+      coordinatesVisibleProperty.link( visible => {
+        coordinatesNode.visible = visible;
+        if ( visible ) {
+          options.layoutCoordinates( coordinatesProperty.value, coordinatesNode, pointNode );
+        }
+      } );
     }
   }
 
