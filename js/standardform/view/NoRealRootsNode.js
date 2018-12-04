@@ -40,6 +40,9 @@ define( require => {
 
       options = _.extend( {
 
+        // Node options
+        maxWidth: 200, // determined empirically
+
         // phet-io
         tandem: Tandem.required,
         phetioReadOnly: true
@@ -47,8 +50,7 @@ define( require => {
 
       const textNode = new Text( noRealRootsString, {
         font: GQConstants.NO_REAL_ROOTS_FONT,
-        fill: 'white',
-        maxWidth: 300 // determined empirically
+        fill: 'white'
       } );
 
       const backgroundNode = new Rectangle( textNode.bounds.dilatedXY( 5, 1 ), {
@@ -64,11 +66,11 @@ define( require => {
       super( options );
 
       // Part of the graph where 'NO REAL ROOTS' may overlap with vertex coordinates, when 'NO REAL ROOTS' is
-      // typically centered at the origin. Width is based on translated string width, height was determined
-      // empirically. See https://github.com/phetsims/graphing-quadratics/issues/88
+      // typically centered at the origin. Width is based on maxWidth, height was determined empirically.
+      // See https://github.com/phetsims/graphing-quadratics/issues/88
       const vertexOverlapBounds = new Bounds2(
-        modelViewTransform.viewToModelDeltaX( -this.width / 2 ), -Y_OFFSET,
-        modelViewTransform.viewToModelDeltaX( this.width / 2 ), Y_OFFSET );
+        modelViewTransform.viewToModelDeltaX( -0.6 * options.maxWidth ), -Y_OFFSET,
+        modelViewTransform.viewToModelDeltaX( 0.6 * options.maxWidth ), Y_OFFSET );
 
       // The center of this Node, typically at the origin, except when that would overlap the vertex's coordinates.
       // In that case, position above or below the x axis, depending on which way the parabola opens.
