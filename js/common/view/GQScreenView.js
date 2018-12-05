@@ -98,8 +98,8 @@ define( require => {
 
       // rendering order
       this.addChild( controlsParent );
-      this.addChild( graphNode );
       this.addChild( graphContentsToggleButton );
+      this.addChild( graphNode );
       this.addChild( pointToolsParent );
 
       // Horizontally center controls in the space to the right of the graph.
