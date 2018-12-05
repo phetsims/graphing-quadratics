@@ -80,6 +80,9 @@ define( require => {
         [ quadraticTermCheckbox, linearTermCheckbox, constantTermCheckbox, equationsCheckbox ],
         node => node.width ).width;
 
+      // See https://github.com/phetsims/graphing-quadratics/issues/128
+      const separatorWidth = Math.max( maxCheckboxWidth, 1.1 * options.titleNode.width );
+
       // vertical layout
       const contentNode = new VBox( {
         align: 'left',
@@ -88,7 +91,7 @@ define( require => {
           quadraticTermCheckbox,
           linearTermCheckbox,
           constantTermCheckbox,
-          new HSeparator( Math.max( maxCheckboxWidth, 200 ), { stroke: GQColors.SEPARATOR } ),
+          new HSeparator( separatorWidth, { stroke: GQColors.SEPARATOR } ),
           equationsCheckbox
         ]
       } );
