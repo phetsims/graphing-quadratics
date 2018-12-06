@@ -135,14 +135,15 @@ define( require => {
           // get the closest point on the parabola
           const pointOnParabola = quadraticProperty.value.getClosestPoint( point );
 
-          // constrain to the range of the graph
+          // constrain to the range of the graph. x & y may both be out of range.
           if ( !graph.xRange.contains( pointOnParabola.x ) ) {
 
             // x is out of range, so constrain x, and solve for y
             pointOnParabola.setX( graph.xRange.constrainValue( pointOnParabola.x ) );
             pointOnParabola.setY( quadraticProperty.value.solveY( pointOnParabola.x ) );
           }
-          else if ( !graph.yRange.contains( pointOnParabola.y ) ) {
+
+          if ( !graph.yRange.contains( pointOnParabola.y ) ) {
 
             // y is out of range, so constrain y, solve for x, and choose the closer of the 2 solutions
             pointOnParabola.setY( graph.yRange.constrainValue( pointOnParabola.y ) );
