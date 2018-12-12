@@ -225,7 +225,7 @@ define( require => {
         start: ( event, listener ) => {
 
           // Note the mouse-click offset when dragging starts.
-          let location = modelViewTransform.modelToViewPosition( pointTool.locationProperty.value );
+          const location = modelViewTransform.modelToViewPosition( pointTool.locationProperty.value );
           startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
 
           // Move the tool that we're dragging to the foreground.
@@ -235,7 +235,7 @@ define( require => {
         drag: ( event, listener ) => {
 
           // Convert drag point to model location
-          let parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
+          const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
           let location = modelViewTransform.viewToModelPosition( parentPoint );
 
           // constrained to dragBounds

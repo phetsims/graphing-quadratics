@@ -112,7 +112,7 @@ define( require => {
         leftRootNode.visible = false;
         rightRootNode.visible = false;
 
-        let roots = quadratic.roots;
+        const roots = quadratic.roots;
 
         if ( roots && roots.length !== 0 ) {
           assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
