@@ -97,7 +97,7 @@ define( require => {
            !onQuadratic.hasSolution( location, offDistance ) ) {
         onQuadratic = null;
         for ( let i = 0; i < quadratics.length && !onQuadratic; i++ ) {
-          let quadratic = quadratics[ i ];
+          const quadratic = quadratics[ i ];
           if ( quadratic.hasSolution( location, onDistance ) ) {
             onQuadratic = quadratic;
           }
