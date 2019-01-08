@@ -115,7 +115,7 @@ define( require => {
      * Creates the string for an equation in vertex form, y = a(x - h)^2 + k
      * @param {Quadratic} quadratic
      * @param {Object} [options]
-     * @return {string} - compatible with RichText
+     * @returns {string} - compatible with RichText
      * @public
      */
     createVertexForm( quadratic, options ) {
