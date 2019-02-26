@@ -14,9 +14,7 @@ define( require => {
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   const phetioInherit = require( 'TANDEM/phetioInherit' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
-
-  // ifphetio
-  const assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  const validate = require( 'AXON/validate' );
 
   /**
    * @param {Quadratic} quadratic
@@ -24,7 +22,6 @@ define( require => {
    * @constructor
    */
   function QuadraticIO( quadratic, phetioID ) {
-    assert && assertInstanceOf( quadratic, Quadratic );
     ObjectIO.call( this, quadratic, phetioID );
   }
 
@@ -35,6 +32,8 @@ define( require => {
     // @public This appears in PhET-iO Studio
     documentation: Quadratic.documentationQuadraticIO,
 
+    validator: { valueType: Quadratic },
+
     /**
      * Encodes the state of a Quadratic instance.
      * @param {Quadratic} quadratic
@@ -43,7 +42,7 @@ define( require => {
      * @override
      */
     toStateObject: function( quadratic ) {
-      assert && assertInstanceOf( quadratic, Quadratic );
+      validate( quadratic, this.validator );
       return quadratic.toStateObject();
     },
 
