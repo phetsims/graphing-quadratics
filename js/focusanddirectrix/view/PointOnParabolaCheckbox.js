@@ -28,7 +28,8 @@ define( require => {
       options = _.extend( {
 
         // phet-io
-        phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'
+        phetioDocumentation: 'checkbox that shows the point on the parabola on the graph',
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
 
       }, options );
 

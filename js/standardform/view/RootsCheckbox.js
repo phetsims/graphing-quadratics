@@ -32,7 +32,8 @@ define( require => {
       options = _.extend( {
 
         // phet-io
-        phetioDocumentation: 'checkbox that shows roots on the graph'
+        phetioDocumentation: 'checkbox that shows roots on the graph',
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
 
       }, options );
 

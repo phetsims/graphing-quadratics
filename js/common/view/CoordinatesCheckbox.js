@@ -26,7 +26,8 @@ define( require => {
       options = _.extend( {
 
         // phet-io
-        phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph'
+        phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph',
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
 
       }, options );
 
