@@ -14,14 +14,12 @@ define( require => {
   const Circle = require( 'SCENERY/nodes/Circle' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
-  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const DragListener = require( 'SCENERY/listeners/DragListener' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
   const Node = require( 'SCENERY/nodes/Node' );
-  const NullableIO = require( 'TANDEM/types/NullableIO' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
@@ -29,7 +27,6 @@ define( require => {
   const Shape = require( 'KITE/Shape' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
-  const Vector2IO = require( 'DOT/Vector2IO' );
 
   // images
   const pointToolLeftImage = require( 'image!GRAPHING_QUADRATICS/point_tool_left.png' );
@@ -69,11 +66,7 @@ define( require => {
 
       const coordinatesProperty = new DerivedProperty( [ pointTool.locationProperty ],
         location => ( graph.contains( location ) ? location : null ), {
-          isValidValue: value => ( value instanceof Vector2 || value === null ),
-          tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-          phetioDocumentation: 'coordinates displayed by this point tool, null if off the graph',
-          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
-          phetioFeatured: true
+          isValidValue: value => ( value instanceof Vector2 || value === null )
         } );
 
       // coordinates display
@@ -84,9 +77,7 @@ define( require => {
         xMargin: 0,
         yMargin: 0,
         decimals: GQConstants.POINT_TOOL_DECIMALS,
-        maxWidth: 60, // constrain width, determined empirically, dependent on bodyNode
-        tandem: options.tandem.createTandem( 'coordinatesNode' ),
-        phetioDocumentation: 'coordinates displayed by this point tool'
+        maxWidth: 60 // constrain width, determined empirically, dependent on bodyNode
       } );
 
       // background behind the coordinates, sized to the body so that it shows through the window

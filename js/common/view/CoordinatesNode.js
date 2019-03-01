@@ -14,7 +14,6 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
   const Util = require( 'DOT/Util' );
 
@@ -38,11 +37,7 @@ define( require => {
         cornerRadius: 4,
         xMargin: 4,
         yMargin: 2,
-        maxWidth: 100, // determined empirically
-
-        // phet-io
-        tandem: Tandem.required,
-        phetioReadOnly: true
+        maxWidth: 100 // determined empirically
       }, options );
 
       // the coordinates
