@@ -72,7 +72,8 @@ define( require => {
           isValidValue: value => ( value instanceof Vector2 || value === null ),
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
           phetioDocumentation: 'coordinates displayed by this point tool, null if off the graph',
-          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )
+          phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) ),
+          phetioFeatured: true
         } );
 
       // coordinates display
