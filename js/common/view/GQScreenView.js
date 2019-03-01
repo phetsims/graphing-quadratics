@@ -116,7 +116,8 @@ define( require => {
         right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
         bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN,
         tandem: options.tandem.createTandem( 'resetAllButton' ),
-        phetioDocumentation: 'button that resets the screen to its initial state'
+        phetioDocumentation: 'button that resets the screen to its initial state',
+        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
       } );
       this.addChild( resetAllButton );
     }
