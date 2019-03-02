@@ -49,22 +49,19 @@ define( require => {
         _.extend( {
           color: GQColors.VERTEX_FORM_A,
           tandem: options.tandem.createTandem( 'aPicker' ),
-          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } ),
-          phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const hPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_H,
           tandem: options.tandem.createTandem( 'hPicker' ),
-          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } ),
-          phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } )
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const kPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_K,
           tandem: options.tandem.createTandem( 'kPicker' ),
-          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } ),
-          phetioComponentOptions: { pickableProperty: { phetioFeatured: true } }
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } )
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 
       // static parts of the equation
