@@ -44,24 +44,30 @@ define( require => {
 
       }, options );
 
+      // options for NumberPicker's default enabledProperty, see https://github.com/phetsims/phet-io/issues/1435
+      const enabledPropertyOptions = { phetioFeatured: true };
+
       // value pickers
       const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_A,
           tandem: options.tandem.createTandem( 'aPicker' ),
-          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } ),
+          enabledPropertyOptions: enabledPropertyOptions
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const hPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_H,
           tandem: options.tandem.createTandem( 'hPicker' ),
-          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } )
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } ),
+          enabledPropertyOptions: enabledPropertyOptions
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const kPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
         _.extend( {
           color: GQColors.VERTEX_FORM_K,
           tandem: options.tandem.createTandem( 'kPicker' ),
-          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } )
+          phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } ),
+          enabledPropertyOptions: enabledPropertyOptions
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 
       // static parts of the equation
