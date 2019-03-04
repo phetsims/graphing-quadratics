@@ -39,11 +39,13 @@ define( require => {
       fill: GQColors.CONTROL_PANEL_BACKGROUND,
       cornerRadius: PANEL_CORNER_RADIUS,
       titleYMargin: 10,
-      buttonLength: 25,
       buttonXMargin: 10,
       buttonYMargin: 10,
       contentXMargin: 20,
-      contentYMargin: 15
+      contentYMargin: 15,
+      expandCollapseButtonOptions: {
+        sideLength: 25
+      }
     },
 
     // options for all Panel instances
