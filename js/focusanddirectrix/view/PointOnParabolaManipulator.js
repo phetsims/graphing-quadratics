@@ -25,7 +25,7 @@ define( require => {
   class PointOnParabolaManipulator extends GQManipulator {
 
     /**
-     * @param {Property.<Vector2>} pointOnParabolaProperty - the point
+     * @param {Vector2Property} pointOnParabolaProperty - the point
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {Graph} graph
      * @param {ModelViewTransform2} modelViewTransform
@@ -106,7 +106,7 @@ define( require => {
     /**
      * Drag handler for point on the parabola.
      * @param {Node} targetNode - the Node that we attached this listener to
-     * @param {Property.<Vector2>} pointOnParabolaProperty - the point
+     * @param {Vector2Property} pointOnParabolaProperty - the point
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Graph} graph

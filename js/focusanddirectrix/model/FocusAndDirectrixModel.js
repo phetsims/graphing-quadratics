@@ -93,7 +93,7 @@ define( require => {
 
       const initialPoint = new Vector2( POINT_X, this.quadraticProperty.value.solveY( POINT_X ) );
 
-      // @public {Property.<Vector>}
+      // @public
       this.pointOnParabolaProperty = new Vector2Property( initialPoint, {
         tandem: tandem.createTandem( 'pointOnParabolaProperty' ),
         phetioDocumentation: 'the interactive point on the parabola'

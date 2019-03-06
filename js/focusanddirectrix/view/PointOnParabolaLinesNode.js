@@ -22,7 +22,7 @@ define( require => {
 
     /**
      * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-     * @param {Property.<Vector2>} pointOnParabolaProperty - the point
+     * @param {Vector2Property} pointOnParabolaProperty - the point
      * @param {ModelViewTransform2} modelViewTransform
      * @param {Property.<Boolean>} pointOnParabolaVisibleProperty
      * @param {Property.<Boolean>} focusVisibleProperty

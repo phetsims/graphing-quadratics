@@ -25,7 +25,7 @@ define( require => {
   class PointNode extends Node {
 
     /**
-     * @param {Property.<Vector2>} coordinatesProperty
+     * @param {Vector2Property} coordinatesProperty
      * @param {BooleanProperty} coordinatesVisibleProperty
      * @param {Object} [options]
      */
