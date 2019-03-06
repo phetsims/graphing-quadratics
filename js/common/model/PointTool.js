@@ -15,13 +15,11 @@ define( require => {
   const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const Property = require( 'AXON/Property' );
-  const PropertyIO = require( 'AXON/PropertyIO' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2 = require( 'DOT/Vector2' );
-  const Vector2IO = require( 'DOT/Vector2IO' );
+  const Vector2Property = require( 'DOT/Vector2Property' );
 
   class PointTool {
 
@@ -52,11 +50,9 @@ define( require => {
       this.quadraticsProperty = quadraticsProperty;
 
       // @public {Vector2}
-      this.locationProperty = new Property( options.location, {
-        valueType: Vector2,
+      this.locationProperty = new Vector2Property( options.location, {
         tandem: options.tandem.createTandem( 'locationProperty' ),
         phetioDocumentation: 'location of this point tool',
-        phetioType: PropertyIO( Vector2IO ),
         phetioFeatured: true
       } );
 

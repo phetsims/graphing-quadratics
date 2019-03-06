@@ -17,14 +17,12 @@ define( require => {
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const NumberProperty = require( 'AXON/NumberProperty' );
-  const Property = require( 'AXON/Property' );
-  const PropertyIO = require( 'AXON/PropertyIO' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
   const RangeWithValue = require( 'DOT/RangeWithValue' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Vector2 = require( 'DOT/Vector2' );
-  const Vector2IO = require( 'DOT/Vector2IO' );
+  const Vector2Property = require( 'DOT/Vector2Property' );
 
   // constants
   const P_RANGE = new RangeWithValue( -9, 9, 2 ); // p coefficient
@@ -96,11 +94,9 @@ define( require => {
       const initialPoint = new Vector2( POINT_X, this.quadraticProperty.value.solveY( POINT_X ) );
 
       // @public {Property.<Vector>}
-      this.pointOnParabolaProperty = new Property( initialPoint, {
-        valueType: Vector2,
+      this.pointOnParabolaProperty = new Vector2Property( initialPoint, {
         tandem: tandem.createTandem( 'pointOnParabolaProperty' ),
-        phetioDocumentation: 'the interactive point on the parabola',
-        phetioType: PropertyIO( Vector2IO )
+        phetioDocumentation: 'the interactive point on the parabola'
       } );
 
       // update the point
