@@ -144,10 +144,10 @@ define( require => {
     // space between equation and the curve that it labels, in view coordinate frame
     EQUATION_CURVE_SPACING: 5,
 
-    // spacing around operators in interactive equations
+    // spacing around operators in interactive equations, in view coordinate frame
     EQUATION_OPERATOR_SPACING: 8,
 
-    // spacing within terms in interactive equations
+    // spacing within terms in interactive equations, in view coordinate frame
     EQUATION_TERM_SPACING: 6,
 
     // PhET-iO documentation patterns
