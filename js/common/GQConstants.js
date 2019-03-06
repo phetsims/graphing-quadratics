@@ -60,7 +60,10 @@ define( require => {
     NUMBER_PICKER_OPTIONS: {
       font: new PhetFont( 26 ),
       xMargin: 5,
-      touchAreaXDilation: 30
+      touchAreaXDilation: 30,
+
+      // options for NumberPicker's default enabledProperty, see https://github.com/phetsims/phet-io/issues/1435
+      enabledPropertyOptions: { phetioFeatured: true }
     },
 
     // options for all NumberDisplay instances
