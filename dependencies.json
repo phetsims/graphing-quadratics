@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.0.0 Fri Mar 08 2019 13:30:51 GMT-0500 (EST)",
+  "comment": "# graphing-quadratics 1.0.0 Tue Mar 19 2019 16:47:54 GMT-0400 (EDT)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "HEAD"
@@ -10,11 +10,11 @@
   },
   "brand": {
     "sha": "0bd52a5c092604cada622145f4b1e71e6f0286d9",
-    "branch": "graphing-quadratics-1.0"
+    "branch": "HEAD"
   },
   "chipper": {
-    "sha": "0097c5acd715d88dd12201b2d52690068afa3f0c",
-    "branch": "HEAD"
+    "sha": "2b64f5accc6bd252bda4cceeaad7c5b07cdb1501",
+    "branch": "graphing-quadratics-1.0"
   },
   "dot": {
     "sha": "266d3b7a2e9131071db77afa45da8440f1e82e9b",
@@ -25,12 +25,12 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "98b89633e554ab7d8b2739b66cc6cf484a3a69da",
+    "sha": "c91b9f8146a1e316a5fd283fa6e41a84726005c5",
     "branch": "1.0"
   },
   "joist": {
     "sha": "e4b0ccd2448a71423c3d893b0f78826b3af87633",
-    "branch": "graphing-quadratics-1.0"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "f3e96e5be87a05857884be53454161de1600d65d",
@@ -64,6 +64,10 @@
     "sha": "869b25613e25f39455d71bc321b581502c4658df",
     "branch": "HEAD"
   },
+  "phetmarks": {
+    "sha": "9a3495ef38a5d550ef7892fea746c636f6286e91",
+    "branch": "HEAD"
+  },
   "query-string-machine": {
     "sha": "c4d4a81e62cde792bd872f1a5b55813fe2a9c3fc",
     "branch": "HEAD"
@@ -91,9 +95,5 @@
   "tandem": {
     "sha": "1b2824a0960fc25547b5c5f332b5a80e8fbe9e7d",
     "branch": "HEAD"
-  },
-  "phetmarks": {
-    "branch": "master",
-    "sha": "9a3495ef38a5d550ef7892fea746c636f6286e91"
   }
 }
