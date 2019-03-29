@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.0.1-rc.1 Thu Mar 28 2019 14:08:54 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.0.1-rc.1 Thu Mar 28 2019 23:06:19 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "HEAD"
@@ -9,12 +9,12 @@
     "branch": "HEAD"
   },
   "brand": {
-    "sha": "0bd52a5c092604cada622145f4b1e71e6f0286d9",
-    "branch": "HEAD"
+    "sha": "ff9616412f76b19053cc420b2ac5aedc0f1e47c6",
+    "branch": "graphing-quadratics-1.0"
   },
   "chipper": {
     "sha": "bcff296d0a86f4f9bae0ef93ceba4148cec8e5a0",
-    "branch": "graphing-quadratics-1.0"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "266d3b7a2e9131071db77afa45da8440f1e82e9b",
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "f70a141aae227464121bed0e3e0e1d1520831d18",
+    "sha": "3d037bbcd6637b221e3a267e41c835660cbe1274",
     "branch": "1.0"
   },
   "joist": {
