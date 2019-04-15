@@ -162,7 +162,5 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'PointOnParabolaManipulator.PointOnParabolaDragListener', PointOnParabolaDragListener );
-
   return PointOnParabolaManipulator;
 } );

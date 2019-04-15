@@ -199,7 +199,5 @@ define( require => {
     getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
   }
 
-  graphingQuadratics.register( 'ExploreInteractiveEquationNode.EquationNode', EquationNode );
-
   return ExploreInteractiveEquationNode;
 } );

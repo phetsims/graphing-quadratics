@@ -192,8 +192,6 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'PointToolNode.ProbeNode', ProbeNode );
-
   class PointToolDragListener extends DragListener {
 
     /**
@@ -252,8 +250,6 @@ define( require => {
       super( options );
     }
   }
-
-  graphingQuadratics.register( 'PointToolNode.PointToolDragListener', PointToolDragListener );
 
   return PointToolNode;
 } );

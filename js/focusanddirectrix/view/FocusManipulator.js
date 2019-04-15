@@ -172,7 +172,5 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'FocusManipulator.FocusDragListener', FocusDragListener );
-
   return FocusManipulator;
 } );

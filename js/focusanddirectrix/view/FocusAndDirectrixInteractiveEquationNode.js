@@ -230,7 +230,5 @@ define( require => {
     getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
   }
 
-  graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode.EquationNode', EquationNode );
-
   return FocusAndDirectrixInteractiveEquationNode;
 } );

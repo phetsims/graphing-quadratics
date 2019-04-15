@@ -161,7 +161,5 @@ define( require => {
     }
   }
 
-  graphingQuadratics.register( 'VertexManipulator.VertexDragListener', VertexDragListener );
-
   return VertexManipulator;
 } );
