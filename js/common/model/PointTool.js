@@ -39,7 +39,7 @@ define( require => {
         tandem: Tandem.required
       }, options );
 
-      assert && assert( GQConstants.PROBE_SIDES.includes( options.probeSide ),
+      assert && assert( _.includes( GQConstants.PROBE_SIDES, options.probeSide ),
         'invalid probeSide: ' + options.probeSide );
 
       // @public (read-only)

@@ -42,7 +42,7 @@ define( require => {
 
       }, options );
 
-      assert && assert( GQConstants.EQUATION_FORMS.includes( options.equationForm ),
+      assert && assert( _.includes( GQConstants.EQUATION_FORMS, options.equationForm ) ,
         'invalid equationForm: ' + options.equationForm );
 
       super( options );

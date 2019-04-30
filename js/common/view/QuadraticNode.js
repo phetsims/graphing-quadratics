@@ -36,7 +36,7 @@ define( require => {
     constructor( quadraticProperty, xRange, yRange, modelViewTransform, equationForm,
                  equationsVisibleProperty, options ) {
 
-      assert && assert( GQConstants.EQUATION_FORMS.includes( equationForm ),
+      assert && assert( _.includes( GQConstants.EQUATION_FORMS, equationForm ),
         'invalid equationForm: ' + equationForm );
 
       options = _.extend( {
