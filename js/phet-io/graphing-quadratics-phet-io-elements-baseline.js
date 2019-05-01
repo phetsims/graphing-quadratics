@@ -232,8 +232,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -243,8 +243,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -342,8 +342,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -353,8 +353,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -430,8 +430,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -441,8 +441,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -650,7 +650,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.dragEndedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -661,7 +661,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.dragStartedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -672,7 +672,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.draggedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -705,7 +705,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.dragEndedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -716,7 +716,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.dragStartedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -727,7 +727,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.draggedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -925,7 +925,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.dragEndedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -936,7 +936,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.dragStartedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -947,7 +947,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.draggedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -980,7 +980,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.dragEndedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -991,7 +991,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.dragStartedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1002,7 +1002,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.draggedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1200,7 +1200,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.dragEndedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1211,7 +1211,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.dragStartedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1222,7 +1222,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.draggedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1255,7 +1255,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.dragEndedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1266,7 +1266,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.dragStartedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1277,7 +1277,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.draggedEmitter": {
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1508,8 +1508,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1519,8 +1519,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1563,7 +1563,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.draggedEmitter": {
+    "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -1574,8 +1574,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1585,8 +1585,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1717,7 +1717,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.toggledEmitter": {
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -1794,7 +1794,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.toggledEmitter": {
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -1860,8 +1860,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1871,8 +1871,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1959,7 +1959,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.toggledEmitter": {
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -2058,7 +2058,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.toggledEmitter": {
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -2212,8 +2212,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.exploreScreen.view.resetAllButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.exploreScreen.view.resetAllButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2223,8 +2223,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.resetAllButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.exploreScreen.view.resetAllButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2256,7 +2256,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.draggedEmitter": {
+    "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -2267,8 +2267,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2278,8 +2278,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2630,8 +2630,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2641,8 +2641,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2740,8 +2740,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2751,8 +2751,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2828,8 +2828,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2839,8 +2839,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3092,7 +3092,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.dragEndedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3103,7 +3103,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.dragStartedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3114,7 +3114,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3147,7 +3147,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.dragEndedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3158,7 +3158,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.dragStartedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3169,7 +3169,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3367,7 +3367,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.dragEndedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3378,7 +3378,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.dragStartedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3389,7 +3389,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3422,7 +3422,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.dragEndedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3433,7 +3433,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.dragStartedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3444,7 +3444,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3653,7 +3653,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.dragEndedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3664,7 +3664,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.dragStartedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3675,7 +3675,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3708,7 +3708,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.dragEndedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.dragEndedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3719,7 +3719,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.dragStartedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.dragStartedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3730,7 +3730,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.draggedAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -3928,7 +3928,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO.<Vector2IO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": true,
@@ -3939,8 +3939,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3950,8 +3950,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4038,8 +4038,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4049,8 +4049,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4148,7 +4148,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.toggledEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4225,7 +4225,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.toggledEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4302,7 +4302,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.toggledEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4379,7 +4379,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.toggledEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4478,7 +4478,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.toggledEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4555,7 +4555,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.toggledEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4599,7 +4599,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4610,8 +4610,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4621,8 +4621,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4753,7 +4753,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO.<Vector2IO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": true,
@@ -4764,8 +4764,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4775,8 +4775,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4885,8 +4885,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4896,8 +4896,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4929,7 +4929,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -4940,8 +4940,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4951,8 +4951,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5061,7 +5061,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO.<NullableIO.<Vector2IO>>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.draggedEmitter": {
+    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": true,
@@ -5072,8 +5072,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5083,8 +5083,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5270,8 +5270,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.general.barrierRectangle.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.general.barrierRectangle.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5281,8 +5281,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.general.barrierRectangle.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.general.barrierRectangle.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5336,7 +5336,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "graphingQuadratics.general.controller.input.mouseDownEmitter": {
+    "graphingQuadratics.general.controller.input.mouseDownAction": {
       "phetioDocumentation": "Emits when a mouse button is pressed",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5347,7 +5347,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.mouseMovedEmitter": {
+    "graphingQuadratics.general.controller.input.mouseMovedAction": {
       "phetioDocumentation": "Emits when the mouse is moved",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5358,7 +5358,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.mouseOutEmitter": {
+    "graphingQuadratics.general.controller.input.mouseOutAction": {
       "phetioDocumentation": "Emits when the mouse moves out of the display",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5369,7 +5369,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.mouseOverEmitter": {
+    "graphingQuadratics.general.controller.input.mouseOverAction": {
       "phetioDocumentation": "Emits when the mouse is moved over a Node",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5380,7 +5380,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.mouseUpEmitter": {
+    "graphingQuadratics.general.controller.input.mouseUpAction": {
       "phetioDocumentation": "Emits when a mouse button is released",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5391,7 +5391,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.penCanceledEmitter": {
+    "graphingQuadratics.general.controller.input.penCanceledAction": {
       "phetioDocumentation": "Emits when a pen is canceled",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5402,7 +5402,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.penEndedEmitter": {
+    "graphingQuadratics.general.controller.input.penEndedAction": {
       "phetioDocumentation": "Emits when a pen is lifted",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5413,7 +5413,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.penMovedEmitter": {
+    "graphingQuadratics.general.controller.input.penMovedAction": {
       "phetioDocumentation": "Emits when a pen is moved",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5424,7 +5424,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.penStartedEmitter": {
+    "graphingQuadratics.general.controller.input.penStartedAction": {
       "phetioDocumentation": "Emits when a pen touches the screen",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5435,7 +5435,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.touchCanceledEmitter": {
+    "graphingQuadratics.general.controller.input.touchCanceledAction": {
       "phetioDocumentation": "Emits when a touch is canceled",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5446,7 +5446,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.touchEndedEmitter": {
+    "graphingQuadratics.general.controller.input.touchEndedAction": {
       "phetioDocumentation": "Emits when a touch ends",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5457,7 +5457,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.touchMovedEmitter": {
+    "graphingQuadratics.general.controller.input.touchMovedAction": {
       "phetioDocumentation": "Emits when a touch moves",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5468,7 +5468,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.touchStartedEmitter": {
+    "graphingQuadratics.general.controller.input.touchStartedAction": {
       "phetioDocumentation": "Emits when a touch begins",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5479,7 +5479,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "graphingQuadratics.general.controller.input.validatePointersEmitter": {
+    "graphingQuadratics.general.controller.input.validatePointersAction": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -5490,7 +5490,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<>"
     },
-    "graphingQuadratics.general.controller.input.wheelScrolledEmitter": {
+    "graphingQuadratics.general.controller.input.wheelScrolledAction": {
       "phetioDocumentation": "Emits when the mouse wheel scrolls",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -5513,7 +5513,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioTypeName": "PhetioCommandProcessorIO"
     },
     "graphingQuadratics.general.resizedAction": {
-      "phetioDocumentation": "Emits when the sim is resized",
+      "phetioDocumentation": "Executes when the sim is resized",
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5611,8 +5611,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5622,8 +5622,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5743,8 +5743,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5754,8 +5754,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5875,8 +5875,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5886,8 +5886,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6007,8 +6007,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6018,8 +6018,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6161,8 +6161,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6172,8 +6172,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6293,8 +6293,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6304,8 +6304,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6480,8 +6480,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6491,8 +6491,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6612,8 +6612,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6623,8 +6623,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6832,8 +6832,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.navigationBar.exploreScreenButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.navigationBar.exploreScreenButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6843,8 +6843,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.navigationBar.exploreScreenButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.navigationBar.exploreScreenButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7019,8 +7019,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.navigationBar.focusAndDirectrixScreenButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.navigationBar.focusAndDirectrixScreenButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7030,8 +7030,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.navigationBar.focusAndDirectrixScreenButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.navigationBar.focusAndDirectrixScreenButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7162,8 +7162,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.navigationBar.homeButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.navigationBar.homeButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7173,8 +7173,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.navigationBar.homeButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.navigationBar.homeButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7261,8 +7261,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7272,8 +7272,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7338,8 +7338,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO.<>"
     },
-    "graphingQuadratics.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7349,8 +7349,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7404,8 +7404,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.navigationBar.phetButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.navigationBar.phetButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7415,8 +7415,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.navigationBar.phetButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.navigationBar.phetButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7525,8 +7525,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.navigationBar.standardFormScreenButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.navigationBar.standardFormScreenButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7536,8 +7536,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.navigationBar.standardFormScreenButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.navigationBar.standardFormScreenButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7767,8 +7767,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.navigationBar.vertexFormScreenButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.navigationBar.vertexFormScreenButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7778,8 +7778,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.navigationBar.vertexFormScreenButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.navigationBar.vertexFormScreenButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8053,8 +8053,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8064,8 +8064,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8163,8 +8163,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8174,8 +8174,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8251,8 +8251,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8262,8 +8262,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8625,8 +8625,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8636,8 +8636,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8735,7 +8735,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.toggledEmitter": {
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -8812,7 +8812,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.toggledEmitter": {
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -8889,7 +8889,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.toggledEmitter": {
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -8988,7 +8988,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.toggledEmitter": {
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9065,7 +9065,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.toggledEmitter": {
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9109,7 +9109,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.draggedEmitter": {
+    "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9120,8 +9120,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9131,8 +9131,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9307,8 +9307,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.standardFormScreen.view.resetAllButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.standardFormScreen.view.resetAllButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9318,8 +9318,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.resetAllButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.standardFormScreen.view.resetAllButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9351,7 +9351,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.draggedEmitter": {
+    "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -9362,8 +9362,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9373,8 +9373,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10055,8 +10055,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10066,8 +10066,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10165,8 +10165,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10176,8 +10176,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10253,8 +10253,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10264,8 +10264,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10627,8 +10627,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10638,8 +10638,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10737,7 +10737,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.toggledEmitter": {
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10814,7 +10814,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.toggledEmitter": {
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10891,7 +10891,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.toggledEmitter": {
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -10990,7 +10990,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "LinkedElementIO"
     },
-    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.toggledEmitter": {
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.toggledAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -11034,7 +11034,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.draggedEmitter": {
+    "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -11045,8 +11045,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11056,8 +11056,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11188,8 +11188,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "graphingQuadratics.vertexFormScreen.view.resetAllButton.pressListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.vertexFormScreen.view.resetAllButton.pressListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11199,8 +11199,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.resetAllButton.pressListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.vertexFormScreen.view.resetAllButton.pressListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11232,7 +11232,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.draggedEmitter": {
+    "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -11243,8 +11243,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11254,8 +11254,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11364,7 +11364,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO.<NullableIO.<Vector2IO>>"
     },
-    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.draggedEmitter": {
+    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.draggedAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an EventIO argument.",
       "phetioEventType": "user",
       "phetioFeatured": true,
@@ -11375,8 +11375,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.pressedEmitter": {
-      "phetioDocumentation": "Emits whenever a press occurs. The first argument when emitting can be used to convey info about the Event.",
+    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.pressedAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
       "phetioEventType": "user",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11386,8 +11386,8 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<EventIO, VoidIO, VoidIO>"
     },
-    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.releasedEmitter": {
-      "phetioDocumentation": "Emits whenever a release occurs.",
+    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.releasedAction": {
+      "phetioDocumentation": "Executes whenever a release occurs.",
       "phetioEventType": "user",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
