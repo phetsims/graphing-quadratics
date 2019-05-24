@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.0.2 Wed Apr 24 2019 16:00:34 GMT-0800 (Alaskan Daylight Time)",
+  "comment": "# graphing-quadratics 1.0.2 Fri May 24 2019 14:50:59 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "HEAD"
@@ -13,8 +13,8 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "ec23bb47d63de3e1add08c6afbd70ddd6d7a8eec",
-    "branch": "HEAD"
+    "sha": "69eb0835757fe0687f7435f68cb66e7e645f1862",
+    "branch": "graphing-quadratics-1.0"
   },
   "dot": {
     "sha": "266d3b7a2e9131071db77afa45da8440f1e82e9b",
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "d83a029e89cf0ad5b4d30f1b5ff2e9190a88ac97",
+    "sha": "3f4048a1286a4027f269c3a108b22726f36f2d55",
     "branch": "1.0"
   },
   "joist": {
@@ -42,18 +42,6 @@
   },
   "phet-io": {
     "sha": "1acc6dc2213846930e45c0b6b50833ff11bd5e5c",
-    "branch": "HEAD"
-  },
-  "phet-io-wrapper-classroom-activity": {
-    "sha": "5dea7f543b7410dd2e9de02e602ab9f2fe897706",
-    "branch": "HEAD"
-  },
-  "phet-io-wrapper-hookes-law-energy": {
-    "sha": "b42eaef724b2c898d7d9d75ec3844158c947d963",
-    "branch": "HEAD"
-  },
-  "phet-io-wrapper-lab-book": {
-    "sha": "b884e9c15b63b2a6094522a649f93e3fdad0928d",
     "branch": "HEAD"
   },
   "phet-io-wrappers": {
