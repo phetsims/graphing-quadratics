@@ -191,7 +191,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -257,7 +257,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -301,7 +301,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -367,7 +367,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -400,7 +400,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -1478,7 +1478,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -1830,7 +1830,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2160,7 +2160,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2589,7 +2589,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -2655,7 +2655,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -2699,7 +2699,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -2765,7 +2765,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -2798,7 +2798,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4008,7 +4008,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4833,7 +4833,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -6755,10 +6755,10 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.navigationBar.exploreScreenButton.buttonModel.enabledProperty": {
+    "graphingQuadratics.navigationBar.exploreScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -6766,7 +6766,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "graphingQuadratics.navigationBar.exploreScreenButton.buttonModel.firedEmitter": {
+    "graphingQuadratics.navigationBar.exploreScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -6942,10 +6942,10 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.navigationBar.focusAndDirectrixScreenButton.buttonModel.enabledProperty": {
+    "graphingQuadratics.navigationBar.focusAndDirectrixScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -6953,7 +6953,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "graphingQuadratics.navigationBar.focusAndDirectrixScreenButton.buttonModel.firedEmitter": {
+    "graphingQuadratics.navigationBar.focusAndDirectrixScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -7132,7 +7132,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.navigationBar.homeButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7220,7 +7220,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.navigationBar.phetButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7448,10 +7448,10 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.navigationBar.standardFormScreenButton.buttonModel.enabledProperty": {
+    "graphingQuadratics.navigationBar.standardFormScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7459,7 +7459,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "graphingQuadratics.navigationBar.standardFormScreenButton.buttonModel.firedEmitter": {
+    "graphingQuadratics.navigationBar.standardFormScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -7690,10 +7690,10 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "graphingQuadratics.navigationBar.vertexFormScreenButton.buttonModel.enabledProperty": {
+    "graphingQuadratics.navigationBar.vertexFormScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7701,7 +7701,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "graphingQuadratics.navigationBar.vertexFormScreenButton.buttonModel.firedEmitter": {
+    "graphingQuadratics.navigationBar.vertexFormScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
       "phetioEventType": "user",
       "phetioFeatured": false,
@@ -8023,7 +8023,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -8089,7 +8089,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -8133,7 +8133,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -8199,7 +8199,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -8232,7 +8232,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -8606,7 +8606,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9266,7 +9266,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -10025,7 +10025,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -10091,7 +10091,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -10135,7 +10135,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -10201,7 +10201,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -10234,7 +10234,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -10608,7 +10608,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -11147,7 +11147,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
