@@ -752,7 +752,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -1027,7 +1027,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -1302,7 +1302,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3194,7 +3194,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3469,7 +3469,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -3755,7 +3755,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7256,7 +7256,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
-      "phetioReadOnly": true,
+      "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
@@ -7300,30 +7300,30 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
+      "phetioReadOnly": false,
+      "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
     "graphingQuadratics.navigationBar.phetButton.phetMenu.aboutMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
+      "phetioReadOnly": false,
+      "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "graphingQuadratics.navigationBar.phetButton.phetMenu.aboutMenuItem.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
-      "phetioReadOnly": true,
-      "phetioState": true,
+      "phetioReadOnly": false,
+      "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
@@ -7378,7 +7378,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
-      "phetioState": true,
+      "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
@@ -7389,18 +7389,18 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
-      "phetioState": true,
+      "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "graphingQuadratics.navigationBar.phetButton.phetMenu.screenshotMenuItem.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": false,
+      "phetioFeatured": true,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
-      "phetioState": true,
+      "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
