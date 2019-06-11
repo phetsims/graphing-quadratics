@@ -92,7 +92,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from a, b, and c",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -2501,7 +2501,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from p, h, and k",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -7935,7 +7935,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from a, b, and c",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -9937,7 +9937,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from a, h, and k",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,

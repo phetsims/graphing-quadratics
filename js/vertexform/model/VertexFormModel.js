@@ -72,8 +72,7 @@ define( require => {
         } ), {
           tandem: tandem.createTandem( 'quadraticProperty' ),
           phetioDocumentation: 'the interactive quadratic, derived from a, h, and k',
-          phetioType: DerivedPropertyIO( QuadraticIO ),
-          phetioFeatured: true
+          phetioType: DerivedPropertyIO( QuadraticIO )
         } );
       phet.log && quadraticProperty.link( quadratic => {
         phet.log( 'quadratic: y = ' + quadratic.a + ' (x - ' + quadratic.h + ')^2 + ' + quadratic.k );
