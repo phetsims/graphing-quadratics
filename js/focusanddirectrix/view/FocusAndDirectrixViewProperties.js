@@ -39,22 +39,19 @@ define( require => {
       // @public
       this.focusVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'focusVisibleProperty' ),
-        phetioDocumentation: 'whether the focus manipulator is visible',
-        phetioFeatured: true
+        phetioDocumentation: 'whether the focus manipulator is visible'
       } );
 
       // @public
       this.directrixVisibleProperty = new BooleanProperty( true, {
         tandem: options.tandem.createTandem( 'directrixVisibleProperty' ),
-        phetioDocumentation: 'whether the directrix is visible',
-        phetioFeatured: true
+        phetioDocumentation: 'whether the directrix is visible'
       } );
 
       // @public whether an interactive point is visible on the quadratic
       this.pointOnParabolaVisibleProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'pointOnParabolaVisibleProperty' ),
-        phetioDocumentation: 'whether the manipulator for the point on the parabola is visible',
-        phetioFeatured: true
+        phetioDocumentation: 'whether the manipulator for the point on the parabola is visible'
       } );
     }
 

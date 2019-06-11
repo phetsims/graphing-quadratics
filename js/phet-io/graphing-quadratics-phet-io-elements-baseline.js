@@ -1709,7 +1709,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -1786,7 +1786,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -1951,7 +1951,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -2050,7 +2050,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -2336,7 +2336,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.viewProperties.constantTermVisibleProperty": {
       "phetioDocumentation": "whether the constant term (y = c) is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2347,7 +2347,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the equation accordion box is expanded",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2358,7 +2358,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.viewProperties.equationsVisibleProperty": {
       "phetioDocumentation": "whether equations are visible on graphed curves",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2369,7 +2369,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioDocumentation": "whether the contents of the graph (curves, plotted points, manipulators) are visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2380,7 +2380,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.viewProperties.linearTermVisibleProperty": {
       "phetioDocumentation": "whether the linear term (y = bx) is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2391,7 +2391,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.viewProperties.quadraticTermVisibleProperty": {
       "phetioDocumentation": "whether the quadratic term (y = ax^2) is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2402,7 +2402,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.viewProperties.quadraticTermsAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the Quadratic Terms accordion box is expanded",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -4140,7 +4140,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -4217,7 +4217,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -4294,7 +4294,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -4371,7 +4371,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -4470,7 +4470,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -4547,7 +4547,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -5141,7 +5141,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioDocumentation": "whether (x,y) coordinates are visible on points that are displayed on the graph",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -5152,7 +5152,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.directrixVisibleProperty": {
       "phetioDocumentation": "whether the directrix is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -5163,7 +5163,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the equation accordion box is expanded",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -5174,7 +5174,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.equationsVisibleProperty": {
       "phetioDocumentation": "whether equations are visible on graphed curves",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -5185,7 +5185,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.focusVisibleProperty": {
       "phetioDocumentation": "whether the focus manipulator is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -5196,7 +5196,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioDocumentation": "whether the contents of the graph (curves, plotted points, manipulators) are visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -5207,7 +5207,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.pointOnParabolaVisibleProperty": {
       "phetioDocumentation": "whether the manipulator for the point on the parabola is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -5218,7 +5218,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.vertexVisibleProperty": {
       "phetioDocumentation": "whether the vertex point or manipulator is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -8738,7 +8738,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -8815,7 +8815,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -8892,7 +8892,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -8991,7 +8991,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -9068,7 +9068,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -9783,7 +9783,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
       "phetioDocumentation": "whether the axis of symmetry is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9794,7 +9794,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioDocumentation": "whether (x,y) coordinates are visible on points that are displayed on the graph",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9805,7 +9805,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the equation accordion box is expanded",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9816,7 +9816,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.viewProperties.equationsVisibleProperty": {
       "phetioDocumentation": "whether equations are visible on graphed curves",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9827,7 +9827,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioDocumentation": "whether the contents of the graph (curves, plotted points, manipulators) are visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9838,7 +9838,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.viewProperties.rootsVisibleProperty": {
       "phetioDocumentation": "whether the roots of the quadratic are visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9849,7 +9849,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.viewProperties.vertexVisibleProperty": {
       "phetioDocumentation": "whether the vertex point or manipulator is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -10740,7 +10740,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -10817,7 +10817,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -10894,7 +10894,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -10993,7 +10993,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.property": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": true,
@@ -11455,7 +11455,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
       "phetioDocumentation": "whether the axis of symmetry is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -11466,7 +11466,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioDocumentation": "whether (x,y) coordinates are visible on points that are displayed on the graph",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -11477,7 +11477,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the equation accordion box is expanded",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -11488,7 +11488,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.viewProperties.equationsVisibleProperty": {
       "phetioDocumentation": "whether equations are visible on graphed curves",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -11499,7 +11499,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioDocumentation": "whether the contents of the graph (curves, plotted points, manipulators) are visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -11510,7 +11510,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.viewProperties.vertexVisibleProperty": {
       "phetioDocumentation": "whether the vertex point or manipulator is visible",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
