@@ -27,10 +27,7 @@ define( require => {
     constructor( vertexVisibleProperty, options ) {
 
       options = _.extend( {
-        manipulatorIcon: true, // true: icon is a shaded manipulator, false: icon is a flat point
-
-        // phet-io
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+        manipulatorIcon: true // true: icon is a shaded manipulator, false: icon is a flat point
       }, options );
 
       // icon is either a manipulator (3D sphere) or a flat circle

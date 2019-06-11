@@ -29,8 +29,7 @@ define( require => {
       options = _.extend( {
 
         // phet-io
-        phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph',
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+        phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph'
 
       }, options );
 
