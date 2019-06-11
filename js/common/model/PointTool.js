@@ -52,8 +52,7 @@ define( require => {
       // @public {Vector2}
       this.locationProperty = new Vector2Property( options.location, {
         tandem: options.tandem.createTandem( 'locationProperty' ),
-        phetioDocumentation: 'location of this point tool',
-        phetioFeatured: true
+        phetioDocumentation: 'location of this point tool'
       } );
 
       // @public {DerivedProperty.<Quadratic|null>}
