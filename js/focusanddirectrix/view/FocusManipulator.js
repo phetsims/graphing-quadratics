@@ -84,8 +84,7 @@ define( require => {
       this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange,
         modelViewTransform, options.interval, {
           tandem: options.tandem.createTandem( 'dragListener' ),
-          phetioDocumentation: 'drag listener for this focus manipulator',
-          phetioFeatured: true
+          phetioDocumentation: 'drag listener for this focus manipulator'
         } ) );
 
       // move the manipulator

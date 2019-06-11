@@ -84,8 +84,7 @@ define( require => {
       // add the drag listener
       this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform, {
         tandem: options.tandem.createTandem( 'dragListener' ),
-        phetioDocumentation: 'the drag listener for this vertex manipulator',
-        phetioFeatured: true
+        phetioDocumentation: 'the drag listener for this vertex manipulator'
       } ) );
 
       // move the manipulator
