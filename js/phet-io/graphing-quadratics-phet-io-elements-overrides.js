@@ -25,6 +25,9 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
     "phetioFeatured": true
   },
+  "graphingQuadratics.exploreScreen.view.leftPointToolNode.visibleProperty": {
+    "phetioFeatured": true
+  },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.enabledProperty": {
     "phetioFeatured": false
   },
@@ -54,6 +57,9 @@ window.phet.phetio.phetioElementsOverrides =
   },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.visibleProperty": {
     "phetioFeatured": false
+  },
+  "graphingQuadratics.exploreScreen.view.rightPointToolNode.visibleProperty": {
+    "phetioFeatured": true
   },
   "graphingQuadratics.exploreScreen.view.viewProperties.constantTermVisibleProperty": {
     "phetioFeatured": true
@@ -119,6 +125,12 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioFeatured": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.visibleProperty": {
+    "phetioFeatured": true
+  },
+  "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.visibleProperty": {
+    "phetioFeatured": true
+  },
+  "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.visibleProperty": {
     "phetioFeatured": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.coordinatesVisibleProperty": {
@@ -187,6 +199,12 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.standardFormScreen.view.graphControlPanel.visibleProperty": {
     "phetioFeatured": true
   },
+  "graphingQuadratics.standardFormScreen.view.leftPointToolNode.visibleProperty": {
+    "phetioFeatured": true
+  },
+  "graphingQuadratics.standardFormScreen.view.rightPointToolNode.visibleProperty": {
+    "phetioFeatured": true
+  },
   "graphingQuadratics.standardFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
     "phetioFeatured": true
   },
@@ -245,6 +263,12 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioFeatured": true
   },
   "graphingQuadratics.vertexFormScreen.view.graphControlPanel.visibleProperty": {
+    "phetioFeatured": true
+  },
+  "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.visibleProperty": {
+    "phetioFeatured": true
+  },
+  "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.visibleProperty": {
     "phetioFeatured": true
   },
   "graphingQuadratics.vertexFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {

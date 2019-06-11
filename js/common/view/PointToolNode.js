@@ -53,8 +53,7 @@ define( require => {
         foregroundHighlightColor: 'white',
 
         // phet-io
-        tandem: Tandem.required,
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+        tandem: Tandem.required
 
       }, options );
 
