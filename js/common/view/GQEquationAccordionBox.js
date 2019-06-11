@@ -43,11 +43,6 @@ define( require => {
 
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
 
-      // phet-io make expandCollapseButton.visibleProperty featured, see https://github.com/phetsims/sun/issues/480
-      options.expandCollapseButtonOptions = _.extend( options.expandCollapseButtonOptions, {
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
-      } );
-
       // Buttons at the bottom of the accordion box
       const buttonGroup = new ButtonGroup( model, {
         tandem: options.tandem.createTandem( 'buttonGroup' )
