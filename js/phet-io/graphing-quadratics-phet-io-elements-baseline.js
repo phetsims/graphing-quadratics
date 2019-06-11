@@ -136,7 +136,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2534,7 +2534,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7968,7 +7968,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9970,7 +9970,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
