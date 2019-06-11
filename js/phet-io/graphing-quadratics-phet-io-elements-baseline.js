@@ -15,7 +15,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.model.aProperty": {
       "phetioDocumentation": "value of 'a' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -26,7 +26,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.model.bProperty": {
       "phetioDocumentation": "value of 'b' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -37,7 +37,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.model.cProperty": {
       "phetioDocumentation": "value of 'c' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2435,7 +2435,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.model.hProperty": {
       "phetioDocumentation": "value of 'h' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2446,7 +2446,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.model.kProperty": {
       "phetioDocumentation": "value of 'k' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2479,7 +2479,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.model.pProperty": {
       "phetioDocumentation": "value of 'p' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7880,7 +7880,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.model.aProperty": {
       "phetioDocumentation": "value of 'a' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7891,7 +7891,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.model.bProperty": {
       "phetioDocumentation": "value of 'b' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -7902,7 +7902,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.model.cProperty": {
       "phetioDocumentation": "value of 'c' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9882,7 +9882,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.model.aProperty": {
       "phetioDocumentation": "value of 'a' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9893,7 +9893,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.model.hProperty": {
       "phetioDocumentation": "value of 'h' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -9904,7 +9904,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.model.kProperty": {
       "phetioDocumentation": "value of 'k' in the interactive equation",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
