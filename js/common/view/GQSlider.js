@@ -76,9 +76,6 @@ define( require => {
         thumbSize: DEFAULT_THUMB_SIZE,
         thumbTouchAreaYDilation: 8,
 
-        // Feature VSlider.enabledProperty in Studio
-        enabledPropertyOptions: { phetioFeatured: true },
-
         // phet-io
         tandem: Tandem.required
 
