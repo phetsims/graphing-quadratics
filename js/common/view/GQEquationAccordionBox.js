@@ -88,8 +88,7 @@ define( require => {
 
         // phet-io
         tandem: Tandem.required,
-        phetioDocumentation: 'buttons that appear below the interactive equation',
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+        phetioDocumentation: 'buttons that appear below the interactive equation'
 
       }, options );
 

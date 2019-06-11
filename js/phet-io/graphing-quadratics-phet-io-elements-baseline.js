@@ -378,7 +378,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2776,7 +2776,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -8210,7 +8210,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -10212,7 +10212,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
