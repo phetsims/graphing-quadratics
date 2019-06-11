@@ -1346,7 +1346,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,
@@ -2919,7 +2919,7 @@ window.phet.phetio.phetioElementsBaseline =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
-      "phetioFeatured": true,
+      "phetioFeatured": false,
       "phetioHighFrequency": false,
       "phetioPlayback": false,
       "phetioReadOnly": false,

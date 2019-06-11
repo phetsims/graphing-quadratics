@@ -47,8 +47,7 @@ define( require => {
       // equation
       const equationNode = new EquationNode( aProperty, bProperty, cProperty, {
         tandem: options.tandem.createTandem( 'equationNode' ),
-        phetioDocumentation: 'the equation that changes as the sliders are adjusted',
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+        phetioDocumentation: 'the equation that changes as the sliders are adjusted'
       } );
 
       // coefficient controls (labeled sliders)
