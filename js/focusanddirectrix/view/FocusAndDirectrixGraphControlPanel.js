@@ -35,8 +35,7 @@ define( require => {
 
         // phet-io
         tandem: Tandem.required,
-        phetioDocumentation: 'panel that contains controls related to the graph',
-        phetioComponentOptions: { visibleProperty: { phetioFeatured: true } }
+        phetioDocumentation: 'panel that contains controls related to the graph'
 
       }, GQConstants.PANEL_OPTIONS, options );
 
