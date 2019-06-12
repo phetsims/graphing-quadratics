@@ -13,7 +13,7 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.exploreScreen.model.leftPointTool.locationProperty": {
     "phetioFeatured": true
   },
-  "graphingQuadratics.exploreScreen.model.quadraticTermProperty": {
+  "graphingQuadratics.exploreScreen.model.quadraticProperty": {
     "phetioFeatured": true
   },
   "graphingQuadratics.exploreScreen.model.rightPointTool.locationProperty": {
@@ -33,7 +33,7 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
     "phetioFeatured": true
   },
-  "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
+  "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.visibleProperty": {
     "phetioFeatured": true
   },
   "graphingQuadratics.exploreScreen.view.leftPointToolNode.visibleProperty": {
@@ -123,6 +123,9 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioReadOnly": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
+    "phetioFeatured": true
+  },
+  "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.visibleProperty": {
     "phetioFeatured": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
@@ -220,9 +223,6 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
     "phetioFeatured": true
   },
-  "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
-    "phetioFeatured": true
-  },
   "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.property": {
     "phetioFeatured": true
   },
@@ -307,9 +307,6 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioReadOnly": true
   },
   "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
     "phetioFeatured": true
   },
   "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.property": {
