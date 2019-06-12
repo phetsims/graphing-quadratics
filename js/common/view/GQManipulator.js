@@ -20,6 +20,14 @@ define( require => {
     coordinatesNode.centerX = 0;
     coordinatesNode.bottom = -( radius + 1 );
   };
+  const DEFAULT_PHET_IO_COMPONENT_OPTIONS = {
+    // Visibility of manipulators is derived and should not be set directly.
+    // See https://github.com/phetsims/graphing-quadratics/issues/80
+    visibleProperty: {
+      phetioReadOnly: true
+    }
+  };
+
 
   class GQManipulator extends Manipulator {
 
@@ -49,7 +57,8 @@ define( require => {
         haloAlpha: 0.15,
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.required,
+        phetioComponentOptions: DEFAULT_PHET_IO_COMPONENT_OPTIONS
 
       }, options );
 
