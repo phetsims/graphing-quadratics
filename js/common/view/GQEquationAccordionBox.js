@@ -98,8 +98,7 @@ define( require => {
         baseColor: PhetColorScheme.BUTTON_YELLOW,
         listener: () => { model.saveQuadratic(); },
         tandem: options.tandem.createTandem( 'saveButton' ),
-        phetioDocumentation: 'the button used to save a quadratic',
-        phetioReadOnly: true // we don't want the client to modify this button, see #60
+        phetioDocumentation: 'the button used to save a quadratic'
       } );
 
       // Erase button
@@ -107,8 +106,7 @@ define( require => {
         iconWidth: BUTTON_ICON_WIDTH,
         listener: () => { model.eraseQuadratic(); },
         tandem: options.tandem.createTandem( 'eraseButton' ),
-        phetioDocumentation: 'the button used to erase the saved quadratic',
-        phetioReadOnly: true
+        phetioDocumentation: 'the button used to erase the saved quadratic'
       } );
 
       assert && assert( !options.children, 'ButtonGroup sets children' );

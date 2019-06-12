@@ -26,13 +26,15 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioFeatured": false
   },
   "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
-    "phetioFeatured": false
+    "phetioFeatured": false,
+    "phetioReadOnly": true
   },
   "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
     "phetioFeatured": false
   },
   "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
-    "phetioFeatured": false
+    "phetioFeatured": false,
+    "phetioReadOnly": true
   },
   "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
     "phetioFeatured": true
@@ -122,19 +124,24 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioFeatured": false
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
-    "phetioFeatured": false
+    "phetioFeatured": false,
+    "phetioReadOnly": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
     "phetioFeatured": false
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
-    "phetioFeatured": false
+    "phetioFeatured": false,
+    "phetioReadOnly": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
     "phetioFeatured": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
     "phetioFeatured": true
+  },
+  "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.visibleProperty": {
+    "phetioReadOnly": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.property": {
     "phetioFeatured": true
@@ -160,8 +167,14 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.visibleProperty": {
     "phetioFeatured": true
   },
+  "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.visibleProperty": {
+    "phetioReadOnly": true
+  },
   "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.visibleProperty": {
     "phetioFeatured": true
+  },
+  "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.visibleProperty": {
+    "phetioReadOnly": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.coordinatesVisibleProperty": {
     "phetioFeatured": true
@@ -212,13 +225,15 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioFeatured": false
   },
   "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
-    "phetioFeatured": false
+    "phetioFeatured": false,
+    "phetioReadOnly": true
   },
   "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
     "phetioFeatured": false
   },
   "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
-    "phetioFeatured": false
+    "phetioFeatured": false,
+    "phetioReadOnly": true
   },
   "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
     "phetioFeatured": true
@@ -247,8 +262,17 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.standardFormScreen.view.leftPointToolNode.visibleProperty": {
     "phetioFeatured": true
   },
+  "graphingQuadratics.standardFormScreen.view.noRealRootsNode.visibleProperty": {
+    "phetioReadOnly": true
+  },
   "graphingQuadratics.standardFormScreen.view.rightPointToolNode.visibleProperty": {
     "phetioFeatured": true
+  },
+  "graphingQuadratics.standardFormScreen.view.rootsNode.visibleProperty": {
+    "phetioReadOnly": true
+  },
+  "graphingQuadratics.standardFormScreen.view.vertexNode.visibleProperty": {
+    "phetioReadOnly": true
   },
   "graphingQuadratics.standardFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
     "phetioFeatured": true
@@ -296,13 +320,15 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioFeatured": false
   },
   "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
-    "phetioFeatured": false
+    "phetioFeatured": false,
+    "phetioReadOnly": true
   },
   "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
     "phetioFeatured": false
   },
   "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
-    "phetioFeatured": false
+    "phetioFeatured": false,
+    "phetioReadOnly": true
   },
   "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
     "phetioFeatured": true
@@ -330,6 +356,9 @@ window.phet.phetio.phetioElementsOverrides =
   },
   "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.visibleProperty": {
     "phetioFeatured": true
+  },
+  "graphingQuadratics.vertexFormScreen.view.vertexManipulator.visibleProperty": {
+    "phetioReadOnly": true
   },
   "graphingQuadratics.vertexFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
     "phetioFeatured": true

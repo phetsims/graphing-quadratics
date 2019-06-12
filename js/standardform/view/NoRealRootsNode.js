@@ -45,8 +45,7 @@ define( require => {
 
         // phet-io
         tandem: Tandem.required,
-        phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots',
-        phetioReadOnly: true
+        phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
 
       }, options );
 

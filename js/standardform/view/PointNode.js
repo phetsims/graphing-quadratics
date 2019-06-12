@@ -46,8 +46,7 @@ define( require => {
         layoutCoordinates: DEFAULT_LAYOUT_COORDINATES,
 
         // phet-io
-        tandem: Tandem.required,
-        phetioReadOnly: true // see https://github.com/phetsims/graphing-quadratics/issues/80
+        tandem: Tandem.required
 
       }, options );
 
