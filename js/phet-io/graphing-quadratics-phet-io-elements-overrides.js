@@ -39,9 +39,6 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.exploreScreen.view.leftPointToolNode.visibleProperty": {
     "phetioFeatured": true
   },
-  "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.enabledProperty": {
-    "phetioFeatured": false
-  },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.property": {
     "phetioFeatured": true
   },
@@ -51,16 +48,10 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.property": {
     "phetioFeatured": true
   },
-  "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.enabledProperty": {
-    "phetioFeatured": false
-  },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.property": {
     "phetioFeatured": true
   },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.visibleProperty": {
-    "phetioFeatured": false
-  },
-  "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.enabledProperty": {
     "phetioFeatured": false
   },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.property": {
