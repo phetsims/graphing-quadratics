@@ -452,6 +452,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
       "phetioEventType": "user",
@@ -749,6 +760,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
@@ -1023,6 +1045,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
+    },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -1299,6 +1332,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
@@ -1529,6 +1573,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+    },
+    "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
@@ -1881,6 +1936,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+    },
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
@@ -2850,6 +2916,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
       "phetioEventType": "user",
@@ -3191,6 +3268,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
@@ -3465,6 +3553,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -3751,6 +3850,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -4059,6 +4169,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
@@ -8284,6 +8405,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
       "phetioEventType": "user",
@@ -8361,6 +8493,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
@@ -8416,6 +8559,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
@@ -8470,6 +8624,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
+    },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -8657,6 +8822,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+    },
+    "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
@@ -10286,6 +10462,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
       "phetioEventType": "user",
@@ -10363,6 +10550,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
@@ -10418,6 +10616,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
@@ -10472,6 +10681,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
+    },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.valueProperty": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
@@ -10659,6 +10879,17 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO.<NullableIO.<EventIO>, VoidIO>"
+    },
+    "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.property": {
+      "phetioDocumentation": "",
+      "phetioEventType": "model",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
     },
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
