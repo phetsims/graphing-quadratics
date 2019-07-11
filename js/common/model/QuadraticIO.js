@@ -1,4 +1,4 @@
-// Copyright 2018, University of Colorado Boulder
+// Copyright 2018-2019, University of Colorado Boulder
 
 //TODO https://github.com/phetsims/phet-io/issues/1371, convert to ES6 class when phetioInherit supports it
 /**

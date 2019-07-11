@@ -1,4 +1,4 @@
-// Copyright 2018, University of Colorado Boulder
+// Copyright 2018-2019, University of Colorado Boulder
 
 /**
  * Panel that contains controls for various features related to the graph on the 'Standard Form' screen.
