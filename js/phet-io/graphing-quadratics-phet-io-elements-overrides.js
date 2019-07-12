@@ -39,23 +39,11 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.exploreScreen.view.leftPointToolNode.visibleProperty": {
     "phetioFeatured": true
   },
-  "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.property": {
-    "phetioFeatured": true
-  },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.visibleProperty": {
     "phetioFeatured": false
   },
-  "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.property": {
-    "phetioFeatured": true
-  },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.visibleProperty": {
     "phetioFeatured": false
-  },
-  "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.property": {
-    "phetioFeatured": true
   },
   "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.visibleProperty": {
     "phetioFeatured": false
@@ -124,24 +112,6 @@ window.phet.phetio.phetioElementsOverrides =
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.visibleProperty": {
     "phetioReadOnly": true
-  },
-  "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.property": {
-    "phetioFeatured": true
   },
   "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.visibleProperty": {
     "phetioFeatured": true
@@ -214,21 +184,6 @@ window.phet.phetio.phetioElementsOverrides =
   "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
     "phetioFeatured": true
   },
-  "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.property": {
-    "phetioFeatured": true
-  },
   "graphingQuadratics.standardFormScreen.view.graphControlPanel.visibleProperty": {
     "phetioFeatured": true
   },
@@ -298,18 +253,6 @@ window.phet.phetio.phetioElementsOverrides =
     "phetioReadOnly": true
   },
   "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.property": {
-    "phetioFeatured": true
-  },
-  "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.property": {
     "phetioFeatured": true
   },
   "graphingQuadratics.vertexFormScreen.view.graphControlPanel.visibleProperty": {
