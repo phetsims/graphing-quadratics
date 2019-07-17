@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.1.0-rc.1 Fri Jul 12 2019 18:02:07 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.1.0-rc.1 Wed Jul 17 2019 13:55:56 GMT-0600 (MDT)",
   "assert": {
     "sha": "d8a2e8992420327ff72a6fc4bb93ec76549ded0e",
     "branch": "HEAD"
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "a1aa9c20e61e86a8a5539b967cefc6721b849399",
+    "sha": "2c33d1d5065b4916c799dbf62cd6a3dbe5b121a9",
     "branch": "1.1"
   },
   "joist": {
@@ -41,12 +41,12 @@
     "branch": "HEAD"
   },
   "phet-io": {
-    "sha": "014343482134e5bc9c8718cfbc87206a6ea0df5b",
-    "branch": "HEAD"
+    "sha": "e3beaefe77b7a03388da89b0625e90a282cab57c",
+    "branch": "graphing-quadratics-1.1"
   },
   "phet-io-wrappers": {
-    "sha": "647a3e7db26056455f4cde0bff5c590405315a8c",
-    "branch": "HEAD"
+    "sha": "8ee02ac579c6970e06d60c1e71f4b3ba2842a594",
+    "branch": "graphing-quadratics-1.1"
   },
   "phetcommon": {
     "sha": "412d3d857167437abbd7aacb8a809361dbb701ed",
@@ -81,7 +81,7 @@
     "branch": "HEAD"
   },
   "tandem": {
-    "sha": "82f5315c99f2f197bd0b0a3dfa50386e845afbda",
-    "branch": "HEAD"
+    "sha": "19e83bdd620d04fe5cb896505548a26ba338156c",
+    "branch": "graphing-quadratics-1.1"
   }
 }
