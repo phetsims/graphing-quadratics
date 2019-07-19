@@ -46,7 +46,7 @@ define( require => {
 
       // @public {Property.<Quadratic|null>} the saved quadratic, null if nothing is saved
       this.savedQuadraticProperty = new Property( null, {
-        isValidValue: value => ( value instanceof Quadratic || value === null ),
+        valueType: [ Quadratic, null ],
         tandem: tandem.createTandem( 'savedQuadraticProperty' ),
         phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic',
         phetioType: PropertyIO( NullableIO( QuadraticIO ) )

@@ -73,7 +73,7 @@ define( require => {
       // coordinates correspond to the quadratic's vertex (if it has one)
       const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
         quadratic => ( quadratic.vertex ? quadratic.vertex : null ), {
-          isValidValue: value => ( value instanceof Vector2 || value === null ),
+          valueType: [ Vector2, null ],
           tandem: options.tandem.createTandem( 'coordinatesProperty' ),
           phetioDocumentation: 'coordinates displayed by on vertex manipulator, null means no vertex',
           phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )

@@ -47,13 +47,13 @@ define( require => {
 
       // options common to both Property instances
       const coordinatesPropertyOptions = {
-        isValidValue: value => ( value instanceof Vector2 || value === null ),
+        valueType: [ Vector2, null ],
         phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )
       };
 
       // coordinates corresponding to the quadratic's left or single root (if it has roots)
       const leftCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
-        quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null, 
+        quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null,
         _.extend( {}, coordinatesPropertyOptions, {
           tandem: options.tandem.createTandem( 'leftCoordinatesProperty' ),
           phetioDocumentation: 'coordinates displayed on the left (first) root, ' +
@@ -62,7 +62,7 @@ define( require => {
 
       // coordinates corresponding to the quadratic's right root, if it has 2 roots
       const rightCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
-        quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null, 
+        quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null,
         _.extend( {}, coordinatesPropertyOptions, {
           tandem: options.tandem.createTandem( 'rightCoordinatesProperty' ),
           phetioDocumentation: 'coordinates displayed on the right (second) root, ' +
@@ -78,7 +78,7 @@ define( require => {
         x: modelViewTransform.modelToViewX( graph.xRange.getCenter() ),
         y: modelViewTransform.modelToViewY( graph.yRange.getCenter() )
       };
-      
+
       // left root
       const leftRootNode = new PointNode( leftCoordinatesProperty, coordinatesVisibleProperty,
         _.extend( {}, pointNodeOptions, {

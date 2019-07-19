@@ -67,7 +67,7 @@ define( require => {
             return null;
           }
         }, {
-          isValidValue: value => ( value instanceof Quadratic || value === null ),
+          valueType: [ Quadratic, null ],
           tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
           phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic',
           phetioType: DerivedPropertyIO( NullableIO( QuadraticIO ) )

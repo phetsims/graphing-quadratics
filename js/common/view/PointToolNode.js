@@ -65,7 +65,7 @@ define( require => {
 
       const coordinatesProperty = new DerivedProperty( [ pointTool.locationProperty ],
         location => ( graph.contains( location ) ? location : null ), {
-          isValidValue: value => ( value instanceof Vector2 || value === null )
+          valueType: [ Vector2, null ]
         } );
 
       // coordinates display
