@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.1.1 Mon Aug 05 2019 15:52:05 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.1.1 Mon Aug 19 2019 13:59:31 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "d8a2e8992420327ff72a6fc4bb93ec76549ded0e",
     "branch": "HEAD"
@@ -25,12 +25,12 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "ad56b390a7aec80e3ae06660cc7f5b271735ac87",
+    "sha": "002e79be7cc20a4fbf04a26bc5311135ea02203a",
     "branch": "1.1"
   },
   "joist": {
-    "sha": "9ea7dfdc8fe866f7aafd8e864ac6fbb06fc4fb64",
-    "branch": "HEAD"
+    "sha": "fa9cde145a434977eac534a35c5d6fb5efb652c8",
+    "branch": "graphing-quadratics-1.1"
   },
   "kite": {
     "sha": "38d4076754ae8dd00024a6973f8cf9d622dfcf5c",
@@ -61,12 +61,12 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "28f139b5a542bcf3ebfba3c2d6e562181d7dbfe2",
-    "branch": "HEAD"
+    "sha": "315072311065786747f7252cd52924e09f8414ac",
+    "branch": "graphing-quadratics-1.1"
   },
   "scenery-phet": {
-    "sha": "de648f0e5ac55f8a0e44e9522044706fbce0b7ae",
-    "branch": "HEAD"
+    "sha": "29f87d6506fcc0af0b028fb6276bb6891272c289",
+    "branch": "graphing-quadratics-1.1"
   },
   "sherpa": {
     "sha": "4877464e8013ff1459091c854a8c2234c3d0e7d6",
