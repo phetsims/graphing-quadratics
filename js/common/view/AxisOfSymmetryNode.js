@@ -9,7 +9,7 @@ define( require => {
   'use strict';
 
   // modules
-  const BackgroundNode = require( 'GRAPHING_QUADRATICS/common/view/BackgroundNode' );
+  const GQBackgroundNode = require( 'GRAPHING_QUADRATICS/common/view/GQBackgroundNode' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
@@ -49,7 +49,7 @@ define( require => {
       } );
 
       // equation text on a translucent background
-      const equationNode = new BackgroundNode( equationText, {
+      const equationNode = new GQBackgroundNode( equationText, {
         maxHeight: 100 // maxHeight because equation is rotated, determined empirically
       } );
       this.addChild( equationNode );

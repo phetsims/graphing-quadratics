@@ -12,7 +12,7 @@ define( require => {
   'use strict';
 
   // modules
-  const BackgroundNode = require( 'GRAPHING_QUADRATICS/common/view/BackgroundNode' );
+  const GQBackgroundNode = require( 'GRAPHING_QUADRATICS/common/view/GQBackgroundNode' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
@@ -70,7 +70,7 @@ define( require => {
       } );
 
       // @private equation text on a translucent background
-      this.equationNode = new BackgroundNode( this.equationText, {
+      this.equationNode = new GQBackgroundNode( this.equationText, {
         maxWidth: 200 // determined empirically
       } );
 
