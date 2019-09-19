@@ -12,7 +12,7 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "NodeIO",
       "typeName": "AccordionBoxIO"
     },
-    "ActionIO.<>": {
+    "ActionIO<>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -26,10 +26,11 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<>"
+      "typeName": "ActionIO<>"
     },
-    "ActionIO.<BooleanIO>": {
+    "ActionIO<BooleanIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -45,10 +46,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "BooleanIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<BooleanIO>"
+      "typeName": "ActionIO<BooleanIO>"
     },
-    "ActionIO.<DOMEventIO>": {
+    "ActionIO<DOMEventIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -64,10 +68,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "DOMEventIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<DOMEventIO>"
+      "typeName": "ActionIO<DOMEventIO>"
     },
-    "ActionIO.<EventIO>": {
+    "ActionIO<EventIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -83,10 +90,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "EventIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<EventIO>"
+      "typeName": "ActionIO<EventIO>"
     },
-    "ActionIO.<NullableIO.<EventIO>>": {
+    "ActionIO<NullableIO<EventIO>>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -97,15 +107,18 @@ window.phet.phetio.phetioTypes = assert &&
           "documentation": "Executes the function the Action is wrapping.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
-            "NullableIO.<EventIO>"
+            "NullableIO<EventIO>"
           ],
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NullableIO<EventIO>"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<NullableIO.<EventIO>>"
+      "typeName": "ActionIO<NullableIO<EventIO>>"
     },
-    "ActionIO.<NumberIO, NumberIO>": {
+    "ActionIO<NumberIO, NumberIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -122,10 +135,14 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NumberIO",
+        "NumberIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<NumberIO, NumberIO>"
+      "typeName": "ActionIO<NumberIO, NumberIO>"
     },
-    "ActionIO.<NumberIO, Vector2IO, DOMEventIO>": {
+    "ActionIO<NumberIO, Vector2IO, DOMEventIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -143,10 +160,15 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NumberIO",
+        "Vector2IO",
+        "DOMEventIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<NumberIO, Vector2IO, DOMEventIO>"
+      "typeName": "ActionIO<NumberIO, Vector2IO, DOMEventIO>"
     },
-    "ActionIO.<NumberIO>": {
+    "ActionIO<NumberIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -162,10 +184,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NumberIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<NumberIO>"
+      "typeName": "ActionIO<NumberIO>"
     },
-    "ActionIO.<Vector2IO, DOMEventIO>": {
+    "ActionIO<Vector2IO, DOMEventIO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -182,10 +207,14 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "Vector2IO",
+        "DOMEventIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<Vector2IO, DOMEventIO>"
+      "typeName": "ActionIO<Vector2IO, DOMEventIO>"
     },
-    "ActionIO.<Vector2IO>": {
+    "ActionIO<Vector2IO>": {
       "documentation": "Executes when an event occurs.",
       "events": [
         "emitted"
@@ -201,16 +230,19 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "Vector2IO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "ActionIO.<Vector2IO>"
+      "typeName": "ActionIO<Vector2IO>"
     },
-    "ArrayIO.<StringIO>": {
+    "ArrayIO<StringIO>": {
       "documentation": "A wrapper for the built-in JS array type, with the element type specified.",
       "events": [],
       "methodOrder": [],
       "methods": {},
       "supertype": "ObjectIO",
-      "typeName": "ArrayIO.<StringIO>"
+      "typeName": "ArrayIO<StringIO>"
     },
     "BooleanIO": {
       "documentation": "Wrapper for the built-in JS boolean type (true/false)",
@@ -228,7 +260,7 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "DOMEventIO"
     },
-    "DerivedPropertyIO.<BooleanIO>": {
+    "DerivedPropertyIO<BooleanIO>": {
       "documentation": "Like PropertyIO, but not settable.  Instead it is derived from other DerivedPropertyIO or PropertyIO instances",
       "events": [
         "changed"
@@ -244,10 +276,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
-      "supertype": "PropertyIO.<BooleanIO>",
-      "typeName": "DerivedPropertyIO.<BooleanIO>"
+      "parameterTypes": [
+        "BooleanIO"
+      ],
+      "supertype": "PropertyIO<BooleanIO>",
+      "typeName": "DerivedPropertyIO<BooleanIO>"
     },
-    "DerivedPropertyIO.<NullableIO.<QuadraticIO>>": {
+    "DerivedPropertyIO<NullableIO<QuadraticIO>>": {
       "documentation": "Like PropertyIO, but not settable.  Instead it is derived from other DerivedPropertyIO or PropertyIO instances",
       "events": [
         "changed"
@@ -258,15 +293,18 @@ window.phet.phetio.phetioTypes = assert &&
           "documentation": "Errors out when you try to set a derived property.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
-            "NullableIO.<QuadraticIO>"
+            "NullableIO<QuadraticIO>"
           ],
           "returnType": "VoidIO"
         }
       },
-      "supertype": "PropertyIO.<NullableIO.<QuadraticIO>>",
-      "typeName": "DerivedPropertyIO.<NullableIO.<QuadraticIO>>"
+      "parameterTypes": [
+        "NullableIO<QuadraticIO>"
+      ],
+      "supertype": "PropertyIO<NullableIO<QuadraticIO>>",
+      "typeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
     },
-    "DerivedPropertyIO.<NullableIO.<Vector2IO>>": {
+    "DerivedPropertyIO<NullableIO<Vector2IO>>": {
       "documentation": "Like PropertyIO, but not settable.  Instead it is derived from other DerivedPropertyIO or PropertyIO instances",
       "events": [
         "changed"
@@ -277,15 +315,18 @@ window.phet.phetio.phetioTypes = assert &&
           "documentation": "Errors out when you try to set a derived property.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
-            "NullableIO.<Vector2IO>"
+            "NullableIO<Vector2IO>"
           ],
           "returnType": "VoidIO"
         }
       },
-      "supertype": "PropertyIO.<NullableIO.<Vector2IO>>",
-      "typeName": "DerivedPropertyIO.<NullableIO.<Vector2IO>>"
+      "parameterTypes": [
+        "NullableIO<Vector2IO>"
+      ],
+      "supertype": "PropertyIO<NullableIO<Vector2IO>>",
+      "typeName": "DerivedPropertyIO<NullableIO<Vector2IO>>"
     },
-    "DerivedPropertyIO.<QuadraticIO>": {
+    "DerivedPropertyIO<QuadraticIO>": {
       "documentation": "Like PropertyIO, but not settable.  Instead it is derived from other DerivedPropertyIO or PropertyIO instances",
       "events": [
         "changed"
@@ -301,10 +342,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
-      "supertype": "PropertyIO.<QuadraticIO>",
-      "typeName": "DerivedPropertyIO.<QuadraticIO>"
+      "parameterTypes": [
+        "QuadraticIO"
+      ],
+      "supertype": "PropertyIO<QuadraticIO>",
+      "typeName": "DerivedPropertyIO<QuadraticIO>"
     },
-    "DerivedPropertyIO.<Vector2IO>": {
+    "DerivedPropertyIO<Vector2IO>": {
       "documentation": "Like PropertyIO, but not settable.  Instead it is derived from other DerivedPropertyIO or PropertyIO instances",
       "events": [
         "changed"
@@ -320,10 +364,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
-      "supertype": "PropertyIO.<Vector2IO>",
-      "typeName": "DerivedPropertyIO.<Vector2IO>"
+      "parameterTypes": [
+        "Vector2IO"
+      ],
+      "supertype": "PropertyIO<Vector2IO>",
+      "typeName": "DerivedPropertyIO<Vector2IO>"
     },
-    "EmitterIO.<>": {
+    "EmitterIO<>": {
       "documentation": "Emits when an event occurs and calls added listeners.",
       "events": [
         "emitted"
@@ -333,7 +380,7 @@ window.phet.phetio.phetioTypes = assert &&
         "addListener": {
           "documentation": "Adds a listener which will be called when the emitter emits.",
           "parameterTypes": [
-            "FunctionIO.()=>VoidIO"
+            "FunctionIO()=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -345,8 +392,8 @@ window.phet.phetio.phetioTypes = assert &&
         }
       },
       "parameterTypes": [],
-      "supertype": "ActionIO.<>",
-      "typeName": "EmitterIO.<>"
+      "supertype": "ActionIO<>",
+      "typeName": "EmitterIO<>"
     },
     "EventIO": {
       "documentation": "An event, with a point",
@@ -356,6 +403,14 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "EventIO"
     },
+    "FocusIO": {
+      "documentation": "A IO type for the instance in the simulation which currently has keyboard focus. FocusIO is serialized into and Object with key `focusedPhetioElement` that is a list of PhET-iO elements, from parent-most to child-most cooresponding to the PhET-iO element that was instrumented.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "ObjectIO",
+      "typeName": "FocusIO"
+    },
     "FontIO": {
       "documentation": "Font handling for text drawing. Options:<ul><li><strong>style:</strong> normal      &mdash; normal | italic | oblique </li><li><strong>variant:</strong> normal    &mdash; normal | small-caps </li><li><strong>weight:</strong> normal     &mdash; normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 </li><li><strong>stretch:</strong> normal    &mdash; normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded </li><li><strong>size:</strong> 10px         &mdash; absolute-size | relative-size | length | percentage -- unitless number interpreted as px. absolute suffixes: cm, mm, in, pt, pc, px. relative suffixes: em, ex, ch, rem, vw, vh, vmin, vmax. </li><li><strong>lineHeight:</strong> normal &mdash; normal | number | length | percentage -- NOTE: Canvas spec forces line-height to normal </li><li><strong>family:</strong> sans-serif &mdash; comma-separated list of families, including generic families (serif, sans-serif, cursive, fantasy, monospace). ideally escape with double-quotes</li></ul>",
       "events": [],
@@ -364,117 +419,185 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "FontIO"
     },
-    "FunctionIO.()=>VoidIO": {
+    "FunctionIO()=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> VoidIO<br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.()=>VoidIO"
+      "typeName": "FunctionIO()=>VoidIO"
     },
-    "FunctionIO.(BooleanIO,NullableIO.<BooleanIO>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> BooleanIO, NullableIO.<BooleanIO><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(BooleanIO,NullableIO<BooleanIO>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> BooleanIO, NullableIO<BooleanIO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "BooleanIO",
+        "NullableIO<BooleanIO>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(BooleanIO,NullableIO.<BooleanIO>)=>VoidIO"
+      "typeName": "FunctionIO(BooleanIO,NullableIO<BooleanIO>)=>VoidIO"
     },
-    "FunctionIO.(NullableIO.<BooleanIO>,NullableIO.<NullableIO.<BooleanIO>>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO.<BooleanIO>, NullableIO.<NullableIO.<BooleanIO>><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(NullableIO<BooleanIO>,NullableIO<NullableIO<BooleanIO>>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO<BooleanIO>, NullableIO<NullableIO<BooleanIO>><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "NullableIO<BooleanIO>",
+        "NullableIO<NullableIO<BooleanIO>>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(NullableIO.<BooleanIO>,NullableIO.<NullableIO.<BooleanIO>>)=>VoidIO"
+      "typeName": "FunctionIO(NullableIO<BooleanIO>,NullableIO<NullableIO<BooleanIO>>)=>VoidIO"
     },
-    "FunctionIO.(NullableIO.<FocusIO>,NullableIO.<NullableIO.<FocusIO>>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO.<FocusIO>, NullableIO.<NullableIO.<FocusIO>><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(NullableIO<FocusIO>,NullableIO<NullableIO<FocusIO>>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO<FocusIO>, NullableIO<NullableIO<FocusIO>><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "NullableIO<FocusIO>",
+        "NullableIO<NullableIO<FocusIO>>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(NullableIO.<FocusIO>,NullableIO.<NullableIO.<FocusIO>>)=>VoidIO"
+      "typeName": "FunctionIO(NullableIO<FocusIO>,NullableIO<NullableIO<FocusIO>>)=>VoidIO"
     },
-    "FunctionIO.(NullableIO.<QuadraticIO>,NullableIO.<NullableIO.<QuadraticIO>>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO.<QuadraticIO>, NullableIO.<NullableIO.<QuadraticIO>><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(NullableIO<QuadraticIO>,NullableIO<NullableIO<QuadraticIO>>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO<QuadraticIO>, NullableIO<NullableIO<QuadraticIO>><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "NullableIO<QuadraticIO>",
+        "NullableIO<NullableIO<QuadraticIO>>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(NullableIO.<QuadraticIO>,NullableIO.<NullableIO.<QuadraticIO>>)=>VoidIO"
+      "typeName": "FunctionIO(NullableIO<QuadraticIO>,NullableIO<NullableIO<QuadraticIO>>)=>VoidIO"
     },
-    "FunctionIO.(NullableIO.<Vector2IO>,NullableIO.<NullableIO.<Vector2IO>>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO.<Vector2IO>, NullableIO.<NullableIO.<Vector2IO>><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(NullableIO<Vector2IO>,NullableIO<NullableIO<Vector2IO>>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NullableIO<Vector2IO>, NullableIO<NullableIO<Vector2IO>><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "NullableIO<Vector2IO>",
+        "NullableIO<NullableIO<Vector2IO>>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(NullableIO.<Vector2IO>,NullableIO.<NullableIO.<Vector2IO>>)=>VoidIO"
+      "typeName": "FunctionIO(NullableIO<Vector2IO>,NullableIO<NullableIO<Vector2IO>>)=>VoidIO"
     },
-    "FunctionIO.(NumberIO,NullableIO.<NumberIO>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NumberIO, NullableIO.<NumberIO><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(NumberIO,NullableIO<NumberIO>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> NumberIO, NullableIO<NumberIO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "NumberIO",
+        "NullableIO<NumberIO>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(NumberIO,NullableIO.<NumberIO>)=>VoidIO"
+      "typeName": "FunctionIO(NumberIO,NullableIO<NumberIO>)=>VoidIO"
     },
-    "FunctionIO.(ObjectIO)=>VoidIO": {
+    "FunctionIO(ObjectIO)=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> ObjectIO<br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "ObjectIO",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(ObjectIO)=>VoidIO"
+      "typeName": "FunctionIO(ObjectIO)=>VoidIO"
     },
-    "FunctionIO.(QuadraticIO,NullableIO.<QuadraticIO>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> QuadraticIO, NullableIO.<QuadraticIO><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(QuadraticIO,NullableIO<QuadraticIO>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> QuadraticIO, NullableIO<QuadraticIO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "QuadraticIO",
+        "NullableIO<QuadraticIO>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(QuadraticIO,NullableIO.<QuadraticIO>)=>VoidIO"
+      "typeName": "FunctionIO(QuadraticIO,NullableIO<QuadraticIO>)=>VoidIO"
     },
-    "FunctionIO.(RangeIO,NullableIO.<RangeIO>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> RangeIO, NullableIO.<RangeIO><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(RangeIO,NullableIO<RangeIO>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> RangeIO, NullableIO<RangeIO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "RangeIO",
+        "NullableIO<RangeIO>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(RangeIO,NullableIO.<RangeIO>)=>VoidIO"
+      "typeName": "FunctionIO(RangeIO,NullableIO<RangeIO>)=>VoidIO"
     },
-    "FunctionIO.(StringIO,NullableIO.<StringIO>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> StringIO, NullableIO.<StringIO><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(StringIO,NullableIO<StringIO>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> StringIO, NullableIO<StringIO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "StringIO",
+        "NullableIO<StringIO>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(StringIO,NullableIO.<StringIO>)=>VoidIO"
+      "typeName": "FunctionIO(StringIO,NullableIO<StringIO>)=>VoidIO"
     },
-    "FunctionIO.(StringIO,ObjectIO,ObjectIO)=>VoidIO": {
+    "FunctionIO(StringIO,ObjectIO,ObjectIO)=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> StringIO, ObjectIO, ObjectIO<br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "StringIO",
+        "ObjectIO",
+        "ObjectIO",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(StringIO,ObjectIO,ObjectIO)=>VoidIO"
+      "typeName": "FunctionIO(StringIO,ObjectIO,ObjectIO)=>VoidIO"
     },
-    "FunctionIO.(StringIO,StringIO)=>VoidIO": {
+    "FunctionIO(StringIO,StringIO)=>VoidIO": {
       "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> StringIO, StringIO<br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "StringIO",
+        "StringIO",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(StringIO,StringIO)=>VoidIO"
+      "typeName": "FunctionIO(StringIO,StringIO)=>VoidIO"
     },
-    "FunctionIO.(Vector2IO,NullableIO.<Vector2IO>)=>VoidIO": {
-      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> Vector2IO, NullableIO.<Vector2IO><br><strong>Return Type:</strong> VoidIO",
+    "FunctionIO(Vector2IO,NullableIO<Vector2IO>)=>VoidIO": {
+      "documentation": "Wrapper for the built-in JS function type.<br><strong>Arguments:</strong> Vector2IO, NullableIO<Vector2IO><br><strong>Return Type:</strong> VoidIO",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "Vector2IO",
+        "NullableIO<Vector2IO>",
+        "VoidIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "FunctionIO.(Vector2IO,NullableIO.<Vector2IO>)=>VoidIO"
+      "typeName": "FunctionIO(Vector2IO,NullableIO<Vector2IO>)=>VoidIO"
     },
     "LinkedElementIO": {
       "documentation": "A LinkedElement",
@@ -492,53 +615,137 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "NodeIO"
     },
-    "NullableIO.<BooleanIO>": {
+    "NullableIO<BooleanIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "BooleanIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "NullableIO.<BooleanIO>"
+      "typeName": "NullableIO<BooleanIO>"
     },
-    "NullableIO.<EventIO>": {
+    "NullableIO<EventIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "EventIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "NullableIO.<EventIO>"
+      "typeName": "NullableIO<EventIO>"
     },
-    "NullableIO.<FocusIO>": {
+    "NullableIO<FocusIO>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "FocusIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "NullableIO.<FocusIO>"
+      "typeName": "NullableIO<FocusIO>"
     },
-    "NullableIO.<QuadraticIO>": {
+    "NullableIO<NullableIO<BooleanIO>>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "NullableIO<BooleanIO>"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "NullableIO.<QuadraticIO>"
+      "typeName": "NullableIO<NullableIO<BooleanIO>>"
     },
-    "NullableIO.<StringIO>": {
+    "NullableIO<NullableIO<FocusIO>>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "NullableIO<FocusIO>"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "NullableIO.<StringIO>"
+      "typeName": "NullableIO<NullableIO<FocusIO>>"
     },
-    "NullableIO.<Vector2IO>": {
+    "NullableIO<NullableIO<QuadraticIO>>": {
       "documentation": "A wrapper to wrap another IOType, adding support for null.",
       "events": [],
       "methodOrder": [],
       "methods": {},
+      "parameterTypes": [
+        "NullableIO<QuadraticIO>"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "NullableIO.<Vector2IO>"
+      "typeName": "NullableIO<NullableIO<QuadraticIO>>"
+    },
+    "NullableIO<NullableIO<Vector2IO>>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "NullableIO<Vector2IO>"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO<NullableIO<Vector2IO>>"
+    },
+    "NullableIO<NumberIO>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "NumberIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO<NumberIO>"
+    },
+    "NullableIO<QuadraticIO>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "QuadraticIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO<QuadraticIO>"
+    },
+    "NullableIO<RangeIO>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "RangeIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO<RangeIO>"
+    },
+    "NullableIO<StringIO>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "StringIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO<StringIO>"
+    },
+    "NullableIO<Vector2IO>": {
+      "documentation": "A wrapper to wrap another IOType, adding support for null.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "Vector2IO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "NullableIO<Vector2IO>"
     },
     "NumberIO": {
       "documentation": "Wrapper for the built-in JS number type (floating point, but also represents integers)",
@@ -563,14 +770,14 @@ window.phet.phetio.phetioTypes = assert &&
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NumberIO,NullableIO.<NumberIO>)=>VoidIO"
+            "FunctionIO(NumberIO,NullableIO<NumberIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NumberIO,NullableIO.<NumberIO>)=>VoidIO"
+            "FunctionIO(NumberIO,NullableIO<NumberIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -583,7 +790,10 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
-      "supertype": "PropertyIO.<NumberIO>",
+      "parameterTypes": [
+        "NumberIO"
+      ],
+      "supertype": "PropertyIO<NumberIO>",
       "typeName": "NumberPropertyIO"
     },
     "ObjectIO": {
@@ -591,7 +801,7 @@ window.phet.phetio.phetioTypes = assert &&
       "events": [],
       "methodOrder": [],
       "methods": {},
-      "supertype": "ObjectIO",
+      "supertype": "Object",
       "typeName": "ObjectIO"
     },
     "PhetButtonIO": {
@@ -657,21 +867,21 @@ window.phet.phetio.phetioTypes = assert &&
         "addEventListener": {
           "documentation": "Adds a listener to the PhET-iO dataStream, which can be used to respond to events or for data analysis. Unlike Client.launchSim( {onEvent} ) which is called recursively for each parsed child event, this is only called with stringified top-level events.",
           "parameterTypes": [
-            "FunctionIO.(ObjectIO)=>VoidIO"
+            "FunctionIO(ObjectIO)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "addPhetioElementAddedListener": {
           "documentation": "Adds a listener that receives a callback when a PhET-iO Element has been added.Arguments for the function: \n<ul><li><strong>phetioID:</strong> {String}\n</li><li><strong>metadata:</strong> {Object} - element specific metadata like documentation and type, see PhetioEngineIO.getPhetioElementMetadata().</li><li><strong>state:</strong> {Object} - a snapshot of the initial state of the PhET-iO Element.</li></ul>",
           "parameterTypes": [
-            "FunctionIO.(StringIO,ObjectIO,ObjectIO)=>VoidIO"
+            "FunctionIO(StringIO,ObjectIO,ObjectIO)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "addPhetioElementRemovedListener": {
           "documentation": "Removes a listener that was added with addPhetioElementAddedListener",
           "parameterTypes": [
-            "FunctionIO.(StringIO,StringIO)=>VoidIO"
+            "FunctionIO(StringIO,StringIO)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -698,7 +908,7 @@ window.phet.phetio.phetioTypes = assert &&
         "getPhetioIDs": {
           "documentation": "Gets a list of all of the PhET-iO elements.",
           "parameterTypes": [],
-          "returnType": "ArrayIO.<StringIO>"
+          "returnType": "ArrayIO<StringIO>"
         },
         "getRandomSeed": {
           "documentation": "Gets the random seed, used for replicable playbacks",
@@ -725,7 +935,7 @@ window.phet.phetio.phetioTypes = assert &&
         "getValues": {
           "documentation": "Get the current values for multiple Property/DerivedProperty elements at the same time. Useful for collecting data to be plotted, so values will be consistent.",
           "parameterTypes": [
-            "ArrayIO.<StringIO>"
+            "ArrayIO<StringIO>"
           ],
           "returnType": "ObjectIO"
         },
@@ -801,7 +1011,7 @@ window.phet.phetio.phetioTypes = assert &&
           "documentation": "Simulates an error in the simulation frame for testing purposes.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
-            "NullableIO.<StringIO>"
+            "NullableIO<StringIO>"
           ],
           "returnType": "VoidIO"
         },
@@ -833,7 +1043,7 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "PhetioEngineIO"
     },
-    "PropertyIO.<BooleanIO>": {
+    "PropertyIO<BooleanIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -851,14 +1061,14 @@ window.phet.phetio.phetioTypes = assert &&
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(BooleanIO,NullableIO.<BooleanIO>)=>VoidIO"
+            "FunctionIO(BooleanIO,NullableIO<BooleanIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(BooleanIO,NullableIO.<BooleanIO>)=>VoidIO"
+            "FunctionIO(BooleanIO,NullableIO<BooleanIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -871,10 +1081,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "BooleanIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<BooleanIO>"
+      "typeName": "PropertyIO<BooleanIO>"
     },
-    "PropertyIO.<NullableIO.<BooleanIO>>": {
+    "PropertyIO<NullableIO<BooleanIO>>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -887,19 +1100,19 @@ window.phet.phetio.phetioTypes = assert &&
         "getValue": {
           "documentation": "Gets the current value.",
           "parameterTypes": [],
-          "returnType": "NullableIO.<BooleanIO>"
+          "returnType": "NullableIO<BooleanIO>"
         },
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NullableIO.<BooleanIO>,NullableIO.<NullableIO.<BooleanIO>>)=>VoidIO"
+            "FunctionIO(NullableIO<BooleanIO>,NullableIO<NullableIO<BooleanIO>>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NullableIO.<BooleanIO>,NullableIO.<NullableIO.<BooleanIO>>)=>VoidIO"
+            "FunctionIO(NullableIO<BooleanIO>,NullableIO<NullableIO<BooleanIO>>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -907,15 +1120,18 @@ window.phet.phetio.phetioTypes = assert &&
           "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
-            "NullableIO.<BooleanIO>"
+            "NullableIO<BooleanIO>"
           ],
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NullableIO<BooleanIO>"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<NullableIO.<BooleanIO>>"
+      "typeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "PropertyIO.<NullableIO.<FocusIO>>": {
+    "PropertyIO<NullableIO<FocusIO>>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -928,19 +1144,19 @@ window.phet.phetio.phetioTypes = assert &&
         "getValue": {
           "documentation": "Gets the current value.",
           "parameterTypes": [],
-          "returnType": "NullableIO.<FocusIO>"
+          "returnType": "NullableIO<FocusIO>"
         },
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NullableIO.<FocusIO>,NullableIO.<NullableIO.<FocusIO>>)=>VoidIO"
+            "FunctionIO(NullableIO<FocusIO>,NullableIO<NullableIO<FocusIO>>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NullableIO.<FocusIO>,NullableIO.<NullableIO.<FocusIO>>)=>VoidIO"
+            "FunctionIO(NullableIO<FocusIO>,NullableIO<NullableIO<FocusIO>>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -948,15 +1164,18 @@ window.phet.phetio.phetioTypes = assert &&
           "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
-            "NullableIO.<FocusIO>"
+            "NullableIO<FocusIO>"
           ],
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NullableIO<FocusIO>"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<NullableIO.<FocusIO>>"
+      "typeName": "PropertyIO<NullableIO<FocusIO>>"
     },
-    "PropertyIO.<NullableIO.<QuadraticIO>>": {
+    "PropertyIO<NullableIO<QuadraticIO>>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -969,19 +1188,19 @@ window.phet.phetio.phetioTypes = assert &&
         "getValue": {
           "documentation": "Gets the current value.",
           "parameterTypes": [],
-          "returnType": "NullableIO.<QuadraticIO>"
+          "returnType": "NullableIO<QuadraticIO>"
         },
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NullableIO.<QuadraticIO>,NullableIO.<NullableIO.<QuadraticIO>>)=>VoidIO"
+            "FunctionIO(NullableIO<QuadraticIO>,NullableIO<NullableIO<QuadraticIO>>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NullableIO.<QuadraticIO>,NullableIO.<NullableIO.<QuadraticIO>>)=>VoidIO"
+            "FunctionIO(NullableIO<QuadraticIO>,NullableIO<NullableIO<QuadraticIO>>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -989,15 +1208,18 @@ window.phet.phetio.phetioTypes = assert &&
           "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
-            "NullableIO.<QuadraticIO>"
+            "NullableIO<QuadraticIO>"
           ],
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NullableIO<QuadraticIO>"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<NullableIO.<QuadraticIO>>"
+      "typeName": "PropertyIO<NullableIO<QuadraticIO>>"
     },
-    "PropertyIO.<NullableIO.<Vector2IO>>": {
+    "PropertyIO<NullableIO<Vector2IO>>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -1010,19 +1232,19 @@ window.phet.phetio.phetioTypes = assert &&
         "getValue": {
           "documentation": "Gets the current value.",
           "parameterTypes": [],
-          "returnType": "NullableIO.<Vector2IO>"
+          "returnType": "NullableIO<Vector2IO>"
         },
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NullableIO.<Vector2IO>,NullableIO.<NullableIO.<Vector2IO>>)=>VoidIO"
+            "FunctionIO(NullableIO<Vector2IO>,NullableIO<NullableIO<Vector2IO>>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NullableIO.<Vector2IO>,NullableIO.<NullableIO.<Vector2IO>>)=>VoidIO"
+            "FunctionIO(NullableIO<Vector2IO>,NullableIO<NullableIO<Vector2IO>>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -1030,15 +1252,18 @@ window.phet.phetio.phetioTypes = assert &&
           "documentation": "Sets the value of the property. If the value differs from the previous value, listeners are notified with the new value.",
           "invocableForReadOnlyElements": false,
           "parameterTypes": [
-            "NullableIO.<Vector2IO>"
+            "NullableIO<Vector2IO>"
           ],
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NullableIO<Vector2IO>"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<NullableIO.<Vector2IO>>"
+      "typeName": "PropertyIO<NullableIO<Vector2IO>>"
     },
-    "PropertyIO.<NumberIO>": {
+    "PropertyIO<NumberIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -1056,14 +1281,14 @@ window.phet.phetio.phetioTypes = assert &&
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NumberIO,NullableIO.<NumberIO>)=>VoidIO"
+            "FunctionIO(NumberIO,NullableIO<NumberIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(NumberIO,NullableIO.<NumberIO>)=>VoidIO"
+            "FunctionIO(NumberIO,NullableIO<NumberIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -1076,10 +1301,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "NumberIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<NumberIO>"
+      "typeName": "PropertyIO<NumberIO>"
     },
-    "PropertyIO.<QuadraticIO>": {
+    "PropertyIO<QuadraticIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -1097,14 +1325,14 @@ window.phet.phetio.phetioTypes = assert &&
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(QuadraticIO,NullableIO.<QuadraticIO>)=>VoidIO"
+            "FunctionIO(QuadraticIO,NullableIO<QuadraticIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(QuadraticIO,NullableIO.<QuadraticIO>)=>VoidIO"
+            "FunctionIO(QuadraticIO,NullableIO<QuadraticIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -1117,10 +1345,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "QuadraticIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<QuadraticIO>"
+      "typeName": "PropertyIO<QuadraticIO>"
     },
-    "PropertyIO.<RangeIO>": {
+    "PropertyIO<RangeIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -1138,14 +1369,14 @@ window.phet.phetio.phetioTypes = assert &&
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(RangeIO,NullableIO.<RangeIO>)=>VoidIO"
+            "FunctionIO(RangeIO,NullableIO<RangeIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(RangeIO,NullableIO.<RangeIO>)=>VoidIO"
+            "FunctionIO(RangeIO,NullableIO<RangeIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -1158,10 +1389,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "RangeIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<RangeIO>"
+      "typeName": "PropertyIO<RangeIO>"
     },
-    "PropertyIO.<StringIO>": {
+    "PropertyIO<StringIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -1179,14 +1413,14 @@ window.phet.phetio.phetioTypes = assert &&
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(StringIO,NullableIO.<StringIO>)=>VoidIO"
+            "FunctionIO(StringIO,NullableIO<StringIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(StringIO,NullableIO.<StringIO>)=>VoidIO"
+            "FunctionIO(StringIO,NullableIO<StringIO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -1199,10 +1433,13 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "StringIO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<StringIO>"
+      "typeName": "PropertyIO<StringIO>"
     },
-    "PropertyIO.<Vector2IO>": {
+    "PropertyIO<Vector2IO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
         "changed"
@@ -1220,14 +1457,14 @@ window.phet.phetio.phetioTypes = assert &&
         "lazyLink": {
           "documentation": "Adds a listener which will be called when the value changes. This method is like \"link\", but without the current-value callback on registration. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(Vector2IO,NullableIO.<Vector2IO>)=>VoidIO"
+            "FunctionIO(Vector2IO,NullableIO<Vector2IO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
         "link": {
           "documentation": "Adds a listener which will be called when the value changes. On registration, the listener is also called with the current value. The listener takes two arguments, the new value and the previous value.",
           "parameterTypes": [
-            "FunctionIO.(Vector2IO,NullableIO.<Vector2IO>)=>VoidIO"
+            "FunctionIO(Vector2IO,NullableIO<Vector2IO>)=>VoidIO"
           ],
           "returnType": "VoidIO"
         },
@@ -1240,8 +1477,11 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
+      "parameterTypes": [
+        "Vector2IO"
+      ],
       "supertype": "ObjectIO",
-      "typeName": "PropertyIO.<Vector2IO>"
+      "typeName": "PropertyIO<Vector2IO>"
     },
     "QuadraticIO": {
       "documentation": "QuadraticIO is a data structure that describes a quadratic equation in the model. Its properties are relevant to standard and vertex forms of the quadratic equation. Non-parabolas (a=0) will have a subset of the properties that parabolas have. <p>Required properties are related to the standard form y = ax<sup>2</sup> + bx + c, and include:</p><ul><li>a: {NumberIO} coefficient a</li><li>b: {NumberIO} coefficient b</li><li>c: {NumberIO} coefficient c</li><li>color: {ColorIO} the color used to draw the associated curve</li></ul>All coefficient values must respect the ranges for those coefficients.",
