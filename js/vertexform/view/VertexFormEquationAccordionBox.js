@@ -11,6 +11,7 @@ define( require => {
   // modules
   const GQEquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/GQEquationAccordionBox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Tandem = require( 'TANDEM/Tandem' );
   const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
   const VertexFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormInteractiveEquationNode' );
@@ -23,7 +24,7 @@ define( require => {
      */
     constructor( model, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         tandem: Tandem.required

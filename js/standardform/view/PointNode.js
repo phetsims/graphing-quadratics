@@ -12,6 +12,7 @@ define( require => {
   const Circle = require( 'SCENERY/nodes/Circle' );
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Tandem = require( 'TANDEM/Tandem' );
 
@@ -31,7 +32,7 @@ define( require => {
      */
     constructor( coordinatesProperty, coordinatesVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // radius of the point
         radius: 10,

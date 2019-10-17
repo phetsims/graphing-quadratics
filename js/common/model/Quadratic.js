@@ -24,6 +24,7 @@ define( require => {
   const Color = require( 'SCENERY/util/Color' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -39,7 +40,7 @@ define( require => {
      */
     constructor( a, b, c, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // {Color|string} color used to render the curve.
         // This is in the model to support color-coding of the point tool.

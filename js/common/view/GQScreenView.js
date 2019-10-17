@@ -14,6 +14,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GraphContentsToggleButton = require( 'GRAPHING_LINES/common/view/GraphContentsToggleButton' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PointToolNode = require( 'GRAPHING_QUADRATICS/common/view/PointToolNode' );
   const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
@@ -36,7 +37,7 @@ define( require => {
      */
     constructor( model, viewProperties, graphNode, equationAccordionBox, graphControlPanel, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // ScreenView options
         layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,

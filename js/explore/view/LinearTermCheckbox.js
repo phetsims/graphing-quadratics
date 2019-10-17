@@ -14,6 +14,7 @@ define( require => {
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const merge = require( 'PHET_CORE/merge' );
 
   class LinearTermCheckbox extends GQCheckbox {
 
@@ -23,7 +24,7 @@ define( require => {
      */
     constructor( linearTermVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
         textFill: GQColors.LINEAR_TERM,
 
         // phet-io

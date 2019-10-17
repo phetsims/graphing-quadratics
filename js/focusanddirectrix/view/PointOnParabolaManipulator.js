@@ -16,6 +16,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
@@ -36,7 +37,7 @@ define( require => {
     constructor( pointOnParabolaProperty, quadraticProperty, graph, modelViewTransform,
                  pointOnParabolaVisibleProperty, coordinatesVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // GQManipulator options
         radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
@@ -115,7 +116,7 @@ define( require => {
 
       let startOffset; // where the drag started, relative to the manipulator
 
-      options = _.extend( {
+      options = merge( {
 
         allowTouchSnag: true,
 

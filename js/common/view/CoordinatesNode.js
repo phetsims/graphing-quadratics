@@ -12,6 +12,7 @@ define( require => {
   // modules
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -28,7 +29,7 @@ define( require => {
      */
     constructor( coordinatesProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
         decimals: 0,
         font: GQConstants.COORDINATES_FONT,
         foregroundColor: 'black',

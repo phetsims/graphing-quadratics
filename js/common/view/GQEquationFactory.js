@@ -16,6 +16,7 @@ define( require => {
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const merge = require( 'PHET_CORE/merge' );
   const Util = require( 'DOT/Util' );
 
   // constants
@@ -32,7 +33,7 @@ define( require => {
      */
     createStandardForm( quadratic, options ) {
 
-      options = _.extend( {
+      options = merge( {
         aDecimals: GQConstants.EXPLORE_DECIMALS_A,
         bDecimals: GQConstants.EXPLORE_DECIMALS_B,
         cDecimals: GQConstants.EXPLORE_DECIMALS_C
@@ -120,7 +121,7 @@ define( require => {
      */
     createVertexForm( quadratic, options ) {
 
-      options = _.extend( {
+      options = merge( {
         aDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A,
         hDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H,
         kDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K

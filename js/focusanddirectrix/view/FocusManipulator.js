@@ -17,6 +17,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Util = require( 'DOT/Util' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
@@ -38,7 +39,7 @@ define( require => {
     constructor( pProperty, quadraticProperty, graph, modelViewTransform,
                  focusVisibleProperty, coordinatesVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
         interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
@@ -127,7 +128,7 @@ define( require => {
 
       let startOffset; // where the drag started, relative to the manipulator
 
-      options = _.extend( {
+      options = merge( {
 
         allowTouchSnag: true,
 

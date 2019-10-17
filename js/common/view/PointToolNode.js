@@ -19,6 +19,7 @@ define( require => {
   const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Image = require( 'SCENERY/nodes/Image' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -46,7 +47,7 @@ define( require => {
      */
     constructor( pointTool, modelViewTransform, graph, graphContentsVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
         cursor: 'pointer',
         backgroundNormalColor: 'white',
         foregroundNormalColor: 'black',
@@ -150,7 +151,7 @@ define( require => {
      */
     constructor( options ) {
 
-      options = _.extend( {
+      options = merge( {
         radius: 15,
         color: 'black'
       }, options );
@@ -206,7 +207,7 @@ define( require => {
 
       let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
-      options = _.extend( {
+      options = merge( {
 
         allowTouchSnag: true,
 

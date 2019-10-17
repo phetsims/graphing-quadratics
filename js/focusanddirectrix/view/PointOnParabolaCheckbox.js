@@ -13,6 +13,7 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
+  const merge = require( 'PHET_CORE/merge' );
 
   // strings
   const pointOnParabolaString = require( 'string!GRAPHING_QUADRATICS/pointOnParabola' );
@@ -25,7 +26,7 @@ define( require => {
      */
     constructor( pointOnParabolaVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'

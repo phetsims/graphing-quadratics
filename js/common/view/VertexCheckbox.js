@@ -14,6 +14,7 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
+  const merge = require( 'PHET_CORE/merge' );
 
   // strings
   const vertexString = require( 'string!GRAPHING_QUADRATICS/vertex' );
@@ -26,7 +27,7 @@ define( require => {
      */
     constructor( vertexVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
         manipulatorIcon: true // true: icon is a shaded manipulator, false: icon is a flat point
       }, options );
 

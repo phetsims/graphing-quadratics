@@ -13,6 +13,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const GraphNode = require( 'GRAPHING_LINES/common/view/GraphNode' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Property = require( 'AXON/Property' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
@@ -31,7 +32,7 @@ define( require => {
      */
     constructor( model, viewProperties, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // prevent a parabola's vertex and equation from overlapping
         preventVertexAndEquationOverlap: true,

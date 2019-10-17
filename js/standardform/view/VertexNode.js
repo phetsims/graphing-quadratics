@@ -14,6 +14,7 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
   const PointNode = require( 'GRAPHING_QUADRATICS/standardform/view/PointNode' );
   const Vector2 = require( 'DOT/Vector2' );
@@ -35,7 +36,7 @@ define( require => {
     constructor( quadraticProperty, graph, modelViewTransform,
                  vertexVisibleProperty, coordinatesVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // PointNode options
         radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),

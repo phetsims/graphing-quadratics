@@ -15,6 +15,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
@@ -218,7 +219,7 @@ define( require => {
     const shape = new Shape()
       .moveToPoint( bezierControlPoints.startPoint )
       .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint );
-    return new Path( shape, _.extend( {}, DEFAULT_PATH_OPTIONS, options ) );
+    return new Path( shape, merge( {}, DEFAULT_PATH_OPTIONS, options ) );
   }
 
   return graphingQuadratics.register( 'GQScreenIconFactory', GQScreenIconFactory );

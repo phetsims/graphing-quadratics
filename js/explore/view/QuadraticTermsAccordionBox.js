@@ -18,6 +18,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
   const LinearTermCheckbox = require( 'GRAPHING_QUADRATICS/explore/view/LinearTermCheckbox' );
+  const merge = require( 'PHET_CORE/merge' );
   const QuadraticTermCheckbox = require( 'GRAPHING_QUADRATICS/explore/view/QuadraticTermCheckbox' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -34,7 +35,7 @@ define( require => {
      */
     constructor( viewProperties, options ) {
 
-      options = _.extend( {}, GQConstants.ACCORDION_BOX_OPTIONS, {
+      options = merge( {}, GQConstants.ACCORDION_BOX_OPTIONS, {
 
         // AccordionBox options
         titleAlignX: 'left',

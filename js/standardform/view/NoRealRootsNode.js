@@ -14,6 +14,7 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -38,7 +39,7 @@ define( require => {
     constructor( rootsVisibleProperty, vertexVisibleProperty, coordinatesVisibleProperty,
                  quadraticProperty, modelViewTransform, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // Node options
         maxWidth: 200, // determined empirically

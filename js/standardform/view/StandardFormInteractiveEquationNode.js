@@ -14,6 +14,7 @@ define( require => {
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberPicker = require( 'SCENERY_PHET/NumberPicker' );
   const Property = require( 'AXON/Property' );
@@ -36,7 +37,7 @@ define( require => {
       assert && assert( bProperty.range, 'missing bProperty.range' );
       assert && assert( cProperty.range, 'missing cProperty.range' );
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         tandem: Tandem.required
@@ -44,19 +45,19 @@ define( require => {
 
       // coefficient pickers
       const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
-        _.extend( {
+        merge( {
           color: GQColors.STANDARD_FORM_A,
           tandem: options.tandem.createTandem( 'aPicker' ),
           phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const bPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
-        _.extend( {
+        merge( {
           color: GQColors.STANDARD_FORM_B,
           tandem: options.tandem.createTandem( 'bPicker' ),
           phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'b' } )
         }, GQConstants.NUMBER_PICKER_OPTIONS ) );
       const cPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
-        _.extend( {
+        merge( {
           color: GQColors.STANDARD_FORM_C,
           tandem: options.tandem.createTandem( 'cPicker' ),
           phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'c' } )
@@ -66,7 +67,7 @@ define( require => {
       const richTextOptions = {
         font: GQConstants.INTERACTIVE_EQUATION_FONT
       };
-      const xyOptions = _.extend( {}, richTextOptions, {
+      const xyOptions = merge( {}, richTextOptions, {
         maxWidth: 30 // determined empirically
       } );
       const yText = new RichText( GQSymbols.y, xyOptions );

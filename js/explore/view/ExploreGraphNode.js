@@ -12,6 +12,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Property = require( 'AXON/Property' );
   const QuadraticNode = require( 'GRAPHING_QUADRATICS/common/view/QuadraticNode' );
 
@@ -24,7 +25,7 @@ define( require => {
      */
     constructor( model, viewProperties, options ) {
 
-      options = _.extend( {
+      options = merge( {
         preventVertexAndEquationOverlap: false // there is no vertex displayed on this screen
       }, options );
 

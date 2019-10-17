@@ -14,6 +14,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQQueryParameters = require( 'GRAPHING_QUADRATICS/common/GQQueryParameters' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
@@ -30,7 +31,7 @@ define( require => {
      */
     constructor( quadraticsProperty, graph, options ) {
 
-      options = _.extend( {
+      options = merge( {
         location: Vector2.ZERO, // {Vector2} initial location
         probeSide: 'left', // {string} which side the probe is on, see GQConstants.PROBE_SIDES
         dragBounds: null, // {Bounds2|null} drag bounds, in model coordinate frame

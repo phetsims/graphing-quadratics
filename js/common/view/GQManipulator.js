@@ -12,6 +12,7 @@ define( require => {
   const CoordinatesNode = require( 'GRAPHING_QUADRATICS/common/view/CoordinatesNode' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
+  const merge = require( 'PHET_CORE/merge' );
   const Tandem = require( 'TANDEM/Tandem' );
 
   // constants
@@ -30,7 +31,7 @@ define( require => {
      */
     constructor( coordinatesProperty, coordinatesVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // options passed to CoordinatesNode
         coordinatesBackgroundColor: 'black',

@@ -11,6 +11,7 @@ define( require => {
   // modules
   const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
 
   // strings
   const equationsString = require( 'string!GRAPHING_QUADRATICS/equations' );
@@ -23,7 +24,7 @@ define( require => {
      */
     constructor( equationsVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         phetioDocumentation: 'checkbox that shows equations on graphed curves'

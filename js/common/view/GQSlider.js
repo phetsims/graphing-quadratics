@@ -20,6 +20,7 @@ define( require => {
   const DynamicProperty = require( 'AXON/DynamicProperty' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Property = require( 'AXON/Property' );
   const Range = require( 'DOT/Range' );
   const RichText = require( 'SCENERY/nodes/RichText' );
@@ -43,7 +44,7 @@ define( require => {
      */
     constructor( symbol, coefficientProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // maps from model to view (coefficientProperty to sliderProperty)
         map: IDENTITY_FUNCTION,

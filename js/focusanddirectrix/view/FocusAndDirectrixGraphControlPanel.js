@@ -17,6 +17,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HSeparator = require( 'SUN/HSeparator' );
+  const merge = require( 'PHET_CORE/merge' );
   const Panel = require( 'SUN/Panel' );
   const PointOnParabolaCheckbox = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnParabolaCheckbox' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -31,7 +32,7 @@ define( require => {
      */
     constructor( viewProperties, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         tandem: Tandem.required,

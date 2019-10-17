@@ -16,6 +16,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQModel = require( 'GRAPHING_QUADRATICS/common/model/GQModel' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
   const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
@@ -41,7 +42,7 @@ define( require => {
       };
 
       // a
-      const aProperty = new NumberProperty( A_RANGE.defaultValue, _.extend( {
+      const aProperty = new NumberProperty( A_RANGE.defaultValue, merge( {
         range: A_RANGE,
         tandem: tandem.createTandem( 'aProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'a' } )
@@ -49,7 +50,7 @@ define( require => {
       phet.log && aProperty.link( a => { phet.log( 'a=' + a ); } );
 
       // h
-      const hProperty = new NumberProperty( H_RANGE.defaultValue, _.extend( {
+      const hProperty = new NumberProperty( H_RANGE.defaultValue, merge( {
         range: H_RANGE,
         tandem: tandem.createTandem( 'hProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } )
@@ -57,7 +58,7 @@ define( require => {
       phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
 
       // k
-      const kProperty = new NumberProperty( K_RANGE.defaultValue, _.extend( {
+      const kProperty = new NumberProperty( K_RANGE.defaultValue, merge( {
         range: K_RANGE,
         tandem: tandem.createTandem( 'kProperty' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } )

@@ -14,6 +14,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const merge = require( 'PHET_CORE/merge' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
 
@@ -26,7 +27,7 @@ define( require => {
      */
     constructor( text, booleanProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
         textFill: 'black',
         font: GQConstants.CHECKBOX_LABEL_FONT,
         icon: null, // {Node|null} optional icon, to the right of text

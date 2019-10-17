@@ -14,6 +14,7 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
   const PointNode = require( 'GRAPHING_QUADRATICS/standardform/view/PointNode' );
@@ -37,7 +38,7 @@ define( require => {
     constructor( quadraticProperty, graph, modelViewTransform,
                  rootsVisibleProperty, coordinatesVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         tandem: Tandem.required,
@@ -54,7 +55,7 @@ define( require => {
       // coordinates corresponding to the quadratic's left or single root (if it has roots)
       const leftCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
         quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null,
-        _.extend( {}, coordinatesPropertyOptions, {
+        merge( {}, coordinatesPropertyOptions, {
           tandem: options.tandem.createTandem( 'leftCoordinatesProperty' ),
           phetioDocumentation: 'coordinates displayed on the left (first) root, ' +
                                'null if there are no roots or if all points are roots'
@@ -63,7 +64,7 @@ define( require => {
       // coordinates corresponding to the quadratic's right root, if it has 2 roots
       const rightCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
         quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null,
-        _.extend( {}, coordinatesPropertyOptions, {
+        merge( {}, coordinatesPropertyOptions, {
           tandem: options.tandem.createTandem( 'rightCoordinatesProperty' ),
           phetioDocumentation: 'coordinates displayed on the right (second) root, ' +
                                'null if there are less that two roots or if all points are roots'
@@ -81,7 +82,7 @@ define( require => {
 
       // left root
       const leftRootNode = new PointNode( leftCoordinatesProperty, coordinatesVisibleProperty,
-        _.extend( {}, pointNodeOptions, {
+        merge( {}, pointNodeOptions, {
           layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {
             coordinatesNode.right = pointNode.left - COORDINATES_X_SPACING;
             coordinatesNode.centerY = pointNode.centerY;
@@ -92,7 +93,7 @@ define( require => {
 
       // right root
       const rightRootNode = new PointNode( rightCoordinatesProperty, coordinatesVisibleProperty,
-        _.extend( {}, pointNodeOptions, {
+        merge( {}, pointNodeOptions, {
           layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {
             coordinatesNode.left = pointNode.right + COORDINATES_X_SPACING;
             coordinatesNode.centerY = pointNode.centerY;

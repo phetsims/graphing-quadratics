@@ -16,6 +16,7 @@ define( require => {
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
   const GQEquationFactory = require( 'GRAPHING_QUADRATICS/common/view/GQEquationFactory' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const Range = require( 'DOT/Range' );
@@ -39,7 +40,7 @@ define( require => {
       assert && assert( _.includes( GQConstants.EQUATION_FORMS, equationForm ),
         'invalid equationForm: ' + equationForm );
 
-      options = _.extend( {
+      options = merge( {
 
         // prevent a parabola's vertex and equation from overlapping
         preventVertexAndEquationOverlap: true,

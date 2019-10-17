@@ -11,6 +11,7 @@ define( require => {
   // modules
   const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+  const merge = require( 'PHET_CORE/merge' );
 
   // strings
   const coordinatesString = require( 'string!GRAPHING_QUADRATICS/coordinates' );
@@ -23,7 +24,7 @@ define( require => {
      */
     constructor( coordinatesVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph'

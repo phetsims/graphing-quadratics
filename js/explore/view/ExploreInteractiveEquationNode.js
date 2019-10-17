@@ -12,12 +12,13 @@ define( require => {
   'use strict';
 
   // modules
-  const GQSlider = require( 'GRAPHING_QUADRATICS/common/view/GQSlider' );
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
+  const GQSlider = require( 'GRAPHING_QUADRATICS/common/view/GQSlider' );
   const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const QuadraticSlider = require( 'GRAPHING_QUADRATICS/common/view/QuadraticSlider' );
@@ -36,7 +37,7 @@ define( require => {
      */
     constructor( aProperty, bProperty, cProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         tandem: Tandem.required,
@@ -102,7 +103,7 @@ define( require => {
      */
     constructor( aProperty, bProperty, cProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         tandem: Tandem.required
@@ -116,7 +117,7 @@ define( require => {
       const equationOptions = {
         font: GQConstants.INTERACTIVE_EQUATION_FONT
       };
-      const xyOptions = _.extend( {}, equationOptions, {
+      const xyOptions = merge( {}, equationOptions, {
         maxWidth: 20 // determined empirically
       } );
 
@@ -128,7 +129,7 @@ define( require => {
 
       // a value
       const aNode = new NumberDisplay( aProperty, aProperty.range,
-        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
           numberFill: GQColors.EXPLORE_A,
           decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
         } ) );
@@ -141,7 +142,7 @@ define( require => {
 
       // b value
       const bNode = new NumberDisplay( bProperty, bProperty.range,
-        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
           numberFill: GQColors.EXPLORE_B,
           decimalPlaces: GQConstants.EXPLORE_DECIMALS_B
         } ) );
@@ -154,7 +155,7 @@ define( require => {
 
       // c value
       const cNode = new NumberDisplay( cProperty, bProperty.range,
-        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
           numberFill: GQColors.EXPLORE_C,
           decimalPlaces: GQConstants.EXPLORE_DECIMALS_C
         } ) );

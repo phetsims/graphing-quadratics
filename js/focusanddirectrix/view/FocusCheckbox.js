@@ -13,6 +13,7 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
+  const merge = require( 'PHET_CORE/merge' );
 
   // strings
   const focusString = require( 'string!GRAPHING_QUADRATICS/focus' );
@@ -25,7 +26,7 @@ define( require => {
      */
     constructor( focusVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         phetioDocumentation: 'checkbox that shows the focus on the graph'

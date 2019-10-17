@@ -14,6 +14,7 @@ define( require => {
   const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const HBox = require( 'SCENERY/nodes/HBox' );
+  const merge = require( 'PHET_CORE/merge' );
 
   // strings
   const rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
@@ -29,7 +30,7 @@ define( require => {
      */
     constructor( rootsVisibleProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         phetioDocumentation: 'checkbox that shows roots on the graph'

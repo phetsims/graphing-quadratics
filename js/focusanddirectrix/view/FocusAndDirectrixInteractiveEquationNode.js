@@ -18,6 +18,7 @@ define( require => {
   const HBox = require( 'SCENERY/nodes/HBox' );
   const Line = require( 'SCENERY/nodes/Line' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   const RichText = require( 'SCENERY/nodes/RichText' );
@@ -36,7 +37,7 @@ define( require => {
      */
     constructor( pProperty, hProperty, kProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
 
         // phet-io
         tandem: Tandem.required
@@ -103,7 +104,7 @@ define( require => {
      */
     constructor( pProperty, hProperty, kProperty, options ) {
 
-      options = _.extend( {
+      options = merge( {
         tandem: Tandem.required
       }, options );
 
@@ -115,7 +116,7 @@ define( require => {
       const equationOptions = {
         font: GQConstants.INTERACTIVE_EQUATION_FONT
       };
-      const xyOptions = _.extend( {}, equationOptions, {
+      const xyOptions = merge( {}, equationOptions, {
         maxWidth: 20 // determined empirically
       } );
 
@@ -133,7 +134,7 @@ define( require => {
 
       // p value
       const pNode = new NumberDisplay( pProperty, pProperty.range,
-        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
           numberFill: GQColors.FOCUS_AND_DIRECTRIX_P,
           decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
         } ) );
@@ -173,7 +174,7 @@ define( require => {
 
       // h value
       const hNode = new NumberDisplay( hProperty, hProperty.range,
-        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
           numberFill: GQColors.FOCUS_AND_DIRECTRIX_H,
           decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
         } ) );
@@ -186,7 +187,7 @@ define( require => {
 
       // k value
       const kNode = new NumberDisplay( kProperty, kProperty.range,
-        _.extend( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
           numberFill: GQColors.FOCUS_AND_DIRECTRIX_K,
           decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
         } ) );
