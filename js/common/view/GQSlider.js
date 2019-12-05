@@ -32,8 +32,8 @@ define( require => {
   // constants
   const IDENTITY_FUNCTION = value => value;
   const DEFAULT_TICK_VALUES = [ 0 ];
-  const DEFAULT_TRACK_SIZE = new Dimension2( 130, 1 );
-  const DEFAULT_THUMB_SIZE = new Dimension2( 20, 40 );
+  const DEFAULT_TRACK_SIZE = new Dimension2( 1, 130 );
+  const DEFAULT_THUMB_SIZE = new Dimension2( 40, 20 );
 
   class GQSlider extends VSlider {
 
@@ -75,7 +75,7 @@ define( require => {
         trackFill: 'black',
         trackSize: DEFAULT_TRACK_SIZE,
         thumbSize: DEFAULT_THUMB_SIZE,
-        thumbTouchAreaYDilation: 8,
+        thumbTouchAreaXDilation: 8,
 
         // phet-io
         tandem: Tandem.required,
@@ -99,7 +99,7 @@ define( require => {
 
       // make tick mark lines extend past the thumb
       assert && assert( options.majorTickLength === undefined, 'GQSlider sets majorTickLength' );
-      options.majorTickLength = ( options.thumbSize.height / 2 ) + 3;
+      options.majorTickLength = ( options.thumbSize.width / 2 ) + 3;
 
       // apply constrains to the view value
       assert && assert( !options.constrainValue, 'GQSlider sets constrainValue' );
