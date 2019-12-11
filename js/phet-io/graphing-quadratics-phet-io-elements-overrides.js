@@ -164,21 +164,6 @@ window.phet.phetio.phetioElementsOverrides =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.vertexVisibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.general.navigationBar.exploreScreenButton.enabledProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.enabledProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.general.navigationBar.homeButton.enabledProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.general.navigationBar.standardFormScreenButton.enabledProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.general.navigationBar.vertexFormScreenButton.enabledProperty": {
-      "phetioFeatured": false
-    },
     "graphingQuadratics.standardFormScreen.model.aProperty": {
       "phetioFeatured": true
     },
