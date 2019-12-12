@@ -35,7 +35,7 @@ define( require => {
         color: 'black',
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
       }, options );
 
       // y =

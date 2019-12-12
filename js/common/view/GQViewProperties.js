@@ -37,7 +37,7 @@ define( require => {
         coordinatesVisible: null,
 
         // phet-io                                                                                                              
-        tandem: Tandem.required,
+        tandem: Tandem.REQUIRED,
         phetioDocumentation: 'Properties that are specific to the view',
         phetioState: false
 

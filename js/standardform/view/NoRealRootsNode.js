@@ -45,7 +45,7 @@ define( require => {
         maxWidth: 200, // determined empirically
 
         // phet-io
-        tandem: Tandem.required,
+        tandem: Tandem.REQUIRED,
         phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
 
       }, options );

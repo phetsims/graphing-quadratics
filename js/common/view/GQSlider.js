@@ -78,7 +78,7 @@ define( require => {
         thumbTouchAreaXDilation: 8,
 
         // phet-io
-        tandem: Tandem.required,
+        tandem: Tandem.REQUIRED,
 
         // Since GQSlider runs on DynamicProperty, provide a way to have a LinkedElement directly to the PhET-iO
         // instrumented model Property.

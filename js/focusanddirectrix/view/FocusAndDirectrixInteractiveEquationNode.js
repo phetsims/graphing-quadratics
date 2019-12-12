@@ -40,7 +40,7 @@ define( require => {
       options = merge( {
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
       }, options );
 
       // equation
@@ -105,7 +105,7 @@ define( require => {
     constructor( pProperty, hProperty, kProperty, options ) {
 
       options = merge( {
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
       }, options );
 
       assert && assert( pProperty.range, 'missing pProperty.range' );

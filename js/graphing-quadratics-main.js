@@ -32,10 +32,10 @@ define( require => {
 
   SimLauncher.launch( () => {
     const screens = [
-      new ExploreScreen( Tandem.rootTandem.createTandem( 'exploreScreen' ) ),
-      new StandardFormScreen( Tandem.rootTandem.createTandem( 'standardFormScreen' ) ),
-      new VertexFormScreen( Tandem.rootTandem.createTandem( 'vertexFormScreen' ) ),
-      new FocusAndDirectrixScreen( Tandem.rootTandem.createTandem( 'focusAndDirectrixScreen' ) )
+      new ExploreScreen( Tandem.ROOT.createTandem( 'exploreScreen' ) ),
+      new StandardFormScreen( Tandem.ROOT.createTandem( 'standardFormScreen' ) ),
+      new VertexFormScreen( Tandem.ROOT.createTandem( 'vertexFormScreen' ) ),
+      new FocusAndDirectrixScreen( Tandem.ROOT.createTandem( 'focusAndDirectrixScreen' ) )
     ];
     const sim = new Sim( graphingQuadraticsTitleString, screens, options );
     sim.start();

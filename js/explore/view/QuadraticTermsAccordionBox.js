@@ -42,7 +42,7 @@ define( require => {
         titleXSpacing: 8,
 
         // phet-io
-        tandem: Tandem.required,
+        tandem: Tandem.REQUIRED,
         phetioDocumentation: 'the Quadratic Terms accordion box'
 
       }, options );

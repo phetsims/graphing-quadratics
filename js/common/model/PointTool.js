@@ -37,7 +37,7 @@ define( require => {
         dragBounds: null, // {Bounds2|null} drag bounds, in model coordinate frame
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
       }, options );
 
       assert && assert( _.includes( GQConstants.PROBE_SIDES, options.probeSide ),

@@ -41,7 +41,7 @@ define( require => {
       options = merge( {
 
         // phet-io
-        tandem: Tandem.required,
+        tandem: Tandem.REQUIRED,
         phetioDocumentation: 'displays the roots of the interactive quadratic'
 
       }, options );

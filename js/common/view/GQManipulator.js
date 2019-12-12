@@ -50,7 +50,7 @@ define( require => {
         haloAlpha: 0.15,
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
 
       }, options );
 

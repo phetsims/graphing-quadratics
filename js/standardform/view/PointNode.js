@@ -47,7 +47,7 @@ define( require => {
         layoutCoordinates: DEFAULT_LAYOUT_COORDINATES,
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
 
       }, options );
 

@@ -39,7 +39,7 @@ define( require => {
       options = merge( {
 
         // phet-io
-        tandem: Tandem.required,
+        tandem: Tandem.REQUIRED,
         phetioDocumentation: 'the accordion box that contains the interactive equation'
 
       }, GQConstants.ACCORDION_BOX_OPTIONS, options );
@@ -88,7 +88,7 @@ define( require => {
         align: 'center',
 
         // phet-io
-        tandem: Tandem.required,
+        tandem: Tandem.REQUIRED,
         phetioDocumentation: 'buttons that appear below the interactive equation'
 
       }, options );

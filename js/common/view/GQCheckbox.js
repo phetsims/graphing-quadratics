@@ -33,7 +33,7 @@ define( require => {
         icon: null, // {Node|null} optional icon, to the right of text
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
 
       }, options );
 

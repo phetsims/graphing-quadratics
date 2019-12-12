@@ -43,7 +43,7 @@ define( require => {
         layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
       }, options );
 
       super( options );

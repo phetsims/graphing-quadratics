@@ -54,7 +54,7 @@ define( require => {
         foregroundHighlightColor: 'white',
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
 
       }, options );
 

@@ -32,7 +32,7 @@ define( require => {
         coordinatesVisible: true,
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
       }, options );
 
       super( options );

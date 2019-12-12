@@ -40,7 +40,7 @@ define( require => {
       options = merge( {
 
         // phet-io
-        tandem: Tandem.required,
+        tandem: Tandem.REQUIRED,
         phetioDocumentation: 'accordion box that contains the interactive equation'
 
       }, options );
@@ -106,7 +106,7 @@ define( require => {
       options = merge( {
 
         // phet-io
-        tandem: Tandem.required
+        tandem: Tandem.REQUIRED
       }, options );
 
       assert && assert( aProperty.range, 'missing aProperty.range' );
