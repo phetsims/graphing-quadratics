@@ -17,7 +17,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   const merge = require( 'PHET_CORE/merge' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   // constants
   const Y_EQUALS_STRING = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO; // 'y ='
@@ -40,9 +40,9 @@ define( require => {
       }, options );
 
       // use toFixedNumber so we don't have trailing zeros
-      const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
-      const b = Util.toFixedNumber( quadratic.b, options.bDecimals );
-      const c = Util.toFixedNumber( quadratic.c, options.cDecimals );
+      const a = Utils.toFixedNumber( quadratic.a, options.aDecimals );
+      const b = Utils.toFixedNumber( quadratic.b, options.bDecimals );
+      const c = Utils.toFixedNumber( quadratic.c, options.cDecimals );
 
       // y =
       let equationString = Y_EQUALS_STRING + ' ';
@@ -128,9 +128,9 @@ define( require => {
       }, options );
 
       // use toFixedNumber so we don't have trailing zeros
-      const a = Util.toFixedNumber( quadratic.a, options.aDecimals );
-      const h = Util.toFixedNumber( quadratic.h, options.hDecimals );
-      const k = Util.toFixedNumber( quadratic.k, options.kDecimals );
+      const a = Utils.toFixedNumber( quadratic.a, options.aDecimals );
+      const h = Utils.toFixedNumber( quadratic.h, options.hDecimals );
+      const k = Utils.toFixedNumber( quadratic.k, options.kDecimals );
 
       // y =
       let equationString = Y_EQUALS_STRING + ' ';
@@ -143,7 +143,7 @@ define( require => {
       else if ( a === 0 ) {
 
         // y = c
-        equationString += Util.toFixedNumber( quadratic.c, options.kDecimals );
+        equationString += Utils.toFixedNumber( quadratic.c, options.kDecimals );
       }
       else {
 
@@ -191,7 +191,7 @@ define( require => {
      * @public
      */
     createDirectrix( directrix ) {
-      return Y_EQUALS_STRING + ' ' + Util.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS );
+      return Y_EQUALS_STRING + ' ' + Utils.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS );
     },
 
     /**
@@ -202,7 +202,7 @@ define( require => {
      */
     createAxisOfSymmetry( axisOfSymmetry ) {
       return GQSymbols.x + ' ' + MathSymbols.EQUAL_TO + ' ' +
-             Util.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS );
+             Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS );
     }
   };
 

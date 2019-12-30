@@ -26,7 +26,7 @@ define( require => {
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const VSlider = require( 'SUN/VSlider' );
 
   // constants
@@ -140,7 +140,7 @@ define( require => {
         map: value => options.map( value ),
 
         // map from view to model (sliderProperty to coefficientProperty), apply options.interval to model value
-        inverseMap: value => Util.roundToInterval( options.inverseMap( value ), options.interval )
+        inverseMap: value => Utils.roundToInterval( options.inverseMap( value ), options.interval )
       } );
 
       // Convert the range from model to view

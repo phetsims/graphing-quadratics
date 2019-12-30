@@ -20,7 +20,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const merge = require( 'PHET_CORE/merge' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
@@ -147,8 +147,8 @@ define( require => {
           location = graph.constrain( location );
 
           // constrain to range and snap to integer grid
-          const h = Util.roundSymmetric( hProperty.range.constrainValue( location.x ) );
-          const k = Util.roundSymmetric( kProperty.range.constrainValue( location.y ) );
+          const h = Utils.roundSymmetric( hProperty.range.constrainValue( location.x ) );
+          const k = Utils.roundSymmetric( kProperty.range.constrainValue( location.y ) );
 
           // Setting h and k separately results in an intermediate Quadratic.
           // We decided that this is OK, and we can live with it.

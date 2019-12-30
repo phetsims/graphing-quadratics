@@ -16,7 +16,7 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   // strings
   const coordinateUnknownString = require( 'string!GRAPHING_QUADRATICS/coordinateUnknown' );
@@ -109,8 +109,8 @@ define( require => {
     update( coordinates ) {
 
       // coordinates
-      const x = coordinates ? Util.toFixedNumber( coordinates.x, this.decimals ) : coordinateUnknownString;
-      const y = coordinates ? Util.toFixedNumber( coordinates.y, this.decimals ) : coordinateUnknownString;
+      const x = coordinates ? Utils.toFixedNumber( coordinates.x, this.decimals ) : coordinateUnknownString;
+      const y = coordinates ? Utils.toFixedNumber( coordinates.y, this.decimals ) : coordinateUnknownString;
       this.foregroundNode.text = '(' + x + ', ' + y + ')';
 
       // resize background

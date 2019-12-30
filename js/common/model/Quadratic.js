@@ -26,7 +26,7 @@ define( require => {
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const merge = require( 'PHET_CORE/merge' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const Vector2 = require( 'DOT/Vector2' );
 
   class Quadratic {
@@ -319,7 +319,7 @@ define( require => {
       // Finding the closest point requires solving the cubic equation
       // (2a^2)x^3 + (3ab)x^2 + (b^2 + 2ac - 2ay0 + 1)x + (bc - by0 - x0) = 0
       // See http://mathworld.wolfram.com/Point-QuadraticDistance.html
-      const roots = Util.solveCubicRootsReal(
+      const roots = Utils.solveCubicRootsReal(
         2 * a * a,
         3 * a * b,
         b * b + 2 * a * c - 2 * a * y0 + 1,
@@ -392,7 +392,7 @@ define( require => {
    */
   function solveRoots( a, b, c ) {
     let roots = null;
-    let xCoordinates = Util.solveQuadraticRootsReal( a, b, c );
+    let xCoordinates = Utils.solveQuadraticRootsReal( a, b, c );
     if ( xCoordinates !== null ) {
       roots = [];
       xCoordinates = xCoordinates.sort( ( x0, x1 ) => x0 - x1 ); // in ascending order

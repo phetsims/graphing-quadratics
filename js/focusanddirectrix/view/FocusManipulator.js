@@ -18,7 +18,7 @@ define( require => {
   const GQManipulator = require( 'GRAPHING_QUADRATICS/common/view/GQManipulator' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
   const merge = require( 'PHET_CORE/merge' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const Vector2 = require( 'DOT/Vector2' );
   const Vector2IO = require( 'DOT/Vector2IO' );
 
@@ -156,7 +156,7 @@ define( require => {
 
           // constrain and round
           let p = pProperty.range.constrainValue( y - vertex.y );
-          p = Util.roundToInterval( p, interval );
+          p = Utils.roundToInterval( p, interval );
 
           // skip over p === 0
           if ( p === 0 ) {

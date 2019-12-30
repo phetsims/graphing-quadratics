@@ -12,7 +12,7 @@ define( require => {
   // modules
   const GQSlider = require( 'GRAPHING_QUADRATICS/common/view/GQSlider' );
   const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   class QuadraticSlider extends GQSlider {
 
@@ -33,11 +33,11 @@ define( require => {
 
       // map coefficientProperty.value to slider value, x = sqrt( y / a )
       assert && assert( !options.map, 'QuadraticSlider sets map' );
-      options.map = value => ( Util.sign( value ) * Math.sqrt( Math.abs( value ) / a ) );
+      options.map = value => ( Utils.sign( value ) * Math.sqrt( Math.abs( value ) / a ) );
 
       // map slider value to coefficientProperty.value, y = ax^2
       assert && assert( !options.inverseMap, 'QuadraticSlider sets inverseMap' );
-      options.inverseMap = value => ( Util.sign( value ) * a * value * value );
+      options.inverseMap = value => ( Utils.sign( value ) * a * value * value );
 
       super( symbol, coefficientProperty, options );
     }
