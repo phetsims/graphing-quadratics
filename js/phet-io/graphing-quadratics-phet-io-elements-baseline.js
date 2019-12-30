@@ -4,7 +4,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is currently displayed in the simulation.  For single-screen simulations, there is only one screen and it is always active.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -17,7 +17,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.aProperty": {
       "phetioDocumentation": "value of 'a' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -30,7 +30,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.bProperty": {
       "phetioDocumentation": "value of 'b' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -43,7 +43,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.cProperty": {
       "phetioDocumentation": "value of 'c' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -56,7 +56,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.constantTermProperty": {
       "phetioDocumentation": "the constant term (y = c) of the interactive quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -69,7 +69,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.leftPointTool.locationProperty": {
       "phetioDocumentation": "location of this point tool",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -82,7 +82,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -95,7 +95,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.linearTermProperty": {
       "phetioDocumentation": "the linear term (y = bx) of the interactive quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -108,7 +108,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from a, b, and c",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -121,7 +121,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.quadraticTermProperty": {
       "phetioDocumentation": "the quadratic term (y = ax^2) of the interactive quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -134,7 +134,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.rightPointTool.locationProperty": {
       "phetioDocumentation": "location of this point tool",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -147,7 +147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.rightPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -160,7 +160,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -173,7 +173,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -186,7 +186,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox": {
       "phetioDocumentation": "the accordion box that contains the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -199,7 +199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup": {
       "phetioDocumentation": "buttons that appear below the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -212,7 +212,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton": {
       "phetioDocumentation": "the button used to erase the saved quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -225,7 +225,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -238,7 +238,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -251,7 +251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -264,7 +264,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -277,7 +277,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -290,7 +290,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -303,7 +303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -316,7 +316,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -329,7 +329,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -342,7 +342,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton": {
       "phetioDocumentation": "the button used to save a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -355,7 +355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -368,7 +368,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -381,7 +381,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -394,7 +394,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -407,7 +407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -420,7 +420,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -433,7 +433,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -446,7 +446,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -459,7 +459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -472,7 +472,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -485,7 +485,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -498,7 +498,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -511,7 +511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -524,7 +524,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -537,7 +537,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -550,7 +550,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -563,7 +563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -576,7 +576,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode": {
       "phetioDocumentation": "the interactive equation in this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -589,7 +589,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider": {
       "phetioDocumentation": "slider for 'a' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -602,7 +602,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.enabledProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -615,7 +615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -628,7 +628,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.label": {
       "phetioDocumentation": "the label above this slider",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -641,7 +641,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.label.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -654,7 +654,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -667,7 +667,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.label.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -680,7 +680,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.label.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -693,7 +693,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -706,7 +706,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -719,7 +719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumb": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -732,7 +732,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -745,7 +745,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -758,7 +758,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -771,7 +771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -784,7 +784,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -797,7 +797,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -810,7 +810,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -823,7 +823,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -836,7 +836,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -849,7 +849,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -862,7 +862,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -875,7 +875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -888,7 +888,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -901,7 +901,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -914,7 +914,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -927,7 +927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider": {
       "phetioDocumentation": "slider for 'b' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -940,7 +940,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.enabledProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -953,7 +953,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -966,7 +966,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.label": {
       "phetioDocumentation": "the label above this slider",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -979,7 +979,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.label.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -992,7 +992,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1005,7 +1005,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.label.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1018,7 +1018,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.label.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1031,7 +1031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1044,7 +1044,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1057,7 +1057,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumb": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1070,7 +1070,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1083,7 +1083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1096,7 +1096,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1109,7 +1109,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1122,7 +1122,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -1135,7 +1135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1148,7 +1148,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1161,7 +1161,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1174,7 +1174,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1187,7 +1187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -1200,7 +1200,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1213,7 +1213,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1226,7 +1226,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1239,7 +1239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1252,7 +1252,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1265,7 +1265,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider": {
       "phetioDocumentation": "slider for 'c' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1278,7 +1278,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.enabledProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1291,7 +1291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1304,7 +1304,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.label": {
       "phetioDocumentation": "the label above this slider",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1317,7 +1317,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.label.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1330,7 +1330,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1343,7 +1343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.label.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1356,7 +1356,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.label.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1369,7 +1369,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1382,7 +1382,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1395,7 +1395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumb": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1408,7 +1408,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1421,7 +1421,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1434,7 +1434,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1447,7 +1447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1460,7 +1460,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -1473,7 +1473,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1486,7 +1486,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1499,7 +1499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1512,7 +1512,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1525,7 +1525,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -1538,7 +1538,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1551,7 +1551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1564,7 +1564,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1577,7 +1577,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1590,7 +1590,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1603,7 +1603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.equationNode": {
       "phetioDocumentation": "the equation that changes as the sliders are adjusted",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1616,7 +1616,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1629,7 +1629,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1642,7 +1642,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1655,7 +1655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1668,7 +1668,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1681,7 +1681,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1694,7 +1694,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1707,7 +1707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1720,7 +1720,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.titleNode": {
       "phetioDocumentation": "the equation shown at the top of this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1733,7 +1733,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1746,7 +1746,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1759,7 +1759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1772,7 +1772,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1785,7 +1785,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton": {
       "phetioDocumentation": "button that shows/hides the contents of the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1798,7 +1798,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1811,7 +1811,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1824,7 +1824,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1837,7 +1837,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1850,7 +1850,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1863,7 +1863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1876,7 +1876,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1889,7 +1889,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1902,7 +1902,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.leftPointToolNode": {
       "phetioDocumentation": "the point tool that is initially on the left",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1915,7 +1915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -1928,7 +1928,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1941,7 +1941,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.leftPointToolNode.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1954,7 +1954,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.leftPointToolNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1967,7 +1967,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.leftPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1980,7 +1980,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.leftPointToolNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1993,7 +1993,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2006,7 +2006,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2019,7 +2019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox": {
       "phetioDocumentation": "the Quadratic Terms accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2032,7 +2032,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox": {
       "phetioDocumentation": "checkbox that makes the constant term (y = c) visible on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2045,7 +2045,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2058,7 +2058,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2071,7 +2071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2084,7 +2084,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2097,7 +2097,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2110,7 +2110,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2123,7 +2123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox": {
       "phetioDocumentation": "checkbox that shows equations on graphed curves",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2136,7 +2136,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2149,7 +2149,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2162,7 +2162,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2175,7 +2175,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2188,7 +2188,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2201,7 +2201,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2214,7 +2214,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2227,7 +2227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2240,7 +2240,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2253,7 +2253,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2266,7 +2266,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2279,7 +2279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2292,7 +2292,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2305,7 +2305,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2318,7 +2318,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2331,7 +2331,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox": {
       "phetioDocumentation": "checkbox that makes the linear term (y = bx) visible on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2344,7 +2344,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2357,7 +2357,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2370,7 +2370,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2383,7 +2383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2396,7 +2396,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2409,7 +2409,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2422,7 +2422,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2435,7 +2435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2448,7 +2448,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox": {
       "phetioDocumentation": "checkbox that makes the quadratic term (y = ax^2) visible on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2461,7 +2461,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2474,7 +2474,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2487,7 +2487,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2500,7 +2500,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2513,7 +2513,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2526,7 +2526,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2539,7 +2539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.titleNode": {
       "phetioDocumentation": "the title on this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2552,7 +2552,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2565,7 +2565,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2578,7 +2578,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2591,7 +2591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2604,7 +2604,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2617,7 +2617,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton": {
       "phetioDocumentation": "button that resets the screen to its initial state",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2630,7 +2630,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2643,7 +2643,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2656,7 +2656,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton.isFiringProperty": {
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2669,7 +2669,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2682,7 +2682,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2695,7 +2695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2708,7 +2708,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2721,7 +2721,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2734,7 +2734,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.rightPointToolNode": {
       "phetioDocumentation": "the point tool that is initially on the right",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2747,7 +2747,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2760,7 +2760,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2773,7 +2773,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.rightPointToolNode.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2786,7 +2786,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.rightPointToolNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2799,7 +2799,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.rightPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2812,7 +2812,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.rightPointToolNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2825,7 +2825,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.viewProperties": {
       "phetioDocumentation": "Properties that are specific to the view",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2838,7 +2838,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.viewProperties.constantTermVisibleProperty": {
       "phetioDocumentation": "whether the constant term (y = c) is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2851,7 +2851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the equation accordion box is expanded",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2864,7 +2864,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.viewProperties.equationsVisibleProperty": {
       "phetioDocumentation": "whether equations are visible on graphed curves",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2877,7 +2877,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioDocumentation": "whether the contents of the graph (curves, plotted points, manipulators) are visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2890,7 +2890,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.viewProperties.linearTermVisibleProperty": {
       "phetioDocumentation": "whether the linear term (y = bx) is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2903,7 +2903,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.viewProperties.quadraticTermVisibleProperty": {
       "phetioDocumentation": "whether the quadratic term (y = ax^2) is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2916,7 +2916,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.viewProperties.quadraticTermsAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the Quadratic Terms accordion box is expanded",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2929,7 +2929,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.exploreScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2942,7 +2942,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is currently displayed in the simulation.  For single-screen simulations, there is only one screen and it is always active.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2955,7 +2955,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.hProperty": {
       "phetioDocumentation": "value of 'h' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2968,7 +2968,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.kProperty": {
       "phetioDocumentation": "value of 'k' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2981,7 +2981,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.locationProperty": {
       "phetioDocumentation": "location of this point tool",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2994,7 +2994,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3007,7 +3007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.pProperty": {
       "phetioDocumentation": "value of 'p' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3020,7 +3020,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.pointOnParabolaProperty": {
       "phetioDocumentation": "the interactive point on the parabola",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3033,7 +3033,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from p, h, and k",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3046,7 +3046,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.rightPointTool.locationProperty": {
       "phetioDocumentation": "location of this point tool",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3059,7 +3059,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.rightPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3072,7 +3072,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3085,7 +3085,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3098,7 +3098,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox": {
       "phetioDocumentation": "accordion box that contains the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3111,7 +3111,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup": {
       "phetioDocumentation": "buttons that appear below the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3124,7 +3124,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton": {
       "phetioDocumentation": "the button used to erase the saved quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3137,7 +3137,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3150,7 +3150,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3163,7 +3163,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3176,7 +3176,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3189,7 +3189,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3202,7 +3202,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3215,7 +3215,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3228,7 +3228,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3241,7 +3241,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3254,7 +3254,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton": {
       "phetioDocumentation": "the button used to save a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3267,7 +3267,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3280,7 +3280,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3293,7 +3293,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3306,7 +3306,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3319,7 +3319,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3332,7 +3332,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3345,7 +3345,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3358,7 +3358,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3371,7 +3371,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3384,7 +3384,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3397,7 +3397,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3410,7 +3410,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3423,7 +3423,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3436,7 +3436,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3449,7 +3449,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3462,7 +3462,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3475,7 +3475,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3488,7 +3488,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode": {
       "phetioDocumentation": "the interactive equation in this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3501,7 +3501,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.equationNode": {
       "phetioDocumentation": "the equation that changes as the sliders are adjusted",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3514,7 +3514,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3527,7 +3527,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3540,7 +3540,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3553,7 +3553,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider": {
       "phetioDocumentation": "slider for 'h' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3566,7 +3566,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.enabledProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3579,7 +3579,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3592,7 +3592,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.label": {
       "phetioDocumentation": "the label above this slider",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3605,7 +3605,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.label.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3618,7 +3618,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3631,7 +3631,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.label.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3644,7 +3644,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.label.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3657,7 +3657,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3670,7 +3670,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3683,7 +3683,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumb": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3696,7 +3696,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3709,7 +3709,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3722,7 +3722,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3735,7 +3735,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3748,7 +3748,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -3761,7 +3761,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3774,7 +3774,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3787,7 +3787,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3800,7 +3800,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3813,7 +3813,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -3826,7 +3826,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3839,7 +3839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3852,7 +3852,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3865,7 +3865,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3878,7 +3878,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3891,7 +3891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider": {
       "phetioDocumentation": "slider for 'k' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3904,7 +3904,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.enabledProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3917,7 +3917,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3930,7 +3930,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.label": {
       "phetioDocumentation": "the label above this slider",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3943,7 +3943,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.label.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3956,7 +3956,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3969,7 +3969,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.label.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3982,7 +3982,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.label.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3995,7 +3995,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4008,7 +4008,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4021,7 +4021,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumb": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4034,7 +4034,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4047,7 +4047,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4060,7 +4060,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4073,7 +4073,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4086,7 +4086,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4099,7 +4099,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4112,7 +4112,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4125,7 +4125,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4138,7 +4138,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4151,7 +4151,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4164,7 +4164,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4177,7 +4177,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4190,7 +4190,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4203,7 +4203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4216,7 +4216,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4229,7 +4229,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4242,7 +4242,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider": {
       "phetioDocumentation": "slider for 'p' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4255,7 +4255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.enabledProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4268,7 +4268,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.enabledRangeProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4281,7 +4281,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.label": {
       "phetioDocumentation": "the label above this slider",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4294,7 +4294,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.label.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4307,7 +4307,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4320,7 +4320,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.label.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4333,7 +4333,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.label.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4346,7 +4346,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4359,7 +4359,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4372,7 +4372,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumb": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4385,7 +4385,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4398,7 +4398,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4411,7 +4411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4424,7 +4424,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4437,7 +4437,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4450,7 +4450,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4463,7 +4463,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4476,7 +4476,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4489,7 +4489,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4502,7 +4502,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4515,7 +4515,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag end in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4528,7 +4528,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>point: Vector2IO. the position of the drag start in view coordinates</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4541,7 +4541,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4554,7 +4554,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4567,7 +4567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4580,7 +4580,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4593,7 +4593,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4606,7 +4606,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4619,7 +4619,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4632,7 +4632,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.titleNode": {
       "phetioDocumentation": "the equation shown at the top of this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4645,7 +4645,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4658,7 +4658,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4671,7 +4671,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4684,7 +4684,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4697,7 +4697,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator": {
       "phetioDocumentation": "the manipulator for changing the focus",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4710,7 +4710,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.coordinatesNode": {
       "phetioDocumentation": "coordinates displayed on this manipulator",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4723,7 +4723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.coordinatesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4736,7 +4736,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4749,7 +4749,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.coordinatesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4762,7 +4762,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.coordinatesProperty": {
       "phetioDocumentation": "coordinates displayed on the focus manipulator",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4775,7 +4775,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4788,7 +4788,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4801,7 +4801,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4814,7 +4814,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4827,7 +4827,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4840,7 +4840,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4853,7 +4853,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton": {
       "phetioDocumentation": "button that shows/hides the contents of the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4866,7 +4866,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4879,7 +4879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4892,7 +4892,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4905,7 +4905,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4918,7 +4918,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4931,7 +4931,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4944,7 +4944,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4957,7 +4957,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4970,7 +4970,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel": {
       "phetioDocumentation": "panel that contains controls related to the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4983,7 +4983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox": {
       "phetioDocumentation": "checkbox that makes the (x,y) coordinates visible on points on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4996,7 +4996,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5009,7 +5009,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5022,7 +5022,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5035,7 +5035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5048,7 +5048,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5061,7 +5061,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5074,7 +5074,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox": {
       "phetioDocumentation": "checkbox that shows the directrix on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5087,7 +5087,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5100,7 +5100,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5113,7 +5113,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5126,7 +5126,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5139,7 +5139,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5152,7 +5152,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5165,7 +5165,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox": {
       "phetioDocumentation": "checkbox that shows equations on graphed curves",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5178,7 +5178,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5191,7 +5191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5204,7 +5204,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5217,7 +5217,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5230,7 +5230,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5243,7 +5243,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5256,7 +5256,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox": {
       "phetioDocumentation": "checkbox that shows the focus on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5269,7 +5269,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5282,7 +5282,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5295,7 +5295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5308,7 +5308,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5321,7 +5321,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5334,7 +5334,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5347,7 +5347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5360,7 +5360,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5373,7 +5373,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox": {
       "phetioDocumentation": "checkbox that shows the point on the parabola on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5386,7 +5386,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5399,7 +5399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5412,7 +5412,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5425,7 +5425,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5438,7 +5438,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5451,7 +5451,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5464,7 +5464,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox": {
       "phetioDocumentation": "checkbox that shows the vertex manipulator on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5477,7 +5477,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5490,7 +5490,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5503,7 +5503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5516,7 +5516,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5529,7 +5529,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5542,7 +5542,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5555,7 +5555,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5568,7 +5568,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode": {
       "phetioDocumentation": "the point tool that is initially on the left",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5581,7 +5581,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -5594,7 +5594,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5607,7 +5607,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5620,7 +5620,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5633,7 +5633,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5646,7 +5646,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5659,7 +5659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5672,7 +5672,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5685,7 +5685,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator": {
       "phetioDocumentation": "the manipulator for changing the point on the parabola",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5698,7 +5698,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.coordinatesNode": {
       "phetioDocumentation": "coordinates displayed on this manipulator",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5711,7 +5711,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.coordinatesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5724,7 +5724,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5737,7 +5737,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.coordinatesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5750,7 +5750,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.coordinatesProperty": {
       "phetioDocumentation": "coordinates displayed on the point-on-quadratic manipulator",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5763,7 +5763,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -5776,7 +5776,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5789,7 +5789,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5802,7 +5802,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5815,7 +5815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5828,7 +5828,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5841,7 +5841,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton": {
       "phetioDocumentation": "button that resets the screen to its initial state",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5854,7 +5854,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5867,7 +5867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5880,7 +5880,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.isFiringProperty": {
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5893,7 +5893,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5906,7 +5906,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5919,7 +5919,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5932,7 +5932,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5945,7 +5945,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5958,7 +5958,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode": {
       "phetioDocumentation": "the point tool that is initially on the right",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5971,7 +5971,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -5984,7 +5984,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5997,7 +5997,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6010,7 +6010,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6023,7 +6023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6036,7 +6036,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6049,7 +6049,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator": {
       "phetioDocumentation": "the manipulator for changing the vertex",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6062,7 +6062,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.coordinatesNode": {
       "phetioDocumentation": "coordinates displayed on this manipulator",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6075,7 +6075,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.coordinatesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6088,7 +6088,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6101,7 +6101,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.coordinatesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6114,7 +6114,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.coordinatesProperty": {
       "phetioDocumentation": "coordinates displayed by on vertex manipulator, null means no vertex",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6127,7 +6127,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6140,7 +6140,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6153,7 +6153,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6166,7 +6166,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6179,7 +6179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6192,7 +6192,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6205,7 +6205,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties": {
       "phetioDocumentation": "Properties that are specific to the view",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6218,7 +6218,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioDocumentation": "whether (x,y) coordinates are visible on points that are displayed on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6231,7 +6231,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.directrixVisibleProperty": {
       "phetioDocumentation": "whether the directrix is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6244,7 +6244,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the equation accordion box is expanded",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6257,7 +6257,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.equationsVisibleProperty": {
       "phetioDocumentation": "whether equations are visible on graphed curves",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6270,7 +6270,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.focusVisibleProperty": {
       "phetioDocumentation": "whether the focus manipulator is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6283,7 +6283,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioDocumentation": "whether the contents of the graph (curves, plotted points, manipulators) are visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6296,7 +6296,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.pointOnParabolaVisibleProperty": {
       "phetioDocumentation": "whether the manipulator for the point on the parabola is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6309,7 +6309,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.vertexVisibleProperty": {
       "phetioDocumentation": "whether the vertex point or manipulator is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6322,7 +6322,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.focusAndDirectrixScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6335,7 +6335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.activeProperty": {
       "phetioDocumentation": "Determines whether the entire simulation is running and processing user input. Setting this property to false pauses the simulation, and prevents user interaction.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6348,7 +6348,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.barrierRectangle": {
       "phetioDocumentation": "Semi-transparent barrier used to block input events when a dialog is shown, also fades out the background",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6361,7 +6361,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.barrierRectangle.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6374,7 +6374,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.barrierRectangle.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6387,7 +6387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.barrierRectangle.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6400,7 +6400,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.barrierRectangle.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6413,7 +6413,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.barrierRectangle.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6426,7 +6426,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.barrierRectangle.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6439,7 +6439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.browserTabVisibleProperty": {
       "phetioDocumentation": "Indicates whether the browser tab containing the simulation is currently visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6452,7 +6452,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.mouseDownAction": {
       "phetioDocumentation": "Emits when a mouse button is pressed The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6465,7 +6465,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.mouseMovedAction": {
       "phetioDocumentation": "Emits when the mouse is moved The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6478,7 +6478,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.mouseOutAction": {
       "phetioDocumentation": "Emits when the mouse moves out of the display The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6491,7 +6491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.mouseOverAction": {
       "phetioDocumentation": "Emits when the mouse is moved over a Node The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6504,7 +6504,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.mouseUpAction": {
       "phetioDocumentation": "Emits when a mouse button is released The arguments are:<br/><ol><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6517,7 +6517,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.penCancelAction": {
       "phetioDocumentation": "Emits when a pen is canceled The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6530,7 +6530,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.penEndAction": {
       "phetioDocumentation": "Emits when a pen is lifted The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6543,7 +6543,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.penMoveAction": {
       "phetioDocumentation": "Emits when a pen is moved The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6556,7 +6556,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.penStartAction": {
       "phetioDocumentation": "Emits when a pen touches the screen The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6569,7 +6569,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.touchCancelAction": {
       "phetioDocumentation": "Emits when a touch is canceled The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6582,7 +6582,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.touchEndAction": {
       "phetioDocumentation": "Emits when a touch ends The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6595,7 +6595,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.touchMoveAction": {
       "phetioDocumentation": "Emits when a touch moves The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6608,7 +6608,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.touchStartAction": {
       "phetioDocumentation": "Emits when a touch begins The arguments are:<br/><ol><li>id: NumberIO</li><br/><li>point: Vector2IO</li><br/><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6621,7 +6621,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.validatePointersAction": {
       "phetioDocumentation": "A function that executes. No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6634,7 +6634,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.controller.input.wheelScrollAction": {
       "phetioDocumentation": "Emits when the mouse wheel scrolls The arguments are:<br/><ol><li>event: EventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6647,7 +6647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.focusProperty": {
       "phetioDocumentation": "Stores the current focus for the simulation, null if there is not focus. This is not updated based on mouse or touch input, only keyboard and other alternative inputs.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6660,7 +6660,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'exploreScreen' screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6673,7 +6673,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6686,7 +6686,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6699,7 +6699,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.icon": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6712,7 +6712,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.icon.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6725,7 +6725,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6738,7 +6738,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.icon.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6751,7 +6751,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6764,7 +6764,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6777,7 +6777,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6790,7 +6790,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6803,7 +6803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6816,7 +6816,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6829,7 +6829,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6842,7 +6842,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6855,7 +6855,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6868,7 +6868,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.exploreScreenButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6881,7 +6881,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'focusAndDirectrixScreen' screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6894,7 +6894,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6907,7 +6907,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6920,7 +6920,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.icon": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6933,7 +6933,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.icon.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6946,7 +6946,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6959,7 +6959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.icon.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6972,7 +6972,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6985,7 +6985,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6998,7 +6998,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7011,7 +7011,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7024,7 +7024,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7037,7 +7037,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7050,7 +7050,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7063,7 +7063,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7076,7 +7076,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7089,7 +7089,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7102,7 +7102,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.homeButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7115,7 +7115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.homeButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7128,7 +7128,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.homeButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7141,7 +7141,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.homeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7154,7 +7154,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.homeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7167,7 +7167,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.homeButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7180,7 +7180,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.homeButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7193,7 +7193,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.homeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7206,7 +7206,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton": {
       "phetioDocumentation": "The button that appears at the right side of the navigation bar, which shows a menu when pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7219,7 +7219,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7232,7 +7232,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7245,7 +7245,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu": {
       "phetioDocumentation": "This menu is displayed when the PhET button is pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7258,7 +7258,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7271,7 +7271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7284,7 +7284,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7297,7 +7297,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7310,7 +7310,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7323,7 +7323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7336,7 +7336,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7349,7 +7349,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7362,7 +7362,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7375,7 +7375,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7388,7 +7388,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.isShowingProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7401,7 +7401,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7414,7 +7414,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7427,7 +7427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7440,7 +7440,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7453,7 +7453,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7466,7 +7466,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7479,7 +7479,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7492,7 +7492,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7505,7 +7505,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7518,7 +7518,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7531,7 +7531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7544,7 +7544,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7557,7 +7557,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7570,7 +7570,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7583,7 +7583,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7596,7 +7596,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7609,7 +7609,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7622,7 +7622,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": true,
+      "phetioIsArchetype": true,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7635,7 +7635,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem": {
       "phetioDocumentation": "This menu item shows a dialog with information about the simulation.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7648,7 +7648,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7661,7 +7661,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7674,7 +7674,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7687,7 +7687,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7700,7 +7700,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7713,7 +7713,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7726,7 +7726,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem": {
       "phetioDocumentation": "This menu item captures a screenshot from the simulation and saves it to the file system.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7739,7 +7739,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7752,7 +7752,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7765,7 +7765,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7778,7 +7778,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7791,7 +7791,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7804,7 +7804,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7817,7 +7817,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.pickableProperty": {
       "phetioDocumentation": "Set whether the phetButton will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7830,7 +7830,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7843,7 +7843,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.phetButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7856,7 +7856,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'standardFormScreen' screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7869,7 +7869,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7882,7 +7882,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7895,7 +7895,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.icon": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7908,7 +7908,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.icon.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7921,7 +7921,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7934,7 +7934,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.icon.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7947,7 +7947,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7960,7 +7960,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7973,7 +7973,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7986,7 +7986,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7999,7 +7999,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8012,7 +8012,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8025,7 +8025,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8038,7 +8038,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8051,7 +8051,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8064,7 +8064,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8077,7 +8077,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.titleTextNode": {
       "phetioDocumentation": "Displays the title of the simulation in the navigation bar (bottom left)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8090,7 +8090,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.titleTextNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8103,7 +8103,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.titleTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8116,7 +8116,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.titleTextNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8129,7 +8129,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.titleTextNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8142,7 +8142,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'vertexFormScreen' screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8155,7 +8155,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8168,7 +8168,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8181,7 +8181,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.icon": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8194,7 +8194,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.icon.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8207,7 +8207,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8220,7 +8220,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.icon.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8233,7 +8233,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8246,7 +8246,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8259,7 +8259,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8272,7 +8272,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8285,7 +8285,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8298,7 +8298,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8311,7 +8311,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8324,7 +8324,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8337,7 +8337,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8350,7 +8350,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8363,7 +8363,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.phetioCommandProcessor": {
       "phetioDocumentation": "Processes messages from the wrapper frame and returns the results. This serves as the source of PhET-iO data stream messages when commands are invoked from the wrapper.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8376,7 +8376,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.resizeAction": {
       "phetioDocumentation": "Executes when the sim is resized The arguments are:<br/><ol><li>width: NumberIO</li><br/><li>height: NumberIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8389,7 +8389,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.screenIndexProperty": {
       "phetioDocumentation": "Indicates which sim screen is selected (0-indexed). Note that the home screen does not have an index. To control the home screen see \"showHomeScreenProperty\".",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -8402,7 +8402,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.showHomeScreenProperty": {
       "phetioDocumentation": "Whether or not home screen is displayed. This is independent of the \"current sim screen\" stored in the \"screenIndexProperty.\"",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -8415,7 +8415,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.soundManager.enabledProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8428,7 +8428,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.general.stepSimulationAction": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>dt: NumberIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -8441,7 +8441,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is currently displayed in the simulation.  For single-screen simulations, there is only one screen and it is always active.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8454,7 +8454,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8467,7 +8467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8480,7 +8480,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8493,7 +8493,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8506,7 +8506,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8519,7 +8519,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8532,7 +8532,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8545,7 +8545,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8558,7 +8558,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8571,7 +8571,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8584,7 +8584,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8597,7 +8597,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8610,7 +8610,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8623,7 +8623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8636,7 +8636,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8649,7 +8649,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8662,7 +8662,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8675,7 +8675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8688,7 +8688,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8701,7 +8701,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8714,7 +8714,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8727,7 +8727,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8740,7 +8740,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8753,7 +8753,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8766,7 +8766,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8779,7 +8779,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8792,7 +8792,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8805,7 +8805,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8818,7 +8818,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8831,7 +8831,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8844,7 +8844,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8857,7 +8857,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8870,7 +8870,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8883,7 +8883,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8896,7 +8896,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8909,7 +8909,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8922,7 +8922,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8935,7 +8935,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8948,7 +8948,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8961,7 +8961,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8974,7 +8974,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8987,7 +8987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9000,7 +9000,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9013,7 +9013,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9026,7 +9026,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9039,7 +9039,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9052,7 +9052,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9065,7 +9065,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9078,7 +9078,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9091,7 +9091,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9104,7 +9104,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9117,7 +9117,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9130,7 +9130,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9143,7 +9143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9156,7 +9156,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9169,7 +9169,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9182,7 +9182,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9195,7 +9195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9208,7 +9208,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9221,7 +9221,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9234,7 +9234,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9247,7 +9247,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9260,7 +9260,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9273,7 +9273,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9286,7 +9286,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9299,7 +9299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9312,7 +9312,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9325,7 +9325,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9338,7 +9338,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9351,7 +9351,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9364,7 +9364,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9377,7 +9377,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9390,7 +9390,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9403,7 +9403,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9416,7 +9416,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9429,7 +9429,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.title": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9442,7 +9442,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.title.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9455,7 +9455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.title.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9468,7 +9468,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.title.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9481,7 +9481,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.title.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9494,7 +9494,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9507,7 +9507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9520,7 +9520,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9533,7 +9533,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9546,7 +9546,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9559,7 +9559,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9572,7 +9572,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9585,7 +9585,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9598,7 +9598,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9611,7 +9611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9624,7 +9624,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9637,7 +9637,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9650,7 +9650,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9663,7 +9663,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.inputListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9676,7 +9676,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9689,7 +9689,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9702,7 +9702,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9715,7 +9715,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9728,7 +9728,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.text": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9741,7 +9741,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9754,7 +9754,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9767,7 +9767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9780,7 +9780,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9793,7 +9793,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9806,7 +9806,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.homeScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9819,7 +9819,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is currently displayed in the simulation.  For single-screen simulations, there is only one screen and it is always active.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9832,7 +9832,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.aProperty": {
       "phetioDocumentation": "value of 'a' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9845,7 +9845,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.bProperty": {
       "phetioDocumentation": "value of 'b' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9858,7 +9858,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.cProperty": {
       "phetioDocumentation": "value of 'c' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9871,7 +9871,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.leftPointTool.locationProperty": {
       "phetioDocumentation": "location of this point tool",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9884,7 +9884,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9897,7 +9897,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from a, b, and c",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9910,7 +9910,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.rightPointTool.locationProperty": {
       "phetioDocumentation": "location of this point tool",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9923,7 +9923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.rightPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9936,7 +9936,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9949,7 +9949,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9962,7 +9962,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox": {
       "phetioDocumentation": "accordion box that contains the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9975,7 +9975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup": {
       "phetioDocumentation": "buttons that appear below the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9988,7 +9988,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton": {
       "phetioDocumentation": "the button used to erase the saved quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10001,7 +10001,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10014,7 +10014,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10027,7 +10027,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10040,7 +10040,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10053,7 +10053,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10066,7 +10066,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10079,7 +10079,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10092,7 +10092,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10105,7 +10105,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10118,7 +10118,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton": {
       "phetioDocumentation": "the button used to save a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10131,7 +10131,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10144,7 +10144,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10157,7 +10157,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10170,7 +10170,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10183,7 +10183,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10196,7 +10196,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10209,7 +10209,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10222,7 +10222,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10235,7 +10235,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10248,7 +10248,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10261,7 +10261,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10274,7 +10274,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10287,7 +10287,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10300,7 +10300,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10313,7 +10313,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10326,7 +10326,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10339,7 +10339,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10352,7 +10352,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode": {
       "phetioDocumentation": "the interactive equation in this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10365,7 +10365,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker": {
       "phetioDocumentation": "picker for 'a' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10378,7 +10378,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.enabledProperty": {
       "phetioDocumentation": "When disabled, the picker is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10391,7 +10391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10404,7 +10404,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10417,7 +10417,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10430,7 +10430,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10443,7 +10443,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker": {
       "phetioDocumentation": "picker for 'b' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10456,7 +10456,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.enabledProperty": {
       "phetioDocumentation": "When disabled, the picker is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10469,7 +10469,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10482,7 +10482,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10495,7 +10495,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10508,7 +10508,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10521,7 +10521,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker": {
       "phetioDocumentation": "picker for 'c' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10534,7 +10534,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.enabledProperty": {
       "phetioDocumentation": "When disabled, the picker is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10547,7 +10547,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10560,7 +10560,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10573,7 +10573,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10586,7 +10586,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10599,7 +10599,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10612,7 +10612,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10625,7 +10625,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10638,7 +10638,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10651,7 +10651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10664,7 +10664,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.titleNode": {
       "phetioDocumentation": "the equation shown at the top of this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10677,7 +10677,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10690,7 +10690,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10703,7 +10703,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10716,7 +10716,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10729,7 +10729,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton": {
       "phetioDocumentation": "button that shows/hides the contents of the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10742,7 +10742,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10755,7 +10755,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10768,7 +10768,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10781,7 +10781,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10794,7 +10794,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10807,7 +10807,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10820,7 +10820,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10833,7 +10833,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10846,7 +10846,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel": {
       "phetioDocumentation": "panel that contains controls related to the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10859,7 +10859,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox": {
       "phetioDocumentation": "checkbox that makes the axis of symmetry visible on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10872,7 +10872,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10885,7 +10885,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10898,7 +10898,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10911,7 +10911,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10924,7 +10924,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10937,7 +10937,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10950,7 +10950,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox": {
       "phetioDocumentation": "checkbox that makes the (x,y) coordinates visible on points on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10963,7 +10963,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10976,7 +10976,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10989,7 +10989,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11002,7 +11002,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11015,7 +11015,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11028,7 +11028,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11041,7 +11041,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox": {
       "phetioDocumentation": "checkbox that shows equations on graphed curves",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11054,7 +11054,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11067,7 +11067,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11080,7 +11080,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11093,7 +11093,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11106,7 +11106,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11119,7 +11119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11132,7 +11132,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11145,7 +11145,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11158,7 +11158,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox": {
       "phetioDocumentation": "checkbox that shows roots on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11171,7 +11171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11184,7 +11184,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11197,7 +11197,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11210,7 +11210,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11223,7 +11223,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11236,7 +11236,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11249,7 +11249,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox": {
       "phetioDocumentation": "checkbox that shows the vertex on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11262,7 +11262,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11275,7 +11275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11288,7 +11288,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11301,7 +11301,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11314,7 +11314,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11327,7 +11327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11340,7 +11340,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11353,7 +11353,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.leftPointToolNode": {
       "phetioDocumentation": "the point tool that is initially on the left",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11366,7 +11366,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -11379,7 +11379,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11392,7 +11392,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.leftPointToolNode.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11405,7 +11405,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.leftPointToolNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11418,7 +11418,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.leftPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11431,7 +11431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.leftPointToolNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11444,7 +11444,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.noRealRootsNode": {
       "phetioDocumentation": "displays NO REAL ROOTS when the interactive quadratic has no real roots",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11457,7 +11457,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.noRealRootsNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11470,7 +11470,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.noRealRootsNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11483,7 +11483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.noRealRootsNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11496,7 +11496,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11509,7 +11509,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11522,7 +11522,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton": {
       "phetioDocumentation": "button that resets the screen to its initial state",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11535,7 +11535,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11548,7 +11548,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11561,7 +11561,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton.isFiringProperty": {
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11574,7 +11574,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11587,7 +11587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11600,7 +11600,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11613,7 +11613,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11626,7 +11626,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11639,7 +11639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode": {
       "phetioDocumentation": "the point tool that is initially on the right",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11652,7 +11652,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -11665,7 +11665,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11678,7 +11678,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11691,7 +11691,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11704,7 +11704,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11717,7 +11717,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11730,7 +11730,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode": {
       "phetioDocumentation": "displays the roots of the interactive quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11743,7 +11743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftCoordinatesProperty": {
       "phetioDocumentation": "coordinates displayed on the left (first) root, null if there are no roots or if all points are roots",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11756,7 +11756,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode": {
       "phetioDocumentation": "the left (first) root",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11769,7 +11769,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.coordinatesNode": {
       "phetioDocumentation": "coordinates displayed on this point",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11782,7 +11782,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.coordinatesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11795,7 +11795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11808,7 +11808,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.coordinatesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11821,7 +11821,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11834,7 +11834,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11847,7 +11847,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11860,7 +11860,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11873,7 +11873,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11886,7 +11886,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightCoordinatesProperty": {
       "phetioDocumentation": "coordinates displayed on the right (second) root, null if there are less that two roots or if all points are roots",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11899,7 +11899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode": {
       "phetioDocumentation": "the right (second) root",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11912,7 +11912,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.coordinatesNode": {
       "phetioDocumentation": "coordinates displayed on this point",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11925,7 +11925,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.coordinatesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11938,7 +11938,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11951,7 +11951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.coordinatesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11964,7 +11964,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11977,7 +11977,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11990,7 +11990,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12003,7 +12003,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.rootsNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12016,7 +12016,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode": {
       "phetioDocumentation": "displays the vertex of the interactive quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12029,7 +12029,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode.coordinatesNode": {
       "phetioDocumentation": "coordinates displayed on this point",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12042,7 +12042,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode.coordinatesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12055,7 +12055,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12068,7 +12068,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode.coordinatesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12081,7 +12081,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode.coordinatesProperty": {
       "phetioDocumentation": "coordinates displayed on the vertex point, null means no vertex",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12094,7 +12094,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12107,7 +12107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12120,7 +12120,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.vertexNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12133,7 +12133,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.viewProperties": {
       "phetioDocumentation": "Properties that are specific to the view",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12146,7 +12146,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
       "phetioDocumentation": "whether the axis of symmetry is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12159,7 +12159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioDocumentation": "whether (x,y) coordinates are visible on points that are displayed on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12172,7 +12172,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the equation accordion box is expanded",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12185,7 +12185,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.viewProperties.equationsVisibleProperty": {
       "phetioDocumentation": "whether equations are visible on graphed curves",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12198,7 +12198,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioDocumentation": "whether the contents of the graph (curves, plotted points, manipulators) are visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12211,7 +12211,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.viewProperties.rootsVisibleProperty": {
       "phetioDocumentation": "whether the roots of the quadratic are visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12224,7 +12224,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.viewProperties.vertexVisibleProperty": {
       "phetioDocumentation": "whether the vertex point or manipulator is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12237,7 +12237,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.standardFormScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12250,7 +12250,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is currently displayed in the simulation.  For single-screen simulations, there is only one screen and it is always active.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12263,7 +12263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.aProperty": {
       "phetioDocumentation": "value of 'a' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12276,7 +12276,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.hProperty": {
       "phetioDocumentation": "value of 'h' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12289,7 +12289,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.kProperty": {
       "phetioDocumentation": "value of 'k' in the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12302,7 +12302,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.leftPointTool.locationProperty": {
       "phetioDocumentation": "location of this point tool",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12315,7 +12315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12328,7 +12328,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from a, h, and k",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12341,7 +12341,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.rightPointTool.locationProperty": {
       "phetioDocumentation": "location of this point tool",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12354,7 +12354,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.rightPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12367,7 +12367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12380,7 +12380,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12393,7 +12393,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox": {
       "phetioDocumentation": "the accordion box that contains the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12406,7 +12406,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup": {
       "phetioDocumentation": "buttons that appear below the interactive equation",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12419,7 +12419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton": {
       "phetioDocumentation": "the button used to erase the saved quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12432,7 +12432,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12445,7 +12445,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12458,7 +12458,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12471,7 +12471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12484,7 +12484,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12497,7 +12497,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12510,7 +12510,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12523,7 +12523,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12536,7 +12536,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12549,7 +12549,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton": {
       "phetioDocumentation": "the button used to save a quadratic",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12562,7 +12562,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12575,7 +12575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12588,7 +12588,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12601,7 +12601,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12614,7 +12614,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12627,7 +12627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12640,7 +12640,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12653,7 +12653,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12666,7 +12666,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12679,7 +12679,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12692,7 +12692,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12705,7 +12705,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12718,7 +12718,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12731,7 +12731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12744,7 +12744,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12757,7 +12757,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12770,7 +12770,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12783,7 +12783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode": {
       "phetioDocumentation": "the interactive equation in this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12796,7 +12796,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker": {
       "phetioDocumentation": "picker for 'a' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12809,7 +12809,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.enabledProperty": {
       "phetioDocumentation": "When disabled, the picker is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12822,7 +12822,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12835,7 +12835,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12848,7 +12848,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12861,7 +12861,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12874,7 +12874,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker": {
       "phetioDocumentation": "picker for 'h' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12887,7 +12887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.enabledProperty": {
       "phetioDocumentation": "When disabled, the picker is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12900,7 +12900,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12913,7 +12913,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12926,7 +12926,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12939,7 +12939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12952,7 +12952,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker": {
       "phetioDocumentation": "picker for 'k' value",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12965,7 +12965,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.enabledProperty": {
       "phetioDocumentation": "When disabled, the picker is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12978,7 +12978,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12991,7 +12991,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13004,7 +13004,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.valueProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13017,7 +13017,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13030,7 +13030,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13043,7 +13043,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13056,7 +13056,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13069,7 +13069,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13082,7 +13082,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13095,7 +13095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.titleNode": {
       "phetioDocumentation": "the equation shown at the top of this accordion box",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13108,7 +13108,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13121,7 +13121,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13134,7 +13134,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13147,7 +13147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13160,7 +13160,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton": {
       "phetioDocumentation": "button that shows/hides the contents of the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13173,7 +13173,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13186,7 +13186,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13199,7 +13199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13212,7 +13212,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13225,7 +13225,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13238,7 +13238,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13251,7 +13251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13264,7 +13264,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13277,7 +13277,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel": {
       "phetioDocumentation": "panel that contains controls related to the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13290,7 +13290,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox": {
       "phetioDocumentation": "checkbox that makes the axis of symmetry visible on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13303,7 +13303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13316,7 +13316,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13329,7 +13329,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13342,7 +13342,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13355,7 +13355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13368,7 +13368,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13381,7 +13381,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox": {
       "phetioDocumentation": "checkbox that makes the (x,y) coordinates visible on points on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13394,7 +13394,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13407,7 +13407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13420,7 +13420,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13433,7 +13433,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13446,7 +13446,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13459,7 +13459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13472,7 +13472,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox": {
       "phetioDocumentation": "checkbox that shows equations on graphed curves",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13485,7 +13485,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13498,7 +13498,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13511,7 +13511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13524,7 +13524,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13537,7 +13537,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13550,7 +13550,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13563,7 +13563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13576,7 +13576,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13589,7 +13589,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox": {
       "phetioDocumentation": "checkbox that shows the vertex manipulator on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13602,7 +13602,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.enabledProperty": {
       "phetioDocumentation": "When disabled, the checkbox is grayed out and cannot be pressed.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13615,7 +13615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13628,7 +13628,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13641,7 +13641,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.property": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13654,7 +13654,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.toggleAction": {
       "phetioDocumentation": "Emits when user input causes the checkbox to toggle, emitting a single arg: the new boolean value of the checkbox state. The arguments are:<br/><ol><li>isChecked: BooleanIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13667,7 +13667,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13680,7 +13680,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13693,7 +13693,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.leftPointToolNode": {
       "phetioDocumentation": "the point tool that is initially on the left",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13706,7 +13706,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -13719,7 +13719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13732,7 +13732,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13745,7 +13745,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13758,7 +13758,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13771,7 +13771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13784,7 +13784,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13797,7 +13797,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13810,7 +13810,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton": {
       "phetioDocumentation": "button that resets the screen to its initial state",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13823,7 +13823,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13836,7 +13836,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired No arguments.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13849,7 +13849,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.isFiringProperty": {
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13862,7 +13862,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13875,7 +13875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13888,7 +13888,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13901,7 +13901,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13914,7 +13914,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -13927,7 +13927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode": {
       "phetioDocumentation": "the point tool that is initially on the right",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13940,7 +13940,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -13953,7 +13953,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13966,7 +13966,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13979,7 +13979,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -13992,7 +13992,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14005,7 +14005,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14018,7 +14018,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator": {
       "phetioDocumentation": "manipulator for the vertex",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14031,7 +14031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.coordinatesNode": {
       "phetioDocumentation": "coordinates displayed on this manipulator",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14044,7 +14044,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.coordinatesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14057,7 +14057,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14070,7 +14070,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.coordinatesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14083,7 +14083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.coordinatesProperty": {
       "phetioDocumentation": "coordinates displayed by on vertex manipulator, null means no vertex",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14096,7 +14096,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.dragAction": {
       "phetioDocumentation": "Emits whenever a drag occurs with an SceneryEventIO argument. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -14109,7 +14109,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14122,7 +14122,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.dragListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "USER",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14135,7 +14135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14148,7 +14148,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14161,7 +14161,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14174,7 +14174,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.viewProperties": {
       "phetioDocumentation": "Properties that are specific to the view",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14187,7 +14187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
       "phetioDocumentation": "whether the axis of symmetry is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14200,7 +14200,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioDocumentation": "whether (x,y) coordinates are visible on points that are displayed on the graph",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14213,7 +14213,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioDocumentation": "whether the equation accordion box is expanded",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14226,7 +14226,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.viewProperties.equationsVisibleProperty": {
       "phetioDocumentation": "whether equations are visible on graphed curves",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14239,7 +14239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioDocumentation": "whether the contents of the graph (curves, plotted points, manipulators) are visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14252,7 +14252,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.viewProperties.vertexVisibleProperty": {
       "phetioDocumentation": "whether the vertex point or manipulator is visible",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14265,7 +14265,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "graphingQuadratics.vertexFormScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14278,7 +14278,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     "phetioEngine": {
       "phetioDocumentation": "Central point for PhET-iO interoperability",
       "phetioDynamicElement": false,
-      "phetioDynamicElementArchetype": false,
+      "phetioIsArchetype": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
