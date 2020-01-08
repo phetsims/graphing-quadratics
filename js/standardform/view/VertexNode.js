@@ -74,7 +74,7 @@ define( require => {
 
       super( coordinatesProperty, coordinatesVisibleProperty, options );
 
-      // move to the vertex location
+      // move to the vertex position
       quadraticProperty.link( quadratic => {
         if ( quadratic.vertex ) {
           this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );

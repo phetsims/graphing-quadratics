@@ -122,8 +122,8 @@ define( require => {
 
         // note where the drag started
         start: ( event, listener ) => {
-          const location = modelViewTransform.modelToViewPosition( pointOnParabolaProperty.value );
-          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
+          const position = modelViewTransform.modelToViewPosition( pointOnParabolaProperty.value );
+          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
         },
 
         drag: ( event, listener ) => {

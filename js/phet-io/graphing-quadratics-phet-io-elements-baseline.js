@@ -66,19 +66,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<QuadraticIO>"
     },
-    "graphingQuadratics.exploreScreen.model.leftPointTool.locationProperty": {
-      "phetioDocumentation": "location of this point tool",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
     "graphingQuadratics.exploreScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
@@ -91,6 +78,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
+    },
+    "graphingQuadratics.exploreScreen.model.leftPointTool.positionProperty": {
+      "phetioDocumentation": "position of this point tool",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "graphingQuadratics.exploreScreen.model.linearTermProperty": {
       "phetioDocumentation": "the linear term (y = bx) of the interactive quadratic",
@@ -131,19 +131,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<QuadraticIO>"
     },
-    "graphingQuadratics.exploreScreen.model.rightPointTool.locationProperty": {
-      "phetioDocumentation": "location of this point tool",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
     "graphingQuadratics.exploreScreen.model.rightPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
@@ -156,6 +143,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
+    },
+    "graphingQuadratics.exploreScreen.model.rightPointTool.positionProperty": {
+      "phetioDocumentation": "position of this point tool",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "graphingQuadratics.exploreScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
@@ -2978,19 +2978,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.locationProperty": {
-      "phetioDocumentation": "location of this point tool",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
     "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
@@ -3003,6 +2990,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.positionProperty": {
+      "phetioDocumentation": "position of this point tool",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.pProperty": {
       "phetioDocumentation": "value of 'p' in the interactive equation",
@@ -3043,19 +3043,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<QuadraticIO>"
     },
-    "graphingQuadratics.focusAndDirectrixScreen.model.rightPointTool.locationProperty": {
-      "phetioDocumentation": "location of this point tool",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
     "graphingQuadratics.focusAndDirectrixScreen.model.rightPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
@@ -3068,6 +3055,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.model.rightPointTool.positionProperty": {
+      "phetioDocumentation": "position of this point tool",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
@@ -9868,19 +9868,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "graphingQuadratics.standardFormScreen.model.leftPointTool.locationProperty": {
-      "phetioDocumentation": "location of this point tool",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
     "graphingQuadratics.standardFormScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
@@ -9893,6 +9880,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
+    },
+    "graphingQuadratics.standardFormScreen.model.leftPointTool.positionProperty": {
+      "phetioDocumentation": "position of this point tool",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "graphingQuadratics.standardFormScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from a, b, and c",
@@ -9907,19 +9907,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<QuadraticIO>"
     },
-    "graphingQuadratics.standardFormScreen.model.rightPointTool.locationProperty": {
-      "phetioDocumentation": "location of this point tool",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
     "graphingQuadratics.standardFormScreen.model.rightPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
@@ -9932,6 +9919,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
+    },
+    "graphingQuadratics.standardFormScreen.model.rightPointTool.positionProperty": {
+      "phetioDocumentation": "position of this point tool",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "graphingQuadratics.standardFormScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",
@@ -12299,19 +12299,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "graphingQuadratics.vertexFormScreen.model.leftPointTool.locationProperty": {
-      "phetioDocumentation": "location of this point tool",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
     "graphingQuadratics.vertexFormScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
@@ -12324,6 +12311,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
+    },
+    "graphingQuadratics.vertexFormScreen.model.leftPointTool.positionProperty": {
+      "phetioDocumentation": "position of this point tool",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "graphingQuadratics.vertexFormScreen.model.quadraticProperty": {
       "phetioDocumentation": "the interactive quadratic, derived from a, h, and k",
@@ -12338,19 +12338,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<QuadraticIO>"
     },
-    "graphingQuadratics.vertexFormScreen.model.rightPointTool.locationProperty": {
-      "phetioDocumentation": "location of this point tool",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<Vector2IO>"
-    },
     "graphingQuadratics.vertexFormScreen.model.rightPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
       "phetioDynamicElement": false,
@@ -12363,6 +12350,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "DerivedPropertyIO<NullableIO<QuadraticIO>>"
+    },
+    "graphingQuadratics.vertexFormScreen.model.rightPointTool.positionProperty": {
+      "phetioDocumentation": "position of this point tool",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<Vector2IO>"
     },
     "graphingQuadratics.vertexFormScreen.model.savedQuadraticProperty": {
       "phetioDocumentation": "the saved quadratic, null if there is no saved quadratic",

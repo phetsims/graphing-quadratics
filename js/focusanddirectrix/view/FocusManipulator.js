@@ -138,8 +138,8 @@ define( require => {
           const focus = quadraticProperty.value.focus;
           assert && assert( focus, 'expected focus: ' + focus );
 
-          const location = modelViewTransform.modelToViewPosition( focus );
-          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
+          const position = modelViewTransform.modelToViewPosition( focus );
+          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
         },
 
         drag: ( event, listener ) => {
@@ -149,10 +149,10 @@ define( require => {
 
           // transform the drag point from view to model coordinate frame
           const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-          const location = modelViewTransform.viewToModelPosition( parentPoint );
+          const position = modelViewTransform.viewToModelPosition( parentPoint );
 
           // constrain to the graph
-          const y = yRange.constrainValue( location.y );
+          const y = yRange.constrainValue( position.y );
 
           // constrain and round
           let p = pProperty.range.constrainValue( y - vertex.y );

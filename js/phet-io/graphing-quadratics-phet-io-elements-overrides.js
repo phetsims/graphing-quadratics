@@ -10,13 +10,13 @@ window.phet.phetio.phetioElementsOverrides =
     "graphingQuadratics.exploreScreen.model.cProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.exploreScreen.model.leftPointTool.locationProperty": {
+    "graphingQuadratics.exploreScreen.model.leftPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.exploreScreen.model.quadraticProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.exploreScreen.model.rightPointTool.locationProperty": {
+    "graphingQuadratics.exploreScreen.model.rightPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.exploreScreen.model.savedQuadraticProperty": {
@@ -84,7 +84,7 @@ window.phet.phetio.phetioElementsOverrides =
     "graphingQuadratics.focusAndDirectrixScreen.model.kProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.locationProperty": {
+    "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.pProperty": {
@@ -93,7 +93,7 @@ window.phet.phetio.phetioElementsOverrides =
     "graphingQuadratics.focusAndDirectrixScreen.model.quadraticProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.focusAndDirectrixScreen.model.rightPointTool.locationProperty": {
+    "graphingQuadratics.focusAndDirectrixScreen.model.rightPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.savedQuadraticProperty": {
@@ -173,13 +173,13 @@ window.phet.phetio.phetioElementsOverrides =
     "graphingQuadratics.standardFormScreen.model.cProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.standardFormScreen.model.leftPointTool.locationProperty": {
+    "graphingQuadratics.standardFormScreen.model.leftPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.standardFormScreen.model.quadraticProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.standardFormScreen.model.rightPointTool.locationProperty": {
+    "graphingQuadratics.standardFormScreen.model.rightPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.standardFormScreen.model.savedQuadraticProperty": {
@@ -259,13 +259,13 @@ window.phet.phetio.phetioElementsOverrides =
     "graphingQuadratics.vertexFormScreen.model.kProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.vertexFormScreen.model.leftPointTool.locationProperty": {
+    "graphingQuadratics.vertexFormScreen.model.leftPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.vertexFormScreen.model.quadraticProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.vertexFormScreen.model.rightPointTool.locationProperty": {
+    "graphingQuadratics.vertexFormScreen.model.rightPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.vertexFormScreen.model.savedQuadraticProperty": {

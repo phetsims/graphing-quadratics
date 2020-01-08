@@ -64,8 +64,8 @@ define( require => {
 
       const probeNode = new ProbeNode();
 
-      const coordinatesProperty = new DerivedProperty( [ pointTool.locationProperty ],
-        location => ( graph.contains( location ) ? location : null ), {
+      const coordinatesProperty = new DerivedProperty( [ pointTool.positionProperty ],
+        position => ( graph.contains( position ) ? position : null ), {
           valueType: [ Vector2, null ]
         } );
 
@@ -107,14 +107,14 @@ define( require => {
         coordinatesNode.centerY = bodyNode.centerY;
       } );
 
-      Property.multilink( [ pointTool.locationProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
-        ( location, onQuadratic, graphContentsVisible ) => {
+      Property.multilink( [ pointTool.positionProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
+        ( position, onQuadratic, graphContentsVisible ) => {
 
-          // move to location
-          this.translation = modelViewTransform.modelToViewPosition( location );
+          // move to position
+          this.translation = modelViewTransform.modelToViewPosition( position );
 
           // update colors
-          if ( graph.contains( location ) && onQuadratic && graphContentsVisible ) {
+          if ( graph.contains( position ) && onQuadratic && graphContentsVisible ) {
 
             // color code the display to onQuadratic
             coordinatesNode.foreground = options.foregroundHighlightColor;
@@ -215,8 +215,8 @@ define( require => {
         start: ( event, listener ) => {
 
           // Note the mouse-click offset when dragging starts.
-          const location = modelViewTransform.modelToViewPosition( pointTool.locationProperty.value );
-          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
+          const position = modelViewTransform.modelToViewPosition( pointTool.positionProperty.value );
+          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
 
           // Move the tool that we're dragging to the foreground.
           event.currentTarget.moveToFront();
@@ -224,26 +224,26 @@ define( require => {
 
         drag: ( event, listener ) => {
 
-          // Convert drag point to model location
+          // Convert drag point to model position
           const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-          let location = modelViewTransform.viewToModelPosition( parentPoint );
+          let position = modelViewTransform.viewToModelPosition( parentPoint );
 
           // constrained to dragBounds
-          location = pointTool.dragBounds.closestPointTo( location );
+          position = pointTool.dragBounds.closestPointTo( position );
 
           // If we're on the graph and the contents of the graph are visible...
-          if ( graph.contains( location ) && graphContentsVisibleProperty.value ) {
+          if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
 
             // snap to a quadratic, if we're close enough
-            const snapQuadratic = pointTool.getQuadraticNear( location,
+            const snapQuadratic = pointTool.getQuadraticNear( position,
               GQQueryParameters.snapOffDistance, GQQueryParameters.snapOnDistance );
             if ( snapQuadratic ) {
-              location = snapQuadratic.getClosestPoint( location );
+              position = snapQuadratic.getClosestPoint( position );
             }
           }
 
           // move the point tool
-          pointTool.locationProperty.value = location;
+          pointTool.positionProperty.value = position;
         }
       }, options );
 

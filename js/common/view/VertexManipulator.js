@@ -133,22 +133,22 @@ define( require => {
 
         // note where the drag started
         start: ( event, listener ) => {
-          const location = modelViewTransform.modelToViewXY( hProperty.value, kProperty.value );
-          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( location );
+          const position = modelViewTransform.modelToViewXY( hProperty.value, kProperty.value );
+          startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
         },
 
         drag: ( event, listener ) => {
 
           // transform the drag point from view to model coordinate frame
           const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-          let location = modelViewTransform.viewToModelPosition( parentPoint );
+          let position = modelViewTransform.viewToModelPosition( parentPoint );
 
           // constrain to the graph
-          location = graph.constrain( location );
+          position = graph.constrain( position );
 
           // constrain to range and snap to integer grid
-          const h = Utils.roundSymmetric( hProperty.range.constrainValue( location.x ) );
-          const k = Utils.roundSymmetric( kProperty.range.constrainValue( location.y ) );
+          const h = Utils.roundSymmetric( hProperty.range.constrainValue( position.x ) );
+          const k = Utils.roundSymmetric( kProperty.range.constrainValue( position.y ) );
 
           // Setting h and k separately results in an intermediate Quadratic.
           // We decided that this is OK, and we can live with it.
