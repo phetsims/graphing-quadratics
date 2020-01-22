@@ -27,6 +27,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.model.aProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.model.bProperty": {
       "phetioDocumentation": "value of 'b' in the interactive equation",
       "phetioDynamicElement": false,
@@ -40,6 +53,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.model.bProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.model.cProperty": {
       "phetioDocumentation": "value of 'c' in the interactive equation",
       "phetioDynamicElement": false,
@@ -52,6 +78,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.model.cProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.model.constantTermProperty": {
       "phetioDocumentation": "the constant term (y = c) of the interactive quadratic",
@@ -261,6 +300,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.eraseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -326,6 +378,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -390,6 +455,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.buttonGroup.saveButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -494,6 +572,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -651,6 +742,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.label.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -703,6 +807,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -741,6 +858,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -989,6 +1119,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.label.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1041,6 +1184,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1079,6 +1235,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1327,6 +1496,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.label.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1379,6 +1561,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1417,6 +1612,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1626,6 +1834,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1664,6 +1885,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1704,6 +1938,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1742,6 +1989,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.equationAccordionBox.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1820,6 +2080,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.graphContentsToggleButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1964,6 +2237,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.leftPointToolNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.leftPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2002,6 +2288,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2067,6 +2366,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.constantTermCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2159,6 +2471,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.equationsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2249,6 +2574,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2367,6 +2705,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2432,6 +2783,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2483,6 +2847,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2561,6 +2938,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2679,6 +3069,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.exploreScreen.view.resetAllButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.exploreScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2795,6 +3198,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.exploreScreen.view.rightPointToolNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.exploreScreen.view.rightPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2965,6 +3381,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.model.hProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.model.kProperty": {
       "phetioDocumentation": "value of 'k' in the interactive equation",
       "phetioDynamicElement": false,
@@ -2977,6 +3406,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.model.kProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
@@ -3016,6 +3458,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": false,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.model.pProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.pointOnParabolaProperty": {
       "phetioDocumentation": "the interactive point on the parabola",
@@ -3173,6 +3628,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.eraseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3238,6 +3706,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3302,6 +3783,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.saveButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3406,6 +3900,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3524,6 +4031,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.equationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3615,6 +4135,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.label.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3667,6 +4200,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3705,6 +4251,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3953,6 +4512,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.label.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4005,6 +4577,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4043,6 +4628,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4239,6 +4837,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider": {
       "phetioDocumentation": "slider for 'p' value",
       "phetioDynamicElement": false,
@@ -4304,6 +4915,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.label.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4356,6 +4980,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4394,6 +5031,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4616,6 +5266,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4654,6 +5317,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4732,6 +5408,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.coordinatesNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4824,6 +5513,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4888,6 +5590,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphContentsToggleButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5019,6 +5734,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.coordinatesCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5109,6 +5837,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.directrixCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5201,6 +5942,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.equationsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5292,6 +6046,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.focusCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5357,6 +6124,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5408,6 +6188,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.pointOnParabolaCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5499,6 +6292,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.vertexCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5630,6 +6436,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5668,6 +6487,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5720,6 +6552,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.coordinatesNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5812,6 +6657,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.pointOnParabolaManipulator.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5902,6 +6760,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6020,6 +6891,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6084,6 +6968,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.coordinatesNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6175,6 +7072,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6409,6 +7319,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.barrierRectangle.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.barrierRectangle.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6722,6 +7645,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.general.navigationBar.exploreScreenButton.icon.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.general.navigationBar.exploreScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6760,6 +7696,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.exploreScreenButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.exploreScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6825,6 +7774,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.exploreScreenButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.exploreScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6943,6 +7905,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.icon.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6981,6 +7956,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7046,6 +8034,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.focusAndDirectrixScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7150,6 +8151,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.homeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.homeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7333,6 +8347,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7411,6 +8438,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7449,6 +8489,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7515,6 +8568,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7579,6 +8645,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7697,6 +8776,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.aboutMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7787,6 +8879,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7918,6 +9023,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.general.navigationBar.standardFormScreenButton.icon.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7956,6 +9074,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.standardFormScreenButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8021,6 +9152,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.standardFormScreenButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.standardFormScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8099,6 +9243,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.titleTextNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.titleTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8204,6 +9361,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.general.navigationBar.vertexFormScreenButton.icon.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8242,6 +9412,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.vertexFormScreenButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8307,6 +9490,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.navigationBar.vertexFormScreenButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.navigationBar.vertexFormScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8398,6 +9594,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.general.screenIndexProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.general.showHomeScreenProperty": {
       "phetioDocumentation": "Whether or not home screen is displayed. This is independent of the \"current sim screen\" stored in the \"screenIndexProperty.\"",
@@ -8529,6 +9738,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8567,6 +9789,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.exploreScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8685,6 +9920,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8723,6 +9971,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.exploreScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8841,6 +10102,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8879,6 +10153,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8997,6 +10284,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -9035,6 +10335,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.focusAndDirectrixScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9100,6 +10413,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9179,6 +10505,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -9217,6 +10556,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.standardFormScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9335,6 +10687,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -9373,6 +10738,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.standardFormScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9451,6 +10829,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.title.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.title.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9556,6 +10947,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -9594,6 +10998,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.vertexFormScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9712,6 +11129,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -9750,6 +11180,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.homeScreen.view.vertexFormScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9842,6 +11285,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.model.aProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.model.bProperty": {
       "phetioDocumentation": "value of 'b' in the interactive equation",
       "phetioDynamicElement": false,
@@ -9855,6 +11311,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.model.bProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.model.cProperty": {
       "phetioDocumentation": "value of 'c' in the interactive equation",
       "phetioDynamicElement": false,
@@ -9867,6 +11336,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.model.cProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
@@ -10037,6 +11519,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10102,6 +11597,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10166,6 +11674,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10270,6 +11791,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10401,6 +11935,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10478,6 +12025,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10557,6 +12117,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10609,6 +12182,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10648,6 +12234,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10686,6 +12285,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.equationAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10764,6 +12376,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.graphContentsToggleButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10895,6 +12520,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10985,6 +12623,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.coordinatesCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11077,6 +12728,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.equationsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11142,6 +12806,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11193,6 +12870,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.rootsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11284,6 +12974,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.vertexCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11415,6 +13118,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.leftPointToolNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.leftPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11467,6 +13183,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.noRealRootsNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.noRealRootsNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11505,6 +13234,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11583,6 +13325,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.resetAllButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11701,6 +13456,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.rightPointToolNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11792,6 +13560,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.coordinatesNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11831,6 +13612,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.rootsNode.leftRootNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11869,6 +13663,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.rootsNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.rootsNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11935,6 +13742,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.coordinatesNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11973,6 +13793,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.rootsNode.rightRootNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12052,6 +13885,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.standardFormScreen.view.vertexNode.coordinatesNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.standardFormScreen.view.vertexNode.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12103,6 +13949,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.standardFormScreen.view.vertexNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.standardFormScreen.view.vertexNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12273,6 +14132,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.model.aProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.model.hProperty": {
       "phetioDocumentation": "value of 'h' in the interactive equation",
       "phetioDynamicElement": false,
@@ -12286,6 +14158,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.model.hProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.model.kProperty": {
       "phetioDocumentation": "value of 'k' in the interactive equation",
       "phetioDynamicElement": false,
@@ -12298,6 +14183,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.model.kProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.model.leftPointTool.onQuadraticProperty": {
       "phetioDocumentation": "the quadratic that this point tool is on, null if not on a quadratic",
@@ -12468,6 +14366,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.eraseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12533,6 +14444,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12597,6 +14521,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.buttonGroup.saveButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12701,6 +14638,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.expandCollapseButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12832,6 +14782,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12909,6 +14872,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12988,6 +14964,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13040,6 +15029,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13079,6 +15081,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13117,6 +15132,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13195,6 +15223,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.graphContentsToggleButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13326,6 +15367,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.axisOfSymmetryCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13416,6 +15470,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.coordinatesCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13508,6 +15575,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.equationsCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13573,6 +15653,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13624,6 +15717,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.vertexCheckbox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13755,6 +15861,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13793,6 +15912,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13871,6 +16003,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.resetAllButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13989,6 +16134,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -14053,6 +16211,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.coordinatesNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.coordinatesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -14144,6 +16315,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "graphingQuadratics.vertexFormScreen.view.vertexManipulator.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
