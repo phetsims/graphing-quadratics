@@ -613,7 +613,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.aSlider.enabledRangeProperty": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "Sliders support two ranges: the outer range which specifies the min and max of the track and the enabledRangeProperty, which determines how low and high the thumb can be dragged within the track.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -951,7 +951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.bSlider.enabledRangeProperty": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "Sliders support two ranges: the outer range which specifies the min and max of the track and the enabledRangeProperty, which determines how low and high the thumb can be dragged within the track.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -1289,7 +1289,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.cSlider.enabledRangeProperty": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "Sliders support two ranges: the outer range which specifies the min and max of the track and the enabledRangeProperty, which determines how low and high the thumb can be dragged within the track.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3577,7 +3577,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.hSlider.enabledRangeProperty": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "Sliders support two ranges: the outer range which specifies the min and max of the track and the enabledRangeProperty, which determines how low and high the thumb can be dragged within the track.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3915,7 +3915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.kSlider.enabledRangeProperty": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "Sliders support two ranges: the outer range which specifies the min and max of the track and the enabledRangeProperty, which determines how low and high the thumb can be dragged within the track.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4266,7 +4266,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.pSlider.enabledRangeProperty": {
-      "phetioDocumentation": "",
+      "phetioDocumentation": "Sliders support two ranges: the outer range which specifies the min and max of the track and the enabledRangeProperty, which determines how low and high the thumb can be dragged within the track.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
