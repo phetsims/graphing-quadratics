@@ -5,49 +5,46 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQScreenView = require( 'GRAPHING_QUADRATICS/common/view/GQScreenView' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const StandardFormEquationAccordionBox = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationAccordionBox' );
-  const StandardFormGraphControlPanel = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphControlPanel' );
-  const StandardFormGraphNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormGraphNode' );
-  const StandardFormViewProperties = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormViewProperties' );
+import GQScreenView from '../../common/view/GQScreenView.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import StandardFormEquationAccordionBox from './StandardFormEquationAccordionBox.js';
+import StandardFormGraphControlPanel from './StandardFormGraphControlPanel.js';
+import StandardFormGraphNode from './StandardFormGraphNode.js';
+import StandardFormViewProperties from './StandardFormViewProperties.js';
 
-  class StandardFormScreenView extends GQScreenView {
+class StandardFormScreenView extends GQScreenView {
 
-    /**
-     * @param {StandardFormModel} model
-     * @param {Tandem} tandem
-     */
-    constructor( model, tandem ) {
+  /**
+   * @param {StandardFormModel} model
+   * @param {Tandem} tandem
+   */
+  constructor( model, tandem ) {
 
-      const options = {
+    const options = {
 
-        // phet-io
-        tandem: tandem
-      };
+      // phet-io
+      tandem: tandem
+    };
 
-      const viewProperties = new StandardFormViewProperties( {
-        tandem: options.tandem.createTandem( 'viewProperties' )
-      } );
+    const viewProperties = new StandardFormViewProperties( {
+      tandem: options.tandem.createTandem( 'viewProperties' )
+    } );
 
-      super( model,
-        viewProperties,
-        new StandardFormGraphNode( model, viewProperties, tandem ),
-        new StandardFormEquationAccordionBox( model, {
-          expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
-          tandem: options.tandem.createTandem( 'equationAccordionBox' )
-        } ),
-        new StandardFormGraphControlPanel( viewProperties, {
-          tandem: options.tandem.createTandem( 'graphControlPanel' )
-        } ),
-        options
-      );
-    }
+    super( model,
+      viewProperties,
+      new StandardFormGraphNode( model, viewProperties, tandem ),
+      new StandardFormEquationAccordionBox( model, {
+        expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
+        tandem: options.tandem.createTandem( 'equationAccordionBox' )
+      } ),
+      new StandardFormGraphControlPanel( viewProperties, {
+        tandem: options.tandem.createTandem( 'graphControlPanel' )
+      } ),
+      options
+    );
   }
+}
 
-  return graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
-} );
+graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
+export default StandardFormScreenView;

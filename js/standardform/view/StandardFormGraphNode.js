@@ -5,77 +5,74 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
-  const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const NoRealRootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/NoRealRootsNode' );
-  const RootsNode = require( 'GRAPHING_QUADRATICS/standardform/view/RootsNode' );
-  const VertexNode = require( 'GRAPHING_QUADRATICS/standardform/view/VertexNode' );
+import AxisOfSymmetryNode from '../../common/view/AxisOfSymmetryNode.js';
+import GQGraphNode from '../../common/view/GQGraphNode.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import NoRealRootsNode from './NoRealRootsNode.js';
+import RootsNode from './RootsNode.js';
+import VertexNode from './VertexNode.js';
 
-  class StandardFormGraphNode extends GQGraphNode {
+class StandardFormGraphNode extends GQGraphNode {
 
-    /**
-     * @param {StandardFormModel} model
-     * @param {StandardFormViewProperties} viewProperties
-     * @param {Tandem} tandem
-     * @param {Object} [options]
-     */
-    constructor( model, viewProperties, tandem, options ) {
+  /**
+   * @param {StandardFormModel} model
+   * @param {StandardFormViewProperties} viewProperties
+   * @param {Tandem} tandem
+   * @param {Object} [options]
+   */
+  constructor( model, viewProperties, tandem, options ) {
 
-      // We do NOT want to instrument the graph, so tandem is not propagated via options
-      options = options || {};
+    // We do NOT want to instrument the graph, so tandem is not propagated via options
+    options = options || {};
 
-      // Axis of symmetry line
-      const axisOfSymmetryNode = new AxisOfSymmetryNode(
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.axisOfSymmetryVisibleProperty,
-        viewProperties.equationsVisibleProperty );
+    // Axis of symmetry line
+    const axisOfSymmetryNode = new AxisOfSymmetryNode(
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.axisOfSymmetryVisibleProperty,
+      viewProperties.equationsVisibleProperty );
 
-      // Roots
-      const rootsNode = new RootsNode(
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.rootsVisibleProperty,
-        viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'rootsNode' )
-        } );
+    // Roots
+    const rootsNode = new RootsNode(
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.rootsVisibleProperty,
+      viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'rootsNode' )
+      } );
 
-      // Vertex
-      const vertexNode = new VertexNode(
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.vertexVisibleProperty,
-        viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'vertexNode' )
-        } );
+    // Vertex
+    const vertexNode = new VertexNode(
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.vertexVisibleProperty,
+      viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'vertexNode' )
+      } );
 
-      // 'NO REAL ROOTS' label
-      const noRealRootsNode = new NoRealRootsNode(
-        viewProperties.rootsVisibleProperty,
-        viewProperties.vertexVisibleProperty,
-        viewProperties.coordinatesVisibleProperty,
-        model.quadraticProperty,
-        model.modelViewTransform, {
-          tandem: tandem.createTandem( 'noRealRootsNode' )
-        } );
+    // 'NO REAL ROOTS' label
+    const noRealRootsNode = new NoRealRootsNode(
+      viewProperties.rootsVisibleProperty,
+      viewProperties.vertexVisibleProperty,
+      viewProperties.coordinatesVisibleProperty,
+      model.quadraticProperty,
+      model.modelViewTransform, {
+        tandem: tandem.createTandem( 'noRealRootsNode' )
+      } );
 
-      assert && assert( !options.otherCurves, 'StandardFormGraphNode sets otherCurves' );
-      options.otherCurves = [ axisOfSymmetryNode ];
+    assert && assert( !options.otherCurves, 'StandardFormGraphNode sets otherCurves' );
+    options.otherCurves = [ axisOfSymmetryNode ];
 
-      assert && assert( !options.decorations, 'StandardFormGraphNode sets decorations' );
-      options.decorations = [ rootsNode, vertexNode, noRealRootsNode ]; // rendered in this order
+    assert && assert( !options.decorations, 'StandardFormGraphNode sets decorations' );
+    options.decorations = [ rootsNode, vertexNode, noRealRootsNode ]; // rendered in this order
 
-      super( model, viewProperties, options );
-    }
+    super( model, viewProperties, options );
   }
+}
 
-  return graphingQuadratics.register( 'StandardFormGraphNode', StandardFormGraphNode );
-} );
+graphingQuadratics.register( 'StandardFormGraphNode', StandardFormGraphNode );
+export default StandardFormGraphNode;

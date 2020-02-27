@@ -5,41 +5,38 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Manipulator = require( 'GRAPHING_LINES/common/view/manipulator/Manipulator' );
-  const merge = require( 'PHET_CORE/merge' );
+import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
+import merge from '../../../../phet-core/js/merge.js';
+import GQColors from '../../common/GQColors.js';
+import GQCheckbox from '../../common/view/GQCheckbox.js';
+import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  // strings
-  const pointOnParabolaString = require( 'string!GRAPHING_QUADRATICS/pointOnParabola' );
+const pointOnParabolaString = graphingQuadraticsStrings.pointOnParabola;
 
-  class PointOnParabolaCheckbox extends GQCheckbox {
+class PointOnParabolaCheckbox extends GQCheckbox {
 
-    /**
-     * @param {BooleanProperty} pointOnParabolaVisibleProperty
-     * @param {Object} [options]
-     */
-    constructor( pointOnParabolaVisibleProperty, options ) {
+  /**
+   * @param {BooleanProperty} pointOnParabolaVisibleProperty
+   * @param {Object} [options]
+   */
+  constructor( pointOnParabolaVisibleProperty, options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // phet-io
-        phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'
+      // phet-io
+      phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'
 
-      }, options );
+    }, options );
 
-      // icon is a manipulator (3D sphere)
-      assert && assert( !options.icon, 'PointOnParabolaCheckbox sets icon' );
-      options.icon = Manipulator.createIcon( 8, GQColors.POINT_ON_PARABOLA );
+    // icon is a manipulator (3D sphere)
+    assert && assert( !options.icon, 'PointOnParabolaCheckbox sets icon' );
+    options.icon = Manipulator.createIcon( 8, GQColors.POINT_ON_PARABOLA );
 
-      super( pointOnParabolaString, pointOnParabolaVisibleProperty, options );
-    }
+    super( pointOnParabolaString, pointOnParabolaVisibleProperty, options );
   }
+}
 
-  return graphingQuadratics.register( 'PointOnParabolaCheckbox', PointOnParabolaCheckbox );
-} );
+graphingQuadratics.register( 'PointOnParabolaCheckbox', PointOnParabolaCheckbox );
+export default PointOnParabolaCheckbox;

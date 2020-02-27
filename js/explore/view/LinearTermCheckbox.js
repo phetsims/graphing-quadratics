@@ -5,39 +5,36 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const merge = require( 'PHET_CORE/merge' );
+import merge from '../../../../phet-core/js/merge.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
+import GQColors from '../../common/GQColors.js';
+import GQSymbols from '../../common/GQSymbols.js';
+import GQCheckbox from '../../common/view/GQCheckbox.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  class LinearTermCheckbox extends GQCheckbox {
+class LinearTermCheckbox extends GQCheckbox {
 
-    /**
-     * @param {BooleanProperty} linearTermVisibleProperty
-     * @param {Object} [options]
-     */
-    constructor( linearTermVisibleProperty, options ) {
+  /**
+   * @param {BooleanProperty} linearTermVisibleProperty
+   * @param {Object} [options]
+   */
+  constructor( linearTermVisibleProperty, options ) {
 
-      options = merge( {
-        textFill: GQColors.LINEAR_TERM,
+    options = merge( {
+      textFill: GQColors.LINEAR_TERM,
 
-        // phet-io
-        phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
+      // phet-io
+      phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
 
-      }, options );
+    }, options );
 
-      // y = bx
-      const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.b + GQSymbols.x;
+    // y = bx
+    const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.b + GQSymbols.x;
 
-      super( text, linearTermVisibleProperty, options );
-    }
+    super( text, linearTermVisibleProperty, options );
   }
+}
 
-  return graphingQuadratics.register( 'LinearTermCheckbox', LinearTermCheckbox );
-} );
+graphingQuadratics.register( 'LinearTermCheckbox', LinearTermCheckbox );
+export default LinearTermCheckbox;

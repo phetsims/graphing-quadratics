@@ -5,94 +5,91 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const DirectrixNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/DirectrixNode' );
-  const FocusManipulator = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusManipulator' );
-  const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const PointOnParabolaLinesNode = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnParabolaLinesNode' );
-  const PointOnParabolaManipulator = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/PointOnParabolaManipulator' );
-  const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
+import GQGraphNode from '../../common/view/GQGraphNode.js';
+import VertexManipulator from '../../common/view/VertexManipulator.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import DirectrixNode from './DirectrixNode.js';
+import FocusManipulator from './FocusManipulator.js';
+import PointOnParabolaLinesNode from './PointOnParabolaLinesNode.js';
+import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 
-  class FocusAndDirectrixGraphNode extends GQGraphNode {
+class FocusAndDirectrixGraphNode extends GQGraphNode {
 
-    /**
-     * @param {FocusAndDirectrixModel} model
-     * @param {FocusAndDirectrixViewProperties} viewProperties
-     * @param {Tandem} tandem
-     * @param {Object} [options]
-     */
-    constructor( model, viewProperties, tandem, options ) {
+  /**
+   * @param {FocusAndDirectrixModel} model
+   * @param {FocusAndDirectrixViewProperties} viewProperties
+   * @param {Tandem} tandem
+   * @param {Object} [options]
+   */
+  constructor( model, viewProperties, tandem, options ) {
 
-      // We do NOT want to instrument the graph, so tandem is not propagated via options
-      options = options || {};
+    // We do NOT want to instrument the graph, so tandem is not propagated via options
+    options = options || {};
 
-      // Directrix line
-      const directrixNode = new DirectrixNode(
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.directrixVisibleProperty,
-        viewProperties.equationsVisibleProperty );
+    // Directrix line
+    const directrixNode = new DirectrixNode(
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.directrixVisibleProperty,
+      viewProperties.equationsVisibleProperty );
 
-      // Vertex manipulator
-      const vertexManipulator = new VertexManipulator(
-        model.hProperty,
-        model.kProperty,
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.vertexVisibleProperty,
-        viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'vertexManipulator' ),
-          phetioDocumentation: 'the manipulator for changing the vertex'
-        } );
+    // Vertex manipulator
+    const vertexManipulator = new VertexManipulator(
+      model.hProperty,
+      model.kProperty,
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.vertexVisibleProperty,
+      viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'vertexManipulator' ),
+        phetioDocumentation: 'the manipulator for changing the vertex'
+      } );
 
-      // Focus manipulator
-      const focusManipulator = new FocusManipulator(
-        model.pProperty,
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.focusVisibleProperty,
-        viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'focusManipulator' ),
-          phetioDocumentation: 'the manipulator for changing the focus'
-        } );
+    // Focus manipulator
+    const focusManipulator = new FocusManipulator(
+      model.pProperty,
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.focusVisibleProperty,
+      viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'focusManipulator' ),
+        phetioDocumentation: 'the manipulator for changing the focus'
+      } );
 
-      // Point on Quadratic manipulator
-      const pointOnParabolaManipulator = new PointOnParabolaManipulator(
-        model.pointOnParabolaProperty,
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.pointOnParabolaVisibleProperty,
-        viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'pointOnParabolaManipulator' ),
-          phetioDocumentation: 'the manipulator for changing the point on the parabola'
-        } );
+    // Point on Quadratic manipulator
+    const pointOnParabolaManipulator = new PointOnParabolaManipulator(
+      model.pointOnParabolaProperty,
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.pointOnParabolaVisibleProperty,
+      viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'pointOnParabolaManipulator' ),
+        phetioDocumentation: 'the manipulator for changing the point on the parabola'
+      } );
 
-      // Lines that connect the point on the parabola to the focus and directrix
-      const pointOnParabolaLinesNode = new PointOnParabolaLinesNode(
-        model.quadraticProperty,
-        model.pointOnParabolaProperty,
-        model.modelViewTransform,
-        viewProperties.pointOnParabolaVisibleProperty,
-        viewProperties.focusVisibleProperty,
-        viewProperties.directrixVisibleProperty );
+    // Lines that connect the point on the parabola to the focus and directrix
+    const pointOnParabolaLinesNode = new PointOnParabolaLinesNode(
+      model.quadraticProperty,
+      model.pointOnParabolaProperty,
+      model.modelViewTransform,
+      viewProperties.pointOnParabolaVisibleProperty,
+      viewProperties.focusVisibleProperty,
+      viewProperties.directrixVisibleProperty );
 
-      assert && assert( !options.otherCurves, 'FocusAndDirectrixGraphNode sets otherCurves' );
-      options.otherCurves = [ directrixNode, pointOnParabolaLinesNode ]; // rendered in this order
+    assert && assert( !options.otherCurves, 'FocusAndDirectrixGraphNode sets otherCurves' );
+    options.otherCurves = [ directrixNode, pointOnParabolaLinesNode ]; // rendered in this order
 
-      assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
-      options.decorations = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ]; // rendered in this order
+    assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
+    options.decorations = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ]; // rendered in this order
 
-      super( model, viewProperties, options );
-    }
+    super( model, viewProperties, options );
   }
+}
 
-  return graphingQuadratics.register( 'FocusAndDirectrixGraphNode', FocusAndDirectrixGraphNode );
-} );
+graphingQuadratics.register( 'FocusAndDirectrixGraphNode', FocusAndDirectrixGraphNode );
+export default FocusAndDirectrixGraphNode;

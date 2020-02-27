@@ -5,38 +5,35 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const merge = require( 'PHET_CORE/merge' );
+import merge from '../../../../phet-core/js/merge.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
+import GQColors from '../../common/GQColors.js';
+import GQSymbols from '../../common/GQSymbols.js';
+import GQCheckbox from '../../common/view/GQCheckbox.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  class QuadraticTermCheckbox extends GQCheckbox {
+class QuadraticTermCheckbox extends GQCheckbox {
 
-    /**
-     * @param {BooleanProperty} quadraticTermVisibleProperty
-     * @param {Object} [options]
-     */
-    constructor( quadraticTermVisibleProperty, options ) {
+  /**
+   * @param {BooleanProperty} quadraticTermVisibleProperty
+   * @param {Object} [options]
+   */
+  constructor( quadraticTermVisibleProperty, options ) {
 
-      options = merge( {
-        textFill: GQColors.QUADRATIC_TERM,
+    options = merge( {
+      textFill: GQColors.QUADRATIC_TERM,
 
-        // phet-io
-        phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
-      }, options );
+      // phet-io
+      phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
+    }, options );
 
-      // y = ax^2
-      const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.a + GQSymbols.xSquared;
+    // y = ax^2
+    const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.a + GQSymbols.xSquared;
 
-      super( text, quadraticTermVisibleProperty, options );
-    }
+    super( text, quadraticTermVisibleProperty, options );
   }
+}
 
-  return graphingQuadratics.register( 'QuadraticTermCheckbox', QuadraticTermCheckbox );
-} );
+graphingQuadratics.register( 'QuadraticTermCheckbox', QuadraticTermCheckbox );
+export default QuadraticTermCheckbox;

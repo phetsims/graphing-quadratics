@@ -5,47 +5,44 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQEquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/GQEquationAccordionBox' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Tandem = require( 'TANDEM/Tandem' );
-  const VertexFormEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormEquationNode' );
-  const VertexFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormInteractiveEquationNode' );
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import GQEquationAccordionBox from '../../common/view/GQEquationAccordionBox.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import VertexFormEquationNode from './VertexFormEquationNode.js';
+import VertexFormInteractiveEquationNode from './VertexFormInteractiveEquationNode.js';
 
-  class VertexFormEquationAccordionBox extends GQEquationAccordionBox {
+class VertexFormEquationAccordionBox extends GQEquationAccordionBox {
 
-    /**
-     * @param {VertexFormModel} model
-     * @param {Object} [options]
-     */
-    constructor( model, options ) {
+  /**
+   * @param {VertexFormModel} model
+   * @param {Object} [options]
+   */
+  constructor( model, options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // phet-io
-        tandem: Tandem.REQUIRED
-      }, options );
+      // phet-io
+      tandem: Tandem.REQUIRED
+    }, options );
 
-      assert && assert( !options.titleNode, 'VertexFormEquationAccordionBox sets titleNode' );
-      options.titleNode = new VertexFormEquationNode( {
-        maxWidth: 225, // determined empirically
-        tandem: options.tandem.createTandem( 'titleNode' ),
-        phetioDocumentation: 'the equation shown at the top of this accordion box'
+    assert && assert( !options.titleNode, 'VertexFormEquationAccordionBox sets titleNode' );
+    options.titleNode = new VertexFormEquationNode( {
+      maxWidth: 225, // determined empirically
+      tandem: options.tandem.createTandem( 'titleNode' ),
+      phetioDocumentation: 'the equation shown at the top of this accordion box'
+    } );
+
+    const interactiveEquationNode = new VertexFormInteractiveEquationNode(
+      model.aProperty, model.hProperty, model.kProperty, {
+        tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
+        phetioDocumentation: 'the interactive equation in this accordion box'
       } );
 
-      const interactiveEquationNode = new VertexFormInteractiveEquationNode(
-        model.aProperty, model.hProperty, model.kProperty, {
-          tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
-          phetioDocumentation: 'the interactive equation in this accordion box'
-        } );
-
-      super( model, interactiveEquationNode, options );
-    }
+    super( model, interactiveEquationNode, options );
   }
+}
 
-  return graphingQuadratics.register( 'VertexFormEquationAccordionBox', VertexFormEquationAccordionBox );
-} );
+graphingQuadratics.register( 'VertexFormEquationAccordionBox', VertexFormEquationAccordionBox );
+export default VertexFormEquationAccordionBox;

@@ -5,39 +5,36 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const merge = require( 'PHET_CORE/merge' );
+import merge from '../../../../phet-core/js/merge.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
+import GQColors from '../../common/GQColors.js';
+import GQSymbols from '../../common/GQSymbols.js';
+import GQCheckbox from '../../common/view/GQCheckbox.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  class ConstantTermCheckbox extends GQCheckbox {
+class ConstantTermCheckbox extends GQCheckbox {
 
-    /**
-     * @param {BooleanProperty} constantTermVisibleProperty
-     * @param {Object} [options]
-     */
-    constructor( constantTermVisibleProperty, options ) {
+  /**
+   * @param {BooleanProperty} constantTermVisibleProperty
+   * @param {Object} [options]
+   */
+  constructor( constantTermVisibleProperty, options ) {
 
-      options = merge( {
-        textFill: GQColors.CONSTANT_TERM,
+    options = merge( {
+      textFill: GQColors.CONSTANT_TERM,
 
-        // phet-io
-        phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
+      // phet-io
+      phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
 
-      }, options );
+    }, options );
 
-      // y = c
-      const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.c;
+    // y = c
+    const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.c;
 
-      super( text, constantTermVisibleProperty, options );
-    }
+    super( text, constantTermVisibleProperty, options );
   }
+}
 
-  return graphingQuadratics.register( 'ConstantTermCheckbox', ConstantTermCheckbox );
-} );
+graphingQuadratics.register( 'ConstantTermCheckbox', ConstantTermCheckbox );
+export default ConstantTermCheckbox;

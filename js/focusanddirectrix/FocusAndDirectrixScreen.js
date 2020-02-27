@@ -5,48 +5,45 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const FocusAndDirectrixModel = require( 'GRAPHING_QUADRATICS/focusanddirectrix/model/FocusAndDirectrixModel' );
-  const FocusAndDirectrixScreenView = require( 'GRAPHING_QUADRATICS/focusanddirectrix/view/FocusAndDirectrixScreenView' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQScreenIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQScreenIconFactory' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Property = require( 'AXON/Property' );
-  const Screen = require( 'JOIST/Screen' );
+import Property from '../../../axon/js/Property.js';
+import Screen from '../../../joist/js/Screen.js';
+import GQColors from '../common/GQColors.js';
+import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
+import graphingQuadraticsStrings from '../graphing-quadratics-strings.js';
+import graphingQuadratics from '../graphingQuadratics.js';
+import FocusAndDirectrixModel from './model/FocusAndDirectrixModel.js';
+import FocusAndDirectrixScreenView from './view/FocusAndDirectrixScreenView.js';
 
-  // strings
-  const screenFocusAndDirectrixString = require( 'string!GRAPHING_QUADRATICS/screen.focusAndDirectrix' );
+const screenFocusAndDirectrixString = graphingQuadraticsStrings.screen.focusAndDirectrix;
 
-  class FocusAndDirectrixScreen extends Screen {
+class FocusAndDirectrixScreen extends Screen {
 
-    /**
-     * @param {Tandem} tandem
-     */
-    constructor( tandem ) {
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
 
-      const options = {
+    const options = {
 
-        // Screen options
-        name: screenFocusAndDirectrixString,
-        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
-        homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
-        //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
-        navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
+      // Screen options
+      name: screenFocusAndDirectrixString,
+      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
+      homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
+      //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+      navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
 
-        // phet-io
-        tandem: tandem
-      };
+      // phet-io
+      tandem: tandem
+    };
 
-      super(
-        () => new FocusAndDirectrixModel( tandem.createTandem( 'model' ) ),
-        model => new FocusAndDirectrixScreenView( model, tandem.createTandem( 'view' ) ),
-        options
-      );
-    }
+    super(
+      () => new FocusAndDirectrixModel( tandem.createTandem( 'model' ) ),
+      model => new FocusAndDirectrixScreenView( model, tandem.createTandem( 'view' ) ),
+      options
+    );
   }
+}
 
-  return graphingQuadratics.register( 'FocusAndDirectrixScreen', FocusAndDirectrixScreen );
-} );
+graphingQuadratics.register( 'FocusAndDirectrixScreen', FocusAndDirectrixScreen );
+export default FocusAndDirectrixScreen;

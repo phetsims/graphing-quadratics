@@ -5,35 +5,32 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const merge = require( 'PHET_CORE/merge' );
+import merge from '../../../../phet-core/js/merge.js';
+import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import GQCheckbox from './GQCheckbox.js';
 
-  // strings
-  const coordinatesString = require( 'string!GRAPHING_QUADRATICS/coordinates' );
+const coordinatesString = graphingQuadraticsStrings.coordinates;
 
-  class CoordinatesCheckbox extends GQCheckbox {
+class CoordinatesCheckbox extends GQCheckbox {
 
-    /**
-     * @param {BooleanProperty} coordinatesVisibleProperty
-     * @param {Object} [options]
-     */
-    constructor( coordinatesVisibleProperty, options ) {
+  /**
+   * @param {BooleanProperty} coordinatesVisibleProperty
+   * @param {Object} [options]
+   */
+  constructor( coordinatesVisibleProperty, options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // phet-io
-        phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph'
+      // phet-io
+      phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph'
 
-      }, options );
+    }, options );
 
-      super( coordinatesString, coordinatesVisibleProperty, options );
-    }
+    super( coordinatesString, coordinatesVisibleProperty, options );
   }
+}
 
-  return graphingQuadratics.register( 'CoordinatesCheckbox', CoordinatesCheckbox );
-} );
+graphingQuadratics.register( 'CoordinatesCheckbox', CoordinatesCheckbox );
+export default CoordinatesCheckbox;

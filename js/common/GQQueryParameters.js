@@ -8,63 +8,59 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
+import graphingQuadratics from '../graphingQuadratics.js';
 
-  const GQQueryParameters = QueryStringMachine.getAll( {
+const GQQueryParameters = QueryStringMachine.getAll( {
 
-    // Point tools will snap ON to a curve when <= this distance from the curve, in model coordinates.
-    // See https://github.com/phetsims/graphing-quadratics/issues/47
-    // For internal use only, not public facing.
-    snapOnDistance: {
-      type: 'number',
-      defaultValue: 0.5,
-      isValidValue: function( value ) {
-        return value > 0;
-      }
-    },
-
-    // Point tools will snap OFF of a curve when > this distance from the curve, in model coordinates.
-    // See https://github.com/phetsims/graphing-quadratics/issues/47
-    // For internal use only, not public facing.
-    snapOffDistance: {
-      type: 'number',
-      defaultValue: 2,
-      isValidValue: function( value ) {
-        return value > 0;
-      }
-    },
-    
-    // Distance that a point tool must be from a curve in order to register as being ON the curve, in model coordinates.
-    // See https://github.com/phetsims/graphing-quadratics/issues/81
-    // For internal use only, not public facing.
-    pointToolThreshold: {
-      type: 'number',
-      defaultValue: 0.1,
-      isValidValue: function( value ) {
-        return value > 0;
-      }
-    },
-
-    // Puts a red dot at the origin of Nodes that required transform debugging during implementation.
-    // For internal use only, not public facing.
-    showOrigin: { type: 'flag' },
-
-    // CSS color used for the translucent background behind equations on curves. Used for debugging.
-    // For internal use only, not public facing.
-    equationsBackgroundColor: {
-      type: 'string',
-      defaultValue: 'white'
+  // Point tools will snap ON to a curve when <= this distance from the curve, in model coordinates.
+  // See https://github.com/phetsims/graphing-quadratics/issues/47
+  // For internal use only, not public facing.
+  snapOnDistance: {
+    type: 'number',
+    defaultValue: 0.5,
+    isValidValue: function( value ) {
+      return value > 0;
     }
-  } );
+  },
 
-  graphingQuadratics.register( 'GQQueryParameters', GQQueryParameters );
+  // Point tools will snap OFF of a curve when > this distance from the curve, in model coordinates.
+  // See https://github.com/phetsims/graphing-quadratics/issues/47
+  // For internal use only, not public facing.
+  snapOffDistance: {
+    type: 'number',
+    defaultValue: 2,
+    isValidValue: function( value ) {
+      return value > 0;
+    }
+  },
 
-  // log the values of all sim-specific query parameters
-  phet.log && phet.log( 'query parameters: ' + JSON.stringify( GQQueryParameters, null, 2 ) );
+  // Distance that a point tool must be from a curve in order to register as being ON the curve, in model coordinates.
+  // See https://github.com/phetsims/graphing-quadratics/issues/81
+  // For internal use only, not public facing.
+  pointToolThreshold: {
+    type: 'number',
+    defaultValue: 0.1,
+    isValidValue: function( value ) {
+      return value > 0;
+    }
+  },
 
-  return GQQueryParameters;
+  // Puts a red dot at the origin of Nodes that required transform debugging during implementation.
+  // For internal use only, not public facing.
+  showOrigin: { type: 'flag' },
+
+  // CSS color used for the translucent background behind equations on curves. Used for debugging.
+  // For internal use only, not public facing.
+  equationsBackgroundColor: {
+    type: 'string',
+    defaultValue: 'white'
+  }
 } );
+
+graphingQuadratics.register( 'GQQueryParameters', GQQueryParameters );
+
+// log the values of all sim-specific query parameters
+phet.log && phet.log( 'query parameters: ' + JSON.stringify( GQQueryParameters, null, 2 ) );
+
+export default GQQueryParameters;

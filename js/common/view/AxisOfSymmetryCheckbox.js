@@ -5,46 +5,43 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Line = require( 'SCENERY/nodes/Line' );
-  const merge = require( 'PHET_CORE/merge' );
+import merge from '../../../../phet-core/js/merge.js';
+import Line from '../../../../scenery/js/nodes/Line.js';
+import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import GQColors from '../GQColors.js';
+import GQConstants from '../GQConstants.js';
+import GQCheckbox from './GQCheckbox.js';
 
-  // strings
-  const axisOfSymmetryString = require( 'string!GRAPHING_QUADRATICS/axisOfSymmetry' );
+const axisOfSymmetryString = graphingQuadraticsStrings.axisOfSymmetry;
 
-  class AxisOfSymmetryCheckbox extends GQCheckbox {
+class AxisOfSymmetryCheckbox extends GQCheckbox {
 
-    /**
-     * @param {BooleanProperty} axisOfSymmetryVisibleProperty
-     * @param {Object} [options]
-     */
-    constructor( axisOfSymmetryVisibleProperty, options ) {
+  /**
+   * @param {BooleanProperty} axisOfSymmetryVisibleProperty
+   * @param {Object} [options]
+   */
+  constructor( axisOfSymmetryVisibleProperty, options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // phet-io
-        phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph'
+      // phet-io
+      phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph'
 
-      }, options );
+    }, options );
 
-      // icon is a vertical dashed line
-      assert && assert( !options.icon, 'AxisOfSymmetryCheckbox sets icon' );
-      options.icon = new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[ 0 ], {
-        stroke: GQColors.AXIS_OF_SYMMETRY,
-        lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
-        lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
-      } );
+    // icon is a vertical dashed line
+    assert && assert( !options.icon, 'AxisOfSymmetryCheckbox sets icon' );
+    options.icon = new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[ 0 ], {
+      stroke: GQColors.AXIS_OF_SYMMETRY,
+      lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
+      lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
+    } );
 
-      super( axisOfSymmetryString, axisOfSymmetryVisibleProperty, options );
-    }
+    super( axisOfSymmetryString, axisOfSymmetryVisibleProperty, options );
   }
+}
 
-  return graphingQuadratics.register( 'AxisOfSymmetryCheckbox', AxisOfSymmetryCheckbox );
-} );
+graphingQuadratics.register( 'AxisOfSymmetryCheckbox', AxisOfSymmetryCheckbox );
+export default AxisOfSymmetryCheckbox;

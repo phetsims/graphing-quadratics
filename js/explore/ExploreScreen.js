@@ -5,48 +5,45 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const ExploreModel = require( 'GRAPHING_QUADRATICS/explore/model/ExploreModel' );
-  const ExploreScreenView = require( 'GRAPHING_QUADRATICS/explore/view/ExploreScreenView' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQScreenIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQScreenIconFactory' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Property = require( 'AXON/Property' );
-  const Screen = require( 'JOIST/Screen' );
+import Property from '../../../axon/js/Property.js';
+import Screen from '../../../joist/js/Screen.js';
+import GQColors from '../common/GQColors.js';
+import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
+import graphingQuadraticsStrings from '../graphing-quadratics-strings.js';
+import graphingQuadratics from '../graphingQuadratics.js';
+import ExploreModel from './model/ExploreModel.js';
+import ExploreScreenView from './view/ExploreScreenView.js';
 
-  // strings
-  const screenExploreString = require( 'string!GRAPHING_QUADRATICS/screen.explore' );
+const screenExploreString = graphingQuadraticsStrings.screen.explore;
 
-  class ExploreScreen extends Screen {
+class ExploreScreen extends Screen {
 
-    /**
-     * @param {Tandem} tandem
-     */
-    constructor( tandem ) {
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
 
-      const options = {
+    const options = {
 
-        // Screen options
-        name: screenExploreString,
-        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
-        homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
-        //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
-        navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(),
+      // Screen options
+      name: screenExploreString,
+      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
+      homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
+      //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+      navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(),
 
-        // phet-io
-        tandem: tandem
-      };
+      // phet-io
+      tandem: tandem
+    };
 
-      super(
-        () => new ExploreModel( tandem.createTandem( 'model' ) ),
-        model => new ExploreScreenView( model, tandem.createTandem( 'view' ) ),
-        options
-      );
-    }
+    super(
+      () => new ExploreModel( tandem.createTandem( 'model' ) ),
+      model => new ExploreScreenView( model, tandem.createTandem( 'view' ) ),
+      options
+    );
   }
+}
 
-  return graphingQuadratics.register( 'ExploreScreen', ExploreScreen );
-} );
+graphingQuadratics.register( 'ExploreScreen', ExploreScreen );
+export default ExploreScreen;

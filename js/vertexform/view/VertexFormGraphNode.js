@@ -5,58 +5,55 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const AxisOfSymmetryNode = require( 'GRAPHING_QUADRATICS/common/view/AxisOfSymmetryNode' );
-  const GQGraphNode = require( 'GRAPHING_QUADRATICS/common/view/GQGraphNode' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const VertexManipulator = require( 'GRAPHING_QUADRATICS/common/view/VertexManipulator' );
+import AxisOfSymmetryNode from '../../common/view/AxisOfSymmetryNode.js';
+import GQGraphNode from '../../common/view/GQGraphNode.js';
+import VertexManipulator from '../../common/view/VertexManipulator.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  class VertexFormGraphNode extends GQGraphNode {
+class VertexFormGraphNode extends GQGraphNode {
 
-    /**
-     * @param {VertexFormModel} model
-     * @param {VertexFormViewProperties} viewProperties
-     * @param {Tandem} tandem
-     * @param {Object} [options]
-     */
-    constructor( model, viewProperties, tandem, options ) {
+  /**
+   * @param {VertexFormModel} model
+   * @param {VertexFormViewProperties} viewProperties
+   * @param {Tandem} tandem
+   * @param {Object} [options]
+   */
+  constructor( model, viewProperties, tandem, options ) {
 
-      // We do NOT want to instrument the graph, so tandem is not propagated via options
-      options = options || {};
+    // We do NOT want to instrument the graph, so tandem is not propagated via options
+    options = options || {};
 
-      // Axis of symmetry
-      const axisOfSymmetryNode = new AxisOfSymmetryNode(
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.axisOfSymmetryVisibleProperty,
-        viewProperties.equationsVisibleProperty );
+    // Axis of symmetry
+    const axisOfSymmetryNode = new AxisOfSymmetryNode(
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.axisOfSymmetryVisibleProperty,
+      viewProperties.equationsVisibleProperty );
 
-      // Vertex
-      const vertexManipulator = new VertexManipulator(
-        model.hProperty,
-        model.kProperty,
-        model.quadraticProperty,
-        model.graph,
-        model.modelViewTransform,
-        viewProperties.vertexVisibleProperty,
-        viewProperties.coordinatesVisibleProperty, {
-          tandem: tandem.createTandem( 'vertexManipulator' ),
-          phetioDocumentation: 'manipulator for the vertex'
-        } );
+    // Vertex
+    const vertexManipulator = new VertexManipulator(
+      model.hProperty,
+      model.kProperty,
+      model.quadraticProperty,
+      model.graph,
+      model.modelViewTransform,
+      viewProperties.vertexVisibleProperty,
+      viewProperties.coordinatesVisibleProperty, {
+        tandem: tandem.createTandem( 'vertexManipulator' ),
+        phetioDocumentation: 'manipulator for the vertex'
+      } );
 
-      assert && assert( !options.otherCurves, 'VertexFormGraphNode sets otherCurves' );
-      options.otherCurves = [ axisOfSymmetryNode ];
+    assert && assert( !options.otherCurves, 'VertexFormGraphNode sets otherCurves' );
+    options.otherCurves = [ axisOfSymmetryNode ];
 
-      assert && assert( !options.decorations, 'VertexFormGraphNode sets decorations' );
-      options.decorations = [ vertexManipulator ];
+    assert && assert( !options.decorations, 'VertexFormGraphNode sets decorations' );
+    options.decorations = [ vertexManipulator ];
 
-      super( model, viewProperties, options );
-    }
+    super( model, viewProperties, options );
   }
+}
 
-  return graphingQuadratics.register( 'VertexFormGraphNode', VertexFormGraphNode );
-} );
+graphingQuadratics.register( 'VertexFormGraphNode', VertexFormGraphNode );
+export default VertexFormGraphNode;

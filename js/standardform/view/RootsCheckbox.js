@@ -5,52 +5,49 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const Circle = require( 'SCENERY/nodes/Circle' );
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
-  const merge = require( 'PHET_CORE/merge' );
+import merge from '../../../../phet-core/js/merge.js';
+import Circle from '../../../../scenery/js/nodes/Circle.js';
+import HBox from '../../../../scenery/js/nodes/HBox.js';
+import GQColors from '../../common/GQColors.js';
+import GQCheckbox from '../../common/view/GQCheckbox.js';
+import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  // strings
-  const rootsString = require( 'string!GRAPHING_QUADRATICS/roots' );
+const rootsString = graphingQuadraticsStrings.roots;
 
-  // constants
-  const POINT_RADIUS = 6;
+// constants
+const POINT_RADIUS = 6;
 
-  class RootsCheckbox extends GQCheckbox {
+class RootsCheckbox extends GQCheckbox {
 
-    /**
-     * @param {BooleanProperty} rootsVisibleProperty
-     * @param {Object} [options]
-     */
-    constructor( rootsVisibleProperty, options ) {
+  /**
+   * @param {BooleanProperty} rootsVisibleProperty
+   * @param {Object} [options]
+   */
+  constructor( rootsVisibleProperty, options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // phet-io
-        phetioDocumentation: 'checkbox that shows roots on the graph'
+      // phet-io
+      phetioDocumentation: 'checkbox that shows roots on the graph'
 
-      }, options );
+    }, options );
 
-      // icon is a pair of circles
-      assert && assert( !options.icon, 'RootsCheckbox sets icon' );
-      options.icon = new HBox( {
-        align: 'center',
-        spacing: 5,
-        children: [
-          new Circle( POINT_RADIUS, { fill: GQColors.ROOTS } ),
-          new Circle( POINT_RADIUS, { fill: GQColors.ROOTS } )
-        ]
-      } );
+    // icon is a pair of circles
+    assert && assert( !options.icon, 'RootsCheckbox sets icon' );
+    options.icon = new HBox( {
+      align: 'center',
+      spacing: 5,
+      children: [
+        new Circle( POINT_RADIUS, { fill: GQColors.ROOTS } ),
+        new Circle( POINT_RADIUS, { fill: GQColors.ROOTS } )
+      ]
+    } );
 
-      super( rootsString, rootsVisibleProperty, options );
-    }
+    super( rootsString, rootsVisibleProperty, options );
   }
+}
 
-  return graphingQuadratics.register( 'RootsCheckbox', RootsCheckbox );
-} );
+graphingQuadratics.register( 'RootsCheckbox', RootsCheckbox );
+export default RootsCheckbox;

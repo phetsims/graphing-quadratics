@@ -7,57 +7,54 @@
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Node = require( 'SCENERY/nodes/Node' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Tandem = require( 'TANDEM/Tandem' );
+import merge from '../../../../phet-core/js/merge.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import GQConstants from '../../common/GQConstants.js';
+import GQSymbols from '../../common/GQSymbols.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  class StandardFormEquationNode extends Node {
+class StandardFormEquationNode extends Node {
 
-    /**
-     * @param {Object} [options]
-     */
-    constructor( options ) {
+  /**
+   * @param {Object} [options]
+   */
+  constructor( options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // phet-io
-        tandem: Tandem.REQUIRED
-      }, options );
+      // phet-io
+      tandem: Tandem.REQUIRED
+    }, options );
 
-      // y = ax^2 + bx + c
-      const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
-        x: GQSymbols.x,
-        xSquared: GQSymbols.xSquared,
-        y: GQSymbols.y,
-        a: GQSymbols.a,
-        b: GQSymbols.b,
-        c: GQSymbols.c,
-        equals: MathSymbols.EQUAL_TO,
-        plus: MathSymbols.PLUS
-      } );
+    // y = ax^2 + bx + c
+    const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
+      x: GQSymbols.x,
+      xSquared: GQSymbols.xSquared,
+      y: GQSymbols.y,
+      a: GQSymbols.a,
+      b: GQSymbols.b,
+      c: GQSymbols.c,
+      equals: MathSymbols.EQUAL_TO,
+      plus: MathSymbols.PLUS
+    } );
 
-      const textNode = new RichText( text, {
-        font: GQConstants.INTERACTIVE_EQUATION_FONT,
-        fill: 'black'
-      } );
+    const textNode = new RichText( text, {
+      font: GQConstants.INTERACTIVE_EQUATION_FONT,
+      fill: 'black'
+    } );
 
-      // Wrap the RichText so that its API is not accessible to clients or PhET-iO.
-      assert && assert( !options.children, 'StandardFormEquationNode sets children' );
-      options.children = [ textNode ];
+    // Wrap the RichText so that its API is not accessible to clients or PhET-iO.
+    assert && assert( !options.children, 'StandardFormEquationNode sets children' );
+    options.children = [ textNode ];
 
-      super( options );
-    }
+    super( options );
   }
+}
 
-  return graphingQuadratics.register( 'StandardFormEquationNode', StandardFormEquationNode );
-} );
+graphingQuadratics.register( 'StandardFormEquationNode', StandardFormEquationNode );
+export default StandardFormEquationNode;

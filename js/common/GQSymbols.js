@@ -5,39 +5,36 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const MathSymbolFont = require( 'SCENERY_PHET/MathSymbolFont' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
+import MathSymbolFont from '../../../scenery-phet/js/MathSymbolFont.js';
+import graphingQuadraticsStrings from '../graphing-quadratics-strings.js';
+import graphingQuadratics from '../graphingQuadratics.js';
 
-  // strings
-  const aString = require( 'string!GRAPHING_QUADRATICS/a' );
-  const bString = require( 'string!GRAPHING_QUADRATICS/b' );
-  const cString = require( 'string!GRAPHING_QUADRATICS/c' );
-  const hString = require( 'string!GRAPHING_QUADRATICS/h' );
-  const kString = require( 'string!GRAPHING_QUADRATICS/k' );
-  const pString = require( 'string!GRAPHING_QUADRATICS/p' );
-  const xString = require( 'string!GRAPHING_QUADRATICS/x' );
-  const yString = require( 'string!GRAPHING_QUADRATICS/y' );
+const aString = graphingQuadraticsStrings.a;
+const bString = graphingQuadraticsStrings.b;
+const cString = graphingQuadraticsStrings.c;
+const hString = graphingQuadraticsStrings.h;
+const kString = graphingQuadraticsStrings.k;
+const pString = graphingQuadraticsStrings.p;
+const xString = graphingQuadraticsStrings.x;
+const yString = graphingQuadraticsStrings.y;
 
-  // constants
-  const SYMBOL_PATTERN = '<i style=\'font-family: ' + new MathSymbolFont( 10 ).family + '\'>{{symbol}}</i>';
-  const x = StringUtils.fillIn( SYMBOL_PATTERN, { symbol: xString } );
+// constants
+const SYMBOL_PATTERN = '<i style=\'font-family: ' + new MathSymbolFont( 10 ).family + '\'>{{symbol}}</i>';
+const x = StringUtils.fillIn( SYMBOL_PATTERN, { symbol: xString } );
 
-  const GQSymbols = {
-    a: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: aString } ),
-    b: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: bString } ),
-    c: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: cString } ),
-    h: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: hString } ),
-    k: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: kString } ),
-    p: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: pString } ),
-    x: x,
-    xSquared: StringUtils.fillIn( '{{x}}<sup>2</sup>', { x: x } ),
-    y: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: yString } )
-  };
+const GQSymbols = {
+  a: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: aString } ),
+  b: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: bString } ),
+  c: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: cString } ),
+  h: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: hString } ),
+  k: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: kString } ),
+  p: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: pString } ),
+  x: x,
+  xSquared: StringUtils.fillIn( '{{x}}<sup>2</sup>', { x: x } ),
+  y: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: yString } )
+};
 
-  return graphingQuadratics.register( 'GQSymbols', GQSymbols );
-} );
+graphingQuadratics.register( 'GQSymbols', GQSymbols );
+export default GQSymbols;

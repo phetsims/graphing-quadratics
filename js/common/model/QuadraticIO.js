@@ -5,45 +5,42 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  const Quadratic = require( 'GRAPHING_QUADRATICS/common/model/Quadratic' );
-  const validate = require( 'AXON/validate' );
+import validate from '../../../../axon/js/validate.js';
+import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import Quadratic from './Quadratic.js';
 
-  class QuadraticIO extends ObjectIO {
+class QuadraticIO extends ObjectIO {
 
-    /**
-     * Encodes the state of a Quadratic instance.
-     * @param {Quadratic} quadratic
-     * @returns {*}
-     * @public
-     * @override
-     */
-    static toStateObject( quadratic ) {
-      validate( quadratic, this.validator );
-      return quadratic.toStateObject();
-    }
-
-    /**
-     * Decodes state into a Quadratic instance.
-     * @param {*} object
-     * @returns {Quadratic}
-     * @public
-     * @override
-     */
-    static fromStateObject( object ) {
-      return Quadratic.fromStateObject( object );
-    }
+  /**
+   * Encodes the state of a Quadratic instance.
+   * @param {Quadratic} quadratic
+   * @returns {*}
+   * @public
+   * @override
+   */
+  static toStateObject( quadratic ) {
+    validate( quadratic, this.validator );
+    return quadratic.toStateObject();
   }
 
-  QuadraticIO.documentation = Quadratic.documentationQuadraticIO;
-  QuadraticIO.validator = { valueType: Quadratic };
-  QuadraticIO.typeName = 'QuadraticIO';
-  ObjectIO.validateSubtype( QuadraticIO );
+  /**
+   * Decodes state into a Quadratic instance.
+   * @param {*} object
+   * @returns {Quadratic}
+   * @public
+   * @override
+   */
+  static fromStateObject( object ) {
+    return Quadratic.fromStateObject( object );
+  }
+}
 
-  return graphingQuadratics.register( 'QuadraticIO', QuadraticIO );
-} );
+QuadraticIO.documentation = Quadratic.documentationQuadraticIO;
+QuadraticIO.validator = { valueType: Quadratic };
+QuadraticIO.typeName = 'QuadraticIO';
+ObjectIO.validateSubtype( QuadraticIO );
+
+graphingQuadratics.register( 'QuadraticIO', QuadraticIO );
+export default QuadraticIO;

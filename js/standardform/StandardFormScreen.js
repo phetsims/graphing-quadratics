@@ -6,48 +6,45 @@
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQScreenIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQScreenIconFactory' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Property = require( 'AXON/Property' );
-  const Screen = require( 'JOIST/Screen' );
-  const StandardFormModel = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormModel' );
-  const StandardFormScreenView = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormScreenView' );
+import Property from '../../../axon/js/Property.js';
+import Screen from '../../../joist/js/Screen.js';
+import GQColors from '../common/GQColors.js';
+import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
+import graphingQuadraticsStrings from '../graphing-quadratics-strings.js';
+import graphingQuadratics from '../graphingQuadratics.js';
+import StandardFormModel from './model/StandardFormModel.js';
+import StandardFormScreenView from './view/StandardFormScreenView.js';
 
-  // strings
-  const screenStandardFormString = require( 'string!GRAPHING_QUADRATICS/screen.standardForm' );
+const screenStandardFormString = graphingQuadraticsStrings.screen.standardForm;
 
-  class StandardFormScreen extends Screen {
+class StandardFormScreen extends Screen {
 
-    /**
-     * @param {Tandem} tandem
-     */
-    constructor( tandem ) {
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
 
-      const options = {
+    const options = {
 
-        // Screen options
-        name: screenStandardFormString,
-        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
-        homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
-        //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
-        navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
+      // Screen options
+      name: screenStandardFormString,
+      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
+      homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
+      //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+      navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
 
-        // phet-io
-        tandem: tandem
-      };
+      // phet-io
+      tandem: tandem
+    };
 
-      super(
-        () => new StandardFormModel( tandem.createTandem( 'model' ) ),
-        model => new StandardFormScreenView( model, tandem.createTandem( 'view' ) ),
-        options
-      );
-    }
+    super(
+      () => new StandardFormModel( tandem.createTandem( 'model' ) ),
+      model => new StandardFormScreenView( model, tandem.createTandem( 'view' ) ),
+      options
+    );
   }
+}
 
-  return graphingQuadratics.register( 'StandardFormScreen', StandardFormScreen );
-} );
+graphingQuadratics.register( 'StandardFormScreen', StandardFormScreen );
+export default StandardFormScreen;

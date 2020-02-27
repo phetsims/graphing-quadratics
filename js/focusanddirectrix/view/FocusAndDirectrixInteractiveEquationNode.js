@@ -6,229 +6,225 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GQSlider = require( 'GRAPHING_QUADRATICS/common/view/GQSlider' );
-  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
-  const Line = require( 'SCENERY/nodes/Line' );
-  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Node = require( 'SCENERY/nodes/Node' );
-  const NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Tandem = require( 'TANDEM/Tandem' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
+import merge from '../../../../phet-core/js/merge.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
+import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
+import HBox from '../../../../scenery/js/nodes/HBox.js';
+import Line from '../../../../scenery/js/nodes/Line.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
+import VBox from '../../../../scenery/js/nodes/VBox.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import GQColors from '../../common/GQColors.js';
+import GQConstants from '../../common/GQConstants.js';
+import GQSymbols from '../../common/GQSymbols.js';
+import GQSlider from '../../common/view/GQSlider.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  class FocusAndDirectrixInteractiveEquationNode extends Node {
-
-    /**
-     * Constructor parameters are coefficients of the alternate vertex form: y = (1/(4p))(x - h)^2 + k
-     * @param {NumberProperty} pProperty
-     * @param {NumberProperty} hProperty
-     * @param {NumberProperty} kProperty
-     * @param {Object} [options]
-     */
-    constructor( pProperty, hProperty, kProperty, options ) {
-
-      options = merge( {
-
-        // phet-io
-        tandem: Tandem.REQUIRED
-      }, options );
-
-      // equation
-      const equationNode = new EquationNode( pProperty, hProperty, kProperty, {
-        tandem: options.tandem.createTandem( 'equationNode' ),
-        phetioDocumentation: 'the equation that changes as the sliders are adjusted'
-      } );
-
-      // value sliders
-      const pSlider = new GQSlider( GQSymbols.p, pProperty, {
-
-        // p=0 is not supported by this sim because it results in division by zero for 1/(4p).
-        // see https://github.com/phetsims/graphing-quadratics/issues/31
-        skipZero: true,
-        interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
-        labelColor: GQColors.FOCUS_AND_DIRECTRIX_P,
-        tandem: options.tandem.createTandem( 'pSlider' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
-      } );
-      const hSlider = new GQSlider( GQSymbols.h, hProperty, {
-        interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
-        labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
-        tandem: options.tandem.createTandem( 'hSlider' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
-      } );
-      const kSlider = new GQSlider( GQSymbols.k, kProperty, {
-        interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
-        labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
-        tandem: options.tandem.createTandem( 'kSlider' ),
-        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
-      } );
-
-      assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
-      options.children = [ equationNode, pSlider, hSlider, kSlider ];
-
-      super( options );
-
-      // horizontally align sliders under their associated values in the equation
-      const ySpacing = 3;
-      pSlider.x = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
-      pSlider.top = equationNode.bottom + ySpacing;
-      hSlider.x = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
-      hSlider.top = equationNode.bottom + ySpacing;
-      kSlider.x = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
-      kSlider.top = equationNode.bottom + ySpacing;
-    }
-  }
-
-  graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );
+class FocusAndDirectrixInteractiveEquationNode extends Node {
 
   /**
-   * The equation that appears above the sliders.
+   * Constructor parameters are coefficients of the alternate vertex form: y = (1/(4p))(x - h)^2 + k
+   * @param {NumberProperty} pProperty
+   * @param {NumberProperty} hProperty
+   * @param {NumberProperty} kProperty
+   * @param {Object} [options]
    */
-  class EquationNode extends Node {
+  constructor( pProperty, hProperty, kProperty, options ) {
 
-    /**
-     * @param {NumberProperty} pProperty
-     * @param {NumberProperty} hProperty
-     * @param {NumberProperty} kProperty
-     * @param {Object} [options]
-     */
-    constructor( pProperty, hProperty, kProperty, options ) {
+    options = merge( {
 
-      options = merge( {
-        tandem: Tandem.REQUIRED
-      }, options );
+      // phet-io
+      tandem: Tandem.REQUIRED
+    }, options );
 
-      assert && assert( pProperty.range, 'missing pProperty.range' );
-      assert && assert( hProperty.range, 'missing hProperty.range' );
-      assert && assert( kProperty.range, 'missing kProperty.range' );
+    // equation
+    const equationNode = new EquationNode( pProperty, hProperty, kProperty, {
+      tandem: options.tandem.createTandem( 'equationNode' ),
+      phetioDocumentation: 'the equation that changes as the sliders are adjusted'
+    } );
 
-      // options for parts of the equation
-      const equationOptions = {
-        font: GQConstants.INTERACTIVE_EQUATION_FONT
-      };
-      const xyOptions = merge( {}, equationOptions, {
-        maxWidth: 20 // determined empirically
-      } );
+    // value sliders
+    const pSlider = new GQSlider( GQSymbols.p, pProperty, {
 
-      // y
-      const yNode = new RichText( GQSymbols.y, xyOptions );
+      // p=0 is not supported by this sim because it results in division by zero for 1/(4p).
+      // see https://github.com/phetsims/graphing-quadratics/issues/31
+      skipZero: true,
+      interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
+      labelColor: GQColors.FOCUS_AND_DIRECTRIX_P,
+      tandem: options.tandem.createTandem( 'pSlider' ),
+      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
+    } );
+    const hSlider = new GQSlider( GQSymbols.h, hProperty, {
+      interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
+      labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
+      tandem: options.tandem.createTandem( 'hSlider' ),
+      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
+    } );
+    const kSlider = new GQSlider( GQSymbols.k, kProperty, {
+      interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
+      labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
+      tandem: options.tandem.createTandem( 'kSlider' ),
+      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
+    } );
 
-      // =
-      const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
+    assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
+    options.children = [ equationNode, pSlider, hSlider, kSlider ];
 
-      // 1
-      const numeratorNode = new RichText( '1', equationOptions );
+    super( options );
 
-      // 4(
-      const fourParenNode = new RichText( '4(', equationOptions );
+    // horizontally align sliders under their associated values in the equation
+    const ySpacing = 3;
+    pSlider.x = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
+    pSlider.top = equationNode.bottom + ySpacing;
+    hSlider.x = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
+    hSlider.top = equationNode.bottom + ySpacing;
+    kSlider.x = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
+    kSlider.top = equationNode.bottom + ySpacing;
+  }
+}
 
-      // p value
-      const pNode = new NumberDisplay( pProperty, pProperty.range,
-        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-          numberFill: GQColors.FOCUS_AND_DIRECTRIX_P,
-          decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
-        } ) );
+graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );
 
-      // )
-      const parenNode = new RichText( ')', equationOptions );
+/**
+ * The equation that appears above the sliders.
+ */
+class EquationNode extends Node {
 
-      // 4(p)
-      const denominatorNode = new HBox( {
-        align: 'center',
-        children: [ fourParenNode, pNode, parenNode ]
-      } );
+  /**
+   * @param {NumberProperty} pProperty
+   * @param {NumberProperty} hProperty
+   * @param {NumberProperty} kProperty
+   * @param {Object} [options]
+   */
+  constructor( pProperty, hProperty, kProperty, options ) {
 
-      // horizontal line between numerator and denominator
-      const fractionLineLength = 1.1 * Math.max( numeratorNode.width, denominatorNode.width );
-      const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
-        stroke: 'black',
-        lineWidth: 1
-      } );
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
-      // 1/4p
-      const fractionNode = new VBox( {
-        spacing: 2,
-        align: 'center',
-        children: [ numeratorNode, fractionLine, denominatorNode ],
-        scale: 0.85
-      } );
+    assert && assert( pProperty.range, 'missing pProperty.range' );
+    assert && assert( hProperty.range, 'missing hProperty.range' );
+    assert && assert( kProperty.range, 'missing kProperty.range' );
 
-      // (
-      const anotherParenNode = new RichText( '(', equationOptions );
+    // options for parts of the equation
+    const equationOptions = {
+      font: GQConstants.INTERACTIVE_EQUATION_FONT
+    };
+    const xyOptions = merge( {}, equationOptions, {
+      maxWidth: 20 // determined empirically
+    } );
 
-      // x
-      const xNode = new RichText( GQSymbols.x, xyOptions );
+    // y
+    const yNode = new RichText( GQSymbols.y, xyOptions );
 
-      // -
-      const minusNode = new RichText( MathSymbols.MINUS, equationOptions );
+    // =
+    const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
 
-      // h value
-      const hNode = new NumberDisplay( hProperty, hProperty.range,
-        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-          numberFill: GQColors.FOCUS_AND_DIRECTRIX_H,
-          decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
-        } ) );
+    // 1
+    const numeratorNode = new RichText( '1', equationOptions );
 
-      // )^2
-      const parenSquaredNode = new RichText( ')<sup>2</sup>', equationOptions );
+    // 4(
+    const fourParenNode = new RichText( '4(', equationOptions );
 
-      // +
-      const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
+    // p value
+    const pNode = new NumberDisplay( pProperty, pProperty.range,
+      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        numberFill: GQColors.FOCUS_AND_DIRECTRIX_P,
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
+      } ) );
 
-      // k value
-      const kNode = new NumberDisplay( kProperty, kProperty.range,
-        merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-          numberFill: GQColors.FOCUS_AND_DIRECTRIX_K,
-          decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
-        } ) );
+    // )
+    const parenNode = new RichText( ')', equationOptions );
 
-      // layout
-      equalsNode.left = yNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      fractionNode.left = equalsNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      fractionNode.centerY = equalsNode.centerY;
-      anotherParenNode.left = fractionNode.right + GQConstants.EQUATION_TERM_SPACING;
-      xNode.left = anotherParenNode.right + GQConstants.EQUATION_TERM_SPACING;
-      minusNode.left = xNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      hNode.left = minusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      parenSquaredNode.left = hNode.right + GQConstants.EQUATION_TERM_SPACING;
-      plusNode.left = parenSquaredNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      kNode.left = plusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-      hNode.bottom = equalsNode.bottom;
-      kNode.bottom = equalsNode.bottom;
+    // 4(p)
+    const denominatorNode = new HBox( {
+      align: 'center',
+      children: [ fourParenNode, pNode, parenNode ]
+    } );
 
-      // y = (1/(4p))(x - h)^2 + k
-      assert && assert( !options.children, 'EquationNode sets children' );
-      options.children = [ yNode, equalsNode, fractionNode,
-        anotherParenNode, xNode, minusNode, hNode, parenSquaredNode, plusNode, kNode ];
+    // horizontal line between numerator and denominator
+    const fractionLineLength = 1.1 * Math.max( numeratorNode.width, denominatorNode.width );
+    const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
+      stroke: 'black',
+      lineWidth: 1
+    } );
 
-      super( options );
+    // 1/4p
+    const fractionNode = new VBox( {
+      spacing: 2,
+      align: 'center',
+      children: [ numeratorNode, fractionLine, denominatorNode ],
+      scale: 0.85
+    } );
 
-      // @private needed by methods
-      this.pNode = pNode;
-      this.hNode = hNode;
-      this.kNode = kNode;
-    }
+    // (
+    const anotherParenNode = new RichText( '(', equationOptions );
 
-    // @public Gets the global {Bounds2} of p, h, k, used for layout
-    get pGlobalBounds() { return this.getGlobalBoundsForNode( this.pNode ); }
+    // x
+    const xNode = new RichText( GQSymbols.x, xyOptions );
 
-    get hGlobalBounds() { return this.getGlobalBoundsForNode( this.hNode ); }
+    // -
+    const minusNode = new RichText( MathSymbols.MINUS, equationOptions );
 
-    get kGlobalBounds() { return this.getGlobalBoundsForNode( this.kNode ); }
+    // h value
+    const hNode = new NumberDisplay( hProperty, hProperty.range,
+      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        numberFill: GQColors.FOCUS_AND_DIRECTRIX_H,
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
+      } ) );
 
-    // @private gets the global bounds of a descendent Node
-    getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
+    // )^2
+    const parenSquaredNode = new RichText( ')<sup>2</sup>', equationOptions );
+
+    // +
+    const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
+
+    // k value
+    const kNode = new NumberDisplay( kProperty, kProperty.range,
+      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        numberFill: GQColors.FOCUS_AND_DIRECTRIX_K,
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
+      } ) );
+
+    // layout
+    equalsNode.left = yNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+    fractionNode.left = equalsNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+    fractionNode.centerY = equalsNode.centerY;
+    anotherParenNode.left = fractionNode.right + GQConstants.EQUATION_TERM_SPACING;
+    xNode.left = anotherParenNode.right + GQConstants.EQUATION_TERM_SPACING;
+    minusNode.left = xNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+    hNode.left = minusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+    parenSquaredNode.left = hNode.right + GQConstants.EQUATION_TERM_SPACING;
+    plusNode.left = parenSquaredNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+    kNode.left = plusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
+    hNode.bottom = equalsNode.bottom;
+    kNode.bottom = equalsNode.bottom;
+
+    // y = (1/(4p))(x - h)^2 + k
+    assert && assert( !options.children, 'EquationNode sets children' );
+    options.children = [ yNode, equalsNode, fractionNode,
+      anotherParenNode, xNode, minusNode, hNode, parenSquaredNode, plusNode, kNode ];
+
+    super( options );
+
+    // @private needed by methods
+    this.pNode = pNode;
+    this.hNode = hNode;
+    this.kNode = kNode;
   }
 
-  return FocusAndDirectrixInteractiveEquationNode;
-} );
+  // @public Gets the global {Bounds2} of p, h, k, used for layout
+  get pGlobalBounds() { return this.getGlobalBoundsForNode( this.pNode ); }
+
+  get hGlobalBounds() { return this.getGlobalBoundsForNode( this.hNode ); }
+
+  get kGlobalBounds() { return this.getGlobalBoundsForNode( this.kNode ); }
+
+  // @private gets the global bounds of a descendent Node
+  getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
+}
+
+export default FocusAndDirectrixInteractiveEquationNode;

@@ -5,35 +5,32 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQCheckbox = require( 'GRAPHING_QUADRATICS/common/view/GQCheckbox' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const merge = require( 'PHET_CORE/merge' );
+import merge from '../../../../phet-core/js/merge.js';
+import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import GQCheckbox from './GQCheckbox.js';
 
-  // strings
-  const equationsString = require( 'string!GRAPHING_QUADRATICS/equations' );
+const equationsString = graphingQuadraticsStrings.equations;
 
-  class EquationsCheckbox extends GQCheckbox {
+class EquationsCheckbox extends GQCheckbox {
 
-    /**
-     * @param {BooleanProperty} equationsVisibleProperty
-     * @param {Object} [options]
-     */
-    constructor( equationsVisibleProperty, options ) {
+  /**
+   * @param {BooleanProperty} equationsVisibleProperty
+   * @param {Object} [options]
+   */
+  constructor( equationsVisibleProperty, options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // phet-io
-        phetioDocumentation: 'checkbox that shows equations on graphed curves'
+      // phet-io
+      phetioDocumentation: 'checkbox that shows equations on graphed curves'
 
-      }, options );
+    }, options );
 
-      super( equationsString, equationsVisibleProperty, options );
-    }
+    super( equationsString, equationsVisibleProperty, options );
   }
+}
 
-  return graphingQuadratics.register( 'EquationsCheckbox', EquationsCheckbox );
-} );
+graphingQuadratics.register( 'EquationsCheckbox', EquationsCheckbox );
+export default EquationsCheckbox;

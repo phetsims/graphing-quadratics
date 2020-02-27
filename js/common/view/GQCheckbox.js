@@ -6,58 +6,55 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const Checkbox = require( 'SUN/Checkbox' );
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
-  const merge = require( 'PHET_CORE/merge' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
-  const Tandem = require( 'TANDEM/Tandem' );
+import merge from '../../../../phet-core/js/merge.js';
+import HBox from '../../../../scenery/js/nodes/HBox.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
+import Checkbox from '../../../../sun/js/Checkbox.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import GQConstants from '../GQConstants.js';
 
-  class GQCheckbox extends Checkbox {
+class GQCheckbox extends Checkbox {
 
-    /**
-     * @param {string} text - supports RichText
-     * @param {BooleanProperty} booleanProperty
-     * @param {Object} [options]
-     */
-    constructor( text, booleanProperty, options ) {
+  /**
+   * @param {string} text - supports RichText
+   * @param {BooleanProperty} booleanProperty
+   * @param {Object} [options]
+   */
+  constructor( text, booleanProperty, options ) {
 
-      options = merge( {
-        textFill: 'black',
-        font: GQConstants.CHECKBOX_LABEL_FONT,
-        icon: null, // {Node|null} optional icon, to the right of text
+    options = merge( {
+      textFill: 'black',
+      font: GQConstants.CHECKBOX_LABEL_FONT,
+      icon: null, // {Node|null} optional icon, to the right of text
 
-        // phet-io
-        tandem: Tandem.REQUIRED
+      // phet-io
+      tandem: Tandem.REQUIRED
 
-      }, options );
+    }, options );
 
-      const textNode = new RichText( text, {
-        fill: options.textFill,
-        font: options.font,
-        maxWidth: 180 // determined empirically
+    const textNode = new RichText( text, {
+      fill: options.textFill,
+      font: options.font,
+      maxWidth: 180 // determined empirically
+    } );
+
+    let content = null;
+    if ( options.icon ) {
+      content = new HBox( {
+        align: 'center',
+        spacing: 8,
+        children: [ textNode, options.icon ]
       } );
-
-      let content = null;
-      if ( options.icon ) {
-        content = new HBox( {
-          align: 'center',
-          spacing: 8,
-          children: [ textNode, options.icon ]
-        } );
-      }
-      else {
-        content = textNode;
-      }
-
-      super( content, booleanProperty, options );
     }
-  }
+    else {
+      content = textNode;
+    }
 
-  return graphingQuadratics.register( 'GQCheckbox', GQCheckbox );
-} );
+    super( content, booleanProperty, options );
+  }
+}
+
+graphingQuadratics.register( 'GQCheckbox', GQCheckbox );
+export default GQCheckbox;

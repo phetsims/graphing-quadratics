@@ -5,48 +5,45 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQColors = require( 'GRAPHING_QUADRATICS/common/GQColors' );
-  const GQScreenIconFactory = require( 'GRAPHING_QUADRATICS/common/view/GQScreenIconFactory' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Property = require( 'AXON/Property' );
-  const Screen = require( 'JOIST/Screen' );
-  const VertexFormModel = require( 'GRAPHING_QUADRATICS/vertexform/model/VertexFormModel' );
-  const VertexFormScreenView = require( 'GRAPHING_QUADRATICS/vertexform/view/VertexFormScreenView' );
+import Property from '../../../axon/js/Property.js';
+import Screen from '../../../joist/js/Screen.js';
+import GQColors from '../common/GQColors.js';
+import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
+import graphingQuadraticsStrings from '../graphing-quadratics-strings.js';
+import graphingQuadratics from '../graphingQuadratics.js';
+import VertexFormModel from './model/VertexFormModel.js';
+import VertexFormScreenView from './view/VertexFormScreenView.js';
 
-  // strings
-  const screenVertexFormString = require( 'string!GRAPHING_QUADRATICS/screen.vertexForm' );
+const screenVertexFormString = graphingQuadraticsStrings.screen.vertexForm;
 
-  class VertexFormScreen extends Screen {
+class VertexFormScreen extends Screen {
 
-    /**
-     * @param {Tandem} tandem
-     */
-    constructor( tandem ) {
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
 
-      const options = {
+    const options = {
 
-        // Screen options
-        name: screenVertexFormString,
-        backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
-        homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
-        //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
-        navigationBarIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
+      // Screen options
+      name: screenVertexFormString,
+      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
+      homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
+      //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+      navigationBarIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
 
-        // phet-io
-        tandem: tandem
-      };
+      // phet-io
+      tandem: tandem
+    };
 
-      super(
-        () => new VertexFormModel( tandem.createTandem( 'model' ) ),
-        model => new VertexFormScreenView( model, tandem.createTandem( 'view' ) ),
-        options
-      );
-    }
+    super(
+      () => new VertexFormModel( tandem.createTandem( 'model' ) ),
+      model => new VertexFormScreenView( model, tandem.createTandem( 'view' ) ),
+      options
+    );
   }
+}
 
-  return graphingQuadratics.register( 'VertexFormScreen', VertexFormScreen );
-} );
+graphingQuadratics.register( 'VertexFormScreen', VertexFormScreen );
+export default VertexFormScreen;

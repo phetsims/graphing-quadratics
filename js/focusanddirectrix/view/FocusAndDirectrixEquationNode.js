@@ -6,96 +6,93 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQConstants = require( 'GRAPHING_QUADRATICS/common/GQConstants' );
-  const GQSymbols = require( 'GRAPHING_QUADRATICS/common/GQSymbols' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const Line = require( 'SCENERY/nodes/Line' );
-  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Node = require( 'SCENERY/nodes/Node' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Tandem = require( 'TANDEM/Tandem' );
-  const VBox = require( 'SCENERY/nodes/VBox' );
+import merge from '../../../../phet-core/js/merge.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
+import Line from '../../../../scenery/js/nodes/Line.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
+import VBox from '../../../../scenery/js/nodes/VBox.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import GQConstants from '../../common/GQConstants.js';
+import GQSymbols from '../../common/GQSymbols.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  class FocusAndDirectrixEquationNode extends Node {
+class FocusAndDirectrixEquationNode extends Node {
 
-    /**
-     * @param {Object} [options]
-     */
-    constructor( options ) {
+  /**
+   * @param {Object} [options]
+   */
+  constructor( options ) {
 
-      options = merge( {
-        font: GQConstants.INTERACTIVE_EQUATION_FONT,
-        fractionFont: GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT,
-        color: 'black',
+    options = merge( {
+      font: GQConstants.INTERACTIVE_EQUATION_FONT,
+      fractionFont: GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT,
+      color: 'black',
 
-        // phet-io
-        tandem: Tandem.REQUIRED
-      }, options );
+      // phet-io
+      tandem: Tandem.REQUIRED
+    }, options );
 
-      // y =
-      const yEqualsString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO;
-      const yEqualsNode = new RichText( yEqualsString, {
-        font: options.font,
-        fill: options.color
-      } );
+    // y =
+    const yEqualsString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO;
+    const yEqualsNode = new RichText( yEqualsString, {
+      font: options.font,
+      fill: options.color
+    } );
 
-      // 1
-      const numeratorNode = new RichText( '1', {
-        font: options.fractionFont,
-        fill: options.color
-      } );
+    // 1
+    const numeratorNode = new RichText( '1', {
+      font: options.fractionFont,
+      fill: options.color
+    } );
 
-      // 4p
-      const denominatorString = '4' + GQSymbols.p;
-      const denominatorNode = new RichText( denominatorString, {
-        font: options.fractionFont,
-        fill: options.color
-      } );
+    // 4p
+    const denominatorString = '4' + GQSymbols.p;
+    const denominatorNode = new RichText( denominatorString, {
+      font: options.fractionFont,
+      fill: options.color
+    } );
 
-      // horizontal line between numerator and denominator
-      const fractionLineLength = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
-      const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
-        stroke: options.color,
-        lineWidth: 1
-      } );
+    // horizontal line between numerator and denominator
+    const fractionLineLength = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
+    const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
+      stroke: options.color,
+      lineWidth: 1
+    } );
 
-      // 1/4p
-      const fractionNode = new VBox( {
-        spacing: 2,
-        align: 'center',
-        children: [ numeratorNode, fractionLine, denominatorNode ]
-      } );
+    // 1/4p
+    const fractionNode = new VBox( {
+      spacing: 2,
+      align: 'center',
+      children: [ numeratorNode, fractionLine, denominatorNode ]
+    } );
 
-      // (x - h)^2 + k
-      const rightString = StringUtils.fillIn( '({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
-        x: GQSymbols.x,
-        h: GQSymbols.h,
-        k: GQSymbols.k,
-        plus: MathSymbols.PLUS,
-        minus: MathSymbols.MINUS
-      } );
-      const rightNode = new RichText( rightString, {
-        font: options.font,
-        fill: options.color
-      } );
+    // (x - h)^2 + k
+    const rightString = StringUtils.fillIn( '({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
+      x: GQSymbols.x,
+      h: GQSymbols.h,
+      k: GQSymbols.k,
+      plus: MathSymbols.PLUS,
+      minus: MathSymbols.MINUS
+    } );
+    const rightNode = new RichText( rightString, {
+      font: options.font,
+      fill: options.color
+    } );
 
-      assert && assert( !options.children, 'FocusAndDirectrixEquationNode sets children' );
-      options.children = [ yEqualsNode, fractionNode, rightNode ];
+    assert && assert( !options.children, 'FocusAndDirectrixEquationNode sets children' );
+    options.children = [ yEqualsNode, fractionNode, rightNode ];
 
-      const xSpacing = 5;
-      fractionNode.left = yEqualsNode.right + xSpacing;
-      fractionNode.centerY = yEqualsNode.centerY;
-      rightNode.left = fractionNode.right + xSpacing;
+    const xSpacing = 5;
+    fractionNode.left = yEqualsNode.right + xSpacing;
+    fractionNode.centerY = yEqualsNode.centerY;
+    rightNode.left = fractionNode.right + xSpacing;
 
-      super( options );
-    }
+    super( options );
   }
+}
 
-  return graphingQuadratics.register( 'FocusAndDirectrixEquationNode', FocusAndDirectrixEquationNode );
-} );
+graphingQuadratics.register( 'FocusAndDirectrixEquationNode', FocusAndDirectrixEquationNode );
+export default FocusAndDirectrixEquationNode;

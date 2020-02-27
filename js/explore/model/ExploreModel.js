@@ -6,54 +6,51 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const DerivedProperty = require( 'AXON/DerivedProperty' );
-  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const QuadraticIO = require( 'GRAPHING_QUADRATICS/common/model/QuadraticIO' );
-  const StandardFormModel = require( 'GRAPHING_QUADRATICS/standardform/model/StandardFormModel' );
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
+import QuadraticIO from '../../common/model/QuadraticIO.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import StandardFormModel from '../../standardform/model/StandardFormModel.js';
 
-  class ExploreModel extends StandardFormModel {
+class ExploreModel extends StandardFormModel {
 
-    /**
-     * @param {Tandem} tandem
-     */
-    constructor( tandem ) {
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
 
-      super( tandem, {
+    super( tandem, {
 
-        // NumberProperty coefficients values in this screen are continuous, controlled by sliders
-        numberType: 'FloatingPoint'
+      // NumberProperty coefficients values in this screen are continuous, controlled by sliders
+      numberType: 'FloatingPoint'
+    } );
+
+    // @public {DerivedProperty.<Quadratic>}
+    this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
+      quadratic => quadratic.getQuadraticTerm(), {
+        tandem: tandem.createTandem( 'quadraticTermProperty' ),
+        phetioDocumentation: 'the quadratic term (y = ax^2) of the interactive quadratic',
+        phetioType: DerivedPropertyIO( QuadraticIO )
       } );
 
-      // @public {DerivedProperty.<Quadratic>}
-      this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
-        quadratic => quadratic.getQuadraticTerm(), {
-          tandem: tandem.createTandem( 'quadraticTermProperty' ),
-          phetioDocumentation: 'the quadratic term (y = ax^2) of the interactive quadratic',
-          phetioType: DerivedPropertyIO( QuadraticIO )
-        } );
+    // @public {DerivedProperty.<Quadratic>}
+    this.linearTermProperty = new DerivedProperty( [ this.quadraticProperty ],
+      quadratic => quadratic.getLinearTerm(), {
+        tandem: tandem.createTandem( 'linearTermProperty' ),
+        phetioDocumentation: 'the linear term (y = bx) of the interactive quadratic',
+        phetioType: DerivedPropertyIO( QuadraticIO )
+      } );
 
-      // @public {DerivedProperty.<Quadratic>}
-      this.linearTermProperty = new DerivedProperty( [ this.quadraticProperty ],
-        quadratic => quadratic.getLinearTerm(), {
-          tandem: tandem.createTandem( 'linearTermProperty' ),
-          phetioDocumentation: 'the linear term (y = bx) of the interactive quadratic',
-          phetioType: DerivedPropertyIO( QuadraticIO )
-        } );
-
-      // @public {DerivedProperty.<Quadratic>}
-      this.constantTermProperty = new DerivedProperty( [ this.quadraticProperty ],
-        quadratic => quadratic.getConstantTerm(), {
-          tandem: tandem.createTandem( 'constantTermProperty' ),
-          phetioDocumentation: 'the constant term (y = c) of the interactive quadratic',
-          phetioType: DerivedPropertyIO( QuadraticIO )
-        } );
-    }
+    // @public {DerivedProperty.<Quadratic>}
+    this.constantTermProperty = new DerivedProperty( [ this.quadraticProperty ],
+      quadratic => quadratic.getConstantTerm(), {
+        tandem: tandem.createTandem( 'constantTermProperty' ),
+        phetioDocumentation: 'the constant term (y = c) of the interactive quadratic',
+        phetioType: DerivedPropertyIO( QuadraticIO )
+      } );
   }
+}
 
-  return graphingQuadratics.register( 'ExploreModel', ExploreModel );
-} );
+graphingQuadratics.register( 'ExploreModel', ExploreModel );
+export default ExploreModel;

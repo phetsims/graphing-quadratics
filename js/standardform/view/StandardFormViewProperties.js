@@ -5,54 +5,49 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const GQViewProperties = require( 'GRAPHING_QUADRATICS/common/view/GQViewProperties' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Tandem = require( 'TANDEM/Tandem' );
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import GQViewProperties from '../../common/view/GQViewProperties.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
-  class StandardFormViewProperties extends GQViewProperties {
+class StandardFormViewProperties extends GQViewProperties {
 
-    /**
-     * @param {Object} [options]
-     */
-    constructor( options ) {
+  /**
+   * @param {Object} [options]
+   */
+  constructor( options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // {boolean} values for optional BooleanProperties
-        vertexVisible: false,
-        axisOfSymmetryVisible: false,
-        coordinatesVisible: true,
+      // {boolean} values for optional BooleanProperties
+      vertexVisible: false,
+      axisOfSymmetryVisible: false,
+      coordinatesVisible: true,
 
-        // phet-io
-        tandem: Tandem.REQUIRED
-      }, options );
+      // phet-io
+      tandem: Tandem.REQUIRED
+    }, options );
 
-      super( options );
+    super( options );
 
-      // @public
-      this.rootsVisibleProperty = new BooleanProperty( false, {
-        tandem: options.tandem.createTandem( 'rootsVisibleProperty' ),
-        phetioDocumentation: 'whether the roots of the quadratic are visible'
-      } );
-    }
-
-    /**
-     * @public
-     * @override
-     */
-    reset() {
-      super.reset();
-      this.rootsVisibleProperty.reset();
-    }
+    // @public
+    this.rootsVisibleProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'rootsVisibleProperty' ),
+      phetioDocumentation: 'whether the roots of the quadratic are visible'
+    } );
   }
 
-  return graphingQuadratics.register( 'StandardFormViewProperties', StandardFormViewProperties );
-} );
+  /**
+   * @public
+   * @override
+   */
+  reset() {
+    super.reset();
+    this.rootsVisibleProperty.reset();
+  }
+}
 
- 
+graphingQuadratics.register( 'StandardFormViewProperties', StandardFormViewProperties );
+export default StandardFormViewProperties;

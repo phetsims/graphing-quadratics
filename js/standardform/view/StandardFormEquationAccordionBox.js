@@ -5,49 +5,46 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const GQEquationAccordionBox = require( 'GRAPHING_QUADRATICS/common/view/GQEquationAccordionBox' );
-  const graphingQuadratics = require( 'GRAPHING_QUADRATICS/graphingQuadratics' );
-  const merge = require( 'PHET_CORE/merge' );
-  const StandardFormEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormEquationNode' );
-  const StandardFormInteractiveEquationNode = require( 'GRAPHING_QUADRATICS/standardform/view/StandardFormInteractiveEquationNode' );
-  const Tandem = require( 'TANDEM/Tandem' );
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import GQEquationAccordionBox from '../../common/view/GQEquationAccordionBox.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import StandardFormEquationNode from './StandardFormEquationNode.js';
+import StandardFormInteractiveEquationNode from './StandardFormInteractiveEquationNode.js';
 
-  class StandardFormEquationAccordionBox extends GQEquationAccordionBox {
+class StandardFormEquationAccordionBox extends GQEquationAccordionBox {
 
-    /**
-     * @param {StandardFormModel} model
-     * @param {Object} [options]
-     */
-    constructor( model, options ) {
+  /**
+   * @param {StandardFormModel} model
+   * @param {Object} [options]
+   */
+  constructor( model, options ) {
 
-      options = merge( {
+    options = merge( {
 
-        // phet-io
-        tandem: Tandem.REQUIRED,
-        phetioDocumentation: 'accordion box that contains the interactive equation'
+      // phet-io
+      tandem: Tandem.REQUIRED,
+      phetioDocumentation: 'accordion box that contains the interactive equation'
 
-      }, options );
+    }, options );
 
-      assert && assert( !options.titleNode, 'StandardFormEquationAccordionBox sets titleNode' );
-      options.titleNode = new StandardFormEquationNode( {
-        maxWidth: 225, // determined empirically
-        tandem: options.tandem.createTandem( 'titleNode' ),
-        phetioDocumentation: 'the equation shown at the top of this accordion box'
+    assert && assert( !options.titleNode, 'StandardFormEquationAccordionBox sets titleNode' );
+    options.titleNode = new StandardFormEquationNode( {
+      maxWidth: 225, // determined empirically
+      tandem: options.tandem.createTandem( 'titleNode' ),
+      phetioDocumentation: 'the equation shown at the top of this accordion box'
+    } );
+
+    const interactiveEquationNode = new StandardFormInteractiveEquationNode(
+      model.aProperty, model.bProperty, model.cProperty, {
+        tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
+        phetioDocumentation: 'the interactive equation in this accordion box'
       } );
 
-      const interactiveEquationNode = new StandardFormInteractiveEquationNode(
-        model.aProperty, model.bProperty, model.cProperty, {
-          tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
-          phetioDocumentation: 'the interactive equation in this accordion box'
-        } );
-
-      super( model, interactiveEquationNode, options );
-    }
+    super( model, interactiveEquationNode, options );
   }
+}
 
-  return graphingQuadratics.register( 'StandardFormEquationAccordionBox', StandardFormEquationAccordionBox );
-} );
+graphingQuadratics.register( 'StandardFormEquationAccordionBox', StandardFormEquationAccordionBox );
+export default StandardFormEquationAccordionBox;
