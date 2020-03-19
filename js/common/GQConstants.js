@@ -62,7 +62,9 @@ const GQConstants = {
 
   // options for all NumberDisplay instances
   NUMBER_DISPLAY_OPTIONS: {
-    font: new PhetFont( { size: 26, weight: 'bold' } ),
+    textOptions: {
+      font: new PhetFont( { size: 26, weight: 'bold' } )
+    },
     backgroundFill: null,
     backgroundStroke: null,
     backgroundLineWidth: 0,

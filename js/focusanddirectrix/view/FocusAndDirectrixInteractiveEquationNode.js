@@ -132,7 +132,9 @@ class EquationNode extends Node {
     // p value
     const pNode = new NumberDisplay( pProperty, pProperty.range,
       merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        numberFill: GQColors.FOCUS_AND_DIRECTRIX_P,
+        textOptions: {
+          fill: GQColors.FOCUS_AND_DIRECTRIX_P
+        },
         decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
       } ) );
 
@@ -172,7 +174,9 @@ class EquationNode extends Node {
     // h value
     const hNode = new NumberDisplay( hProperty, hProperty.range,
       merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        numberFill: GQColors.FOCUS_AND_DIRECTRIX_H,
+        textOptions: {
+          fill: GQColors.FOCUS_AND_DIRECTRIX_H
+        },
         decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
       } ) );
 
@@ -185,7 +189,9 @@ class EquationNode extends Node {
     // k value
     const kNode = new NumberDisplay( kProperty, kProperty.range,
       merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        numberFill: GQColors.FOCUS_AND_DIRECTRIX_K,
+        textOptions: {
+          fill: GQColors.FOCUS_AND_DIRECTRIX_K
+        },
         decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
       } ) );
 
