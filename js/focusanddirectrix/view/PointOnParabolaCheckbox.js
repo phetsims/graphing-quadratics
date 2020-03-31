@@ -10,7 +10,7 @@ import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/M
 import merge from '../../../../phet-core/js/merge.js';
 import GQColors from '../../common/GQColors.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 const pointOnParabolaString = graphingQuadraticsStrings.pointOnParabola;

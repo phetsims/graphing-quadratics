@@ -8,7 +8,7 @@
 
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import MathSymbolFont from '../../../scenery-phet/js/MathSymbolFont.js';
-import graphingQuadraticsStrings from '../graphing-quadratics-strings.js';
+import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 
 const aString = graphingQuadraticsStrings.a;

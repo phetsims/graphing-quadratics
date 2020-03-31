@@ -8,7 +8,7 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import Line from '../../../../scenery/js/nodes/Line.js';
-import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';

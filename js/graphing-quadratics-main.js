@@ -12,7 +12,7 @@ import SimLauncher from '../../joist/js/SimLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import ExploreScreen from './explore/ExploreScreen.js';
 import FocusAndDirectrixScreen from './focusanddirectrix/FocusAndDirectrixScreen.js';
-import graphingQuadraticsStrings from './graphing-quadratics-strings.js';
+import graphingQuadraticsStrings from './graphingQuadraticsStrings.js';
 import StandardFormScreen from './standardform/StandardFormScreen.js';
 import VertexFormScreen from './vertexform/VertexFormScreen.js';
 

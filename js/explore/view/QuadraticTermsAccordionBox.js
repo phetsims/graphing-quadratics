@@ -16,7 +16,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import EquationsCheckbox from '../../common/view/EquationsCheckbox.js';
-import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import ConstantTermCheckbox from './ConstantTermCheckbox.js';
 import LinearTermCheckbox from './LinearTermCheckbox.js';

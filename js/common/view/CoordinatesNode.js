@@ -12,7 +12,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 

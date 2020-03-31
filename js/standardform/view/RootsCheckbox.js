@@ -11,7 +11,7 @@ import Circle from '../../../../scenery/js/nodes/Circle.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
 import GQColors from '../../common/GQColors.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadraticsStrings from '../../graphing-quadratics-strings.js';
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 const rootsString = graphingQuadraticsStrings.roots;

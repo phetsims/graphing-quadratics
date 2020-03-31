@@ -10,7 +10,7 @@ import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
-import graphingQuadraticsStrings from '../graphing-quadratics-strings.js';
+import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 import VertexFormModel from './model/VertexFormModel.js';
 import VertexFormScreenView from './view/VertexFormScreenView.js';
