@@ -10,12 +10,10 @@ import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
-import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../graphingQuadratics.js';
+import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import FocusAndDirectrixModel from './model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixScreenView from './view/FocusAndDirectrixScreenView.js';
-
-const screenFocusAndDirectrixString = graphingQuadraticsStrings.screen.focusAndDirectrix;
 
 class FocusAndDirectrixScreen extends Screen {
 
@@ -27,7 +25,7 @@ class FocusAndDirectrixScreen extends Screen {
     const options = {
 
       // Screen options
-      name: screenFocusAndDirectrixString,
+      name: graphingQuadraticsStrings.screen.focusAndDirectrix,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
       //TODO remove this workaround for https://github.com/phetsims/joist/issues/532

@@ -11,10 +11,8 @@ import Line from '../../../../scenery/js/nodes/Line.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-
-const directrixString = graphingQuadraticsStrings.directrix;
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 
 class DirectrixCheckbox extends GQCheckbox {
 
@@ -39,7 +37,7 @@ class DirectrixCheckbox extends GQCheckbox {
       lineDash: GQConstants.DIRECTRIX_LINE_DASH
     } );
 
-    super( directrixString, directrixVisibleProperty, options );
+    super( graphingQuadraticsStrings.directrix, directrixVisibleProperty, options );
   }
 }
 

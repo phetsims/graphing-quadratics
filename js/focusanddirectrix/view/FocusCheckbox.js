@@ -10,10 +10,8 @@ import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/M
 import merge from '../../../../phet-core/js/merge.js';
 import GQColors from '../../common/GQColors.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-
-const focusString = graphingQuadraticsStrings.focus;
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 
 class FocusCheckbox extends GQCheckbox {
 
@@ -34,7 +32,7 @@ class FocusCheckbox extends GQCheckbox {
     assert && assert( !options.icon, 'FocusCheckbox sets icon' );
     options.icon = Manipulator.createIcon( 8, GQColors.FOCUS );
 
-    super( focusString, focusVisibleProperty, options );
+    super( graphingQuadraticsStrings.focus, focusVisibleProperty, options );
   }
 }
 

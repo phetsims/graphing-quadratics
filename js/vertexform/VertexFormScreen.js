@@ -10,12 +10,10 @@ import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
-import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../graphingQuadratics.js';
+import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import VertexFormModel from './model/VertexFormModel.js';
 import VertexFormScreenView from './view/VertexFormScreenView.js';
-
-const screenVertexFormString = graphingQuadraticsStrings.screen.vertexForm;
 
 class VertexFormScreen extends Screen {
 
@@ -27,7 +25,7 @@ class VertexFormScreen extends Screen {
     const options = {
 
       // Screen options
-      name: screenVertexFormString,
+      name: graphingQuadraticsStrings.screen.vertexForm,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
       //TODO remove this workaround for https://github.com/phetsims/joist/issues/532

@@ -16,8 +16,6 @@ import graphingQuadraticsStrings from './graphingQuadraticsStrings.js';
 import StandardFormScreen from './standardform/StandardFormScreen.js';
 import VertexFormScreen from './vertexform/VertexFormScreen.js';
 
-const graphingQuadraticsTitleString = graphingQuadraticsStrings[ 'graphing-quadratics' ].title;
-
 const options = {
   credits: {
     leadDesign: 'Amanda McGarry',
@@ -34,6 +32,6 @@ SimLauncher.launch( () => {
     new VertexFormScreen( Tandem.ROOT.createTandem( 'vertexFormScreen' ) ),
     new FocusAndDirectrixScreen( Tandem.ROOT.createTandem( 'focusAndDirectrixScreen' ) )
   ];
-  const sim = new Sim( graphingQuadraticsTitleString, screens, options );
+  const sim = new Sim( graphingQuadraticsStrings[ 'graphing-quadratics' ].title, screens, options );
   sim.start();
 } );

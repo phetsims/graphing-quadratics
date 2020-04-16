@@ -9,12 +9,10 @@
 import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Circle from '../../../../scenery/js/nodes/Circle.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import GQColors from '../GQColors.js';
 import GQCheckbox from './GQCheckbox.js';
-
-const vertexString = graphingQuadraticsStrings.vertex;
 
 class VertexCheckbox extends GQCheckbox {
 
@@ -47,7 +45,7 @@ class VertexCheckbox extends GQCheckbox {
       }
     }
 
-    super( vertexString, vertexVisibleProperty, options );
+    super( graphingQuadraticsStrings.vertex, vertexVisibleProperty, options );
   }
 }
 

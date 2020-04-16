@@ -15,10 +15,8 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-
-const noRealRootsString = graphingQuadraticsStrings.noRealRoots;
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 
 // const
 const Y_OFFSET = 2; // min offset from vertex, determined empirically
@@ -47,7 +45,7 @@ class NoRealRootsNode extends Node {
 
     }, options );
 
-    const textNode = new Text( noRealRootsString, {
+    const textNode = new Text( graphingQuadraticsStrings.noRealRoots, {
       font: GQConstants.NO_REAL_ROOTS_FONT,
       fill: 'white'
     } );

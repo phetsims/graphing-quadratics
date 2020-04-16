@@ -12,11 +12,9 @@ import merge from '../../../../phet-core/js/merge.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import GQConstants from '../GQConstants.js';
-
-const coordinateUnknownString = graphingQuadraticsStrings.coordinateUnknown;
 
 class CoordinatesNode extends Node {
 
@@ -106,8 +104,8 @@ class CoordinatesNode extends Node {
   update( coordinates ) {
 
     // coordinates
-    const x = coordinates ? Utils.toFixedNumber( coordinates.x, this.decimals ) : coordinateUnknownString;
-    const y = coordinates ? Utils.toFixedNumber( coordinates.y, this.decimals ) : coordinateUnknownString;
+    const x = coordinates ? Utils.toFixedNumber( coordinates.x, this.decimals ) : graphingQuadraticsStrings.coordinateUnknown;
+    const y = coordinates ? Utils.toFixedNumber( coordinates.y, this.decimals ) : graphingQuadraticsStrings.coordinateUnknown;
     this.foregroundNode.text = '(' + x + ', ' + y + ')';
 
     // resize background

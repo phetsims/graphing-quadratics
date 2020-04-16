@@ -8,13 +8,11 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import Line from '../../../../scenery/js/nodes/Line.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQCheckbox from './GQCheckbox.js';
-
-const axisOfSymmetryString = graphingQuadraticsStrings.axisOfSymmetry;
 
 class AxisOfSymmetryCheckbox extends GQCheckbox {
 
@@ -39,7 +37,7 @@ class AxisOfSymmetryCheckbox extends GQCheckbox {
       lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
     } );
 
-    super( axisOfSymmetryString, axisOfSymmetryVisibleProperty, options );
+    super( graphingQuadraticsStrings.axisOfSymmetry, axisOfSymmetryVisibleProperty, options );
   }
 }
 

@@ -10,12 +10,10 @@ import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
-import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../graphingQuadratics.js';
+import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import ExploreModel from './model/ExploreModel.js';
 import ExploreScreenView from './view/ExploreScreenView.js';
-
-const screenExploreString = graphingQuadraticsStrings.screen.explore;
 
 class ExploreScreen extends Screen {
 
@@ -27,7 +25,7 @@ class ExploreScreen extends Screen {
     const options = {
 
       // Screen options
-      name: screenExploreString,
+      name: graphingQuadraticsStrings.screen.explore,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
       //TODO remove this workaround for https://github.com/phetsims/joist/issues/532

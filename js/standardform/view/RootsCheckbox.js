@@ -11,10 +11,8 @@ import Circle from '../../../../scenery/js/nodes/Circle.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
 import GQColors from '../../common/GQColors.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-
-const rootsString = graphingQuadraticsStrings.roots;
+import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 
 // constants
 const POINT_RADIUS = 6;
@@ -45,7 +43,7 @@ class RootsCheckbox extends GQCheckbox {
       ]
     } );
 
-    super( rootsString, rootsVisibleProperty, options );
+    super( graphingQuadraticsStrings.roots, rootsVisibleProperty, options );
   }
 }
 

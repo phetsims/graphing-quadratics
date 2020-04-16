@@ -8,32 +8,23 @@
 
 import StringUtils from '../../../phetcommon/js/util/StringUtils.js';
 import MathSymbolFont from '../../../scenery-phet/js/MathSymbolFont.js';
-import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 import graphingQuadratics from '../graphingQuadratics.js';
-
-const aString = graphingQuadraticsStrings.a;
-const bString = graphingQuadraticsStrings.b;
-const cString = graphingQuadraticsStrings.c;
-const hString = graphingQuadraticsStrings.h;
-const kString = graphingQuadraticsStrings.k;
-const pString = graphingQuadraticsStrings.p;
-const xString = graphingQuadraticsStrings.x;
-const yString = graphingQuadraticsStrings.y;
+import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 
 // constants
 const SYMBOL_PATTERN = '<i style=\'font-family: ' + new MathSymbolFont( 10 ).family + '\'>{{symbol}}</i>';
-const x = StringUtils.fillIn( SYMBOL_PATTERN, { symbol: xString } );
+const x = StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.x } );
 
 const GQSymbols = {
-  a: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: aString } ),
-  b: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: bString } ),
-  c: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: cString } ),
-  h: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: hString } ),
-  k: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: kString } ),
-  p: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: pString } ),
+  a: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.a } ),
+  b: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.b } ),
+  c: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.c } ),
+  h: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.h } ),
+  k: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.k } ),
+  p: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.p } ),
   x: x,
   xSquared: StringUtils.fillIn( '{{x}}<sup>2</sup>', { x: x } ),
-  y: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: yString } )
+  y: StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.y } )
 };
 
 graphingQuadratics.register( 'GQSymbols', GQSymbols );
