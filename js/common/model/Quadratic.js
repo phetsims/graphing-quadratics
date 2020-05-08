@@ -197,6 +197,7 @@ class Quadratic {
    * Typically, a quadratic requires a !== 0. But this sim is required to support a === 0, so this
    * method is used in places where we need to determine whether we're dealing with a parabola.
    * @returns {boolean}
+   * @public
    */
   isaParabola() {
     return ( this.a !== 0 );
