@@ -15,7 +15,7 @@ const GQQueryParameters = QueryStringMachine.getAll( {
 
   // Point tools will snap ON to a curve when <= this distance from the curve, in model coordinates.
   // See https://github.com/phetsims/graphing-quadratics/issues/47
-  // For internal use only, not public facing.
+  // For internal use only.
   snapOnDistance: {
     type: 'number',
     defaultValue: 0.5,
@@ -26,7 +26,7 @@ const GQQueryParameters = QueryStringMachine.getAll( {
 
   // Point tools will snap OFF of a curve when > this distance from the curve, in model coordinates.
   // See https://github.com/phetsims/graphing-quadratics/issues/47
-  // For internal use only, not public facing.
+  // For internal use only.
   snapOffDistance: {
     type: 'number',
     defaultValue: 2,
@@ -37,7 +37,7 @@ const GQQueryParameters = QueryStringMachine.getAll( {
 
   // Distance that a point tool must be from a curve in order to register as being ON the curve, in model coordinates.
   // See https://github.com/phetsims/graphing-quadratics/issues/81
-  // For internal use only, not public facing.
+  // For internal use only.
   pointToolThreshold: {
     type: 'number',
     defaultValue: 0.1,
@@ -47,11 +47,11 @@ const GQQueryParameters = QueryStringMachine.getAll( {
   },
 
   // Puts a red dot at the origin of Nodes that required transform debugging during implementation.
-  // For internal use only, not public facing.
+  // For internal use only.
   showOrigin: { type: 'flag' },
 
   // CSS color used for the translucent background behind equations on curves. Used for debugging.
-  // For internal use only, not public facing.
+  // For internal use only.
   equationsBackgroundColor: {
     type: 'string',
     defaultValue: 'white'
