@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Utils from '../../../../dot/js/Utils.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQSlider from './GQSlider.js';
 
@@ -30,11 +29,11 @@ class QuadraticSlider extends GQSlider {
 
     // map coefficientProperty.value to slider value, x = sqrt( y / a )
     assert && assert( !options.map, 'QuadraticSlider sets map' );
-    options.map = value => ( Utils.sign( value ) * Math.sqrt( Math.abs( value ) / a ) );
+    options.map = value => ( Math.sign( value ) * Math.sqrt( Math.abs( value ) / a ) );
 
     // map slider value to coefficientProperty.value, y = ax^2
     assert && assert( !options.inverseMap, 'QuadraticSlider sets inverseMap' );
-    options.inverseMap = value => ( Utils.sign( value ) * a * value * value );
+    options.inverseMap = value => ( Math.sign( value ) * a * value * value );
 
     super( symbol, coefficientProperty, options );
   }
