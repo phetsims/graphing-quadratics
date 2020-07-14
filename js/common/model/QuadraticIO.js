@@ -27,13 +27,13 @@ class QuadraticIO extends ObjectIO {
 
   /**
    * Decodes state into a Quadratic instance.
-   * @param {*} object
+   * @param {*} stateObject
    * @returns {Quadratic}
    * @public
    * @override
    */
-  static fromStateObject( object ) {
-    return Quadratic.fromStateObject( object );
+  static fromStateObject( stateObject ) {
+    return Quadratic.fromStateObject( stateObject );
   }
 }
 

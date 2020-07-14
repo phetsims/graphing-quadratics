@@ -141,13 +141,13 @@ class Quadratic {
 
   /**
    * Decodes a PhET-iO state object and produces a Quadratic instance
-   * @param {*} object
+   * @param {*} stateObject
    * @returns {Quadratic}
    * @public
    */
-  static fromStateObject( object ) {
-    return new Quadratic( object.a, object.b, object.c, {
-      color: Color.fromStateObject( object.color )
+  static fromStateObject( stateObject ) {
+    return new Quadratic( stateObject.a, stateObject.b, stateObject.c, {
+      color: Color.fromStateObject( stateObject.color )
     } );
   }
 
