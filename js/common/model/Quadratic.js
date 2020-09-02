@@ -401,7 +401,7 @@ function solveRoots( a, b, c ) {
 }
 
 /**
- * Documentation for the associated IO type, QuadraticIO.  This appears in PhET-iO Studio.
+ * Documentation for the associated IO Type, QuadraticIO.  This appears in PhET-iO Studio.
  * Defined here so that specifics about Quadratic appear in one place.
  * @type {string}
  * @public

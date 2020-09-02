@@ -1,7 +1,7 @@
 // Copyright 2018-2020, University of Colorado Boulder
 
 /**
- * IO type for Quadratic
+ * IO Type for Quadratic
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
