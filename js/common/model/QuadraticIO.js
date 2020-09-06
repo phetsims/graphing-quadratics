@@ -40,7 +40,7 @@ class QuadraticIO extends ObjectIO {
 QuadraticIO.documentation = Quadratic.documentationQuadraticIO;
 QuadraticIO.validator = { valueType: Quadratic };
 QuadraticIO.typeName = 'QuadraticIO';
-ObjectIO.validateSubtype( QuadraticIO );
+ObjectIO.validateIOType( QuadraticIO );
 
 graphingQuadratics.register( 'QuadraticIO', QuadraticIO );
 export default QuadraticIO;
