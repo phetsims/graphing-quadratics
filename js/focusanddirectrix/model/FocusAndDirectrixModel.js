@@ -8,7 +8,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -72,7 +71,7 @@ class FocusAndDirectrixModel extends GQModel {
       } ), {
         tandem: tandem.createTandem( 'quadraticProperty' ),
         phetioDocumentation: 'the interactive quadratic, derived from p, h, and k',
-        phetioType: DerivedPropertyIO( QuadraticIO )
+        phetioType: DerivedProperty.DerivedPropertyIO( QuadraticIO )
       } );
     phet.log && quadraticProperty.link( quadratic => {
       phet.log( 'quadratic: y = (1/(4(' + quadratic.p + ')))(x - ' + quadratic.h + ')^2 + ' + quadratic.k );

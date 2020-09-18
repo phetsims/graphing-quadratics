@@ -7,7 +7,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -66,7 +65,7 @@ class VertexNode extends PointNode {
         valueType: [ Vector2, null ],
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioDocumentation: 'coordinates displayed on the vertex point, null means no vertex',
-        phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )
+        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2IO ) )
       } );
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );

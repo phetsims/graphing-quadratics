@@ -8,7 +8,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2IO from '../../../../dot/js/Vector2IO.js';
@@ -72,7 +71,7 @@ class FocusManipulator extends GQManipulator {
       quadratic => quadratic.focus, {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-        phetioType: DerivedPropertyIO( Vector2IO ),
+        phetioType: DerivedProperty.DerivedPropertyIO( Vector2IO ),
         phetioDocumentation: 'coordinates displayed on the focus manipulator'
       } );
 

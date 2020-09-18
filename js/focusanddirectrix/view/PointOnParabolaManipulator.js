@@ -7,7 +7,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -71,7 +70,7 @@ class PointOnParabolaManipulator extends GQManipulator {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioDocumentation: 'coordinates displayed on the point-on-quadratic manipulator',
-        phetioType: DerivedPropertyIO( Vector2IO )
+        phetioType: DerivedProperty.DerivedPropertyIO( Vector2IO )
       } );
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );

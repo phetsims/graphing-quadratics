@@ -8,7 +8,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -73,7 +72,7 @@ class StandardFormModel extends GQModel {
       [ aProperty, bProperty, cProperty ],
       ( a, b, c ) => new Quadratic( a, b, c, { color: GQColors.EXPLORE_INTERACTIVE_CURVE } ), {
         tandem: tandem.createTandem( 'quadraticProperty' ),
-        phetioType: DerivedPropertyIO( QuadraticIO ),
+        phetioType: DerivedProperty.DerivedPropertyIO( QuadraticIO ),
         phetioDocumentation: 'the interactive quadratic, derived from a, b, and c'
       } );
     phet.log && quadraticProperty.link( quadratic => {

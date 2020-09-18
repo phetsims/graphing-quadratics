@@ -8,7 +8,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -70,7 +69,7 @@ class VertexFormModel extends GQModel {
       } ), {
         tandem: tandem.createTandem( 'quadraticProperty' ),
         phetioDocumentation: 'the interactive quadratic, derived from a, h, and k',
-        phetioType: DerivedPropertyIO( QuadraticIO )
+        phetioType: DerivedProperty.DerivedPropertyIO( QuadraticIO )
       } );
     phet.log && quadraticProperty.link( quadratic => {
       phet.log( 'quadratic: y = ' + quadratic.a + ' (x - ' + quadratic.h + ')^2 + ' + quadratic.k );

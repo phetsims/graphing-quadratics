@@ -7,7 +7,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -68,7 +67,7 @@ class PointTool {
         valueType: [ Quadratic, null ],
         tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
         phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic',
-        phetioType: DerivedPropertyIO( NullableIO( QuadraticIO ) )
+        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( QuadraticIO ) )
       } );
   }
 

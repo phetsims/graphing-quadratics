@@ -9,7 +9,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2IO from '../../../../dot/js/Vector2IO.js';
@@ -74,7 +73,7 @@ class VertexManipulator extends GQManipulator {
         valueType: [ Vector2, null ],
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioDocumentation: 'coordinates displayed by on vertex manipulator, null means no vertex',
-        phetioType: DerivedPropertyIO( NullableIO( Vector2IO ) )
+        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2IO ) )
       } );
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
