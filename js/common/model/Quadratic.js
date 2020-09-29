@@ -23,6 +23,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Color from '../../../../scenery/js/util/Color.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 
@@ -420,6 +421,13 @@ Quadratic.documentationQuadraticIO =
   '<li>color: {ColorIO} the color used to draw the associated curve</li>' +
   '</ul>' +
   'All coefficient values must respect the ranges for those coefficients.';
+
+Quadratic.QuadraticIO = new IOType( 'QuadraticIO', {
+  valueType: Quadratic,
+  documentation: Quadratic.documentationQuadraticIO,
+  toStateObject: quadratic => quadratic.toStateObject(),
+  fromStateObject: Quadratic.fromStateObject
+} );
 
 graphingQuadratics.register( 'Quadratic', Quadratic );
 export default Quadratic;

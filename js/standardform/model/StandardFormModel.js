@@ -16,7 +16,6 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQModel from '../../common/model/GQModel.js';
 import Quadratic from '../../common/model/Quadratic.js';
-import QuadraticIO from '../../common/model/QuadraticIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 // constants
@@ -72,7 +71,7 @@ class StandardFormModel extends GQModel {
       [ aProperty, bProperty, cProperty ],
       ( a, b, c ) => new Quadratic( a, b, c, { color: GQColors.EXPLORE_INTERACTIVE_CURVE } ), {
         tandem: tandem.createTandem( 'quadraticProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( QuadraticIO ),
+        phetioType: DerivedProperty.DerivedPropertyIO( Quadratic.QuadraticIO ),
         phetioDocumentation: 'the interactive quadratic, derived from a, b, and c'
       } );
     phet.log && quadraticProperty.link( quadratic => {

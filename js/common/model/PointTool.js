@@ -16,7 +16,6 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import Quadratic from './Quadratic.js';
-import QuadraticIO from './QuadraticIO.js';
 
 class PointTool {
 
@@ -67,7 +66,7 @@ class PointTool {
         valueType: [ Quadratic, null ],
         tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
         phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic',
-        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( QuadraticIO ) )
+        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Quadratic.QuadraticIO ) )
       } );
   }
 

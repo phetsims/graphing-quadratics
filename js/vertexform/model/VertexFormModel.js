@@ -16,7 +16,6 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQModel from '../../common/model/GQModel.js';
 import Quadratic from '../../common/model/Quadratic.js';
-import QuadraticIO from '../../common/model/QuadraticIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 // constants
@@ -69,7 +68,7 @@ class VertexFormModel extends GQModel {
       } ), {
         tandem: tandem.createTandem( 'quadraticProperty' ),
         phetioDocumentation: 'the interactive quadratic, derived from a, h, and k',
-        phetioType: DerivedProperty.DerivedPropertyIO( QuadraticIO )
+        phetioType: DerivedProperty.DerivedPropertyIO( Quadratic.QuadraticIO )
       } );
     phet.log && quadraticProperty.link( quadratic => {
       phet.log( 'quadratic: y = ' + quadratic.a + ' (x - ' + quadratic.h + ')^2 + ' + quadratic.k );

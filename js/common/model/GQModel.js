@@ -19,7 +19,6 @@ import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import PointTool from './PointTool.js';
 import Quadratic from './Quadratic.js';
-import QuadraticIO from './QuadraticIO.js';
 
 // constants
 const GRAPH_VIEW_ORIGIN = new Vector2( 345, 330 ); // position of the graph's origin, in view coordinates
@@ -45,7 +44,7 @@ class GQModel {
       valueType: [ Quadratic, null ],
       tandem: tandem.createTandem( 'savedQuadraticProperty' ),
       phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic',
-      phetioType: Property.PropertyIO( NullableIO( QuadraticIO ) )
+      phetioType: Property.PropertyIO( NullableIO( Quadratic.QuadraticIO ) )
     } );
 
     // scale from model to view
