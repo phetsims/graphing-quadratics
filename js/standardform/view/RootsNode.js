@@ -8,7 +8,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -45,7 +44,7 @@ class RootsNode extends Node {
     // options common to both Property instances
     const coordinatesPropertyOptions = {
       valueType: [ Vector2, null ],
-      phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2IO ) )
+      phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2.Vector2IO ) )
     };
 
     // coordinates corresponding to the quadratic's left or single root (if it has roots)

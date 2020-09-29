@@ -10,7 +10,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import GQColors from '../../common/GQColors.js';
@@ -71,7 +70,7 @@ class FocusManipulator extends GQManipulator {
       quadratic => quadratic.focus, {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( Vector2IO ),
+        phetioType: DerivedProperty.DerivedPropertyIO( Vector2.Vector2IO ),
         phetioDocumentation: 'coordinates displayed on the focus manipulator'
       } );
 
