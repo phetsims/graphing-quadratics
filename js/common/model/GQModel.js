@@ -9,7 +9,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
@@ -46,7 +45,7 @@ class GQModel {
       valueType: [ Quadratic, null ],
       tandem: tandem.createTandem( 'savedQuadraticProperty' ),
       phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic',
-      phetioType: PropertyIO( NullableIO( QuadraticIO ) )
+      phetioType: Property.PropertyIO( NullableIO( QuadraticIO ) )
     } );
 
     // scale from model to view
