@@ -65,12 +65,12 @@ class GQModel {
 
     // @public {Property.<Quadratic[]>} optional quadratic terms to be displayed,
     // in the order that they will be considered by point tools (foreground to background).
-    // ObservableArray is not used here because we need to change the entire array contents atomically.
+    // ObservableArrayDef is not used here because we need to change the entire array contents atomically.
     this.quadraticTermsProperty = new Property( [], optionsPropertyQuadraticArray );
 
     // {DerivedProperty.<Quadratic[]>} Quadratics that are visible to the point tools,
     // in the order that they will be considered by point tools (foreground to background).
-    // ObservableArray is not used here because we need to change the entire array contents atomically.
+    // ObservableArrayDef is not used here because we need to change the entire array contents atomically.
     const pointToolQuadraticsProperty = new DerivedProperty(
       [ this.quadraticProperty, this.quadraticTermsProperty, this.savedQuadraticProperty ],
       ( quadratic, quadraticTerms, savedQuadratic ) => {
