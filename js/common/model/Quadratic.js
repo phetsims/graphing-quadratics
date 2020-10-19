@@ -403,11 +403,10 @@ function solveRoots( a, b, c ) {
 
 /**
  * Documentation for the associated IO Type, QuadraticIO.  This appears in PhET-iO Studio.
- * Defined here so that specifics about Quadratic appear in one place.
  * @type {string}
  * @public
  */
-Quadratic.documentationQuadraticIO =
+const documentationQuadraticIO =
   'QuadraticIO is a data structure that describes a quadratic equation in the model. ' +
   'Its properties are relevant to standard and vertex forms of the quadratic equation. ' +
   'Non-parabolas (a=0) will have a subset of the properties that parabolas have. ' +
@@ -424,7 +423,7 @@ Quadratic.documentationQuadraticIO =
 
 Quadratic.QuadraticIO = new IOType( 'QuadraticIO', {
   valueType: Quadratic,
-  documentation: Quadratic.documentationQuadraticIO,
+  documentation: documentationQuadraticIO,
   toStateObject: quadratic => quadratic.toStateObject(),
   fromStateObject: Quadratic.fromStateObject
 } );
