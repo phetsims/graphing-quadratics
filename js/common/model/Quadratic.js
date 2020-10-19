@@ -401,11 +401,7 @@ function solveRoots( a, b, c ) {
   return roots;
 }
 
-/**
- * Documentation for the associated IO Type, QuadraticIO.  This appears in PhET-iO Studio.
- * @type {string}
- * @public
- */
+// {string} PhET-iO Studio documentation for the associated IO Type, QuadraticIO.
 const documentationQuadraticIO =
   'QuadraticIO is a data structure that describes a quadratic equation in the model. ' +
   'Its properties are relevant to standard and vertex forms of the quadratic equation. ' +
