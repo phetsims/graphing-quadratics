@@ -61,7 +61,10 @@ class VertexFormGraphControlPanel extends Panel {
       children: [
         vertexCheckbox,
         axisOfSymmetryCheckbox,
-        new HSeparator( maxCheckboxWidth, { stroke: GQColors.SEPARATOR } ),
+        new HSeparator( maxCheckboxWidth, {
+          stroke: GQColors.SEPARATOR,
+          tandem: options.tandem.createTandem( 'separator' )
+        } ),
         equationsCheckbox,
         coordinatesCheckbox
       ]

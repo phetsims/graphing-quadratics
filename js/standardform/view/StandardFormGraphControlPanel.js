@@ -67,7 +67,10 @@ class StandardFormGraphControlPanel extends Panel {
         vertexCheckbox,
         axisOfSymmetryCheckbox,
         rootsCheckbox,
-        new HSeparator( maxCheckboxWidth, { stroke: GQColors.SEPARATOR } ),
+        new HSeparator( maxCheckboxWidth, {
+          stroke: GQColors.SEPARATOR,
+          tandem: options.tandem.createTandem( 'separator' )
+        } ),
         equationsCheckbox,
         coordinatesCheckbox
       ]

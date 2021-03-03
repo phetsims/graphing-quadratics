@@ -70,7 +70,10 @@ class FocusAndDirectrixGraphControlPanel extends Panel {
         focusCheckbox,
         directrixCheckbox,
         pointOnParabolaCheckbox,
-        new HSeparator( maxCheckboxWidth, { stroke: GQColors.SEPARATOR } ),
+        new HSeparator( maxCheckboxWidth, {
+          stroke: GQColors.SEPARATOR,
+          tandem: options.tandem.createTandem( 'separator' )
+        } ),
         equationsCheckbox,
         coordinatesCheckbox
       ]

@@ -86,7 +86,10 @@ class QuadraticTermsAccordionBox extends AccordionBox {
         quadraticTermCheckbox,
         linearTermCheckbox,
         constantTermCheckbox,
-        new HSeparator( separatorWidth, { stroke: GQColors.SEPARATOR } ),
+        new HSeparator( separatorWidth, {
+          stroke: GQColors.SEPARATOR,
+          tandem: options.tandem.createTandem( 'separator' )
+        } ),
         equationsCheckbox
       ]
     } );

@@ -54,9 +54,13 @@ class GQEquationAccordionBox extends AccordionBox {
       align: 'center',
       spacing: 8,
       children: [
-        new HSeparator( separatorWidth, separatorOptions ),
+        new HSeparator( separatorWidth, merge( {
+          tandem: options.tandem.createTandem( 'topSeparator' )
+        }, separatorOptions ) ),
         interactiveEquationNode,
-        new HSeparator( separatorWidth, separatorOptions ),
+        new HSeparator( separatorWidth, merge( {
+          tandem: options.tandem.createTandem( 'bottomSeparator' )
+        }, separatorOptions ) ),
         buttonGroup
       ]
     } );
