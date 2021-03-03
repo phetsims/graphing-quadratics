@@ -48,7 +48,7 @@ class PointTool {
     // @public {Vector2}
     this.positionProperty = new Vector2Property( options.position, {
       tandem: options.tandem.createTandem( 'positionProperty' ),
-      phetioDocumentation: 'position of this point tool'
+      phetioDocumentation: 'position of this point tool’s crosshairs'
     } );
 
     // @public {DerivedProperty.<Quadratic|null>}
