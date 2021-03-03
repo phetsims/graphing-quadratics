@@ -47,22 +47,50 @@ class RootsNode extends Node {
       phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2.Vector2IO ) )
     };
 
-    // coordinates corresponding to the quadratic's left or single root (if it has roots)
+    // {DerivedProperty.<null|Vector2>} coordinates for the quadratic's left root
     const leftCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
-      quadratic => ( quadratic.roots && quadratic.roots.length > 0 ) ? quadratic.roots[ 0 ] : null,
+      quadratic => {
+        if ( !quadratic.roots || quadratic.roots.length === 0 ) {
+
+          // no roots
+          return null;
+        }
+        else {
+          return quadratic.roots[ 0 ];
+        }
+      },
       merge( {}, coordinatesPropertyOptions, {
         tandem: options.tandem.createTandem( 'leftCoordinatesProperty' ),
-        phetioDocumentation: 'coordinates displayed on the left (first) root, ' +
+        phetioDocumentation: 'coordinates displayed on the left root, ' +
+                             'identical to rightCoordinatesProperty if there is one root, ' +
                              'null if there are no roots or if all points are roots'
       } ) );
 
-    // coordinates corresponding to the quadratic's right root, if it has 2 roots
+    // {DerivedProperty.<null|Vector2>} coordinates for the quadratic's right root
     const rightCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
-      quadratic => ( quadratic.roots && quadratic.roots.length === 2 ) ? quadratic.roots[ 1 ] : null,
+      quadratic => {
+        if ( !quadratic.roots || quadratic.roots.length === 0 ) {
+
+          // no roots
+          return null;
+        }
+        else if ( quadratic.roots.length === 1 ) {
+
+          // 1 root, shared by leftCoordinatesProperty and rightCoordinatesProperty
+          return quadratic.roots[ 0 ];
+        }
+        else {
+
+          // 2 roots
+          assert && assert( quadratic.roots.length === 2, `expected 2 roots, found ${quadratic.roots.length}` );
+          return quadratic.roots[ 1 ];
+        }
+      },
       merge( {}, coordinatesPropertyOptions, {
         tandem: options.tandem.createTandem( 'rightCoordinatesProperty' ),
-        phetioDocumentation: 'coordinates displayed on the right (second) root, ' +
-                             'null if there are less that two roots or if all points are roots'
+        phetioDocumentation: 'coordinates displayed on the right root, ' +
+                             'identical to leftCoordinatesProperty if there is one root, ' +
+                             'null if there are no roots or if all points are roots'
       } ) );
 
     // options common to both PointNode instances
@@ -83,7 +111,7 @@ class RootsNode extends Node {
           coordinatesNode.centerY = pointNode.centerY;
         },
         tandem: options.tandem.createTandem( 'leftRootNode' ),
-        phetioDocumentation: 'the left (first) root'
+        phetioDocumentation: 'the left root'
       } ) );
 
     // right root
@@ -94,7 +122,7 @@ class RootsNode extends Node {
           coordinatesNode.centerY = pointNode.centerY;
         },
         tandem: options.tandem.createTandem( 'rightRootNode' ),
-        phetioDocumentation: 'the right (second) root'
+        phetioDocumentation: 'the right root'
       } ) );
 
     assert && assert( !options.children, 'RootsNode sets children' );

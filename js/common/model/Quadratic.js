@@ -52,6 +52,7 @@ class Quadratic {
     this.color = options.color;
 
     // @public (read-only) {Vector2[]|null} null means that all points are roots (y = 0)
+    // Roots are ordered from left to right along the x axis.
     this.roots = solveRoots( a, b, c );
 
     // Strictly speaking, we don't have a quadratic (or a parabola) if a === 0.
