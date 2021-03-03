@@ -48,7 +48,8 @@ class QuadraticTermsAccordionBox extends AccordionBox {
       font: GQConstants.TITLE_FONT,
       maxWidth: 180, // determined empirically
       tandem: options.tandem.createTandem( 'titleNode' ),
-      phetioDocumentation: 'the title on this accordion box'
+      phetioDocumentation: 'the title on this accordion box',
+      visiblePropertyOptions: { phetioReadOnly: true }
     } );
 
     // y = ax^2

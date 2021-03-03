@@ -31,7 +31,8 @@ class ExploreEquationAccordionBox extends GQEquationAccordionBox {
     options.titleNode = new StandardFormEquationNode( {
       maxWidth: 225, // determined empirically
       tandem: options.tandem.createTandem( 'titleNode' ),
-      phetioDocumentation: 'the equation shown at the top of this accordion box'
+      phetioDocumentation: 'the equation shown at the top of this accordion box',
+      visiblePropertyOptions: { phetioReadOnly: true }
     } );
 
     const interactiveEquationNode = new ExploreInteractiveEquationNode(
