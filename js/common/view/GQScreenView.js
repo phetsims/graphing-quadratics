@@ -52,16 +52,14 @@ class GQScreenView extends ScreenView {
       model.modelViewTransform,
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'leftPointToolNode' ),
-        phetioDocumentation: 'the point tool that is initially on the left'
+        tandem: options.tandem.createTandem( 'leftPointToolNode' )
       } ) );
     pointToolsParent.addChild( new PointToolNode(
       model.rightPointTool,
       model.modelViewTransform,
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'rightPointToolNode' ),
-        phetioDocumentation: 'the point tool that is initially on the right'
+        tandem: options.tandem.createTandem( 'rightPointToolNode' )
       } ) );
 
     // Toggle button for showing/hiding contents of graph

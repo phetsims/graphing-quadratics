@@ -86,7 +86,7 @@ class GQModel {
         this.graph.xRange.min - 1, this.graph.yRange.min - 3,
         this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
       tandem: tandem.createTandem( 'leftPointTool' ),
-      phetioDocumentation: 'the point tool that is initially on the left'
+      phetioDocumentation: 'The point tool that is initially on the left. It is typically grabbed from the left, and its probe is on the right.'
     } );
 
     // @public (read-only)
@@ -97,7 +97,7 @@ class GQModel {
         this.graph.xRange.min - 1, this.graph.yRange.min - 3,
         this.graph.xRange.max + 1, this.graph.yRange.max + 1 ),
       tandem: tandem.createTandem( 'rightPointTool' ),
-      phetioDocumentation: 'the point tool that is initially on the right'
+      phetioDocumentation: 'The point tool that is initially on the right. It is typically grabbed from the right, and its probe is on the left.'
     } );
   }
 

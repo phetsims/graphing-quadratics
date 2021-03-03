@@ -49,7 +49,8 @@ class PointToolNode extends Node {
       foregroundHighlightColor: 'white',
 
       // phet-io
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioDocumentation: pointTool.phetioDocumentation
 
     }, options );
 

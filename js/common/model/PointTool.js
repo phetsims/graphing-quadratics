@@ -10,6 +10,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import merge from '../../../../phet-core/js/merge.js';
+import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -17,7 +18,7 @@ import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import Quadratic from './Quadratic.js';
 
-class PointTool {
+class PointTool extends PhetioObject {
 
   /**
    * @param {Property.<Quadratic[]>} quadraticsProperty - Quadratics that the tool might intersect
@@ -32,11 +33,14 @@ class PointTool {
       dragBounds: null, // {Bounds2|null} drag bounds, in model coordinate frame
 
       // phet-io
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioState: false // this is a PhetioObject only to add phetioDocumentation
     }, options );
 
     assert && assert( _.includes( GQConstants.PROBE_SIDES, options.probeSide ),
       'invalid probeSide: ' + options.probeSide );
+
+    super( options );
 
     // @public (read-only)
     this.probeSide = options.probeSide;
