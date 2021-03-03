@@ -52,7 +52,7 @@ class PointTool {
     } );
 
     // @public {DerivedProperty.<Quadratic|null>}
-    this.onQuadraticProperty = new DerivedProperty(
+    this.quadraticProperty = new DerivedProperty(
       [ this.positionProperty, quadraticsProperty ],
       ( position, quadratics ) => {
         if ( graph.contains( position ) ) {
@@ -64,8 +64,8 @@ class PointTool {
         }
       }, {
         valueType: [ Quadratic, null ],
-        tandem: options.tandem.createTandem( 'onQuadraticProperty' ),
-        phetioDocumentation: 'the quadratic that this point tool is on, null if not on a quadratic',
+        tandem: options.tandem.createTandem( 'quadraticProperty' ),
+        phetioDocumentation: 'the curve that this point tool is on, null if it is not on a curve',
         phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Quadratic.QuadraticIO ) )
       } );
   }
@@ -82,7 +82,7 @@ class PointTool {
    * @public
    */
   getQuadraticNear( position, offDistance, onDistance ) {
-    let onQuadratic = this.onQuadraticProperty && this.onQuadraticProperty.value;
+    let onQuadratic = this.quadraticProperty && this.quadraticProperty.value;
     const quadratics = this.quadraticsProperty.value;
     if ( !onQuadratic ||
          quadratics.indexOf( onQuadratic ) === -1 ||

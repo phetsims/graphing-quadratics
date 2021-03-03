@@ -102,7 +102,7 @@ class PointToolNode extends Node {
       coordinatesNode.centerY = bodyNode.centerY;
     } );
 
-    Property.multilink( [ pointTool.positionProperty, pointTool.onQuadraticProperty, graphContentsVisibleProperty ],
+    Property.multilink( [ pointTool.positionProperty, pointTool.quadraticProperty, graphContentsVisibleProperty ],
       ( position, onQuadratic, graphContentsVisible ) => {
 
         // move to position
