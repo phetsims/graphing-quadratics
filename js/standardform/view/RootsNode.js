@@ -110,6 +110,7 @@ class RootsNode extends Node {
           coordinatesNode.right = pointNode.left - COORDINATES_X_SPACING;
           coordinatesNode.centerY = pointNode.centerY;
         },
+        visiblePropertyOptions: { phetioReadOnly: true },
         tandem: options.tandem.createTandem( 'leftRootNode' ),
         phetioDocumentation: 'the left root'
       } ) );
@@ -121,6 +122,7 @@ class RootsNode extends Node {
           coordinatesNode.left = pointNode.right + COORDINATES_X_SPACING;
           coordinatesNode.centerY = pointNode.centerY;
         },
+        visiblePropertyOptions: { phetioReadOnly: true },
         tandem: options.tandem.createTandem( 'rightRootNode' ),
         phetioDocumentation: 'the right root'
       } ) );
