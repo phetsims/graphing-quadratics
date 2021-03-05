@@ -45,6 +45,7 @@ class DirectrixNode extends Node {
 
     // equation text on a translucent background
     const equationNode = new GQBackgroundNode( equationText, {
+      visibleProperty: equationsVisibleProperty,
       maxWidth: 100 // determined empirically
     } );
     this.addChild( equationNode );
@@ -93,9 +94,6 @@ class DirectrixNode extends Node {
         graph.yRange.contains( quadratic.directrix ) // the directrix (y=N) is on the graph
     );
     visibleProperty.linkAttribute( this, 'visible' );
-
-    // visibility of equation
-    equationsVisibleProperty.linkAttribute( equationNode, 'visible' );
   }
 }
 

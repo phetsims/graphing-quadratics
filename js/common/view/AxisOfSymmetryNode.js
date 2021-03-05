@@ -47,6 +47,7 @@ class AxisOfSymmetryNode extends Node {
 
     // equation text on a translucent background
     const equationNode = new GQBackgroundNode( equationText, {
+      visibleProperty: equationsVisibleProperty,
       maxHeight: 100 // maxHeight because equation is rotated, determined empirically
     } );
     this.addChild( equationNode );
@@ -108,9 +109,6 @@ class AxisOfSymmetryNode extends Node {
         graph.xRange.contains( quadratic.axisOfSymmetry ) // the axis of symmetry (x=N) is on the graph
     );
     visibleProperty.linkAttribute( this, 'visible' );
-
-    // visibility of equation
-    equationsVisibleProperty.linkAttribute( equationNode, 'visible' );
   }
 }
 
