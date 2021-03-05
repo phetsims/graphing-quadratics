@@ -41,8 +41,8 @@ class NoRealRootsNode extends Node {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
-
+      phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots',
+      visiblePropertyOptions: { phetioReadOnly: true } // because visibility is derived below
     }, options );
 
     const textNode = new Text( graphingQuadraticsStrings.noRealRoots, {
