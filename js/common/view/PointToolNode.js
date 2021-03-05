@@ -50,7 +50,7 @@ class PointToolNode extends Node {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      phetioDocumentation: pointTool.phetioDocumentation
+      phetioDocumentation: Tandem.PHET_IO_ENABLED ? pointTool.phetioDocumentation : null
 
     }, options );
 
