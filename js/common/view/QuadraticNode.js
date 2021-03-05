@@ -101,6 +101,9 @@ class QuadraticNode extends Node {
     };
     equationsVisibleProperty.link( equationsVisibleListener ); // unlink required in dispose
 
+    // Update when this Node becomes visible.
+    this.visibleProperty.link( visible => visible && this.update( this.quadraticProperty.value ) );
+
     // @private
     this.disposeQuadraticNode = () => {
       if ( quadraticProperty.hasListener( quadraticListener ) ) {
@@ -119,19 +122,6 @@ class QuadraticNode extends Node {
   dispose() {
     super.dispose();
     this.disposeQuadraticNode();
-  }
-
-  /**
-   * Sets the visibility of this Node.  Update is deferred until this Node becomes visible.
-   * @param {boolean} visible
-   * @public
-   * @override
-   */
-  setVisible( visible ) {
-    super.setVisible( visible );
-    if ( visible ) {
-      this.update( this.quadraticProperty.value );
-    }
   }
 
   /**
