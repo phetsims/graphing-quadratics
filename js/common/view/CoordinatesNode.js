@@ -62,11 +62,7 @@ class CoordinatesNode extends Node {
     this.foregroundNode = foregroundNode;
     this.backgroundNode = backgroundNode;
 
-    coordinatesProperty.link( coordinates => {
-      if ( this.visible ) {
-        this.update( coordinates );
-      }
-    } );
+    coordinatesProperty.link( coordinates => this.update( coordinates ) );
   }
 
   /**
@@ -82,19 +78,6 @@ class CoordinatesNode extends Node {
    * @public
    */
   set background( color ) { this.backgroundNode.fill = color; }
-
-  /**
-   * Sets the visibility of this Node. Update is deferred until this Node becomes visible.
-   * @param {boolean} visible
-   * @public
-   * @override
-   */
-  setVisible( visible ) {
-    super.setVisible( visible );
-    if ( visible ) {
-      this.update( this.coordinatesProperty.value );
-    }
-  }
 
   /**
    * Updates this Node.
