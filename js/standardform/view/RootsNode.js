@@ -34,11 +34,11 @@ class RootsNode extends Node {
                rootsVisibleProperty, coordinatesVisibleProperty, options ) {
 
     options = merge( {
+      visiblePropertyOptions: { phetioReadOnly: true }, // because visibility is derived, see below
 
       // phet-io
       tandem: Tandem.REQUIRED,
       phetioDocumentation: 'displays the roots of the interactive quadratic'
-
     }, options );
 
     // options common to both Property instances
