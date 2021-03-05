@@ -66,8 +66,8 @@ class FocusAndDirectrixGraphNode extends GQGraphNode {
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      viewProperties.pointOnParabolaVisibleProperty,
       viewProperties.coordinatesVisibleProperty, {
+        visibleProperty: viewProperties.pointOnParabolaVisibleProperty,
         tandem: tandem.createTandem( 'pointOnParabolaManipulator' ),
         phetioDocumentation: 'the manipulator for changing the point on the parabola'
       } );

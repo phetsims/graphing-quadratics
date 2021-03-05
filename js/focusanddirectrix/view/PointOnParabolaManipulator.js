@@ -25,12 +25,10 @@ class PointOnParabolaManipulator extends GQManipulator {
    * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
    * @param {Graph} graph
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {BooleanProperty} pointOnParabolaVisibleProperty
    * @param {BooleanProperty} coordinatesVisibleProperty
    * @param {Object} [options]
    */
-  constructor( pointOnParabolaProperty, quadraticProperty, graph, modelViewTransform,
-               pointOnParabolaVisibleProperty, coordinatesVisibleProperty, options ) {
+  constructor( pointOnParabolaProperty, quadraticProperty, graph, modelViewTransform, coordinatesVisibleProperty, options ) {
 
     options = merge( {
 
@@ -84,12 +82,6 @@ class PointOnParabolaManipulator extends GQManipulator {
     // move the manipulator
     pointOnParabolaProperty.link( pointOnParabola => {
       this.translation = modelViewTransform.modelToViewPosition( pointOnParabola );
-    } );
-
-    // visibility of this Node
-    pointOnParabolaVisibleProperty.link( visible => {
-      this.interruptSubtreeInput(); // cancel any drag that is in progress
-      this.visible = visible;
     } );
   }
 }
