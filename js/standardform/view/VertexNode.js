@@ -40,8 +40,8 @@ class VertexNode extends PointNode {
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
 
       // phet-io
-      phetioDocumentation: 'displays the vertex of the interactive quadratic'
-
+      phetioDocumentation: 'displays the vertex of the interactive quadratic',
+      visiblePropertyOptions: { phetioReadOnly: true } // because visibility is derived below
     }, options );
 
     // position coordinates on the outside of the parabola

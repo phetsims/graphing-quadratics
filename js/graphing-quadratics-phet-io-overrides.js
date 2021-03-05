@@ -220,9 +220,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.standardFormScreen.view.rightPointToolNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.standardFormScreen.view.vertexNode.visibleProperty": {
-      "phetioReadOnly": true
-    },
     "graphingQuadratics.standardFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
       "phetioFeatured": true
     },
