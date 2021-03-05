@@ -100,7 +100,8 @@ class ButtonGroup extends HBox {
       baseColor: PhetColorScheme.BUTTON_YELLOW,
       listener: () => { model.saveQuadratic(); },
       tandem: options.tandem.createTandem( 'saveButton' ),
-      phetioDocumentation: 'the button used to save a quadratic'
+      phetioDocumentation: 'the button used to save a quadratic',
+      visiblePropertyOptions: { phetioReadOnly: true } // by designer request
     } );
 
     // Erase button
@@ -108,7 +109,8 @@ class ButtonGroup extends HBox {
       iconWidth: BUTTON_ICON_WIDTH,
       listener: () => { model.eraseQuadratic(); },
       tandem: options.tandem.createTandem( 'eraseButton' ),
-      phetioDocumentation: 'the button used to erase the saved quadratic'
+      phetioDocumentation: 'the button used to erase the saved quadratic',
+      visiblePropertyOptions: { phetioReadOnly: true } // by designer request
     } );
 
     assert && assert( !options.children, 'ButtonGroup sets children' );
