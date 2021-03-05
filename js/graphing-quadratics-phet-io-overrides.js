@@ -122,9 +122,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.focusManipulator.visibleProperty": {
-      "phetioReadOnly": true
-    },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.visibleProperty": {
       "phetioFeatured": true
     },
@@ -136,9 +133,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.visibleProperty": {
       "phetioFeatured": true
-    },
-    "graphingQuadratics.focusAndDirectrixScreen.view.vertexManipulator.visibleProperty": {
-      "phetioReadOnly": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioFeatured": true
@@ -296,9 +290,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     },
     "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.visibleProperty": {
       "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.view.vertexManipulator.visibleProperty": {
-      "phetioReadOnly": true
     },
     "graphingQuadratics.vertexFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
       "phetioFeatured": true

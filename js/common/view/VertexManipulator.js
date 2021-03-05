@@ -47,7 +47,8 @@ class VertexManipulator extends GQManipulator {
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
 
       // phet-io
-      phetioDocumentation: 'a manipulator for the vertex'
+      phetioDocumentation: 'a manipulator for the vertex',
+      phetioReadOnly: true // because visibility is derived below
 
     }, options );
 

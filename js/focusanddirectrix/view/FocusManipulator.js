@@ -47,7 +47,8 @@ class FocusManipulator extends GQManipulator {
       coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
 
       // phet-io
-      phetioDocumentation: 'manipulator for the focus'
+      phetioDocumentation: 'manipulator for the focus',
+      phetioReadOnly: true // because visibility is derived below
 
     }, options );
 
