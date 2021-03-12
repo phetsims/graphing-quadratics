@@ -57,10 +57,10 @@ class GQModel {
       -modelViewTransformScale // y is inverted (+y is up in the model, +y is down in the view)
     );
 
-    // Options for {Property.<Quadratic[]>} 
+    // Options for {Property.<Quadratic[]>}
     const optionsPropertyQuadraticArray = {
       isValidValue: array => Array.isArray( array ) &&
-                             _.every( array, function( value ) { return value instanceof Quadratic; } )
+                             _.every( array, value => value instanceof Quadratic )
     };
 
     // @public {Property.<Quadratic[]>} optional quadratic terms to be displayed,
