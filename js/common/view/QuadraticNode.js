@@ -35,7 +35,7 @@ class QuadraticNode extends Node {
                equationsVisibleProperty, options ) {
 
     assert && assert( _.includes( GQConstants.EQUATION_FORMS, equationForm ),
-      'invalid equationForm: ' + equationForm );
+      `invalid equationForm: ${equationForm}` );
 
     options = merge( {
 
@@ -173,7 +173,7 @@ class QuadraticNode extends Node {
       // straight line: equation above left end of line
       const x = this.xEquationRange.min;
       const p = quadratic.getClosestPointInRange( x, this.xEquationRange, this.yEquationRange );
-      assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), 'p is off the graph: ' + p );
+      assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), `p is off the graph: ${p}` );
 
       // rotate to match line's slope
       this.equationParent.rotation = -Math.atan( quadratic.b );
@@ -189,7 +189,7 @@ class QuadraticNode extends Node {
       // parabola: pick a point on the parabola, at the edge of the graph
       const x = ( quadratic.vertex.x >= 0 ) ? this.xEquationRange.min : this.xEquationRange.max;
       const p = quadratic.getClosestPointInRange( x, this.xEquationRange, this.yEquationRange );
-      assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), 'p is off the graph: ' + p );
+      assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), `p is off the graph: ${p}` );
 
       // Width of the equation in model coordinates
       const equationModelWidth = Math.abs( this.modelViewTransform.viewToModelDeltaX( this.equationNode.width ) );

@@ -30,7 +30,7 @@ class ConstantTermCheckbox extends GQCheckbox {
     }, options );
 
     // y = c
-    const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.c;
+    const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.c}`;
 
     super( text, constantTermVisibleProperty, options );
   }

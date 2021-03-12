@@ -44,7 +44,7 @@ class FocusAndDirectrixModel extends GQModel {
       // See https://github.com/phetsims/graphing-quadratics/issues/52
       phetioStudioControl: false
     } ) );
-    phet.log && pProperty.link( p => { phet.log( 'p=' + p ); } );
+    phet.log && pProperty.link( p => { phet.log( `p=${p}` ); } );
 
     // h
     const hProperty = new NumberProperty( H_RANGE.defaultValue, {
@@ -52,7 +52,7 @@ class FocusAndDirectrixModel extends GQModel {
       tandem: tandem.createTandem( 'hProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } )
     } );
-    phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
+    phet.log && hProperty.link( h => { phet.log( `h=${h}` ); } );
 
     // k
     const kProperty = new NumberProperty( K_RANGE.defaultValue, {
@@ -60,7 +60,7 @@ class FocusAndDirectrixModel extends GQModel {
       tandem: tandem.createTandem( 'kProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } )
     } );
-    phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
+    phet.log && kProperty.link( k => { phet.log( `k=${k}` ); } );
 
     // {DerivedProperty.<Quadratic>}
     const quadraticProperty = new DerivedProperty(
@@ -73,7 +73,7 @@ class FocusAndDirectrixModel extends GQModel {
         phetioType: DerivedProperty.DerivedPropertyIO( Quadratic.QuadraticIO )
       } );
     phet.log && quadraticProperty.link( quadratic => {
-      phet.log( 'quadratic: y = (1/(4(' + quadratic.p + ')))(x - ' + quadratic.h + ')^2 + ' + quadratic.k );
+      phet.log( `quadratic: y = (1/(4(${quadratic.p})))(x - ${quadratic.h})^2 + ${quadratic.k}` );
     } );
 
     super( quadraticProperty, tandem );
@@ -94,8 +94,8 @@ class FocusAndDirectrixModel extends GQModel {
     // update the point
     this.quadraticProperty.lazyLink( ( quadratic, oldQuadratic ) => {
 
-      assert && assert( quadratic.vertex, 'expected quadratic.vertex: ' + quadratic.vertex );
-      assert && assert( oldQuadratic.vertex, 'expected oldQuadratic.vertex: ' + oldQuadratic.vertex );
+      assert && assert( quadratic.vertex, `expected quadratic.vertex: ${quadratic.vertex}` );
+      assert && assert( oldQuadratic.vertex, `expected oldQuadratic.vertex: ${oldQuadratic.vertex}` );
 
       const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
       const x = this.pointOnParabolaProperty.value.x + dx;

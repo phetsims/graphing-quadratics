@@ -46,7 +46,7 @@ class PointOnParabolaLinesNode extends Node {
     Property.multilink( [ quadraticProperty, pointOnParabolaProperty ],
       ( quadratic, pointOnParabola ) => {
 
-        assert && assert( quadratic.isaParabola(), 'expected a parabola, quadratic=' + quadratic );
+        assert && assert( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
 
         const pointView = modelViewTransform.modelToViewPosition( pointOnParabola );
         const focusView = modelViewTransform.modelToViewPosition( quadratic.focus );

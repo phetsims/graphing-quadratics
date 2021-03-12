@@ -135,7 +135,7 @@ class PointOnParabolaDragListener extends DragListener {
           // y is out of range, so constrain y, solve for x, and choose the closer of the 2 solutions
           pointOnParabola.setY( graph.yRange.constrainValue( pointOnParabola.y ) );
           const xSolutions = quadraticProperty.value.solveX( pointOnParabola.y );
-          assert && assert( xSolutions && xSolutions.length === 2, 'expected 2 solutions for x: ' + xSolutions );
+          assert && assert( xSolutions && xSolutions.length === 2, `expected 2 solutions for x: ${xSolutions}` );
           const xClosest = ( Math.abs( xSolutions[ 0 ] - pointOnParabola.x ) < Math.abs( xSolutions[ 1 ] - pointOnParabola.x ) )
                            ? xSolutions[ 0 ] : xSolutions[ 1 ];
           pointOnParabola.setX( xClosest );

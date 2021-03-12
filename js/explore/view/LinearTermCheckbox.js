@@ -30,7 +30,7 @@ class LinearTermCheckbox extends GQCheckbox {
     }, options );
 
     // y = bx
-    const text = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO + ' ' + GQSymbols.b + GQSymbols.x;
+    const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.b}${GQSymbols.x}`;
 
     super( text, linearTermVisibleProperty, options );
   }

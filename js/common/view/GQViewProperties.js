@@ -41,7 +41,7 @@ class GQViewProperties extends PhetioObject {
     }, options );
 
     assert && assert( _.includes( GQConstants.EQUATION_FORMS, options.equationForm ),
-      'invalid equationForm: ' + options.equationForm );
+      `invalid equationForm: ${options.equationForm}` );
 
     super( options );
 

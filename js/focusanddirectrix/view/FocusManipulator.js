@@ -86,7 +86,7 @@ class FocusManipulator extends GQManipulator {
 
     // move the manipulator
     quadraticProperty.link( quadratic => {
-      assert && assert( quadratic.focus, 'expected focus: ' + quadratic.focus );
+      assert && assert( quadratic.focus, `expected focus: ${quadratic.focus}` );
       this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
     } );
 
@@ -132,7 +132,7 @@ class FocusDragListener extends DragListener {
       start: ( event, listener ) => {
 
         const focus = quadraticProperty.value.focus;
-        assert && assert( focus, 'expected focus: ' + focus );
+        assert && assert( focus, `expected focus: ${focus}` );
 
         const position = modelViewTransform.modelToViewPosition( focus );
         startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
@@ -141,7 +141,7 @@ class FocusDragListener extends DragListener {
       drag: ( event, listener ) => {
 
         const vertex = quadraticProperty.value.vertex;
-        assert && assert( vertex, 'expected vertex: ' + vertex );
+        assert && assert( vertex, `expected vertex: ${vertex}` );
 
         // transform the drag point from view to model coordinate frame
         const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );

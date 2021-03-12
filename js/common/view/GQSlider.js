@@ -83,7 +83,7 @@ class GQSlider extends VSlider {
 
     }, options );
 
-    assert && assert( options.interval > 0, 'invalid interval: ' + options.interval );
+    assert && assert( options.interval > 0, `invalid interval: ${options.interval}` );
 
     // default and validation for options.snapToZeroEpsilon
     if ( options.snapToZero ) {
@@ -91,7 +91,7 @@ class GQSlider extends VSlider {
         options.snapToZeroEpsilon = options.interval;
       }
       assert && assert( ( options.snapToZeroEpsilon >= 0 ) && ( options.snapToZeroEpsilon >= options.interval ),
-        'invalid snapToZeroEpsilon: ' + options.snapToZeroEpsilon );
+        `invalid snapToZeroEpsilon: ${options.snapToZeroEpsilon}` );
     }
 
     // make tick mark lines extend past the thumb

@@ -36,7 +36,7 @@ class FocusAndDirectrixEquationNode extends Node {
     }, options );
 
     // y =
-    const yEqualsString = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO;
+    const yEqualsString = `${GQSymbols.y} ${MathSymbols.EQUAL_TO}`;
     const yEqualsNode = new RichText( yEqualsString, {
       font: options.font,
       fill: options.color
@@ -49,7 +49,7 @@ class FocusAndDirectrixEquationNode extends Node {
     } );
 
     // 4p
-    const denominatorString = '4' + GQSymbols.p;
+    const denominatorString = `4${GQSymbols.p}`;
     const denominatorNode = new RichText( denominatorString, {
       font: options.fractionFont,
       fill: options.color

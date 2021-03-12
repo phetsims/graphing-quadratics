@@ -57,7 +57,7 @@ class DirectrixNode extends Node {
     // update when the interactive quadratic changes
     quadraticProperty.link( quadratic => {
 
-      assert && assert( quadratic.isaParabola(), 'expected a parabola, quadratic=' + quadratic );
+      assert && assert( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
 
       // update the horizontal line
       const y = modelViewTransform.modelToViewY( quadratic.directrix );

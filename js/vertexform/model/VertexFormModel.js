@@ -42,7 +42,7 @@ class VertexFormModel extends GQModel {
       tandem: tandem.createTandem( 'aProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'a' } )
     }, numberPropertyOptions ) );
-    phet.log && aProperty.link( a => { phet.log( 'a=' + a ); } );
+    phet.log && aProperty.link( a => { phet.log( `a=${a}` ); } );
 
     // h
     const hProperty = new NumberProperty( H_RANGE.defaultValue, merge( {
@@ -50,7 +50,7 @@ class VertexFormModel extends GQModel {
       tandem: tandem.createTandem( 'hProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } )
     }, numberPropertyOptions ) );
-    phet.log && hProperty.link( h => { phet.log( 'h=' + h ); } );
+    phet.log && hProperty.link( h => { phet.log( `h=${h}` ); } );
 
     // k
     const kProperty = new NumberProperty( K_RANGE.defaultValue, merge( {
@@ -58,7 +58,7 @@ class VertexFormModel extends GQModel {
       tandem: tandem.createTandem( 'kProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } )
     }, numberPropertyOptions ) );
-    phet.log && kProperty.link( k => { phet.log( 'k=' + k ); } );
+    phet.log && kProperty.link( k => { phet.log( `k=${k}` ); } );
 
     // {DerivedProperty.<Quadratic>}
     const quadraticProperty = new DerivedProperty(
@@ -71,7 +71,7 @@ class VertexFormModel extends GQModel {
         phetioType: DerivedProperty.DerivedPropertyIO( Quadratic.QuadraticIO )
       } );
     phet.log && quadraticProperty.link( quadratic => {
-      phet.log( 'quadratic: y = ' + quadratic.a + ' (x - ' + quadratic.h + ')^2 + ' + quadratic.k );
+      phet.log( `quadratic: y = ${quadratic.a} (x - ${quadratic.h})^2 + ${quadratic.k}` );
     } );
 
     super( quadraticProperty, tandem );

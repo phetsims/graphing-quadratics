@@ -12,7 +12,7 @@ import graphingQuadratics from '../graphingQuadratics.js';
 import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
 
 // constants
-const SYMBOL_PATTERN = '<i style=\'font-family: ' + new MathSymbolFont( 10 ).family + '\'>{{symbol}}</i>';
+const SYMBOL_PATTERN = `<i style='font-family: ${new MathSymbolFont( 10 ).family}'>{{symbol}}</i>`;
 const x = StringUtils.fillIn( SYMBOL_PATTERN, { symbol: graphingQuadraticsStrings.x } );
 
 const GQSymbols = {

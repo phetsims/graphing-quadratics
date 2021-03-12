@@ -17,7 +17,7 @@ import GQConstants from '../GQConstants.js';
 import GQSymbols from '../GQSymbols.js';
 
 // constants
-const Y_EQUALS_STRING = GQSymbols.y + ' ' + MathSymbols.EQUAL_TO; // 'y ='
+const Y_EQUALS_STRING = `${GQSymbols.y} ${MathSymbols.EQUAL_TO}`; // 'y ='
 
 const GQEquationFactory = {
 
@@ -42,7 +42,7 @@ const GQEquationFactory = {
     const c = Utils.toFixedNumber( quadratic.c, options.cDecimals );
 
     // y =
-    let equationString = Y_EQUALS_STRING + ' ';
+    let equationString = `${Y_EQUALS_STRING} `;
 
     if ( a === 0 && b === 0 && c === 0 ) {
 
@@ -101,7 +101,7 @@ const GQEquationFactory = {
         }
         else {
           equationString += ( c > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS;
-          equationString += ' ' + Math.abs( c );
+          equationString += ` ${Math.abs( c )}`;
         }
       }
     }
@@ -130,7 +130,7 @@ const GQEquationFactory = {
     const k = Utils.toFixedNumber( quadratic.k, options.kDecimals );
 
     // y =
-    let equationString = Y_EQUALS_STRING + ' ';
+    let equationString = `${Y_EQUALS_STRING} `;
 
     if ( a === 0 && k === 0 ) {
 
@@ -156,9 +156,9 @@ const GQEquationFactory = {
         equationString += GQSymbols.xSquared;
       }
       else {
-        equationString += '(' + GQSymbols.x + ' ';
+        equationString += `(${GQSymbols.x} `;
         equationString += ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
-        equationString += ' ' + Math.abs( h );
+        equationString += ` ${Math.abs( h )}`;
         equationString += ')<sup>2</sup>';
       }
 
@@ -173,7 +173,7 @@ const GQEquationFactory = {
         }
         else {
           equationString += ( k > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS;
-          equationString += ' ' + Math.abs( k );
+          equationString += ` ${Math.abs( k )}`;
         }
       }
     }
@@ -188,7 +188,7 @@ const GQEquationFactory = {
    * @public
    */
   createDirectrix( directrix ) {
-    return Y_EQUALS_STRING + ' ' + Utils.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS );
+    return `${Y_EQUALS_STRING} ${Utils.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
   },
 
   /**
@@ -198,8 +198,8 @@ const GQEquationFactory = {
    * @public
    */
   createAxisOfSymmetry( axisOfSymmetry ) {
-    return GQSymbols.x + ' ' + MathSymbols.EQUAL_TO + ' ' +
-           Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS );
+    return `${GQSymbols.x} ${MathSymbols.EQUAL_TO} ${
+           Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
 };
 

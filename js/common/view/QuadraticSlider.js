@@ -22,7 +22,7 @@ class QuadraticSlider extends GQSlider {
     options = options || {};
 
     assert && assert( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,
-      'symmetrical range is required: ' + coefficientProperty.range );
+      `symmetrical range is required: ${coefficientProperty.range}` );
 
     // coefficient for quadratic equation y = ax^2
     const a = 1 / coefficientProperty.range.max;

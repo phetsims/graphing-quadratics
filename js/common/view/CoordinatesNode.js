@@ -89,7 +89,7 @@ class CoordinatesNode extends Node {
     // coordinates
     const x = coordinates ? Utils.toFixedNumber( coordinates.x, this.decimals ) : graphingQuadraticsStrings.coordinateUnknown;
     const y = coordinates ? Utils.toFixedNumber( coordinates.y, this.decimals ) : graphingQuadraticsStrings.coordinateUnknown;
-    this.foregroundNode.text = '(' + x + ', ' + y + ')';
+    this.foregroundNode.text = `(${x}, ${y})`;
 
     // resize background
     this.backgroundNode.setRect( 0, 0,

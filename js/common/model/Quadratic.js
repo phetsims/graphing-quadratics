@@ -296,7 +296,7 @@ class Quadratic {
    */
   hasSolution( point, distance ) {
     distance = distance || 0;
-    assert && assert( distance >= 0, 'invalid distance: ' + distance );
+    assert && assert( distance >= 0, `invalid distance: ${distance}` );
     const closestPoint = this.getClosestPoint( point );
     return point.distance( closestPoint ) <= distance;
   }
@@ -326,7 +326,7 @@ class Quadratic {
       b * c - b * y0 - x0
     );
     assert && assert( roots, 'all values are roots' );
-    assert && assert( roots.length > 0, 'unexpected number of roots: ' + roots.length );
+    assert && assert( roots.length > 0, `unexpected number of roots: ${roots.length}` );
 
     // Determine which solution is closest to point (x0,y0)
     let rootPoint;
@@ -360,20 +360,20 @@ class Quadratic {
       // y is outside range, constrain y and solve for x
       y = yRange.constrainValue( y );
       const xValues = this.solveX( y );
-      assert && assert( xValues, 'No solution exists, the parabola is likely off the graph. ' +
-                                 'x=' + x + ', quadratic=' + this.toString() );
+      assert && assert( xValues, `${'No solution exists, the parabola is likely off the graph. ' +
+                                 'x='}${x}, quadratic=${this.toString()}` );
 
       if ( this.isaParabola() ) {
 
         // parabola
-        assert && assert( xValues.length === 2, 'unexpected number of xValues: ' + xValues );
-        assert && assert( xValues[ 0 ] < xValues[ 1 ], 'unexpected order of xValues: ' + xValues );
+        assert && assert( xValues.length === 2, `unexpected number of xValues: ${xValues}` );
+        assert && assert( xValues[ 0 ] < xValues[ 1 ], `unexpected order of xValues: ${xValues}` );
         x = ( x < this.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
       }
       else {
 
         // straight line
-        assert && assert( xValues.length === 1, 'unexpected number of xValues: ' + xValues );
+        assert && assert( xValues.length === 1, `unexpected number of xValues: ${xValues}` );
         x = xValues[ 0 ];
       }
     }
@@ -398,7 +398,7 @@ function solveRoots( a, b, c ) {
     xCoordinates = xCoordinates.sort( ( x0, x1 ) => x0 - x1 ); // in ascending order
     _.uniq( xCoordinates ).forEach( x => { roots.push( new Vector2( x, 0 ) ); } );
   }
-  assert && assert( roots === null || ( roots.length >= 0 && roots.length <= 2 ), 'unexpected roots: ' + roots );
+  assert && assert( roots === null || ( roots.length >= 0 && roots.length <= 2 ), `unexpected roots: ${roots}` );
   return roots;
 }
 

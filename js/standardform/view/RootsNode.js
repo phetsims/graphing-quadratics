@@ -141,7 +141,7 @@ class RootsNode extends Node {
       const roots = quadratic.roots;
 
       if ( roots && roots.length !== 0 ) {
-        assert && assert( roots.length === 1 || roots.length === 2, 'unexpected number of roots: ' + roots.length );
+        assert && assert( roots.length === 1 || roots.length === 2, `unexpected number of roots: ${roots.length}` );
 
         const leftRoot = roots[ 0 ];
         leftRootNode.translation = modelViewTransform.modelToViewPosition( leftRoot );
@@ -149,7 +149,7 @@ class RootsNode extends Node {
 
         if ( roots.length === 2 ) {
           const rightRoot = roots[ 1 ];
-          assert && assert( leftRoot.x < rightRoot.x, 'unexpected order of roots: ' + roots );
+          assert && assert( leftRoot.x < rightRoot.x, `unexpected order of roots: ${roots}` );
           rightRootNode.translation = modelViewTransform.modelToViewPosition( rightRoot );
           rightRootNode.visible = graph.contains( rightRoot );
         }

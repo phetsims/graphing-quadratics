@@ -38,7 +38,7 @@ class PointTool extends PhetioObject {
     }, options );
 
     assert && assert( _.includes( GQConstants.PROBE_SIDES, options.probeSide ),
-      'invalid probeSide: ' + options.probeSide );
+      `invalid probeSide: ${options.probeSide}` );
 
     super( options );
 
