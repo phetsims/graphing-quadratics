@@ -361,7 +361,7 @@ class Quadratic {
       y = yRange.constrainValue( y );
       const xValues = this.solveX( y );
       assert && assert( xValues, `${'No solution exists, the parabola is likely off the graph. ' +
-                                 'x='}${x}, quadratic=${this.toString()}` );
+                                    'x='}${x}, quadratic=${this.toString()}` );
 
       if ( this.isaParabola() ) {
 

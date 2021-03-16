@@ -199,7 +199,7 @@ const GQEquationFactory = {
    */
   createAxisOfSymmetry( axisOfSymmetry ) {
     return `${GQSymbols.x} ${MathSymbols.EQUAL_TO} ${
-           Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
+      Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
 };
 
