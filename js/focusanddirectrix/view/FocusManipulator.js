@@ -48,7 +48,7 @@ class FocusManipulator extends GQManipulator {
 
       // phet-io
       phetioDocumentation: 'manipulator for the focus',
-      phetioReadOnly: true // because visibility is derived below
+      visiblePropertyOptions: { phetioReadOnly: true } // because visibility is derived below
 
     }, options );
 

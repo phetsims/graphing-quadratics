@@ -40,7 +40,7 @@ class PointOnParabolaManipulator extends GQManipulator {
       coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
 
       // phet-io
-      phetioDocumentation: 'a manipulator for a point on the parabola'
+      phetioDocumentation: 'manipulator for a point on the parabola'
 
     }, options );
 
