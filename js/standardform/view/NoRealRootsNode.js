@@ -13,6 +13,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -41,8 +42,7 @@ class NoRealRootsNode extends Node {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots',
-      visiblePropertyOptions: { phetioReadOnly: true } // because visibility is derived below
+      phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
     }, options );
 
     const textNode = new Text( graphingQuadraticsStrings.noRealRoots, {
@@ -59,6 +59,18 @@ class NoRealRootsNode extends Node {
 
     assert && assert( !options.children, 'NoRealRootsNode sets children' );
     options.children = [ backgroundNode, textNode ];
+
+    // visibility of this Node
+    assert && assert( !options.visibleProperty, 'NoRealRootsNode sets visibleProperty' );
+    options.visibleProperty = new DerivedProperty(
+      [ rootsVisibleProperty, quadraticProperty ],
+      ( rootsVisible, quadratic ) =>
+        rootsVisible && // the Roots checkbox is checked
+        !!( quadratic.roots && quadratic.roots.length === 0 ), // the interactive quadratic has no roots
+      {
+        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+      } );
 
     super( options );
 
@@ -91,14 +103,6 @@ class NoRealRootsNode extends Node {
       }
     );
     centerProperty.linkAttribute( this, 'center' );
-
-    const visibleProperty = new DerivedProperty(
-      [ rootsVisibleProperty, quadraticProperty ],
-      ( rootsVisible, quadratic ) =>
-        rootsVisible && // the Roots checkbox is checked
-        !!( quadratic.roots && quadratic.roots.length === 0 ) // the interactive quadratic has no roots
-    );
-    visibleProperty.linkAttribute( this, 'visible' );
   }
 }
 

@@ -9,6 +9,7 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -40,8 +41,7 @@ class VertexNode extends PointNode {
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
 
       // phet-io
-      phetioDocumentation: 'displays the vertex of the interactive quadratic',
-      visiblePropertyOptions: { phetioReadOnly: true } // because visibility is derived below
+      phetioDocumentation: 'displays the vertex of the interactive quadratic'
     }, options );
 
     // position coordinates on the outside of the parabola
@@ -67,6 +67,19 @@ class VertexNode extends PointNode {
         phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2.Vector2IO ) )
       } );
 
+    // visibility of this Node
+    assert && assert( !options.visibleProperty, 'VertexNode sets visibleProperty' );
+    options.visibleProperty = new DerivedProperty(
+      [ vertexVisibleProperty, quadraticProperty ],
+      ( vertexVisible, quadratic ) =>
+        vertexVisible &&  // the Vertex checkbox is checked
+        quadratic.isaParabola() &&  // the quadratic is a parabola, so has a vertex
+        graph.contains( quadratic.vertex ), // the vertex is on the graph
+      {
+        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+      } );
+
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
     // move to the vertex position
@@ -75,16 +88,6 @@ class VertexNode extends PointNode {
         this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
       }
     } );
-
-    // visibility of this Node
-    const visibleProperty = new DerivedProperty(
-      [ vertexVisibleProperty, quadraticProperty ],
-      ( vertexVisible, quadratic ) =>
-        vertexVisible &&  // the Vertex checkbox is checked
-        quadratic.isaParabola() &&  // the quadratic is a parabola, so has a vertex
-        graph.contains( quadratic.vertex ) // the vertex is on the graph
-    );
-    visibleProperty.linkAttribute( this, 'visible' );
   }
 }
 

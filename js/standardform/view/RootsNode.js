@@ -11,6 +11,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -34,7 +35,6 @@ class RootsNode extends Node {
                rootsVisibleProperty, coordinatesVisibleProperty, options ) {
 
     options = merge( {
-      visiblePropertyOptions: { phetioReadOnly: true }, // because visibility is derived, see below
 
       // phet-io
       tandem: Tandem.REQUIRED,
@@ -130,6 +130,19 @@ class RootsNode extends Node {
     assert && assert( !options.children, 'RootsNode sets children' );
     options.children = [ leftRootNode, rightRootNode ];
 
+    // visibility of this Node
+    assert && assert( !options.visibleProperty, 'RootsNode sets visibleProperty' );
+    options.visibleProperty = new DerivedProperty(
+      [ rootsVisibleProperty, quadraticProperty ],
+      ( rootsVisible, quadratic ) =>
+        rootsVisible &&  // the Roots checkbox is checked
+        !!quadratic.roots && // it is not the case that all points on the quadratic are roots
+        quadratic.roots.length !== 0, // there is at least one root
+      {
+        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+      } );
+
     super( options );
 
     quadraticProperty.link( quadratic => {
@@ -155,16 +168,6 @@ class RootsNode extends Node {
         }
       }
     } );
-
-    // visibility of this Node
-    const visibleProperty = new DerivedProperty(
-      [ rootsVisibleProperty, quadraticProperty ],
-      ( rootsVisible, quadratic ) =>
-        rootsVisible &&  // the Roots checkbox is checked
-        !!quadratic.roots && // it is not the case that all points on the quadratic are roots
-        quadratic.roots.length !== 0 // there is at least one root
-    );
-    visibleProperty.linkAttribute( this, 'visible' );
   }
 }
 

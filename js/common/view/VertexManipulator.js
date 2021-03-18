@@ -13,6 +13,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
+import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
@@ -47,8 +48,7 @@ class VertexManipulator extends GQManipulator {
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
 
       // phet-io
-      phetioDocumentation: 'manipulator for the vertex',
-      visiblePropertyOptions: { phetioReadOnly: true } // because visibility is derived below
+      phetioDocumentation: 'manipulator for the vertex'
 
     }, options );
 
@@ -76,6 +76,19 @@ class VertexManipulator extends GQManipulator {
         phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2.Vector2IO ) )
       } );
 
+    // visibility of this Node
+    assert && assert( !options.visibleProperty, 'VertexManipulator sets visibleProperty' );
+    options.visibleProperty = new DerivedProperty(
+      [ vertexVisibleProperty, quadraticProperty ],
+      ( vertexVisible, quadratic ) =>
+        vertexVisible &&  // the Vertex checkbox is checked
+        quadratic.isaParabola() &&  // the quadratic is a parabola, so has a vertex
+        graph.contains( quadratic.vertex ), // the vertex is on the graph
+      {
+        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+      } );
+
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
     // add the drag listener
@@ -91,17 +104,8 @@ class VertexManipulator extends GQManipulator {
       }
     } );
 
-    // visibility of this Node
-    const visibleProperty = new DerivedProperty(
-      [ vertexVisibleProperty, quadraticProperty ],
-      ( vertexVisible, quadratic ) =>
-        vertexVisible &&  // the Vertex checkbox is checked
-        quadratic.isaParabola() &&  // the quadratic is a parabola, so has a vertex
-        graph.contains( quadratic.vertex ) // the vertex is on the graph
-    );
-    visibleProperty.link( visible => {
+    options.visibleProperty.link( visible => {
       this.interruptSubtreeInput(); // cancel any drag that is in progress
-      this.visible = visible;
     } );
   }
 }

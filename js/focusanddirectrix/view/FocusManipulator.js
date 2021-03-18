@@ -12,6 +12,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
+import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQManipulator from '../../common/view/GQManipulator.js';
@@ -47,8 +48,7 @@ class FocusManipulator extends GQManipulator {
       coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
 
       // phet-io
-      phetioDocumentation: 'manipulator for the focus',
-      visiblePropertyOptions: { phetioReadOnly: true } // because visibility is derived below
+      phetioDocumentation: 'manipulator for the focus'
 
     }, options );
 
@@ -75,6 +75,18 @@ class FocusManipulator extends GQManipulator {
         phetioDocumentation: 'coordinates displayed on the focus manipulator'
       } );
 
+    // visibility of this Node
+    assert && assert( !options.visibleProperty, 'FocusManipulator sets visibleProperty' );
+    options.visibleProperty = new DerivedProperty(
+      [ focusVisibleProperty, quadraticProperty ],
+      ( focusVisible, quadratic ) =>
+        focusVisible && // the Focus checkbox is checked
+        graph.contains( quadratic.focus ), // the focus is on the graph
+      {
+        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+      } );
+
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
     // add the drag listener
@@ -90,16 +102,8 @@ class FocusManipulator extends GQManipulator {
       this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
     } );
 
-    // visibility of this Node
-    const visibleProperty = new DerivedProperty(
-      [ focusVisibleProperty, quadraticProperty ],
-      ( focusVisible, quadratic ) =>
-        focusVisible && // the Focus checkbox is checked
-        graph.contains( quadratic.focus ) // the focus is on the graph
-    );
-    visibleProperty.link( visible => {
+    options.visibleProperty.link( visible => {
       this.interruptSubtreeInput(); // cancel any drag that is in progress
-      this.visible = visible;
     } );
   }
 }
