@@ -48,7 +48,7 @@ class GQManipulator extends Manipulator {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      inputEnabledPropertyPhetioInstrumented: true
+      phetioInputEnabledPropertyInstrumented: true
 
     }, options );
 
