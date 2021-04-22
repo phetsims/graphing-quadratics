@@ -5457,6 +5457,28 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
+    "graphingQuadratics.general.controller.input.gotPointerCaptureAction": {
+      "phetioDocumentation": "Emits when a pointer is captured (normally at the start of an interaction)",
+      "phetioEventType": "user",
+      "phetioFeatured": false,
+      "phetioHighFrequency": true,
+      "phetioPlayback": true,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "ActionIO.<NumberIO, DOMEventIO>"
+    },
+    "graphingQuadratics.general.controller.input.lostPointerCaptureAction": {
+      "phetioDocumentation": "Emits when a pointer loses its capture (normally at the end of an interaction)",
+      "phetioEventType": "user",
+      "phetioFeatured": false,
+      "phetioHighFrequency": true,
+      "phetioPlayback": true,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "ActionIO.<NumberIO, DOMEventIO>"
+    },
     "graphingQuadratics.general.controller.input.mouseDownAction": {
       "phetioDocumentation": "Emits when a mouse button is pressed",
       "phetioEventType": "user",
@@ -5466,7 +5488,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioReadOnly": false,
       "phetioState": false,
       "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO.<Vector2IO, DOMEventIO>"
+      "phetioTypeName": "ActionIO.<NullableIO.<NumberIO>, Vector2IO, DOMEventIO>"
     },
     "graphingQuadratics.general.controller.input.mouseMovedAction": {
       "phetioDocumentation": "Emits when the mouse is moved",
