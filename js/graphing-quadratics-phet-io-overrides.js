@@ -58,18 +58,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.exploreScreen.view.leftPointToolNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.linearTermCheckbox.visibleProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.quadraticTermCheckbox.visibleProperty": {
-      "phetioFeatured": false
-    },
     "graphingQuadratics.exploreScreen.view.quadraticTermsAccordionBox.separator.visibleProperty": {
       "phetioFeatured": true
     },
