@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.1.6-rc.1 Fri Apr 23 2021 13:53:25 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.1.6-rc.1 Sat May 08 2021 22:15:17 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "d8a2e8992420327ff72a6fc4bb93ec76549ded0e",
     "branch": "HEAD"
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "22edb1857dd0d9ca66b5987f5d7dd55daa583d47",
+    "sha": "3eb199769b2dedb845330741126809a56ead02c7",
     "branch": "1.1"
   },
   "joist": {
@@ -53,8 +53,8 @@
     "branch": "HEAD"
   },
   "phetmarks": {
-    "sha": "a19ff9aaf6c482ca273ad555287d40ea955d5346",
-    "branch": "HEAD"
+    "sha": "3083834ed80f49507e1f8cbb6578f09230f1b40f",
+    "branch": "graphing-quadratics-1.1"
   },
   "query-string-machine": {
     "sha": "1f64976a20ac1cf35c91c560f5e33df474eceec5",
