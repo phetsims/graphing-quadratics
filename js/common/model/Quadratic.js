@@ -24,6 +24,9 @@ import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
+import NullableIO from '../../../../tandem/js/types/NullableIO.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
+import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 
@@ -422,7 +425,24 @@ Quadratic.QuadraticIO = new IOType( 'QuadraticIO', {
   valueType: Quadratic,
   documentation: documentationQuadraticIO,
   toStateObject: quadratic => quadratic.toStateObject(),
-  fromStateObject: Quadratic.fromStateObject
+  fromStateObject: Quadratic.fromStateObject,
+  stateSchema: {
+
+    // These properties are sufficient to restore a Quadratic, see fromStateObject.
+    a: NumberIO,
+    b: NumberIO,
+    c: NumberIO,
+    color: Color.ColorIO,
+
+    // TODO: https://github.com/phetsims/phet-io/issues/1774 why is this ok with undefined?
+    p: NullableIO( NumberIO ),
+    h: NullableIO( NumberIO ),
+    k: NullableIO( NumberIO ),
+    vertex: NullableIO( ObjectLiteralIO ),
+    focus: NullableIO( ObjectLiteralIO ),
+    directrix: NullableIO( NumberIO ),
+    axisOfSymmetry: NullableIO( NumberIO )
+  }
 } );
 
 graphingQuadratics.register( 'Quadratic', Quadratic );
