@@ -134,13 +134,13 @@ class Quadratic {
       // These properties are desired in the data stream, but will be undefined for non-parabolas (a===0).
       // Because PhET-iO values are based on JSON.stringify, undefined properties will not be present in the
       // data stream.
-      p: this.p,
-      h: this.h,
-      k: this.k,
-      vertex: ( this.vertex ? this.vertex.toStateObject() : undefined ),
-      focus: ( this.focus ? this.focus.toStateObject() : undefined ),
-      directrix: this.directrix,
-      axisOfSymmetry: this.axisOfSymmetry
+      p: this.p || null,
+      h: this.h || null,
+      k: this.k || null,
+      vertex: ( this.vertex ? this.vertex.toStateObject() : null ),
+      focus: ( this.focus ? this.focus.toStateObject() : null ),
+      directrix: this.directrix || null,
+      axisOfSymmetry: this.axisOfSymmetry || null
     };
   }
 
