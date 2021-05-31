@@ -434,7 +434,7 @@ Quadratic.QuadraticIO = new IOType( 'QuadraticIO', {
     c: NumberIO,
     color: Color.ColorIO,
 
-    // TODO: https://github.com/phetsims/phet-io/issues/1774 why is this ok with undefined?
+    // These extra properties are for the benefit of the data stream/state, when defined
     p: NullableIO( NumberIO ),
     h: NullableIO( NumberIO ),
     k: NullableIO( NumberIO ),
