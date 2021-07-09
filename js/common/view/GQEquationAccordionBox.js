@@ -10,10 +10,11 @@ import merge from '../../../../phet-core/js/merge.js';
 import EraserButton from '../../../../scenery-phet/js/buttons/EraserButton.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
 import VBox from '../../../../scenery/js/nodes/VBox.js';
+import cameraSolidShape from '../../../../sherpa/js/fontawesome-5/cameraSolidShape.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
-import FontAwesomeNode from '../../../../sun/js/FontAwesomeNode.js';
 import HSeparator from '../../../../sun/js/HSeparator.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -96,7 +97,10 @@ class ButtonGroup extends HBox {
 
     // Save button
     const saveButton = new RectangularPushButton( {
-      content: new FontAwesomeNode( 'camera', { maxWidth: BUTTON_ICON_WIDTH } ),
+      content: new Path( cameraSolidShape, {
+        maxWidth: BUTTON_ICON_WIDTH,
+        fill: 'black'
+      } ),
       baseColor: PhetColorScheme.BUTTON_YELLOW,
       listener: () => { model.saveQuadratic(); },
       tandem: options.tandem.createTandem( 'saveButton' ),
