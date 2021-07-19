@@ -28,7 +28,8 @@ class FocusAndDirectrixScreen extends Screen {
       name: graphingQuadraticsStrings.screen.focusAndDirectrix,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
-      //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+
+      // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
       navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
 
       // phet-io

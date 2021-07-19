@@ -29,7 +29,8 @@ class StandardFormScreen extends Screen {
       name: graphingQuadraticsStrings.screen.standardForm,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
-      //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+
+      // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
       navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
 
       // phet-io

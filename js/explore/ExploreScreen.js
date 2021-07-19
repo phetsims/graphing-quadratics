@@ -28,7 +28,8 @@ class ExploreScreen extends Screen {
       name: graphingQuadraticsStrings.screen.explore,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
-      //TODO remove this workaround for https://github.com/phetsims/joist/issues/532
+
+      // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
       navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(),
 
       // phet-io
