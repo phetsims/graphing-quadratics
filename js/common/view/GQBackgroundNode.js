@@ -21,7 +21,7 @@ class GQBackgroundNode extends BackgroundNode {
   constructor( node, options ) {
 
     options = merge( {
-      backgroundOptions: {
+      rectangleOptions: {
         fill: GQQueryParameters.equationsBackgroundColor
       }
     }, options );
