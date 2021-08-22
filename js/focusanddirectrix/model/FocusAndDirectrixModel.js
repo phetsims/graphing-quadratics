@@ -93,13 +93,14 @@ class FocusAndDirectrixModel extends GQModel {
 
     // update the point
     this.quadraticProperty.lazyLink( ( quadratic, oldQuadratic ) => {
-
       assert && assert( quadratic.vertex, `expected quadratic.vertex: ${quadratic.vertex}` );
       assert && assert( oldQuadratic.vertex, `expected oldQuadratic.vertex: ${oldQuadratic.vertex}` );
 
-      const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
-      const x = this.pointOnParabolaProperty.value.x + dx;
-      this.pointOnParabolaProperty.value = quadratic.getClosestPointInRange( x, this.graph.xRange, this.graph.yRange );
+      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+        const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
+        const x = this.pointOnParabolaProperty.value.x + dx;
+        this.pointOnParabolaProperty.value = quadratic.getClosestPointInRange( x, this.graph.xRange, this.graph.yRange );
+      }
     } );
   }
 
