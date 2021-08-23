@@ -29,7 +29,7 @@ import GQQueryParameters from '../GQQueryParameters.js';
 import CoordinatesNode from './CoordinatesNode.js';
 
 // constants
-const VALUE_WINDOW_CENTER_X = 44; // center of the value window, relative to the left edge of pointToolLeftImage
+const VALUE_WINDOW_CENTER_X = 52; // center of the value window, relative to the left edge of pointToolLeftImage
 
 class PointToolNode extends Node {
 
@@ -74,7 +74,7 @@ class PointToolNode extends Node {
       xMargin: 0,
       yMargin: 0,
       decimals: GQConstants.POINT_TOOL_DECIMALS,
-      maxWidth: 60 // constrain width, determined empirically, dependent on bodyNode
+      maxWidth: 75 // constrain width, determined empirically, dependent on bodyNode
     } );
 
     // background behind the coordinates, sized to the body so that it shows through the window
