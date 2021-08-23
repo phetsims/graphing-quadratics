@@ -86,6 +86,16 @@ class Quadratic {
   }
 
   /**
+   * Determines whether this quadratic and some other quadratic have the same standard-form coefficients.
+   * @param {Quadratic} quadratic
+   * @returns {boolean}
+   * @public
+   */
+  hasSameCoefficients( quadratic ) {
+    return ( quadratic.a === this.a ) && ( quadratic.b === this.b ) && ( quadratic.c === this.c );
+  }
+
+  /**
    * Creates a Quadratic using coefficients of the vertex form equation: y = a(x - h)^2 + k
    * This method is used in the Vertex Form screen, where the user controls a, h, and k.
    * @param {number} a
