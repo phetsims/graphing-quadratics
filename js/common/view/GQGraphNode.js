@@ -61,7 +61,7 @@ class GQGraphNode extends Node {
       } );
 
     // {QuadraticNode|null} the saved line
-    let savedLineNode = null;
+    let savedQuadraticNode = null;
 
     // Parent for other lines, e.g. quadratic terms, directrix, axis of symmetry
     const otherCurvesLayer = new Node( { children: options.otherCurves } );
@@ -92,15 +92,15 @@ class GQGraphNode extends Node {
     // When the saved quadratic changes...
     model.savedQuadraticProperty.link( savedQuadratic => {
 
-      // remove and dispose any previously-saved line
-      if ( savedLineNode ) {
-        allLinesParent.removeChild( savedLineNode );
-        savedLineNode.dispose();
-        savedLineNode = null;
+      // Remove and dispose of any previously-saved quadratic.
+      if ( savedQuadraticNode ) {
+        allLinesParent.removeChild( savedQuadraticNode );
+        savedQuadraticNode.dispose();
+        savedQuadraticNode = null;
       }
 
       if ( savedQuadratic ) {
-        savedLineNode = new QuadraticNode(
+        savedQuadraticNode = new QuadraticNode(
           new Property( savedQuadratic ),
           model.graph.xRange,
           model.graph.yRange,
@@ -111,16 +111,28 @@ class GQGraphNode extends Node {
             preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
           } );
 
-        // Add it in the foreground, so the user can see it.
+        // Add savedQuadraticNode to the foreground, so the user can see it.
         // See https://github.com/phetsims/graphing-quadratics/issues/36
-        allLinesParent.addChild( savedLineNode );
+        allLinesParent.addChild( savedQuadraticNode );
+
+        // When restoring state, move savedQuadraticNode to the background if savedQuadratic is NOT identical to
+        // quadraticProperty, because that means that the user changed quadraticProperty after taking the snapshot,
+        // and the primary quadratic should be in front. If savedQuadratic IS identical to quadraticProperty, we want
+        // to leave savedQuadraticNode in the foreground, and let the quadraticProperty listener below handle moving
+        // it to the back, when the user makes changes to quadraticProperty.
+        // See https://github.com/phetsims/graphing-quadratics/issues/165
+        if ( phet.joist.sim.isSettingPhetioStateProperty.value && !savedQuadratic.hasSameCoefficients( model.quadraticProperty.value ) ) {
+          savedQuadraticNode.moveToBack();
+        }
       }
     } );
 
-    // When quadraticProperty changes, move saved line to background.
-    // See https://github.com/phetsims/graphing-quadratics/issues/36
+    // When quadraticProperty is changed BY THE USER, move the saved quadratic to the background.
+    // See https://github.com/phetsims/graphing-quadratics/issues/36 and https://github.com/phetsims/graphing-quadratics/issues/165.
     model.quadraticProperty.link( quadratic => {
-      savedLineNode && savedLineNode.moveToBack();
+      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+        savedQuadraticNode && savedQuadraticNode.moveToBack();
+      }
     } );
 
     // Show/hide the graph contents
