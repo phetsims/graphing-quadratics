@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.3.0-dev.1 Mon Aug 23 2021 07:52:38 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.3.0-dev.2 Mon Aug 23 2021 12:19:46 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "f360fa1bd09a47b3c9e49cd90c8dddd136a13e0c",
     "branch": "master"
@@ -25,7 +25,7 @@
     "branch": "master"
   },
   "graphing-quadratics": {
-    "sha": "d25180cb390a147eeca724f4e76ee9a16aad0aae",
+    "sha": "b823bc22610d8c995fd04433ae4952f1daaeb226",
     "branch": "master"
   },
   "joist": {
