@@ -10,6 +10,7 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -231,11 +232,18 @@ class PointToolDragListener extends DragListener {
         // If we're on the graph and the contents of the graph are visible...
         if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
 
-          // snap to a quadratic, if we're close enough
+          // If we're close enough to a quadratic, snap to that quadratic.
+          // Snap to the x value that's actually displayed by the point tool.
+          // See https://github.com/phetsims/graphing-quadratics/issues/169.
           const snapQuadratic = pointTool.getQuadraticNear( position,
             GQQueryParameters.snapOffDistance, GQQueryParameters.snapOnDistance );
           if ( snapQuadratic ) {
             position = snapQuadratic.getClosestPoint( position );
+            const x = Utils.toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
+            if ( x !== position.x ) {
+              const y = snapQuadratic.solveY( x );
+              position = new Vector2( x, y );
+            }
           }
         }
 
