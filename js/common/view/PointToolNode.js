@@ -233,17 +233,26 @@ class PointToolDragListener extends DragListener {
         if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
 
           // If we're close enough to a quadratic, snap to that quadratic.
-          // Snap to the x value that's actually displayed by the point tool.
-          // See https://github.com/phetsims/graphing-quadratics/issues/169.
           const snapQuadratic = pointTool.getQuadraticNear( position,
             GQQueryParameters.snapOffDistance, GQQueryParameters.snapOnDistance );
           if ( snapQuadratic ) {
+
+            // Get the closest point that is on the quadratic.
             position = snapQuadratic.getClosestPoint( position );
-            const x = Utils.toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
-            if ( x !== position.x ) {
-              const y = snapQuadratic.solveY( x );
-              position = new Vector2( x, y );
+
+            // We will be snapping the x value as it will be displayed by the point tool.
+            // See See https://github.com/phetsims/graphing-quadratics/issues/169.
+            let x = Utils.toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
+
+            // If x is close to an integer value, snap to that integer value.
+            // See https://github.com/phetsims/graphing-quadratics/issues/169.
+            const closestInteger = Utils.toFixedNumber( x, 0 );
+            if ( Math.abs( x - closestInteger ) <= GQQueryParameters.xSnapTolerance ) {
+              x = closestInteger;
             }
+
+            const y = snapQuadratic.solveY( x );
+            position = new Vector2( x, y );
           }
         }
 
