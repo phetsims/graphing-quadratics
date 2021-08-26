@@ -47,16 +47,6 @@ const GQQueryParameters = QueryStringMachine.getAll( {
     }
   },
 
-  // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
-  // how close the point tool's x coordinate must be in order to snap to the closest integer x coordinate.
-  // Setting this to zero effective disables this form of snapping.
-  // See https://github.com/phetsims/graphing-quadratics/issues/169.
-  xSnapTolerance: {
-    type: 'number',
-    defaultValue: 0.05,
-    isValidValue: value => value >= 0 && value <= 0.5
-  },
-
   // Puts a red dot at the origin of Nodes that required transform debugging during implementation.
   // For internal use only.
   showOrigin: { type: 'flag' },

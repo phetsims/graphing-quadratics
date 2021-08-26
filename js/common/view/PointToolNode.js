@@ -203,6 +203,12 @@ class PointToolDragListener extends DragListener {
    */
   constructor( targetNode, pointTool, modelViewTransform, graph, graphContentsVisibleProperty, options ) {
 
+    // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
+    // how close the point tool's x coordinate must be in order to snap to the closest integer x coordinate.
+    // We decided that the most effective value was the smallest interval that the point tool displays.
+    // See https://github.com/phetsims/graphing-quadratics/issues/169.
+    const xSnapTolerance = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
+
     let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
 
     options = merge( {
@@ -247,7 +253,7 @@ class PointToolDragListener extends DragListener {
             // If x is close to an integer value, snap to that integer value.
             // See https://github.com/phetsims/graphing-quadratics/issues/169.
             const closestInteger = Utils.toFixedNumber( x, 0 );
-            if ( Math.abs( x - closestInteger ) <= GQQueryParameters.xSnapTolerance ) {
+            if ( Math.abs( x - closestInteger ) < xSnapTolerance ) {
               x = closestInteger;
             }
 
