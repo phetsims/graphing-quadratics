@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.2.0-rc.2 Mon Aug 30 2021 12:15:24 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.2.0-rc.2 Mon Aug 30 2021 17:52:18 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "f360fa1bd09a47b3c9e49cd90c8dddd136a13e0c",
     "branch": "HEAD"
@@ -17,15 +17,15 @@
     "branch": "HEAD"
   },
   "dot": {
-    "sha": "c63a40f4ec3f0c86260c4fe18a7708079925afe5",
-    "branch": "HEAD"
+    "sha": "aacdd9db44ef332395aa95b0b134b6032d5b8a59",
+    "branch": "graphing-quadratics-1.2"
   },
   "graphing-lines": {
     "sha": "7bc6a8269b9571a7788bee67edb62642f9f28770",
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "95377b3618915ddc9e32d43b486fb1f156802fff",
+    "sha": "7d8f21c5f01d940c2c153b511169f096cbb4c67d",
     "branch": "1.2"
   },
   "joist": {
@@ -50,7 +50,7 @@
   },
   "phet-io-client-guides": {
     "sha": "7b836907848c7e732d6a22a712ea330ca3cb0691",
-    "branch": "graphing-quadratics-1.2"
+    "branch": "HEAD"
   },
   "phet-io-wrappers": {
     "sha": "dd9755228f1eff6bd01448d2c6825f2e1471fcbc",
