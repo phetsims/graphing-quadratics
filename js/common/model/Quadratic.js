@@ -329,6 +329,11 @@ class Quadratic {
     const b = this.b;
     const c = this.c;
 
+    // Use a larger threshold when deciding whether the cubic equation below has one root.
+    // If we don't adjust this threshold, then Utils.solveCubicRootsReal will compute roots that are NaN.
+    // See https://github.com/phetsims/graphing-quadratics/issues/170
+    const discriminantThreshold = 1e-9;
+
     // Finding the closest point requires solving the cubic equation
     // (2a^2)x^3 + (3ab)x^2 + (b^2 + 2ac - 2ay0 + 1)x + (bc - by0 - x0) = 0
     // See http://mathworld.wolfram.com/Point-QuadraticDistance.html
@@ -336,7 +341,8 @@ class Quadratic {
       2 * a * a,
       3 * a * b,
       b * b + 2 * a * c - 2 * a * y0 + 1,
-      b * c - b * y0 - x0
+      b * c - b * y0 - x0,
+      discriminantThreshold
     );
     assert && assert( roots, 'all values are roots' );
     assert && assert( roots.length > 0, `unexpected number of roots: ${roots.length}` );
