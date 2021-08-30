@@ -115,20 +115,21 @@ class GQGraphNode extends Node {
         // See https://github.com/phetsims/graphing-quadratics/issues/36
         allLinesParent.addChild( savedQuadraticNode );
 
-        // When restoring state, move savedQuadraticNode to the background if savedQuadratic is NOT identical to
-        // quadraticProperty, because that means that the user changed quadraticProperty after taking the snapshot,
-        // and the primary quadratic should be in front. If savedQuadratic IS identical to quadraticProperty, we want
-        // to leave savedQuadraticNode in the foreground, and let the quadraticProperty listener below handle moving
-        // it to the back, when the user makes changes to quadraticProperty.
-        // See https://github.com/phetsims/graphing-quadratics/issues/165
+        // When restoring state, if savedQuadratic is identical to quadraticProperty, then leave it in front, so
+        // the user can see it. Otherwise move it to the back. Note that this does not address the corner case where
+        // the instructional designer has changed quadraticProperty, then changed it back to match savedQuadratic.
+        // We decided not to address that case, see https://github.com/phetsims/graphing-quadratics/issues/165.
         if ( phet.joist.sim.isSettingPhetioStateProperty.value && !savedQuadratic.hasSameCoefficients( model.quadraticProperty.value ) ) {
           savedQuadraticNode.moveToBack();
         }
       }
     } );
 
-    // When quadraticProperty is changed BY THE USER, move the saved quadratic to the background.
-    // See https://github.com/phetsims/graphing-quadratics/issues/36 and https://github.com/phetsims/graphing-quadratics/issues/165.
+    // When a quadratic is saved, it is initially in front of quadraticProperty. Otherwise it wouldn't be visible
+    // because they are identical. When quadraticProperty is changed BY THE USER, move the saved quadratic to the back.
+    // If it's changed by restoring PhET-iO state, do nothing, because savedQuadraticProperty listener above will
+    // handle it. See https://github.com/phetsims/graphing-quadratics/issues/36 and
+    // https://github.com/phetsims/graphing-quadratics/issues/165.
     model.quadraticProperty.link( quadratic => {
       if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
         savedQuadraticNode && savedQuadraticNode.moveToBack();
