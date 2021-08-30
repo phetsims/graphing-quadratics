@@ -343,15 +343,15 @@ class Quadratic {
 
     // Determine which solution is closest to point (x0,y0)
     let rootPoint;
-    let nearestPoint = new Vector2( roots[ 0 ], this.solveY( roots[ 0 ] ) );
+    let closestPoint = new Vector2( roots[ 0 ], this.solveY( roots[ 0 ] ) );
     for ( let i = 1; i < roots.length; i++ ) {
       rootPoint = new Vector2( roots[ i ], this.solveY( roots[ i ] ) );
-      if ( rootPoint.distance( point ) < nearestPoint.distance( point ) ) {
-        nearestPoint = rootPoint;
+      if ( rootPoint.distance( point ) < closestPoint.distance( point ) ) {
+        closestPoint = rootPoint;
       }
     }
 
-    return nearestPoint;
+    return closestPoint;
   }
 
   /**
