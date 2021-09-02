@@ -7,6 +7,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
@@ -141,7 +142,13 @@ class PointOnParabolaDragListener extends DragListener {
           pointOnParabola.setX( xClosest );
         }
 
-        pointOnParabolaProperty.value = pointOnParabola;
+        // Snap to the x value as it will be displayed by the point tool, by solving for y.
+        // This is so we don't see different y values for the same x value.
+        // See https://github.com/phetsims/graphing-quadratics/issues/172.
+        const x = Utils.toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS );
+        const y = quadraticProperty.value.solveY( x );
+
+        pointOnParabolaProperty.value = new Vector2( x, y );
       }
     }, options );
 
