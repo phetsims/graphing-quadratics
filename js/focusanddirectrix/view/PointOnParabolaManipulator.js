@@ -142,7 +142,7 @@ class PointOnParabolaDragListener extends DragListener {
           pointOnParabola.setX( xClosest );
         }
 
-        // Snap to the x value as it will be displayed by the point tool, by solving for y.
+        // Snap to the x value as it will be displayed, by solving for y.
         // This is so we don't see different y values for the same x value.
         // See https://github.com/phetsims/graphing-quadratics/issues/172.
         const x = Utils.toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS );
