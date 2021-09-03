@@ -60,6 +60,7 @@ class PointNode extends Node {
       backgroundColor: options.coordinatesBackgroundColor,
       foregroundColor: options.coordinatesForegroundColor,
       decimals: options.coordinatesDecimals,
+      visibleProperty: coordinatesVisibleProperty,
       tandem: options.tandem.createTandem( 'coordinatesNode' ),
       phetioDocumentation: 'coordinates displayed on this point'
     } );
@@ -76,7 +77,6 @@ class PointNode extends Node {
 
     // visibility
     coordinatesVisibleProperty.link( visible => {
-      coordinatesNode.visible = visible;
       if ( visible ) {
         options.layoutCoordinates( coordinatesProperty.value, coordinatesNode, pointNode );
       }

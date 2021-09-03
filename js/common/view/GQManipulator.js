@@ -63,6 +63,7 @@ class GQManipulator extends Manipulator {
       backgroundColor: options.coordinatesBackgroundColor,
       foregroundColor: options.coordinatesForegroundColor,
       decimals: options.coordinatesDecimals,
+      visibleProperty: coordinatesVisibleProperty,
       pickable: false,
       tandem: options.tandem.createTandem( 'coordinatesNode' ),
       phetioDocumentation: 'coordinates displayed on this manipulator'
@@ -76,7 +77,6 @@ class GQManipulator extends Manipulator {
 
     // visibility
     coordinatesVisibleProperty.link( visible => {
-      coordinatesNode.visible = visible;
       if ( visible ) {
         options.layoutCoordinates( coordinatesProperty.value, coordinatesNode, actualRadius );
       }
