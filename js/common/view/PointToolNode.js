@@ -22,15 +22,15 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import pointToolLeftImage from '../../../images/point_tool_left_png.js';
-import pointToolRightImage from '../../../images/point_tool_right_png.js';
+import pointToolLeft_png from '../../../images/pointToolLeft_png.js';
+import pointToolRight_png from '../../../images/pointToolRight_png.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import CoordinatesNode from './CoordinatesNode.js';
 
 // constants
-const VALUE_WINDOW_CENTER_X = 52; // center of the value window, relative to the left edge of pointToolLeftImage
+const VALUE_WINDOW_CENTER_X = 52; // center of the value window, relative to the left edge of pointToolLeft_png
 
 class PointToolNode extends Node {
 
@@ -57,7 +57,7 @@ class PointToolNode extends Node {
     }, options );
 
     // use the image file that corresponds to the probeSide
-    const bodyImage = ( pointTool.probeSide === 'left' ) ? pointToolLeftImage : pointToolRightImage;
+    const bodyImage = ( pointTool.probeSide === 'left' ) ? pointToolLeft_png : pointToolRight_png;
     const bodyNode = new Image( bodyImage, { centerY: 0 } );
 
     const probeNode = new ProbeNode();
