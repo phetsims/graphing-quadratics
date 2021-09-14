@@ -1,8 +1,9 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
 /**
- * A point tool displays the (x,y) coordinates of a point on the graph.
+ * PointToolNode is a tool displays the (x,y) coordinates of a point on the graph.
  * If it's sufficiently close to a curve, it will snap to that curve.
+ * If it's not on the graph, it will display '( ?, ? )'.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -12,25 +13,18 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import PointToolBodyNode from '../../../../graphing-lines/js/common/view/PointToolBodyNode.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
-import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Circle from '../../../../scenery/js/nodes/Circle.js';
-import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import pointToolLeft_png from '../../../images/pointToolLeft_png.js';
-import pointToolRight_png from '../../../images/pointToolRight_png.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
-import CoordinatesNode from './CoordinatesNode.js';
-
-// constants
-const VALUE_WINDOW_CENTER_X = 52; // center of the value window, relative to the left edge of pointToolLeft_png
 
 class PointToolNode extends Node {
 
@@ -56,30 +50,19 @@ class PointToolNode extends Node {
 
     }, options );
 
-    // use the image file that corresponds to the probeSide
-    const bodyImage = ( pointTool.probeSide === 'left' ) ? pointToolLeft_png : pointToolRight_png;
-    const bodyNode = new Image( bodyImage, { centerY: 0 } );
-
-    const probeNode = new ProbeNode();
-
+    // coordinatesProperty is null when the tool is not on the graph.
     const coordinatesProperty = new DerivedProperty( [ pointTool.positionProperty ],
       position => ( graph.contains( position ) ? position : null ), {
         valueType: [ Vector2, null ]
       } );
 
-    // coordinates display
-    const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
-      font: new PhetFont( { size: 15, weight: 'bold' } ),
-      foregroundColor: 'white',
-      backgroundOpacity: 0, // don't use the CoordinatesNode background, because it resizes to the value
-      xMargin: 0,
-      yMargin: 0,
-      decimals: GQConstants.POINT_TOOL_DECIMALS,
-      maxWidth: 75 // constrain width, determined empirically, dependent on bodyNode
+    const bodyNode = new PointToolBodyNode( coordinatesProperty, {
+      backgroundWidth: 86,
+      coordinatesSide: pointTool.probeSide,
+      decimals: GQConstants.POINT_TOOL_DECIMALS
     } );
 
-    // background behind the coordinates, sized to the body so that it shows through the window
-    const backgroundNode = new Rectangle( 0, 0, bodyNode.width - 10, bodyNode.height - 10 );
+    const probeNode = new ProbeNode();
 
     // Put probe on correct side of body. Move the body, since the probe establishes the origin.
     if ( pointTool.probeSide === 'left' ) {
@@ -89,21 +72,10 @@ class PointToolNode extends Node {
       probeNode.setScaleMagnitude( -1, 1 ); // reflect about the y axis
       bodyNode.right = probeNode.left + 1; // +1 for overlap, so you don't see a gap
     }
-    backgroundNode.center = bodyNode.center;
+    bodyNode.centerY = probeNode.centerY;
 
-    options.children = [ backgroundNode, bodyNode, probeNode, coordinatesNode ];
+    options.children = [ bodyNode, probeNode ];
     super( options );
-
-    // center coordinates in window
-    coordinatesProperty.link( coordinates => {
-      if ( pointTool.probeSide === 'left' ) {
-        coordinatesNode.centerX = bodyNode.left + VALUE_WINDOW_CENTER_X;
-      }
-      else {
-        coordinatesNode.centerX = bodyNode.right - VALUE_WINDOW_CENTER_X;
-      }
-      coordinatesNode.centerY = bodyNode.centerY;
-    } );
 
     Property.multilink( [ pointTool.positionProperty, pointTool.quadraticProperty, graphContentsVisibleProperty ],
       ( position, onQuadratic, graphContentsVisible ) => {
@@ -115,12 +87,12 @@ class PointToolNode extends Node {
         if ( graph.contains( position ) && onQuadratic && graphContentsVisible ) {
 
           // color code the display to onQuadratic
-          coordinatesNode.foreground = options.foregroundHighlightColor;
-          backgroundNode.fill = onQuadratic.color;
+          bodyNode.setTextFill( options.foregroundHighlightColor );
+          bodyNode.setBackgroundFill( onQuadratic.color );
         }
         else {
-          coordinatesNode.foreground = options.foregroundNormalColor;
-          backgroundNode.fill = options.backgroundNormalColor;
+          bodyNode.setTextFill( options.foregroundNormalColor );
+          bodyNode.setBackgroundFill( options.backgroundNormalColor );
         }
       } );
 
@@ -135,6 +107,15 @@ class PointToolNode extends Node {
     if ( GQQueryParameters.showOrigin ) {
       this.addChild( new Circle( 3, { fill: 'red' } ) );
     }
+  }
+
+  /**
+   * @public
+   * @override
+   */
+  dispose() {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
   }
 }
 
@@ -175,7 +156,7 @@ class ProbeNode extends Node {
 
     // shaft that connects the probe to the body
     const shaft = new Rectangle( 0, 0, 0.5 * options.radius, 4, {
-      fill: 'rgb( 144, 144, 144 )', // matched to bodyImage
+      fill: 'rgb( 144, 144, 144 )',
       left: circle.right,
       centerY: circle.centerY
     } );
