@@ -8,8 +8,8 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import Text from '../../../../scenery/js/nodes/Text.js';
-import VBox from '../../../../scenery/js/nodes/VBox.js';
+import { Text } from '../../../../scenery/js/imports.js';
+import { VBox } from '../../../../scenery/js/imports.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import HSeparator from '../../../../sun/js/HSeparator.js';
 import Tandem from '../../../../tandem/js/Tandem.js';

@@ -11,7 +11,7 @@ import Property from '../../../../axon/js/Property.js';
 import GraphNode from '../../../../graphing-lines/js/common/view/GraphNode.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import { Node } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import QuadraticNode from './QuadraticNode.js';

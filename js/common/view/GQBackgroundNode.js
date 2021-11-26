@@ -8,7 +8,7 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
-import Circle from '../../../../scenery/js/nodes/Circle.js';
+import { Circle } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 

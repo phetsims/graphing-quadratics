@@ -7,8 +7,8 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import Circle from '../../../../scenery/js/nodes/Circle.js';
-import HBox from '../../../../scenery/js/nodes/HBox.js';
+import { Circle } from '../../../../scenery/js/imports.js';
+import { HBox } from '../../../../scenery/js/imports.js';
 import GQColors from '../../common/GQColors.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';

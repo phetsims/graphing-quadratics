@@ -8,7 +8,7 @@
 
 import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import merge from '../../../../phet-core/js/merge.js';
-import Circle from '../../../../scenery/js/nodes/Circle.js';
+import { Circle } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
 import GQColors from '../GQColors.js';
