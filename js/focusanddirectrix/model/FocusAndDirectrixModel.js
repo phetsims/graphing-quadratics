@@ -12,7 +12,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
-import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -34,16 +33,12 @@ class FocusAndDirectrixModel extends GQModel {
   constructor( tandem ) {
 
     // p
-    const pProperty = new NumberProperty( P_RANGE.defaultValue, merge( {
+    const pProperty = new NumberProperty( P_RANGE.defaultValue, {
       range: P_RANGE,
       isValidValue: value => ( value !== 0 ), // zero is not supported
       tandem: tandem.createTandem( 'pProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'p' } )
-    }, {
-      // Opt out of providing a slider in Studio. A generic slider will cause problems, since zero is not supported.
-      // See https://github.com/phetsims/graphing-quadratics/issues/52
-      phetioStudioControl: false
-    } ) );
+    } );
     phet.log && pProperty.link( p => { phet.log( `p=${p}` ); } );
 
     // h
