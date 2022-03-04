@@ -11,7 +11,7 @@ import Range from '../../../../dot/js/Range.js';
 import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import Screen from '../../../../joist/js/Screen.js';
 import ScreenIcon from '../../../../joist/js/ScreenIcon.js';
-import Shape from '../../../../kite/js/Shape.js';
+import { Shape } from '../../../../kite/js/imports.js';
 import merge from '../../../../phet-core/js/merge.js';
 import { Circle } from '../../../../scenery/js/imports.js';
 import { Line } from '../../../../scenery/js/imports.js';
