@@ -9,33 +9,33 @@ import graphingQuadratics from './graphingQuadratics.js';
 
 type StringsType = {
   'graphing-quadratics': {
-    'title': string
-  },
+    'title': string;
+  };
   'screen': {
-    'explore': string,
-    'standardForm': string,
-    'vertexForm': string,
-    'focusAndDirectrix': string
-  },
-  'vertex': string,
-  'axisOfSymmetry': string,
-  'roots': string,
-  'coordinates': string,
-  'equations': string,
-  'noRealRoots': string,
-  'pointOnParabola': string,
-  'quadraticTerms': string,
-  'directrix': string,
-  'focus': string,
-  'x': string,
-  'y': string,
-  'a': string,
-  'b': string,
-  'c': string,
-  'h': string,
-  'k': string,
-  'p': string,
-  'coordinateUnknown': string
+    'explore': string;
+    'standardForm': string;
+    'vertexForm': string;
+    'focusAndDirectrix': string;
+  };
+  'vertex': string;
+  'axisOfSymmetry': string;
+  'roots': string;
+  'coordinates': string;
+  'equations': string;
+  'noRealRoots': string;
+  'pointOnParabola': string;
+  'quadraticTerms': string;
+  'directrix': string;
+  'focus': string;
+  'x': string;
+  'y': string;
+  'a': string;
+  'b': string;
+  'c': string;
+  'h': string;
+  'k': string;
+  'p': string;
+  'coordinateUnknown': string;
 };
 
 const graphingQuadraticsStrings = getStringModule( 'GRAPHING_QUADRATICS' ) as StringsType;
