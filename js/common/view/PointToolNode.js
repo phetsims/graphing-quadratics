@@ -10,7 +10,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import PointToolBodyNode from '../../../../graphing-lines/js/common/view/PointToolBodyNode.js';
@@ -77,7 +77,7 @@ class PointToolNode extends Node {
     options.children = [ bodyNode, probeNode ];
     super( options );
 
-    Property.multilink( [ pointTool.positionProperty, pointTool.quadraticProperty, graphContentsVisibleProperty ],
+    Multilink.multilink( [ pointTool.positionProperty, pointTool.quadraticProperty, graphContentsVisibleProperty ],
       ( position, onQuadratic, graphContentsVisible ) => {
 
         // move to position

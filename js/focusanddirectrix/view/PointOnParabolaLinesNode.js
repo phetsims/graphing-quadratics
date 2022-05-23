@@ -8,7 +8,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import { Line } from '../../../../scenery/js/imports.js';
 import { Node } from '../../../../scenery/js/imports.js';
 import GQColors from '../../common/GQColors.js';
@@ -43,7 +43,7 @@ class PointOnParabolaLinesNode extends Node {
     super( { children: [ focusLine, directrixLine ] } );
 
     // update the lines
-    Property.multilink( [ quadraticProperty, pointOnParabolaProperty ],
+    Multilink.multilink( [ quadraticProperty, pointOnParabolaProperty ],
       ( quadratic, pointOnParabola ) => {
 
         assert && assert( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );

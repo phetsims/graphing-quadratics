@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../../axon/js/Property.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import merge from '../../../../phet-core/js/merge.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQGraphNode from '../../common/view/GQGraphNode.js';
@@ -72,7 +72,7 @@ class ExploreGraphNode extends GQGraphNode {
     // Make quadratic terms available to the point tool, if they are visible. The order of
     // model.quadraticTermsProperty determines the order that the terms will be considered by
     // point tools, so maintain the order.
-    Property.multilink( [
+    Multilink.multilink( [
       viewProperties.quadraticTermVisibleProperty, model.quadraticTermProperty,
       viewProperties.linearTermVisibleProperty, model.linearTermProperty,
       viewProperties.constantTermVisibleProperty, model.constantTermProperty
