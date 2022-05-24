@@ -1,4 +1,4 @@
-// Copyright 2018-2021, University of Colorado Boulder
+// Copyright 2018-2022, University of Colorado Boulder
 
 /**
  * Dashed lines that connect the 'point on parabola' to the focus and directrix.
