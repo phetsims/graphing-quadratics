@@ -37,7 +37,7 @@ class DirectrixCheckbox extends GQCheckbox {
       lineDash: GQConstants.DIRECTRIX_LINE_DASH
     } );
 
-    super( graphingQuadraticsStrings.directrix, directrixVisibleProperty, options );
+    super( directrixVisibleProperty, graphingQuadraticsStrings.directrix, options );
   }
 }
 

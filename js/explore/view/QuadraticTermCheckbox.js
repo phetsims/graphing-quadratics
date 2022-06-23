@@ -31,7 +31,7 @@ class QuadraticTermCheckbox extends GQCheckbox {
     // y = ax^2
     const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.a}${GQSymbols.xSquared}`;
 
-    super( text, quadraticTermVisibleProperty, options );
+    super( quadraticTermVisibleProperty, text, options );
   }
 }
 

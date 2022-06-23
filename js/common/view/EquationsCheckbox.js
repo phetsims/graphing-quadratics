@@ -26,7 +26,7 @@ class EquationsCheckbox extends GQCheckbox {
 
     }, options );
 
-    super( graphingQuadraticsStrings.equations, equationsVisibleProperty, options );
+    super( equationsVisibleProperty, graphingQuadraticsStrings.equations, options );
   }
 }
 

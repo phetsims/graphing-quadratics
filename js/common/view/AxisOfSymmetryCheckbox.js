@@ -37,7 +37,7 @@ class AxisOfSymmetryCheckbox extends GQCheckbox {
       lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
     } );
 
-    super( graphingQuadraticsStrings.axisOfSymmetry, axisOfSymmetryVisibleProperty, options );
+    super( axisOfSymmetryVisibleProperty, graphingQuadraticsStrings.axisOfSymmetry, options );
   }
 }
 

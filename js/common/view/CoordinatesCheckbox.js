@@ -26,7 +26,7 @@ class CoordinatesCheckbox extends GQCheckbox {
 
     }, options );
 
-    super( graphingQuadraticsStrings.coordinates, coordinatesVisibleProperty, options );
+    super( coordinatesVisibleProperty, graphingQuadraticsStrings.coordinates, options );
   }
 }
 

@@ -43,7 +43,7 @@ class RootsCheckbox extends GQCheckbox {
       ]
     } );
 
-    super( graphingQuadraticsStrings.roots, rootsVisibleProperty, options );
+    super( rootsVisibleProperty, graphingQuadraticsStrings.roots, options );
   }
 }
 

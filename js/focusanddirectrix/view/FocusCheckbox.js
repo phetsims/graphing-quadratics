@@ -32,7 +32,7 @@ class FocusCheckbox extends GQCheckbox {
     assert && assert( !options.icon, 'FocusCheckbox sets icon' );
     options.icon = Manipulator.createIcon( 8, GQColors.FOCUS );
 
-    super( graphingQuadraticsStrings.focus, focusVisibleProperty, options );
+    super( focusVisibleProperty, graphingQuadraticsStrings.focus, options );
   }
 }
 

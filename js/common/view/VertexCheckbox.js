@@ -45,7 +45,7 @@ class VertexCheckbox extends GQCheckbox {
       }
     }
 
-    super( graphingQuadraticsStrings.vertex, vertexVisibleProperty, options );
+    super( vertexVisibleProperty, graphingQuadraticsStrings.vertex, options );
   }
 }
 

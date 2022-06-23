@@ -32,7 +32,7 @@ class PointOnParabolaCheckbox extends GQCheckbox {
     assert && assert( !options.icon, 'PointOnParabolaCheckbox sets icon' );
     options.icon = Manipulator.createIcon( 8, GQColors.POINT_ON_PARABOLA );
 
-    super( graphingQuadraticsStrings.pointOnParabola, pointOnParabolaVisibleProperty, options );
+    super( pointOnParabolaVisibleProperty, graphingQuadraticsStrings.pointOnParabola, options );
   }
 }
 

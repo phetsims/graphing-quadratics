@@ -18,11 +18,11 @@ import GQConstants from '../GQConstants.js';
 class GQCheckbox extends Checkbox {
 
   /**
-   * @param {string} text - supports RichText
    * @param {BooleanProperty} booleanProperty
+   * @param {string} text - supports RichText
    * @param {Object} [options]
    */
-  constructor( text, booleanProperty, options ) {
+  constructor( booleanProperty, text, options ) {
 
     options = merge( {
       textFill: 'black',
@@ -52,7 +52,7 @@ class GQCheckbox extends Checkbox {
       content = textNode;
     }
 
-    super( content, booleanProperty, options );
+    super( booleanProperty, content, options );
   }
 }
 
