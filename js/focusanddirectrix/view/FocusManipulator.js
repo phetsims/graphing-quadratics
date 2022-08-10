@@ -71,7 +71,7 @@ class FocusManipulator extends GQManipulator {
       quadratic => quadratic.focus, {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( Vector2.Vector2IO ),
+        phetioValueType: Vector2.Vector2IO,
         phetioDocumentation: 'coordinates displayed on the focus manipulator'
       } );
 
@@ -84,7 +84,7 @@ class FocusManipulator extends GQManipulator {
         graph.contains( quadratic.focus ), // the focus is on the graph
       {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+        phetioValueType: BooleanIO
       } );
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );

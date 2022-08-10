@@ -68,7 +68,7 @@ class PointOnParabolaManipulator extends GQManipulator {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioDocumentation: 'coordinates displayed on the point-on-quadratic manipulator',
-        phetioType: DerivedProperty.DerivedPropertyIO( Vector2.Vector2IO )
+        phetioValueType: Vector2.Vector2IO
       } );
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );

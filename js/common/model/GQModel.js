@@ -44,7 +44,7 @@ class GQModel {
       valueType: [ Quadratic, null ],
       tandem: tandem.createTandem( 'savedQuadraticProperty' ),
       phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic',
-      phetioType: Property.PropertyIO( NullableIO( Quadratic.QuadraticIO ) )
+      phetioValueType: NullableIO( Quadratic.QuadraticIO )
     } );
 
     // scale from model to view

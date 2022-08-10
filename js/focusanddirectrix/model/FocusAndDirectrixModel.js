@@ -65,7 +65,7 @@ class FocusAndDirectrixModel extends GQModel {
       } ), {
         tandem: tandem.createTandem( 'quadraticProperty' ),
         phetioDocumentation: 'the interactive quadratic, derived from p, h, and k',
-        phetioType: DerivedProperty.DerivedPropertyIO( Quadratic.QuadraticIO )
+        phetioValueType: Quadratic.QuadraticIO
       } );
     phet.log && quadraticProperty.link( quadratic => {
       phet.log( `quadratic: y = (1/(4(${quadratic.p})))(x - ${quadratic.h})^2 + ${quadratic.k}` );

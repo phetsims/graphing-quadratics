@@ -73,7 +73,7 @@ class VertexManipulator extends GQManipulator {
         valueType: [ Vector2, null ],
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioDocumentation: 'coordinates displayed by on vertex manipulator, null means no vertex',
-        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2.Vector2IO ) )
+        phetioValueType: NullableIO( Vector2.Vector2IO )
       } );
 
     // visibility of this Node
@@ -86,7 +86,7 @@ class VertexManipulator extends GQManipulator {
         graph.contains( quadratic.vertex ), // the vertex is on the graph
       {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+        phetioValueType: BooleanIO
       } );
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );

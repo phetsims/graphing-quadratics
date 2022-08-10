@@ -64,7 +64,7 @@ class VertexNode extends PointNode {
         valueType: [ Vector2, null ],
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioDocumentation: 'coordinates displayed on the vertex point, null means no vertex',
-        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2.Vector2IO ) )
+        phetioValueType: NullableIO( Vector2.Vector2IO )
       } );
 
     // visibility of this Node
@@ -77,7 +77,7 @@ class VertexNode extends PointNode {
         graph.contains( quadratic.vertex ), // the vertex is on the graph
       {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+        phetioValueType: BooleanIO
       } );
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );

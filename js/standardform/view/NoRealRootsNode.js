@@ -67,7 +67,7 @@ class NoRealRootsNode extends Node {
         !!( quadratic.roots && quadratic.roots.length === 0 ), // the interactive quadratic has no roots
       {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+        phetioValueType: BooleanIO
       } );
 
     super( options );

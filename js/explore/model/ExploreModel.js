@@ -30,7 +30,7 @@ class ExploreModel extends StandardFormModel {
       quadratic => quadratic.getQuadraticTerm(), {
         tandem: tandem.createTandem( 'quadraticTermProperty' ),
         phetioDocumentation: 'the quadratic term (y = ax^2) of the interactive quadratic',
-        phetioType: DerivedProperty.DerivedPropertyIO( Quadratic.QuadraticIO )
+        phetioValueType: Quadratic.QuadraticIO
       } );
 
     // @public {DerivedProperty.<Quadratic>}
@@ -38,7 +38,7 @@ class ExploreModel extends StandardFormModel {
       quadratic => quadratic.getLinearTerm(), {
         tandem: tandem.createTandem( 'linearTermProperty' ),
         phetioDocumentation: 'the linear term (y = bx) of the interactive quadratic',
-        phetioType: DerivedProperty.DerivedPropertyIO( Quadratic.QuadraticIO )
+        phetioValueType: Quadratic.QuadraticIO
       } );
 
     // @public {DerivedProperty.<Quadratic>}
@@ -46,7 +46,7 @@ class ExploreModel extends StandardFormModel {
       quadratic => quadratic.getConstantTerm(), {
         tandem: tandem.createTandem( 'constantTermProperty' ),
         phetioDocumentation: 'the constant term (y = c) of the interactive quadratic',
-        phetioType: DerivedProperty.DerivedPropertyIO( Quadratic.QuadraticIO )
+        phetioValueType: Quadratic.QuadraticIO
       } );
   }
 }

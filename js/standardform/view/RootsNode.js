@@ -44,7 +44,7 @@ class RootsNode extends Node {
     // options common to both Property instances
     const coordinatesPropertyOptions = {
       valueType: [ Vector2, null ],
-      phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( Vector2.Vector2IO ) )
+      phetioValueType: NullableIO( Vector2.Vector2IO )
     };
 
     // {DerivedProperty.<null|Vector2>} coordinates for the quadratic's left root
@@ -140,7 +140,7 @@ class RootsNode extends Node {
         quadratic.roots.length !== 0, // there is at least one root
       {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+        phetioValueType: BooleanIO
       } );
 
     super( options );
