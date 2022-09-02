@@ -38,6 +38,6 @@ simLauncher.launch( () => {
     phetioDesigned: true
   };
 
-  const sim = new Sim( graphingQuadraticsStrings[ 'graphing-quadratics' ].title, screens, options );
+  const sim = new Sim( graphingQuadraticsStrings[ 'graphing-quadratics' ].titleStringProperty, screens, options );
   sim.start();
 } );
