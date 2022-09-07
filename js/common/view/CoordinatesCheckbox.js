@@ -8,7 +8,7 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQCheckbox from './GQCheckbox.js';
 
 class CoordinatesCheckbox extends GQCheckbox {
@@ -26,7 +26,7 @@ class CoordinatesCheckbox extends GQCheckbox {
 
     }, options );
 
-    super( coordinatesVisibleProperty, graphingQuadraticsStrings.coordinates, options );
+    super( coordinatesVisibleProperty, GraphingQuadraticsStrings.coordinates, options );
   }
 }
 

@@ -11,7 +11,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import GQColors from '../../common/GQColors.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 class PointOnParabolaCheckbox extends GQCheckbox {
 
@@ -32,7 +32,7 @@ class PointOnParabolaCheckbox extends GQCheckbox {
     assert && assert( !options.icon, 'PointOnParabolaCheckbox sets icon' );
     options.icon = Manipulator.createIcon( 8, GQColors.POINT_ON_PARABOLA );
 
-    super( pointOnParabolaVisibleProperty, graphingQuadraticsStrings.pointOnParabola, options );
+    super( pointOnParabolaVisibleProperty, GraphingQuadraticsStrings.pointOnParabola, options );
   }
 }
 

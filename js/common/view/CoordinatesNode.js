@@ -11,7 +11,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
 import { Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQConstants from '../GQConstants.js';
 
 class CoordinatesNode extends Node {
@@ -85,8 +85,8 @@ class CoordinatesNode extends Node {
   update( coordinates ) {
 
     // coordinates
-    const x = coordinates ? Utils.toFixedNumber( coordinates.x, this.decimals ) : graphingQuadraticsStrings.coordinateUnknown;
-    const y = coordinates ? Utils.toFixedNumber( coordinates.y, this.decimals ) : graphingQuadraticsStrings.coordinateUnknown;
+    const x = coordinates ? Utils.toFixedNumber( coordinates.x, this.decimals ) : GraphingQuadraticsStrings.coordinateUnknown;
+    const y = coordinates ? Utils.toFixedNumber( coordinates.y, this.decimals ) : GraphingQuadraticsStrings.coordinateUnknown;
     this.foregroundNode.text = `(${x}, ${y})`;
 
     // resize background

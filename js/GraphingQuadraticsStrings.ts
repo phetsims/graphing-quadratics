@@ -63,8 +63,8 @@ type StringsType = {
   'coordinateUnknownStringProperty': TReadOnlyProperty<string>;
 };
 
-const graphingQuadraticsStrings = getStringModule( 'GRAPHING_QUADRATICS' ) as StringsType;
+const GraphingQuadraticsStrings = getStringModule( 'GRAPHING_QUADRATICS' ) as StringsType;
 
-graphingQuadratics.register( 'graphingQuadraticsStrings', graphingQuadraticsStrings );
+graphingQuadratics.register( 'GraphingQuadraticsStrings', GraphingQuadraticsStrings );
 
-export default graphingQuadraticsStrings;
+export default GraphingQuadraticsStrings;

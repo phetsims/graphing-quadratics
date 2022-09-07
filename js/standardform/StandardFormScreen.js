@@ -12,7 +12,7 @@ import Screen from '../../../joist/js/Screen.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
 import graphingQuadratics from '../graphingQuadratics.js';
-import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import StandardFormModel from './model/StandardFormModel.js';
 import StandardFormScreenView from './view/StandardFormScreenView.js';
 
@@ -26,7 +26,7 @@ class StandardFormScreen extends Screen {
     const options = {
 
       // Screen options
-      name: graphingQuadraticsStrings.screen.standardForm,
+      name: GraphingQuadraticsStrings.screen.standardForm,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
 

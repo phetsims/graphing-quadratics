@@ -11,7 +11,7 @@ import Screen from '../../../joist/js/Screen.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
 import graphingQuadratics from '../graphingQuadratics.js';
-import graphingQuadraticsStrings from '../graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import ExploreModel from './model/ExploreModel.js';
 import ExploreScreenView from './view/ExploreScreenView.js';
 
@@ -25,7 +25,7 @@ class ExploreScreen extends Screen {
     const options = {
 
       // Screen options
-      name: graphingQuadraticsStrings.screen.explore,
+      name: GraphingQuadraticsStrings.screen.explore,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
 

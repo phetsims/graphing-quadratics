@@ -12,7 +12,7 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 class DirectrixCheckbox extends GQCheckbox {
 
@@ -37,7 +37,7 @@ class DirectrixCheckbox extends GQCheckbox {
       lineDash: GQConstants.DIRECTRIX_LINE_DASH
     } );
 
-    super( directrixVisibleProperty, graphingQuadraticsStrings.directrix, options );
+    super( directrixVisibleProperty, GraphingQuadraticsStrings.directrix, options );
   }
 }
 

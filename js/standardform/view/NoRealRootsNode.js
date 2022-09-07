@@ -15,7 +15,7 @@ import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 // const
 const Y_OFFSET = 2; // min offset from vertex, determined empirically
@@ -43,7 +43,7 @@ class NoRealRootsNode extends Node {
       phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
     }, options );
 
-    const textNode = new Text( graphingQuadraticsStrings.noRealRoots, {
+    const textNode = new Text( GraphingQuadraticsStrings.noRealRoots, {
       font: GQConstants.NO_REAL_ROOTS_FONT,
       fill: 'white'
     } );

@@ -16,7 +16,7 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import EquationsCheckbox from '../../common/view/EquationsCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import graphingQuadraticsStrings from '../../graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import ConstantTermCheckbox from './ConstantTermCheckbox.js';
 import LinearTermCheckbox from './LinearTermCheckbox.js';
 import QuadraticTermCheckbox from './QuadraticTermCheckbox.js';
@@ -43,7 +43,7 @@ class QuadraticTermsAccordionBox extends AccordionBox {
 
     // AccordionBox title
     assert && assert( !options.titleNode, 'QuadraticTermsAccordionBox sets titleNode' );
-    options.titleNode = new Text( graphingQuadraticsStrings.quadraticTerms, {
+    options.titleNode = new Text( GraphingQuadraticsStrings.quadraticTerms, {
       font: GQConstants.TITLE_FONT,
       maxWidth: 180, // determined empirically
       tandem: options.tandem.createTandem( 'titleNode' ),

@@ -12,7 +12,7 @@ import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import ExploreScreen from './explore/ExploreScreen.js';
 import FocusAndDirectrixScreen from './focusanddirectrix/FocusAndDirectrixScreen.js';
-import graphingQuadraticsStrings from './graphingQuadraticsStrings.js';
+import GraphingQuadraticsStrings from './GraphingQuadraticsStrings.js';
 import StandardFormScreen from './standardform/StandardFormScreen.js';
 import VertexFormScreen from './vertexform/VertexFormScreen.js';
 
@@ -38,6 +38,6 @@ simLauncher.launch( () => {
     phetioDesigned: true
   };
 
-  const sim = new Sim( graphingQuadraticsStrings[ 'graphing-quadratics' ].titleStringProperty, screens, options );
+  const sim = new Sim( GraphingQuadraticsStrings[ 'graphing-quadratics' ].titleStringProperty, screens, options );
   sim.start();
 } );
