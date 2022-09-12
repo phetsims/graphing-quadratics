@@ -30,7 +30,7 @@ class VertexFormEquationAccordionBox extends GQEquationAccordionBox {
     assert && assert( !options.titleNode, 'VertexFormEquationAccordionBox sets titleNode' );
     options.titleNode = new VertexFormEquationNode( {
       maxWidth: 225, // determined empirically
-      tandem: options.tandem.createTandem( 'titleNode' ),
+      tandem: options.tandem.createTandem( 'titleText' ),
       phetioDocumentation: 'the equation shown at the top of this accordion box',
       visiblePropertyOptions: { phetioReadOnly: true }
     } );

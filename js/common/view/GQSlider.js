@@ -165,7 +165,7 @@ class GQSlider extends VSlider {
       centerX: this.x,
       bottom: this.top - 2,
       maxWidth: 20, // determined empirically
-      tandem: options.tandem.createTandem( 'label' ),
+      tandem: options.tandem.createTandem( 'labelText' ),
       phetioDocumentation: 'the label above this slider'
     } );
     this.addChild( label );
