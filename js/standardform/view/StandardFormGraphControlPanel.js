@@ -9,7 +9,7 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import { VBox } from '../../../../scenery/js/imports.js';
-import HSeparator from '../../../../sun/js/HSeparator.js';
+import HSeparatorDeprecated from '../../../../sun/js/HSeparatorDeprecated.js';
 import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
@@ -67,7 +67,7 @@ class StandardFormGraphControlPanel extends Panel {
         vertexCheckbox,
         axisOfSymmetryCheckbox,
         rootsCheckbox,
-        new HSeparator( maxCheckboxWidth, {
+        new HSeparatorDeprecated( maxCheckboxWidth, {
           stroke: GQColors.SEPARATOR,
           tandem: options.tandem.createTandem( 'separator' )
         } ),

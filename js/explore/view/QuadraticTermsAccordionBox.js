@@ -10,7 +10,7 @@
 import merge from '../../../../phet-core/js/merge.js';
 import { Text, VBox } from '../../../../scenery/js/imports.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
-import HSeparator from '../../../../sun/js/HSeparator.js';
+import HSeparatorDeprecated from '../../../../sun/js/HSeparatorDeprecated.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -86,7 +86,7 @@ class QuadraticTermsAccordionBox extends AccordionBox {
         quadraticTermCheckbox,
         linearTermCheckbox,
         constantTermCheckbox,
-        new HSeparator( separatorWidth, {
+        new HSeparatorDeprecated( separatorWidth, {
           stroke: GQColors.SEPARATOR,
           tandem: options.tandem.createTandem( 'separator' )
         } ),

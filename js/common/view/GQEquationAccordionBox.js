@@ -13,7 +13,7 @@ import { HBox, Path, VBox } from '../../../../scenery/js/imports.js';
 import cameraSolidShape from '../../../../sherpa/js/fontawesome-5/cameraSolidShape.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
-import HSeparator from '../../../../sun/js/HSeparator.js';
+import HSeparatorDeprecated from '../../../../sun/js/HSeparatorDeprecated.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
@@ -53,11 +53,11 @@ class GQEquationAccordionBox extends AccordionBox {
       align: 'center',
       spacing: 8,
       children: [
-        new HSeparator( separatorWidth, merge( {
+        new HSeparatorDeprecated( separatorWidth, merge( {
           tandem: options.tandem.createTandem( 'topSeparator' )
         }, separatorOptions ) ),
         interactiveEquationNode,
-        new HSeparator( separatorWidth, merge( {
+        new HSeparatorDeprecated( separatorWidth, merge( {
           tandem: options.tandem.createTandem( 'bottomSeparator' )
         }, separatorOptions ) ),
         buttonGroup
