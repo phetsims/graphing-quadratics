@@ -25,7 +25,7 @@ class ExploreScreen extends Screen {
     const options = {
 
       // Screen options
-      name: GraphingQuadraticsStrings.screen.explore,
+      name: GraphingQuadraticsStrings.screen.exploreStringProperty,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
 

@@ -25,7 +25,7 @@ class FocusAndDirectrixScreen extends Screen {
     const options = {
 
       // Screen options
-      name: GraphingQuadraticsStrings.screen.focusAndDirectrix,
+      name: GraphingQuadraticsStrings.screen.focusAndDirectrixStringProperty,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
 

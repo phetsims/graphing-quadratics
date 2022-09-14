@@ -25,7 +25,7 @@ class VertexFormScreen extends Screen {
     const options = {
 
       // Screen options
-      name: GraphingQuadraticsStrings.screen.vertexForm,
+      name: GraphingQuadraticsStrings.screen.vertexFormStringProperty,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
 

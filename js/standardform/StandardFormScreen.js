@@ -26,7 +26,7 @@ class StandardFormScreen extends Screen {
     const options = {
 
       // Screen options
-      name: GraphingQuadraticsStrings.screen.standardForm,
+      name: GraphingQuadraticsStrings.screen.standardFormStringProperty,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
 
