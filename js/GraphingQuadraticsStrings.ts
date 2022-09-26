@@ -5,62 +5,62 @@
  */
 /* eslint-disable */
 import getStringModule from '../../chipper/js/getStringModule.js';
-import TReadOnlyProperty from '../../axon/js/TReadOnlyProperty.js';
+import LinkableProperty from '../../axon/js/LinkableProperty.js';
 import graphingQuadratics from './graphingQuadratics.js';
 
 type StringsType = {
   'graphing-quadratics': {
     'title': string;
-    'titleStringProperty': TReadOnlyProperty<string>;
+    'titleStringProperty': LinkableProperty<string>;
   };
   'screen': {
     'explore': string;
-    'exploreStringProperty': TReadOnlyProperty<string>;
+    'exploreStringProperty': LinkableProperty<string>;
     'standardForm': string;
-    'standardFormStringProperty': TReadOnlyProperty<string>;
+    'standardFormStringProperty': LinkableProperty<string>;
     'vertexForm': string;
-    'vertexFormStringProperty': TReadOnlyProperty<string>;
+    'vertexFormStringProperty': LinkableProperty<string>;
     'focusAndDirectrix': string;
-    'focusAndDirectrixStringProperty': TReadOnlyProperty<string>;
+    'focusAndDirectrixStringProperty': LinkableProperty<string>;
   };
   'vertex': string;
-  'vertexStringProperty': TReadOnlyProperty<string>;
+  'vertexStringProperty': LinkableProperty<string>;
   'axisOfSymmetry': string;
-  'axisOfSymmetryStringProperty': TReadOnlyProperty<string>;
+  'axisOfSymmetryStringProperty': LinkableProperty<string>;
   'roots': string;
-  'rootsStringProperty': TReadOnlyProperty<string>;
+  'rootsStringProperty': LinkableProperty<string>;
   'coordinates': string;
-  'coordinatesStringProperty': TReadOnlyProperty<string>;
+  'coordinatesStringProperty': LinkableProperty<string>;
   'equations': string;
-  'equationsStringProperty': TReadOnlyProperty<string>;
+  'equationsStringProperty': LinkableProperty<string>;
   'noRealRoots': string;
-  'noRealRootsStringProperty': TReadOnlyProperty<string>;
+  'noRealRootsStringProperty': LinkableProperty<string>;
   'pointOnParabola': string;
-  'pointOnParabolaStringProperty': TReadOnlyProperty<string>;
+  'pointOnParabolaStringProperty': LinkableProperty<string>;
   'quadraticTerms': string;
-  'quadraticTermsStringProperty': TReadOnlyProperty<string>;
+  'quadraticTermsStringProperty': LinkableProperty<string>;
   'directrix': string;
-  'directrixStringProperty': TReadOnlyProperty<string>;
+  'directrixStringProperty': LinkableProperty<string>;
   'focus': string;
-  'focusStringProperty': TReadOnlyProperty<string>;
+  'focusStringProperty': LinkableProperty<string>;
   'x': string;
-  'xStringProperty': TReadOnlyProperty<string>;
+  'xStringProperty': LinkableProperty<string>;
   'y': string;
-  'yStringProperty': TReadOnlyProperty<string>;
+  'yStringProperty': LinkableProperty<string>;
   'a': string;
-  'aStringProperty': TReadOnlyProperty<string>;
+  'aStringProperty': LinkableProperty<string>;
   'b': string;
-  'bStringProperty': TReadOnlyProperty<string>;
+  'bStringProperty': LinkableProperty<string>;
   'c': string;
-  'cStringProperty': TReadOnlyProperty<string>;
+  'cStringProperty': LinkableProperty<string>;
   'h': string;
-  'hStringProperty': TReadOnlyProperty<string>;
+  'hStringProperty': LinkableProperty<string>;
   'k': string;
-  'kStringProperty': TReadOnlyProperty<string>;
+  'kStringProperty': LinkableProperty<string>;
   'p': string;
-  'pStringProperty': TReadOnlyProperty<string>;
+  'pStringProperty': LinkableProperty<string>;
   'coordinateUnknown': string;
-  'coordinateUnknownStringProperty': TReadOnlyProperty<string>;
+  'coordinateUnknownStringProperty': LinkableProperty<string>;
 };
 
 const GraphingQuadraticsStrings = getStringModule( 'GRAPHING_QUADRATICS' ) as StringsType;
