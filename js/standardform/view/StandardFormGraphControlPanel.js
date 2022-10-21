@@ -8,8 +8,7 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import { VBox } from '../../../../scenery/js/imports.js';
-import HSeparatorDeprecated from '../../../../sun/js/HSeparatorDeprecated.js';
+import { HSeparator, VBox } from '../../../../scenery/js/imports.js';
 import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
@@ -55,10 +54,6 @@ class StandardFormGraphControlPanel extends Panel {
       tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
     } );
 
-    const maxCheckboxWidth = _.maxBy(
-      [ vertexCheckbox, axisOfSymmetryCheckbox, rootsCheckbox, equationsCheckbox, coordinatesCheckbox ],
-      node => node.width ).width;
-
     // vertical layout
     const contentNode = new VBox( {
       align: 'left',
@@ -67,10 +62,7 @@ class StandardFormGraphControlPanel extends Panel {
         vertexCheckbox,
         axisOfSymmetryCheckbox,
         rootsCheckbox,
-        new HSeparatorDeprecated( maxCheckboxWidth, {
-          stroke: GQColors.SEPARATOR,
-          tandem: options.tandem.createTandem( 'separator' )
-        } ),
+        new HSeparator( { stroke: GQColors.SEPARATOR } ),
         equationsCheckbox,
         coordinatesCheckbox
       ]

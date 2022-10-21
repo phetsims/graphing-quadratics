@@ -9,11 +9,10 @@
 import merge from '../../../../phet-core/js/merge.js';
 import EraserButton from '../../../../scenery-phet/js/buttons/EraserButton.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import { HBox, Path, VBox } from '../../../../scenery/js/imports.js';
+import { HBox, HSeparator, Path, VBox } from '../../../../scenery/js/imports.js';
 import cameraSolidShape from '../../../../sherpa/js/fontawesome-5/cameraSolidShape.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
-import HSeparatorDeprecated from '../../../../sun/js/HSeparatorDeprecated.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
@@ -46,20 +45,15 @@ class GQEquationAccordionBox extends AccordionBox {
     } );
 
     // properties of the horizontal separators
-    const separatorWidth = Math.max( interactiveEquationNode.width, buttonGroup.width );
     const separatorOptions = { stroke: GQColors.SEPARATOR };
 
     const contentNode = new VBox( {
       align: 'center',
       spacing: 8,
       children: [
-        new HSeparatorDeprecated( separatorWidth, merge( {
-          tandem: options.tandem.createTandem( 'topSeparator' )
-        }, separatorOptions ) ),
+        new HSeparator( separatorOptions ),
         interactiveEquationNode,
-        new HSeparatorDeprecated( separatorWidth, merge( {
-          tandem: options.tandem.createTandem( 'bottomSeparator' )
-        }, separatorOptions ) ),
+        new HSeparator( separatorOptions ),
         buttonGroup
       ]
     } );

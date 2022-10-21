@@ -8,9 +8,8 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import { Text, VBox } from '../../../../scenery/js/imports.js';
+import { HSeparator, Text, VBox } from '../../../../scenery/js/imports.js';
 import AccordionBox from '../../../../sun/js/AccordionBox.js';
-import HSeparatorDeprecated from '../../../../sun/js/HSeparatorDeprecated.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -75,9 +74,6 @@ class QuadraticTermsAccordionBox extends AccordionBox {
       [ quadraticTermCheckbox, linearTermCheckbox, constantTermCheckbox, equationsCheckbox ],
       node => node.width ).width;
 
-    // See https://github.com/phetsims/graphing-quadratics/issues/128
-    const separatorWidth = Math.max( maxCheckboxWidth, 1.1 * options.titleNode.width );
-
     // vertical layout
     const contentNode = new VBox( {
       align: 'left',
@@ -86,9 +82,11 @@ class QuadraticTermsAccordionBox extends AccordionBox {
         quadraticTermCheckbox,
         linearTermCheckbox,
         constantTermCheckbox,
-        new HSeparatorDeprecated( separatorWidth, {
+        new HSeparator( {
           stroke: GQColors.SEPARATOR,
-          tandem: options.tandem.createTandem( 'separator' )
+
+          // See https://github.com/phetsims/graphing-quadratics/issues/128
+          minimumWidth: Math.max( maxCheckboxWidth, 1.1 * options.titleNode.width )
         } ),
         equationsCheckbox
       ]
