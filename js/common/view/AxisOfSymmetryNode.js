@@ -64,7 +64,7 @@ class AxisOfSymmetryNode extends Node {
         lineNode.setLine( x, minY, x, maxY );
 
         // update the equation's text
-        equationText.text = GQEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
+        equationText.string = GQEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
 
         // position the equation to avoid overlapping vertex and y axis
         if ( quadratic.axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {

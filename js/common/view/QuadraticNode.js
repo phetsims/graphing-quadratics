@@ -152,10 +152,10 @@ class QuadraticNode extends Node {
 
     // update the equation text
     if ( this.equationForm === 'standard' ) {
-      this.equationText.text = GQEquationFactory.createStandardForm( quadratic );
+      this.equationText.string = GQEquationFactory.createStandardForm( quadratic );
     }
     else {
-      this.equationText.text = GQEquationFactory.createVertexForm( quadratic );
+      this.equationText.string = GQEquationFactory.createVertexForm( quadratic );
     }
 
     // update the equation color

@@ -62,7 +62,7 @@ class DirectrixNode extends Node {
       lineNode.setLine( minX, y, maxX, y );
 
       // update the equation's text
-      equationText.text = GQEquationFactory.createDirectrix( quadratic.directrix );
+      equationText.string = GQEquationFactory.createDirectrix( quadratic.directrix );
 
       // position the equation to avoid overlapping vertex and x axis
       if ( quadratic.vertex.x >= 0 ) {
