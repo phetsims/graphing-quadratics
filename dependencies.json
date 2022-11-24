@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "af9c15840b5159fdb9a8c6d281e2312714a4239f",
+    "sha": "586b749bbe62a96bc90339939b6a3d08165202a3",
     "branch": "1.2"
   },
   "joist": {
@@ -37,7 +37,7 @@
     "branch": "HEAD"
   },
   "perennial-alias": {
-    "sha": "8eafd3475ec642e0334322f1d4bdf212192ee57c",
+    "sha": "f8bc290d1f540479ca66394adfa681158a18e720",
     "branch": "HEAD"
   },
   "phet-core": {
