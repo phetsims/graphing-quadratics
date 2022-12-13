@@ -440,8 +440,6 @@ const documentationQuadraticIO =
 Quadratic.QuadraticIO = new IOType( 'QuadraticIO', {
   valueType: Quadratic,
   documentation: documentationQuadraticIO,
-  toStateObject: quadratic => quadratic.toStateObject(),
-  fromStateObject: Quadratic.fromStateObject,
   stateSchema: {
 
     // These properties are sufficient to restore a Quadratic, see fromStateObject.
@@ -458,7 +456,9 @@ Quadratic.QuadraticIO = new IOType( 'QuadraticIO', {
     focus: NullableIO( ObjectLiteralIO ),
     directrix: NullableIO( NumberIO ),
     axisOfSymmetry: NullableIO( NumberIO )
-  }
+  },
+  toStateObject: quadratic => quadratic.toStateObject(),
+  fromStateObject: stateObject => Quadratic.fromStateObject( stateObject )
 } );
 
 graphingQuadratics.register( 'Quadratic', Quadratic );
