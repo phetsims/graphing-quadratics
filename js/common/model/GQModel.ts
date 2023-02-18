@@ -28,11 +28,11 @@ const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates
 
 export default class GQModel implements TModel {
 
+  public readonly graph: Graph; // graph where the quadratics will be plotted
   public readonly quadraticProperty: Property<Quadratic>; // the interactive quadratic
-  public readonly graph: Graph;
   public readonly savedQuadraticProperty: Property<Quadratic | null>; // the saved quadratic, null if nothing is saved
 
-  //  model-view transform, created in the model because it's dependent on graph axes ranges
+  // model-view transform, created in the model because it's dependent on graph axes ranges
   public readonly modelViewTransform: ModelViewTransform2;
 
   // Quadratic terms to be displayed, in the order that they will be considered by point tools (foreground to background).
@@ -44,9 +44,9 @@ export default class GQModel implements TModel {
 
   protected constructor( quadraticProperty: Property<Quadratic>, tandem: Tandem ) {
 
-    this.quadraticProperty = quadraticProperty;
-
     this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
+
+    this.quadraticProperty = quadraticProperty;
 
     this.savedQuadraticProperty = new Property<Quadratic | null>( null, {
       valueType: [ Quadratic, null ],
