@@ -16,7 +16,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class VertexFormEquationNode extends Node {
+export default class VertexFormEquationNode extends Node {
 
   /**
    * @param {Object} [options]
@@ -55,4 +55,3 @@ class VertexFormEquationNode extends Node {
 }
 
 graphingQuadratics.register( 'VertexFormEquationNode', VertexFormEquationNode );
-export default VertexFormEquationNode;

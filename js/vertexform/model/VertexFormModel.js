@@ -23,7 +23,7 @@ const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
 const H_RANGE = new RangeWithValue( -9, 9, 0 ); // h coefficient
 const K_RANGE = new RangeWithValue( -9, 9, 0 ); // k coefficient
 
-class VertexFormModel extends GQModel {
+export default class VertexFormModel extends GQModel {
 
   /**
    * @param {Tandem} tandem
@@ -95,4 +95,3 @@ class VertexFormModel extends GQModel {
 }
 
 graphingQuadratics.register( 'VertexFormModel', VertexFormModel );
-export default VertexFormModel;

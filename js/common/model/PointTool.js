@@ -18,7 +18,7 @@ import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import Quadratic from './Quadratic.js';
 
-class PointTool extends PhetioObject {
+export default class PointTool extends PhetioObject {
 
   /**
    * @param {Property.<Quadratic[]>} quadraticsProperty - Quadratics that the tool might intersect
@@ -109,4 +109,3 @@ class PointTool extends PhetioObject {
 }
 
 graphingQuadratics.register( 'PointTool', PointTool );
-export default PointTool;

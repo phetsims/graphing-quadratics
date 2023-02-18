@@ -24,7 +24,7 @@ import Quadratic from './Quadratic.js';
 const GRAPH_VIEW_ORIGIN = new Vector2( 345, 330 ); // position of the graph's origin, in view coordinates
 const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates
 
-class GQModel {
+export default class GQModel {
 
   /**
    * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
@@ -126,4 +126,3 @@ class GQModel {
 }
 
 graphingQuadratics.register( 'GQModel', GQModel );
-export default GQModel;

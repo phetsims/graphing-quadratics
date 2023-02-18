@@ -13,7 +13,7 @@ import FocusAndDirectrixGraphControlPanel from './FocusAndDirectrixGraphControlP
 import FocusAndDirectrixGraphNode from './FocusAndDirectrixGraphNode.js';
 import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.js';
 
-class FocusAndDirectrixScreenView extends GQScreenView {
+export default class FocusAndDirectrixScreenView extends GQScreenView {
 
   /**
    * @param {FocusAndDirectrixModel} model
@@ -47,4 +47,3 @@ class FocusAndDirectrixScreenView extends GQScreenView {
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixScreenView', FocusAndDirectrixScreenView );
-export default FocusAndDirectrixScreenView;

@@ -12,7 +12,7 @@ import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../../standardform/model/StandardFormModel.js';
 
-class ExploreModel extends StandardFormModel {
+export default class ExploreModel extends StandardFormModel {
 
   /**
    * @param {Tandem} tandem
@@ -52,4 +52,3 @@ class ExploreModel extends StandardFormModel {
 }
 
 graphingQuadratics.register( 'ExploreModel', ExploreModel );
-export default ExploreModel;

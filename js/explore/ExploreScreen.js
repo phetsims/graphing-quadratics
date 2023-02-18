@@ -15,7 +15,7 @@ import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import ExploreModel from './model/ExploreModel.js';
 import ExploreScreenView from './view/ExploreScreenView.js';
 
-class ExploreScreen extends Screen {
+export default class ExploreScreen extends Screen {
 
   /**
    * @param {Tandem} tandem
@@ -45,4 +45,3 @@ class ExploreScreen extends Screen {
 }
 
 graphingQuadratics.register( 'ExploreScreen', ExploreScreen );
-export default ExploreScreen;

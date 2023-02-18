@@ -13,7 +13,7 @@ import VertexFormGraphControlPanel from './VertexFormGraphControlPanel.js';
 import VertexFormGraphNode from './VertexFormGraphNode.js';
 import VertexFormViewProperties from './VertexFormViewProperties.js';
 
-class VertexFormScreenView extends GQScreenView {
+export default class VertexFormScreenView extends GQScreenView {
 
   /**
    * @param {VertexFormModel} model
@@ -47,4 +47,3 @@ class VertexFormScreenView extends GQScreenView {
 }
 
 graphingQuadratics.register( 'VertexFormScreenView', VertexFormScreenView );
-export default VertexFormScreenView;

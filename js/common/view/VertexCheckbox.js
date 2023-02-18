@@ -14,7 +14,7 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQColors from '../GQColors.js';
 import GQCheckbox from './GQCheckbox.js';
 
-class VertexCheckbox extends GQCheckbox {
+export default class VertexCheckbox extends GQCheckbox {
 
   /**
    * @param {BooleanProperty} vertexVisibleProperty
@@ -50,4 +50,3 @@ class VertexCheckbox extends GQCheckbox {
 }
 
 graphingQuadratics.register( 'VertexCheckbox', VertexCheckbox );
-export default VertexCheckbox;

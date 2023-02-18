@@ -20,7 +20,7 @@ import QuadraticNode from './QuadraticNode.js';
 const DEFAULT_OTHER_CURVES = [];
 const DEFAULT_DECORATIONS = [];
 
-class GQGraphNode extends Node {
+export default class GQGraphNode extends Node {
 
   /**
    * @param {GQModel} model
@@ -147,4 +147,3 @@ class GQGraphNode extends Node {
 }
 
 graphingQuadratics.register( 'GQGraphNode', GQGraphNode );
-export default GQGraphNode;

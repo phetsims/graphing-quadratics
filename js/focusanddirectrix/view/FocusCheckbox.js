@@ -13,7 +13,7 @@ import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
-class FocusCheckbox extends GQCheckbox {
+export default class FocusCheckbox extends GQCheckbox {
 
   /**
    * @param {BooleanProperty} focusVisibleProperty
@@ -37,4 +37,3 @@ class FocusCheckbox extends GQCheckbox {
 }
 
 graphingQuadratics.register( 'FocusCheckbox', FocusCheckbox );
-export default FocusCheckbox;

@@ -13,7 +13,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 
-class GQViewProperties extends PhetioObject {
+export default class GQViewProperties extends PhetioObject {
 
   /**
    * @param {Object} [options]
@@ -113,4 +113,3 @@ class GQViewProperties extends PhetioObject {
 }
 
 graphingQuadratics.register( 'GQViewProperties', GQViewProperties );
-export default GQViewProperties;

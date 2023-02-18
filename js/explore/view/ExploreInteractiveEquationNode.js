@@ -22,7 +22,7 @@ import GQSlider from '../../common/view/GQSlider.js';
 import QuadraticSlider from '../../common/view/QuadraticSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class ExploreInteractiveEquationNode extends Node {
+export default class ExploreInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
@@ -83,8 +83,6 @@ class ExploreInteractiveEquationNode extends Node {
     cSlider.top = equationNode.bottom + ySpacing;
   }
 }
-
-graphingQuadratics.register( 'ExploreInteractiveEquationNode', ExploreInteractiveEquationNode );
 
 /**
  * The equation that appears above the sliders.
@@ -201,4 +199,4 @@ class EquationNode extends Node {
   getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
 }
 
-export default ExploreInteractiveEquationNode;
+graphingQuadratics.register( 'ExploreInteractiveEquationNode', ExploreInteractiveEquationNode );

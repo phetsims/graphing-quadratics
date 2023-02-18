@@ -19,7 +19,7 @@ import EquationsCheckbox from '../../common/view/EquationsCheckbox.js';
 import VertexCheckbox from '../../common/view/VertexCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class VertexFormGraphControlPanel extends Panel {
+export default class VertexFormGraphControlPanel extends Panel {
 
   /**
    * @param {VertexFormViewProperties} viewProperties
@@ -67,4 +67,3 @@ class VertexFormGraphControlPanel extends Panel {
 }
 
 graphingQuadratics.register( 'VertexFormGraphControlPanel', VertexFormGraphControlPanel );
-export default VertexFormGraphControlPanel;

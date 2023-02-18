@@ -14,7 +14,7 @@ import FocusManipulator from './FocusManipulator.js';
 import PointOnParabolaLinesNode from './PointOnParabolaLinesNode.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 
-class FocusAndDirectrixGraphNode extends GQGraphNode {
+export default class FocusAndDirectrixGraphNode extends GQGraphNode {
 
   /**
    * @param {FocusAndDirectrixModel} model
@@ -92,4 +92,3 @@ class FocusAndDirectrixGraphNode extends GQGraphNode {
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixGraphNode', FocusAndDirectrixGraphNode );
-export default FocusAndDirectrixGraphNode;

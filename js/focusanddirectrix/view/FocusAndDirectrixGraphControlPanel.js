@@ -20,7 +20,7 @@ import DirectrixCheckbox from './DirectrixCheckbox.js';
 import FocusCheckbox from './FocusCheckbox.js';
 import PointOnParabolaCheckbox from './PointOnParabolaCheckbox.js';
 
-class FocusAndDirectrixGraphControlPanel extends Panel {
+export default class FocusAndDirectrixGraphControlPanel extends Panel {
 
   /**
    * @param {FocusAndDirectrixViewProperties} viewProperties
@@ -76,4 +76,3 @@ class FocusAndDirectrixGraphControlPanel extends Panel {
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixGraphControlPanel', FocusAndDirectrixGraphControlPanel );
-export default FocusAndDirectrixGraphControlPanel;

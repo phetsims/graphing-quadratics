@@ -13,7 +13,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import VertexFormEquationNode from './VertexFormEquationNode.js';
 import VertexFormInteractiveEquationNode from './VertexFormInteractiveEquationNode.js';
 
-class VertexFormEquationAccordionBox extends GQEquationAccordionBox {
+export default class VertexFormEquationAccordionBox extends GQEquationAccordionBox {
 
   /**
    * @param {VertexFormModel} model
@@ -46,4 +46,3 @@ class VertexFormEquationAccordionBox extends GQEquationAccordionBox {
 }
 
 graphingQuadratics.register( 'VertexFormEquationAccordionBox', VertexFormEquationAccordionBox );
-export default VertexFormEquationAccordionBox;

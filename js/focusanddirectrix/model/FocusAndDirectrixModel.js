@@ -25,7 +25,7 @@ const H_RANGE = new RangeWithValue( -6, 6, 0 ); // h coefficient
 const K_RANGE = new RangeWithValue( -6, 6, 0 ); // k coefficient
 const POINT_X = 5; // default x value for point on parabola
 
-class FocusAndDirectrixModel extends GQModel {
+export default class FocusAndDirectrixModel extends GQModel {
 
   /**
    * @param {Tandem} tandem
@@ -113,4 +113,3 @@ class FocusAndDirectrixModel extends GQModel {
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixModel', FocusAndDirectrixModel );
-export default FocusAndDirectrixModel;

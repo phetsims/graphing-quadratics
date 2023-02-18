@@ -21,7 +21,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 // constants
 const COORDINATES_Y_SPACING = 1;
 
-class FocusManipulator extends GQManipulator {
+export default class FocusManipulator extends GQManipulator {
 
   /**
    * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
@@ -108,8 +108,6 @@ class FocusManipulator extends GQManipulator {
   }
 }
 
-graphingQuadratics.register( 'FocusManipulator', FocusManipulator );
-
 class FocusDragListener extends DragListener {
 
   /**
@@ -172,4 +170,4 @@ class FocusDragListener extends DragListener {
   }
 }
 
-export default FocusManipulator;
+graphingQuadratics.register( 'FocusManipulator', FocusManipulator );

@@ -15,7 +15,7 @@ import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import FocusAndDirectrixModel from './model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixScreenView from './view/FocusAndDirectrixScreenView.js';
 
-class FocusAndDirectrixScreen extends Screen {
+export default class FocusAndDirectrixScreen extends Screen {
 
   /**
    * @param {Tandem} tandem
@@ -45,4 +45,3 @@ class FocusAndDirectrixScreen extends Screen {
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixScreen', FocusAndDirectrixScreen );
-export default FocusAndDirectrixScreen;

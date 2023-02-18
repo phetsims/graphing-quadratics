@@ -21,7 +21,7 @@ import PointToolNode from './PointToolNode.js';
 // constants
 const X_SPACING = 15; // between graph and control panels
 
-class GQScreenView extends ScreenView {
+export default class GQScreenView extends ScreenView {
 
   /**
    * @param {GQModel} model
@@ -117,4 +117,3 @@ class GQScreenView extends ScreenView {
 }
 
 graphingQuadratics.register( 'GQScreenView', GQScreenView );
-export default GQScreenView;

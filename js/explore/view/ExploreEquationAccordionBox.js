@@ -13,7 +13,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormEquationNode from '../../standardform/view/StandardFormEquationNode.js';
 import ExploreInteractiveEquationNode from './ExploreInteractiveEquationNode.js';
 
-class ExploreEquationAccordionBox extends GQEquationAccordionBox {
+export default class ExploreEquationAccordionBox extends GQEquationAccordionBox {
 
   /**
    * @param {ExploreModel} model
@@ -46,4 +46,3 @@ class ExploreEquationAccordionBox extends GQEquationAccordionBox {
 }
 
 graphingQuadratics.register( 'ExploreEquationAccordionBox', ExploreEquationAccordionBox );
-export default ExploreEquationAccordionBox;

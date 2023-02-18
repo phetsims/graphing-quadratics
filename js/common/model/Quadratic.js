@@ -30,7 +30,7 @@ import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 
-class Quadratic {
+export default class Quadratic {
 
   /**
    * Constructor parameters are coefficients of the standard form equation: y = ax^2 + bx + c
@@ -462,4 +462,3 @@ Quadratic.QuadraticIO = new IOType( 'QuadraticIO', {
 } );
 
 graphingQuadratics.register( 'Quadratic', Quadratic );
-export default Quadratic;

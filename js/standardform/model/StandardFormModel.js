@@ -23,7 +23,7 @@ const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
 const B_RANGE = new RangeWithValue( -6, 6, 0 ); // b coefficient
 const C_RANGE = new RangeWithValue( -6, 6, 0 ); // c constant
 
-class StandardFormModel extends GQModel {
+export default class StandardFormModel extends GQModel {
 
   /**
    * @param {Tandem} tandem
@@ -100,4 +100,3 @@ class StandardFormModel extends GQModel {
 }
 
 graphingQuadratics.register( 'StandardFormModel', StandardFormModel );
-export default StandardFormModel;

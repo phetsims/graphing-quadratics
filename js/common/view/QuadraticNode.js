@@ -18,7 +18,7 @@ import GQConstants from '../GQConstants.js';
 import GQBackgroundNode from './GQBackgroundNode.js';
 import GQEquationFactory from './GQEquationFactory.js';
 
-class QuadraticNode extends Node {
+export default class QuadraticNode extends Node {
 
   /**
    * @param {Property.<Quadratic>} quadraticProperty - the quadratic to be rendered
@@ -237,4 +237,3 @@ class QuadraticNode extends Node {
 }
 
 graphingQuadratics.register( 'QuadraticNode', QuadraticNode );
-export default QuadraticNode;

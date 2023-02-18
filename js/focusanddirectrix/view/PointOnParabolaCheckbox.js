@@ -13,7 +13,7 @@ import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
-class PointOnParabolaCheckbox extends GQCheckbox {
+export default class PointOnParabolaCheckbox extends GQCheckbox {
 
   /**
    * @param {BooleanProperty} pointOnParabolaVisibleProperty
@@ -37,4 +37,3 @@ class PointOnParabolaCheckbox extends GQCheckbox {
 }
 
 graphingQuadratics.register( 'PointOnParabolaCheckbox', PointOnParabolaCheckbox );
-export default PointOnParabolaCheckbox;

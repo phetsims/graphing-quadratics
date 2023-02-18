@@ -16,7 +16,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class FocusAndDirectrixEquationNode extends Node {
+export default class FocusAndDirectrixEquationNode extends Node {
 
   /**
    * @param {Object} [options]
@@ -92,4 +92,3 @@ class FocusAndDirectrixEquationNode extends Node {
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixEquationNode', FocusAndDirectrixEquationNode );
-export default FocusAndDirectrixEquationNode;

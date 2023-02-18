@@ -13,7 +13,7 @@ import GQGraphNode from '../../common/view/GQGraphNode.js';
 import QuadraticNode from '../../common/view/QuadraticNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class ExploreGraphNode extends GQGraphNode {
+export default class ExploreGraphNode extends GQGraphNode {
 
   /**
    * @param {ExploreModel} model
@@ -92,4 +92,3 @@ class ExploreGraphNode extends GQGraphNode {
 }
 
 graphingQuadratics.register( 'ExploreGraphNode', ExploreGraphNode );
-export default ExploreGraphNode;

@@ -12,7 +12,7 @@ import { Circle } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 
-class GQBackgroundNode extends BackgroundNode {
+export default class GQBackgroundNode extends BackgroundNode {
 
   /**
    * @param {Node} node - the Node that will be put on the background
@@ -36,4 +36,3 @@ class GQBackgroundNode extends BackgroundNode {
 }
 
 graphingQuadratics.register( 'GQBackgroundNode', GQBackgroundNode );
-export default GQBackgroundNode;

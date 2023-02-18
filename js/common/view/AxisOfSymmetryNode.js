@@ -14,7 +14,7 @@ import GQConstants from '../GQConstants.js';
 import GQBackgroundNode from './GQBackgroundNode.js';
 import GQEquationFactory from './GQEquationFactory.js';
 
-class AxisOfSymmetryNode extends Node {
+export default class AxisOfSymmetryNode extends Node {
 
   /**
    * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
@@ -111,4 +111,3 @@ class AxisOfSymmetryNode extends Node {
 }
 
 graphingQuadratics.register( 'AxisOfSymmetryNode', AxisOfSymmetryNode );
-export default AxisOfSymmetryNode;

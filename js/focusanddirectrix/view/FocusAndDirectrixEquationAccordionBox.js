@@ -13,7 +13,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixEquationNode from './FocusAndDirectrixEquationNode.js';
 import FocusAndDirectrixInteractiveEquationNode from './FocusAndDirectrixInteractiveEquationNode.js';
 
-class FocusAndDirectrixEquationAccordionBox extends GQEquationAccordionBox {
+export default class FocusAndDirectrixEquationAccordionBox extends GQEquationAccordionBox {
 
   /**
    * @param {VertexFormModel} model
@@ -48,4 +48,3 @@ class FocusAndDirectrixEquationAccordionBox extends GQEquationAccordionBox {
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixEquationAccordionBox', FocusAndDirectrixEquationAccordionBox );
-export default FocusAndDirectrixEquationAccordionBox;

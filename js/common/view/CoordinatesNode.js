@@ -14,7 +14,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQConstants from '../GQConstants.js';
 
-class CoordinatesNode extends Node {
+export default class CoordinatesNode extends Node {
 
   /**
    * @param {Property.<Vector2|null>} coordinatesProperty
@@ -99,4 +99,3 @@ class CoordinatesNode extends Node {
 }
 
 graphingQuadratics.register( 'CoordinatesNode', CoordinatesNode );
-export default CoordinatesNode;

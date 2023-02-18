@@ -14,7 +14,7 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class PointOnParabolaLinesNode extends Node {
+export default class PointOnParabolaLinesNode extends Node {
 
   /**
    * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
@@ -74,4 +74,3 @@ class PointOnParabolaLinesNode extends Node {
 }
 
 graphingQuadratics.register( 'PointOnParabolaLinesNode', PointOnParabolaLinesNode );
-export default PointOnParabolaLinesNode;

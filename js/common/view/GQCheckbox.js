@@ -14,7 +14,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 
-class GQCheckbox extends Checkbox {
+export default class GQCheckbox extends Checkbox {
 
   /**
    * @param {BooleanProperty} booleanProperty
@@ -56,4 +56,3 @@ class GQCheckbox extends Checkbox {
 }
 
 graphingQuadratics.register( 'GQCheckbox', GQCheckbox );
-export default GQCheckbox;

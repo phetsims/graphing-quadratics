@@ -13,7 +13,7 @@ import GQSymbols from '../../common/GQSymbols.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class LinearTermCheckbox extends GQCheckbox {
+export default class LinearTermCheckbox extends GQCheckbox {
 
   /**
    * @param {BooleanProperty} linearTermVisibleProperty
@@ -37,4 +37,3 @@ class LinearTermCheckbox extends GQCheckbox {
 }
 
 graphingQuadratics.register( 'LinearTermCheckbox', LinearTermCheckbox );
-export default LinearTermCheckbox;

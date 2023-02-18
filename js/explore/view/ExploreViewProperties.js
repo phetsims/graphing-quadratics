@@ -12,7 +12,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQViewProperties from '../../common/view/GQViewProperties.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class ExploreViewProperties extends GQViewProperties {
+export default class ExploreViewProperties extends GQViewProperties {
 
   /**
    * @param {Object} [options]
@@ -66,4 +66,3 @@ class ExploreViewProperties extends GQViewProperties {
 }
 
 graphingQuadratics.register( 'ExploreViewProperties', ExploreViewProperties );
-export default ExploreViewProperties;

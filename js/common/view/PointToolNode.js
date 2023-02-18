@@ -22,7 +22,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 
-class PointToolNode extends Node {
+export default class PointToolNode extends Node {
 
   /**
    * @param {PointTool} pointTool
@@ -114,8 +114,6 @@ class PointToolNode extends Node {
     super.dispose();
   }
 }
-
-graphingQuadratics.register( 'PointToolNode', PointToolNode );
 
 class ProbeNode extends Node {
 
@@ -248,4 +246,4 @@ class PointToolDragListener extends DragListener {
   }
 }
 
-export default PointToolNode;
+graphingQuadratics.register( 'PointToolNode', PointToolNode );

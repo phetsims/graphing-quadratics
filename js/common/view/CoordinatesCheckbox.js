@@ -11,7 +11,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQCheckbox from './GQCheckbox.js';
 
-class CoordinatesCheckbox extends GQCheckbox {
+export default class CoordinatesCheckbox extends GQCheckbox {
 
   /**
    * @param {BooleanProperty} coordinatesVisibleProperty
@@ -31,4 +31,3 @@ class CoordinatesCheckbox extends GQCheckbox {
 }
 
 graphingQuadratics.register( 'CoordinatesCheckbox', CoordinatesCheckbox );
-export default CoordinatesCheckbox;

@@ -11,7 +11,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQViewProperties from '../../common/view/GQViewProperties.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class VertexFormViewProperties extends GQViewProperties {
+export default class VertexFormViewProperties extends GQViewProperties {
 
   /**
    * @param {Object} [options]
@@ -37,4 +37,3 @@ class VertexFormViewProperties extends GQViewProperties {
 }
 
 graphingQuadratics.register( 'VertexFormViewProperties', VertexFormViewProperties );
-export default VertexFormViewProperties;

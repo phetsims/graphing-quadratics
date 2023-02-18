@@ -19,7 +19,7 @@ import GQSymbols from '../../common/GQSymbols.js';
 import GQSlider from '../../common/view/GQSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class FocusAndDirectrixInteractiveEquationNode extends Node {
+export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the alternate vertex form: y = (1/(4p))(x - h)^2 + k
@@ -81,8 +81,6 @@ class FocusAndDirectrixInteractiveEquationNode extends Node {
     kSlider.top = equationNode.bottom + ySpacing;
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );
 
 /**
  * The equation that appears above the sliders.
@@ -229,4 +227,4 @@ class EquationNode extends Node {
   getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
 }
 
-export default FocusAndDirectrixInteractiveEquationNode;
+graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );

@@ -18,7 +18,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class VertexFormInteractiveEquationNode extends Node {
+export default class VertexFormInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the vertex form: y = ax^2 + bx + c
@@ -111,4 +111,3 @@ class VertexFormInteractiveEquationNode extends Node {
 }
 
 graphingQuadratics.register( 'VertexFormInteractiveEquationNode', VertexFormInteractiveEquationNode );
-export default VertexFormInteractiveEquationNode;

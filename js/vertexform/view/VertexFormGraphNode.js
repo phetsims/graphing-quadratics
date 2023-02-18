@@ -11,7 +11,7 @@ import GQGraphNode from '../../common/view/GQGraphNode.js';
 import VertexManipulator from '../../common/view/VertexManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class VertexFormGraphNode extends GQGraphNode {
+export default class VertexFormGraphNode extends GQGraphNode {
 
   /**
    * @param {VertexFormModel} model
@@ -56,4 +56,3 @@ class VertexFormGraphNode extends GQGraphNode {
 }
 
 graphingQuadratics.register( 'VertexFormGraphNode', VertexFormGraphNode );
-export default VertexFormGraphNode;

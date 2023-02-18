@@ -16,7 +16,7 @@ import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import StandardFormModel from './model/StandardFormModel.js';
 import StandardFormScreenView from './view/StandardFormScreenView.js';
 
-class StandardFormScreen extends Screen {
+export default class StandardFormScreen extends Screen {
 
   /**
    * @param {Tandem} tandem
@@ -46,4 +46,3 @@ class StandardFormScreen extends Screen {
 }
 
 graphingQuadratics.register( 'StandardFormScreen', StandardFormScreen );
-export default StandardFormScreen;

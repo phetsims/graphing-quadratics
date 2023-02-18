@@ -14,7 +14,7 @@ import GQBackgroundNode from '../../common/view/GQBackgroundNode.js';
 import GQEquationFactory from '../../common/view/GQEquationFactory.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class DirectrixNode extends Node {
+export default class DirectrixNode extends Node {
 
   /**
    * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
@@ -96,4 +96,3 @@ class DirectrixNode extends Node {
 }
 
 graphingQuadratics.register( 'DirectrixNode', DirectrixNode );
-export default DirectrixNode;

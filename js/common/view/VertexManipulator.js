@@ -23,7 +23,7 @@ import GQManipulator from './GQManipulator.js';
 // constants
 const COORDINATES_Y_SPACING = 1;
 
-class VertexManipulator extends GQManipulator {
+export default class VertexManipulator extends GQManipulator {
 
   /**
    * @param {NumberProperty} hProperty - h coefficient of the vertex form of the quadratic equation
@@ -110,8 +110,6 @@ class VertexManipulator extends GQManipulator {
   }
 }
 
-graphingQuadratics.register( 'VertexManipulator', VertexManipulator );
-
 class VertexDragListener extends DragListener {
 
   /**
@@ -161,4 +159,4 @@ class VertexDragListener extends DragListener {
   }
 }
 
-export default VertexManipulator;
+graphingQuadratics.register( 'VertexManipulator', VertexManipulator );

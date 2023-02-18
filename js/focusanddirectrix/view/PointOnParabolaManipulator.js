@@ -19,7 +19,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 // constants
 const COORDINATES_X_SPACING = 1;
 
-class PointOnParabolaManipulator extends GQManipulator {
+export default class PointOnParabolaManipulator extends GQManipulator {
 
   /**
    * @param {Vector2Property} pointOnParabolaProperty - the point
@@ -86,8 +86,6 @@ class PointOnParabolaManipulator extends GQManipulator {
     } );
   }
 }
-
-graphingQuadratics.register( 'PointOnParabolaManipulator', PointOnParabolaManipulator );
 
 class PointOnParabolaDragListener extends DragListener {
 
@@ -156,4 +154,4 @@ class PointOnParabolaDragListener extends DragListener {
   }
 }
 
-export default PointOnParabolaManipulator;
+graphingQuadratics.register( 'PointOnParabolaManipulator', PointOnParabolaManipulator );

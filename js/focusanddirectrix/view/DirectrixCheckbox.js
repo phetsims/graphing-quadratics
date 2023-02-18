@@ -14,7 +14,7 @@ import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
-class DirectrixCheckbox extends GQCheckbox {
+export default class DirectrixCheckbox extends GQCheckbox {
 
   /**
    * @param {BooleanProperty} directrixVisibleProperty
@@ -42,4 +42,3 @@ class DirectrixCheckbox extends GQCheckbox {
 }
 
 graphingQuadratics.register( 'DirectrixCheckbox', DirectrixCheckbox );
-export default DirectrixCheckbox;

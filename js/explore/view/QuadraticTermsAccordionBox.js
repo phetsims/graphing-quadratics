@@ -20,7 +20,7 @@ import ConstantTermCheckbox from './ConstantTermCheckbox.js';
 import LinearTermCheckbox from './LinearTermCheckbox.js';
 import QuadraticTermCheckbox from './QuadraticTermCheckbox.js';
 
-class QuadraticTermsAccordionBox extends AccordionBox {
+export default class QuadraticTermsAccordionBox extends AccordionBox {
 
   /**
    * @param {ExploreViewProperties} viewProperties
@@ -97,4 +97,3 @@ class QuadraticTermsAccordionBox extends AccordionBox {
 }
 
 graphingQuadratics.register( 'QuadraticTermsAccordionBox', QuadraticTermsAccordionBox );
-export default QuadraticTermsAccordionBox;

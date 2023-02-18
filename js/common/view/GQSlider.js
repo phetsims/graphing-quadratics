@@ -31,7 +31,7 @@ const DEFAULT_TICK_VALUES = [ 0 ];
 const DEFAULT_TRACK_SIZE = new Dimension2( 1, 130 );
 const DEFAULT_THUMB_SIZE = new Dimension2( 40, 20 );
 
-class GQSlider extends VSlider {
+export default class GQSlider extends VSlider {
 
   /**
    * @param {string} symbol - the coefficient's symbol
@@ -173,4 +173,3 @@ class GQSlider extends VSlider {
 }
 
 graphingQuadratics.register( 'GQSlider', GQSlider );
-export default GQSlider;

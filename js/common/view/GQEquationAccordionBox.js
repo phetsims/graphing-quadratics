@@ -21,7 +21,7 @@ import GQConstants from '../GQConstants.js';
 // constants
 const BUTTON_ICON_WIDTH = 30;
 
-class GQEquationAccordionBox extends AccordionBox {
+export default class GQEquationAccordionBox extends AccordionBox {
 
   /**
    * @param {GQModel} model
@@ -122,5 +122,3 @@ class ButtonGroup extends HBox {
 }
 
 graphingQuadratics.register( 'ButtonGroup', ButtonGroup );
-
-export default GQEquationAccordionBox;

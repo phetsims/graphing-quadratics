@@ -14,7 +14,7 @@ import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQCheckbox from './GQCheckbox.js';
 
-class AxisOfSymmetryCheckbox extends GQCheckbox {
+export default class AxisOfSymmetryCheckbox extends GQCheckbox {
 
   /**
    * @param {BooleanProperty} axisOfSymmetryVisibleProperty
@@ -42,4 +42,3 @@ class AxisOfSymmetryCheckbox extends GQCheckbox {
 }
 
 graphingQuadratics.register( 'AxisOfSymmetryCheckbox', AxisOfSymmetryCheckbox );
-export default AxisOfSymmetryCheckbox;

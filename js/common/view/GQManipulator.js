@@ -19,7 +19,7 @@ const DEFAULT_LAYOUT_COORDINATES = ( coordinates, coordinatesNode, radius ) => {
   coordinatesNode.bottom = -( radius + 1 );
 };
 
-class GQManipulator extends Manipulator {
+export default class GQManipulator extends Manipulator {
 
   /**
    * @param {Property.<Vector2|null>} coordinatesProperty
@@ -85,4 +85,3 @@ class GQManipulator extends Manipulator {
 }
 
 graphingQuadratics.register( 'GQManipulator', GQManipulator );
-export default GQManipulator;

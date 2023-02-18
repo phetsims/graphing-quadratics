@@ -10,7 +10,7 @@
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQSlider from './GQSlider.js';
 
-class QuadraticSlider extends GQSlider {
+export default class QuadraticSlider extends GQSlider {
 
   /**
    * @param {string} symbol - the coefficient's symbol
@@ -40,4 +40,3 @@ class QuadraticSlider extends GQSlider {
 }
 
 graphingQuadratics.register( 'QuadraticSlider', QuadraticSlider );
-export default QuadraticSlider;

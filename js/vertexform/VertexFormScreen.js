@@ -15,7 +15,7 @@ import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import VertexFormModel from './model/VertexFormModel.js';
 import VertexFormScreenView from './view/VertexFormScreenView.js';
 
-class VertexFormScreen extends Screen {
+export default class VertexFormScreen extends Screen {
 
   /**
    * @param {Tandem} tandem
@@ -45,4 +45,3 @@ class VertexFormScreen extends Screen {
 }
 
 graphingQuadratics.register( 'VertexFormScreen', VertexFormScreen );
-export default VertexFormScreen;

@@ -13,7 +13,7 @@ import ExploreGraphNode from './ExploreGraphNode.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
 import QuadraticTermsAccordionBox from './QuadraticTermsAccordionBox.js';
 
-class ExploreScreenView extends GQScreenView {
+export default class ExploreScreenView extends GQScreenView {
 
   /**
    * @param {ExploreModel} model
@@ -48,4 +48,3 @@ class ExploreScreenView extends GQScreenView {
 }
 
 graphingQuadratics.register( 'ExploreScreenView', ExploreScreenView );
-export default ExploreScreenView;

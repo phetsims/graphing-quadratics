@@ -12,7 +12,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQViewProperties from '../../common/view/GQViewProperties.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class FocusAndDirectrixViewProperties extends GQViewProperties {
+export default class FocusAndDirectrixViewProperties extends GQViewProperties {
 
   /**
    * @param {Object} [options]
@@ -66,4 +66,3 @@ class FocusAndDirectrixViewProperties extends GQViewProperties {
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixViewProperties', FocusAndDirectrixViewProperties );
-export default FocusAndDirectrixViewProperties;
