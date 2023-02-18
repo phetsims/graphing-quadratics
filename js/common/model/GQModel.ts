@@ -12,6 +12,7 @@ import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import TModel from '../../../../joist/js/TModel.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
@@ -25,7 +26,7 @@ import Quadratic from './Quadratic.js';
 const GRAPH_VIEW_ORIGIN = new Vector2( 345, 330 ); // position of the graph's origin, in view coordinates
 const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates
 
-export default class GQModel {
+export default class GQModel implements TModel {
 
   public readonly quadraticProperty: Property<Quadratic>; // the interactive quadratic
   public readonly graph: Graph;
