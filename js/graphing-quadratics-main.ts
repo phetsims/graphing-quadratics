@@ -1,6 +1,5 @@
 // Copyright 2014-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Main entry point for the 'Graphing Quadratics' sim.
  *
@@ -8,7 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Sim from '../../joist/js/Sim.js';
+import Sim, { SimOptions } from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import ExploreScreen from './explore/ExploreScreen.js';
@@ -26,7 +25,7 @@ simLauncher.launch( () => {
     new FocusAndDirectrixScreen( Tandem.ROOT.createTandem( 'focusAndDirectrixScreen' ) )
   ];
 
-  const options = {
+  const options: SimOptions = {
     credits: {
       leadDesign: 'Amanda McGarry',
       softwareDevelopment: 'Chris Malley (PixelZoom, Inc.), Andrea Lin',
