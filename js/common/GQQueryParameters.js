@@ -20,9 +20,7 @@ const GQQueryParameters = QueryStringMachine.getAll( {
   snapOnDistance: {
     type: 'number',
     defaultValue: 0.5,
-    isValidValue: function( value ) {
-      return value > 0;
-    }
+    isValidValue: value => ( value > 0 )
   },
 
   // Point tools will snap OFF of a curve when > this distance from the curve, in model coordinates.
@@ -31,9 +29,7 @@ const GQQueryParameters = QueryStringMachine.getAll( {
   snapOffDistance: {
     type: 'number',
     defaultValue: 2,
-    isValidValue: function( value ) {
-      return value > 0;
-    }
+    isValidValue: value => ( value > 0 )
   },
 
   // Distance that a point tool must be from a curve in order to register as being ON the curve, in model coordinates.
@@ -42,9 +38,7 @@ const GQQueryParameters = QueryStringMachine.getAll( {
   pointToolThreshold: {
     type: 'number',
     defaultValue: 0.1,
-    isValidValue: function( value ) {
-      return value > 0;
-    }
+    isValidValue: value => ( value > 0 )
   },
 
   // Puts a red dot at the origin of Nodes that required transform debugging during implementation.
