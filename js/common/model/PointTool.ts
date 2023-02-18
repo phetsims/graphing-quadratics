@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Model of the point tool. Knows when it is placed on one of the quadratics.
  *
@@ -8,55 +7,68 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
-import merge from '../../../../phet-core/js/merge.js';
-import PhetioObject from '../../../../tandem/js/PhetioObject.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import Quadratic from './Quadratic.js';
 
+// which side of the point tool's body the probe is on
+type ProbeSide = 'left' | 'right';
+
+type SelfOptions = {
+  position?: Vector2; // initial position
+  probeSide?: ProbeSide; // which side the probe is on
+  dragBounds?: Bounds2 | null; // drag bounds, in model coordinate frame
+};
+
+type PointToolOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+
 export default class PointTool extends PhetioObject {
 
+  public readonly probeSide: ProbeSide;
+  public readonly dragBounds: Bounds2 | null;
+  private readonly quadraticsProperty: Property<Quadratic[]>;
+  public readonly positionProperty: Property<Vector2>;
+  public readonly quadraticProperty: TReadOnlyProperty<Quadratic | null>;
+
   /**
-   * @param {Property.<Quadratic[]>} quadraticsProperty - Quadratics that the tool might intersect
-   * @param {Graph} graph
-   * @param {Object} [options]
+   * @param quadraticsProperty - Quadratics that the tool might intersect
+   * @param graph
+   * @param providedOptions
    */
-  constructor( quadraticsProperty, graph, options ) {
+  public constructor( quadraticsProperty: Property<Quadratic[]>, graph: Graph, providedOptions: PointToolOptions ) {
 
-    options = merge( {
-      position: Vector2.ZERO, // {Vector2} initial position
-      probeSide: 'left', // {string} which side the probe is on, see GQConstants.PROBE_SIDES
-      dragBounds: null, // {Bounds2|null} drag bounds, in model coordinate frame
+    const options = optionize<PointToolOptions, SelfOptions, PhetioObjectOptions>()( {
 
-      // phet-io
-      tandem: Tandem.REQUIRED,
+      // SelfOptions
+      position: Vector2.ZERO,
+      probeSide: 'left',
+      dragBounds: null,
+
+      // PhetioObjectOptions
       phetioState: false // this is a PhetioObject only to add phetioDocumentation
-    }, options );
-
-    assert && assert( _.includes( GQConstants.PROBE_SIDES, options.probeSide ),
-      `invalid probeSide: ${options.probeSide}` );
+    }, providedOptions );
 
     super( options );
 
-    // @public (read-only)
     this.probeSide = options.probeSide;
     this.dragBounds = options.dragBounds;
-
-    // @private
     this.quadraticsProperty = quadraticsProperty;
 
-    // @public {Vector2}
     this.positionProperty = new Vector2Property( options.position, {
       tandem: options.tandem.createTandem( 'positionProperty' ),
       phetioDocumentation: 'position of this point tool’s crosshairs'
     } );
 
-    // @public {DerivedProperty.<Quadratic|null>}
     this.quadraticProperty = new DerivedProperty(
       [ this.positionProperty, quadraticsProperty ],
       ( position, quadratics ) => {
@@ -79,18 +91,17 @@ export default class PointTool extends PhetioObject {
    * Gets the quadratic that is close to a specified position, within a specified distance.
    * This algorithm prefers to return the quadratic that the point tool is already on.
    * If that quadratic is too far away, then examine all quadratics, in foreground-to-background order.
-   * See #47.
-   * @param {Vector2} position - the point tool's position
-   * @param {number} offDistance - if <= to this distance, snaps ON to a curve
-   * @param {number} onDistance - if > this distance, snaps OFF of a curve
-   * @returns {Quadratic|null} null if no quadratic is close enough
-   * @public
+   * See https://github.com/phetsims/graphing-quadratics/issues/47.
+   * @param position - the point tool's position
+   * @param offDistance - if <= to this distance, snaps ON to a curve
+   * @param onDistance - if > this distance, snaps OFF of a curve
+   * @returns null if no quadratic is close enough
    */
-  getQuadraticNear( position, offDistance, onDistance ) {
+  public getQuadraticNear( position: Vector2, offDistance: number, onDistance: number ): Quadratic | null {
     let onQuadratic = this.quadraticProperty && this.quadraticProperty.value;
     const quadratics = this.quadraticsProperty.value;
     if ( !onQuadratic ||
-         quadratics.indexOf( onQuadratic ) === -1 ||
+         quadratics.includes( onQuadratic ) ||
          !onQuadratic.hasSolution( position, offDistance ) ) {
       onQuadratic = null;
       for ( let i = 0; i < quadratics.length && !onQuadratic; i++ ) {
@@ -103,8 +114,7 @@ export default class PointTool extends PhetioObject {
     return onQuadratic;
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.positionProperty.reset();
   }
 }
