@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Model of the point tool. Knows when it is placed on one of the quadratics.
  *
