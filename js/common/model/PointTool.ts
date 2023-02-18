@@ -14,6 +14,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
@@ -30,13 +31,15 @@ type SelfOptions = {
   dragBounds?: Bounds2 | null; // drag bounds, in model coordinate frame
 };
 
-type PointToolOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+type PointToolOptions = SelfOptions &
+  PickOptional<PhetioObjectOptions, 'phetioDocumentation'> &
+  PickRequired<PhetioObjectOptions, 'tandem'>;
 
 export default class PointTool extends PhetioObject {
 
   public readonly probeSide: ProbeSide;
   public readonly dragBounds: Bounds2 | null;
-  private readonly quadraticsProperty: Property<Quadratic[]>;
+  private readonly quadraticsProperty: TReadOnlyProperty<Quadratic[]>;
   public readonly positionProperty: Property<Vector2>;
   public readonly quadraticProperty: TReadOnlyProperty<Quadratic | null>;
 
@@ -45,7 +48,7 @@ export default class PointTool extends PhetioObject {
    * @param graph
    * @param providedOptions
    */
-  public constructor( quadraticsProperty: Property<Quadratic[]>, graph: Graph, providedOptions: PointToolOptions ) {
+  public constructor( quadraticsProperty: TReadOnlyProperty<Quadratic[]>, graph: Graph, providedOptions: PointToolOptions ) {
 
     const options = optionize<PointToolOptions, SelfOptions, PhetioObjectOptions>()( {
 
