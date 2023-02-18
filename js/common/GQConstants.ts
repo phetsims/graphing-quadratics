@@ -9,12 +9,53 @@
 
 import Bounds2 from '../../../dot/js/Bounds2.js';
 import Range from '../../../dot/js/Range.js';
+import { NumberDisplayOptions } from '../../../scenery-phet/js/NumberDisplay.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
+import { AccordionBoxOptions } from '../../../sun/js/AccordionBox.js';
+import { NumberPickerOptions } from '../../../sun/js/NumberPicker.js';
+import { PanelOptions } from '../../../sun/js/Panel.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 import GQColors from './GQColors.js';
 
-// constants
 const PANEL_CORNER_RADIUS = 5; // corner radius for all panel-like containers
+
+const ACCORDION_BOX_OPTIONS: AccordionBoxOptions = {
+  resize: false,
+  fill: GQColors.CONTROL_PANEL_BACKGROUND,
+  cornerRadius: PANEL_CORNER_RADIUS,
+  titleYMargin: 10,
+  buttonXMargin: 10,
+  buttonYMargin: 10,
+  contentXMargin: 20,
+  contentYMargin: 15,
+  expandCollapseButtonOptions: {
+    sideLength: 25
+  }
+};
+
+const PANEL_OPTIONS: PanelOptions = {
+  fill: GQColors.CONTROL_PANEL_BACKGROUND,
+  cornerRadius: PANEL_CORNER_RADIUS,
+  xMargin: 20,
+  yMargin: 15
+};
+
+const NUMBER_DISPLAY_OPTIONS: NumberDisplayOptions = {
+  textOptions: {
+    font: new PhetFont( { size: 26, weight: 'bold' } )
+  },
+  backgroundFill: null,
+  backgroundStroke: null,
+  backgroundLineWidth: 0,
+  xMargin: 0,
+  yMargin: 0
+};
+
+const NUMBER_PICKER_OPTIONS: NumberPickerOptions = {
+  font: new PhetFont( 26 ),
+  xMargin: 5,
+  touchAreaXDilation: 30
+};
 
 const GQConstants = {
 
@@ -30,47 +71,11 @@ const GQConstants = {
   X_AXIS_RANGE: new Range( -10, 10 ),
   Y_AXIS_RANGE: new Range( -10, 10 ),
 
-  // options for all AccordionBox instances
-  ACCORDION_BOX_OPTIONS: {
-    resize: false,
-    fill: GQColors.CONTROL_PANEL_BACKGROUND,
-    cornerRadius: PANEL_CORNER_RADIUS,
-    titleYMargin: 10,
-    buttonXMargin: 10,
-    buttonYMargin: 10,
-    contentXMargin: 20,
-    contentYMargin: 15,
-    expandCollapseButtonOptions: {
-      sideLength: 25
-    }
-  },
-
-  // options for all Panel instances
-  PANEL_OPTIONS: {
-    fill: GQColors.CONTROL_PANEL_BACKGROUND,
-    cornerRadius: PANEL_CORNER_RADIUS,
-    xMargin: 20,
-    yMargin: 15
-  },
-
-  // options for all NumberPicker instances
-  NUMBER_PICKER_OPTIONS: {
-    font: new PhetFont( 26 ),
-    xMargin: 5,
-    touchAreaXDilation: 30
-  },
-
-  // options for all NumberDisplay instances
-  NUMBER_DISPLAY_OPTIONS: {
-    textOptions: {
-      font: new PhetFont( { size: 26, weight: 'bold' } )
-    },
-    backgroundFill: null,
-    backgroundStroke: null,
-    backgroundLineWidth: 0,
-    xMargin: 0,
-    yMargin: 0
-  },
+  // options for various UI components
+  ACCORDION_BOX_OPTIONS: ACCORDION_BOX_OPTIONS,
+  PANEL_OPTIONS: PANEL_OPTIONS,
+  NUMBER_DISPLAY_OPTIONS: NUMBER_DISPLAY_OPTIONS,
+  NUMBER_PICKER_OPTIONS: NUMBER_PICKER_OPTIONS,
 
   // vertical space between checkboxes
   CHECKBOXES_Y_SPACING: 15,
