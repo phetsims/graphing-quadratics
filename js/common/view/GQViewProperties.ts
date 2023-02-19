@@ -20,9 +20,8 @@ type SelfOptions = {
   // form of equations used to label curves on the graph
   equationForm?: EquationForm;
 
-  // Initial values for optional boolean Properties.
-  // A null value means to omit the corresponding BooleanProperty.
-  // These options were added to address the duplication of 3 contentious BooleanProperties.
+  // Initial values for optional boolean Properties. A null value means to omit the corresponding Property.
+  // These options were added because code reviewers did not like these Properties duplicated in subclasses.
   // See https://github.com/phetsims/graphing-quadratics/issues/55
   vertexVisible?: boolean | null;
   axisOfSymmetryVisible?: boolean | null;
