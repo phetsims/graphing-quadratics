@@ -1,5 +1,6 @@
 // Copyright 2018-2020, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * View-specific Properties and properties for the 'Focus & Directrix' screen.
  *
