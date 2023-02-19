@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Base class for ScreenViews in this sim.
  * Responsible for creating Nodes that are common to all screens, and for common layout.

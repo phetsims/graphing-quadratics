@@ -1,5 +1,6 @@
 // Copyright 2014-2020, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * View for the 'Vertex Form' screen.
  *
