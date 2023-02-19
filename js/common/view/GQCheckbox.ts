@@ -70,12 +70,55 @@ export default class GQCheckbox extends Checkbox {
   }
 
   /**
-   * Creates the 'Axis of Symmetry' checkbox.
+   * Creates the checkbox for the quadratic term, y = ax^2
+   */
+  public static createQuadraticTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
+
+    // y = ax^2
+    const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.a}${GQSymbols.xSquared}`;
+
+    return new GQCheckbox( property, text, {
+      textFill: GQColors.QUADRATIC_TERM,
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
+    } );
+  }
+
+  /**
+   * Creates the checkbox for the linear term, y = bx
+   */
+  public static createLinearTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
+
+    // y = bx
+    const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.b}${GQSymbols.x}`;
+
+    return new GQCheckbox( property, text, {
+      textFill: GQColors.LINEAR_TERM,
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
+    } );
+  }
+
+  /**
+   * Creates the checkbox for the constant term, y = c
+   */
+  public static createConstantTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
+
+    // y = c
+    const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.c}`;
+
+    return new GQCheckbox( property, text, {
+      textFill: GQColors.CONSTANT_TERM,
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
+    } );
+  }
+
+  /**
+   * Creates the 'Axis of Symmetry' checkbox, with a vertical dashed line for the icon.
    */
   public static createAxisOfSymmetryCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, GraphingQuadraticsStrings.axisOfSymmetry, {
-
-      // icon is a vertical dashed line
       icon: new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[ 0 ], {
         stroke: GQColors.AXIS_OF_SYMMETRY,
         lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
@@ -97,100 +140,10 @@ export default class GQCheckbox extends Checkbox {
   }
 
   /**
-   * Creates the 'Equations' checkbox.
-   */
-  public static createEquationsCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
-    return new GQCheckbox( property, GraphingQuadraticsStrings.equations, {
-      tandem: tandem,
-      phetioDocumentation: 'checkbox that shows equations on graphed curves'
-    } );
-  }
-
-  /**
-   * Creates the checkbox for the constant term, y = c
-   */
-  public static createConstantTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
-
-    // y = c
-    const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.c}`;
-
-    return new GQCheckbox( property, text, {
-      textFill: GQColors.CONSTANT_TERM,
-      tandem: tandem,
-      phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
-    } );
-  }
-
-  /**
-   * Creates the checkbox for the linear term, y = bx
-   */
-  public static createLinearTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
-
-    // y = bx
-    const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.b}${GQSymbols.x}`;
-
-    return new GQCheckbox( property, text, {
-      textFill: GQColors.LINEAR_TERM,
-      tandem: tandem,
-      phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
-    } );
-  }
-
-  /**
-   * Creates the checkbox for the linear term, y = ax^2
-   */
-  public static createQuadraticTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
-
-    // y = ax^2
-    const text = `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.a}${GQSymbols.xSquared}`;
-
-    return new GQCheckbox( property, text, {
-      textFill: GQColors.QUADRATIC_TERM,
-      tandem: tandem,
-      phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
-    } );
-  }
-
-  /**
-   * Creates the 'Vertex' checkbox, with a flat circle for the vertex point.
-   */
-  public static createVertexPointCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
-    return new GQCheckbox( property, GraphingQuadraticsStrings.vertex, {
-      icon: new Circle( 6, { fill: GQColors.VERTEX } ),
-      tandem: tandem,
-      phetioDocumentation: 'checkbox that shows the vertex on the graph'
-    } );
-  }
-
-  /**
-   * Creates the 'Vertex' checkbox, with a vertex manipulator for the icon.
-   */
-  public static createVertexManipulatorCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
-    return new GQCheckbox( property, GraphingQuadraticsStrings.vertex, {
-      icon: Manipulator.createIcon( 8, GQColors.VERTEX ),
-      tandem: tandem,
-      phetioDocumentation: 'checkbox that shows the vertex manipulator on the graph'
-    } );
-  }
-
-  /**
-   * Creates the 'Focus' checkbox.
-   */
-  public static createFocusCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
-    return new GQCheckbox( property, GraphingQuadraticsStrings.focus, {
-      icon: Manipulator.createIcon( 8, GQColors.FOCUS ),
-      tandem: tandem,
-      phetioDocumentation: 'checkbox that shows the focus on the graph'
-    } );
-  }
-
-  /**
-   * Creates the 'Directrix' checkbox.
+   * Creates the 'Directrix' checkbox, with a horizontal dashed line for the icon.
    */
   public static createDirectrixCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, GraphingQuadraticsStrings.directrix, {
-
-      // icon is a horizontal dashed line
       icon: new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
         stroke: GQColors.DIRECTRIX,
         lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
@@ -202,7 +155,28 @@ export default class GQCheckbox extends Checkbox {
   }
 
   /**
-   * Creates the 'Point on Parabola' checkbox.
+   * Creates the 'Equations' checkbox.
+   */
+  public static createEquationsCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
+    return new GQCheckbox( property, GraphingQuadraticsStrings.equations, {
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that shows equations on graphed curves'
+    } );
+  }
+
+  /**
+   * Creates the 'Focus' checkbox, with a manipulator icon.
+   */
+  public static createFocusCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
+    return new GQCheckbox( property, GraphingQuadraticsStrings.focus, {
+      icon: Manipulator.createIcon( 8, GQColors.FOCUS ),
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that shows the focus on the graph'
+    } );
+  }
+
+  /**
+   * Creates the 'Point on Parabola' checkbox, with a manipulator icon.
    */
   public static createPointOnParabolaCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, GraphingQuadraticsStrings.pointOnParabola, {
@@ -213,7 +187,7 @@ export default class GQCheckbox extends Checkbox {
   }
 
   /**
-   * Creates the 'Roots' checkbox.
+   * Creates the 'Roots' checkbox, with a pair of flat points for the icon.
    */
   public static createRootsCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
 
@@ -222,7 +196,6 @@ export default class GQCheckbox extends Checkbox {
       fill: GQColors.ROOTS
     };
 
-    // icon is a pair of circles
     const icon = new HBox( {
       align: 'center',
       spacing: 5,
@@ -236,6 +209,28 @@ export default class GQCheckbox extends Checkbox {
       icon: icon,
       tandem: tandem,
       phetioDocumentation: 'checkbox that shows roots on the graph'
+    } );
+  }
+
+  /**
+   * Creates the 'Vertex' checkbox, with a flat point for the icon.
+   */
+  public static createVertexPointCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
+    return new GQCheckbox( property, GraphingQuadraticsStrings.vertex, {
+      icon: new Circle( 6, { fill: GQColors.VERTEX } ),
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that shows the vertex on the graph'
+    } );
+  }
+
+  /**
+   * Creates the 'Vertex' checkbox, with a manipulator icon.
+   */
+  public static createVertexManipulatorCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
+    return new GQCheckbox( property, GraphingQuadraticsStrings.vertex, {
+      icon: Manipulator.createIcon( 8, GQColors.VERTEX ),
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that shows the vertex manipulator on the graph'
     } );
   }
 }
