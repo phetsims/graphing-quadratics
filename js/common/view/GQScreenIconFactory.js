@@ -44,7 +44,7 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Explore screen.
-   * @returns {Node}
+   * @returns {ScreenIcon}
    * @public
    */
   createExploreScreenIcon() {
@@ -69,7 +69,7 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Standard Form screen.
-   * @returns {Node}
+   * @returns {ScreenIcon}
    * @public
    */
   createStandardFormScreenIcon() {
@@ -124,7 +124,7 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Vertex Form screen.
-   * @returns {Node}
+   * @returns {ScreenIcon}
    * @public
    */
   createVertexFormScreenIcon() {
@@ -155,7 +155,7 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Focus & Directrix screen.
-   * @returns {Node}
+   * @returns {ScreenIcon}
    * @public
    */
   createFocusAndDirectrixScreenIcon() {

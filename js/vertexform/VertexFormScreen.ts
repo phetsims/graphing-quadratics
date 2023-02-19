@@ -1,6 +1,5 @@
 // Copyright 2014-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * The 'Vertex Form' screen.
  *
@@ -9,6 +8,7 @@
 
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
+import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
 import graphingQuadratics from '../graphingQuadratics.js';
@@ -16,16 +16,13 @@ import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import VertexFormModel from './model/VertexFormModel.js';
 import VertexFormScreenView from './view/VertexFormScreenView.js';
 
-export default class VertexFormScreen extends Screen {
+export default class VertexFormScreen extends Screen<VertexFormModel, VertexFormScreenView> {
 
-  /**
-   * @param {Tandem} tandem
-   */
-  constructor( tandem ) {
+  public constructor( tandem: Tandem ) {
 
     const options = {
 
-      // Screen options
+      // ScreenOptions
       name: GraphingQuadraticsStrings.screen.vertexFormStringProperty,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
