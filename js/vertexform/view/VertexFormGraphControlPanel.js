@@ -39,9 +39,8 @@ export default class VertexFormGraphControlPanel extends Panel {
     const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
       tandem: options.tandem.createTandem( 'vertexCheckbox' )
     } );
-    const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty, {
-      tandem: options.tandem.createTandem( 'axisOfSymmetryCheckbox' )
-    } );
+    const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty,
+      options.tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
     const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
       tandem: options.tandem.createTandem( 'equationsCheckbox' )
     } );

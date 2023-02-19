@@ -41,9 +41,8 @@ class StandardFormGraphControlPanel extends Panel {
       manipulatorIcon: false, // icon is a flat point
       tandem: options.tandem.createTandem( 'vertexCheckbox' )
     } );
-    const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty, {
-      tandem: options.tandem.createTandem( 'axisOfSymmetryCheckbox' )
-    } );
+    const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty,
+      options.tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
     const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty, {
       tandem: options.tandem.createTandem( 'rootsCheckbox' )
     } );

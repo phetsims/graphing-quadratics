@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * 'Vertex' checkbox.  The vertex icon can be displayed as either a manipulator or a flat circle.
  *
