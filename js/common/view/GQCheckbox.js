@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * A checkbox that is labeled with text, with an optional icon to the right of the text.
  * This also provides consistent font and textNode.maxWidth for all checkboxes in the sim.
