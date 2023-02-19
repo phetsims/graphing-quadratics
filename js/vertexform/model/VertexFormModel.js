@@ -1,5 +1,6 @@
 // Copyright 2014-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Model for the 'Vertex Form' screen.
  * Vertex form of the quadratic equation is: y = a(x - h)^2 + k

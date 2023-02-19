@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Model for the 'Focus & Directrix' screen.
  * Alternate vertex form of the quadratic equation is: y = (1/(4p)(x - h)^2 - k

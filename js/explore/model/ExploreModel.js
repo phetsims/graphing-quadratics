@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Model for the 'Explore' screen.  Extends the 'Standard Form' model by adding curves for
  * the individual terms of the interactive quadratic.
