@@ -1,14 +1,14 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * 'Directrix' checkbox.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import Property from '../../../../axon/js/Property.js';
 import { Line } from '../../../../scenery/js/imports.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
@@ -17,28 +17,20 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class DirectrixCheckbox extends GQCheckbox {
 
-  /**
-   * @param {BooleanProperty} directrixVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( directrixVisibleProperty, options ) {
-
-    options = merge( {
-
-      // phet-io
-      phetioDocumentation: 'checkbox that shows the directrix on the graph'
-
-    }, options );
+  public constructor( directrixVisibleProperty: Property<boolean>, tandem: Tandem ) {
 
     // icon is a horizontal dashed line
-    assert && assert( !options.icon, 'DirectrixCheckbox sets icon' );
-    options.icon = new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
+    const icon = new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
       stroke: GQColors.DIRECTRIX,
       lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
       lineDash: GQConstants.DIRECTRIX_LINE_DASH
     } );
 
-    super( directrixVisibleProperty, GraphingQuadraticsStrings.directrix, options );
+    super( directrixVisibleProperty, GraphingQuadraticsStrings.directrix, {
+      icon: icon,
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that shows the directrix on the graph'
+    } );
   }
 }
 

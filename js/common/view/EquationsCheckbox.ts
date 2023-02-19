@@ -1,33 +1,25 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * 'Equations' checkbox.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import Property from '../../../../axon/js/Property.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQCheckbox from './GQCheckbox.js';
 
 export default class EquationsCheckbox extends GQCheckbox {
 
-  /**
-   * @param {BooleanProperty} equationsVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( equationsVisibleProperty, options ) {
+  public constructor( equationsVisibleProperty: Property<boolean>, tandem: Tandem ) {
 
-    options = merge( {
-
-      // phet-io
+    super( equationsVisibleProperty, GraphingQuadraticsStrings.equations, {
+      tandem: tandem,
       phetioDocumentation: 'checkbox that shows equations on graphed curves'
-
-    }, options );
-
-    super( equationsVisibleProperty, GraphingQuadraticsStrings.equations, options );
+    } );
   }
 }
 

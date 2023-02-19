@@ -1,15 +1,15 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * 'Vertex' checkbox.  The vertex icon can be displayed as either a manipulator or a flat circle.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
-import merge from '../../../../phet-core/js/merge.js';
 import { Circle } from '../../../../scenery/js/imports.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQColors from '../GQColors.js';
@@ -18,35 +18,27 @@ import GQCheckbox from './GQCheckbox.js';
 export default class VertexCheckbox extends GQCheckbox {
 
   /**
-   * @param {BooleanProperty} vertexVisibleProperty
-   * @param {Object} [options]
+   * @param vertexVisibleProperty
+   * @param tandem
+   * @param manipulatorIcon - true: icon is a shaded manipulator, false: icon is a flat point
    */
-  constructor( vertexVisibleProperty, options ) {
-
-    options = merge( {
-      manipulatorIcon: true // true: icon is a shaded manipulator, false: icon is a flat point
-    }, options );
+  public constructor( vertexVisibleProperty: Property<boolean>, tandem: Tandem, manipulatorIcon = true ) {
 
     // icon is either a manipulator (3D sphere) or a flat circle
-    assert && assert( !options.icon, 'VertexCheckbox sets icon' );
-    if ( options.manipulatorIcon ) {
-      options.icon = Manipulator.createIcon( 8, GQColors.VERTEX );
-    }
-    else {
-      options.icon = new Circle( 6, { fill: GQColors.VERTEX } );
-    }
+    const icon = manipulatorIcon ?
+                 Manipulator.createIcon( 8, GQColors.VERTEX ) :
+                 new Circle( 6, { fill: GQColors.VERTEX } );
 
     // phetioDocumentation that is appropriate for icon type
-    if ( options.phetioDocumentation === undefined ) {
-      if ( options.manipulatorIcon ) {
-        options.phetioDocumentation = 'checkbox that shows the vertex manipulator on the graph';
-      }
-      else {
-        options.phetioDocumentation = 'checkbox that shows the vertex on the graph';
-      }
-    }
+    const phetioDocumentation = manipulatorIcon ?
+                                'checkbox that shows the vertex manipulator on the graph' :
+                                'checkbox that shows the vertex on the graph';
 
-    super( vertexVisibleProperty, GraphingQuadraticsStrings.vertex, options );
+    super( vertexVisibleProperty, GraphingQuadraticsStrings.vertex, {
+      icon: icon,
+      tandem: tandem,
+      phetioDocumentation: phetioDocumentation
+    } );
   }
 }
 

@@ -1,14 +1,14 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * 'Roots' checkbox.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import Property from '../../../../axon/js/Property.js';
 import { Circle, HBox } from '../../../../scenery/js/imports.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -17,24 +17,12 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 // constants
 const POINT_RADIUS = 6;
 
-class RootsCheckbox extends GQCheckbox {
+export default class RootsCheckbox extends GQCheckbox {
 
-  /**
-   * @param {BooleanProperty} rootsVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( rootsVisibleProperty, options ) {
-
-    options = merge( {
-
-      // phet-io
-      phetioDocumentation: 'checkbox that shows roots on the graph'
-
-    }, options );
+  public constructor( rootsVisibleProperty: Property<boolean>, tandem: Tandem ) {
 
     // icon is a pair of circles
-    assert && assert( !options.icon, 'RootsCheckbox sets icon' );
-    options.icon = new HBox( {
+    const icon = new HBox( {
       align: 'center',
       spacing: 5,
       children: [
@@ -43,9 +31,12 @@ class RootsCheckbox extends GQCheckbox {
       ]
     } );
 
-    super( rootsVisibleProperty, GraphingQuadraticsStrings.roots, options );
+    super( rootsVisibleProperty, GraphingQuadraticsStrings.roots, {
+      icon: icon,
+      tandem: tandem,
+      phetioDocumentation: 'checkbox that shows roots on the graph'
+    } );
   }
 }
 
 graphingQuadratics.register( 'RootsCheckbox', RootsCheckbox );
-export default RootsCheckbox;

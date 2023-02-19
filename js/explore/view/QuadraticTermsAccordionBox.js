@@ -51,24 +51,20 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
     } );
 
     // y = ax^2
-    const quadraticTermCheckbox = new QuadraticTermCheckbox( viewProperties.quadraticTermVisibleProperty, {
-      tandem: options.tandem.createTandem( 'quadraticTermCheckbox' )
-    } );
+    const quadraticTermCheckbox = new QuadraticTermCheckbox( viewProperties.quadraticTermVisibleProperty,
+      options.tandem.createTandem( 'quadraticTermCheckbox' ) );
 
     // y = bx
-    const linearTermCheckbox = new LinearTermCheckbox( viewProperties.linearTermVisibleProperty, {
-      tandem: options.tandem.createTandem( 'linearTermCheckbox' )
-    } );
+    const linearTermCheckbox = new LinearTermCheckbox( viewProperties.linearTermVisibleProperty,
+      options.tandem.createTandem( 'linearTermCheckbox' ) );
 
     // y = c
-    const constantTermCheckbox = new ConstantTermCheckbox( viewProperties.constantTermVisibleProperty, {
-      tandem: options.tandem.createTandem( 'constantTermCheckbox' )
-    } );
+    const constantTermCheckbox = new ConstantTermCheckbox( viewProperties.constantTermVisibleProperty,
+      options.tandem.createTandem( 'constantTermCheckbox' ) );
 
     // Equations
-    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
-      tandem: options.tandem.createTandem( 'equationsCheckbox' )
-    } );
+    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty,
+      options.tandem.createTandem( 'equationsCheckbox' ) );
 
     const maxCheckboxWidth = _.maxBy(
       [ quadraticTermCheckbox, linearTermCheckbox, constantTermCheckbox, equationsCheckbox ],

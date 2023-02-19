@@ -37,24 +37,18 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
     }, GQConstants.PANEL_OPTIONS, options );
 
     // checkboxes
-    const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
-      tandem: options.tandem.createTandem( 'vertexCheckbox' )
-    } );
-    const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty, {
-      tandem: options.tandem.createTandem( 'focusCheckbox' )
-    } );
-    const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty, {
-      tandem: options.tandem.createTandem( 'directrixCheckbox' )
-    } );
-    const pointOnParabolaCheckbox = new PointOnParabolaCheckbox( viewProperties.pointOnParabolaVisibleProperty, {
-      tandem: options.tandem.createTandem( 'pointOnParabolaCheckbox' )
-    } );
-    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
-      tandem: options.tandem.createTandem( 'equationsCheckbox' )
-    } );
-    const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
-      tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
-    } );
+    const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty,
+      options.tandem.createTandem( 'vertexCheckbox' ) );
+    const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty,
+      options.tandem.createTandem( 'focusCheckbox' ) );
+    const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty,
+      options.tandem.createTandem( 'directrixCheckbox' ) );
+    const pointOnParabolaCheckbox = new PointOnParabolaCheckbox( viewProperties.pointOnParabolaVisibleProperty,
+      options.tandem.createTandem( 'pointOnParabolaCheckbox' ) );
+    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty,
+      options.tandem.createTandem( 'equationsCheckbox' ) );
+    const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
+      options.tandem.createTandem( 'coordinatesCheckbox' ) );
 
     // vertical layout
     const contentNode = new VBox( {

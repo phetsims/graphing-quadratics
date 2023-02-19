@@ -37,21 +37,16 @@ class StandardFormGraphControlPanel extends Panel {
     }, GQConstants.PANEL_OPTIONS, options );
 
     // checkboxes
-    const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty, {
-      manipulatorIcon: false, // icon is a flat point
-      tandem: options.tandem.createTandem( 'vertexCheckbox' )
-    } );
+    const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty,
+      options.tandem.createTandem( 'vertexCheckbox' ), false );
     const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty,
       options.tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
-    const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty, {
-      tandem: options.tandem.createTandem( 'rootsCheckbox' )
-    } );
-    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty, {
-      tandem: options.tandem.createTandem( 'equationsCheckbox' )
-    } );
-    const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty, {
-      tandem: options.tandem.createTandem( 'coordinatesCheckbox' )
-    } );
+    const rootsCheckbox = new RootsCheckbox( viewProperties.rootsVisibleProperty,
+      options.tandem.createTandem( 'rootsCheckbox' ) );
+    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty,
+      options.tandem.createTandem( 'equationsCheckbox' ) );
+    const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
+      options.tandem.createTandem( 'coordinatesCheckbox' ) );
 
     // vertical layout
     const contentNode = new VBox( {
