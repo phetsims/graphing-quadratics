@@ -13,12 +13,9 @@ import AccordionBox from '../../../../sun/js/AccordionBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
-import EquationsCheckbox from '../../common/view/EquationsCheckbox.js';
+import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import ConstantTermCheckbox from './ConstantTermCheckbox.js';
-import LinearTermCheckbox from './LinearTermCheckbox.js';
-import QuadraticTermCheckbox from './QuadraticTermCheckbox.js';
 
 export default class QuadraticTermsAccordionBox extends AccordionBox {
 
@@ -51,19 +48,19 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
     } );
 
     // y = ax^2
-    const quadraticTermCheckbox = new QuadraticTermCheckbox( viewProperties.quadraticTermVisibleProperty,
+    const quadraticTermCheckbox = GQCheckbox.createQuadraticTermCheckbox( viewProperties.quadraticTermVisibleProperty,
       options.tandem.createTandem( 'quadraticTermCheckbox' ) );
 
     // y = bx
-    const linearTermCheckbox = new LinearTermCheckbox( viewProperties.linearTermVisibleProperty,
+    const linearTermCheckbox = GQCheckbox.createLinearTermCheckbox( viewProperties.linearTermVisibleProperty,
       options.tandem.createTandem( 'linearTermCheckbox' ) );
 
     // y = c
-    const constantTermCheckbox = new ConstantTermCheckbox( viewProperties.constantTermVisibleProperty,
+    const constantTermCheckbox = GQCheckbox.createConstantTermCheckbox( viewProperties.constantTermVisibleProperty,
       options.tandem.createTandem( 'constantTermCheckbox' ) );
 
     // Equations
-    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty,
+    const equationsCheckbox = GQCheckbox.createEquationsCheckbox( viewProperties.equationsVisibleProperty,
       options.tandem.createTandem( 'equationsCheckbox' ) );
 
     const maxCheckboxWidth = _.maxBy(

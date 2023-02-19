@@ -12,13 +12,8 @@ import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
-import CoordinatesCheckbox from '../../common/view/CoordinatesCheckbox.js';
-import EquationsCheckbox from '../../common/view/EquationsCheckbox.js';
-import VertexCheckbox from '../../common/view/VertexCheckbox.js';
+import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import DirectrixCheckbox from './DirectrixCheckbox.js';
-import FocusCheckbox from './FocusCheckbox.js';
-import PointOnParabolaCheckbox from './PointOnParabolaCheckbox.js';
 
 export default class FocusAndDirectrixGraphControlPanel extends Panel {
 
@@ -37,17 +32,17 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
     }, GQConstants.PANEL_OPTIONS, options );
 
     // checkboxes
-    const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty,
+    const vertexCheckbox = GQCheckbox.createVertexManipulatorCheckbox( viewProperties.vertexVisibleProperty,
       options.tandem.createTandem( 'vertexCheckbox' ) );
-    const focusCheckbox = new FocusCheckbox( viewProperties.focusVisibleProperty,
+    const focusCheckbox = GQCheckbox.createFocusCheckbox( viewProperties.focusVisibleProperty,
       options.tandem.createTandem( 'focusCheckbox' ) );
-    const directrixCheckbox = new DirectrixCheckbox( viewProperties.directrixVisibleProperty,
+    const directrixCheckbox = GQCheckbox.createDirectrixCheckbox( viewProperties.directrixVisibleProperty,
       options.tandem.createTandem( 'directrixCheckbox' ) );
-    const pointOnParabolaCheckbox = new PointOnParabolaCheckbox( viewProperties.pointOnParabolaVisibleProperty,
+    const pointOnParabolaCheckbox = GQCheckbox.createPointOnParabolaCheckbox( viewProperties.pointOnParabolaVisibleProperty,
       options.tandem.createTandem( 'pointOnParabolaCheckbox' ) );
-    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty,
+    const equationsCheckbox = GQCheckbox.createEquationsCheckbox( viewProperties.equationsVisibleProperty,
       options.tandem.createTandem( 'equationsCheckbox' ) );
-    const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
+    const coordinatesCheckbox = GQCheckbox.createCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
       options.tandem.createTandem( 'coordinatesCheckbox' ) );
 
     // vertical layout

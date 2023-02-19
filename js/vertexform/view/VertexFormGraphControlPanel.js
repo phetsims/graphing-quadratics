@@ -13,10 +13,7 @@ import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
-import AxisOfSymmetryCheckbox from '../../common/view/AxisOfSymmetryCheckbox.js';
-import CoordinatesCheckbox from '../../common/view/CoordinatesCheckbox.js';
-import EquationsCheckbox from '../../common/view/EquationsCheckbox.js';
-import VertexCheckbox from '../../common/view/VertexCheckbox.js';
+import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 export default class VertexFormGraphControlPanel extends Panel {
@@ -36,13 +33,13 @@ export default class VertexFormGraphControlPanel extends Panel {
     }, GQConstants.PANEL_OPTIONS, options );
 
     // checkboxes
-    const vertexCheckbox = new VertexCheckbox( viewProperties.vertexVisibleProperty,
+    const vertexCheckbox = GQCheckbox.createVertexManipulatorCheckbox( viewProperties.vertexVisibleProperty,
       options.tandem.createTandem( 'vertexCheckbox' ) );
-    const axisOfSymmetryCheckbox = new AxisOfSymmetryCheckbox( viewProperties.axisOfSymmetryVisibleProperty,
-      options.tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
-    const equationsCheckbox = new EquationsCheckbox( viewProperties.equationsVisibleProperty,
+    const axisOfSymmetryCheckbox = GQCheckbox.createAxisOfSymmetryCheckbox(
+      viewProperties.axisOfSymmetryVisibleProperty, options.tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
+    const equationsCheckbox = GQCheckbox.createEquationsCheckbox( viewProperties.equationsVisibleProperty,
       options.tandem.createTandem( 'equationsCheckbox' ) );
-    const coordinatesCheckbox = new CoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
+    const coordinatesCheckbox = GQCheckbox.createCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
       options.tandem.createTandem( 'coordinatesCheckbox' ) );
 
     // vertical layout
