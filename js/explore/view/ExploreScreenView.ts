@@ -1,14 +1,15 @@
 // Copyright 2018-2020, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * View for the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQScreenView from '../../common/view/GQScreenView.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import ExploreModel from '../model/ExploreModel.js';
 import ExploreEquationAccordionBox from './ExploreEquationAccordionBox.js';
 import ExploreGraphNode from './ExploreGraphNode.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
@@ -16,17 +17,7 @@ import QuadraticTermsAccordionBox from './QuadraticTermsAccordionBox.js';
 
 export default class ExploreScreenView extends GQScreenView {
 
-  /**
-   * @param {ExploreModel} model
-   * @param {Tandem} tandem
-   */
-  constructor( model, tandem ) {
-
-    const options = {
-
-      // phet-io
-      tandem: tandem
-    };
+  public constructor( model: ExploreModel, tandem: Tandem ) {
 
     const viewProperties = new ExploreViewProperties( {
       tandem: tandem.createTandem( 'viewProperties' )
@@ -43,7 +34,7 @@ export default class ExploreScreenView extends GQScreenView {
         expandedProperty: viewProperties.quadraticTermsAccordionBoxExpandedProperty,
         tandem: tandem.createTandem( 'quadraticTermsAccordionBox' )
       } ),
-      options
+      tandem
     );
   }
 }

@@ -1,9 +1,8 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Base class for ScreenViews in this sim.
- * Responsible for creating Nodes that are common to all screens, and for common layout.
+ * GQScreenView is the base class for ScreenViews in this sim.
+ * It is responsible for creating Nodes that are common to all screens, and for common layout.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -11,12 +10,13 @@
 
 import GraphContentsToggleButton from '../../../../graphing-lines/js/common/view/GraphContentsToggleButton.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
-import merge from '../../../../phet-core/js/merge.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import { Node, VBox } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
+import GQModel from '../model/GQModel.js';
+import GQViewProperties from './GQViewProperties.js';
 import PointToolNode from './PointToolNode.js';
 
 // constants
@@ -24,26 +24,13 @@ const X_SPACING = 15; // between graph and control panels
 
 export default class GQScreenView extends ScreenView {
 
-  /**
-   * @param {GQModel} model
-   * @param {GQViewProperties} viewProperties
-   * @param {Node} graphNode
-   * @param {Node} equationAccordionBox
-   * @param {Node} graphControlPanel
-   * @param {Object} [options]
-   */
-  constructor( model, viewProperties, graphNode, equationAccordionBox, graphControlPanel, options ) {
+  public constructor( model: GQModel, viewProperties: GQViewProperties, graphNode: Node,
+                      equationAccordionBox: Node, graphControlPanel: Node, tandem: Tandem ) {
 
-    options = merge( {
-
-      // ScreenView options
+    super( {
       layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,
-
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
-
-    super( options );
+      tandem: tandem
+    } );
 
     // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
     const pointToolsParent = new Node();
@@ -52,14 +39,14 @@ export default class GQScreenView extends ScreenView {
       model.modelViewTransform,
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'leftPointToolNode' )
+        tandem: tandem.createTandem( 'leftPointToolNode' )
       } ) );
     pointToolsParent.addChild( new PointToolNode(
       model.rightPointTool,
       model.modelViewTransform,
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'rightPointToolNode' )
+        tandem: tandem.createTandem( 'rightPointToolNode' )
       } ) );
 
     // Toggle button for showing/hiding contents of graph
@@ -67,7 +54,7 @@ export default class GQScreenView extends ScreenView {
       scale: 0.75,
       left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 21,
       bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
-      tandem: options.tandem.createTandem( 'graphContentsToggleButton' ),
+      tandem: tandem.createTandem( 'graphContentsToggleButton' ),
       phetioDocumentation: 'button that shows/hides the contents of the graph'
     } );
 
@@ -110,7 +97,7 @@ export default class GQScreenView extends ScreenView {
       },
       right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
       bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN,
-      tandem: options.tandem.createTandem( 'resetAllButton' ),
+      tandem: tandem.createTandem( 'resetAllButton' ),
       phetioDocumentation: 'button that resets the screen to its initial state'
     } );
     this.addChild( resetAllButton );

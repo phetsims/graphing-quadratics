@@ -1,35 +1,26 @@
 // Copyright 2014-2020, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * View for the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQScreenView from '../../common/view/GQScreenView.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormEquationAccordionBox from './StandardFormEquationAccordionBox.js';
 import StandardFormGraphControlPanel from './StandardFormGraphControlPanel.js';
 import StandardFormGraphNode from './StandardFormGraphNode.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
 
-class StandardFormScreenView extends GQScreenView {
+export default class StandardFormScreenView extends GQScreenView {
 
-  /**
-   * @param {StandardFormModel} model
-   * @param {Tandem} tandem
-   */
-  constructor( model, tandem ) {
-
-    const options = {
-
-      // phet-io
-      tandem: tandem
-    };
+  public constructor( model: StandardFormModel, tandem: Tandem ) {
 
     const viewProperties = new StandardFormViewProperties( {
-      tandem: options.tandem.createTandem( 'viewProperties' )
+      tandem: tandem.createTandem( 'viewProperties' )
     } );
 
     super( model,
@@ -37,15 +28,14 @@ class StandardFormScreenView extends GQScreenView {
       new StandardFormGraphNode( model, viewProperties, tandem ),
       new StandardFormEquationAccordionBox( model, {
         expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
-        tandem: options.tandem.createTandem( 'equationAccordionBox' )
+        tandem: tandem.createTandem( 'equationAccordionBox' )
       } ),
       new StandardFormGraphControlPanel( viewProperties, {
-        tandem: options.tandem.createTandem( 'graphControlPanel' )
+        tandem: tandem.createTandem( 'graphControlPanel' )
       } ),
-      options
+      tandem
     );
   }
 }
 
 graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );
-export default StandardFormScreenView;
