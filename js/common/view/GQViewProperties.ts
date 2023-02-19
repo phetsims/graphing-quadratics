@@ -35,7 +35,7 @@ export default class GQViewProperties extends PhetioObject {
   // Form of equations used to label curves. It is not necessary to expose this via PhET-iO.
   public readonly equationForm: EquationForm;
 
-  // Properties that are common to all screens
+  // Properties that are used by all screens
   public readonly graphContentsVisibleProperty: Property<boolean>;
   public readonly equationAccordionBoxExpandedProperty: Property<boolean>;
   public readonly equationsVisibleProperty: Property<boolean>;
