@@ -40,7 +40,7 @@ export default class GQViewProperties extends PhetioObject {
   public readonly equationAccordionBoxExpandedProperty: Property<boolean>;
   public readonly equationsVisibleProperty: Property<boolean>;
 
-  // Properties that are optional
+  // Properties that are optional: used by 2 or more screens, but not all screens
   public readonly vertexVisibleProperty?: Property<boolean>;
   public readonly axisOfSymmetryVisibleProperty?: Property<boolean>;
   public readonly coordinatesVisibleProperty?: Property<boolean>;
