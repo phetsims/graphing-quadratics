@@ -1,6 +1,5 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * View-specific Properties and properties that are common to more than one screen.
  *
@@ -8,71 +7,80 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import merge from '../../../../phet-core/js/merge.js';
-import PhetioObject from '../../../../tandem/js/PhetioObject.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import Property from '../../../../axon/js/Property.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import GQConstants from '../GQConstants.js';
+
+export type EquationForm = 'standard' | 'vertex';
+
+type SelfOptions = {
+
+  // form of equations used to label curves on the graph
+  equationForm?: EquationForm;
+
+  // Initial values for optional boolean Properties.
+  // A null value means to omit the corresponding BooleanProperty.
+  // These options were added to address the duplication of 3 contentious BooleanProperties.
+  // See https://github.com/phetsims/graphing-quadratics/issues/55
+  vertexVisible?: boolean | null;
+  axisOfSymmetryVisible?: boolean | null;
+  coordinatesVisible?: boolean | null;
+};
+
+type GQViewPropertiesOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 export default class GQViewProperties extends PhetioObject {
 
-  /**
-   * @param {Object} [options]
-   */
-  constructor( options ) {
+  // Form of equations used to label curves. It is not necessary to expose this via PhET-iO.
+  public readonly equationForm: EquationForm;
 
-    options = merge( {
+  // Properties that are common to all screens
+  public readonly graphContentsVisibleProperty: Property<boolean>;
+  public readonly equationAccordionBoxExpandedProperty: Property<boolean>;
+  public readonly equationsVisibleProperty: Property<boolean>;
 
-      // {string} form of equations used to label curves on the graph, see GQConstants.EQUATION_FORMS
+  // Properties that are optional
+  public readonly vertexVisibleProperty?: Property<boolean>;
+  public readonly axisOfSymmetryVisibleProperty?: Property<boolean>;
+  public readonly coordinatesVisibleProperty?: Property<boolean>;
+
+  public constructor( providedOptions: GQViewPropertiesOptions ) {
+
+    const options = optionize<GQViewPropertiesOptions, SelfOptions, PhetioObjectOptions>()( {
+
+      // SelfOptions
       equationForm: 'standard',
-
-      // {boolean|null} initial values for optional BooleanProperties
-      // A null value means to omit the corresponding BooleanProperty.
-      // These options were added to address the duplication of 3 contentious BooleanProperties.
-      // See https://github.com/phetsims/graphing-quadratics/issues/55
       vertexVisible: null,
       axisOfSymmetryVisible: null,
       coordinatesVisible: null,
 
-      // phet-io                                                                                                              
-      tandem: Tandem.REQUIRED,
+      // PhetioObjectOptions
       phetioDocumentation: 'Properties that are specific to the view',
       phetioState: false
-
-    }, options );
-
-    assert && assert( _.includes( GQConstants.EQUATION_FORMS, options.equationForm ),
-      `invalid equationForm: ${options.equationForm}` );
+    }, providedOptions );
 
     super( options );
 
-    // @public {string} form of equations used to label curves. It is not necessary to expose this via PhET-iO.
     this.equationForm = options.equationForm;
 
-    // Properties that are common to all screens ---------------------------------------------------------------------
-
-    // @public
     this.graphContentsVisibleProperty = new BooleanProperty( true, {
       tandem: options.tandem.createTandem( 'graphContentsVisibleProperty' ),
       phetioDocumentation: 'whether the contents of the graph (curves, plotted points, manipulators) are visible'
     } );
 
-    // @public
     this.equationAccordionBoxExpandedProperty = new BooleanProperty( true, {
       tandem: options.tandem.createTandem( 'equationAccordionBoxExpandedProperty' ),
       phetioDocumentation: 'whether the equation accordion box is expanded'
     } );
 
-    // @public
     this.equationsVisibleProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
       phetioDocumentation: 'whether equations are visible on graphed curves'
     } );
 
-    // Properties that are optional ----------------------------------------------------------------------------------
-
     if ( options.vertexVisible !== null ) {
-      // @public
       this.vertexVisibleProperty = new BooleanProperty( options.vertexVisible, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
         phetioDocumentation: 'whether the vertex point or manipulator is visible'
@@ -80,7 +88,6 @@ export default class GQViewProperties extends PhetioObject {
     }
 
     if ( options.axisOfSymmetryVisible !== null ) {
-      // @public
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( options.axisOfSymmetryVisible, {
         tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
         phetioDocumentation: 'whether the axis of symmetry is visible'
@@ -88,7 +95,6 @@ export default class GQViewProperties extends PhetioObject {
     }
 
     if ( options.coordinatesVisible !== null ) {
-      // @public
       this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible, {
         tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
         phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
@@ -96,10 +102,7 @@ export default class GQViewProperties extends PhetioObject {
     }
   }
 
-  /**
-   * @public
-   */
-  reset() {
+  public reset(): void {
 
     // Properties that are common to all screens
     this.graphContentsVisibleProperty.reset();

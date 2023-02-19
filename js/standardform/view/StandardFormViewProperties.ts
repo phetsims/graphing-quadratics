@@ -1,6 +1,5 @@
 // Copyright 2018-2020, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * View-specific Properties for the 'Standard Form' screen.
  *
@@ -8,45 +7,34 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import merge from '../../../../phet-core/js/merge.js';
+import Property from '../../../../axon/js/Property.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQViewProperties from '../../common/view/GQViewProperties.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 class StandardFormViewProperties extends GQViewProperties {
 
-  /**
-   * @param {Object} [options]
-   */
-  constructor( options ) {
+  // See phetioDocumentation below
+  public readonly rootsVisibleProperty: Property<boolean>;
 
-    options = merge( {
+  public constructor( tandem: Tandem ) {
 
-      // {boolean} values for optional BooleanProperties
+    super( {
       vertexVisible: false,
       axisOfSymmetryVisible: false,
       coordinatesVisible: true,
+      tandem: tandem
+    } );
 
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
-
-    super( options );
-
-    // @public
     this.rootsVisibleProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'rootsVisibleProperty' ),
+      tandem: tandem.createTandem( 'rootsVisibleProperty' ),
       phetioDocumentation: 'whether the roots of the quadratic are visible'
     } );
   }
 
-  /**
-   * @public
-   * @override
-   */
-  reset() {
-    super.reset();
+  public override reset(): void {
     this.rootsVisibleProperty.reset();
+    super.reset();
   }
 }
 

@@ -19,9 +19,7 @@ export default class ExploreScreenView extends GQScreenView {
 
   public constructor( model: ExploreModel, tandem: Tandem ) {
 
-    const viewProperties = new ExploreViewProperties( {
-      tandem: tandem.createTandem( 'viewProperties' )
-    } );
+    const viewProperties = new ExploreViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     super( model,
       viewProperties,

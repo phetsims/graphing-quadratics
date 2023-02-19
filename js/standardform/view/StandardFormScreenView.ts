@@ -19,9 +19,7 @@ export default class StandardFormScreenView extends GQScreenView {
 
   public constructor( model: StandardFormModel, tandem: Tandem ) {
 
-    const viewProperties = new StandardFormViewProperties( {
-      tandem: tandem.createTandem( 'viewProperties' )
-    } );
+    const viewProperties = new StandardFormViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     super( model,
       viewProperties,

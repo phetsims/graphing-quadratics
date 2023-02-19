@@ -19,9 +19,7 @@ export default class FocusAndDirectrixScreenView extends GQScreenView {
 
   public constructor( model: FocusAndDirectrixModel, tandem: Tandem ) {
 
-    const viewProperties = new FocusAndDirectrixViewProperties( {
-      tandem: tandem.createTandem( 'viewProperties' )
-    } );
+    const viewProperties = new FocusAndDirectrixViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     super( model,
       viewProperties,

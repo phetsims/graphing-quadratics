@@ -25,15 +25,12 @@ export default class QuadraticNode extends Node {
    * @param {Range} xRange - range of the graph's x axis
    * @param {Range} yRange - range of the graph's y axis
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {string} equationForm - form of the equation displayed on the curve, see GQConstants.EQUATION_FORMS
+   * @param {EquationForm} equationForm - form of the equation displayed on the curve
    * @param {BooleanProperty} equationsVisibleProperty
    * @param {Object} [options]
    */
   constructor( quadraticProperty, xRange, yRange, modelViewTransform, equationForm,
                equationsVisibleProperty, options ) {
-
-    assert && assert( _.includes( GQConstants.EQUATION_FORMS, equationForm ),
-      `invalid equationForm: ${equationForm}` );
 
     options = merge( {
 

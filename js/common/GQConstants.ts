@@ -133,9 +133,6 @@ const GQConstants = {
   FOCUS_AND_DIRECTRIX_INTERVAL_H: 0.1,
   FOCUS_AND_DIRECTRIX_INTERVAL_K: 0.1,
 
-  // enums - We decided not to use Enumeration, see https://github.com/phetsims/graphing-quadratics/issues/62.
-  EQUATION_FORMS: [ 'standard', 'vertex' ], // form of equations on curves
-
   // margins between equations and edges of graph
   // Caution! Changing these may cause an equation to go off the graph. Test thoroughly!
   EQUATION_X_MARGIN: 1.5, // distance between equation and left/right edges of graph, in model coordinate frame

@@ -1,6 +1,5 @@
 // Copyright 2018-2020, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * View-specific Properties and properties for the 'Explore' screen.
  *
@@ -8,61 +7,52 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import merge from '../../../../phet-core/js/merge.js';
+import Property from '../../../../axon/js/Property.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQViewProperties from '../../common/view/GQViewProperties.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 export default class ExploreViewProperties extends GQViewProperties {
 
-  /**
-   * @param {Object} [options]
-   */
-  constructor( options ) {
+  // See phetioDocumentation below
+  public readonly quadraticTermsAccordionBoxExpandedProperty: Property<boolean>;
+  public readonly quadraticTermVisibleProperty: Property<boolean>;
+  public readonly linearTermVisibleProperty: Property<boolean>;
+  public readonly constantTermVisibleProperty: Property<boolean>;
 
-    options = merge( {
+  public constructor( tandem: Tandem ) {
 
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
+    super( {
+      tandem: tandem
+    } );
 
-    super( options );
-
-    // @public
     this.quadraticTermsAccordionBoxExpandedProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'quadraticTermsAccordionBoxExpandedProperty' ),
+      tandem: tandem.createTandem( 'quadraticTermsAccordionBoxExpandedProperty' ),
       phetioDocumentation: 'whether the Quadratic Terms accordion box is expanded'
     } );
 
-    // @public
     this.quadraticTermVisibleProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'quadraticTermVisibleProperty' ),
+      tandem: tandem.createTandem( 'quadraticTermVisibleProperty' ),
       phetioDocumentation: 'whether the quadratic term (y = ax^2) is visible'
     } );
 
-    // @public
     this.linearTermVisibleProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'linearTermVisibleProperty' ),
+      tandem: tandem.createTandem( 'linearTermVisibleProperty' ),
       phetioDocumentation: 'whether the linear term (y = bx) is visible'
     } );
 
-    // @public
     this.constantTermVisibleProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'constantTermVisibleProperty' ),
+      tandem: tandem.createTandem( 'constantTermVisibleProperty' ),
       phetioDocumentation: 'whether the constant term (y = c) is visible'
     } );
   }
 
-  /**
-   * @public
-   * @override
-   */
-  reset() {
-    super.reset();
+  public override reset(): void {
     this.quadraticTermsAccordionBoxExpandedProperty.reset();
     this.quadraticTermVisibleProperty.reset();
     this.linearTermVisibleProperty.reset();
     this.constantTermVisibleProperty.reset();
+    super.reset();
   }
 }
 
