@@ -9,6 +9,7 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
@@ -29,7 +30,7 @@ const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates
 export default class GQModel implements TModel {
 
   public readonly graph: Graph; // graph where the quadratics will be plotted
-  public readonly quadraticProperty: Property<Quadratic>; // the interactive quadratic
+  public readonly quadraticProperty: TReadOnlyProperty<Quadratic>; // the interactive quadratic
   public readonly savedQuadraticProperty: Property<Quadratic | null>; // the saved quadratic, null if nothing is saved
 
   // model-view transform, created in the model because it's dependent on graph axes ranges
@@ -42,7 +43,7 @@ export default class GQModel implements TModel {
   public readonly leftPointTool: PointTool;
   public readonly rightPointTool: PointTool;
 
-  protected constructor( quadraticProperty: Property<Quadratic>, tandem: Tandem ) {
+  protected constructor( quadraticProperty: TReadOnlyProperty<Quadratic>, tandem: Tandem ) {
 
     this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 

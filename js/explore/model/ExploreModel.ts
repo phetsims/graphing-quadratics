@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Model for the 'Explore' screen.  Extends the 'Standard Form' model by adding curves for
  * the individual terms of the interactive quadratic.
@@ -9,16 +8,20 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../../standardform/model/StandardFormModel.js';
 
 export default class ExploreModel extends StandardFormModel {
 
-  /**
-   * @param {Tandem} tandem
-   */
-  constructor( tandem ) {
+  // Individual terms of the quadratic equation
+  public readonly quadraticTermProperty: TReadOnlyProperty<Quadratic>;
+  public readonly linearTermProperty: TReadOnlyProperty<Quadratic>;
+  public readonly constantTermProperty: TReadOnlyProperty<Quadratic>;
+
+  public constructor( tandem: Tandem ) {
 
     super( tandem, {
 
@@ -26,7 +29,6 @@ export default class ExploreModel extends StandardFormModel {
       numberType: 'FloatingPoint'
     } );
 
-    // @public {DerivedProperty.<Quadratic>}
     this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
       quadratic => quadratic.getQuadraticTerm(), {
         tandem: tandem.createTandem( 'quadraticTermProperty' ),
@@ -34,7 +36,6 @@ export default class ExploreModel extends StandardFormModel {
         phetioValueType: Quadratic.QuadraticIO
       } );
 
-    // @public {DerivedProperty.<Quadratic>}
     this.linearTermProperty = new DerivedProperty( [ this.quadraticProperty ],
       quadratic => quadratic.getLinearTerm(), {
         tandem: tandem.createTandem( 'linearTermProperty' ),
@@ -42,7 +43,6 @@ export default class ExploreModel extends StandardFormModel {
         phetioValueType: Quadratic.QuadraticIO
       } );
 
-    // @public {DerivedProperty.<Quadratic>}
     this.constantTermProperty = new DerivedProperty( [ this.quadraticProperty ],
       quadratic => quadratic.getConstantTerm(), {
         tandem: tandem.createTandem( 'constantTermProperty' ),

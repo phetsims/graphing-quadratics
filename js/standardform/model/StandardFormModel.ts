@@ -1,6 +1,5 @@
 // Copyright 2014-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Model for the 'Standard Form' screen.
  * Standard form of the quadratic equation is: y = ax^2 + bx + c
@@ -9,10 +8,13 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import NumberProperty, { NumberPropertyOptions } from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQModel from '../../common/model/GQModel.js';
@@ -24,19 +26,24 @@ const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
 const B_RANGE = new RangeWithValue( -6, 6, 0 ); // b coefficient
 const C_RANGE = new RangeWithValue( -6, 6, 0 ); // c constant
 
+type SelfOptions = PickOptional<NumberPropertyOptions, 'numberType'>;
+
+type StandardFormModelOptions = SelfOptions;
+
 export default class StandardFormModel extends GQModel {
 
-  /**
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( tandem, options ) {
+  // Coefficients for standard form: y = ax^2 + bx + c
+  public readonly aProperty: NumberProperty;
+  public readonly bProperty: NumberProperty;
+  public readonly cProperty: NumberProperty;
 
-    options = merge( {
+  public constructor( tandem: Tandem, providedOptions?: StandardFormModelOptions ) {
 
-      // NumberProperty options
+    const options = optionize<StandardFormModelOptions, SelfOptions>()( {
+
+      // SelfOptions
       numberType: 'Integer'
-    }, options );
+    }, providedOptions );
 
     // Options for all NumberProperty instances
     const numberPropertyOptions = {
@@ -81,22 +88,16 @@ export default class StandardFormModel extends GQModel {
 
     super( quadraticProperty, tandem );
 
-    // @public
-    this.quadraticProperty = quadraticProperty;
     this.aProperty = aProperty;
     this.bProperty = bProperty;
     this.cProperty = cProperty;
   }
 
-  /**
-   * @public
-   * @override
-   */
-  reset() {
-    super.reset();
+  public override reset(): void {
     this.aProperty.reset();
     this.bProperty.reset();
     this.cProperty.reset();
+    super.reset();
   }
 }
 

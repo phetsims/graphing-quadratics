@@ -1,6 +1,5 @@
 // Copyright 2014-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Model for the 'Vertex Form' screen.
  * Vertex form of the quadratic equation is: y = a(x - h)^2 + k
@@ -11,8 +10,8 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
-import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQModel from '../../common/model/GQModel.js';
@@ -26,42 +25,40 @@ const K_RANGE = new RangeWithValue( -9, 9, 0 ); // k coefficient
 
 export default class VertexFormModel extends GQModel {
 
-  /**
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( tandem, options ) {
+  // Coefficients of vertex form: y = a(x - h)^2 + k
+  public readonly aProperty: NumberProperty;
+  public readonly hProperty: NumberProperty;
+  public readonly kProperty: NumberProperty;
 
-    // Options for NumberProperty instances
-    const numberPropertyOptions = {
-      numberType: 'Integer' // Values are controlled by integer pickers
-    };
+  public constructor( tandem: Tandem ) {
 
     // a
-    const aProperty = new NumberProperty( A_RANGE.defaultValue, merge( {
+    const aProperty = new NumberProperty( A_RANGE.defaultValue, {
+      numberType: 'Integer',
       range: A_RANGE,
       tandem: tandem.createTandem( 'aProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'a' } )
-    }, numberPropertyOptions ) );
+    } );
     phet.log && aProperty.link( a => { phet.log( `a=${a}` ); } );
 
     // h
-    const hProperty = new NumberProperty( H_RANGE.defaultValue, merge( {
+    const hProperty = new NumberProperty( H_RANGE.defaultValue, {
+      numberType: 'Integer',
       range: H_RANGE,
       tandem: tandem.createTandem( 'hProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } )
-    }, numberPropertyOptions ) );
+    } );
     phet.log && hProperty.link( h => { phet.log( `h=${h}` ); } );
 
     // k
-    const kProperty = new NumberProperty( K_RANGE.defaultValue, merge( {
+    const kProperty = new NumberProperty( K_RANGE.defaultValue, {
+      numberType: 'Integer',
       range: K_RANGE,
       tandem: tandem.createTandem( 'kProperty' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } )
-    }, numberPropertyOptions ) );
+    } );
     phet.log && kProperty.link( k => { phet.log( `k=${k}` ); } );
 
-    // {DerivedProperty.<Quadratic>}
     const quadraticProperty = new DerivedProperty(
       [ aProperty, hProperty, kProperty ],
       ( a, h, k ) => Quadratic.createFromVertexForm( a, h, k, {
@@ -77,21 +74,16 @@ export default class VertexFormModel extends GQModel {
 
     super( quadraticProperty, tandem );
 
-    // @public
     this.aProperty = aProperty;
     this.hProperty = hProperty;
     this.kProperty = kProperty;
   }
 
-  /**
-   * @public
-   * @override
-   */
-  reset() {
-    super.reset();
+  public override reset(): void {
     this.aProperty.reset();
     this.hProperty.reset();
     this.kProperty.reset();
+    super.reset();
   }
 }
 

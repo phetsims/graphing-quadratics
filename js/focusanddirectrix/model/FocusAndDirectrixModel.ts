@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Model for the 'Focus & Directrix' screen.
  * Alternate vertex form of the quadratic equation is: y = (1/(4p)(x - h)^2 - k
@@ -10,10 +9,12 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQModel from '../../common/model/GQModel.js';
@@ -28,10 +29,15 @@ const POINT_X = 5; // default x value for point on parabola
 
 export default class FocusAndDirectrixModel extends GQModel {
 
-  /**
-   * @param {Tandem} tandem
-   */
-  constructor( tandem ) {
+  // Coefficients of the alternative vertex form: y = (1/(4p))(x - h)^2 + k
+  public readonly pProperty: NumberProperty;
+  public readonly hProperty: NumberProperty;
+  public readonly kProperty: NumberProperty;
+
+  // the interactive point on the parabola
+  public readonly pointOnParabolaProperty: Property<Vector2>;
+
+  public constructor( tandem: Tandem ) {
 
     // p
     const pProperty = new NumberProperty( P_RANGE.defaultValue, {
@@ -74,14 +80,12 @@ export default class FocusAndDirectrixModel extends GQModel {
 
     super( quadraticProperty, tandem );
 
-    // @public
     this.pProperty = pProperty;
     this.hProperty = hProperty;
     this.kProperty = kProperty;
 
     const initialPoint = new Vector2( POINT_X, this.quadraticProperty.value.solveY( POINT_X ) );
 
-    // @public
     this.pointOnParabolaProperty = new Vector2Property( initialPoint, {
       tandem: tandem.createTandem( 'pointOnParabolaProperty' ),
       phetioDocumentation: 'the interactive point on the parabola'
@@ -93,23 +97,19 @@ export default class FocusAndDirectrixModel extends GQModel {
       assert && assert( oldQuadratic.vertex, `expected oldQuadratic.vertex: ${oldQuadratic.vertex}` );
 
       if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
-        const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
+        const dx = quadratic.vertex!.x - oldQuadratic.vertex!.x;
         const x = this.pointOnParabolaProperty.value.x + dx;
         this.pointOnParabolaProperty.value = quadratic.getClosestPointInRange( x, this.graph.xRange, this.graph.yRange );
       }
     } );
   }
 
-  /**
-   * @public
-   * @override
-   */
-  reset() {
-    super.reset();
+  public override reset(): void {
     this.pProperty.reset();
     this.hProperty.reset();
     this.kProperty.reset();
     this.pointOnParabolaProperty.reset();
+    super.reset();
   }
 }
 
