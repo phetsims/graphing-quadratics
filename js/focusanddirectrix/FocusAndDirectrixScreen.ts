@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * The 'Focus and Directrix' screen.
  *
@@ -9,6 +8,7 @@
 
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
+import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
 import graphingQuadratics from '../graphingQuadratics.js';
@@ -16,16 +16,13 @@ import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import FocusAndDirectrixModel from './model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixScreenView from './view/FocusAndDirectrixScreenView.js';
 
-export default class FocusAndDirectrixScreen extends Screen {
+export default class FocusAndDirectrixScreen extends Screen<FocusAndDirectrixModel, FocusAndDirectrixScreenView> {
 
-  /**
-   * @param {Tandem} tandem
-   */
-  constructor( tandem ) {
+  public constructor( tandem: Tandem ) {
 
     const options = {
 
-      // Screen options
+      // ScreenOptions
       name: GraphingQuadraticsStrings.screen.focusAndDirectrixStringProperty,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),

@@ -1,6 +1,5 @@
 // Copyright 2014-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * The 'Standard Form' screen.
  *
@@ -10,6 +9,7 @@
 
 import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
+import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
 import graphingQuadratics from '../graphingQuadratics.js';
@@ -17,16 +17,13 @@ import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import StandardFormModel from './model/StandardFormModel.js';
 import StandardFormScreenView from './view/StandardFormScreenView.js';
 
-export default class StandardFormScreen extends Screen {
+export default class StandardFormScreen extends Screen<StandardFormModel, StandardFormScreenView> {
 
-  /**
-   * @param {Tandem} tandem
-   */
-  constructor( tandem ) {
+  public constructor( tandem: Tandem ) {
 
     const options = {
 
-      // Screen options
+      // ScreenOptions
       name: GraphingQuadraticsStrings.screen.standardFormStringProperty,
       backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
       homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
