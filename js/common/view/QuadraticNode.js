@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Draws the curve that is described by a quadratic equation.
  * The curve is labeled with the equation.
