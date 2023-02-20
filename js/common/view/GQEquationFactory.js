@@ -1,5 +1,6 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * GQEquationFactory creates strings that display various equations needed by this sim.
  * The strings contain markup that is compatible with SCENERY/RichText.
