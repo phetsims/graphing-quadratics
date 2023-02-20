@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * A non-interactive point on the graph, labeled with (x,y) coordinates.
  *
