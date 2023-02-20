@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Graph for the 'Explore' screen.
  *
@@ -8,29 +7,19 @@
  */
 
 import Multilink from '../../../../axon/js/Multilink.js';
-import merge from '../../../../phet-core/js/merge.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQGraphNode from '../../common/view/GQGraphNode.js';
 import QuadraticNode from '../../common/view/QuadraticNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import ExploreModel from '../model/ExploreModel.js';
+import ExploreViewProperties from './ExploreViewProperties.js';
 
 export default class ExploreGraphNode extends GQGraphNode {
 
-  /**
-   * @param {ExploreModel} model
-   * @param {ExploreViewProperties} viewProperties
-   * @param {Object} [options]
-   */
-  constructor( model, viewProperties, options ) {
+  public constructor( model: ExploreModel, viewProperties: ExploreViewProperties ) {
 
-    options = merge( {
-      preventVertexAndEquationOverlap: false // there is no vertex displayed on this screen
-    }, options );
-
-    const termNodeOptions = {
-      lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH,
-      preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
-    };
+    // There is no vertex displayed on this screen.
+    const preventVertexAndEquationOverlap = false;
 
     // quadratic term, y = ax^2
     const quadraticTermNode = new QuadraticNode(
@@ -39,9 +28,11 @@ export default class ExploreGraphNode extends GQGraphNode {
       model.graph.yRange,
       model.modelViewTransform,
       viewProperties.equationForm,
-      viewProperties.equationsVisibleProperty,
-      termNodeOptions );
-    viewProperties.quadraticTermVisibleProperty.link( visible => { quadraticTermNode.visible = visible; } );
+      viewProperties.equationsVisibleProperty, {
+        visibleProperty: viewProperties.quadraticTermVisibleProperty,
+        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH,
+        preventVertexAndEquationOverlap: preventVertexAndEquationOverlap
+      } );
 
     // linear term, y = bx
     const linearTermNode = new QuadraticNode(
@@ -50,9 +41,11 @@ export default class ExploreGraphNode extends GQGraphNode {
       model.graph.yRange,
       model.modelViewTransform,
       viewProperties.equationForm,
-      viewProperties.equationsVisibleProperty,
-      termNodeOptions );
-    viewProperties.linearTermVisibleProperty.link( visible => { linearTermNode.visible = visible; } );
+      viewProperties.equationsVisibleProperty, {
+        visibleProperty: viewProperties.linearTermVisibleProperty,
+        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH,
+        preventVertexAndEquationOverlap: preventVertexAndEquationOverlap
+      } );
 
     // constant term, y = bx
     const constantTermNode = new QuadraticNode(
@@ -61,14 +54,15 @@ export default class ExploreGraphNode extends GQGraphNode {
       model.graph.yRange,
       model.modelViewTransform,
       viewProperties.equationForm,
-      viewProperties.equationsVisibleProperty,
-      termNodeOptions );
-    viewProperties.constantTermVisibleProperty.link( visible => { constantTermNode.visible = visible; } );
+      viewProperties.equationsVisibleProperty, {
+        visibleProperty: viewProperties.constantTermVisibleProperty,
+        lineWidth: GQConstants.QUADRATIC_TERMS_LINE_WIDTH,
+        preventVertexAndEquationOverlap: preventVertexAndEquationOverlap
+      } );
 
-    assert && assert( !options.otherCurves, 'ExploreGraphNode sets otherCurves' );
-    options.otherCurves = [ constantTermNode, linearTermNode, quadraticTermNode ]; // rendered in this order
-
-    super( model, viewProperties, options );
+    super( model, viewProperties, {
+      otherCurves: [ constantTermNode, linearTermNode, quadraticTermNode ] // rendered in this order
+    } );
 
     // Make quadratic terms available to the point tool, if they are visible. The order of
     // model.quadraticTermsProperty determines the order that the terms will be considered by

@@ -27,7 +27,7 @@ type SelfOptions = {
   preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping
 } & PickOptional<PathOptions, 'lineWidth'>;
 
-type QuadraticNodeOptions = SelfOptions;
+export type QuadraticNodeOptions = SelfOptions & PickOptional<NodeOptions, 'visibleProperty'>;
 
 export default class QuadraticNode extends Node {
 
