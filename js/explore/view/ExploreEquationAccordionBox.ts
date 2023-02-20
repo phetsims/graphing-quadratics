@@ -1,40 +1,40 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Equation accordion box in the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
-import GQEquationAccordionBox from '../../common/view/GQEquationAccordionBox.js';
+import GQEquationAccordionBox, { GQEquationAccordionBoxOptions } from '../../common/view/GQEquationAccordionBox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormEquationNode from '../../standardform/view/StandardFormEquationNode.js';
 import ExploreInteractiveEquationNode from './ExploreInteractiveEquationNode.js';
+import ExploreModel from '../model/ExploreModel.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+
+type SelfOptions = EmptySelfOptions;
+
+type ExploreEquationAccordionBoxOptions = SelfOptions &
+  PickRequired<GQEquationAccordionBoxOptions, 'tandem' | 'expandedProperty'>;
 
 export default class ExploreEquationAccordionBox extends GQEquationAccordionBox {
 
-  /**
-   * @param {ExploreModel} model
-   * @param {Object} [options]
-   */
-  constructor( model, options ) {
+  public constructor( model: ExploreModel, providedOptions: ExploreEquationAccordionBoxOptions ) {
 
-    options = merge( {
-
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
-
-    assert && assert( !options.titleNode, 'ExploreEquationAccordionBox sets titleNode' );
-    options.titleNode = new StandardFormEquationNode( {
+    const titleNode = new StandardFormEquationNode( {
       maxWidth: 225, // determined empirically
-      tandem: options.tandem.createTandem( 'titleNode' ),
+      tandem: providedOptions.tandem.createTandem( 'titleNode' ),
       phetioDocumentation: 'the equation shown at the top of this accordion box',
       visiblePropertyOptions: { phetioReadOnly: true }
     } );
+
+    const options = optionize<ExploreEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
+
+      // GQEquationAccordionBoxOptions
+      titleNode: titleNode
+    }, providedOptions );
 
     const interactiveEquationNode = new ExploreInteractiveEquationNode(
       model.aProperty, model.bProperty, model.cProperty, {

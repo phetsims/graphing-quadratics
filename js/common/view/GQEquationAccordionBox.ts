@@ -24,7 +24,7 @@ const BUTTON_ICON_WIDTH = 30;
 
 type SelfOptions = EmptySelfOptions;
 
-type GQEquationAccordionBoxOptions = SelfOptions & AccordionBoxOptions & PickRequired<AccordionBoxOptions, 'tandem'>;
+export type GQEquationAccordionBoxOptions = SelfOptions & AccordionBoxOptions & PickRequired<AccordionBoxOptions, 'tandem'>;
 
 export default class GQEquationAccordionBox extends AccordionBox {
 
