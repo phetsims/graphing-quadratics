@@ -23,15 +23,12 @@ export default class AxisOfSymmetryNode extends Node {
   public constructor( quadraticProperty: Property<Quadratic>, graph: Graph, modelViewTransform: ModelViewTransform2,
                       axisOfSymmetryVisibleProperty: Property<boolean>, equationsVisibleProperty: Property<boolean> ) {
 
-    super();
-
     // vertical line
     const lineNode = new Line( 0, 0, 0, 1, {
       stroke: GQColors.AXIS_OF_SYMMETRY,
       lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
       lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
     } );
-    this.addChild( lineNode );
 
     // text of the equation
     const equationText = new RichText( '', {
@@ -45,11 +42,21 @@ export default class AxisOfSymmetryNode extends Node {
       visibleProperty: equationsVisibleProperty,
       maxHeight: 100 // maxHeight because equation is rotated, determined empirically
     } );
-    this.addChild( equationNode );
 
     // endpoints of the line in model coordinates, note that y is inverted
     const minY = modelViewTransform.modelToViewY( graph.yRange.max );
     const maxY = modelViewTransform.modelToViewY( graph.yRange.min );
+
+    super( {
+      children: [ lineNode, equationNode ],
+      visibleProperty: new DerivedProperty(
+        [ axisOfSymmetryVisibleProperty, quadraticProperty ],
+        ( axisOfSymmetryVisible, quadratic ) =>
+          axisOfSymmetryVisible && // the Axis of Symmetry checkbox is checked
+          quadratic.isaParabola() && // the quadratic is a parabola, so has an axis of symmetry
+          graph.xRange.contains( quadratic.axisOfSymmetry ) // the axis of symmetry (x=N) is on the graph
+      )
+    } );
 
     // update if the interactive quadratic is a parabola, and therefore has an axis of symmetry
     quadraticProperty.link( quadratic => {
@@ -98,16 +105,6 @@ export default class AxisOfSymmetryNode extends Node {
         }
       }
     } );
-
-    // visibility of this Node
-    const visibleProperty = new DerivedProperty(
-      [ axisOfSymmetryVisibleProperty, quadraticProperty ],
-      ( axisOfSymmetryVisible, quadratic ) =>
-        axisOfSymmetryVisible && // the Axis of Symmetry checkbox is checked
-        quadratic.isaParabola() && // the quadratic is a parabola, so has an axis of symmetry
-        graph.xRange.contains( quadratic.axisOfSymmetry ) // the axis of symmetry (x=N) is on the graph
-    );
-    visibleProperty.linkAttribute( this, 'visible' );
   }
 }
 
