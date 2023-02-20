@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+
 /**
  * Standard form equation, y = ax^2 + bx + c, with integer coefficients that can be changed via pickers.
  *
