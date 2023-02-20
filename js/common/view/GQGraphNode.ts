@@ -1,8 +1,7 @@
 // Copyright 2014-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Base class for displaying the graph.
+ * GQGraphNode is the base class for displaying the graph.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -11,36 +10,39 @@
 import Property from '../../../../axon/js/Property.js';
 import GraphNode from '../../../../graphing-lines/js/common/view/GraphNode.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { Node } from '../../../../scenery/js/imports.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import { Node, NodeOptions } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
+import GQModel from '../model/GQModel.js';
+import GQViewProperties from './GQViewProperties.js';
 import QuadraticNode from './QuadraticNode.js';
 
-// constants
-const DEFAULT_OTHER_CURVES = [];
-const DEFAULT_DECORATIONS = [];
+type SelfOptions = {
+
+  // prevent a parabola's vertex and equation from overlapping
+  preventVertexAndEquationOverlap?: boolean;
+
+  // other curves to be displayed (terms, directrix, axis of symmetry) rendered in the order provided
+  otherCurves?: Node[];
+
+  // decorations (manipulators, roots,...) rendered in the order provided
+  decorations?: Node[];
+};
+
+type GQGraphNodeOptions = SelfOptions;
 
 export default class GQGraphNode extends Node {
 
-  /**
-   * @param {GQModel} model
-   * @param {GQViewProperties} viewProperties
-   * @param {Object} [options]
-   */
-  constructor( model, viewProperties, options ) {
+  protected constructor( model: GQModel, viewProperties: GQViewProperties, providedOptions?: GQGraphNodeOptions ) {
 
-    options = merge( {
+    const options = optionize<GQGraphNodeOptions, SelfOptions, NodeOptions>()( {
 
-      // prevent a parabola's vertex and equation from overlapping
+      // SelfOptions
       preventVertexAndEquationOverlap: true,
-
-      // {Node[]}, other curves to be displayed (terms, directrix, axis of symmetry) rendered in the order provided
-      otherCurves: DEFAULT_OTHER_CURVES,
-
-      // {Node[]}, decorations (manipulators, roots,...) rendered in the order provided
-      decorations: DEFAULT_DECORATIONS
-    }, options );
+      otherCurves: [],
+      decorations: []
+    }, providedOptions );
 
     assert && assert( !options.tandem, 'GQGraphNode should not be instrumented' );
 
@@ -61,8 +63,8 @@ export default class GQGraphNode extends Node {
         preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
       } );
 
-    // {QuadraticNode|null} the saved line
-    let savedQuadraticNode = null;
+    // the saved line
+    let savedQuadraticNode: QuadraticNode | null = null;
 
     // Parent for other lines, e.g. quadratic terms, directrix, axis of symmetry
     const otherCurvesLayer = new Node( { children: options.otherCurves } );
@@ -117,7 +119,7 @@ export default class GQGraphNode extends Node {
         allLinesParent.addChild( savedQuadraticNode );
 
         // When restoring state, if savedQuadratic is identical to quadraticProperty, then leave it in front, so
-        // the user can see it. Otherwise move it to the back. Note that this does not address the corner case where
+        // the user can see it. Otherwise, move it to the back. Note that this does not address the corner case where
         // the instructional designer has changed quadraticProperty, then changed it back to match savedQuadratic.
         // We decided not to address that case, see https://github.com/phetsims/graphing-quadratics/issues/165.
         if ( phet.joist.sim.isSettingPhetioStateProperty.value && !savedQuadratic.hasSameCoefficients( model.quadraticProperty.value ) ) {
