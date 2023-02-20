@@ -15,7 +15,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
-import GQBackgroundNode from './GQBackgroundNode.js';
+import GQEquationNode from '../../common/view/GQEquationNode.js';
 import GQEquationFactory from './GQEquationFactory.js';
 
 export default class AxisOfSymmetryNode extends Node {
@@ -31,7 +31,7 @@ export default class AxisOfSymmetryNode extends Node {
     } );
 
     // equation on a translucent background
-    const equationNode = new GQBackgroundNode( {
+    const equationNode = new GQEquationNode( {
       textOptions: {
         fill: GQColors.AXIS_OF_SYMMETRY,
         rotation: Math.PI / 2

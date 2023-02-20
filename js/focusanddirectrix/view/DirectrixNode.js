@@ -10,8 +10,8 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { Line, Node } from '../../../../scenery/js/imports.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
-import GQBackgroundNode from '../../common/view/GQBackgroundNode.js';
 import GQEquationFactory from '../../common/view/GQEquationFactory.js';
+import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 export default class DirectrixNode extends Node {
@@ -36,7 +36,7 @@ export default class DirectrixNode extends Node {
     this.addChild( lineNode );
 
     // equation on a translucent background
-    const equationNode = new GQBackgroundNode( {
+    const equationNode = new GQEquationNode( {
       textOptions: {
         fill: GQColors.DIRECTRIX
       },

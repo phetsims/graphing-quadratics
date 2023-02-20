@@ -7,6 +7,7 @@
  */
 
 import optionize from '../../../../phet-core/js/optionize.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import BackgroundNode, { BackgroundNodeOptions } from '../../../../scenery-phet/js/BackgroundNode.js';
 import { Circle, RichText, RichTextOptions, TColor } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -17,9 +18,10 @@ type SelfOptions = {
   textOptions?: RichTextOptions;
 };
 
-type GQBackgroundNodeOptions = SelfOptions & BackgroundNodeOptions;
+type GQBackgroundNodeOptions = SelfOptions &
+  PickOptional<BackgroundNodeOptions, 'visibleProperty' | 'maxWidth' | 'maxHeight'>;
 
-export default class GQBackgroundNode extends BackgroundNode {
+export default class GQEquationNode extends BackgroundNode {
 
   private readonly equationText: RichText;
 
@@ -59,4 +61,4 @@ export default class GQBackgroundNode extends BackgroundNode {
   }
 }
 
-graphingQuadratics.register( 'GQBackgroundNode', GQBackgroundNode );
+graphingQuadratics.register( 'GQEquationNode', GQEquationNode );

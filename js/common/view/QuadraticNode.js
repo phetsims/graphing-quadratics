@@ -13,9 +13,9 @@ import Range from '../../../../dot/js/Range.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import merge from '../../../../phet-core/js/merge.js';
 import { Node, Path } from '../../../../scenery/js/imports.js';
+import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
-import GQBackgroundNode from './GQBackgroundNode.js';
 import GQEquationFactory from './GQEquationFactory.js';
 
 export default class QuadraticNode extends Node {
@@ -58,7 +58,7 @@ export default class QuadraticNode extends Node {
     this.addChild( this.quadraticPath );
 
     // @private equation on a translucent background
-    this.equationNode = new GQBackgroundNode( {
+    this.equationNode = new GQEquationNode( {
       maxWidth: 200 // determined empirically
     } );
 
