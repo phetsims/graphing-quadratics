@@ -6,21 +6,31 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import BackgroundNode, { BackgroundNodeOptions } from '../../../../scenery-phet/js/BackgroundNode.js';
-import { Circle, Node } from '../../../../scenery/js/imports.js';
+import { Circle, RichText, RichTextOptions, TColor } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQQueryParameters from '../GQQueryParameters.js';
+import GQConstants from '../GQConstants.js';
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+  textOptions?: RichTextOptions;
+};
 
 type GQBackgroundNodeOptions = SelfOptions & BackgroundNodeOptions;
 
 export default class GQBackgroundNode extends BackgroundNode {
 
-  public constructor( node: Node, providedOptions?: GQBackgroundNodeOptions ) {
+  private readonly equationText: RichText;
+
+  public constructor( providedOptions?: GQBackgroundNodeOptions ) {
 
     const options = optionize<GQBackgroundNodeOptions, SelfOptions, BackgroundNodeOptions>()( {
+
+      // SelfOptions
+      textOptions: {
+        font: GQConstants.GRAPHED_EQUATION_FONT
+      },
 
       // BackgroundNodeOptions
       rectangleOptions: {
@@ -28,12 +38,24 @@ export default class GQBackgroundNode extends BackgroundNode {
       }
     }, providedOptions );
 
-    super( node, options );
+    const equationText = new RichText( '', options.textOptions );
+
+    super( equationText, options );
+
+    this.equationText = equationText;
 
     // put a red dot at the origin, for debugging positioning
     if ( GQQueryParameters.showOrigin ) {
       this.addChild( new Circle( 3, { fill: 'red' } ) );
     }
+  }
+
+  public setTextString( value: string ): void {
+    this.equationText.string = value;
+  }
+
+  public setTextFill( fill: TColor ): void {
+    this.equationText.fill = fill;
   }
 }
 

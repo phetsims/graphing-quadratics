@@ -7,7 +7,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import { Line, Node, RichText } from '../../../../scenery/js/imports.js';
+import { Line, Node } from '../../../../scenery/js/imports.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQBackgroundNode from '../../common/view/GQBackgroundNode.js';
@@ -35,14 +35,11 @@ export default class DirectrixNode extends Node {
     } );
     this.addChild( lineNode );
 
-    // text of the equation
-    const equationText = new RichText( '', {
-      font: GQConstants.GRAPHED_EQUATION_FONT,
-      fill: GQColors.DIRECTRIX
-    } );
-
-    // equation text on a translucent background
-    const equationNode = new GQBackgroundNode( equationText, {
+    // equation on a translucent background
+    const equationNode = new GQBackgroundNode( {
+      textOptions: {
+        fill: GQColors.DIRECTRIX
+      },
       visibleProperty: equationsVisibleProperty,
       maxWidth: 100 // determined empirically
     } );
@@ -62,7 +59,7 @@ export default class DirectrixNode extends Node {
       lineNode.setLine( minX, y, maxX, y );
 
       // update the equation's text
-      equationText.string = GQEquationFactory.createDirectrix( quadratic.directrix );
+      equationNode.string = GQEquationFactory.createDirectrix( quadratic.directrix );
 
       // position the equation to avoid overlapping vertex and x axis
       if ( quadratic.vertex.x >= 0 ) {

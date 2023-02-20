@@ -12,7 +12,7 @@
 import Range from '../../../../dot/js/Range.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import merge from '../../../../phet-core/js/merge.js';
-import { Node, Path, RichText } from '../../../../scenery/js/imports.js';
+import { Node, Path } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQBackgroundNode from './GQBackgroundNode.js';
@@ -57,13 +57,8 @@ export default class QuadraticNode extends Node {
     } );
     this.addChild( this.quadraticPath );
 
-    // @private the equation's text
-    this.equationText = new RichText( '', {
-      font: GQConstants.GRAPHED_EQUATION_FONT
-    } );
-
-    // @private equation text on a translucent background
-    this.equationNode = new GQBackgroundNode( this.equationText, {
+    // @private equation on a translucent background
+    this.equationNode = new GQBackgroundNode( {
       maxWidth: 200 // determined empirically
     } );
 
@@ -149,16 +144,16 @@ export default class QuadraticNode extends Node {
 
     // update the equation text
     if ( this.equationForm === 'standard' ) {
-      this.equationText.string = GQEquationFactory.createStandardForm( quadratic );
+      this.equationNode.setTextString( GQEquationFactory.createStandardForm( quadratic ) );
     }
     else {
-      this.equationText.string = GQEquationFactory.createVertexForm( quadratic );
+      this.equationNode.setTextString( GQEquationFactory.createVertexForm( quadratic ) );
     }
 
     // update the equation color
-    this.equationText.fill = quadratic.color;
+    this.equationNode.setTextFill( quadratic.color );
 
-    // reset the origin for the equation + background
+    // reset the origin for the equation
     this.equationNode.x = 0;
     this.equationNode.y = 0;
 

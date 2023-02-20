@@ -10,7 +10,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { Line, Node, RichText } from '../../../../scenery/js/imports.js';
+import { Line, Node } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
@@ -30,15 +30,12 @@ export default class AxisOfSymmetryNode extends Node {
       lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
     } );
 
-    // text of the equation
-    const equationText = new RichText( '', {
-      font: GQConstants.GRAPHED_EQUATION_FONT,
-      fill: GQColors.AXIS_OF_SYMMETRY,
-      rotation: Math.PI / 2
-    } );
-
-    // equation text on a translucent background
-    const equationNode = new GQBackgroundNode( equationText, {
+    // equation on a translucent background
+    const equationNode = new GQBackgroundNode( {
+      textOptions: {
+        fill: GQColors.AXIS_OF_SYMMETRY,
+        rotation: Math.PI / 2
+      },
       visibleProperty: equationsVisibleProperty,
       maxHeight: 100 // maxHeight because equation is rotated, determined empirically
     } );
@@ -72,7 +69,7 @@ export default class AxisOfSymmetryNode extends Node {
         lineNode.setLine( x, minY, x, maxY );
 
         // update the equation's text
-        equationText.string = GQEquationFactory.createAxisOfSymmetry( axisOfSymmetry );
+        equationNode.setTextString( GQEquationFactory.createAxisOfSymmetry( axisOfSymmetry ) );
 
         // position the equation to avoid overlapping vertex and y axis
         if ( axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
