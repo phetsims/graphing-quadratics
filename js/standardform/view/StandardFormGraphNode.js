@@ -59,9 +59,9 @@ class StandardFormGraphNode extends GQGraphNode {
       viewProperties.vertexVisibleProperty,
       viewProperties.coordinatesVisibleProperty,
       model.quadraticProperty,
-      model.modelViewTransform, {
-        tandem: tandem.createTandem( 'noRealRootsNode' )
-      } );
+      model.modelViewTransform,
+      tandem.createTandem( 'noRealRootsNode' )
+    );
 
     assert && assert( !options.otherCurves, 'StandardFormGraphNode sets otherCurves' );
     options.otherCurves = [ axisOfSymmetryNode ];

@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Displays 'NO REAL ROOTS', used when a quadratic has no real roots.
  *
@@ -8,41 +7,35 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import { Node, NodeOptions, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
+import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 // const
 const Y_OFFSET = 2; // min offset from vertex, determined empirically
 
-class NoRealRootsNode extends Node {
+export default class NoRealRootsNode extends Node {
 
-  /**
-   * @param {BooleanProperty} rootsVisibleProperty
-   * @param {BooleanProperty} vertexVisibleProperty
-   * @param {BooleanProperty} coordinatesVisibleProperty
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( rootsVisibleProperty, vertexVisibleProperty, coordinatesVisibleProperty,
-               quadraticProperty, modelViewTransform, options ) {
+  public constructor( rootsVisibleProperty: TReadOnlyProperty<boolean>,
+                      vertexVisibleProperty: TReadOnlyProperty<boolean>,
+                      coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                      quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      modelViewTransform: ModelViewTransform2,
+                      tandem: Tandem ) {
 
-    options = merge( {
-
-      // Node options
+    const options: NodeOptions = {
       maxWidth: 200, // determined empirically
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
+      tandem: tandem,
       phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
-    }, options );
+    };
 
     const textNode = new Text( GraphingQuadraticsStrings.noRealRoots, {
       font: GQConstants.NO_REAL_ROOTS_FONT,
@@ -56,18 +49,16 @@ class NoRealRootsNode extends Node {
       center: textNode.center
     } );
 
-    assert && assert( !options.children, 'NoRealRootsNode sets children' );
     options.children = [ backgroundNode, textNode ];
 
     // visibility of this Node
-    assert && assert( !options.visibleProperty, 'NoRealRootsNode sets visibleProperty' );
     options.visibleProperty = new DerivedProperty(
       [ rootsVisibleProperty, quadraticProperty ],
       ( rootsVisible, quadratic ) =>
         rootsVisible && // the Roots checkbox is checked
         !!( quadratic.roots && quadratic.roots.length === 0 ), // the interactive quadratic has no roots
       {
-        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        tandem: tandem.createTandem( 'visibleProperty' ),
         phetioValueType: BooleanIO
       } );
 
@@ -76,9 +67,11 @@ class NoRealRootsNode extends Node {
     // Part of the graph where 'NO REAL ROOTS' may overlap with vertex coordinates, when 'NO REAL ROOTS' is
     // typically centered at the origin. Width is based on maxWidth, height was determined empirically.
     // See https://github.com/phetsims/graphing-quadratics/issues/88
+    const maxWidth = options.maxWidth!;
+    assert && assert( maxWidth !== null && maxWidth !== undefined );
     const vertexOverlapBounds = new Bounds2(
-      modelViewTransform.viewToModelDeltaX( -0.6 * options.maxWidth ), -Y_OFFSET,
-      modelViewTransform.viewToModelDeltaX( 0.6 * options.maxWidth ), Y_OFFSET );
+      modelViewTransform.viewToModelDeltaX( -0.6 * maxWidth ), -Y_OFFSET,
+      modelViewTransform.viewToModelDeltaX( 0.6 * maxWidth ), Y_OFFSET );
 
     // The center of this Node, typically at the origin, except when that would overlap the vertex's coordinates.
     // In that case, position above or below the x axis, depending on which way the parabola opens.
@@ -106,4 +99,3 @@ class NoRealRootsNode extends Node {
 }
 
 graphingQuadratics.register( 'NoRealRootsNode', NoRealRootsNode );
-export default NoRealRootsNode;
