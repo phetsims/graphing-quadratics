@@ -1,65 +1,74 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * An extension of Manipulator that adds a display of the manipulator's (x,y) coordinates.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import Property from '../../../../axon/js/Property.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import Manipulator, { ManipulatorOptions } from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { Node, TColor } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import CoordinatesNode from './CoordinatesNode.js';
 
-// constants
-const DEFAULT_LAYOUT_COORDINATES = ( coordinates, coordinatesNode, radius ) => {
+// Positions the coordinates when coordinatesProperty changes
+type LayoutCoordinatesFunction = ( coordinates: Vector2 | null, coordinatesNode: Node, radius: number ) => void;
+
+const DEFAULT_LAYOUT_COORDINATES: LayoutCoordinatesFunction = ( coordinates, coordinatesNode, radius ) => {
   // centered above the manipulator
   coordinatesNode.centerX = 0;
   coordinatesNode.bottom = -( radius + 1 );
 };
 
+type SelfOptions = {
+
+  // arguments to Manipulator constructor
+  radius?: number;
+  color?: TColor;
+
+  // options passed to CoordinatesNode
+  coordinatesBackgroundColor?: TColor;
+  coordinatesForegroundColor?: TColor;
+  coordinatesDecimals?: number;
+
+  // Positions the coordinates when coordinatesProperty changes
+  layoutCoordinates?: LayoutCoordinatesFunction;
+};
+
+type GQManipulatorOptions = SelfOptions & ManipulatorOptions & PickRequired<ManipulatorOptions, 'tandem'>;
+
 export default class GQManipulator extends Manipulator {
 
-  /**
-   * @param {Property.<Vector2|null>} coordinatesProperty
-   * @param {BooleanProperty} coordinatesVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( coordinatesProperty, coordinatesVisibleProperty, options ) {
+  protected constructor( coordinatesProperty: Property<Vector2 | null>,
+                         coordinatesVisibleProperty: Property<boolean>,
+                         providedOptions: GQManipulatorOptions ) {
 
-    options = merge( {
+    const options = optionize<GQManipulatorOptions, SelfOptions, ManipulatorOptions>()( {
 
-      // options passed to CoordinatesNode
+      // SelfOptions
+      radius: 10,
+      color: 'black',
       coordinatesBackgroundColor: 'black',
       coordinatesForegroundColor: 'white',
       coordinatesDecimals: 0,
-
-      // {function( coordinates:Vector2, coordinatesNode:Node, radius:number )}
-      // Positions the coordinates when coordinatesProperty changes
       layoutCoordinates: DEFAULT_LAYOUT_COORDINATES,
 
-      // Manipulator constructor args
-      radius: 10,
-      color: 'black',
-
-      // Manipulator options
+      // ManipulatorOptions
       haloAlpha: 0.15,
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
       phetioInputEnabledPropertyInstrumented: true
-
-    }, options );
+    }, providedOptions );
 
     super( options.radius, options.color, options );
 
     // Determine the actual radius of the manipulator (sphere + optional halo) before adding coordinates.
-    // This will be used to layout the coordinates relative to the sphere + halo.
+    // This will be used to lay out the coordinates relative to the sphere + halo.
     const actualRadius = this.width / 2;
 
-    // add coordinates display
+    // Coordinates display
     const coordinatesNode = new CoordinatesNode( coordinatesProperty, {
       backgroundColor: options.coordinatesBackgroundColor,
       foregroundColor: options.coordinatesForegroundColor,
@@ -70,17 +79,9 @@ export default class GQManipulator extends Manipulator {
     } );
     this.addChild( coordinatesNode );
 
-    // update layout
-    coordinatesProperty.link( coordinates => {
-      options.layoutCoordinates( coordinates, coordinatesNode, actualRadius );
-    } );
-
-    // visibility
-    coordinatesVisibleProperty.link( visible => {
-      if ( visible ) {
-        options.layoutCoordinates( coordinatesProperty.value, coordinatesNode, actualRadius );
-      }
-    } );
+    // Update layout
+    coordinatesNode.boundsProperty.link( () =>
+      options.layoutCoordinates( coordinatesProperty.value, coordinatesNode, actualRadius ) );
   }
 }
 
