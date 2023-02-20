@@ -30,7 +30,7 @@ type SelfOptions = {
   decorations?: Node[];
 };
 
-type GQGraphNodeOptions = SelfOptions;
+export type GQGraphNodeOptions = SelfOptions;
 
 export default class GQGraphNode extends Node {
 

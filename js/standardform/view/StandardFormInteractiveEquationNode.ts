@@ -1,44 +1,38 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-
 /**
  * Standard form equation, y = ax^2 + bx + c, with integer coefficients that can be changed via pickers.
  *
  * @author Andrea Lin
  */
 
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import { Node, RichText } from '../../../../scenery/js/imports.js';
+import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
 import NumberPicker from '../../../../sun/js/NumberPicker.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
+type SelfOptions = EmptySelfOptions;
+
+type StandardFormInteractiveEquationNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | 'phetioDocumentation'>;
+
 export default class StandardFormInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
-   * @param {NumberProperty} aProperty
-   * @param {NumberProperty} bProperty
-   * @param {NumberProperty} cProperty
-   * @param {Object} [options]
    */
-  constructor( aProperty, bProperty, cProperty, options ) {
+  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty,
+                      providedOptions: StandardFormInteractiveEquationNodeOptions ) {
 
-    assert && assert( aProperty.range, 'missing aProperty.range' );
-    assert && assert( bProperty.range, 'missing bProperty.range' );
-    assert && assert( cProperty.range, 'missing cProperty.range' );
-
-    options = merge( {
-
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
+    const options = optionize<StandardFormInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
 
     // coefficient pickers
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
@@ -74,7 +68,6 @@ export default class StandardFormInteractiveEquationNode extends Node {
     const xText = new RichText( GQSymbols.x, xyOptions );
     const secondPlusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
-    assert && assert( !options.children, 'StandardFormInteractiveEquationNode sets children' );
     options.children = [
       yText, equalToText, aPicker, xSquaredText, plusText, bPicker, xText, secondPlusText, cPicker
     ];

@@ -7,7 +7,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Line, Node } from '../../../../scenery/js/imports.js';
@@ -21,7 +20,9 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 export default class AxisOfSymmetryNode extends Node {
 
-  public constructor( quadraticProperty: Property<Quadratic>, graph: Graph, modelViewTransform: ModelViewTransform2,
+  public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      graph: Graph,
+                      modelViewTransform: ModelViewTransform2,
                       axisOfSymmetryVisibleProperty: TReadOnlyProperty<boolean>,
                       equationsVisibleProperty: TReadOnlyProperty<boolean> ) {
 
