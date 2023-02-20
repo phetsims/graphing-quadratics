@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Standard form equation, y = ax^2 + bx + c, with coefficients that can be changed via sliders.
  * The slider for coefficient 'a' has a quadratic taper (since it's modifying a quadratic term), while
@@ -10,12 +9,15 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
-import { Node, RichText } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
@@ -23,24 +25,19 @@ import LinearSlider from '../../common/view/LinearSlider.js';
 import QuadraticSlider from '../../common/view/QuadraticSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
+type SelfOptions = EmptySelfOptions;
+
+type ExploreInteractiveEquationNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | 'phetioDocumentation'>;
+
 export default class ExploreInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
-   * @param {NumberProperty} aProperty
-   * @param {NumberProperty} bProperty
-   * @param {NumberProperty} cProperty
-   * @param {Object} [options]
    */
-  constructor( aProperty, bProperty, cProperty, options ) {
+  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty,
+                      providedOptions: ExploreInteractiveEquationNodeOptions ) {
 
-    options = merge( {
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
-      phetioDocumentation: 'accordion box that contains the interactive equation'
-
-    }, options );
+    const options = optionize<ExploreInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
 
     // equation
     const equationNode = new EquationNode( aProperty, bProperty, cProperty, {
@@ -69,7 +66,6 @@ export default class ExploreInteractiveEquationNode extends Node {
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
     } );
 
-    assert && assert( !options.children, 'ExploreInteractiveEquationNode sets children' );
     options.children = [ equationNode, aSlider, bSlider, cSlider ];
 
     super( options );
@@ -88,25 +84,20 @@ export default class ExploreInteractiveEquationNode extends Node {
 /**
  * The equation that appears above the sliders.
  */
+
+type EquationNodeSelfOptions = EmptySelfOptions;
+type EquationNodeOptions = EquationNodeSelfOptions & PickRequired<NodeOptions, 'tandem' | 'phetioDocumentation'>;
+
 class EquationNode extends Node {
 
-  /**
-   * @param {NumberProperty} aProperty
-   * @param {NumberProperty} bProperty
-   * @param {NumberProperty} cProperty
-   * @param {Object} [options]
-   */
-  constructor( aProperty, bProperty, cProperty, options ) {
+  private readonly aNode: Node;
+  private readonly bNode: Node;
+  private readonly cNode: Node;
 
-    options = merge( {
+  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty,
+                      providedOptions: EquationNodeOptions ) {
 
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
-
-    assert && assert( aProperty.range, 'missing aProperty.range' );
-    assert && assert( bProperty.range, 'missing bProperty.range' );
-    assert && assert( cProperty.range, 'missing cProperty.range' );
+    const options = optionize<EquationNodeOptions, EquationNodeSelfOptions, NodeOptions>()( {}, providedOptions );
 
     // options for parts of the equation
     const equationOptions = {
@@ -183,21 +174,23 @@ class EquationNode extends Node {
 
     super( options );
 
-    // @private needed by methods
     this.aNode = aNode;
     this.bNode = bNode;
     this.cNode = cNode;
   }
 
-  // @public Gets the global {Bounds2} of a, b, c, used for layout
-  get aGlobalBounds() { return this.getGlobalBoundsForNode( this.aNode ); }
+  // Gets the global bounds of a, b, c, used for layout
+  public get aGlobalBounds(): Bounds2 {
+    return this.aNode.getGlobalBounds();
+  }
 
-  get bGlobalBounds() { return this.getGlobalBoundsForNode( this.bNode ); }
+  public get bGlobalBounds(): Bounds2 {
+    return this.bNode.getGlobalBounds();
+  }
 
-  get cGlobalBounds() { return this.getGlobalBoundsForNode( this.cNode ); }
-
-  // @private gets the global bounds of a descendent Node
-  getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
+  public get cGlobalBounds(): Bounds2 {
+    return this.cNode.getGlobalBounds();
+  }
 }
 
 graphingQuadratics.register( 'ExploreInteractiveEquationNode', ExploreInteractiveEquationNode );
