@@ -64,7 +64,6 @@ export default class GQManipulator extends Manipulator {
       foregroundColor: options.coordinatesForegroundColor,
       decimals: options.coordinatesDecimals,
       visibleProperty: coordinatesVisibleProperty,
-      pickable: false,
       tandem: options.tandem.createTandem( 'coordinatesNode' ),
       phetioDocumentation: 'coordinates displayed on this manipulator'
     } );
