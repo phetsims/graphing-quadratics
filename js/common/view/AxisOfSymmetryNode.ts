@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Displays the axis of symmetry for a quadratic.
  *
@@ -8,24 +7,21 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Property from '../../../../axon/js/Property.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Line, Node, RichText } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
+import Quadratic from '../model/Quadratic.js';
 import GQBackgroundNode from './GQBackgroundNode.js';
 import GQEquationFactory from './GQEquationFactory.js';
 
 export default class AxisOfSymmetryNode extends Node {
 
-  /**
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Graph} graph
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {BooleanProperty} axisOfSymmetryVisibleProperty
-   * @param {BooleanProperty} equationsVisibleProperty
-   */
-  constructor( quadraticProperty, graph, modelViewTransform,
-               axisOfSymmetryVisibleProperty, equationsVisibleProperty ) {
+  public constructor( quadraticProperty: Property<Quadratic>, graph: Graph, modelViewTransform: ModelViewTransform2,
+                      axisOfSymmetryVisibleProperty: Property<boolean>, equationsVisibleProperty: Property<boolean> ) {
 
     super();
 
@@ -59,26 +55,30 @@ export default class AxisOfSymmetryNode extends Node {
     quadraticProperty.link( quadratic => {
 
       if ( quadratic.isaParabola() ) {
+        const axisOfSymmetry = quadratic.axisOfSymmetry!;
+        assert && assert( axisOfSymmetry !== undefined );
+        const vertex = quadratic.vertex!;
+        assert && assert( vertex !== undefined );
 
         // update the vertical line
-        const x = modelViewTransform.modelToViewX( quadratic.axisOfSymmetry );
+        const x = modelViewTransform.modelToViewX( axisOfSymmetry );
         lineNode.setLine( x, minY, x, maxY );
 
         // update the equation's text
-        equationText.string = GQEquationFactory.createAxisOfSymmetry( quadratic.axisOfSymmetry );
+        equationText.string = GQEquationFactory.createAxisOfSymmetry( axisOfSymmetry );
 
         // position the equation to avoid overlapping vertex and y axis
-        if ( quadratic.axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
+        if ( axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
 
           // axis is at far right of graph, so put equation on left of axis
           equationNode.right = lineNode.left - GQConstants.EQUATION_CURVE_SPACING;
         }
-        else if ( quadratic.axisOfSymmetry < graph.yRange.min + GQConstants.EQUATION_Y_MARGIN ) {
+        else if ( axisOfSymmetry < graph.yRange.min + GQConstants.EQUATION_Y_MARGIN ) {
 
           // axis is at far left of graph, so put equation on right of axis
           equationNode.left = lineNode.right + GQConstants.EQUATION_CURVE_SPACING;
         }
-        else if ( quadratic.axisOfSymmetry >= 0 ) {
+        else if ( axisOfSymmetry >= 0 ) {
 
           // axis is at or to right of origin, so put equation on left of axis
           equationNode.left = lineNode.right + GQConstants.EQUATION_CURVE_SPACING;
@@ -90,7 +90,7 @@ export default class AxisOfSymmetryNode extends Node {
         }
 
         // space between the equation and axis
-        if ( quadratic.vertex.y >= 0 ) {
+        if ( vertex.y >= 0 ) {
           equationNode.bottom = modelViewTransform.modelToViewY( graph.yRange.min + 1 );
         }
         else {
