@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Displays the vertex as a non-interactive point with coordinates label.
  *
@@ -8,45 +7,42 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
+import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import PointNode from './PointNode.js';
+import PointNode, { PointNodeOptions } from './PointNode.js';
 
 // constants
 const COORDINATES_Y_SPACING = 5;
 
 export default class VertexNode extends PointNode {
 
-  /**
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Graph} graph
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {BooleanProperty} vertexVisibleProperty
-   * @param {BooleanProperty} coordinatesVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( quadraticProperty, graph, modelViewTransform,
-               vertexVisibleProperty, coordinatesVisibleProperty, options ) {
+  public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>, graph: Graph,
+                      modelViewTransform: ModelViewTransform2,
+                      vertexVisibleProperty: TReadOnlyProperty<boolean>,
+                      coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                      tandem: Tandem ) {
 
-    options = merge( {
+    const options: PointNodeOptions = {
 
       // PointNode options
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
       coordinatesForegroundColor: 'white',
       coordinatesBackgroundColor: GQColors.VERTEX,
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
-
-      // phet-io
+      tandem: tandem,
       phetioDocumentation: 'displays the vertex of the interactive quadratic'
-    }, options );
+    };
 
     // position coordinates on the outside of the parabola
-    assert && assert( !options.layoutCoordinates, 'VertexNode sets layoutCoordinates' );
     options.layoutCoordinates = ( coordinatesNode, pointNode ) => {
       coordinatesNode.centerX = pointNode.centerX;
       if ( quadraticProperty.value.a > 0 ) {
@@ -69,12 +65,11 @@ export default class VertexNode extends PointNode {
       } );
 
     // visibility of this Node
-    assert && assert( !options.visibleProperty, 'VertexNode sets visibleProperty' );
     options.visibleProperty = new DerivedProperty(
       [ vertexVisibleProperty, quadraticProperty ],
       ( vertexVisible, quadratic ) =>
         vertexVisible &&  // the Vertex checkbox is checked
-        quadratic.isaParabola() &&  // the quadratic is a parabola, so has a vertex
+        quadratic.isaParabola() && ( quadratic.vertex !== undefined ) &&  // the quadratic is a parabola, so has a vertex
         graph.contains( quadratic.vertex ), // the vertex is on the graph
       {
         tandem: options.tandem.createTandem( 'visibleProperty' ),

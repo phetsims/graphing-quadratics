@@ -9,6 +9,7 @@
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Circle, Node, NodeOptions, NodeTranslationOptions, TColor } from '../../../../scenery/js/imports.js';
 import CoordinatesNode from '../../common/view/CoordinatesNode.js';
@@ -37,11 +38,13 @@ type SelfOptions = {
   layoutCoordinates?: LayoutCoordinatesFunction;
 };
 
-type PointNodeOptions = SelfOptions & NodeTranslationOptions & PickRequired<NodeOptions, 'tandem'>;
+export type PointNodeOptions = SelfOptions & NodeTranslationOptions &
+  PickOptional<NodeOptions, 'visibleProperty' | 'phetioDocumentation'> &
+  PickRequired<NodeOptions, 'tandem'>;
 
 export default class PointNode extends Node {
 
-  public constructor( coordinatesProperty: TReadOnlyProperty<Vector2>,
+  public constructor( coordinatesProperty: TReadOnlyProperty<Vector2 | null>,
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: PointNodeOptions ) {
 
