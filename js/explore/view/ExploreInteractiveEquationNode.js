@@ -18,7 +18,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
-import GQSlider from '../../common/view/GQSlider.js';
+import LinearSlider from '../../common/view/LinearSlider.js';
 import QuadraticSlider from '../../common/view/QuadraticSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
@@ -55,13 +55,13 @@ export default class ExploreInteractiveEquationNode extends Node {
       tandem: options.tandem.createTandem( 'aSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
     } );
-    const bSlider = new GQSlider( GQSymbols.b, bProperty, {
+    const bSlider = new LinearSlider( GQSymbols.b, bProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_B,
       labelColor: GQColors.EXPLORE_B,
       tandem: options.tandem.createTandem( 'bSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
     } );
-    const cSlider = new GQSlider( GQSymbols.c, cProperty, {
+    const cSlider = new LinearSlider( GQSymbols.c, cProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_C,
       labelColor: GQColors.EXPLORE_C,
       tandem: options.tandem.createTandem( 'cSlider' ),

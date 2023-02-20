@@ -16,7 +16,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
-import GQSlider from '../../common/view/GQSlider.js';
+import LinearSlider from '../../common/view/LinearSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
 export default class FocusAndDirectrixInteractiveEquationNode extends Node {
@@ -43,7 +43,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     } );
 
     // value sliders
-    const pSlider = new GQSlider( GQSymbols.p, pProperty, {
+    const pSlider = new LinearSlider( GQSymbols.p, pProperty, {
 
       // p=0 is not supported by this sim because it results in division by zero for 1/(4p).
       // see https://github.com/phetsims/graphing-quadratics/issues/31
@@ -53,13 +53,13 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       tandem: options.tandem.createTandem( 'pSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
     } );
-    const hSlider = new GQSlider( GQSymbols.h, hProperty, {
+    const hSlider = new LinearSlider( GQSymbols.h, hProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
       labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
       tandem: options.tandem.createTandem( 'hSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
     } );
-    const kSlider = new GQSlider( GQSymbols.k, kProperty, {
+    const kSlider = new LinearSlider( GQSymbols.k, kProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
       labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
       tandem: options.tandem.createTandem( 'kSlider' ),

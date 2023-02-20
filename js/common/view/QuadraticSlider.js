@@ -2,7 +2,7 @@
 
 /**
  * QuadraticSlider is a vertical slider that has a quadratic taper.
- * While the implementation is general, this slider is used for the 'a' coefficient in the Explore screen.
+ * This slider is used for the 'a' coefficient in the Explore screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
