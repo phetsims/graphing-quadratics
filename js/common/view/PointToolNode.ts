@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * PointToolNode is a tool displays the (x,y) coordinates of a point on the graph.
  * If it's sufficiently close to a curve, it will snap to that curve.
@@ -12,40 +11,50 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import PointToolBodyNode from '../../../../graphing-lines/js/common/view/PointToolBodyNode.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { Circle, DragListener, Node, Path, Rectangle } from '../../../../scenery/js/imports.js';
+import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import { Circle, DragListener, DragListenerOptions, Node, NodeOptions, Path, PressedDragListener, Rectangle, TColor } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
+import PointTool from '../model/PointTool.js';
+
+const PROBE_RADIUS = 15;
+const PROBE_STROKE = 'black';
+
+type SelfOptions = {
+  backgroundNormalColor?: TColor;
+  foregroundNormalColor?: TColor;
+  foregroundHighlightColor?: TColor;
+};
+
+type PointToolNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class PointToolNode extends Node {
 
-  /**
-   * @param {PointTool} pointTool
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Graph} graph
-   * @param {BooleanProperty} graphContentsVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( pointTool, modelViewTransform, graph, graphContentsVisibleProperty, options ) {
+  public constructor( pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
+                      graphContentsVisibleProperty: TReadOnlyProperty<boolean>, providedOptions: PointToolNodeOptions ) {
 
-    options = merge( {
-      cursor: 'pointer',
+    const options = optionize<PointToolNodeOptions, SelfOptions, NodeOptions>()( {
+
+      // SelfOptions
       backgroundNormalColor: 'white',
       foregroundNormalColor: 'black',
       foregroundHighlightColor: 'white',
 
-      // phet-io
-      tandem: Tandem.REQUIRED,
-      phetioDocumentation: Tandem.PHET_IO_ENABLED ? pointTool.phetioDocumentation : null,
+      // NodeOptions
+      cursor: 'pointer',
+      phetioDocumentation: Tandem.PHET_IO_ENABLED ? pointTool.phetioDocumentation : '',
       phetioInputEnabledPropertyInstrumented: true
-
-    }, options );
+    }, providedOptions );
 
     // coordinatesProperty is null when the tool is not on the graph.
     const coordinatesProperty = new DerivedProperty( [ pointTool.positionProperty ],
@@ -96,8 +105,7 @@ export default class PointToolNode extends Node {
     // add the drag listener
     this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
       graphContentsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'dragListener' ),
-        phetioDocumentation: 'the drag listener for this point tool'
+        tandem: options.tandem.createTandem( 'dragListener' )
       } ) );
 
     // put a red dot at the origin, for debugging positioning
@@ -106,34 +114,24 @@ export default class PointToolNode extends Node {
     }
   }
 
-  /**
-   * @public
-   * @override
-   */
-  dispose() {
+  public override dispose(): void {
     assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
     super.dispose();
   }
 }
 
+/**
+ * The probe that is attached to the side of the point tool. Drawn for attachment to left side.
+ */
+
 class ProbeNode extends Node {
 
-  /**
-   * The probe that is attached to the side of the point tool.
-   * Drawn for attachment to left side.
-   * @param {Object} [options]
-   */
-  constructor( options ) {
-
-    options = merge( {
-      radius: 15,
-      color: 'black'
-    }, options );
+  public constructor() {
 
     // circle
-    const circle = new Circle( options.radius, {
+    const circle = new Circle( PROBE_RADIUS, {
       lineWidth: 3,
-      stroke: options.color,
+      stroke: PROBE_STROKE,
       fill: 'rgba( 255, 255, 255, 0.2 )', // transparent white
       centerX: 0,
       centerY: 0
@@ -141,16 +139,16 @@ class ProbeNode extends Node {
 
     // crosshairs
     const crosshairs = new Path( new Shape()
-      .moveTo( -options.radius, 0 )
-      .lineTo( options.radius, 0 )
-      .moveTo( 0, -options.radius )
-      .lineTo( 0, options.radius ), {
-      stroke: options.color,
+      .moveTo( -PROBE_RADIUS, 0 )
+      .lineTo( PROBE_RADIUS, 0 )
+      .moveTo( 0, -PROBE_RADIUS )
+      .lineTo( 0, PROBE_RADIUS ), {
+      stroke: PROBE_STROKE,
       center: circle.center
     } );
 
     // shaft that connects the probe to the body
-    const shaft = new Rectangle( 0, 0, 0.5 * options.radius, 4, {
+    const shaft = new Rectangle( 0, 0, 0.5 * PROBE_RADIUS, 4, {
       fill: 'rgb( 144, 144, 144 )',
       left: circle.right,
       centerY: circle.centerY
@@ -168,16 +166,9 @@ class ProbeNode extends Node {
 
 class PointToolDragListener extends DragListener {
 
-  /**
-   * Drag handler for the point tool.
-   * @param {Node} targetNode - the Node that we attached this listener to
-   * @param {PointTool} pointTool
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Graph} graph
-   * @param {BooleanProperty} graphContentsVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( targetNode, pointTool, modelViewTransform, graph, graphContentsVisibleProperty, options ) {
+  public constructor( targetNode: Node, pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
+                      graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
+                      providedOptions: DragListenerOptions<PressedDragListener> ) {
 
     // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
     // how close the point tool's x coordinate must be in order to snap to the closest integer x coordinate.
@@ -185,9 +176,9 @@ class PointToolDragListener extends DragListener {
     // See https://github.com/phetsims/graphing-quadratics/issues/169.
     const xSnapTolerance = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
 
-    let startOffset; // where the drag started, relative to the tool's origin, in parent view coordinates
+    let startOffset: Vector2; // where the drag started, relative to the tool's origin, in parent view coordinates
 
-    options = merge( {
+    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
 
       allowTouchSnag: true,
 
@@ -199,7 +190,7 @@ class PointToolDragListener extends DragListener {
         startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
 
         // Move the tool that we're dragging to the foreground.
-        event.currentTarget.moveToFront();
+        targetNode.moveToFront();
       },
 
       drag: ( event, listener ) => {
@@ -241,7 +232,7 @@ class PointToolDragListener extends DragListener {
         // move the point tool
         pointTool.positionProperty.value = position;
       }
-    }, options );
+    }, providedOptions );
 
     super( options );
   }

@@ -28,7 +28,7 @@ type ProbeSide = 'left' | 'right';
 type SelfOptions = {
   position?: Vector2; // initial position
   probeSide?: ProbeSide; // which side the probe is on
-  dragBounds?: Bounds2 | null; // drag bounds, in model coordinate frame
+  dragBounds?: Bounds2; // drag bounds, in model coordinate frame
 };
 
 type PointToolOptions = SelfOptions &
@@ -38,7 +38,7 @@ type PointToolOptions = SelfOptions &
 export default class PointTool extends PhetioObject {
 
   public readonly probeSide: ProbeSide;
-  public readonly dragBounds: Bounds2 | null;
+  public readonly dragBounds: Bounds2;
   private readonly quadraticsProperty: TReadOnlyProperty<Quadratic[]>;
   public readonly positionProperty: Property<Vector2>;
   public readonly quadraticProperty: TReadOnlyProperty<Quadratic | null>;
@@ -55,7 +55,7 @@ export default class PointTool extends PhetioObject {
       // SelfOptions
       position: Vector2.ZERO,
       probeSide: 'left',
-      dragBounds: null,
+      dragBounds: Bounds2.EVERYTHING,
 
       // PhetioObjectOptions
       phetioState: false // this is a PhetioObject only to add phetioDocumentation
