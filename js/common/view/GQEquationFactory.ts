@@ -106,10 +106,8 @@ const GQEquationFactory = {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = Utils.toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
-    assert && assert( quadratic.h !== undefined );
-    const h = Utils.toFixedNumber( quadratic.h!, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H );
-    assert && assert( quadratic.k !== undefined );
-    const k = Utils.toFixedNumber( quadratic.k!, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
+    const h = ( quadratic.h === undefined ) ? 0 : Utils.toFixedNumber( quadratic.h, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H );
+    const k = ( quadratic.k === undefined ) ? 0 : Utils.toFixedNumber( quadratic.k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
 
     // y =
     let equationString = `${Y_EQUALS_STRING} `;
