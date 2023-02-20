@@ -40,9 +40,9 @@ class StandardFormGraphNode extends GQGraphNode {
       model.graph,
       model.modelViewTransform,
       viewProperties.rootsVisibleProperty,
-      viewProperties.coordinatesVisibleProperty, {
-        tandem: tandem.createTandem( 'rootsNode' )
-      } );
+      viewProperties.coordinatesVisibleProperty,
+      tandem.createTandem( 'rootsNode' )
+    );
 
     // Vertex
     const vertexNode = new VertexNode(
@@ -50,7 +50,8 @@ class StandardFormGraphNode extends GQGraphNode {
       model.graph,
       model.modelViewTransform,
       viewProperties.vertexVisibleProperty,
-      viewProperties.coordinatesVisibleProperty, tandem.createTandem( 'vertexNode' )
+      viewProperties.coordinatesVisibleProperty,
+      tandem.createTandem( 'vertexNode' )
     );
 
     // 'NO REAL ROOTS' label

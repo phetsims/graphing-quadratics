@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Displays the roots of a quadratic as non-interactive points with coordinate labels.
  *
@@ -8,47 +7,38 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { Node } from '../../../../scenery/js/imports.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import { Node, NodeOptions } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
+import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import PointNode from './PointNode.js';
+import PointNode, { PointNodeOptions } from './PointNode.js';
 
 // constants
 const COORDINATES_X_SPACING = 15; // between root point and its coordinates display
 
-class RootsNode extends Node {
+export default class RootsNode extends Node {
 
-  /**
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Graph} graph
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {BooleanProperty} rootsVisibleProperty
-   * @param {BooleanProperty} coordinatesVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( quadraticProperty, graph, modelViewTransform,
-               rootsVisibleProperty, coordinatesVisibleProperty, options ) {
+  public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      graph: Graph, modelViewTransform: ModelViewTransform2,
+                      rootsVisibleProperty: TReadOnlyProperty<boolean>,
+                      coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                      tandem: Tandem ) {
 
-    options = merge( {
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
+    const options: NodeOptions = {
+      tandem: tandem,
       phetioDocumentation: 'displays the roots of the interactive quadratic'
-    }, options );
-
-    // options common to both Property instances
-    const coordinatesPropertyOptions = {
-      valueType: [ Vector2, null ],
-      phetioValueType: NullableIO( Vector2.Vector2IO )
     };
 
-    // {DerivedProperty.<null|Vector2>} coordinates for the quadratic's left root
+    // {DerivedProperty.<Vector2|null>} coordinates for the quadratic's left root
     const leftCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
       quadratic => {
         if ( !quadratic.roots || quadratic.roots.length === 0 ) {
@@ -59,15 +49,15 @@ class RootsNode extends Node {
         else {
           return quadratic.roots[ 0 ];
         }
-      },
-      merge( {}, coordinatesPropertyOptions, {
-        tandem: options.tandem.createTandem( 'leftCoordinatesProperty' ),
+      }, {
+        tandem: tandem.createTandem( 'leftCoordinatesProperty' ),
+        phetioValueType: NullableIO( Vector2.Vector2IO ),
         phetioDocumentation: 'coordinates displayed on the left root, ' +
                              'identical to rightCoordinatesProperty if there is one root, ' +
                              'null if there are no roots or if all points are roots'
-      } ) );
+      } );
 
-    // {DerivedProperty.<null|Vector2>} coordinates for the quadratic's right root
+    // {DerivedProperty.<Vector2|null>} coordinates for the quadratic's right root
     const rightCoordinatesProperty = new DerivedProperty( [ quadraticProperty ],
       quadratic => {
         if ( !quadratic.roots || quadratic.roots.length === 0 ) {
@@ -86,13 +76,13 @@ class RootsNode extends Node {
           assert && assert( quadratic.roots.length === 2, `expected 2 roots, found ${quadratic.roots.length}` );
           return quadratic.roots[ 1 ];
         }
-      },
-      merge( {}, coordinatesPropertyOptions, {
-        tandem: options.tandem.createTandem( 'rightCoordinatesProperty' ),
+      }, {
+        tandem: tandem.createTandem( 'rightCoordinatesProperty' ),
+        phetioValueType: NullableIO( Vector2.Vector2IO ),
         phetioDocumentation: 'coordinates displayed on the right root, ' +
                              'identical to leftCoordinatesProperty if there is one root, ' +
                              'null if there are no roots or if all points are roots'
-      } ) );
+      } );
 
     // options common to both PointNode instances
     const pointNodeOptions = {
@@ -106,35 +96,33 @@ class RootsNode extends Node {
 
     // left root
     const leftRootNode = new PointNode( leftCoordinatesProperty, coordinatesVisibleProperty,
-      merge( {}, pointNodeOptions, {
+      combineOptions<PointNodeOptions>( {}, pointNodeOptions, {
 
         // Coordinates to the left of the point
         layoutCoordinates: ( coordinatesNode, pointNode ) => {
           coordinatesNode.right = pointNode.left - COORDINATES_X_SPACING;
           coordinatesNode.centerY = pointNode.centerY;
         },
-        tandem: options.tandem.createTandem( 'leftRootNode' ),
+        tandem: tandem.createTandem( 'leftRootNode' ),
         phetioDocumentation: 'the left root'
       } ) );
 
     // right root
     const rightRootNode = new PointNode( rightCoordinatesProperty, coordinatesVisibleProperty,
-      merge( {}, pointNodeOptions, {
+      combineOptions<PointNodeOptions>( {}, pointNodeOptions, {
 
         // Coordinates to the right of the point
         layoutCoordinates: ( coordinatesNode, pointNode ) => {
           coordinatesNode.left = pointNode.right + COORDINATES_X_SPACING;
           coordinatesNode.centerY = pointNode.centerY;
         },
-        tandem: options.tandem.createTandem( 'rightRootNode' ),
+        tandem: tandem.createTandem( 'rightRootNode' ),
         phetioDocumentation: 'the right root'
       } ) );
 
-    assert && assert( !options.children, 'RootsNode sets children' );
     options.children = [ leftRootNode, rightRootNode ];
 
     // visibility of this Node
-    assert && assert( !options.visibleProperty, 'RootsNode sets visibleProperty' );
     options.visibleProperty = new DerivedProperty(
       [ rootsVisibleProperty, quadraticProperty ],
       ( rootsVisible, quadratic ) =>
@@ -142,7 +130,7 @@ class RootsNode extends Node {
         !!quadratic.roots && // it is not the case that all points on the quadratic are roots
         quadratic.roots.length !== 0, // there is at least one root
       {
-        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        tandem: tandem.createTandem( 'visibleProperty' ),
         phetioValueType: BooleanIO
       } );
 
@@ -175,4 +163,3 @@ class RootsNode extends Node {
 }
 
 graphingQuadratics.register( 'RootsNode', RootsNode );
-export default RootsNode;
