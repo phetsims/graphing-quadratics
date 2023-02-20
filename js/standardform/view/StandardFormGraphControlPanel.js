@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Panel that contains controls for various features related to the graph on the 'Standard Form' screen.
  *
