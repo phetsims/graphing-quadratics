@@ -1,31 +1,32 @@
 // Copyright 2019-2021, University of Colorado Boulder
 
-ç
 /**
  * Puts a Node on a rectangular background, dynamically sized to fit the Node.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
-import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
-import { Circle } from '../../../../scenery/js/imports.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import BackgroundNode, { BackgroundNodeOptions } from '../../../../scenery-phet/js/BackgroundNode.js';
+import { Circle, Node } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 
+type SelfOptions = EmptySelfOptions;
+
+type GQBackgroundNodeOptions = SelfOptions & BackgroundNodeOptions;
+
 export default class GQBackgroundNode extends BackgroundNode {
 
-  /**
-   * @param {Node} node - the Node that will be put on the background
-   * @param {Object} [options]
-   */
-  constructor( node, options ) {
+  public constructor( node: Node, providedOptions?: GQBackgroundNodeOptions ) {
 
-    options = merge( {
+    const options = optionize<GQBackgroundNodeOptions, SelfOptions, BackgroundNodeOptions>()( {
+
+      // BackgroundNodeOptions
       rectangleOptions: {
         fill: GQQueryParameters.equationsBackgroundColor
       }
-    }, options );
+    }, providedOptions );
 
     super( node, options );
 

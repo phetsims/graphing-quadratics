@@ -1,49 +1,44 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Abstract base class for the accordion box that displays the interactive equation and related controls.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import EraserButton from '../../../../scenery-phet/js/buttons/EraserButton.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import { HBox, HSeparator, Path, VBox } from '../../../../scenery/js/imports.js';
+import { HBox, HBoxOptions, HSeparator, Node, Path, VBox } from '../../../../scenery/js/imports.js';
 import cameraSolidShape from '../../../../sherpa/js/fontawesome-5/cameraSolidShape.js';
-import AccordionBox from '../../../../sun/js/AccordionBox.js';
+import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
+import GQModel from '../model/GQModel.js';
 
-// constants
 const BUTTON_ICON_WIDTH = 30;
+
+type SelfOptions = EmptySelfOptions;
+
+type GQEquationAccordionBoxOptions = SelfOptions & AccordionBoxOptions & PickRequired<AccordionBoxOptions, 'tandem'>;
 
 export default class GQEquationAccordionBox extends AccordionBox {
 
-  /**
-   * @param {GQModel} model
-   * @param {Node} interactiveEquationNode
-   * @param {Object} [options]
-   * @abstract
-   */
-  constructor( model, interactiveEquationNode, options ) {
+  public constructor( model: GQModel, interactiveEquationNode: Node, providedOptions: GQEquationAccordionBoxOptions ) {
 
-    options = merge( {
+    const options = optionize4<GQEquationAccordionBoxOptions, SelfOptions, AccordionBoxOptions>()(
+      {}, GQConstants.ACCORDION_BOX_OPTIONS, {
 
-      // phet-io
-      tandem: Tandem.REQUIRED,
-      phetioDocumentation: 'the accordion box that contains the interactive equation'
-
-    }, GQConstants.ACCORDION_BOX_OPTIONS, options );
+        // AccordionBoxOptions
+        phetioDocumentation: 'the accordion box that contains the interactive equation'
+      }, providedOptions );
 
     // Buttons at the bottom of the accordion box
-    const buttonGroup = new ButtonGroup( model, {
-      tandem: options.tandem.createTandem( 'buttonGroup' )
-    } );
+    const buttonGroup = new ButtonGroup( model, options.tandem.createTandem( 'buttonGroup' ) );
 
     // properties of the horizontal separators
     const separatorOptions = { stroke: GQColors.SEPARATOR };
@@ -63,30 +58,19 @@ export default class GQEquationAccordionBox extends AccordionBox {
   }
 }
 
-graphingQuadratics.register( 'GQEquationAccordionBox', GQEquationAccordionBox );
-
 /**
  * The buttons at the bottom of the accordion box.
  */
 class ButtonGroup extends HBox {
 
-  /**
-   * @param {GQModel} model
-   * @param {Object} [options]
-   */
-  constructor( model, options ) {
+  public constructor( model: GQModel, tandem: Tandem ) {
 
-    options = merge( {
-
-      // HBox options
+    const options: HBoxOptions = {
       spacing: 40,
       align: 'center',
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
+      tandem: tandem,
       phetioDocumentation: 'buttons that appear below the interactive equation'
-
-    }, options );
+    };
 
     // Save button
     const saveButton = new RectangularPushButton( {
@@ -96,7 +80,7 @@ class ButtonGroup extends HBox {
       } ),
       baseColor: PhetColorScheme.BUTTON_YELLOW,
       listener: () => { model.saveQuadratic(); },
-      tandem: options.tandem.createTandem( 'saveButton' ),
+      tandem: tandem.createTandem( 'saveButton' ),
       phetioDocumentation: 'the button used to save a quadratic',
       visiblePropertyOptions: { phetioReadOnly: true } // by designer request
     } );
@@ -105,12 +89,11 @@ class ButtonGroup extends HBox {
     const eraseButton = new EraserButton( {
       iconWidth: BUTTON_ICON_WIDTH,
       listener: () => { model.eraseQuadratic(); },
-      tandem: options.tandem.createTandem( 'eraseButton' ),
+      tandem: tandem.createTandem( 'eraseButton' ),
       phetioDocumentation: 'the button used to erase the saved quadratic',
       visiblePropertyOptions: { phetioReadOnly: true } // by designer request
     } );
 
-    assert && assert( !options.children, 'ButtonGroup sets children' );
     options.children = [ saveButton, eraseButton ];
 
     super( options );
@@ -122,4 +105,4 @@ class ButtonGroup extends HBox {
   }
 }
 
-graphingQuadratics.register( 'ButtonGroup', ButtonGroup );
+graphingQuadratics.register( 'GQEquationAccordionBox', GQEquationAccordionBox );
