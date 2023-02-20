@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * PointToolNode is a tool displays the (x,y) coordinates of a point on the graph.
  * If it's sufficiently close to a curve, it will snap to that curve.
