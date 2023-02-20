@@ -1,6 +1,5 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * GQEquationFactory creates strings that display various equations needed by this sim.
  * The strings contain markup that is compatible with SCENERY/RichText.
@@ -11,11 +10,11 @@
  */
 
 import Utils from '../../../../dot/js/Utils.js';
-import merge from '../../../../phet-core/js/merge.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQSymbols from '../GQSymbols.js';
+import Quadratic from '../model/Quadratic.js';
 
 // constants
 const Y_EQUALS_STRING = `${GQSymbols.y} ${MathSymbols.EQUAL_TO}`; // 'y ='
@@ -23,24 +22,14 @@ const Y_EQUALS_STRING = `${GQSymbols.y} ${MathSymbols.EQUAL_TO}`; // 'y ='
 const GQEquationFactory = {
 
   /**
-   * Creates the string for an equation in standard form, y = ax^2 + bx + c
-   * @param {Quadratic} quadratic
-   * @param {Object} [options]
-   * @returns {string} - compatible with RichText
-   * @public
+   * Creates the RichText string for an equation in standard form, y = ax^2 + bx + c
    */
-  createStandardForm( quadratic, options ) {
-
-    options = merge( {
-      aDecimals: GQConstants.EXPLORE_DECIMALS_A,
-      bDecimals: GQConstants.EXPLORE_DECIMALS_B,
-      cDecimals: GQConstants.EXPLORE_DECIMALS_C
-    }, options );
+  createStandardForm( quadratic: Quadratic ): string {
 
     // use toFixedNumber so we don't have trailing zeros
-    const a = Utils.toFixedNumber( quadratic.a, options.aDecimals );
-    const b = Utils.toFixedNumber( quadratic.b, options.bDecimals );
-    const c = Utils.toFixedNumber( quadratic.c, options.cDecimals );
+    const a = Utils.toFixedNumber( quadratic.a, GQConstants.EXPLORE_DECIMALS_A );
+    const b = Utils.toFixedNumber( quadratic.b, GQConstants.EXPLORE_DECIMALS_B );
+    const c = Utils.toFixedNumber( quadratic.c, GQConstants.EXPLORE_DECIMALS_C );
 
     // y =
     let equationString = `${Y_EQUALS_STRING} `;
@@ -111,24 +100,16 @@ const GQEquationFactory = {
   },
 
   /**
-   * Creates the string for an equation in vertex form, y = a(x - h)^2 + k
-   * @param {Quadratic} quadratic
-   * @param {Object} [options]
-   * @returns {string} - compatible with RichText
-   * @public
+   * Creates the RichText string for an equation in vertex form, y = a(x - h)^2 + k
    */
-  createVertexForm( quadratic, options ) {
-
-    options = merge( {
-      aDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A,
-      hDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H,
-      kDecimals: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
-    }, options );
+  createVertexForm( quadratic: Quadratic ): string {
 
     // use toFixedNumber so we don't have trailing zeros
-    const a = Utils.toFixedNumber( quadratic.a, options.aDecimals );
-    const h = Utils.toFixedNumber( quadratic.h, options.hDecimals );
-    const k = Utils.toFixedNumber( quadratic.k, options.kDecimals );
+    const a = Utils.toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
+    assert && assert( quadratic.h !== undefined );
+    const h = Utils.toFixedNumber( quadratic.h!, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H );
+    assert && assert( quadratic.k !== undefined );
+    const k = Utils.toFixedNumber( quadratic.k!, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
 
     // y =
     let equationString = `${Y_EQUALS_STRING} `;
@@ -141,7 +122,7 @@ const GQEquationFactory = {
     else if ( a === 0 ) {
 
       // y = c
-      equationString += Utils.toFixedNumber( quadratic.c, options.kDecimals );
+      equationString += Utils.toFixedNumber( quadratic.c, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
     }
     else {
 
@@ -183,24 +164,17 @@ const GQEquationFactory = {
   },
 
   /**
-   * Creates the string for the directrix equation.
-   * @param {number} directrix
-   * @returns {string} - compatible with RichText
-   * @public
+   * Creates the RichText string for the directrix equation.
    */
-  createDirectrix( directrix ) {
+  createDirectrix( directrix: number ): string {
     return `${Y_EQUALS_STRING} ${Utils.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
   },
 
   /**
-   * Creates the string for the axis of symmetry equation.
-   * @param {number} axisOfSymmetry
-   * @returns {string} - compatible with RichText
-   * @public
+   * Creates the RichText string for the axis of symmetry equation.
    */
-  createAxisOfSymmetry( axisOfSymmetry ) {
-    return `${GQSymbols.x} ${MathSymbols.EQUAL_TO} ${
-      Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
+  createAxisOfSymmetry( axisOfSymmetry: number ): string {
+    return `${GQSymbols.x} ${MathSymbols.EQUAL_TO} ${Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
 };
 
