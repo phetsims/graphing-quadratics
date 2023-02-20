@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Displays '(x, y)' coordinates.  If the coordinates are null, this displays '(?, ?)'.
  * Performance is optimized to update only when visible.
