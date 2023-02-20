@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Manipulator for editing a point on a parabola. Displays the coordinates of the point.
  *

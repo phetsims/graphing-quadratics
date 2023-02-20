@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Manipulator for editing a quadratic by changing its focus.
  * Displays the coordinates of the focus.
