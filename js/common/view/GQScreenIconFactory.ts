@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Creates screen icons for this sim.  Most of the magic numbers herein were determined empirically,
  * to match the mockups provided in https://github.com/phetsims/graphing-quadratics/issues/11#issuecomment-427149327.
@@ -13,8 +12,8 @@ import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/M
 import Screen from '../../../../joist/js/Screen.js';
 import ScreenIcon from '../../../../joist/js/ScreenIcon.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { Circle, Line, Node, Path, Rectangle } from '../../../../scenery/js/imports.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import { Circle, Line, Node, Path, PathOptions, Rectangle } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import Quadratic from '../model/Quadratic.js';
@@ -45,10 +44,8 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Explore screen.
-   * @returns {ScreenIcon}
-   * @public
    */
-  createExploreScreenIcon() {
+  createExploreScreenIcon(): ScreenIcon {
 
     // invisible rectangle that fills the entire icon
     const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
@@ -59,7 +56,7 @@ const GQScreenIconFactory = {
       top: rectangle.top + ( 0.2 * rectangle.height )
     } );
 
-    // put all of the pieces together, clipped to the icon size
+    // put all the pieces together, clipped to the icon size
     const iconNode = new Node( {
       children: [ rectangle, parabolaNode ],
       clipArea: CLIP_AREA
@@ -70,10 +67,8 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Standard Form screen.
-   * @returns {ScreenIcon}
-   * @public
    */
-  createStandardFormScreenIcon() {
+  createStandardFormScreenIcon(): ScreenIcon {
 
     // invisible rectangle that fills the entire icon
     const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
@@ -84,7 +79,7 @@ const GQScreenIconFactory = {
       y: 0.85 * rectangle.height
     } );
 
-    // x axis, fills the width of the icon
+    // x-axis, width of the icon
     const xAxisNode = new Line( 0, 0, ICON_SIZE.width, 0, {
       lineWidth: 5,
       stroke: 'black',
@@ -114,7 +109,7 @@ const GQScreenIconFactory = {
       centerY: xAxisNode.y
     } );
 
-    // put all of the pieces together, clipped to the icon size
+    // put all the pieces together, clipped to the icon size
     const iconNode = new Node( {
       children: [ rectangle, xAxisNode, parabolaNode, vertexNode, leftRootNode, rightRootNode ],
       clipArea: CLIP_AREA
@@ -125,10 +120,8 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Vertex Form screen.
-   * @returns {ScreenIcon}
-   * @public
    */
-  createVertexFormScreenIcon() {
+  createVertexFormScreenIcon(): ScreenIcon {
 
     // invisible rectangle that fills the entire icon
     const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
@@ -145,7 +138,7 @@ const GQScreenIconFactory = {
       centerY: parabolaNode.y
     } );
 
-    // put all of the pieces together, clipped to the icon size
+    // put all the pieces together, clipped to the icon size
     const iconNode = new Node( {
       children: [ rectangle, parabolaNode, vertexNode ],
       clipArea: CLIP_AREA
@@ -156,10 +149,8 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Focus & Directrix screen.
-   * @returns {ScreenIcon}
-   * @public
    */
-  createFocusAndDirectrixScreenIcon() {
+  createFocusAndDirectrixScreenIcon(): ScreenIcon {
 
     // invisible rectangle that fills the entire icon
     const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
@@ -188,7 +179,7 @@ const GQScreenIconFactory = {
       centerY: parabolaNode.y + p
     } );
 
-    // put all of the pieces together, clipped to the icon size
+    // put all the pieces together, clipped to the icon size
     const iconNode = new Node( {
       children: [ rectangle, parabolaNode, focusNode, directrixNode ],
       clipArea: CLIP_AREA
@@ -200,20 +191,14 @@ const GQScreenIconFactory = {
 
 /**
  * Create a Node for quadratic y = ax^2 + bx + c
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @param {Range} range
- * @param {Object} [options]
- * @returns {Shape}
  */
-function createQuadraticNode( a, b, c, range, options ) {
+function createQuadraticNode( a: number, b: number, c: number, range: Range, options?: PathOptions ): Node {
   const quadratic = new Quadratic( a, b, c );
   const bezierControlPoints = quadratic.getControlPoints( range );
   const shape = new Shape()
     .moveToPoint( bezierControlPoints.startPoint )
     .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint );
-  return new Path( shape, merge( {}, DEFAULT_PATH_OPTIONS, options ) );
+  return new Path( shape, combineOptions<PathOptions>( {}, DEFAULT_PATH_OPTIONS, options ) );
 }
 
 graphingQuadratics.register( 'GQScreenIconFactory', GQScreenIconFactory );
