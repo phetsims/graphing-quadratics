@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Draws the curve that is described by a quadratic equation.
  * The curve is labeled with the equation.
@@ -10,41 +9,73 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { Node, Path } from '../../../../scenery/js/imports.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import { Node, NodeOptions, Path, PathOptions } from '../../../../scenery/js/imports.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
+import Quadratic from '../model/Quadratic.js';
 import GQEquationFactory from './GQEquationFactory.js';
+import { EquationForm } from './GQViewProperties.js';
+
+type SelfOptions = {
+  preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping
+} & PickOptional<PathOptions, 'lineWidth'>;
+
+type QuadraticNodeOptions = SelfOptions;
 
 export default class QuadraticNode extends Node {
 
+  private readonly quadraticProperty: TReadOnlyProperty<Quadratic>;
+  private readonly xRange: Range;
+  private readonly yRange: Range;
+  private readonly modelViewTransform: ModelViewTransform2;
+  private readonly equationForm: EquationForm;
+  private readonly preventVertexAndEquationOverlap: boolean;
+
+  protected readonly quadraticPath: Path; // quadratic curve, y = ax^2 + bx + c
+  private readonly equationNode: GQEquationNode; // equation on a translucent background
+
+  // Makes positioning and rotating the equation a little easier to grok. equationParent will be rotated and translated,
+  // while equationNode will be translated to adjust spacing between the equation and its associated curve.
+  private readonly equationParent: Node;
+
+  // ranges for equation placement, just inside the edges of the graph
+  private readonly xEquationRange: Range;
+  private readonly yEquationRange: Range;
+
+  private readonly disposeQuadraticNode: () => void;
+
   /**
-   * @param {Property.<Quadratic>} quadraticProperty - the quadratic to be rendered
-   * @param {Range} xRange - range of the graph's x axis
-   * @param {Range} yRange - range of the graph's y axis
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {EquationForm} equationForm - form of the equation displayed on the curve
-   * @param {BooleanProperty} equationsVisibleProperty
-   * @param {Object} [options]
+   * @param quadraticProperty - the quadratic to be rendered
+   * @param xRange - range of the graph's x-axis
+   * @param yRange - range of the graph's y-axis
+   * @param modelViewTransform
+   * @param equationForm - form of the equation displayed on the curve
+   * @param equationsVisibleProperty
+   * @param [providedOptions]
    */
-  constructor( quadraticProperty, xRange, yRange, modelViewTransform, equationForm,
-               equationsVisibleProperty, options ) {
+  public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      xRange: Range, yRange: Range,
+                      modelViewTransform: ModelViewTransform2,
+                      equationForm: EquationForm,
+                      equationsVisibleProperty: TReadOnlyProperty<boolean>,
+                      providedOptions?: QuadraticNodeOptions ) {
 
-    options = merge( {
+    const options = optionize<QuadraticNodeOptions, SelfOptions, NodeOptions>()( {
 
-      // prevent a parabola's vertex and equation from overlapping
+      // SelfOptions
       preventVertexAndEquationOverlap: true,
-
-      // Path options
       lineWidth: 1
-    }, options );
+    }, providedOptions );
 
     super( options );
 
-    // @private
     this.quadraticProperty = quadraticProperty;
     this.xRange = xRange;
     this.yRange = yRange;
@@ -52,31 +83,25 @@ export default class QuadraticNode extends Node {
     this.equationForm = equationForm;
     this.preventVertexAndEquationOverlap = options.preventVertexAndEquationOverlap;
 
-    // @protected quadratic curve, y = ax^2 + bx + c
     this.quadraticPath = new Path( null, {
       lineWidth: options.lineWidth
     } );
     this.addChild( this.quadraticPath );
 
-    // @private equation on a translucent background
     this.equationNode = new GQEquationNode( {
       maxWidth: 200 // determined empirically
     } );
 
-    // @private Makes positioning and rotating the equation a little easier to grok.
-    // equationParent will be rotated and translated, equationNode will be translated to adjust spacing
-    // between the equation and its associated curve.
     this.equationParent = new Node( { children: [ this.equationNode ] } );
     this.addChild( this.equationParent );
 
-    // @private ranges for equation placement, just inside the edges of the graph
     this.xEquationRange =
       new Range( xRange.min + GQConstants.EQUATION_X_MARGIN, xRange.max - GQConstants.EQUATION_X_MARGIN );
     this.yEquationRange =
       new Range( yRange.min + GQConstants.EQUATION_Y_MARGIN, yRange.max - GQConstants.EQUATION_Y_MARGIN );
 
     // updates the equation, but only when it's visible
-    const quadraticListener = quadratic => {
+    const quadraticListener = ( quadratic: Quadratic ) => {
       if ( this.visible ) {
         this.update( quadratic );
       }
@@ -84,7 +109,7 @@ export default class QuadraticNode extends Node {
     quadraticProperty.link( quadraticListener ); // unlink required in dispose
 
     // updates the equation when it is made visible
-    const equationsVisibleListener = visible => {
+    const equationsVisibleListener = ( visible: boolean ) => {
       this.equationParent.visible = visible;
       if ( visible ) {
         this.updateEquation( this.quadraticProperty.value );
@@ -95,7 +120,6 @@ export default class QuadraticNode extends Node {
     // Update when this Node becomes visible.
     this.visibleProperty.link( visible => visible && this.update( this.quadraticProperty.value ) );
 
-    // @private
     this.disposeQuadraticNode = () => {
       if ( quadraticProperty.hasListener( quadraticListener ) ) {
         quadraticProperty.unlink( quadraticListener );
@@ -106,21 +130,15 @@ export default class QuadraticNode extends Node {
     };
   }
 
-  /**
-   * @public
-   * @override
-   */
-  dispose() {
-    super.dispose();
+  public override dispose(): void {
     this.disposeQuadraticNode();
+    super.dispose();
   }
 
   /**
    * Updates this Node to display the specified quadratic.
-   * @param {Quadratic} quadratic
-   * @private
    */
-  update( quadratic ) {
+  private update( quadratic: Quadratic ): void {
 
     // update shape
     const bezierControlPoints = quadratic.getControlPoints( this.xRange );
@@ -138,10 +156,8 @@ export default class QuadraticNode extends Node {
 
   /**
    * Updates the equation displayed on the quadratic.
-   * @param {Quadratic} quadratic
-   * @private
    */
-  updateEquation( quadratic ) {
+  private updateEquation( quadratic: Quadratic ): void {
 
     // update the equation text
     if ( this.equationForm === 'standard' ) {
@@ -176,9 +192,11 @@ export default class QuadraticNode extends Node {
       this.equationNode.bottom = -GQConstants.EQUATION_CURVE_SPACING;
     }
     else {
+      const vertex = quadratic.vertex!;
+      assert && assert( vertex );
 
       // parabola: pick a point on the parabola, at the edge of the graph
-      const x = ( quadratic.vertex.x >= 0 ) ? this.xEquationRange.min : this.xEquationRange.max;
+      const x = ( vertex.x >= 0 ) ? this.xEquationRange.min : this.xEquationRange.max;
       const p = quadratic.getClosestPointInRange( x, this.xEquationRange, this.yEquationRange );
       assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), `p is off the graph: ${p}` );
 
@@ -187,13 +205,13 @@ export default class QuadraticNode extends Node {
 
       if ( this.preventVertexAndEquationOverlap &&
            Math.abs( quadratic.a ) >= 0.75 && // a narrow parabola
-           p.distance( quadratic.vertex ) <= equationModelWidth ) {
+           p.distance( vertex ) <= equationModelWidth ) {
 
         // When the equation and vertex are liable to overlap, place the equation (not rotated) to the left or right
         // of the parabola. See https://github.com/phetsims/graphing-quadratics/issues/39#issuecomment-426688827
         this.equationParent.rotation = 0;
         this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
-        if ( p.x < quadratic.vertex.x ) {
+        if ( p.x < vertex.x ) {
           this.equationNode.right = -GQConstants.EQUATION_CURVE_SPACING;
         }
         else {
@@ -213,7 +231,7 @@ export default class QuadraticNode extends Node {
         this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
 
         // when equation is on the right side of parabola, move it's origin to the right end of the equation
-        if ( p.x > quadratic.vertex.x ) {
+        if ( p.x > vertex.x ) {
           this.equationNode.right = 0;
         }
 
