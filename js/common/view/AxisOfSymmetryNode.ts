@@ -17,11 +17,13 @@ import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import GQEquationFactory from './GQEquationFactory.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 export default class AxisOfSymmetryNode extends Node {
 
   public constructor( quadraticProperty: Property<Quadratic>, graph: Graph, modelViewTransform: ModelViewTransform2,
-                      axisOfSymmetryVisibleProperty: Property<boolean>, equationsVisibleProperty: Property<boolean> ) {
+                      axisOfSymmetryVisibleProperty: TReadOnlyProperty<boolean>,
+                      equationsVisibleProperty: TReadOnlyProperty<boolean> ) {
 
     // vertical line
     const lineNode = new Line( 0, 0, 0, 1, {

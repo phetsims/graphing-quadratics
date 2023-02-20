@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Manipulator, { ManipulatorOptions } from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import optionize from '../../../../phet-core/js/optionize.js';
@@ -39,12 +39,12 @@ type SelfOptions = {
   layoutCoordinates?: LayoutCoordinatesFunction;
 };
 
-type GQManipulatorOptions = SelfOptions & ManipulatorOptions & PickRequired<ManipulatorOptions, 'tandem'>;
+export type GQManipulatorOptions = SelfOptions & ManipulatorOptions & PickRequired<ManipulatorOptions, 'tandem'>;
 
 export default class GQManipulator extends Manipulator {
 
-  protected constructor( coordinatesProperty: Property<Vector2 | null>,
-                         coordinatesVisibleProperty: Property<boolean>,
+  protected constructor( coordinatesProperty: TReadOnlyProperty<Vector2 | null>,
+                         coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                          providedOptions: GQManipulatorOptions ) {
 
     const options = optionize<GQManipulatorOptions, SelfOptions, ManipulatorOptions>()( {

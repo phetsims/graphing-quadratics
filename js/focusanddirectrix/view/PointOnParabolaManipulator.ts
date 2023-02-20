@@ -1,59 +1,63 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Manipulator for editing a point on a parabola. Displays the coordinates of the point.
+ * PointOnParabolaManipulator is the manipulator for editing a point on a parabola.
+ * It displays the coordinates of the point.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { DragListener } from '../../../../scenery/js/imports.js';
+import { DragListener, DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
-import GQManipulator from '../../common/view/GQManipulator.js';
+import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import Quadratic from '../../common/model/Quadratic.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
 
+type SelfOptions = EmptySelfOptions;
+
+type PointOnParabolaManipulatorOptions = SelfOptions & StrictOmit<GQManipulatorOptions, 'layoutCoordinates'>;
+
 export default class PointOnParabolaManipulator extends GQManipulator {
 
-  /**
-   * @param {Vector2Property} pointOnParabolaProperty - the point
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Graph} graph
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {BooleanProperty} coordinatesVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( pointOnParabolaProperty, quadraticProperty, graph, modelViewTransform, coordinatesVisibleProperty, options ) {
+  public constructor( pointOnParabolaProperty: Property<Vector2>,
+                      quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      graph: Graph,
+                      modelViewTransform: ModelViewTransform2,
+                      coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                      providedOptions: PointOnParabolaManipulatorOptions ) {
 
-    options = merge( {
+    const options = optionize<PointOnParabolaManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {
 
-      // GQManipulator options
+      // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
       color: GQColors.POINT_ON_PARABOLA,
       coordinatesForegroundColor: 'white',
       coordinatesBackgroundColor: GQColors.POINT_ON_PARABOLA,
       coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
-
-      // phet-io
       phetioDocumentation: 'manipulator for a point on the parabola'
-
-    }, options );
+    }, providedOptions );
 
     // position coordinates based on which side of the parabola the point is on
     assert && assert( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );
     options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
       assert && assert( coordinates, 'expected coordinates' );
-      const vertex = quadraticProperty.value.vertex;
+      const vertex = quadraticProperty.value.vertex!;
       assert && assert( vertex, 'expected a parabola' );
       const xOffset = radius + COORDINATES_X_SPACING;
-      if ( coordinates.x >= vertex.x ) {
+      if ( coordinates!.x >= vertex.x ) {
         coordinatesNode.left = xOffset;
       }
       else {
@@ -77,8 +81,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
     // add drag handler
     this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
       modelViewTransform, graph, {
-        tandem: options.tandem.createTandem( 'dragListener' ),
-        phetioDocumentation: 'the drag listener for this point-on-parabola manipulator'
+        tandem: options.tandem.createTandem( 'dragListener' )
       } ) );
 
     // move the manipulator
@@ -91,19 +94,23 @@ export default class PointOnParabolaManipulator extends GQManipulator {
 class PointOnParabolaDragListener extends DragListener {
 
   /**
-   * Drag handler for point on the parabola.
-   * @param {Node} targetNode - the Node that we attached this listener to
-   * @param {Vector2Property} pointOnParabolaProperty - the point
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Graph} graph
-   * @param {Object} [options]
+   * @param targetNode - the Node that we attached this listener to
+   * @param pointOnParabolaProperty - the point
+   * @param quadraticProperty - the interactive quadratic
+   * @param modelViewTransform
+   * @param graph
+   * @param [providedOptions]
    */
-  constructor( targetNode, pointOnParabolaProperty, quadraticProperty, modelViewTransform, graph, options ) {
+  public constructor( targetNode: Node,
+                      pointOnParabolaProperty: Property<Vector2>,
+                      quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      modelViewTransform: ModelViewTransform2,
+                      graph: Graph,
+                      providedOptions: DragListenerOptions<PressedDragListener> ) {
 
-    let startOffset; // where the drag started, relative to the manipulator
+    let startOffset: Vector2; // where the drag started, relative to the manipulator
 
-    options = merge( {
+    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
 
       allowTouchSnag: true,
 
@@ -134,7 +141,7 @@ class PointOnParabolaDragListener extends DragListener {
 
           // y is out of range, so constrain y, solve for x, and choose the closer of the 2 solutions
           pointOnParabola.setY( graph.yRange.constrainValue( pointOnParabola.y ) );
-          const xSolutions = quadraticProperty.value.solveX( pointOnParabola.y );
+          const xSolutions = quadraticProperty.value.solveX( pointOnParabola.y )!;
           assert && assert( xSolutions && xSolutions.length === 2, `expected 2 solutions for x: ${xSolutions}` );
           const xClosest = ( Math.abs( xSolutions[ 0 ] - pointOnParabola.x ) < Math.abs( xSolutions[ 1 ] - pointOnParabola.x ) )
                            ? xSolutions[ 0 ] : xSolutions[ 1 ];
@@ -149,7 +156,7 @@ class PointOnParabolaDragListener extends DragListener {
 
         pointOnParabolaProperty.value = new Vector2( x, y );
       }
-    }, options );
+    }, providedOptions );
 
     super( options );
   }

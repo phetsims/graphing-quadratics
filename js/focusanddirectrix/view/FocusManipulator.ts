@@ -1,57 +1,73 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Manipulator for editing a quadratic by changing its focus.
- * Displays the coordinates of the focus.
+ * FocusManipulator is the manipulator for editing a quadratic (parabola) by changing its focus.
+ * It displays the coordinates of the focus.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
+import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { DragListener } from '../../../../scenery/js/imports.js';
+import { DragListener, DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
-import GQManipulator from '../../common/view/GQManipulator.js';
+import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import Quadratic from '../../common/model/Quadratic.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
+import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
 
+type SelfOptions = {
+
+  // dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
+  interval?: number;
+};
+
+type FocusManipulatorOptions = SelfOptions & StrictOmit<GQManipulatorOptions, 'layoutCoordinates'>;
+
 export default class FocusManipulator extends GQManipulator {
 
   /**
-   * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Graph} graph
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {BooleanProperty} focusVisibleProperty
-   * @param {BooleanProperty} coordinatesVisibleProperty
-   * @param {Object} [options]
+   * @param pProperty - p coefficient of alternate vertex form
+   * @param quadraticProperty - the interactive quadratic
+   * @param graph
+   * @param modelViewTransform
+   * @param focusVisibleProperty
+   * @param coordinatesVisibleProperty
+   * @param [providedOptions]
    */
-  constructor( pProperty, quadraticProperty, graph, modelViewTransform,
-               focusVisibleProperty, coordinatesVisibleProperty, options ) {
+  public constructor( pProperty: NumberProperty,
+                      quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      graph: Graph,
+                      modelViewTransform: ModelViewTransform2,
+                      focusVisibleProperty: TReadOnlyProperty<boolean>,
+                      coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                      providedOptions: FocusManipulatorOptions ) {
 
-    options = merge( {
+    const options = optionize<FocusManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {
 
-      // dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
+      // SelfOptions
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
 
-      // GQManipulator options
+      // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
       color: GQColors.FOCUS,
       coordinatesForegroundColor: 'white',
       coordinatesBackgroundColor: GQColors.FOCUS,
       coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
-
-      // phet-io
       phetioDocumentation: 'manipulator for the focus'
-
-    }, options );
+    }, providedOptions );
 
     // position coordinates based on which way the parabola opens
     assert && assert( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );
@@ -69,7 +85,7 @@ export default class FocusManipulator extends GQManipulator {
 
     // coordinates correspond to the quadratic's focus
     const coordinatesProperty = new DerivedProperty( [ quadraticProperty ],
-      quadratic => quadratic.focus, {
+      quadratic => quadratic.focus || null, {
         valueType: Vector2,
         tandem: options.tandem.createTandem( 'coordinatesProperty' ),
         phetioValueType: Vector2.Vector2IO,
@@ -82,6 +98,7 @@ export default class FocusManipulator extends GQManipulator {
       [ focusVisibleProperty, quadraticProperty ],
       ( focusVisible, quadratic ) =>
         focusVisible && // the Focus checkbox is checked
+        ( quadratic.focus !== undefined ) && // the quadratic has a focus
         graph.contains( quadratic.focus ), // the focus is on the graph
       {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
@@ -93,14 +110,14 @@ export default class FocusManipulator extends GQManipulator {
     // add the drag listener
     this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange,
       modelViewTransform, options.interval, {
-        tandem: options.tandem.createTandem( 'dragListener' ),
-        phetioDocumentation: 'drag listener for this focus manipulator'
+        tandem: options.tandem.createTandem( 'dragListener' )
       } ) );
 
     // move the manipulator
     quadraticProperty.link( quadratic => {
-      assert && assert( quadratic.focus, `expected focus: ${quadratic.focus}` );
-      this.translation = modelViewTransform.modelToViewPosition( quadratic.focus );
+      const focus = quadratic.focus!;
+      assert && assert( focus, `expected focus: ${quadratic.focus}` );
+      this.translation = modelViewTransform.modelToViewPosition( focus );
     } );
 
     options.visibleProperty.link( visible => {
@@ -112,29 +129,30 @@ export default class FocusManipulator extends GQManipulator {
 class FocusDragListener extends DragListener {
 
   /**
-   * Drag handler for focus.
-   * @param {Node} targetNode - the Node that we attached this listener to
-   * @param {NumberProperty} pProperty - p coefficient of alternate vertex form
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Range} yRange - range of the graph's y axis
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {number} interval
-   * @param {Object} [options]
+   * @param targetNode - the Node that we attached this listener to
+   * @param pProperty - p coefficient of alternate vertex form
+   * @param quadraticProperty - the interactive quadratic
+   * @param yRange - range of the graph's y-axis
+   * @param modelViewTransform
+   * @param interval - dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
+   * @param [providedOptions]
    */
-  constructor( targetNode, pProperty, quadraticProperty, yRange, modelViewTransform, interval, options ) {
+  public constructor( targetNode: Node, pProperty: NumberProperty, quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      yRange: Range, modelViewTransform: ModelViewTransform2, interval: number,
+                      providedOptions: DragListenerOptions<PressedDragListener> ) {
 
     assert && assert( pProperty.range, 'pProperty is missing range' );
 
-    let startOffset; // where the drag started, relative to the manipulator
+    let startOffset: Vector2; // where the drag started, relative to the manipulator
 
-    options = merge( {
+    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
 
       allowTouchSnag: true,
 
       // note where the drag started
       start: ( event, listener ) => {
 
-        const focus = quadraticProperty.value.focus;
+        const focus = quadraticProperty.value.focus!;
         assert && assert( focus, `expected focus: ${focus}` );
 
         const position = modelViewTransform.modelToViewPosition( focus );
@@ -143,7 +161,7 @@ class FocusDragListener extends DragListener {
 
       drag: ( event, listener ) => {
 
-        const vertex = quadraticProperty.value.vertex;
+        const vertex = quadraticProperty.value.vertex!;
         assert && assert( vertex, `expected vertex: ${vertex}` );
 
         // transform the drag point from view to model coordinate frame
@@ -165,7 +183,7 @@ class FocusDragListener extends DragListener {
 
         pProperty.value = p;
       }
-    }, options );
+    }, providedOptions );
 
     super( options );
   }

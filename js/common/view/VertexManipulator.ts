@@ -1,60 +1,70 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Manipulator for editing a quadratic by changing its vertex.
- * Displays the coordinates of the vertex.
+ * VertexManipulator is the manipulator for editing a quadratic (parabola) by changing its vertex.
+ * It displays the coordinates of the vertex.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { DragListener } from '../../../../scenery/js/imports.js';
+import { DragListener, DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
-import GQManipulator from './GQManipulator.js';
+import GQManipulator, { GQManipulatorOptions } from './GQManipulator.js';
+import Quadratic from '../model/Quadratic.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
+import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
 
+type SelfOptions = EmptySelfOptions;
+
+type VertexManipulatorOptions = SelfOptions & StrictOmit<GQManipulatorOptions, 'layoutCoordinates'>;
+
 export default class VertexManipulator extends GQManipulator {
 
   /**
-   * @param {NumberProperty} hProperty - h coefficient of the vertex form of the quadratic equation
-   * @param {NumberProperty} kProperty - k coefficient of the vertex form of the quadratic equation
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Graph} graph
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {BooleanProperty} vertexVisibleProperty
-   * @param {BooleanProperty} coordinatesVisibleProperty
-   * @param {Object} [options]
+   * @param hProperty - h coefficient of the vertex form of the quadratic equation
+   * @param kProperty - k coefficient of the vertex form of the quadratic equation
+   * @param quadraticProperty - the interactive quadratic
+   * @param graph
+   * @param modelViewTransform
+   * @param vertexVisibleProperty
+   * @param coordinatesVisibleProperty
+   * @param [providedOptions]
    */
-  constructor( hProperty, kProperty, quadraticProperty, graph, modelViewTransform,
-               vertexVisibleProperty, coordinatesVisibleProperty, options ) {
+  public constructor( hProperty: NumberProperty,
+                      kProperty: NumberProperty,
+                      quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      graph: Graph,
+                      modelViewTransform: ModelViewTransform2,
+                      vertexVisibleProperty: TReadOnlyProperty<boolean>, coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                      providedOptions: VertexManipulatorOptions ) {
 
-    options = merge( {
+    const options = optionize<VertexManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {
 
-      // GQManipulator options
+      // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
       color: GQColors.VERTEX,
       coordinatesForegroundColor: 'white',
       coordinatesBackgroundColor: GQColors.VERTEX,
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
-
-      // phet-io
       phetioDocumentation: 'manipulator for the vertex'
-
-    }, options );
+    }, providedOptions );
 
     // position coordinates based on which way the parabola opens
-    assert && assert( !options.layoutCoordinates, 'VertexManipulator sets layoutCoordinates' );
     options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
       if ( coordinates ) {
         coordinatesNode.centerX = 0;
@@ -83,7 +93,7 @@ export default class VertexManipulator extends GQManipulator {
       [ vertexVisibleProperty, quadraticProperty ],
       ( vertexVisible, quadratic ) =>
         vertexVisible &&  // the Vertex checkbox is checked
-        quadratic.isaParabola() &&  // the quadratic is a parabola, so has a vertex
+        quadratic.isaParabola() && ( quadratic.vertex !== undefined ) && // the quadratic is a parabola, so has a vertex
         graph.contains( quadratic.vertex ), // the vertex is on the graph
       {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
@@ -94,8 +104,7 @@ export default class VertexManipulator extends GQManipulator {
 
     // add the drag listener
     this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'dragListener' ),
-      phetioDocumentation: 'the drag listener for this vertex manipulator'
+      tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
 
     // move the manipulator
@@ -114,19 +123,19 @@ export default class VertexManipulator extends GQManipulator {
 class VertexDragListener extends DragListener {
 
   /**
-   * Drag handler for vertex.
-   * @param {Node} targetNode - the Node that we attached this listener to
-   * @param {NumberProperty} hProperty - h coefficient of vertex form
-   * @param {NumberProperty} kProperty - k coefficient of vertex form
-   * @param {Graph} graph
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
+   * @param targetNode - the Node that we attached this listener to
+   * @param hProperty - h coefficient of vertex form
+   * @param kProperty - k coefficient of vertex form
+   * @param graph
+   * @param modelViewTransform
+   * @param [providedOptions]
    */
-  constructor( targetNode, hProperty, kProperty, graph, modelViewTransform, options ) {
+  public constructor( targetNode: Node, hProperty: NumberProperty, kProperty: NumberProperty, graph: Graph,
+                      modelViewTransform: ModelViewTransform2, providedOptions: DragListenerOptions<PressedDragListener> ) {
 
-    let startOffset; // where the drag started, relative to the manipulator
+    let startOffset: Vector2; // where the drag started, relative to the manipulator
 
-    options = merge( {
+    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
 
       allowTouchSnag: true,
 
@@ -154,7 +163,7 @@ class VertexDragListener extends DragListener {
         hProperty.value = h;
         kProperty.value = k;
       }
-    }, options );
+    }, providedOptions );
 
     super( options );
   }

@@ -7,7 +7,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
@@ -29,7 +29,7 @@ type CoordinatesNodeOptions = SelfOptions &
 
 export default class CoordinatesNode extends BackgroundNode {
 
-  public constructor( coordinatesProperty: Property<Vector2 | null>, providedOptions: CoordinatesNodeOptions ) {
+  public constructor( coordinatesProperty: TReadOnlyProperty<Vector2 | null>, providedOptions: CoordinatesNodeOptions ) {
 
     const options = optionize<CoordinatesNodeOptions, SelfOptions, BackgroundNodeOptions>()( {
 
