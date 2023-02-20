@@ -13,7 +13,7 @@ import NoRealRootsNode from './NoRealRootsNode.js';
 import RootsNode from './RootsNode.js';
 import VertexNode from './VertexNode.js';
 
-class StandardFormGraphNode extends GQGraphNode {
+export default class StandardFormGraphNode extends GQGraphNode {
 
   /**
    * @param {StandardFormModel} model
@@ -75,4 +75,3 @@ class StandardFormGraphNode extends GQGraphNode {
 }
 
 graphingQuadratics.register( 'StandardFormGraphNode', StandardFormGraphNode );
-export default StandardFormGraphNode;

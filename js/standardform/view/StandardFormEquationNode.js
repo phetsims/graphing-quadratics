@@ -17,7 +17,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class StandardFormEquationNode extends Node {
+export default class StandardFormEquationNode extends Node {
 
   /**
    * @param {Object} [options]
@@ -56,4 +56,3 @@ class StandardFormEquationNode extends Node {
 }
 
 graphingQuadratics.register( 'StandardFormEquationNode', StandardFormEquationNode );
-export default StandardFormEquationNode;

@@ -18,7 +18,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class StandardFormInteractiveEquationNode extends Node {
+export default class StandardFormInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
@@ -98,4 +98,3 @@ class StandardFormInteractiveEquationNode extends Node {
 }
 
 graphingQuadratics.register( 'StandardFormInteractiveEquationNode', StandardFormInteractiveEquationNode );
-export default StandardFormInteractiveEquationNode;

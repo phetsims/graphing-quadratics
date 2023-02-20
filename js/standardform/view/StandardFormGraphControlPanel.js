@@ -16,7 +16,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class StandardFormGraphControlPanel extends Panel {
+export default class StandardFormGraphControlPanel extends Panel {
 
   /**
    * @param {StandardFormViewProperties} viewProperties
@@ -63,4 +63,3 @@ class StandardFormGraphControlPanel extends Panel {
 }
 
 graphingQuadratics.register( 'StandardFormGraphControlPanel', StandardFormGraphControlPanel );
-export default StandardFormGraphControlPanel;

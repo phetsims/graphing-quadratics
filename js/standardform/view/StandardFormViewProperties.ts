@@ -12,7 +12,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQViewProperties from '../../common/view/GQViewProperties.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-class StandardFormViewProperties extends GQViewProperties {
+export default class StandardFormViewProperties extends GQViewProperties {
 
   // See phetioDocumentation below
   public readonly rootsVisibleProperty: Property<boolean>;
@@ -39,4 +39,3 @@ class StandardFormViewProperties extends GQViewProperties {
 }
 
 graphingQuadratics.register( 'StandardFormViewProperties', StandardFormViewProperties );
-export default StandardFormViewProperties;
