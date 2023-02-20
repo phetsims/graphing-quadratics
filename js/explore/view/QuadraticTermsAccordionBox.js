@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Accordion box for showing and hiding terms of the interactive quadratic equation.
  *
