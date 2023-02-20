@@ -106,11 +106,12 @@ class RootsNode extends Node {
     // left root
     const leftRootNode = new PointNode( leftCoordinatesProperty, coordinatesVisibleProperty,
       merge( {}, pointNodeOptions, {
-        layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {
+
+        // Coordinates to the left of the point
+        layoutCoordinates: ( coordinatesNode, pointNode ) => {
           coordinatesNode.right = pointNode.left - COORDINATES_X_SPACING;
           coordinatesNode.centerY = pointNode.centerY;
         },
-        visiblePropertyOptions: { phetioReadOnly: true },
         tandem: options.tandem.createTandem( 'leftRootNode' ),
         phetioDocumentation: 'the left root'
       } ) );
@@ -118,11 +119,12 @@ class RootsNode extends Node {
     // right root
     const rightRootNode = new PointNode( rightCoordinatesProperty, coordinatesVisibleProperty,
       merge( {}, pointNodeOptions, {
-        layoutCoordinates: ( coordinates, coordinatesNode, pointNode ) => {
+
+        // Coordinates to the right of the point
+        layoutCoordinates: ( coordinatesNode, pointNode ) => {
           coordinatesNode.left = pointNode.right + COORDINATES_X_SPACING;
           coordinatesNode.centerY = pointNode.centerY;
         },
-        visiblePropertyOptions: { phetioReadOnly: true },
         tandem: options.tandem.createTandem( 'rightRootNode' ),
         phetioDocumentation: 'the right root'
       } ) );

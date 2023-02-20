@@ -1,52 +1,62 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * A non-interactive point on the graph, labeled with (x,y) coordinates.
+ * PointNode is a non-interactive point on the graph, labeled with (x,y) coordinates.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
-import { Circle, Node } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { Circle, Node, NodeOptions, NodeTranslationOptions, TColor } from '../../../../scenery/js/imports.js';
 import CoordinatesNode from '../../common/view/CoordinatesNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-// constants
-const DEFAULT_LAYOUT_COORDINATES = ( coordinates, coordinatesNode, pointNode ) => {
+// Positions the coordinates relative to the point
+type LayoutCoordinatesFunction = ( coordinatesNode: Node, pointNode: Node ) => void;
+
+const DEFAULT_LAYOUT_COORDINATES: LayoutCoordinatesFunction = ( coordinatesNode, pointNode ) => {
   // centered above the point
   coordinatesNode.centerX = pointNode.centerX;
   coordinatesNode.bottom = pointNode.top - 5;
 };
 
-class PointNode extends Node {
+type SelfOptions = {
 
-  /**
-   * @param {Vector2Property} coordinatesProperty
-   * @param {BooleanProperty} coordinatesVisibleProperty
-   * @param {Object} [options]
-   */
-  constructor( coordinatesProperty, coordinatesVisibleProperty, options ) {
+  // radius of the point
+  radius?: number;
 
-    options = merge( {
+  // options passed to CoordinatesNode
+  coordinatesBackgroundColor?: TColor;
+  coordinatesForegroundColor?: TColor;
+  coordinatesDecimals?: number;
 
-      // radius of the point
+  // Positions the coordinates when coordinatesProperty changes
+  layoutCoordinates?: LayoutCoordinatesFunction;
+};
+
+type PointNodeOptions = SelfOptions & NodeTranslationOptions & PickRequired<NodeOptions, 'tandem'>;
+
+export default class PointNode extends Node {
+
+  public constructor( coordinatesProperty: TReadOnlyProperty<Vector2>,
+                      coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                      providedOptions: PointNodeOptions ) {
+
+    const options = optionize<PointNodeOptions, SelfOptions, NodeOptions>()( {
+
+      // SelfOptions
       radius: 10,
-
-      // options passed to CoordinatesNode
       coordinatesBackgroundColor: 'black',
       coordinatesForegroundColor: 'white',
       coordinatesDecimals: 0,
-
-      // {function( coordinates:Vector2, coordinatesNode:Node, pointNode:Node )}
-      // Positions the coordinates when coordinatesProperty changes
       layoutCoordinates: DEFAULT_LAYOUT_COORDINATES,
 
-      // phet-io
-      tandem: Tandem.REQUIRED
-
-    }, options );
+      // NodeOptions
+      visiblePropertyOptions: { phetioReadOnly: true }
+    }, providedOptions );
 
     // the point
     const pointNode = new Circle( options.radius, {
@@ -65,24 +75,13 @@ class PointNode extends Node {
       phetioDocumentation: 'coordinates displayed on this point'
     } );
 
-    assert && assert( !options.children, 'PointNode sets children' );
     options.children = [ pointNode, coordinatesNode ];
 
     super( options );
 
-    // update coordinates layout
-    coordinatesProperty.link( coordinates => {
-      options.layoutCoordinates( coordinates, coordinatesNode, pointNode );
-    } );
-
-    // visibility
-    coordinatesVisibleProperty.link( visible => {
-      if ( visible ) {
-        options.layoutCoordinates( coordinatesProperty.value, coordinatesNode, pointNode );
-      }
-    } );
+    // Update layout
+    coordinatesNode.boundsProperty.link( () => options.layoutCoordinates( coordinatesNode, pointNode ) );
   }
 }
 
 graphingQuadratics.register( 'PointNode', PointNode );
-export default PointNode;

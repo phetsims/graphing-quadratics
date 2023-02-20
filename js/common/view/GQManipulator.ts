@@ -15,7 +15,7 @@ import { Node, TColor } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import CoordinatesNode from './CoordinatesNode.js';
 
-// Positions the coordinates when coordinatesProperty changes
+// Positions the coordinates relative to the sphere
 type LayoutCoordinatesFunction = ( coordinates: Vector2 | null, coordinatesNode: Node, radius: number ) => void;
 
 const DEFAULT_LAYOUT_COORDINATES: LayoutCoordinatesFunction = ( coordinates, coordinatesNode, radius ) => {
@@ -35,7 +35,7 @@ type SelfOptions = {
   coordinatesForegroundColor?: TColor;
   coordinatesDecimals?: number;
 
-  // Positions the coordinates when coordinatesProperty changes
+  // Positions the coordinates relative to the sphere
   layoutCoordinates?: LayoutCoordinatesFunction;
 };
 

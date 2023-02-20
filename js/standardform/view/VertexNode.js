@@ -19,7 +19,7 @@ import PointNode from './PointNode.js';
 // constants
 const COORDINATES_Y_SPACING = 5;
 
-class VertexNode extends PointNode {
+export default class VertexNode extends PointNode {
 
   /**
    * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
@@ -46,7 +46,7 @@ class VertexNode extends PointNode {
 
     // position coordinates on the outside of the parabola
     assert && assert( !options.layoutCoordinates, 'VertexNode sets layoutCoordinates' );
-    options.layoutCoordinates = ( coordinates, coordinatesNode, pointNode ) => {
+    options.layoutCoordinates = ( coordinatesNode, pointNode ) => {
       coordinatesNode.centerX = pointNode.centerX;
       if ( quadraticProperty.value.a > 0 ) {
         // center coordinates below a parabola that opens down
@@ -92,4 +92,3 @@ class VertexNode extends PointNode {
 }
 
 graphingQuadratics.register( 'VertexNode', VertexNode );
-export default VertexNode;
