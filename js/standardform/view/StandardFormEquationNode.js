@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Static equation in standard form: y = ax^2 + bx + c
  * This is sometimes referred to as general form, typically in the context of conics.
