@@ -28,9 +28,7 @@ export default class StandardFormScreenView extends GQScreenView {
         expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
         tandem: tandem.createTandem( 'equationAccordionBox' )
       } ),
-      new StandardFormGraphControlPanel( viewProperties, {
-        tandem: tandem.createTandem( 'graphControlPanel' )
-      } ),
+      new StandardFormGraphControlPanel( viewProperties, tandem.createTandem( 'graphControlPanel' ) ),
       tandem
     );
   }
