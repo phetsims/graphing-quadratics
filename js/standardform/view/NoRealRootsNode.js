@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Displays 'NO REAL ROOTS', used when a quadratic has no real roots.
  *
