@@ -24,10 +24,8 @@ export default class ExploreEquationAccordionBox extends GQEquationAccordionBox 
   public constructor( model: ExploreModel, providedOptions: ExploreEquationAccordionBoxOptions ) {
 
     const titleNode = new StandardFormEquationNode( {
-      maxWidth: 225, // determined empirically
       tandem: providedOptions.tandem.createTandem( 'titleNode' ),
-      phetioDocumentation: 'the equation shown at the top of this accordion box',
-      visiblePropertyOptions: { phetioReadOnly: true }
+      phetioDocumentation: 'the equation shown at the top of this accordion box'
     } );
 
     const options = optionize<ExploreEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
