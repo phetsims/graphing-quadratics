@@ -1,5 +1,6 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * An extension of Manipulator that adds a display of the manipulator's (x,y) coordinates.
  *
