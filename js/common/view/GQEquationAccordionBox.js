@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Abstract base class for the accordion box that displays the interactive equation and related controls.
  *
