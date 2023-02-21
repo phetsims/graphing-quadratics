@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Alternate vertex form equation, y = (1/(4p))(x - h)^2 + k, with coefficients that can be changed via sliders.
  * All sliders have a linear taper.
