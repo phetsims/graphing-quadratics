@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Panel that contains controls for various features related to the graph on the 'Vertex Form' screen.
  *
@@ -8,40 +7,41 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import { HSeparator, VBox } from '../../../../scenery/js/imports.js';
-import Panel from '../../../../sun/js/Panel.js';
+import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import VertexFormViewProperties from './VertexFormViewProperties.js';
 
 export default class VertexFormGraphControlPanel extends Panel {
 
-  /**
-   * @param {VertexFormViewProperties} viewProperties
-   * @param {Object} [options]
-   */
-  constructor( viewProperties, options ) {
+  public constructor( viewProperties: VertexFormViewProperties, tandem: Tandem ) {
 
-    options = merge( {
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
+    const options = combineOptions<PanelOptions>( {}, GQConstants.PANEL_OPTIONS, {
+      tandem: tandem,
       phetioDocumentation: 'panel that contains controls related to the graph'
+    } );
 
-    }, GQConstants.PANEL_OPTIONS, options );
+    const axisOfSymmetryVisibleProperty = viewProperties.axisOfSymmetryVisibleProperty!;
+    assert && assert( axisOfSymmetryVisibleProperty );
+    const coordinatesVisibleProperty = viewProperties.coordinatesVisibleProperty!;
+    assert && assert( coordinatesVisibleProperty );
+    const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
+    assert && assert( vertexVisibleProperty );
 
     // checkboxes
-    const vertexCheckbox = GQCheckbox.createVertexManipulatorCheckbox( viewProperties.vertexVisibleProperty,
-      options.tandem.createTandem( 'vertexCheckbox' ) );
+    const vertexCheckbox = GQCheckbox.createVertexManipulatorCheckbox( vertexVisibleProperty,
+      tandem.createTandem( 'vertexCheckbox' ) );
     const axisOfSymmetryCheckbox = GQCheckbox.createAxisOfSymmetryCheckbox(
-      viewProperties.axisOfSymmetryVisibleProperty, options.tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
+      axisOfSymmetryVisibleProperty, tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
     const equationsCheckbox = GQCheckbox.createEquationsCheckbox( viewProperties.equationsVisibleProperty,
-      options.tandem.createTandem( 'equationsCheckbox' ) );
-    const coordinatesCheckbox = GQCheckbox.createCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
-      options.tandem.createTandem( 'coordinatesCheckbox' ) );
+      tandem.createTandem( 'equationsCheckbox' ) );
+    const coordinatesCheckbox = GQCheckbox.createCoordinatesCheckbox( coordinatesVisibleProperty,
+      tandem.createTandem( 'coordinatesCheckbox' ) );
 
     // vertical layout
     const contentNode = new VBox( {

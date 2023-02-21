@@ -28,9 +28,7 @@ export default class FocusAndDirectrixScreenView extends GQScreenView {
         expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
         tandem: tandem.createTandem( 'equationAccordionBox' )
       } ),
-      new FocusAndDirectrixGraphControlPanel( viewProperties, {
-        tandem: tandem.createTandem( 'graphControlPanel' )
-      } ),
+      new FocusAndDirectrixGraphControlPanel( viewProperties, tandem.createTandem( 'graphControlPanel' ) ),
       tandem
     );
   }

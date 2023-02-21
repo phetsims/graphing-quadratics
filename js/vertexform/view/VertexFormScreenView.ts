@@ -28,9 +28,7 @@ export default class VertexFormScreenView extends GQScreenView {
         expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
         tandem: tandem.createTandem( 'equationAccordionBox' )
       } ),
-      new VertexFormGraphControlPanel( viewProperties, {
-        tandem: tandem.createTandem( 'graphControlPanel' )
-      } ),
+      new VertexFormGraphControlPanel( viewProperties, tandem.createTandem( 'graphControlPanel' ) ),
       tandem
     );
   }
