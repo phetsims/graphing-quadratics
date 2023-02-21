@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Dashed lines that connect the 'point on parabola' to the focus and directrix.
  * The visibility of the point-focus and point-directrix lines is controlled independently.
