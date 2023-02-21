@@ -51,7 +51,6 @@ export default class GQScreenView extends ScreenView {
 
     // Toggle button for showing/hiding contents of graph
     const graphContentsToggleButton = new GraphContentsToggleButton( viewProperties.graphContentsVisibleProperty, {
-      scale: 0.75,
       left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 21,
       bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
       tandem: tandem.createTandem( 'graphContentsToggleButton' ),
