@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Displays the directrix for a quadratic.
  *
@@ -14,19 +13,17 @@ import GQConstants from '../../common/GQConstants.js';
 import GQEquationFactory from '../../common/view/GQEquationFactory.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import Quadratic from '../../common/model/Quadratic.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 
 export default class DirectrixNode extends Node {
 
-  /**
-   * @param {Property.<Quadratic>} quadraticProperty - the interactive quadratic
-   * @param {Graph} graph
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {BooleanProperty} directrixVisibleProperty
-   * @param {BooleanProperty} equationsVisibleProperty
-   */
-  constructor( quadraticProperty, graph, modelViewTransform, directrixVisibleProperty, equationsVisibleProperty ) {
-
-    super();
+  public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      graph: Graph, modelViewTransform: ModelViewTransform2,
+                      directrixVisibleProperty: TReadOnlyProperty<boolean>,
+                      equationsVisibleProperty: TReadOnlyProperty<boolean> ) {
 
     // horizontal line
     const lineNode = new Line( 0, 0, 0, 1, {
@@ -34,7 +31,6 @@ export default class DirectrixNode extends Node {
       lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
       lineDash: GQConstants.DIRECTRIX_LINE_DASH
     } );
-    this.addChild( lineNode );
 
     // equation on a translucent background
     const equationNode = new GQEquationNode( {
@@ -44,7 +40,17 @@ export default class DirectrixNode extends Node {
       visibleProperty: equationsVisibleProperty,
       maxWidth: 100 // determined empirically
     } );
-    this.addChild( equationNode );
+
+    super( {
+      children: [ lineNode, equationNode ],
+      visibleProperty: new DerivedProperty(
+        [ directrixVisibleProperty, quadraticProperty ],
+        ( directrixVisible, quadratic ) =>
+          directrixVisible &&  // the Directrix checkbox is checked
+          ( quadratic.directrix !== undefined ) && // the quadratic has a directrix
+          graph.yRange.contains( quadratic.directrix ) // the directrix (y=N) is on the graph
+      )
+    } );
 
     // endpoints of the line in model coordinates
     const minX = modelViewTransform.modelToViewX( graph.xRange.min );
@@ -54,16 +60,19 @@ export default class DirectrixNode extends Node {
     quadraticProperty.link( quadratic => {
 
       assert && assert( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
+      const directrix = quadratic.directrix || 0;
+      const vertex = quadratic.vertex!;
+      assert && assert( vertex );
 
       // update the horizontal line
-      const y = modelViewTransform.modelToViewY( quadratic.directrix );
+      const y = modelViewTransform.modelToViewY( directrix );
       lineNode.setLine( minX, y, maxX, y );
 
       // update the equation's text
-      equationNode.string = GQEquationFactory.createDirectrix( quadratic.directrix );
+      equationNode.setTextString( GQEquationFactory.createDirectrix( directrix ) );
 
-      // position the equation to avoid overlapping vertex and x axis
-      if ( quadratic.vertex.x >= 0 ) {
+      // position the equation to avoid overlapping vertex and x-axis
+      if ( vertex.x >= 0 ) {
 
         // vertex is at or to the right of origin, so put equation on left end of line
         equationNode.left = modelViewTransform.modelToViewX( graph.xRange.min + GQConstants.EQUATION_X_MARGIN );
@@ -74,22 +83,13 @@ export default class DirectrixNode extends Node {
       }
 
       // space between the equation and directrix
-      if ( quadratic.directrix > graph.xRange.max - 1 ) {
+      if ( directrix > graph.xRange.max - 1 ) {
         equationNode.top = lineNode.bottom + GQConstants.EQUATION_CURVE_SPACING;
       }
       else {
         equationNode.bottom = lineNode.top - GQConstants.EQUATION_CURVE_SPACING;
       }
     } );
-
-    // visibility of this Node
-    const visibleProperty = new DerivedProperty(
-      [ directrixVisibleProperty, quadraticProperty ],
-      ( directrixVisible, quadratic ) =>
-        directrixVisible &&  // the Directrix checkbox is checked
-        graph.yRange.contains( quadratic.directrix ) // the directrix (y=N) is on the graph
-    );
-    visibleProperty.linkAttribute( this, 'visible' );
   }
 }
 
