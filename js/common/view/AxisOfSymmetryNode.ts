@@ -53,7 +53,7 @@ export default class AxisOfSymmetryNode extends Node {
         [ axisOfSymmetryVisibleProperty, quadraticProperty ],
         ( axisOfSymmetryVisible, quadratic ) =>
           axisOfSymmetryVisible && // the Axis of Symmetry checkbox is checked
-          quadratic.isaParabola() && // the quadratic is a parabola, so has an axis of symmetry
+          quadratic.isaParabola() && ( quadratic.axisOfSymmetry !== undefined ) && // the quadratic is a parabola, so has an axis of symmetry
           graph.xRange.contains( quadratic.axisOfSymmetry ) // the axis of symmetry (x=N) is on the graph
       )
     } );
