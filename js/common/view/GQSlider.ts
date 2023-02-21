@@ -144,7 +144,7 @@ export default class GQSlider extends VSlider {
 
     // Map between model and view domains, determines how the slider responds.
     // Do not instrument for PhET-iO, see https://github.com/phetsims/phet-io/issues/1374
-    const sliderProperty = new DynamicProperty<number, number, Property<number>>( new Property( coefficientProperty ), {
+    const sliderProperty = new DynamicProperty( new Property( coefficientProperty ), {
 
       bidirectional: true,
 
@@ -161,8 +161,6 @@ export default class GQSlider extends VSlider {
       options.map( coefficientProperty.range.max )
     );
 
-    // Provide view Property and Range to VSlider
-    // @ts-expect-error TS2345: Argument of type 'DynamicProperty<number, number, Property<number>>' is not assignable to parameter of type 'Property<number>
     super( sliderProperty, sliderRange, options );
 
     // Create the tick labels
