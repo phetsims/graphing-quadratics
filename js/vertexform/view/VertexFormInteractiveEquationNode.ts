@@ -1,17 +1,17 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Vertex form equation, y = ax^2 + bx + c, with integer coefficients that can be changed via pickers.
  *
  * @author Andrea Lin
  */
 
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import { Node, RichText } from '../../../../scenery/js/imports.js';
+import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
 import NumberPicker from '../../../../sun/js/NumberPicker.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
@@ -23,42 +23,31 @@ export default class VertexFormInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the vertex form: y = ax^2 + bx + c
-   * @param {NumberProperty} aProperty
-   * @param {NumberProperty} hProperty
-   * @param {NumberProperty} kProperty
-   * @param {Object} [options]
    */
-  constructor( aProperty, hProperty, kProperty, options ) {
+  public constructor( aProperty: NumberProperty, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
 
-    assert && assert( aProperty.range, 'missing aProperty.range' );
-    assert && assert( hProperty.range, 'missing hProperty.range' );
-    assert && assert( kProperty.range, 'missing kProperty.range' );
-
-    options = merge( {
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
-      phetioDocumentation: 'accordion box that contains the interactive equation'
-
-    }, options );
+    const options: NodeOptions = {
+      tandem: tandem,
+      phetioDocumentation: 'the interactive equation in this accordion box'
+    };
 
     // value pickers
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
       merge( {
         color: GQColors.VERTEX_FORM_A,
-        tandem: options.tandem.createTandem( 'aPicker' ),
+        tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       }, GQConstants.NUMBER_PICKER_OPTIONS ) );
     const hPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
       merge( {
         color: GQColors.VERTEX_FORM_H,
-        tandem: options.tandem.createTandem( 'hPicker' ),
+        tandem: tandem.createTandem( 'hPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } )
       }, GQConstants.NUMBER_PICKER_OPTIONS ) );
     const kPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
       merge( {
         color: GQColors.VERTEX_FORM_K,
-        tandem: options.tandem.createTandem( 'kPicker' ),
+        tandem: tandem.createTandem( 'kPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } )
       }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 
@@ -77,7 +66,6 @@ export default class VertexFormInteractiveEquationNode extends Node {
     const parenSquaredText = new RichText( ')<sup>2</sup>', richTextOptions );
     const plusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
-    assert && assert( !options.children, 'VertexFormInteractiveEquationNode sets children' );
     options.children = [
       yText,
       equalToText,

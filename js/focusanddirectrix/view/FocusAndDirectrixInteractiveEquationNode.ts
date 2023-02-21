@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Alternate vertex form equation, y = (1/(4p))(x - h)^2 + k, with coefficients that can be changed via sliders.
  * All sliders have a linear taper.
@@ -8,11 +7,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
-import { HBox, Line, Node, RichText, VBox } from '../../../../scenery/js/imports.js';
+import { HBox, Line, Node, NodeOptions, RichText, VBox } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -24,24 +25,16 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the alternate vertex form: y = (1/(4p))(x - h)^2 + k
-   * @param {NumberProperty} pProperty
-   * @param {NumberProperty} hProperty
-   * @param {NumberProperty} kProperty
-   * @param {Object} [options]
    */
-  constructor( pProperty, hProperty, kProperty, options ) {
+  public constructor( pProperty: NumberProperty, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
 
-    options = merge( {
-
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
+    const options: NodeOptions = {
+      tandem: tandem,
+      phetioDocumentation: 'the interactive equation in this accordion box'
+    };
 
     // equation
-    const equationNode = new EquationNode( pProperty, hProperty, kProperty, {
-      tandem: options.tandem.createTandem( 'equationNode' ),
-      phetioDocumentation: 'the equation that changes as the sliders are adjusted'
-    } );
+    const equationNode = new EquationNode( pProperty, hProperty, kProperty, tandem.createTandem( 'equationNode' ) );
 
     // value sliders
     const pSlider = new LinearSlider( GQSymbols.p, pProperty, {
@@ -51,23 +44,22 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       skipZero: true,
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
       labelColor: GQColors.FOCUS_AND_DIRECTRIX_P,
-      tandem: options.tandem.createTandem( 'pSlider' ),
+      tandem: tandem.createTandem( 'pSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
     } );
     const hSlider = new LinearSlider( GQSymbols.h, hProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
       labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
-      tandem: options.tandem.createTandem( 'hSlider' ),
+      tandem: tandem.createTandem( 'hSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
     } );
     const kSlider = new LinearSlider( GQSymbols.k, kProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
       labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
-      tandem: options.tandem.createTandem( 'kSlider' ),
+      tandem: tandem.createTandem( 'kSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
     } );
 
-    assert && assert( !options.children, 'FocusAndDirectrixInteractiveEquationNode sets children' );
     options.children = [ equationNode, pSlider, hSlider, kSlider ];
 
     super( options );
@@ -88,21 +80,16 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
  */
 class EquationNode extends Node {
 
-  /**
-   * @param {NumberProperty} pProperty
-   * @param {NumberProperty} hProperty
-   * @param {NumberProperty} kProperty
-   * @param {Object} [options]
-   */
-  constructor( pProperty, hProperty, kProperty, options ) {
+  private readonly pNode: Node;
+  private readonly hNode: Node;
+  private readonly kNode: Node;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+  public constructor( pProperty: NumberProperty, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
 
-    assert && assert( pProperty.range, 'missing pProperty.range' );
-    assert && assert( hProperty.range, 'missing hProperty.range' );
-    assert && assert( kProperty.range, 'missing kProperty.range' );
+    const options: NodeOptions = {
+      tandem: tandem,
+      phetioDocumentation: 'the equation that changes as the sliders are adjusted'
+    };
 
     // options for parts of the equation
     const equationOptions = {
@@ -205,27 +192,28 @@ class EquationNode extends Node {
     kNode.bottom = equalsNode.bottom;
 
     // y = (1/(4p))(x - h)^2 + k
-    assert && assert( !options.children, 'EquationNode sets children' );
     options.children = [ yNode, equalsNode, fractionNode,
       anotherParenNode, xNode, minusNode, hNode, parenSquaredNode, plusNode, kNode ];
 
     super( options );
 
-    // @private needed by methods
     this.pNode = pNode;
     this.hNode = hNode;
     this.kNode = kNode;
   }
 
-  // @public Gets the global {Bounds2} of p, h, k, used for layout
-  get pGlobalBounds() { return this.getGlobalBoundsForNode( this.pNode ); }
+  // Gets the global bounds of p, h, k, used for layout
+  public get pGlobalBounds(): Bounds2 {
+    return this.pNode.getGlobalBounds();
+  }
 
-  get hGlobalBounds() { return this.getGlobalBoundsForNode( this.hNode ); }
+  public get hGlobalBounds(): Bounds2 {
+    return this.hNode.getGlobalBounds();
+  }
 
-  get kGlobalBounds() { return this.getGlobalBoundsForNode( this.kNode ); }
-
-  // @private gets the global bounds of a descendent Node
-  getGlobalBoundsForNode( node ) { return node.localToGlobalBounds( node.localBounds ); }
+  public get kGlobalBounds(): Bounds2 {
+    return this.kNode.getGlobalBounds();
+  }
 }
 
 graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );

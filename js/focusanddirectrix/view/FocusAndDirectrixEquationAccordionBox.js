@@ -38,10 +38,7 @@ export default class FocusAndDirectrixEquationAccordionBox extends GQEquationAcc
     } );
 
     const interactiveEquationNode = new FocusAndDirectrixInteractiveEquationNode(
-      model.pProperty, model.hProperty, model.kProperty, {
-        tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
-        phetioDocumentation: 'the interactive equation in this accordion box'
-      } );
+      model.pProperty, model.hProperty, model.kProperty, options.tandem.createTandem( 'interactiveEquationNode' ) );
 
     super( model, interactiveEquationNode, options );
   }

@@ -9,48 +9,45 @@
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
 import NumberPicker from '../../../../sun/js/NumberPicker.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-
-type SelfOptions = EmptySelfOptions;
-
-type StandardFormInteractiveEquationNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | 'phetioDocumentation'>;
 
 export default class StandardFormInteractiveEquationNode extends Node {
 
   /**
    * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
    */
-  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty,
-                      providedOptions: StandardFormInteractiveEquationNodeOptions ) {
+  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty, tandem: Tandem ) {
 
-    const options = optionize<StandardFormInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
+    const options: NodeOptions = {
+      tandem: tandem,
+      phetioDocumentation: 'the interactive equation in this accordion box'
+    };
 
     // coefficient pickers
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
       merge( {
         color: GQColors.STANDARD_FORM_A,
-        tandem: options.tandem.createTandem( 'aPicker' ),
+        tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       }, GQConstants.NUMBER_PICKER_OPTIONS ) );
     const bPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
       merge( {
         color: GQColors.STANDARD_FORM_B,
-        tandem: options.tandem.createTandem( 'bPicker' ),
+        tandem: tandem.createTandem( 'bPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'b' } )
       }, GQConstants.NUMBER_PICKER_OPTIONS ) );
     const cPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
       merge( {
         color: GQColors.STANDARD_FORM_C,
-        tandem: options.tandem.createTandem( 'cPicker' ),
+        tandem: tandem.createTandem( 'cPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'c' } )
       }, GQConstants.NUMBER_PICKER_OPTIONS ) );
 

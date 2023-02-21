@@ -36,10 +36,7 @@ export default class VertexFormEquationAccordionBox extends GQEquationAccordionB
     } );
 
     const interactiveEquationNode = new VertexFormInteractiveEquationNode(
-      model.aProperty, model.hProperty, model.kProperty, {
-        tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
-        phetioDocumentation: 'the interactive equation in this accordion box'
-      } );
+      model.aProperty, model.hProperty, model.kProperty, options.tandem.createTandem( 'interactiveEquationNode' ) );
 
     super( model, interactiveEquationNode, options );
   }

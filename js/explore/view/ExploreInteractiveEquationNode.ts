@@ -18,6 +18,7 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
 import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
@@ -40,10 +41,7 @@ export default class ExploreInteractiveEquationNode extends Node {
     const options = optionize<ExploreInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
 
     // equation
-    const equationNode = new EquationNode( aProperty, bProperty, cProperty, {
-      tandem: options.tandem.createTandem( 'equationNode' ),
-      phetioDocumentation: 'the equation that changes as the sliders are adjusted'
-    } );
+    const equationNode = new EquationNode( aProperty, bProperty, cProperty, options.tandem.createTandem( 'equationNode' ) );
 
     // coefficient controls (labeled sliders)
     const aSlider = new QuadraticSlider( GQSymbols.a, aProperty, {
@@ -84,20 +82,18 @@ export default class ExploreInteractiveEquationNode extends Node {
 /**
  * The equation that appears above the sliders.
  */
-
-type EquationNodeSelfOptions = EmptySelfOptions;
-type EquationNodeOptions = EquationNodeSelfOptions & PickRequired<NodeOptions, 'tandem' | 'phetioDocumentation'>;
-
 class EquationNode extends Node {
 
   private readonly aNode: Node;
   private readonly bNode: Node;
   private readonly cNode: Node;
 
-  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty,
-                      providedOptions: EquationNodeOptions ) {
+  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty, tandem: Tandem ) {
 
-    const options = optionize<EquationNodeOptions, EquationNodeSelfOptions, NodeOptions>()( {}, providedOptions );
+    const options: NodeOptions = {
+      tandem: tandem,
+      phetioDocumentation: 'the equation that changes as the sliders are adjusted'
+    };
 
     // options for parts of the equation
     const equationOptions = {
@@ -153,7 +149,6 @@ class EquationNode extends Node {
       } ) );
 
     // y = ax^2 + bx + c
-    assert && assert( !options.children, 'EquationNode sets children' );
     options.children = [
       yNode, equalsNode, aNode, xSquaredNode, plusNode,
       xNode, bNode, anotherPlusNode, cNode
