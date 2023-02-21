@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * GQSlider is the base type for sliders in this sim. It adds the following features to VSlider:
  *

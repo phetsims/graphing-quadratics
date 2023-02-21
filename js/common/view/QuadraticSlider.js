@@ -1,5 +1,6 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * QuadraticSlider is a vertical slider that has a quadratic taper.
  * This slider is used for the 'a' coefficient in the Explore screen.

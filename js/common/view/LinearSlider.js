@@ -1,5 +1,6 @@
 // Copyright 2023, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * LinearSlider is a vertical slider that has a linear taper.
  * This slider is used for the 'b', 'c', 'p', 'h', and 'k' coefficients.
