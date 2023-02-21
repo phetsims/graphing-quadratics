@@ -1,5 +1,6 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Static equation in the form: y = (1/(4p)(x - h)^2 + k
  * This is an alternative version of the vertex form, when 1/(4p) is substituted for a.
