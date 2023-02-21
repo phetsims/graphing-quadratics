@@ -8,29 +8,24 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
-type SelfOptions = EmptySelfOptions;
-
-type StandardFormEquationNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | 'phetioDocumentation'>;
-
 export default class StandardFormEquationNode extends Node {
 
-  public constructor( providedOptions: StandardFormEquationNodeOptions ) {
+  public constructor( tandem: Tandem ) {
 
-    const options = optionize<StandardFormEquationNodeOptions, SelfOptions, NodeOptions>()( {
-
-      // NodeOptions
+    const options: NodeOptions = {
       maxWidth: 225, // determined empirically
+      tandem: tandem,
+      phetioDocumentation: 'the equation shown at the top of this accordion box',
       visiblePropertyOptions: { phetioReadOnly: true }
-    }, providedOptions );
+    };
 
     // y = ax^2 + bx + c
     const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {

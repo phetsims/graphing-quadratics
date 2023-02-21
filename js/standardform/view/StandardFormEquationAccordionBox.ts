@@ -23,15 +23,10 @@ export default class StandardFormEquationAccordionBox extends GQEquationAccordio
 
   public constructor( model: StandardFormModel, providedOptions: StandardFormEquationAccordionBoxOptions ) {
 
-    const titleNode = new StandardFormEquationNode( {
-      tandem: providedOptions.tandem.createTandem( 'titleText' ),
-      phetioDocumentation: 'the equation shown at the top of this accordion box'
-    } );
-
     const options = optionize<StandardFormEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
 
       // GQEquationAccordionBoxOptions
-      titleNode: titleNode,
+      titleNode: new StandardFormEquationNode( providedOptions.tandem.createTandem( 'titleText' ) ),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

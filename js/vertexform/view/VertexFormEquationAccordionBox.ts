@@ -23,17 +23,10 @@ export default class VertexFormEquationAccordionBox extends GQEquationAccordionB
 
   public constructor( model: VertexFormModel, providedOptions: VertexFormEquationAccordionBoxOptions ) {
 
-    const titleNode = new VertexFormEquationNode( {
-      maxWidth: 225, // determined empirically
-      tandem: providedOptions.tandem.createTandem( 'titleText' ),
-      phetioDocumentation: 'the equation shown at the top of this accordion box',
-      visiblePropertyOptions: { phetioReadOnly: true }
-    } );
-
     const options = optionize<VertexFormEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
 
       // GQEquationAccordionBoxOptions
-      titleNode: titleNode,
+      titleNode: new VertexFormEquationNode( providedOptions.tandem.createTandem( 'titleText' ) ),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

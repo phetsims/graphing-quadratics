@@ -23,17 +23,10 @@ export default class FocusAndDirectrixEquationAccordionBox extends GQEquationAcc
 
   public constructor( model: FocusAndDirectrixModel, providedOptions: FocusAndDirectrixEquationAccordionBoxOptions ) {
 
-    const titleNode = new FocusAndDirectrixEquationNode( {
-      maxWidth: 225, // determined empirically
-      tandem: providedOptions.tandem.createTandem( 'titleText' ),
-      phetioDocumentation: 'the equation shown at the top of this accordion box',
-      visiblePropertyOptions: { phetioReadOnly: true }
-    } );
-
     const options = optionize<FocusAndDirectrixEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
 
       // GQEquationAccordionBoxOptions
-      titleNode: titleNode,
+      titleNode: new FocusAndDirectrixEquationNode( providedOptions.tandem.createTandem( 'titleText' ) ),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

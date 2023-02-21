@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Static equation in the form: y = (1/(4p)(x - h)^2 + k
  * This is an alternative version of the vertex form, when 1/(4p) is substituted for a.
@@ -8,55 +7,53 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import { Line, Node, RichText, VBox } from '../../../../scenery/js/imports.js';
+import { Line, Node, NodeOptions, RichText, VBox } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 
+const FONT = GQConstants.INTERACTIVE_EQUATION_FONT;
+const FRACTION_FONT = GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT;
+const COLOR = 'black';
+
 export default class FocusAndDirectrixEquationNode extends Node {
 
-  /**
-   * @param {Object} [options]
-   */
-  constructor( options ) {
+  public constructor( tandem: Tandem ) {
 
-    options = merge( {
-      font: GQConstants.INTERACTIVE_EQUATION_FONT,
-      fractionFont: GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT,
-      color: 'black',
-
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
+    const options: NodeOptions = {
+      maxWidth: 225, // determined empirically
+      tandem: tandem,
+      phetioDocumentation: 'the equation shown at the top of this accordion box',
+      visiblePropertyOptions: { phetioReadOnly: true }
+    };
 
     // y =
     const yEqualsString = `${GQSymbols.y} ${MathSymbols.EQUAL_TO}`;
     const yEqualsNode = new RichText( yEqualsString, {
-      font: options.font,
-      fill: options.color
+      font: FONT,
+      fill: COLOR
     } );
 
     // 1
     const numeratorNode = new RichText( '1', {
-      font: options.fractionFont,
-      fill: options.color
+      font: FRACTION_FONT,
+      fill: COLOR
     } );
 
     // 4p
     const denominatorString = `4${GQSymbols.p}`;
     const denominatorNode = new RichText( denominatorString, {
-      font: options.fractionFont,
-      fill: options.color
+      font: FRACTION_FONT,
+      fill: COLOR
     } );
 
     // horizontal line between numerator and denominator
     const fractionLineLength = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
     const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
-      stroke: options.color,
+      stroke: COLOR,
       lineWidth: 1
     } );
 
@@ -76,11 +73,10 @@ export default class FocusAndDirectrixEquationNode extends Node {
       minus: MathSymbols.MINUS
     } );
     const rightNode = new RichText( rightString, {
-      font: options.font,
-      fill: options.color
+      font: FONT,
+      fill: COLOR
     } );
 
-    assert && assert( !options.children, 'FocusAndDirectrixEquationNode sets children' );
     options.children = [ yEqualsNode, fractionNode, rightNode ];
 
     const xSpacing = 5;
