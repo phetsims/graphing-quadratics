@@ -20,7 +20,6 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import { RichText, TColor, Text } from '../../../../scenery/js/imports.js';
@@ -145,16 +144,15 @@ export default class GQSlider extends VSlider {
 
     // Map between model and view domains, determines how the slider responds.
     // Do not instrument for PhET-iO, see https://github.com/phetsims/phet-io/issues/1374
-    //TODO https://github.com/phetsims/graphing-quadratics/issues/182 replace IntentionalAny
-    const sliderProperty = new DynamicProperty<IntentionalAny, IntentionalAny, IntentionalAny>( new Property( coefficientProperty ), {
+    const sliderProperty = new DynamicProperty<number, number, Property<number>>( new Property( coefficientProperty ), {
 
       bidirectional: true,
 
       // map from model to view (coefficientProperty to sliderProperty)
-      map: value => options.map( value ),
+      map: ( value: number ) => options.map( value ),
 
       // map from view to model (sliderProperty to coefficientProperty), apply options.interval to model value
-      inverseMap: value => Utils.roundToInterval( options.inverseMap( value ), options.interval )
+      inverseMap: ( value: number ) => Utils.roundToInterval( options.inverseMap( value ), options.interval )
     } );
 
     // Convert the range from model to view
@@ -164,7 +162,7 @@ export default class GQSlider extends VSlider {
     );
 
     // Provide view Property and Range to VSlider
-    // @ts-expect-error TS2345: Argument of type 'DynamicProperty<any, any, number>' is not assignable to parameter of type 'Property<number>
+    // @ts-expect-error TS2345: Argument of type 'DynamicProperty<number, number, Property<number>>' is not assignable to parameter of type 'Property<number>
     super( sliderProperty, sliderRange, options );
 
     // Create the tick labels
