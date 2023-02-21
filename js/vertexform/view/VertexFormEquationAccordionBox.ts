@@ -1,40 +1,41 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Accordion box in the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
-import GQEquationAccordionBox from '../../common/view/GQEquationAccordionBox.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import GQEquationAccordionBox, { GQEquationAccordionBoxOptions } from '../../common/view/GQEquationAccordionBox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import VertexFormModel from '../model/VertexFormModel.js';
 import VertexFormEquationNode from './VertexFormEquationNode.js';
 import VertexFormInteractiveEquationNode from './VertexFormInteractiveEquationNode.js';
 
+type SelfOptions = EmptySelfOptions;
+
+type VertexFormEquationAccordionBoxOptions = SelfOptions &
+  PickRequired<GQEquationAccordionBoxOptions, 'tandem' | 'expandedProperty'>;
+
 export default class VertexFormEquationAccordionBox extends GQEquationAccordionBox {
 
-  /**
-   * @param {VertexFormModel} model
-   * @param {Object} [options]
-   */
-  constructor( model, options ) {
+  public constructor( model: VertexFormModel, providedOptions: VertexFormEquationAccordionBoxOptions ) {
 
-    options = merge( {
-
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
-
-    assert && assert( !options.titleNode, 'VertexFormEquationAccordionBox sets titleNode' );
-    options.titleNode = new VertexFormEquationNode( {
+    const titleNode = new VertexFormEquationNode( {
       maxWidth: 225, // determined empirically
-      tandem: options.tandem.createTandem( 'titleText' ),
+      tandem: providedOptions.tandem.createTandem( 'titleText' ),
       phetioDocumentation: 'the equation shown at the top of this accordion box',
       visiblePropertyOptions: { phetioReadOnly: true }
     } );
+
+    const options = optionize<VertexFormEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
+
+      // GQEquationAccordionBoxOptions
+      titleNode: titleNode,
+      phetioDocumentation: 'accordion box that contains the interactive equation'
+    }, providedOptions );
 
     const interactiveEquationNode = new VertexFormInteractiveEquationNode(
       model.aProperty, model.hProperty, model.kProperty, options.tandem.createTandem( 'interactiveEquationNode' ) );
