@@ -1,32 +1,33 @@
 // Copyright 2018-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Graph for the 'Focus & Directrix' screen.
+ * FocusAndDirectrixGraphNode is the graph for the 'Focus & Directrix' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import GQGraphNode from '../../common/view/GQGraphNode.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import GQGraphNode, { GQGraphNodeOptions } from '../../common/view/GQGraphNode.js';
 import VertexManipulator from '../../common/view/VertexManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
 import DirectrixNode from './DirectrixNode.js';
+import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.js';
 import FocusManipulator from './FocusManipulator.js';
 import PointOnParabolaLinesNode from './PointOnParabolaLinesNode.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 
 export default class FocusAndDirectrixGraphNode extends GQGraphNode {
 
-  /**
-   * @param {FocusAndDirectrixModel} model
-   * @param {FocusAndDirectrixViewProperties} viewProperties
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   */
-  constructor( model, viewProperties, tandem, options ) {
+  public constructor( model: FocusAndDirectrixModel, viewProperties: FocusAndDirectrixViewProperties, tandem: Tandem ) {
+
+    const coordinatesVisibleProperty = viewProperties.coordinatesVisibleProperty!;
+    assert && assert( coordinatesVisibleProperty );
+    const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
+    assert && assert( vertexVisibleProperty );
 
     // We do NOT want to instrument the graph, so tandem is not propagated via options
-    options = options || {};
+    const options: GQGraphNodeOptions = {};
 
     // Directrix line
     const directrixNode = new DirectrixNode(
@@ -43,8 +44,8 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      viewProperties.vertexVisibleProperty,
-      viewProperties.coordinatesVisibleProperty, {
+      vertexVisibleProperty,
+      coordinatesVisibleProperty, {
         tandem: tandem.createTandem( 'vertexManipulator' ),
         phetioDocumentation: 'the manipulator for changing the vertex'
       } );
@@ -56,7 +57,7 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       model.graph,
       model.modelViewTransform,
       viewProperties.focusVisibleProperty,
-      viewProperties.coordinatesVisibleProperty, {
+      coordinatesVisibleProperty, {
         tandem: tandem.createTandem( 'focusManipulator' ),
         phetioDocumentation: 'the manipulator for changing the focus'
       } );
@@ -67,7 +68,7 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      viewProperties.coordinatesVisibleProperty, {
+      coordinatesVisibleProperty, {
         visibleProperty: viewProperties.pointOnParabolaVisibleProperty,
         tandem: tandem.createTandem( 'pointOnParabolaManipulator' ),
         phetioDocumentation: 'the manipulator for changing the point on the parabola'
@@ -82,10 +83,7 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       viewProperties.focusVisibleProperty,
       viewProperties.directrixVisibleProperty );
 
-    assert && assert( !options.otherCurves, 'FocusAndDirectrixGraphNode sets otherCurves' );
     options.otherCurves = [ directrixNode, pointOnParabolaLinesNode ]; // rendered in this order
-
-    assert && assert( !options.decorations, 'FocusAndDirectrixGraphNode sets decorations' );
     options.decorations = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ]; // rendered in this order
 
     super( model, viewProperties, options );
