@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Standard form equation, y = ax^2 + bx + c, with coefficients that can be changed via sliders.
  * The slider for coefficient 'a' has a quadratic taper (since it's modifying a quadratic term), while
