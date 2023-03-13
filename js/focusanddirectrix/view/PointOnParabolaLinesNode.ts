@@ -62,7 +62,7 @@ export default class PointOnParabolaLinesNode extends Node {
 
         assert && assert( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
         assert && assert( quadratic.focus );
-        assert && assert( quadratic.directrix );
+        assert && assert( quadratic.directrix !== undefined );
 
         const pointView = modelViewTransform.modelToViewPosition( pointOnParabola );
         const focusView = modelViewTransform.modelToViewPosition( quadratic.focus! );
