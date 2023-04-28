@@ -1,4 +1,4 @@
-// Copyright 2018-2022, University of Colorado Boulder
+// Copyright 2018-2023, University of Colorado Boulder
 
 /**
  * Displays '(x, y)' coordinates.  If the coordinates are null, this displays '(?, ?)'.
