@@ -54,7 +54,10 @@ const NUMBER_DISPLAY_OPTIONS: NumberDisplayOptions = {
 const NUMBER_PICKER_OPTIONS: NumberPickerOptions = {
   font: new PhetFont( 26 ),
   xMargin: 5,
-  touchAreaXDilation: 30
+  touchAreaXDilation: 30,
+  visiblePropertyOptions: {
+    phetioFeatured: false
+  }
 };
 
 const GQConstants = {

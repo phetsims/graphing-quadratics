@@ -12,23 +12,5 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioFeatured": true
-    },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.visibleProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.bPicker.visibleProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.standardFormScreen.view.equationAccordionBox.interactiveEquationNode.cPicker.visibleProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.aPicker.visibleProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.hPicker.visibleProperty": {
-      "phetioFeatured": false
-    },
-    "graphingQuadratics.vertexFormScreen.view.equationAccordionBox.interactiveEquationNode.kPicker.visibleProperty": {
-      "phetioFeatured": false
     }
   };
