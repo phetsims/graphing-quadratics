@@ -74,6 +74,7 @@ export default class FocusAndDirectrixModel extends GQModel {
         color: GQColors.FOCUS_AND_DIRECTRIX_INTERACTIVE_CURVE
       } ), {
         tandem: tandem.createTandem( 'quadraticProperty' ),
+        phetioFeatured: true,
         phetioDocumentation: 'the interactive quadratic, derived from p, h, and k',
         phetioValueType: Quadratic.QuadraticIO
       } );

@@ -85,6 +85,7 @@ export default class PointTool extends PhetioObject {
       }, {
         valueType: [ Quadratic, null ],
         tandem: options.tandem.createTandem( 'quadraticProperty' ),
+        phetioFeatured: true,
         phetioDocumentation: 'the curve that this point tool is on, null if it is not on a curve',
         phetioValueType: NullableIO( Quadratic.QuadraticIO )
       } );

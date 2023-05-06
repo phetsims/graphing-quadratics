@@ -68,6 +68,7 @@ export default class VertexFormModel extends GQModel {
         color: GQColors.VERTEX_FORM_INTERACTIVE_CURVE
       } ), {
         tandem: tandem.createTandem( 'quadraticProperty' ),
+        phetioFeatured: true,
         phetioDocumentation: 'the interactive quadratic, derived from a, h, and k',
         phetioValueType: Quadratic.QuadraticIO
       } );
