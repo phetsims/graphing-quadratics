@@ -78,12 +78,14 @@ export default class GQViewProperties extends PhetioObject {
 
     this.equationsVisibleProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'equationsVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether equations are visible on graphed curves'
     } );
 
     if ( options.vertexVisible !== null ) {
       this.vertexVisibleProperty = new BooleanProperty( options.vertexVisible, {
         tandem: options.tandem.createTandem( 'vertexVisibleProperty' ),
+        phetioFeatured: true,
         phetioDocumentation: 'whether the vertex point or manipulator is visible'
       } );
     }
@@ -91,6 +93,7 @@ export default class GQViewProperties extends PhetioObject {
     if ( options.axisOfSymmetryVisible !== null ) {
       this.axisOfSymmetryVisibleProperty = new BooleanProperty( options.axisOfSymmetryVisible, {
         tandem: options.tandem.createTandem( 'axisOfSymmetryVisibleProperty' ),
+        phetioFeatured: true,
         phetioDocumentation: 'whether the axis of symmetry is visible'
       } );
     }
@@ -98,6 +101,7 @@ export default class GQViewProperties extends PhetioObject {
     if ( options.coordinatesVisible !== null ) {
       this.coordinatesVisibleProperty = new BooleanProperty( options.coordinatesVisible, {
         tandem: options.tandem.createTandem( 'coordinatesVisibleProperty' ),
+        phetioFeatured: true,
         phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
       } );
     }
