@@ -82,7 +82,13 @@ class ButtonGroup extends HBox {
       listener: () => { model.saveQuadratic(); },
       tandem: tandem.createTandem( 'saveButton' ),
       phetioDocumentation: 'the button used to save a quadratic',
-      visiblePropertyOptions: { phetioReadOnly: true } // by designer request
+      visiblePropertyOptions: {
+        phetioFeatured: false,
+        phetioReadOnly: true // by designer request
+      },
+      enabledPropertyOptions: {
+        phetioFeatured: false
+      }
     } );
 
     // Erase button
@@ -91,7 +97,13 @@ class ButtonGroup extends HBox {
       listener: () => { model.eraseQuadratic(); },
       tandem: tandem.createTandem( 'eraseButton' ),
       phetioDocumentation: 'the button used to erase the saved quadratic',
-      visiblePropertyOptions: { phetioReadOnly: true } // by designer request
+      visiblePropertyOptions: {
+        phetioFeatured: false,
+        phetioReadOnly: true // by designer request
+      },
+      enabledPropertyOptions: {
+        phetioFeatured: false
+      }
     } );
 
     options.children = [ saveButton, eraseButton ];
