@@ -66,11 +66,13 @@ export default class GQViewProperties extends PhetioObject {
 
     this.graphContentsVisibleProperty = new BooleanProperty( true, {
       tandem: options.tandem.createTandem( 'graphContentsVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the contents of the graph (curves, plotted points, manipulators) are visible'
     } );
 
     this.equationAccordionBoxExpandedProperty = new BooleanProperty( true, {
       tandem: options.tandem.createTandem( 'equationAccordionBoxExpandedProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the equation accordion box is expanded'
     } );
 

@@ -10,13 +10,7 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.exploreScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.exploreScreen.view.viewProperties.equationsVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
@@ -34,13 +28,7 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.equationsVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.vertexVisibleProperty": {
@@ -67,13 +55,7 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.standardFormScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.standardFormScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.standardFormScreen.view.viewProperties.equationsVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.standardFormScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.standardFormScreen.view.viewProperties.vertexVisibleProperty": {
@@ -100,13 +82,7 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.vertexFormScreen.view.viewProperties.coordinatesVisibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.vertexFormScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.vertexFormScreen.view.viewProperties.equationsVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.view.viewProperties.graphContentsVisibleProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.vertexFormScreen.view.viewProperties.vertexVisibleProperty": {
