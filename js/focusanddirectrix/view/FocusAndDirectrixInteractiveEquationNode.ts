@@ -30,7 +30,10 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
     const options: NodeOptions = {
       tandem: tandem,
-      phetioDocumentation: 'the interactive equation in this accordion box'
+      phetioDocumentation: 'the interactive equation in this accordion box',
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     };
 
     // equation

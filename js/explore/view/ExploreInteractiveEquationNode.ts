@@ -38,7 +38,13 @@ export default class ExploreInteractiveEquationNode extends Node {
   public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty,
                       providedOptions: ExploreInteractiveEquationNodeOptions ) {
 
-    const options = optionize<ExploreInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {}, providedOptions );
+    const options = optionize<ExploreInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {
+
+      // NodeOptions
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
+    }, providedOptions );
 
     // equation
     const equationNode = new EquationNode( aProperty, bProperty, cProperty, options.tandem.createTandem( 'equationNode' ) );
