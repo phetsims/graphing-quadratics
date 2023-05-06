@@ -91,7 +91,10 @@ class EquationNode extends Node {
 
     const options: NodeOptions = {
       tandem: tandem,
-      phetioDocumentation: 'the equation that changes as the sliders are adjusted'
+      phetioDocumentation: 'the equation that changes as the sliders are adjusted',
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     };
 
     // options for parts of the equation
