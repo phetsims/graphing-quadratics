@@ -69,7 +69,10 @@ class ButtonGroup extends HBox {
       spacing: 40,
       align: 'center',
       tandem: tandem,
-      phetioDocumentation: 'buttons that appear below the interactive equation'
+      phetioDocumentation: 'buttons that appear below the interactive equation',
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     };
 
     // Save button
