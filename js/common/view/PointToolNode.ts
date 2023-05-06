@@ -53,7 +53,10 @@ export default class PointToolNode extends Node {
       // NodeOptions
       cursor: 'pointer',
       phetioDocumentation: Tandem.PHET_IO_ENABLED ? pointTool.phetioDocumentation : '',
-      phetioInputEnabledPropertyInstrumented: true
+      phetioInputEnabledPropertyInstrumented: true,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     // coordinatesProperty is null when the tool is not on the graph.

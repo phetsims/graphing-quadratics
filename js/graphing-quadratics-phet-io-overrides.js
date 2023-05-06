@@ -22,12 +22,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.exploreScreen.view.leftPointToolNode.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.view.rightPointToolNode.visibleProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.exploreScreen.view.viewProperties.constantTermVisibleProperty": {
       "phetioFeatured": true
     },
@@ -71,12 +65,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.graphControlPanel.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.focusAndDirectrixScreen.view.leftPointToolNode.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.focusAndDirectrixScreen.view.rightPointToolNode.visibleProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.coordinatesVisibleProperty": {
@@ -130,12 +118,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.standardFormScreen.view.graphControlPanel.visibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.standardFormScreen.view.leftPointToolNode.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.standardFormScreen.view.rightPointToolNode.visibleProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.standardFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
       "phetioFeatured": true
     },
@@ -182,12 +164,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
       "phetioFeatured": false
     },
     "graphingQuadratics.vertexFormScreen.view.graphControlPanel.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.view.leftPointToolNode.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.view.rightPointToolNode.visibleProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.vertexFormScreen.view.viewProperties.axisOfSymmetryVisibleProperty": {
