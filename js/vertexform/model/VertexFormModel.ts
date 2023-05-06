@@ -37,6 +37,7 @@ export default class VertexFormModel extends GQModel {
       numberType: 'Integer',
       range: A_RANGE,
       tandem: tandem.createTandem( 'aProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'a' } )
     } );
     phet.log && aProperty.link( a => { phet.log( `a=${a}` ); } );
@@ -46,6 +47,7 @@ export default class VertexFormModel extends GQModel {
       numberType: 'Integer',
       range: H_RANGE,
       tandem: tandem.createTandem( 'hProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } )
     } );
     phet.log && hProperty.link( h => { phet.log( `h=${h}` ); } );
@@ -55,6 +57,7 @@ export default class VertexFormModel extends GQModel {
       numberType: 'Integer',
       range: K_RANGE,
       tandem: tandem.createTandem( 'kProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } )
     } );
     phet.log && kProperty.link( k => { phet.log( `k=${k}` ); } );

@@ -1,15 +1,6 @@
 /* eslint-disable */
 window.phet.preloads.phetio.phetioElementsOverrides =
   {
-    "graphingQuadratics.exploreScreen.model.aProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.model.bProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.model.cProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.exploreScreen.model.leftPointTool.positionProperty": {
       "phetioFeatured": true
     },
@@ -76,19 +67,10 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.exploreScreen.view.viewProperties.quadraticTermsAccordionBoxExpandedProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.focusAndDirectrixScreen.model.hProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.focusAndDirectrixScreen.model.kProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.quadraticProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.focusAndDirectrixScreen.model.pProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.pointOnParabolaProperty": {
@@ -158,15 +140,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.vertexVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.standardFormScreen.model.aProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.standardFormScreen.model.bProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.standardFormScreen.model.cProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.standardFormScreen.model.leftPointTool.positionProperty": {
@@ -239,15 +212,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
       "phetioFeatured": true
     },
     "graphingQuadratics.standardFormScreen.view.viewProperties.vertexVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.model.aProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.model.hProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.model.kProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.vertexFormScreen.model.leftPointTool.positionProperty": {

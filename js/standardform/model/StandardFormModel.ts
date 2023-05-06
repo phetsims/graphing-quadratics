@@ -54,6 +54,7 @@ export default class StandardFormModel extends GQModel {
     const aProperty = new NumberProperty( A_RANGE.defaultValue, merge( {
       range: A_RANGE,
       tandem: tandem.createTandem( 'aProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'a' } )
     }, numberPropertyOptions ) );
     phet.log && aProperty.link( a => { phet.log( `a=${a}` ); } );
@@ -62,6 +63,7 @@ export default class StandardFormModel extends GQModel {
     const bProperty = new NumberProperty( B_RANGE.defaultValue, merge( {
       range: B_RANGE,
       tandem: tandem.createTandem( 'bProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'b' } )
     }, numberPropertyOptions ) );
     phet.log && bProperty.link( b => { phet.log( `b=${b}` ); } );
@@ -70,6 +72,7 @@ export default class StandardFormModel extends GQModel {
     const cProperty = new NumberProperty( C_RANGE.defaultValue, merge( {
       range: C_RANGE,
       tandem: tandem.createTandem( 'cProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'c' } )
     }, numberPropertyOptions ) );
     phet.log && cProperty.link( c => { phet.log( `c=${c}` ); } );

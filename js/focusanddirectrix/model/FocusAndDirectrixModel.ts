@@ -44,6 +44,7 @@ export default class FocusAndDirectrixModel extends GQModel {
       range: P_RANGE,
       isValidValue: value => ( value !== 0 ), // zero is not supported
       tandem: tandem.createTandem( 'pProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'p' } )
     } );
     phet.log && pProperty.link( p => { phet.log( `p=${p}` ); } );
@@ -52,6 +53,7 @@ export default class FocusAndDirectrixModel extends GQModel {
     const hProperty = new NumberProperty( H_RANGE.defaultValue, {
       range: H_RANGE,
       tandem: tandem.createTandem( 'hProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'h' } )
     } );
     phet.log && hProperty.link( h => { phet.log( `h=${h}` ); } );
@@ -60,6 +62,7 @@ export default class FocusAndDirectrixModel extends GQModel {
     const kProperty = new NumberProperty( K_RANGE.defaultValue, {
       range: K_RANGE,
       tandem: tandem.createTandem( 'kProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'k' } )
     } );
     phet.log && kProperty.link( k => { phet.log( `k=${k}` ); } );
