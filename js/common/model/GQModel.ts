@@ -52,6 +52,7 @@ export default class GQModel implements TModel {
     this.savedQuadraticProperty = new Property<Quadratic | null>( null, {
       valueType: [ Quadratic, null ],
       tandem: tandem.createTandem( 'savedQuadraticProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic',
       phetioValueType: NullableIO( Quadratic.QuadraticIO )
     } );
