@@ -1,12 +1,6 @@
 /* eslint-disable */
 window.phet.preloads.phetio.phetioElementsOverrides =
   {
-    "graphingQuadratics.exploreScreen.model.leftPointTool.positionProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.model.rightPointTool.positionProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.exploreScreen.model.savedQuadraticProperty": {
       "phetioFeatured": true
     },
@@ -58,13 +52,7 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.exploreScreen.view.viewProperties.quadraticTermsAccordionBoxExpandedProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.focusAndDirectrixScreen.model.leftPointTool.positionProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.focusAndDirectrixScreen.model.pointOnParabolaProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.focusAndDirectrixScreen.model.rightPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.model.savedQuadraticProperty": {
@@ -124,12 +112,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.focusAndDirectrixScreen.view.viewProperties.vertexVisibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.standardFormScreen.model.leftPointTool.positionProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.standardFormScreen.model.rightPointTool.positionProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.standardFormScreen.model.savedQuadraticProperty": {
       "phetioFeatured": true
     },
@@ -185,12 +167,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
       "phetioFeatured": true
     },
     "graphingQuadratics.standardFormScreen.view.viewProperties.vertexVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.model.leftPointTool.positionProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.vertexFormScreen.model.rightPointTool.positionProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.vertexFormScreen.model.savedQuadraticProperty": {

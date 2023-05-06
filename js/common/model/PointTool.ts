@@ -69,6 +69,7 @@ export default class PointTool extends PhetioObject {
 
     this.positionProperty = new Vector2Property( options.position, {
       tandem: options.tandem.createTandem( 'positionProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'position of this point tool’s crosshairs'
     } );
 
