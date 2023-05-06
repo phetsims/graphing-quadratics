@@ -23,7 +23,10 @@ export default class StandardFormGraphControlPanel extends Panel {
 
     const options = combineOptions<PanelOptions>( {}, GQConstants.PANEL_OPTIONS, {
       tandem: tandem,
-      phetioDocumentation: 'panel that contains controls related to the graph'
+      phetioDocumentation: 'panel that contains controls related to the graph',
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     } );
 
     const axisOfSymmetryVisibleProperty = viewProperties.axisOfSymmetryVisibleProperty!;
