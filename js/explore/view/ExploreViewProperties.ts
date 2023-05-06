@@ -28,21 +28,25 @@ export default class ExploreViewProperties extends GQViewProperties {
 
     this.quadraticTermsAccordionBoxExpandedProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'quadraticTermsAccordionBoxExpandedProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the Quadratic Terms accordion box is expanded'
     } );
 
     this.quadraticTermVisibleProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'quadraticTermVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the quadratic term (y = ax^2) is visible'
     } );
 
     this.linearTermVisibleProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'linearTermVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the linear term (y = bx) is visible'
     } );
 
     this.constantTermVisibleProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'constantTermVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the constant term (y = c) is visible'
     } );
   }

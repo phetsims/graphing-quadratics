@@ -10,9 +10,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "graphingQuadratics.exploreScreen.view.equationAccordionBox.interactiveEquationNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "graphingQuadratics.exploreScreen.view.viewProperties.constantTermVisibleProperty": {
-      "phetioFeatured": true
-    },
     "graphingQuadratics.exploreScreen.view.viewProperties.equationAccordionBoxExpandedProperty": {
       "phetioFeatured": true
     },
@@ -20,15 +17,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
       "phetioFeatured": true
     },
     "graphingQuadratics.exploreScreen.view.viewProperties.graphContentsVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.view.viewProperties.linearTermVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.view.viewProperties.quadraticTermVisibleProperty": {
-      "phetioFeatured": true
-    },
-    "graphingQuadratics.exploreScreen.view.viewProperties.quadraticTermsAccordionBoxExpandedProperty": {
       "phetioFeatured": true
     },
     "graphingQuadratics.focusAndDirectrixScreen.view.equationAccordionBox.buttonGroup.visibleProperty": {
