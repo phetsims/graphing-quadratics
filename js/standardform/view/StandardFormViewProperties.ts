@@ -28,6 +28,7 @@ export default class StandardFormViewProperties extends GQViewProperties {
 
     this.rootsVisibleProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'rootsVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the roots of the quadratic are visible'
     } );
   }

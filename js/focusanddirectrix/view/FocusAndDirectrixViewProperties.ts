@@ -30,16 +30,19 @@ export default class FocusAndDirectrixViewProperties extends GQViewProperties {
 
     this.focusVisibleProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'focusVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the focus manipulator is visible'
     } );
 
     this.directrixVisibleProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'directrixVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the directrix is visible'
     } );
 
     this.pointOnParabolaVisibleProperty = new BooleanProperty( false, {
       tandem: tandem.createTandem( 'pointOnParabolaVisibleProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'whether the manipulator for the point on the parabola is visible'
     } );
   }
