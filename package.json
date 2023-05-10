@@ -23,7 +23,13 @@
     "simulation": true,
     "phet-io": {
       "compareDesignedAPIChanges": true
-    }
+    },
+    "screenNameKeys": [
+      "GRAPHING_QUADRATICS/screen.explore",
+      "GRAPHING_QUADRATICS/screen.standardForm",
+      "GRAPHING_QUADRATICS/screen.vertexForm",
+      "GRAPHING_QUADRATICS/screen.focusAndDirectrix"
+    ]
   },
   "eslintConfig": {
     "extends": "../chipper/eslint/sim_eslintrc.js"
