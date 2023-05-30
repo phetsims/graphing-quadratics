@@ -10,8 +10,7 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty, { NumberPropertyOptions } from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
-import merge from '../../../../phet-core/js/merge.js';
-import optionize from '../../../../phet-core/js/optionize.js';
+import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -51,7 +50,7 @@ export default class StandardFormModel extends GQModel {
     };
 
     // a
-    const aProperty = new NumberProperty( A_RANGE.defaultValue, merge( {
+    const aProperty = new NumberProperty( A_RANGE.defaultValue, combineOptions<NumberPropertyOptions>( {
       range: A_RANGE,
       tandem: tandem.createTandem( 'aProperty' ),
       phetioFeatured: true,
@@ -60,7 +59,7 @@ export default class StandardFormModel extends GQModel {
     phet.log && aProperty.link( a => { phet.log( `a=${a}` ); } );
 
     // b
-    const bProperty = new NumberProperty( B_RANGE.defaultValue, merge( {
+    const bProperty = new NumberProperty( B_RANGE.defaultValue, combineOptions<NumberPropertyOptions>( {
       range: B_RANGE,
       tandem: tandem.createTandem( 'bProperty' ),
       phetioFeatured: true,
@@ -69,7 +68,7 @@ export default class StandardFormModel extends GQModel {
     phet.log && bProperty.link( b => { phet.log( `b=${b}` ); } );
 
     // c
-    const cProperty = new NumberProperty( C_RANGE.defaultValue, merge( {
+    const cProperty = new NumberProperty( C_RANGE.defaultValue, combineOptions<NumberPropertyOptions>( {
       range: C_RANGE,
       tandem: tandem.createTandem( 'cProperty' ),
       phetioFeatured: true,

@@ -9,17 +9,17 @@
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
-import { HBox, Line, Node, NodeOptions, RichText, VBox } from '../../../../scenery/js/imports.js';
+import NumberDisplay, { NumberDisplayOptions } from '../../../../scenery-phet/js/NumberDisplay.js';
+import { HBox, Line, Node, NodeOptions, RichText, RichTextOptions, VBox } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 
 export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
@@ -98,10 +98,10 @@ class EquationNode extends Node {
     };
 
     // options for parts of the equation
-    const equationOptions = {
+    const equationOptions: RichTextOptions = {
       font: GQConstants.INTERACTIVE_EQUATION_FONT
     };
-    const xyOptions = merge( {}, equationOptions, {
+    const xyOptions = combineOptions<RichTextOptions>( {}, equationOptions, {
       maxWidth: 20 // determined empirically
     } );
 
@@ -119,7 +119,7 @@ class EquationNode extends Node {
 
     // p value
     const pNode = new NumberDisplay( pProperty, pProperty.range,
-      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.FOCUS_AND_DIRECTRIX_P
         },
@@ -161,7 +161,7 @@ class EquationNode extends Node {
 
     // h value
     const hNode = new NumberDisplay( hProperty, hProperty.range,
-      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.FOCUS_AND_DIRECTRIX_H
         },
@@ -176,7 +176,7 @@ class EquationNode extends Node {
 
     // k value
     const kNode = new NumberDisplay( kProperty, kProperty.range,
-      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.FOCUS_AND_DIRECTRIX_K
         },

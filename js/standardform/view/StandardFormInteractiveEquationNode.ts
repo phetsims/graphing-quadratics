@@ -8,16 +8,16 @@
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
-import NumberPicker from '../../../../sun/js/NumberPicker.js';
+import { Node, NodeOptions, RichText, RichTextOptions } from '../../../../scenery/js/imports.js';
+import NumberPicker, { NumberPickerOptions } from '../../../../sun/js/NumberPicker.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 
 export default class StandardFormInteractiveEquationNode extends Node {
 
@@ -33,29 +33,29 @@ export default class StandardFormInteractiveEquationNode extends Node {
 
     // coefficient pickers
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
-      merge( {
+      combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.STANDARD_FORM_A,
         tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
-      }, GQConstants.NUMBER_PICKER_OPTIONS ) );
+      } ) );
     const bPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
-      merge( {
+      combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.STANDARD_FORM_B,
         tandem: tandem.createTandem( 'bPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'b' } )
-      }, GQConstants.NUMBER_PICKER_OPTIONS ) );
+      } ) );
     const cPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
-      merge( {
+      combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.STANDARD_FORM_C,
         tandem: tandem.createTandem( 'cPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'c' } )
-      }, GQConstants.NUMBER_PICKER_OPTIONS ) );
+      } ) );
 
     // static parts of the equation
-    const richTextOptions = {
+    const richTextOptions: RichTextOptions = {
       font: GQConstants.INTERACTIVE_EQUATION_FONT
     };
-    const xyOptions = merge( {}, richTextOptions, {
+    const xyOptions = combineOptions<RichTextOptions>( {}, richTextOptions, {
       maxWidth: 30 // determined empirically
     } );
     const yText = new RichText( GQSymbols.y, xyOptions );

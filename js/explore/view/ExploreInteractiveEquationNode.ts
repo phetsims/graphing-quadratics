@@ -11,13 +11,12 @@
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
-import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
+import NumberDisplay, { NumberDisplayOptions } from '../../../../scenery-phet/js/NumberDisplay.js';
+import { Node, NodeOptions, RichText, RichTextOptions } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -105,10 +104,10 @@ class EquationNode extends Node {
     };
 
     // options for parts of the equation
-    const equationOptions = {
+    const equationOptions: RichTextOptions = {
       font: GQConstants.INTERACTIVE_EQUATION_FONT
     };
-    const xyOptions = merge( {}, equationOptions, {
+    const xyOptions = combineOptions<RichTextOptions>( {}, equationOptions, {
       maxWidth: 20 // determined empirically
     } );
 
@@ -120,7 +119,7 @@ class EquationNode extends Node {
 
     // a value
     const aNode = new NumberDisplay( aProperty, aProperty.range,
-      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.EXPLORE_A
         },
@@ -135,7 +134,7 @@ class EquationNode extends Node {
 
     // b value
     const bNode = new NumberDisplay( bProperty, bProperty.range,
-      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.EXPLORE_B
         },
@@ -150,7 +149,7 @@ class EquationNode extends Node {
 
     // c value
     const cNode = new NumberDisplay( cProperty, bProperty.range,
-      merge( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.EXPLORE_C
         },
