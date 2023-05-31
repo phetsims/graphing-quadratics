@@ -17,6 +17,7 @@ import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import QuadraticNode from './QuadraticNode.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 type SelfOptions = {
 
@@ -122,7 +123,7 @@ export default class GQGraphNode extends Node {
         // the user can see it. Otherwise, move it to the back. Note that this does not address the corner case where
         // the instructional designer has changed quadraticProperty, then changed it back to match savedQuadratic.
         // We decided not to address that case, see https://github.com/phetsims/graphing-quadratics/issues/165.
-        if ( phet.joist.sim.isSettingPhetioStateProperty.value && !savedQuadratic.hasSameCoefficients( model.quadraticProperty.value ) ) {
+        if ( isSettingPhetioStateProperty.value && !savedQuadratic.hasSameCoefficients( model.quadraticProperty.value ) ) {
           savedQuadraticNode.moveToBack();
         }
       }
@@ -134,7 +135,7 @@ export default class GQGraphNode extends Node {
     // handle it. See https://github.com/phetsims/graphing-quadratics/issues/36 and
     // https://github.com/phetsims/graphing-quadratics/issues/165.
     model.quadraticProperty.link( quadratic => {
-      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+      if ( !isSettingPhetioStateProperty.value ) {
         savedQuadraticNode && savedQuadraticNode.moveToBack();
       }
     } );

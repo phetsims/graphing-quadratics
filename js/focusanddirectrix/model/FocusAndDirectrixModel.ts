@@ -20,6 +20,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQModel from '../../common/model/GQModel.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 // constants
 const P_RANGE = new RangeWithValue( -9, 9, 2 ); // p coefficient
@@ -101,7 +102,7 @@ export default class FocusAndDirectrixModel extends GQModel {
       assert && assert( quadratic.vertex, `expected quadratic.vertex: ${quadratic.vertex}` );
       assert && assert( oldQuadratic.vertex, `expected oldQuadratic.vertex: ${oldQuadratic.vertex}` );
 
-      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+      if ( !isSettingPhetioStateProperty.value ) {
         const dx = quadratic.vertex!.x - oldQuadratic.vertex!.x;
         const x = this.pointOnParabolaProperty.value.x + dx;
         this.pointOnParabolaProperty.value = quadratic.getClosestPointInRange( x, this.graph.xRange, this.graph.yRange );
