@@ -10,7 +10,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { Node, NodeOptions, Rectangle, Text } from '../../../../scenery/js/imports.js';
+import { Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
@@ -18,6 +18,7 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
 
 // const
 const Y_OFFSET = 2; // min offset from vertex, determined empirically
@@ -37,19 +38,23 @@ export default class NoRealRootsNode extends Node {
       phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'
     };
 
-    const textNode = new Text( GraphingQuadraticsStrings.noRealRoots, {
+    const textNode = new Text( GraphingQuadraticsStrings.noRealRootsStringProperty, {
       font: GQConstants.NO_REAL_ROOTS_FONT,
       fill: 'white'
     } );
 
-    const backgroundNode = new Rectangle( textNode.bounds.dilatedXY( 5, 1 ), {
-      fill: GQColors.ROOTS,
-      opacity: 0.75,
-      cornerRadius: 4,
-      center: textNode.center
+    // Translucent background, dynamically sized to textNode
+    const backgroundNode = new BackgroundNode( textNode, {
+      xMargin: 5,
+      yMargin: 1,
+      rectangleOptions: {
+        fill: GQColors.ROOTS,
+        opacity: 0.75,
+        cornerRadius: 4
+      }
     } );
 
-    options.children = [ backgroundNode, textNode ];
+    options.children = [ backgroundNode ];
 
     // visibility of this Node
     options.visibleProperty = new DerivedProperty(
@@ -74,11 +79,11 @@ export default class NoRealRootsNode extends Node {
       modelViewTransform.viewToModelDeltaX( 0.6 * maxWidth ), Y_OFFSET );
 
     // The center of this Node, typically at the origin, except when that would overlap the vertex's coordinates.
-    // In that case, position above or below the x axis, depending on which way the parabola opens.
+    // In that case, position above or below the x-axis, depending on which way the parabola opens.
     // See https://github.com/phetsims/graphing-quadratics/issues/88
     const centerProperty = new DerivedProperty(
-      [ vertexVisibleProperty, coordinatesVisibleProperty, quadraticProperty ],
-      ( vertexVisible, coordinatesVisible, quadratic ) => {
+      [ vertexVisibleProperty, coordinatesVisibleProperty, quadraticProperty, this.boundsProperty ],
+      ( vertexVisible, coordinatesVisible, quadratic, bounds ) => {
         if ( vertexVisible && // the Vertex checkbox is checked
              coordinatesVisible && // the Coordinates checkbox is checked
              ( quadratic.roots && quadratic.roots.length === 0 ) && // no roots

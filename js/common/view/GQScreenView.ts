@@ -68,7 +68,6 @@ export default class GQScreenView extends ScreenView {
 
       // set maxHeight to guard against font size differences across supported browsers
       maxHeight: this.layoutBounds.height - ( 2 * GQConstants.SCREEN_VIEW_Y_MARGIN ),
-      resize: false,
       align: 'center',
       spacing: 10,
       children: [

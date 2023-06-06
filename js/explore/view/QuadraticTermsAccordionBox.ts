@@ -36,9 +36,9 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
       }, providedOptions );
 
     // AccordionBox title
-    options.titleNode = new Text( GraphingQuadraticsStrings.quadraticTerms, {
+    options.titleNode = new Text( GraphingQuadraticsStrings.quadraticTermsStringProperty, {
       font: GQConstants.TITLE_FONT,
-      maxWidth: 180, // determined empirically
+      maxWidth: 275, // determined empirically
       tandem: options.tandem.createTandem( 'titleText' ),
       phetioDocumentation: 'the title on this accordion box',
       visiblePropertyOptions: { phetioReadOnly: true }
@@ -75,8 +75,7 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
         new AlignBox( linearTermCheckbox, alignBoxOptions ),
         new AlignBox( constantTermCheckbox, alignBoxOptions ),
         new HSeparator( {
-          stroke: GQColors.SEPARATOR,
-          minimumWidth: 1.1 * options.titleNode.width
+          stroke: GQColors.SEPARATOR
         } ),
         new AlignBox( equationsCheckbox, alignBoxOptions )
       ]
