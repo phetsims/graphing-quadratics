@@ -18,6 +18,7 @@ import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import QuadraticNode from './QuadraticNode.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
+import GQSymbols from '../GQSymbols.js';
 
 type SelfOptions = {
 
@@ -50,7 +51,7 @@ export default class GQGraphNode extends Node {
     super( options );
 
     // Cartesian coordinates graph
-    const graphNode = new GraphNode( model.graph, model.modelViewTransform );
+    const graphNode = new GraphNode( model.graph, model.modelViewTransform, GQSymbols.x, GQSymbols.y );
 
     // Interactive quadratic curve
     const interactiveQuadraticNode = new QuadraticNode(
