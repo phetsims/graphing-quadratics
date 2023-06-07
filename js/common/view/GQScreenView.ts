@@ -83,8 +83,10 @@ export default class GQScreenView extends ScreenView {
     this.addChild( pointToolsParent );
 
     // Horizontally center controls in the space to the right of the graph.
-    controlsParent.centerX = graphNode.right + X_SPACING + ( controlPanelMaxWidth / 2 );
-    controlsParent.top = GQConstants.SCREEN_VIEW_Y_MARGIN;
+    controlsParent.boundsProperty.link( () => {
+      controlsParent.centerX = graphNode.right + X_SPACING + ( controlPanelMaxWidth / 2 );
+      controlsParent.top = GQConstants.SCREEN_VIEW_Y_MARGIN;
+    } );
 
     // Reset All Button
     const resetAllButton = new ResetAllButton( {

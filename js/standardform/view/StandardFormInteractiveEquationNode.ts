@@ -18,6 +18,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 export default class StandardFormInteractiveEquationNode extends Node {
 
@@ -71,20 +72,27 @@ export default class StandardFormInteractiveEquationNode extends Node {
 
     super( options );
 
-    // layout
-    equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    aPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    xSquaredText.left = aPicker.right + GQConstants.EQUATION_TERM_SPACING;
-    plusText.left = xSquaredText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    bPicker.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    xText.left = bPicker.right + GQConstants.EQUATION_TERM_SPACING;
-    secondPlusText.left = xText.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    cPicker.left = secondPlusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+    // If any of the components that include dynamic text change their size, redo the layout.
+    Multilink.multilink( [
+      yText.boundsProperty, xSquaredText.boundsProperty, xText.boundsProperty,
+      aPicker.boundsProperty, bPicker.boundsProperty, cPicker.boundsProperty
+    ], () => {
 
-    // vertically center pickers on equals
-    aPicker.centerY = equalToText.centerY;
-    bPicker.centerY = equalToText.centerY;
-    cPicker.centerY = equalToText.centerY;
+      // layout
+      equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      aPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      xSquaredText.left = aPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      plusText.left = xSquaredText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      bPicker.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      xText.left = bPicker.right + GQConstants.EQUATION_TERM_SPACING;
+      secondPlusText.left = xText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+      cPicker.left = secondPlusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+
+      // vertically center pickers on equals
+      aPicker.centerY = equalToText.centerY;
+      bPicker.centerY = equalToText.centerY;
+      cPicker.centerY = equalToText.centerY;
+    } );
   }
 }
 

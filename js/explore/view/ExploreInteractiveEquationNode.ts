@@ -10,20 +10,19 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Bounds2 from '../../../../dot/js/Bounds2.js';
 import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import NumberDisplay, { NumberDisplayOptions } from '../../../../scenery-phet/js/NumberDisplay.js';
 import { Node, NodeOptions, RichText, RichTextOptions } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import QuadraticSlider from '../../common/view/QuadraticSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -44,9 +43,6 @@ export default class ExploreInteractiveEquationNode extends Node {
         phetioFeatured: true
       }
     }, providedOptions );
-
-    // equation
-    const equationNode = new EquationNode( aProperty, bProperty, cProperty, options.tandem.createTandem( 'equationNode' ) );
 
     // coefficient controls (labeled sliders)
     const aSlider = new QuadraticSlider( GQSymbols.aMarkupStringProperty, aProperty, {
@@ -69,86 +65,22 @@ export default class ExploreInteractiveEquationNode extends Node {
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
     } );
 
-    options.children = [ equationNode, aSlider, bSlider, cSlider ];
-
-    super( options );
-
-    // horizontally align sliders under their associated values in the equation
-    const ySpacing = 3;
-    aSlider.x = this.globalToLocalBounds( equationNode.aGlobalBounds ).centerX;
-    aSlider.top = equationNode.bottom + ySpacing;
-    bSlider.x = this.globalToLocalBounds( equationNode.bGlobalBounds ).centerX;
-    bSlider.top = equationNode.bottom + ySpacing;
-    cSlider.x = this.globalToLocalBounds( equationNode.cGlobalBounds ).centerX;
-    cSlider.top = equationNode.bottom + ySpacing;
-  }
-}
-
-/**
- * The equation that appears above the sliders.
- */
-class EquationNode extends Node {
-
-  private readonly aNode: Node;
-  private readonly bNode: Node;
-  private readonly cNode: Node;
-
-  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty, tandem: Tandem ) {
-
-    const options: NodeOptions = {
-      tandem: tandem,
-      phetioDocumentation: 'the equation that changes as the sliders are adjusted',
-      visiblePropertyOptions: {
-        phetioFeatured: true
-      }
-    };
-
-    // options for parts of the equation
-    const equationOptions: RichTextOptions = {
-      font: GQConstants.INTERACTIVE_EQUATION_FONT
-    };
-    const xyOptions = combineOptions<RichTextOptions>( {}, equationOptions, {
-      maxWidth: 20 // determined empirically
-    } );
-
-    // y
-    const yNode = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
-
-    // =
-    const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
-
-    // a value
-    const aNode = new NumberDisplay( aProperty, aProperty.range,
+    // NumberDisplays for a, b, c
+    const aNumberDisplay = new NumberDisplay( aProperty, aProperty.range,
       combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.EXPLORE_A
         },
         decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
       } ) );
-
-    // x^2
-    const xSquaredNode = new RichText( GQSymbols.xSquaredMarkupStringProperty, xyOptions );
-
-    // + 
-    const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
-
-    // b value
-    const bNode = new NumberDisplay( bProperty, bProperty.range,
+    const bNumberDisplay = new NumberDisplay( bProperty, bProperty.range,
       combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.EXPLORE_B
         },
         decimalPlaces: GQConstants.EXPLORE_DECIMALS_B
       } ) );
-
-    // x
-    const xNode = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
-
-    // +
-    const anotherPlusNode = new RichText( MathSymbols.PLUS, equationOptions );
-
-    // c value
-    const cNode = new NumberDisplay( cProperty, bProperty.range,
+    const cNumberDisplay = new NumberDisplay( cProperty, bProperty.range,
       combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
           fill: GQColors.EXPLORE_C
@@ -156,43 +88,62 @@ class EquationNode extends Node {
         decimalPlaces: GQConstants.EXPLORE_DECIMALS_C
       } ) );
 
-    // y = ax^2 + bx + c
-    options.children = [
-      yNode, equalsNode, aNode, xSquaredNode, plusNode,
-      xNode, bNode, anotherPlusNode, cNode
-    ];
+    // static parts of the equation
+    const equationOptions: RichTextOptions = {
+      font: GQConstants.INTERACTIVE_EQUATION_FONT
+    };
+    const xyOptions = combineOptions<RichTextOptions>( {}, equationOptions, {
+      maxWidth: 20 // determined empirically
+    } );
+    const yText = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
+    const equalToText = new RichText( MathSymbols.EQUAL_TO, equationOptions );
+    const xSquaredText = new RichText( GQSymbols.xSquaredMarkupStringProperty, xyOptions );
+    const plusText = new RichText( MathSymbols.PLUS, equationOptions );
+    const xText = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
+    const plusText2 = new RichText( MathSymbols.PLUS, equationOptions );
 
-    // layout
-    equalsNode.left = yNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    aNode.left = equalsNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    xSquaredNode.left = aNode.right + GQConstants.EQUATION_TERM_SPACING;
-    plusNode.left = xSquaredNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    bNode.left = plusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    xNode.left = bNode.right + GQConstants.EQUATION_TERM_SPACING;
-    anotherPlusNode.left = xNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    cNode.left = anotherPlusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    aNode.bottom = equalsNode.bottom;
-    bNode.bottom = equalsNode.bottom;
-    cNode.bottom = equalsNode.bottom;
+    const equationNode = new Node( {
+      children: [ yText, equalToText, aNumberDisplay, xSquaredText, plusText, xText, bNumberDisplay, plusText2, cNumberDisplay ],
+      tandem: options.tandem.createTandem( 'equationNode' ),
+      phetioDocumentation: 'the equation that changes as the sliders are adjusted',
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
+    } );
+
+    options.children = [ equationNode, aSlider, bSlider, cSlider ];
 
     super( options );
 
-    this.aNode = aNode;
-    this.bNode = bNode;
-    this.cNode = cNode;
-  }
+    // If any of the components that include dynamic text change their size, redo the layout.
+    Multilink.multilink( [
+        yText.boundsProperty, xSquaredText.boundsProperty, xText.boundsProperty,
+        aSlider.boundsProperty, bSlider.boundsProperty, cSlider.boundsProperty
+      ],
+      () => {
 
-  // Gets the global bounds of a, b, c, used for layout
-  public get aGlobalBounds(): Bounds2 {
-    return this.aNode.getGlobalBounds();
-  }
+        // equation layout: y = ax^2 + bx + c
+        equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        aNumberDisplay.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        xSquaredText.left = aNumberDisplay.right + GQConstants.EQUATION_TERM_SPACING;
+        plusText.left = xSquaredText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        bNumberDisplay.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        xText.left = bNumberDisplay.right + GQConstants.EQUATION_TERM_SPACING;
+        plusText2.left = xText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        cNumberDisplay.left = plusText2.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        aNumberDisplay.bottom = equalToText.bottom;
+        bNumberDisplay.bottom = equalToText.bottom;
+        cNumberDisplay.bottom = equalToText.bottom;
 
-  public get bGlobalBounds(): Bounds2 {
-    return this.bNode.getGlobalBounds();
-  }
-
-  public get cGlobalBounds(): Bounds2 {
-    return this.cNode.getGlobalBounds();
+        // horizontally align sliders under their associated values in the equation
+        const ySpacing = 3;
+        aSlider.x = aNumberDisplay.centerX;
+        aSlider.top = equationNode.bottom + ySpacing;
+        bSlider.x = bNumberDisplay.centerX;
+        bSlider.top = equationNode.bottom + ySpacing;
+        cSlider.x = cNumberDisplay.centerX;
+        cSlider.top = equationNode.bottom + ySpacing;
+      } );
   }
 }
 
