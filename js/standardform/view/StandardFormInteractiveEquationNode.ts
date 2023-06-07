@@ -78,7 +78,7 @@ export default class StandardFormInteractiveEquationNode extends Node {
       aPicker.boundsProperty, bPicker.boundsProperty, cPicker.boundsProperty
     ], () => {
 
-      // layout
+      // equation layout
       equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
       aPicker.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
       xSquaredText.left = aPicker.right + GQConstants.EQUATION_TERM_SPACING;
