@@ -8,13 +8,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class StandardFormEquationNode extends Node {
 
@@ -28,18 +28,17 @@ export default class StandardFormEquationNode extends Node {
     };
 
     // y = ax^2 + bx + c
-    const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}{{xSquared}} {{plus}} {{b}}{{x}} {{plus}} {{c}}', {
-      x: GQSymbols.x,
-      xSquared: GQSymbols.xSquared,
-      y: GQSymbols.y,
-      a: GQSymbols.a,
-      b: GQSymbols.b,
-      c: GQSymbols.c,
-      equals: MathSymbols.EQUAL_TO,
-      plus: MathSymbols.PLUS
-    } );
+    const stringProperty = new DerivedProperty( [
+      GQSymbols.yMarkupStringProperty,
+      GQSymbols.aMarkupStringProperty,
+      GQSymbols.xSquaredMarkupStringProperty,
+      GQSymbols.bMarkupStringProperty,
+      GQSymbols.xMarkupStringProperty,
+      GQSymbols.cMarkupStringProperty
+    ], ( y, a, x2, b, x, c ) =>
+      `${y} ${MathSymbols.EQUAL_TO} ${a}${x2} ${MathSymbols.PLUS} ${b}${x} ${MathSymbols.PLUS} ${c}` );
 
-    const textNode = new RichText( text, {
+    const textNode = new RichText( stringProperty, {
       font: GQConstants.INTERACTIVE_EQUATION_FONT,
       fill: 'black'
     } );

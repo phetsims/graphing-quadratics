@@ -49,20 +49,20 @@ export default class ExploreInteractiveEquationNode extends Node {
     const equationNode = new EquationNode( aProperty, bProperty, cProperty, options.tandem.createTandem( 'equationNode' ) );
 
     // coefficient controls (labeled sliders)
-    const aSlider = new QuadraticSlider( GQSymbols.a, aProperty, {
+    const aSlider = new QuadraticSlider( GQSymbols.aMarkupStringProperty, aProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_A,
       snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
       labelColor: GQColors.EXPLORE_A,
       tandem: options.tandem.createTandem( 'aSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
     } );
-    const bSlider = new LinearSlider( GQSymbols.b, bProperty, {
+    const bSlider = new LinearSlider( GQSymbols.bMarkupStringProperty, bProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_B,
       labelColor: GQColors.EXPLORE_B,
       tandem: options.tandem.createTandem( 'bSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
     } );
-    const cSlider = new LinearSlider( GQSymbols.c, cProperty, {
+    const cSlider = new LinearSlider( GQSymbols.cMarkupStringProperty, cProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_C,
       labelColor: GQColors.EXPLORE_C,
       tandem: options.tandem.createTandem( 'cSlider' ),
@@ -112,7 +112,7 @@ class EquationNode extends Node {
     } );
 
     // y
-    const yNode = new RichText( GQSymbols.y, xyOptions );
+    const yNode = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
 
     // =
     const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
@@ -127,7 +127,7 @@ class EquationNode extends Node {
       } ) );
 
     // x^2
-    const xSquaredNode = new RichText( GQSymbols.xSquared, xyOptions );
+    const xSquaredNode = new RichText( GQSymbols.xSquaredMarkupStringProperty, xyOptions );
 
     // + 
     const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
@@ -142,7 +142,7 @@ class EquationNode extends Node {
       } ) );
 
     // x
-    const xNode = new RichText( GQSymbols.x, xyOptions );
+    const xNode = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
 
     // +
     const anotherPlusNode = new RichText( MathSymbols.PLUS, equationOptions );

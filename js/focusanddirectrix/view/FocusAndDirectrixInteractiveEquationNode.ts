@@ -40,7 +40,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const equationNode = new EquationNode( pProperty, hProperty, kProperty, tandem.createTandem( 'equationNode' ) );
 
     // value sliders
-    const pSlider = new LinearSlider( GQSymbols.p, pProperty, {
+    const pSlider = new LinearSlider( GQSymbols.pMarkupStringProperty, pProperty, {
 
       // p=0 is not supported by this sim because it results in division by zero for 1/(4p).
       // see https://github.com/phetsims/graphing-quadratics/issues/31
@@ -50,13 +50,13 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       tandem: tandem.createTandem( 'pSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
     } );
-    const hSlider = new LinearSlider( GQSymbols.h, hProperty, {
+    const hSlider = new LinearSlider( GQSymbols.hMarkupStringProperty, hProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
       labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
       tandem: tandem.createTandem( 'hSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
     } );
-    const kSlider = new LinearSlider( GQSymbols.k, kProperty, {
+    const kSlider = new LinearSlider( GQSymbols.kMarkupStringProperty, kProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
       labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
       tandem: tandem.createTandem( 'kSlider' ),
@@ -106,7 +106,7 @@ class EquationNode extends Node {
     } );
 
     // y
-    const yNode = new RichText( GQSymbols.y, xyOptions );
+    const yNode = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
 
     // =
     const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
@@ -154,7 +154,7 @@ class EquationNode extends Node {
     const anotherParenNode = new RichText( '(', equationOptions );
 
     // x
-    const xNode = new RichText( GQSymbols.x, xyOptions );
+    const xNode = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
 
     // -
     const minusNode = new RichText( MathSymbols.MINUS, equationOptions );

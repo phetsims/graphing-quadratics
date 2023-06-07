@@ -26,6 +26,7 @@ import { RichText, TColor, Text } from '../../../../scenery/js/imports.js';
 import VSlider, { VSliderOptions } from '../../../../sun/js/VSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 type TransformFunction = ( value: number ) => number;
 
@@ -69,11 +70,11 @@ export type GQSliderOptions = SelfOptions &
 export default class GQSlider extends VSlider {
 
   /**
-   * @param symbol - the coefficient's symbol
+   * @param symbolStringProperty - the coefficient's symbol
    * @param coefficientProperty - the coefficient's value
    * @param [providedOptions]
    */
-  public constructor( symbol: string, coefficientProperty: NumberProperty, providedOptions: GQSliderOptions ) {
+  public constructor( symbolStringProperty: TReadOnlyProperty<string>, coefficientProperty: NumberProperty, providedOptions: GQSliderOptions ) {
 
     const options = optionize<GQSliderOptions, StrictOmit<SelfOptions, 'snapToZeroEpsilon'>, VSliderOptions>()( {
 
@@ -173,7 +174,7 @@ export default class GQSlider extends VSlider {
     }
 
     // Label that appears above the slider.
-    const label = new RichText( symbol, {
+    const label = new RichText( symbolStringProperty, {
       font: GQConstants.SLIDER_LABEL_FONT,
       fill: options.labelColor,
       centerX: this.x,

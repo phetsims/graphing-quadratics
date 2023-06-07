@@ -58,11 +58,11 @@ export default class StandardFormInteractiveEquationNode extends Node {
     const xyOptions = combineOptions<RichTextOptions>( {}, richTextOptions, {
       maxWidth: 30 // determined empirically
     } );
-    const yText = new RichText( GQSymbols.y, xyOptions );
+    const yText = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
     const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
-    const xSquaredText = new RichText( GQSymbols.xSquared, xyOptions );
+    const xSquaredText = new RichText( GQSymbols.xSquaredMarkupStringProperty, xyOptions );
     const plusText = new RichText( MathSymbols.PLUS, richTextOptions );
-    const xText = new RichText( GQSymbols.x, xyOptions );
+    const xText = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
     const secondPlusText = new RichText( MathSymbols.PLUS, richTextOptions );
 
     options.children = [

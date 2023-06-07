@@ -12,6 +12,7 @@ import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQSlider, { GQSliderOptions } from './GQSlider.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -20,12 +21,12 @@ type LinearSliderOptions = SelfOptions & StrictOmit<GQSliderOptions, 'map' | 'in
 export default class LinearSlider extends GQSlider {
 
   /**
-   * @param symbol - the coefficient's symbol
+   * @param symbolStringProperty - the coefficient's symbol
    * @param coefficientProperty - the coefficient's value
    * @param [provideOptions]
    */
-  public constructor( symbol: string, coefficientProperty: NumberProperty, provideOptions: LinearSliderOptions ) {
-    super( symbol, coefficientProperty, provideOptions );
+  public constructor( symbolStringProperty: TReadOnlyProperty<string>, coefficientProperty: NumberProperty, provideOptions: LinearSliderOptions ) {
+    super( symbolStringProperty, coefficientProperty, provideOptions );
   }
 }
 

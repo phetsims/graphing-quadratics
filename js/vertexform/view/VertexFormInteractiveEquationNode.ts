@@ -58,10 +58,10 @@ export default class VertexFormInteractiveEquationNode extends Node {
     const xyOptions = combineOptions<RichTextOptions>( {}, richTextOptions, {
       maxWidth: 30 // determined empirically
     } );
-    const yText = new RichText( GQSymbols.y, xyOptions );
+    const yText = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
     const equalToText = new RichText( MathSymbols.EQUAL_TO, richTextOptions );
     const openParenthesisText = new RichText( '(', richTextOptions );
-    const xText = new RichText( GQSymbols.x, xyOptions );
+    const xText = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
     const minusText = new RichText( MathSymbols.MINUS, richTextOptions );
     const parenSquaredText = new RichText( ')<sup>2</sup>', richTextOptions );
     const plusText = new RichText( MathSymbols.PLUS, richTextOptions );

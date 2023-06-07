@@ -12,6 +12,7 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQSlider, { GQSliderOptions } from './GQSlider.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -20,11 +21,11 @@ type QuadraticSliderOptions = SelfOptions & StrictOmit<GQSliderOptions, 'map' | 
 export default class QuadraticSlider extends GQSlider {
 
   /**
-   * @param symbol - the coefficient's symbol
+   * @param symbolStringProperty - the coefficient's symbol
    * @param coefficientProperty - the coefficient's value
    * @param [providedOptions]
    */
-  public constructor( symbol: string, coefficientProperty: NumberProperty, providedOptions: QuadraticSliderOptions ) {
+  public constructor( symbolStringProperty: TReadOnlyProperty<string>, coefficientProperty: NumberProperty, providedOptions: QuadraticSliderOptions ) {
 
     assert && assert( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,
       `symmetrical range is required: ${coefficientProperty.range}` );
@@ -41,7 +42,7 @@ export default class QuadraticSlider extends GQSlider {
       inverseMap: value => ( Math.sign( value ) * a * value * value )
     }, providedOptions );
 
-    super( symbol, coefficientProperty, options );
+    super( symbolStringProperty, coefficientProperty, options );
   }
 }
 

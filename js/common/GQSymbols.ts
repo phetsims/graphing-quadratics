@@ -9,19 +9,20 @@
 import MathSymbolFont from '../../../scenery-phet/js/MathSymbolFont.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
+import DerivedProperty from '../../../axon/js/DerivedProperty.js';
 
-const x = MathSymbolFont.getRichTextMarkup( GraphingQuadraticsStrings.x );
+const xMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.xStringProperty );
 
 const GQSymbols = {
-  a: MathSymbolFont.getRichTextMarkup( GraphingQuadraticsStrings.a ),
-  b: MathSymbolFont.getRichTextMarkup( GraphingQuadraticsStrings.b ),
-  c: MathSymbolFont.getRichTextMarkup( GraphingQuadraticsStrings.c ),
-  h: MathSymbolFont.getRichTextMarkup( GraphingQuadraticsStrings.h ),
-  k: MathSymbolFont.getRichTextMarkup( GraphingQuadraticsStrings.k ),
-  p: MathSymbolFont.getRichTextMarkup( GraphingQuadraticsStrings.p ),
-  x: x,
-  xSquared: `${x}<sup>2</sup>`,
-  y: MathSymbolFont.getRichTextMarkup( GraphingQuadraticsStrings.y )
+  aMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.aStringProperty ),
+  bMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.bStringProperty ),
+  cMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.cStringProperty ),
+  hMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.hStringProperty ),
+  kMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.kStringProperty ),
+  pMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.pStringProperty ),
+  xMarkupStringProperty: xMarkupStringProperty,
+  xSquaredMarkupStringProperty: new DerivedProperty( [ xMarkupStringProperty ], x => `${x}<sup>2</sup>` ),
+  yMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.yStringProperty )
 };
 
 graphingQuadratics.register( 'GQSymbols', GQSymbols );

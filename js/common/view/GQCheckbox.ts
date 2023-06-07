@@ -24,6 +24,7 @@ import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 type SelfOptions = {
   string: TReadOnlyProperty<string> | string; // required string for text
@@ -70,7 +71,11 @@ export default class GQCheckbox extends Checkbox {
    */
   public static createQuadraticTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
-      string: `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.a}${GQSymbols.xSquared}`, // y = ax^2
+
+      // y = ax^2
+      string: new DerivedProperty(
+        [ GQSymbols.yMarkupStringProperty, GQSymbols.aMarkupStringProperty, GQSymbols.xSquaredMarkupStringProperty ],
+        ( y, a, x2 ) => `${y} ${MathSymbols.EQUAL_TO} ${a}${x2}` ),
       textFill: GQColors.QUADRATIC_TERM,
       tandem: tandem,
       phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
@@ -82,7 +87,11 @@ export default class GQCheckbox extends Checkbox {
    */
   public static createLinearTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
-      string: `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.b}${GQSymbols.x}`, // y = bx
+
+      // y = bx
+      string: new DerivedProperty(
+        [ GQSymbols.yMarkupStringProperty, GQSymbols.bMarkupStringProperty, GQSymbols.xMarkupStringProperty ],
+        ( y, b, x ) => `${y} ${MathSymbols.EQUAL_TO} ${b}${x}` ),
       textFill: GQColors.LINEAR_TERM,
       tandem: tandem,
       phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
@@ -94,7 +103,11 @@ export default class GQCheckbox extends Checkbox {
    */
   public static createConstantTermCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
-      string: `${GQSymbols.y} ${MathSymbols.EQUAL_TO} ${GQSymbols.c}`, // y = c
+
+      // y = c
+      string: new DerivedProperty(
+        [ GQSymbols.yMarkupStringProperty, GQSymbols.cMarkupStringProperty ],
+        ( y, c ) => `${y} ${MathSymbols.EQUAL_TO} ${c}` ),
       textFill: GQColors.CONSTANT_TERM,
       tandem: tandem,
       phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'

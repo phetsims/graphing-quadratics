@@ -14,6 +14,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 const FONT = GQConstants.INTERACTIVE_EQUATION_FONT;
 const FRACTION_FONT = GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT;
@@ -31,8 +32,9 @@ export default class FocusAndDirectrixEquationNode extends Node {
     };
 
     // y =
-    const yEqualsString = `${GQSymbols.y} ${MathSymbols.EQUAL_TO}`;
-    const yEqualsNode = new RichText( yEqualsString, {
+    const yEqualsStringProperty = new DerivedProperty( [ GQSymbols.yMarkupStringProperty ],
+      y => `${y} ${MathSymbols.EQUAL_TO}` );
+    const yEqualsNode = new RichText( yEqualsStringProperty, {
       font: FONT,
       fill: COLOR
     } );
@@ -44,8 +46,9 @@ export default class FocusAndDirectrixEquationNode extends Node {
     } );
 
     // 4p
-    const denominatorString = `4${GQSymbols.p}`;
-    const denominatorNode = new RichText( denominatorString, {
+    const denominatorStringProperty = new DerivedProperty( [ GQSymbols.pMarkupStringProperty ],
+      p => `4${p}` );
+    const denominatorNode = new RichText( denominatorStringProperty, {
       font: FRACTION_FONT,
       fill: COLOR
     } );
@@ -65,14 +68,19 @@ export default class FocusAndDirectrixEquationNode extends Node {
     } );
 
     // (x - h)^2 + k
-    const rightString = StringUtils.fillIn( '({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
-      x: GQSymbols.x,
-      h: GQSymbols.h,
-      k: GQSymbols.k,
-      plus: MathSymbols.PLUS,
-      minus: MathSymbols.MINUS
-    } );
-    const rightNode = new RichText( rightString, {
+    const rightStringProperty = new DerivedProperty( [
+      GQSymbols.xMarkupStringProperty,
+      GQSymbols.hMarkupStringProperty,
+      GQSymbols.kMarkupStringProperty
+    ], ( x, h, k ) =>
+      StringUtils.fillIn( '({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
+        x: x,
+        h: h,
+        k: k,
+        plus: MathSymbols.PLUS,
+        minus: MathSymbols.MINUS
+      } ) );
+    const rightNode = new RichText( rightStringProperty, {
       font: FONT,
       fill: COLOR
     } );

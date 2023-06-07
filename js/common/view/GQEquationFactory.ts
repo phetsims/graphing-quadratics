@@ -17,7 +17,7 @@ import GQSymbols from '../GQSymbols.js';
 import Quadratic from '../model/Quadratic.js';
 
 // constants
-const Y_EQUALS_STRING = `${GQSymbols.y} ${MathSymbols.EQUAL_TO}`; // 'y ='
+const Y_EQUALS_STRING = `${GQSymbols.yMarkupStringProperty.value} ${MathSymbols.EQUAL_TO}`; // 'y ='
 
 const GQEquationFactory = {
 
@@ -51,7 +51,7 @@ const GQEquationFactory = {
           equationString += a; // ax^2
         }
 
-        equationString += GQSymbols.xSquared;
+        equationString += GQSymbols.xSquaredMarkupStringProperty.value;
 
         if ( b !== 0 || c !== 0 ) {
           equationString += ' ';
@@ -68,7 +68,7 @@ const GQEquationFactory = {
           else if ( b !== 1 ) {
             equationString += b; // bx
           }
-          equationString += GQSymbols.x;
+          equationString += GQSymbols.xMarkupStringProperty.value;
         }
         else {
           equationString += ( b > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS;
@@ -76,7 +76,7 @@ const GQEquationFactory = {
           if ( Math.abs( b ) !== 1 ) {
             equationString += Math.abs( b );
           }
-          equationString += GQSymbols.x;
+          equationString += GQSymbols.xMarkupStringProperty.value;
         }
 
         if ( c !== 0 ) {
@@ -133,10 +133,10 @@ const GQEquationFactory = {
       }
 
       if ( h === 0 ) {
-        equationString += GQSymbols.xSquared;
+        equationString += GQSymbols.xSquaredMarkupStringProperty.value;
       }
       else {
-        equationString += `(${GQSymbols.x} `;
+        equationString += `(${GQSymbols.xMarkupStringProperty.value} `;
         equationString += ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
         equationString += ` ${Math.abs( h )}`;
         equationString += ')<sup>2</sup>';
@@ -172,7 +172,7 @@ const GQEquationFactory = {
    * Creates the RichText string for the axis of symmetry equation.
    */
   createAxisOfSymmetry( axisOfSymmetry: number ): string {
-    return `${GQSymbols.x} ${MathSymbols.EQUAL_TO} ${Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
+    return `${GQSymbols.xMarkupStringProperty.value} ${MathSymbols.EQUAL_TO} ${Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
 };
 

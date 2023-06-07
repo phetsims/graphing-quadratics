@@ -51,7 +51,7 @@ export default class GQGraphNode extends Node {
     super( options );
 
     // Cartesian coordinates graph
-    const graphNode = new GraphNode( model.graph, model.modelViewTransform, GQSymbols.x, GQSymbols.y );
+    const graphNode = new GraphNode( model.graph, model.modelViewTransform, GQSymbols.xMarkupStringProperty, GQSymbols.yMarkupStringProperty );
 
     // Interactive quadratic curve
     const interactiveQuadraticNode = new QuadraticNode(

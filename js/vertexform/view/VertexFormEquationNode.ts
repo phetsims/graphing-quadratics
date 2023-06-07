@@ -7,13 +7,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class VertexFormEquationNode extends Node {
 
@@ -27,18 +27,16 @@ export default class VertexFormEquationNode extends Node {
     };
 
     // y = a(x - h)^2 + k
-    const text = StringUtils.fillIn( '{{y}} {{equals}} {{a}}({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
-      x: GQSymbols.x,
-      y: GQSymbols.y,
-      a: GQSymbols.a,
-      h: GQSymbols.h,
-      k: GQSymbols.k,
-      equals: MathSymbols.EQUAL_TO,
-      minus: MathSymbols.MINUS,
-      plus: MathSymbols.PLUS
-    } );
+    const stringProperty = new DerivedProperty( [
+      GQSymbols.yMarkupStringProperty,
+      GQSymbols.aMarkupStringProperty,
+      GQSymbols.xMarkupStringProperty,
+      GQSymbols.hMarkupStringProperty,
+      GQSymbols.kMarkupStringProperty
+    ], ( y, a, x, h, k ) =>
+      `${y} ${MathSymbols.EQUAL_TO} ${a}(${x} ${MathSymbols.MINUS} ${h})<sup>2</sup> ${MathSymbols.PLUS} ${k}` );
 
-    const textNode = new RichText( text, {
+    const textNode = new RichText( stringProperty, {
       font: GQConstants.INTERACTIVE_EQUATION_FONT,
       fill: 'black'
     } );
