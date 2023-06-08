@@ -142,6 +142,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
         pNumberDisplay.boundsProperty, hNumberDisplay.boundsProperty, kNumberDisplay.boundsProperty
       ],
       () => {
+
         // equation layout
         equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
         fractionNode.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;

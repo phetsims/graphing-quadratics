@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import { Line, Node, NodeOptions, RichText, VBox } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -15,6 +14,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 const FONT = GQConstants.INTERACTIVE_EQUATION_FONT;
 const FRACTION_FONT = GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT;
@@ -54,10 +54,13 @@ export default class FocusAndDirectrixEquationNode extends Node {
     } );
 
     // horizontal line between numerator and denominator
-    const fractionLineLength = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
-    const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
+    const fractionLine = new Line( 0, 0, 1, 0, {
       stroke: COLOR,
       lineWidth: 1
+    } );
+    denominatorNode.boundsProperty.link( () => {
+      const length = 1.25 * Math.max( numeratorNode.width, denominatorNode.width );
+      fractionLine.setLine( 0, 0, length, 0 );
     } );
 
     // 1/4p
@@ -72,14 +75,7 @@ export default class FocusAndDirectrixEquationNode extends Node {
       GQSymbols.xMarkupStringProperty,
       GQSymbols.hMarkupStringProperty,
       GQSymbols.kMarkupStringProperty
-    ], ( x, h, k ) =>
-      StringUtils.fillIn( '({{x}} {{minus}} {{h}})<sup>2</sup> {{plus}} {{k}}', {
-        x: x,
-        h: h,
-        k: k,
-        plus: MathSymbols.PLUS,
-        minus: MathSymbols.MINUS
-      } ) );
+    ], ( x, h, k ) => `(${x} ${MathSymbols.MINUS} ${h})<sup>2</sup> ${MathSymbols.PLUS} ${k}` );
     const rightNode = new RichText( rightStringProperty, {
       font: FONT,
       fill: COLOR
@@ -87,10 +83,15 @@ export default class FocusAndDirectrixEquationNode extends Node {
 
     options.children = [ yEqualsNode, fractionNode, rightNode ];
 
-    const xSpacing = 5;
-    fractionNode.left = yEqualsNode.right + xSpacing;
-    fractionNode.centerY = yEqualsNode.centerY;
-    rightNode.left = fractionNode.right + xSpacing;
+    // If any of the components that include dynamic text change their size, redo the layout.
+    Multilink.multilink(
+      [ fractionNode.boundsProperty, yEqualsNode.boundsProperty, rightNode.boundsProperty ],
+      () => {
+        const xSpacing = 5;
+        fractionNode.left = yEqualsNode.right + xSpacing;
+        fractionNode.centerY = yEqualsNode.centerY;
+        rightNode.left = fractionNode.right + xSpacing;
+      } );
 
     super( options );
   }
