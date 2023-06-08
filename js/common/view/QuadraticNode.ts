@@ -223,14 +223,14 @@ export default class QuadraticNode extends Node {
       }
       else {
 
-        // Place the equation on outside of the parabola, parallel to tangent line, at the edge of the graph.
+        // Place the equation on outside the parabola, parallel to tangent line, at the edge of the graph.
         // rotate to match tangent's slope
         this.equationParent.rotation = -Math.atan( quadratic.getTangentSlope( p.x ) );
 
         // move equation to (x,y)
         this.equationParent.translation = this.modelViewTransform.modelToViewPosition( p );
 
-        // when equation is on the right side of parabola, move it's origin to the right end of the equation
+        // when equation is on the right side of parabola, move its origin to the right end of the equation
         if ( p.x > vertex.x ) {
           this.equationNode.right = 0;
         }
