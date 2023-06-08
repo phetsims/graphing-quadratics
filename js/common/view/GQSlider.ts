@@ -174,16 +174,18 @@ export default class GQSlider extends VSlider {
     }
 
     // Label that appears above the slider.
-    const label = new RichText( symbolStringProperty, {
+    const labelText = new RichText( symbolStringProperty, {
       font: GQConstants.SLIDER_LABEL_FONT,
       fill: options.labelColor,
-      centerX: this.x,
       bottom: this.top - 2,
       maxWidth: 20, // determined empirically
       tandem: options.tandem.createTandem( 'labelText' ),
       phetioDocumentation: 'the label above this slider'
     } );
-    this.addChild( label );
+    this.addChild( labelText );
+    labelText.boundsProperty.link( () => {
+      labelText.centerX = 0; // keep the label horizontally centered on the track
+    } );
   }
 }
 
