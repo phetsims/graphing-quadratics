@@ -44,7 +44,63 @@ export default class ExploreInteractiveEquationNode extends Node {
       }
     }, providedOptions );
 
-    // coefficient controls (labeled sliders)
+    const equationOptions: RichTextOptions = {
+      font: GQConstants.INTERACTIVE_EQUATION_FONT
+    };
+    const xyOptions = combineOptions<RichTextOptions>( {}, equationOptions, {
+      maxWidth: 20 // determined empirically
+    } );
+
+    // y =
+    const yText = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
+    const equalToText = new RichText( MathSymbols.EQUAL_TO, equationOptions );
+
+    // a
+    const aNumberDisplay = new NumberDisplay( aProperty, aProperty.range,
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        textOptions: {
+          fill: GQColors.EXPLORE_A
+        },
+        decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
+      } ) );
+
+    // x^2 +
+    const xSquaredText = new RichText( GQSymbols.xSquaredMarkupStringProperty, xyOptions );
+    const plusText = new RichText( MathSymbols.PLUS, equationOptions );
+
+    // b
+    const bNumberDisplay = new NumberDisplay( bProperty, bProperty.range,
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        textOptions: {
+          fill: GQColors.EXPLORE_B
+        },
+        decimalPlaces: GQConstants.EXPLORE_DECIMALS_B
+      } ) );
+
+    // x +
+    const xText = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
+    const plusText2 = new RichText( MathSymbols.PLUS, equationOptions );
+
+    // c
+    const cNumberDisplay = new NumberDisplay( cProperty, bProperty.range,
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        textOptions: {
+          fill: GQColors.EXPLORE_C
+        },
+        decimalPlaces: GQConstants.EXPLORE_DECIMALS_C
+      } ) );
+
+    // All parts of equation in one Node, for PhET-iO
+    const equationNode = new Node( {
+      children: [ yText, equalToText, aNumberDisplay, xSquaredText, plusText, xText, bNumberDisplay, plusText2, cNumberDisplay ],
+      tandem: options.tandem.createTandem( 'equationNode' ),
+      phetioDocumentation: 'the equation that changes as the sliders are adjusted',
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
+    } );
+
+    // a, b, c sliders
     const aSlider = new QuadraticSlider( GQSymbols.aMarkupStringProperty, aProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_A,
       snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
@@ -63,52 +119,6 @@ export default class ExploreInteractiveEquationNode extends Node {
       labelColor: GQColors.EXPLORE_C,
       tandem: options.tandem.createTandem( 'cSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
-    } );
-
-    // NumberDisplays for a, b, c
-    const aNumberDisplay = new NumberDisplay( aProperty, aProperty.range,
-      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        textOptions: {
-          fill: GQColors.EXPLORE_A
-        },
-        decimalPlaces: GQConstants.EXPLORE_DECIMALS_A
-      } ) );
-    const bNumberDisplay = new NumberDisplay( bProperty, bProperty.range,
-      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        textOptions: {
-          fill: GQColors.EXPLORE_B
-        },
-        decimalPlaces: GQConstants.EXPLORE_DECIMALS_B
-      } ) );
-    const cNumberDisplay = new NumberDisplay( cProperty, bProperty.range,
-      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        textOptions: {
-          fill: GQColors.EXPLORE_C
-        },
-        decimalPlaces: GQConstants.EXPLORE_DECIMALS_C
-      } ) );
-
-    // static parts of the equation
-    const equationOptions: RichTextOptions = {
-      font: GQConstants.INTERACTIVE_EQUATION_FONT
-    };
-    const xyOptions = combineOptions<RichTextOptions>( {}, equationOptions, {
-      maxWidth: 20 // determined empirically
-    } );
-    const yText = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
-    const equalToText = new RichText( MathSymbols.EQUAL_TO, equationOptions );
-    const xSquaredText = new RichText( GQSymbols.xSquaredMarkupStringProperty, xyOptions );
-    const plusText = new RichText( MathSymbols.PLUS, equationOptions );
-    const xText = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
-    const plusText2 = new RichText( MathSymbols.PLUS, equationOptions );
-
-    const equationNode = new Node( {
-      children: [ yText, equalToText, aNumberDisplay, xSquaredText, plusText, xText, bNumberDisplay, plusText2, cNumberDisplay ],
-      tandem: options.tandem.createTandem( 'equationNode' ),
-      phetioDocumentation: 'the equation that changes as the sliders are adjusted',
-      visiblePropertyOptions: {
-        phetioFeatured: true
-      }
     } );
 
     options.children = [ equationNode, aSlider, bSlider, cSlider ];

@@ -8,7 +8,6 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Bounds2 from '../../../../dot/js/Bounds2.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import NumberDisplay, { NumberDisplayOptions } from '../../../../scenery-phet/js/NumberDisplay.js';
@@ -20,6 +19,7 @@ import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
@@ -36,10 +36,79 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       }
     };
 
-    // equation
-    const equationNode = new EquationNode( pProperty, hProperty, kProperty, tandem.createTandem( 'equationNode' ) );
+    const equationOptions: RichTextOptions = {
+      font: GQConstants.INTERACTIVE_EQUATION_FONT
+    };
+    const xyOptions = combineOptions<RichTextOptions>( {}, equationOptions, {
+      maxWidth: 20 // determined empirically
+    } );
 
-    // value sliders
+    // y =
+    const yText = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
+    const equalToText = new RichText( MathSymbols.EQUAL_TO, equationOptions );
+
+    // 1/4p
+    const numeratorNode = new RichText( '1', equationOptions );
+    const pNumberDisplay = new NumberDisplay( pProperty, pProperty.range,
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        textOptions: {
+          fill: GQColors.FOCUS_AND_DIRECTRIX_P
+        },
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
+      } ) );
+    const denominatorNode = new HBox( {
+      align: 'center',
+      children: [ new RichText( '4(', equationOptions ), pNumberDisplay, new RichText( ')', equationOptions ) ]
+    } );
+    const fractionLine = new Line( 0, 0, 1.1 * Math.max( numeratorNode.width, denominatorNode.width ), 0, {
+      stroke: 'black',
+      lineWidth: 1
+    } );
+    const fractionNode = new VBox( {
+      spacing: 2,
+      align: 'center',
+      children: [ numeratorNode, fractionLine, denominatorNode ],
+      scale: 0.85
+    } );
+
+    // (x -
+    const parentText = new RichText( '(', equationOptions );
+    const xText = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
+    const minusText = new RichText( MathSymbols.MINUS, equationOptions );
+
+    // h
+    const hNumberDisplay = new NumberDisplay( hProperty, hProperty.range,
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        textOptions: {
+          fill: GQColors.FOCUS_AND_DIRECTRIX_H
+        },
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
+      } ) );
+
+    // )^2 +
+    const parenSquaredText = new RichText( ')<sup>2</sup>', equationOptions );
+    const plusText = new RichText( MathSymbols.PLUS, equationOptions );
+
+    // k
+    const kNumberDisplay = new NumberDisplay( kProperty, kProperty.range,
+      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+        textOptions: {
+          fill: GQColors.FOCUS_AND_DIRECTRIX_K
+        },
+        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
+      } ) );
+
+    // All parts of equation in one Node, for PhET-iO
+    const equationNode = new Node( {
+      children: [ yText, equalToText, fractionNode, parentText, xText, minusText, hNumberDisplay, parenSquaredText, plusText, kNumberDisplay ],
+      tandem: tandem.createTandem( 'equationNode' ),
+      phetioDocumentation: 'the equation that changes as the sliders are adjusted',
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
+    } );
+
+    // p, h, k sliders
     const pSlider = new LinearSlider( GQSymbols.pMarkupStringProperty, pProperty, {
 
       // p=0 is not supported by this sim because it results in division by zero for 1/(4p).
@@ -67,158 +136,35 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
     super( options );
 
-    // horizontally align sliders under their associated values in the equation
-    const ySpacing = 3;
-    pSlider.x = this.globalToLocalBounds( equationNode.pGlobalBounds ).centerX;
-    pSlider.top = equationNode.bottom + ySpacing;
-    hSlider.x = this.globalToLocalBounds( equationNode.hGlobalBounds ).centerX;
-    hSlider.top = equationNode.bottom + ySpacing;
-    kSlider.x = this.globalToLocalBounds( equationNode.kGlobalBounds ).centerX;
-    kSlider.top = equationNode.bottom + ySpacing;
-  }
-}
+    // If any of the components that include dynamic text change their size, redo the layout.
+    Multilink.multilink( [
+        yText.boundsProperty, xText.boundsProperty,
+        pNumberDisplay.boundsProperty, hNumberDisplay.boundsProperty, kNumberDisplay.boundsProperty
+      ],
+      () => {
+        // equation layout
+        equalToText.left = yText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        fractionNode.left = equalToText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        fractionNode.centerY = equalToText.centerY;
+        parentText.left = fractionNode.right + GQConstants.EQUATION_TERM_SPACING;
+        xText.left = parentText.right + GQConstants.EQUATION_TERM_SPACING;
+        minusText.left = xText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        hNumberDisplay.left = minusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        parenSquaredText.left = hNumberDisplay.right + GQConstants.EQUATION_TERM_SPACING;
+        plusText.left = parenSquaredText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        kNumberDisplay.left = plusText.right + GQConstants.EQUATION_OPERATOR_SPACING;
+        hNumberDisplay.bottom = equalToText.bottom;
+        kNumberDisplay.bottom = equalToText.bottom;
 
-/**
- * The equation that appears above the sliders.
- */
-class EquationNode extends Node {
-
-  private readonly pNode: Node;
-  private readonly hNode: Node;
-  private readonly kNode: Node;
-
-  public constructor( pProperty: NumberProperty, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
-
-    const options: NodeOptions = {
-      tandem: tandem,
-      phetioDocumentation: 'the equation that changes as the sliders are adjusted',
-      visiblePropertyOptions: {
-        phetioFeatured: true
-      }
-    };
-
-    // options for parts of the equation
-    const equationOptions: RichTextOptions = {
-      font: GQConstants.INTERACTIVE_EQUATION_FONT
-    };
-    const xyOptions = combineOptions<RichTextOptions>( {}, equationOptions, {
-      maxWidth: 20 // determined empirically
-    } );
-
-    // y
-    const yNode = new RichText( GQSymbols.yMarkupStringProperty, xyOptions );
-
-    // =
-    const equalsNode = new RichText( MathSymbols.EQUAL_TO, equationOptions );
-
-    // 1
-    const numeratorNode = new RichText( '1', equationOptions );
-
-    // 4(
-    const fourParenNode = new RichText( '4(', equationOptions );
-
-    // p value
-    const pNode = new NumberDisplay( pProperty, pProperty.range,
-      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        textOptions: {
-          fill: GQColors.FOCUS_AND_DIRECTRIX_P
-        },
-        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
-      } ) );
-
-    // )
-    const parenNode = new RichText( ')', equationOptions );
-
-    // 4(p)
-    const denominatorNode = new HBox( {
-      align: 'center',
-      children: [ fourParenNode, pNode, parenNode ]
-    } );
-
-    // horizontal line between numerator and denominator
-    const fractionLineLength = 1.1 * Math.max( numeratorNode.width, denominatorNode.width );
-    const fractionLine = new Line( 0, 0, fractionLineLength, 0, {
-      stroke: 'black',
-      lineWidth: 1
-    } );
-
-    // 1/4p
-    const fractionNode = new VBox( {
-      spacing: 2,
-      align: 'center',
-      children: [ numeratorNode, fractionLine, denominatorNode ],
-      scale: 0.85
-    } );
-
-    // (
-    const anotherParenNode = new RichText( '(', equationOptions );
-
-    // x
-    const xNode = new RichText( GQSymbols.xMarkupStringProperty, xyOptions );
-
-    // -
-    const minusNode = new RichText( MathSymbols.MINUS, equationOptions );
-
-    // h value
-    const hNode = new NumberDisplay( hProperty, hProperty.range,
-      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        textOptions: {
-          fill: GQColors.FOCUS_AND_DIRECTRIX_H
-        },
-        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
-      } ) );
-
-    // )^2
-    const parenSquaredNode = new RichText( ')<sup>2</sup>', equationOptions );
-
-    // +
-    const plusNode = new RichText( MathSymbols.PLUS, equationOptions );
-
-    // k value
-    const kNode = new NumberDisplay( kProperty, kProperty.range,
-      combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
-        textOptions: {
-          fill: GQColors.FOCUS_AND_DIRECTRIX_K
-        },
-        decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
-      } ) );
-
-    // layout
-    equalsNode.left = yNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    fractionNode.left = equalsNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    fractionNode.centerY = equalsNode.centerY;
-    anotherParenNode.left = fractionNode.right + GQConstants.EQUATION_TERM_SPACING;
-    xNode.left = anotherParenNode.right + GQConstants.EQUATION_TERM_SPACING;
-    minusNode.left = xNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    hNode.left = minusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    parenSquaredNode.left = hNode.right + GQConstants.EQUATION_TERM_SPACING;
-    plusNode.left = parenSquaredNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    kNode.left = plusNode.right + GQConstants.EQUATION_OPERATOR_SPACING;
-    hNode.bottom = equalsNode.bottom;
-    kNode.bottom = equalsNode.bottom;
-
-    // y = (1/(4p))(x - h)^2 + k
-    options.children = [ yNode, equalsNode, fractionNode,
-      anotherParenNode, xNode, minusNode, hNode, parenSquaredNode, plusNode, kNode ];
-
-    super( options );
-
-    this.pNode = pNode;
-    this.hNode = hNode;
-    this.kNode = kNode;
-  }
-
-  // Gets the global bounds of p, h, k, used for layout
-  public get pGlobalBounds(): Bounds2 {
-    return this.pNode.getGlobalBounds();
-  }
-
-  public get hGlobalBounds(): Bounds2 {
-    return this.hNode.getGlobalBounds();
-  }
-
-  public get kGlobalBounds(): Bounds2 {
-    return this.kNode.getGlobalBounds();
+        // horizontally align sliders under their associated values in the equation
+        const ySpacing = 3;
+        pSlider.x = this.globalToLocalBounds( pNumberDisplay.getGlobalBounds() ).centerX;
+        pSlider.top = equationNode.bottom + ySpacing;
+        hSlider.x = hNumberDisplay.centerX;
+        hSlider.top = equationNode.bottom + ySpacing;
+        kSlider.x = kNumberDisplay.centerX;
+        kSlider.top = equationNode.bottom + ySpacing;
+      } );
   }
 }
 
