@@ -17,6 +17,8 @@ import Quadratic from '../../common/model/Quadratic.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Multilink from '../../../../axon/js/Multilink.js';
+import GQSymbols from '../../common/GQSymbols.js';
 
 export default class DirectrixNode extends Node {
 
@@ -57,7 +59,7 @@ export default class DirectrixNode extends Node {
     const maxX = modelViewTransform.modelToViewX( graph.xRange.max );
 
     // update when the interactive quadratic changes
-    quadraticProperty.link( quadratic => {
+    Multilink.multilink( [ quadraticProperty, GQSymbols.yMarkupStringProperty ], ( quadratic, yString ) => {
 
       assert && assert( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
       const directrix = quadratic.directrix || 0;
@@ -69,7 +71,7 @@ export default class DirectrixNode extends Node {
       lineNode.setLine( minX, y, maxX, y );
 
       // update the equation's text
-      equationNode.setTextString( GQEquationFactory.createDirectrix( directrix ) );
+      equationNode.setTextString( GQEquationFactory.createDirectrix( directrix, yString ) );
 
       // position the equation to avoid overlapping vertex and x-axis
       if ( vertex.x >= 0 ) {

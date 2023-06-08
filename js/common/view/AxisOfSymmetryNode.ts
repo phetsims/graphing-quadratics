@@ -17,6 +17,8 @@ import Quadratic from '../model/Quadratic.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import GQEquationFactory from './GQEquationFactory.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import GQSymbols from '../GQSymbols.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 export default class AxisOfSymmetryNode extends Node {
 
@@ -59,7 +61,7 @@ export default class AxisOfSymmetryNode extends Node {
     } );
 
     // update if the interactive quadratic is a parabola, and therefore has an axis of symmetry
-    quadraticProperty.link( quadratic => {
+    Multilink.multilink( [ quadraticProperty, GQSymbols.xMarkupStringProperty ], ( quadratic, xString ) => {
 
       if ( quadratic.isaParabola() ) {
         const axisOfSymmetry = quadratic.axisOfSymmetry!;
@@ -72,7 +74,7 @@ export default class AxisOfSymmetryNode extends Node {
         lineNode.setLine( x, minY, x, maxY );
 
         // update the equation's text
-        equationNode.setTextString( GQEquationFactory.createAxisOfSymmetry( axisOfSymmetry ) );
+        equationNode.setTextString( GQEquationFactory.createAxisOfSymmetry( axisOfSymmetry, xString ) );
 
         // position the equation to avoid overlapping vertex and y-axis
         if ( axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {

@@ -13,18 +13,14 @@ import Utils from '../../../../dot/js/Utils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
-import GQSymbols from '../GQSymbols.js';
 import Quadratic from '../model/Quadratic.js';
-
-// constants
-const Y_EQUALS_STRING = `${GQSymbols.yMarkupStringProperty.value} ${MathSymbols.EQUAL_TO}`; // 'y ='
 
 const GQEquationFactory = {
 
   /**
    * Creates the RichText string for an equation in standard form, y = ax^2 + bx + c
    */
-  createStandardForm( quadratic: Quadratic ): string {
+  createStandardForm( quadratic: Quadratic, yString: string, xString: string, x2String: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = Utils.toFixedNumber( quadratic.a, GQConstants.EXPLORE_DECIMALS_A );
@@ -32,7 +28,7 @@ const GQEquationFactory = {
     const c = Utils.toFixedNumber( quadratic.c, GQConstants.EXPLORE_DECIMALS_C );
 
     // y =
-    let equationString = `${Y_EQUALS_STRING} `;
+    let equationString = `${yString} ${MathSymbols.EQUAL_TO} `;
 
     if ( a === 0 && b === 0 && c === 0 ) {
 
@@ -51,7 +47,7 @@ const GQEquationFactory = {
           equationString += a; // ax^2
         }
 
-        equationString += GQSymbols.xSquaredMarkupStringProperty.value;
+        equationString += x2String;
 
         if ( b !== 0 || c !== 0 ) {
           equationString += ' ';
@@ -68,7 +64,7 @@ const GQEquationFactory = {
           else if ( b !== 1 ) {
             equationString += b; // bx
           }
-          equationString += GQSymbols.xMarkupStringProperty.value;
+          equationString += xString;
         }
         else {
           equationString += ( b > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS;
@@ -76,7 +72,7 @@ const GQEquationFactory = {
           if ( Math.abs( b ) !== 1 ) {
             equationString += Math.abs( b );
           }
-          equationString += GQSymbols.xMarkupStringProperty.value;
+          equationString += xString;
         }
 
         if ( c !== 0 ) {
@@ -102,7 +98,7 @@ const GQEquationFactory = {
   /**
    * Creates the RichText string for an equation in vertex form, y = a(x - h)^2 + k
    */
-  createVertexForm( quadratic: Quadratic ): string {
+  createVertexForm( quadratic: Quadratic, yString: string, xString: string, x2String: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = Utils.toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
@@ -110,7 +106,7 @@ const GQEquationFactory = {
     const k = ( quadratic.k === undefined ) ? 0 : Utils.toFixedNumber( quadratic.k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
 
     // y =
-    let equationString = `${Y_EQUALS_STRING} `;
+    let equationString = `${yString} ${MathSymbols.EQUAL_TO} `;
 
     if ( a === 0 && k === 0 ) {
 
@@ -133,10 +129,10 @@ const GQEquationFactory = {
       }
 
       if ( h === 0 ) {
-        equationString += GQSymbols.xSquaredMarkupStringProperty.value;
+        equationString += x2String;
       }
       else {
-        equationString += `(${GQSymbols.xMarkupStringProperty.value} `;
+        equationString += `(${xString} `;
         equationString += ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
         equationString += ` ${Math.abs( h )}`;
         equationString += ')<sup>2</sup>';
@@ -162,17 +158,17 @@ const GQEquationFactory = {
   },
 
   /**
-   * Creates the RichText string for the directrix equation.
+   * Creates the RichText string for the directrix equation: y = N
    */
-  createDirectrix( directrix: number ): string {
-    return `${Y_EQUALS_STRING} ${Utils.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
+  createDirectrix( directrix: number, yString: string ): string {
+    return `${yString} ${MathSymbols.EQUAL_TO} ${Utils.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
   },
 
   /**
-   * Creates the RichText string for the axis of symmetry equation.
+   * Creates the RichText string for the axis of symmetry equation: x = N
    */
-  createAxisOfSymmetry( axisOfSymmetry: number ): string {
-    return `${GQSymbols.xMarkupStringProperty.value} ${MathSymbols.EQUAL_TO} ${Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
+  createAxisOfSymmetry( axisOfSymmetry: number, xString: string ): string {
+    return `${xString} ${MathSymbols.EQUAL_TO} ${Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
 };
 

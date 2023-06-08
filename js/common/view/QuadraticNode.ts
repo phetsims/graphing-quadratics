@@ -22,6 +22,8 @@ import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
 import GQEquationFactory from './GQEquationFactory.js';
 import { EquationForm } from './GQViewProperties.js';
+import Multilink from '../../../../axon/js/Multilink.js';
+import GQSymbols from '../GQSymbols.js';
 
 type SelfOptions = {
   preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping
@@ -100,33 +102,31 @@ export default class QuadraticNode extends Node {
     this.yEquationRange =
       new Range( yRange.min + GQConstants.EQUATION_Y_MARGIN, yRange.max - GQConstants.EQUATION_Y_MARGIN );
 
-    // updates the equation, but only when it's visible
+    // Updates this Node, but only when it's visible
     const quadraticListener = ( quadratic: Quadratic ) => {
-      if ( this.visible ) {
-        this.update( quadratic );
-      }
+      this.visible && this.update( quadratic );
     };
     quadraticProperty.link( quadraticListener ); // unlink required in dispose
 
-    // updates the equation when it is made visible
-    const equationsVisibleListener = ( visible: boolean ) => {
-      this.equationParent.visible = visible;
-      if ( visible ) {
-        this.updateEquation( this.quadraticProperty.value );
-      }
-    };
-    equationsVisibleProperty.link( equationsVisibleListener ); // unlink required in dispose
+    // Update the equation if it becomes visible, or if it's visible and one of its dynamic symbols changes.
+    // Must be disposed.
+    const multilink = new Multilink(
+      [ equationsVisibleProperty, GQSymbols.yMarkupStringProperty, GQSymbols.xMarkupStringProperty, GQSymbols.xSquaredMarkupStringProperty ],
+      ( visible, yString, xString, x2String ) => {
+        this.equationParent.visible = visible;
+        visible && this.updateEquation( this.quadraticProperty.value, yString, xString, x2String );
+      } );
 
     // Update when this Node becomes visible.
-    this.visibleProperty.link( visible => visible && this.update( this.quadraticProperty.value ) );
+    this.visibleProperty.link( visible => {
+      visible && this.update( this.quadraticProperty.value );
+    } );
 
     this.disposeQuadraticNode = () => {
       if ( quadraticProperty.hasListener( quadraticListener ) ) {
         quadraticProperty.unlink( quadraticListener );
       }
-      if ( equationsVisibleProperty.hasListener( equationsVisibleListener ) ) {
-        equationsVisibleProperty.unlink( equationsVisibleListener );
-      }
+      multilink.dispose();
     };
   }
 
@@ -151,20 +151,20 @@ export default class QuadraticNode extends Node {
     this.quadraticPath.stroke = quadratic.color;
 
     // update equation
-    this.updateEquation( quadratic );
+    this.updateEquation( quadratic, GQSymbols.yMarkupStringProperty.value, GQSymbols.xMarkupStringProperty.value, GQSymbols.xSquaredMarkupStringProperty.value );
   }
 
   /**
    * Updates the equation displayed on the quadratic.
    */
-  private updateEquation( quadratic: Quadratic ): void {
+  private updateEquation( quadratic: Quadratic, yString: string, xString: string, x2String: string ): void {
 
     // update the equation text
     if ( this.equationForm === 'standard' ) {
-      this.equationNode.setTextString( GQEquationFactory.createStandardForm( quadratic ) );
+      this.equationNode.setTextString( GQEquationFactory.createStandardForm( quadratic, yString, xString, x2String ) );
     }
     else {
-      this.equationNode.setTextString( GQEquationFactory.createVertexForm( quadratic ) );
+      this.equationNode.setTextString( GQEquationFactory.createVertexForm( quadratic, yString, xString, x2String ) );
     }
 
     // update the equation color
