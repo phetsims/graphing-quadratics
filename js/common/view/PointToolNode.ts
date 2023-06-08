@@ -78,7 +78,7 @@ export default class PointToolNode extends Node {
       bodyNode.left = probeNode.right - 1; // -1 for overlap, so you don't see a gap
     }
     else {
-      probeNode.setScaleMagnitude( -1, 1 ); // reflect about the y axis
+      probeNode.setScaleMagnitude( -1, 1 ); // reflect about the y-axis
       bodyNode.right = probeNode.left + 1; // +1 for overlap, so you don't see a gap
     }
     bodyNode.centerY = probeNode.centerY;

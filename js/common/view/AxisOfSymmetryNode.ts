@@ -74,7 +74,7 @@ export default class AxisOfSymmetryNode extends Node {
         // update the equation's text
         equationNode.setTextString( GQEquationFactory.createAxisOfSymmetry( axisOfSymmetry ) );
 
-        // position the equation to avoid overlapping vertex and y axis
+        // position the equation to avoid overlapping vertex and y-axis
         if ( axisOfSymmetry > graph.yRange.max - GQConstants.EQUATION_Y_MARGIN ) {
 
           // axis is at far right of graph, so put equation on left of axis
