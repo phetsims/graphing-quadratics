@@ -3,6 +3,9 @@
 /**
  * Strings for mathematical symbols, with markup for RichText.
  *
+ * We have not instrumented these Properties for PhET-iO, because seeing the markup is not useful for clients.
+ * See https://github.com/phetsims/graphing-quadratics/issues/186
+ *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
