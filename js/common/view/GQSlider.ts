@@ -178,9 +178,7 @@ export default class GQSlider extends VSlider {
       font: GQConstants.SLIDER_LABEL_FONT,
       fill: options.labelColor,
       bottom: this.top - 2,
-      maxWidth: 20, // determined empirically
-      tandem: options.tandem.createTandem( 'labelText' ),
-      phetioDocumentation: 'the label above this slider'
+      maxWidth: 20 // determined empirically
     } );
     this.addChild( labelText );
     labelText.boundsProperty.link( () => {
