@@ -51,8 +51,7 @@ export default class GQCheckbox extends Checkbox {
     const text = new RichText( options.string, {
       fill: options.textFill,
       font: options.font,
-      maxWidth: options.textMaxWidth,
-      tandem: options.tandem.createTandem( 'text' )
+      maxWidth: options.textMaxWidth
     } );
 
     const content = ( !options.icon ) ?
