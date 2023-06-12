@@ -38,10 +38,7 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
     // AccordionBox title
     options.titleNode = new Text( GraphingQuadraticsStrings.quadraticTermsStringProperty, {
       font: GQConstants.TITLE_FONT,
-      maxWidth: 275, // determined empirically
-      tandem: options.tandem.createTandem( 'titleText' ),
-      phetioDocumentation: 'the title on this accordion box',
-      visiblePropertyOptions: { phetioReadOnly: true }
+      maxWidth: 275 // determined empirically
     } );
 
     // y = ax^2
