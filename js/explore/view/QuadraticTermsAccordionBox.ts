@@ -9,7 +9,7 @@
 
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { AlignBox, AlignBoxOptions, AlignGroup, HSeparator, Text, VBox } from '../../../../scenery/js/imports.js';
+import { HSeparator, Text, VBox } from '../../../../scenery/js/imports.js';
 import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -57,24 +57,18 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
     const equationsCheckbox = GQCheckbox.createEquationsCheckbox( viewProperties.equationsVisibleProperty,
       options.tandem.createTandem( 'equationsCheckbox' ) );
 
-    // To make all checkboxes have the same effective width
-    const alignBoxOptions: AlignBoxOptions = {
-      group: new AlignGroup(),
-      xAlign: 'left'
-    };
-
     // vertical layout
     const contentNode = new VBox( {
       align: 'left',
       spacing: GQConstants.CHECKBOXES_Y_SPACING,
       children: [
-        new AlignBox( quadraticTermCheckbox, alignBoxOptions ),
-        new AlignBox( linearTermCheckbox, alignBoxOptions ),
-        new AlignBox( constantTermCheckbox, alignBoxOptions ),
+        quadraticTermCheckbox,
+        linearTermCheckbox,
+        constantTermCheckbox,
         new HSeparator( {
           stroke: GQColors.SEPARATOR
         } ),
-        new AlignBox( equationsCheckbox, alignBoxOptions )
+        equationsCheckbox
       ]
     } );
 
