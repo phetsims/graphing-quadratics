@@ -108,13 +108,16 @@ export default class PointToolNode extends Node {
     // add the drag listener
     this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
       graphContentsVisibleProperty, {
-        tandem: options.tandem.createTandem( 'dragListener' )
+        tandem: this.tandem.createTandem( 'dragListener' )
       } ) );
 
     // put a red dot at the origin, for debugging positioning
     if ( GQQueryParameters.showOrigin ) {
       this.addChild( new Circle( 3, { fill: 'red' } ) );
     }
+
+    // Requested in https://github.com/phetsims/graphing-quadratics/issues/191
+    this.addLinkedElement( pointTool );
   }
 
   public override dispose(): void {
