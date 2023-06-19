@@ -26,7 +26,7 @@ export default class StandardFormEquationAccordionBox extends GQEquationAccordio
     const options = optionize<StandardFormEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
 
       // GQEquationAccordionBoxOptions
-      titleNode: new StandardFormEquationNode( providedOptions.tandem.createTandem( 'titleText' ) ),
+      titleNode: new StandardFormEquationNode(),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

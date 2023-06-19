@@ -26,7 +26,7 @@ export default class VertexFormEquationAccordionBox extends GQEquationAccordionB
     const options = optionize<VertexFormEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
 
       // GQEquationAccordionBoxOptions
-      titleNode: new VertexFormEquationNode( providedOptions.tandem.createTandem( 'titleText' ) ),
+      titleNode: new VertexFormEquationNode(),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

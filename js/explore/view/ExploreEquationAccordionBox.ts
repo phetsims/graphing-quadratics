@@ -26,7 +26,7 @@ export default class ExploreEquationAccordionBox extends GQEquationAccordionBox 
     const options = optionize<ExploreEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
 
       // GQEquationAccordionBoxOptions
-      titleNode: new StandardFormEquationNode( providedOptions.tandem.createTandem( 'titleNode' ) )
+      titleNode: new StandardFormEquationNode()
     }, providedOptions );
 
     const interactiveEquationNode = new ExploreInteractiveEquationNode(

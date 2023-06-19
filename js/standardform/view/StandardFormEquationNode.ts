@@ -9,8 +9,7 @@
  */
 
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import { Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { Node, RichText } from '../../../../scenery/js/imports.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -18,14 +17,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class StandardFormEquationNode extends Node {
 
-  public constructor( tandem: Tandem ) {
-
-    const options: NodeOptions = {
-      maxWidth: 225, // determined empirically
-      tandem: tandem,
-      phetioDocumentation: 'the equation shown at the top of this accordion box',
-      visiblePropertyOptions: { phetioReadOnly: true }
-    };
+  public constructor() {
 
     // y = ax^2 + bx + c
     const stringProperty = new DerivedProperty( [
@@ -43,10 +35,10 @@ export default class StandardFormEquationNode extends Node {
       fill: 'black'
     } );
 
-    // Wrap the RichText so that its API is not accessible to clients or PhET-iO.
-    options.children = [ textNode ];
-
-    super( options );
+    super( {
+      maxWidth: 225, // determined empirically
+      children: [ textNode ] // Wrap the RichText so that its API is not accessible to clients or PhET-iO.
+    } );
   }
 }
 

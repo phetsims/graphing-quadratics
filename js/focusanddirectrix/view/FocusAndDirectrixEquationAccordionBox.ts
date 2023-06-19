@@ -26,7 +26,7 @@ export default class FocusAndDirectrixEquationAccordionBox extends GQEquationAcc
     const options = optionize<FocusAndDirectrixEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
 
       // GQEquationAccordionBoxOptions
-      titleNode: new FocusAndDirectrixEquationNode( providedOptions.tandem.createTandem( 'titleText' ) ),
+      titleNode: new FocusAndDirectrixEquationNode(),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

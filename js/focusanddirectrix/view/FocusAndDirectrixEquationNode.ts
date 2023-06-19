@@ -8,8 +8,7 @@
  */
 
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import { Line, Node, NodeOptions, RichText, VBox } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { Line, Node, RichText, VBox } from '../../../../scenery/js/imports.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -22,14 +21,7 @@ const COLOR = 'black';
 
 export default class FocusAndDirectrixEquationNode extends Node {
 
-  public constructor( tandem: Tandem ) {
-
-    const options: NodeOptions = {
-      maxWidth: 225, // determined empirically
-      tandem: tandem,
-      phetioDocumentation: 'the equation shown at the top of this accordion box',
-      visiblePropertyOptions: { phetioReadOnly: true }
-    };
+  public constructor() {
 
     // y =
     const yEqualsStringProperty = new DerivedProperty( [ GQSymbols.yMarkupStringProperty ],
@@ -81,8 +73,6 @@ export default class FocusAndDirectrixEquationNode extends Node {
       fill: COLOR
     } );
 
-    options.children = [ yEqualsNode, fractionNode, rightNode ];
-
     // If any of the components that include dynamic text change their size, redo the layout.
     Multilink.multilink(
       [ fractionNode.boundsProperty, yEqualsNode.boundsProperty, rightNode.boundsProperty ],
@@ -93,7 +83,10 @@ export default class FocusAndDirectrixEquationNode extends Node {
         rightNode.left = fractionNode.right + xSpacing;
       } );
 
-    super( options );
+    super( {
+      maxWidth: 225, // determined empirically
+      children: [ yEqualsNode, fractionNode, rightNode ]
+    } );
   }
 }
 
