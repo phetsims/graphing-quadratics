@@ -10,7 +10,7 @@ import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import EraserButton from '../../../../scenery-phet/js/buttons/EraserButton.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import { HBox, HBoxOptions, HSeparator, Node, Path, VBox } from '../../../../scenery/js/imports.js';
+import { HBox, HBoxOptions, HSeparator, Line, Node, Path, VBox } from '../../../../scenery/js/imports.js';
 import cameraSolidShape from '../../../../sherpa/js/fontawesome-5/cameraSolidShape.js';
 import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
@@ -19,8 +19,10 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 const BUTTON_ICON_WIDTH = 30;
+const SEPARATOR_LINE_WIDTH = 1;
 
 type SelfOptions = EmptySelfOptions;
 
@@ -40,16 +42,34 @@ export default class GQEquationAccordionBox extends AccordionBox {
     // Buttons at the bottom of the accordion box
     const buttonGroup = new ButtonGroup( model, options.tandem.createTandem( 'buttonGroup' ) );
 
-    // properties of the horizontal separators
-    const separatorOptions = { stroke: GQColors.SEPARATOR };
+    const bottomSeparator = new HSeparator( {
+      stroke: GQColors.SEPARATOR,
+      lineWidth: SEPARATOR_LINE_WIDTH
+    } );
+
+    // Scenery layout has a very literal definition of 'separator' - there must be a visible Node about and below it,
+    // or it will automatically be made visible. For this sim, we want a separator at the top of the content, to
+    // make the content distinct from the accordion box title.  So we need to roll our own separator in this case.
+    // See https://github.com/phetsims/graphing-quadratics/issues/193.
+    const topSeparator = new Line( 0, 0, 1, 0, {
+      stroke: GQColors.SEPARATOR,
+      lineWidth: SEPARATOR_LINE_WIDTH,
+      visibleProperty: new DerivedProperty(
+        [ interactiveEquationNode.boundsProperty, buttonGroup.boundsProperty ],
+        ( interactiveEquationNodeBounds, buttonGroupBounds ) =>
+          interactiveEquationNodeBounds.height + buttonGroupBounds.height > 0 )
+    } );
+
+    // Make the width of the top separator the same as the bottom separator.
+    bottomSeparator.boundsProperty.link( bounds => topSeparator.setLine( 0, 0, bounds.width, 0 ) );
 
     const contentNode = new VBox( {
       align: 'center',
       spacing: 8,
       children: [
-        new HSeparator( separatorOptions ),
+        topSeparator,
         interactiveEquationNode,
-        new HSeparator( separatorOptions ),
+        bottomSeparator,
         buttonGroup
       ]
     } );
