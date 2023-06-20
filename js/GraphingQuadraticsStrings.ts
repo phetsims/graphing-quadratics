@@ -1,42 +1,42 @@
-// Copyright 2021-2022, University of Colorado Boulder
+// Copyright 2021-2023, University of Colorado Boulder
 
 /**
  * Auto-generated from modulify, DO NOT manually modify.
  */
 /* eslint-disable */
 import getStringModule from '../../chipper/js/getStringModule.js';
-import LinkableProperty from '../../axon/js/LinkableProperty.js';
+import type LocalizedStringProperty from '../../chipper/js/LocalizedStringProperty.js';
 import graphingQuadratics from './graphingQuadratics.js';
 
 type StringsType = {
   'graphing-quadratics': {
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   };
   'screen': {
-    'exploreStringProperty': LinkableProperty<string>;
-    'standardFormStringProperty': LinkableProperty<string>;
-    'vertexFormStringProperty': LinkableProperty<string>;
-    'focusAndDirectrixStringProperty': LinkableProperty<string>;
+    'exploreStringProperty': LocalizedStringProperty;
+    'standardFormStringProperty': LocalizedStringProperty;
+    'vertexFormStringProperty': LocalizedStringProperty;
+    'focusAndDirectrixStringProperty': LocalizedStringProperty;
   };
-  'vertexStringProperty': LinkableProperty<string>;
-  'axisOfSymmetryStringProperty': LinkableProperty<string>;
-  'rootsStringProperty': LinkableProperty<string>;
-  'coordinatesStringProperty': LinkableProperty<string>;
-  'equationsStringProperty': LinkableProperty<string>;
-  'noRealRootsStringProperty': LinkableProperty<string>;
-  'pointOnParabolaStringProperty': LinkableProperty<string>;
-  'quadraticTermsStringProperty': LinkableProperty<string>;
-  'directrixStringProperty': LinkableProperty<string>;
-  'focusStringProperty': LinkableProperty<string>;
-  'xStringProperty': LinkableProperty<string>;
-  'yStringProperty': LinkableProperty<string>;
-  'aStringProperty': LinkableProperty<string>;
-  'bStringProperty': LinkableProperty<string>;
-  'cStringProperty': LinkableProperty<string>;
-  'hStringProperty': LinkableProperty<string>;
-  'kStringProperty': LinkableProperty<string>;
-  'pStringProperty': LinkableProperty<string>;
-  'coordinateUnknownStringProperty': LinkableProperty<string>;
+  'vertexStringProperty': LocalizedStringProperty;
+  'axisOfSymmetryStringProperty': LocalizedStringProperty;
+  'rootsStringProperty': LocalizedStringProperty;
+  'coordinatesStringProperty': LocalizedStringProperty;
+  'equationsStringProperty': LocalizedStringProperty;
+  'noRealRootsStringProperty': LocalizedStringProperty;
+  'pointOnParabolaStringProperty': LocalizedStringProperty;
+  'quadraticTermsStringProperty': LocalizedStringProperty;
+  'directrixStringProperty': LocalizedStringProperty;
+  'focusStringProperty': LocalizedStringProperty;
+  'xStringProperty': LocalizedStringProperty;
+  'yStringProperty': LocalizedStringProperty;
+  'aStringProperty': LocalizedStringProperty;
+  'bStringProperty': LocalizedStringProperty;
+  'cStringProperty': LocalizedStringProperty;
+  'hStringProperty': LocalizedStringProperty;
+  'kStringProperty': LocalizedStringProperty;
+  'pStringProperty': LocalizedStringProperty;
+  'coordinateUnknownStringProperty': LocalizedStringProperty;
 };
 
 const GraphingQuadraticsStrings = getStringModule( 'GRAPHING_QUADRATICS' ) as StringsType;
