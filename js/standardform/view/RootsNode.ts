@@ -52,6 +52,7 @@ export default class RootsNode extends Node {
       }, {
         tandem: tandem.createTandem( 'leftCoordinatesProperty' ),
         phetioValueType: NullableIO( Vector2.Vector2IO ),
+        phetioFeatured: true, // see https://github.com/phetsims/graphing-quadratics/issues/194
         phetioDocumentation: 'coordinates displayed on the left root, ' +
                              'identical to rightCoordinatesProperty if there is one root, ' +
                              'null if there are no roots or if all points are roots'
@@ -79,6 +80,7 @@ export default class RootsNode extends Node {
       }, {
         tandem: tandem.createTandem( 'rightCoordinatesProperty' ),
         phetioValueType: NullableIO( Vector2.Vector2IO ),
+        phetioFeatured: true, // see https://github.com/phetsims/graphing-quadratics/issues/194
         phetioDocumentation: 'coordinates displayed on the right root, ' +
                              'identical to leftCoordinatesProperty if there is one root, ' +
                              'null if there are no roots or if all points are roots'
