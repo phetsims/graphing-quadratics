@@ -29,6 +29,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
   public constructor( pProperty: NumberProperty, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
 
     const options: NodeOptions = {
+      excludeInvisibleChildrenFromBounds: true,
       tandem: tandem,
       phetioDocumentation: 'the interactive equation in this accordion box',
       visiblePropertyOptions: {
