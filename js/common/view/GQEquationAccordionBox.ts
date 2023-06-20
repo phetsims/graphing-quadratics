@@ -19,6 +19,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 const BUTTON_ICON_WIDTH = 30;
 
@@ -40,18 +41,36 @@ export default class GQEquationAccordionBox extends AccordionBox {
     // Buttons at the bottom of the accordion box
     const buttonGroup = new ButtonGroup( model, options.tandem.createTandem( 'buttonGroup' ) );
 
-    // properties of the horizontal separators
-    const separatorOptions = { stroke: GQColors.SEPARATOR };
-
-    const contentNode = new VBox( {
+    const vBox = new VBox( {
       align: 'center',
       spacing: 8,
       children: [
-        new HSeparator( separatorOptions ),
         interactiveEquationNode,
-        new HSeparator( separatorOptions ),
+        new HSeparator( {
+          stroke: GQColors.SEPARATOR
+        } ),
         buttonGroup
       ]
+    } );
+
+    // The line at the top of the content does not behave like a scenery separator, because we want it to appear when
+    // there's nothing above it, to visually separate the content from the title. So we use an HSeparator, but configure
+    // it with isSeparator: false. See https://github.com/phetsims/graphing-quadratics/issues/193
+    const topLine = new HSeparator( {
+      stroke: GQColors.SEPARATOR,
+      layoutOptions: {
+        stretch: true, // Not sure why this is needed. Are nested options not being combined correctly in Separator.ts?
+        isSeparator: false
+      },
+
+      // If there's nothing visible below the top line, hide it.
+      visibleProperty: new DerivedProperty( [ vBox.boundsProperty ], bounds => !bounds.isEmpty() )
+    } );
+
+    const contentNode = new VBox( {
+      spacing: 8,
+      align: 'center',
+      children: [ topLine, vBox ]
     } );
 
     super( contentNode, options );
