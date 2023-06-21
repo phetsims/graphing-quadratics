@@ -58,6 +58,7 @@ export default class PointTool extends PhetioObject {
       dragBounds: Bounds2.EVERYTHING,
 
       // PhetioObjectOptions
+      phetioFeatured: true,
       phetioState: false // this is a PhetioObject only to add phetioDocumentation
     }, providedOptions );
 
