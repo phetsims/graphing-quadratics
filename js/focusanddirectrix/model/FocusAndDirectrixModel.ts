@@ -94,6 +94,7 @@ export default class FocusAndDirectrixModel extends GQModel {
     this.pointOnParabolaProperty = new Vector2Property( initialPoint, {
       tandem: tandem.createTandem( 'pointOnParabolaProperty' ),
       phetioFeatured: true,
+      phetioReadOnly: true,
       phetioDocumentation: 'the interactive point on the parabola'
     } );
 
