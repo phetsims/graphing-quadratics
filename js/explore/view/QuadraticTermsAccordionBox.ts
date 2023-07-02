@@ -9,7 +9,7 @@
 
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { HSeparator, Node, Text, VBox } from '../../../../scenery/js/imports.js';
+import { HSeparator, Text, VBox } from '../../../../scenery/js/imports.js';
 import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -32,7 +32,6 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
         // AccordionBoxOptions
         titleAlignX: 'left',
         titleXSpacing: 8,
-        contentAlign: 'left',
         phetioDocumentation: 'the Quadratic Terms accordion box'
       }, providedOptions );
 
@@ -58,7 +57,8 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
     const equationsCheckbox = GQCheckbox.createEquationsCheckbox( viewProperties.equationsVisibleProperty,
       options.tandem.createTandem( 'equationsCheckbox' ) );
 
-    const vBox = new VBox( {
+    // vertical layout
+    const contentNode = new VBox( {
       align: 'left',
       stretch: true, // See https://github.com/phetsims/graphing-quadratics/issues/197
       spacing: GQConstants.CHECKBOXES_Y_SPACING,
@@ -71,12 +71,6 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
         } ),
         equationsCheckbox
       ]
-    } );
-
-    // Wrap the VBox in a Node so that the touch areas for checkboxes do not dilate more than the widest checkbox.
-    // See https://github.com/phetsims/graphing-quadratics/issues/197
-    const contentNode = new Node( {
-      children: [ vBox ]
     } );
 
     super( contentNode, options );
