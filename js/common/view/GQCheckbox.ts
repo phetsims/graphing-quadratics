@@ -45,7 +45,11 @@ export default class GQCheckbox extends Checkbox {
       // SelfOptions
       textFill: 'black',
       textMaxWidth: 180, // determined empirically
-      font: GQConstants.CHECKBOX_LABEL_FONT
+      font: GQConstants.CHECKBOX_LABEL_FONT,
+      mouseAreaXDilation: 5,
+      mouseAreaYDilation: GQConstants.CHECKBOXES_Y_SPACING / 2,
+      touchAreaXDilation: 5,
+      touchAreaYDilation: GQConstants.CHECKBOXES_Y_SPACING / 2
     }, providedOptions );
 
     const text = new RichText( options.string, {
@@ -54,13 +58,22 @@ export default class GQCheckbox extends Checkbox {
       maxWidth: options.textMaxWidth
     } );
 
-    const content = ( !options.icon ) ?
-                    text :
-                    new HBox( {
-                      align: 'center',
-                      spacing: 8,
-                      children: [ text, options.icon ]
-                    } );
+    let content: Node = text;
+    if ( options.icon ) {
+
+      // Wrap HBox in a Node, so that horizontal space will not be added between text and icon when the checkbox
+      // is put in some other scenery layout Node that uses stretch:true.
+      // See https://github.com/phetsims/graphing-quadratics/issues/197
+      content = new Node( {
+        children: [
+          new HBox( {
+            align: 'center',
+            spacing: 8,
+            children: [ text, options.icon ]
+          } )
+        ]
+      } );
+    }
 
     super( booleanProperty, content, options );
   }

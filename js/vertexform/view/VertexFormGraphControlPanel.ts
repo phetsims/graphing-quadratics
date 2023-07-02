@@ -49,6 +49,7 @@ export default class VertexFormGraphControlPanel extends Panel {
     // vertical layout
     const contentNode = new VBox( {
       align: 'left',
+      stretch: true, // See https://github.com/phetsims/graphing-quadratics/issues/197
       spacing: GQConstants.CHECKBOXES_Y_SPACING,
       children: [
         vertexCheckbox,
