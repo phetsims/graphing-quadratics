@@ -8,7 +8,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import GraphContentsToggleButton from '../../../../graphing-lines/js/common/view/GraphContentsToggleButton.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import { Node, VBox } from '../../../../scenery/js/imports.js';
@@ -18,6 +17,9 @@ import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import PointToolNode from './PointToolNode.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
+import EyeToggleButton from '../../../../scenery-phet/js/buttons/EyeToggleButton.js';
 
 // constants
 const X_SPACING = 15; // between graph and control panels
@@ -50,7 +52,10 @@ export default class GQScreenView extends ScreenView {
       } ) );
 
     // Toggle button for showing/hiding contents of graph
-    const graphContentsToggleButton = new GraphContentsToggleButton( viewProperties.graphContentsVisibleProperty, {
+    const graphContentsToggleButton = new EyeToggleButton( viewProperties.graphContentsVisibleProperty, {
+      scale: 0.75,
+      baseColor: new DerivedProperty( [ viewProperties.graphContentsVisibleProperty ],
+        graphContentsVisible => graphContentsVisible ? 'white' : PhetColorScheme.BUTTON_YELLOW ),
       left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 21,
       bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
       tandem: tandem.createTandem( 'graphContentsToggleButton' ),
