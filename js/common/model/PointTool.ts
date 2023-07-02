@@ -44,7 +44,7 @@ export default class PointTool extends PhetioObject {
   public readonly quadraticProperty: TReadOnlyProperty<Quadratic | null>;
 
   /**
-   * @param quadraticsProperty - Quadratics that the tool might intersect
+   * @param quadraticsProperty - Quadratics that the tool might intersect, in foreground-to-background order
    * @param graph
    * @param providedOptions
    */
@@ -78,8 +78,7 @@ export default class PointTool extends PhetioObject {
       [ this.positionProperty, quadraticsProperty ],
       ( position, quadratics ) => {
         if ( graph.contains( position ) ) {
-          return this.getQuadraticNear( position,
-            GQQueryParameters.pointToolThreshold, GQQueryParameters.pointToolThreshold );
+          return this.getQuadraticNear( position, GQQueryParameters.pointToolThreshold, GQQueryParameters.pointToolThreshold );
         }
         else {
           return null;
@@ -104,20 +103,20 @@ export default class PointTool extends PhetioObject {
    * @returns null if no quadratic is close enough
    */
   public getQuadraticNear( position: Vector2, offDistance: number, onDistance: number ): Quadratic | null {
-    let onQuadratic = this.quadraticProperty && this.quadraticProperty.value;
+    let quadraticNear = this.quadraticProperty.value;
     const quadratics = this.quadraticsProperty.value;
-    if ( !onQuadratic ||
-         quadratics.includes( onQuadratic ) ||
-         !onQuadratic.hasSolution( position, offDistance ) ) {
-      onQuadratic = null;
-      for ( let i = 0; i < quadratics.length && !onQuadratic; i++ ) {
+    if ( !quadraticNear ||
+         quadratics.includes( quadraticNear ) ||
+         !quadraticNear.hasSolution( position, offDistance ) ) {
+      quadraticNear = null;
+      for ( let i = 0; i < quadratics.length && !quadraticNear; i++ ) {
         const quadratic = quadratics[ i ];
         if ( quadratic.hasSolution( position, onDistance ) ) {
-          onQuadratic = quadratic;
+          quadraticNear = quadratic;
         }
       }
     }
-    return onQuadratic;
+    return quadraticNear;
   }
 
   public reset(): void {

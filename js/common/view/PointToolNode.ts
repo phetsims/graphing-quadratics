@@ -214,8 +214,7 @@ class PointToolDragListener extends DragListener {
         if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
 
           // If we're close enough to a quadratic, snap to that quadratic.
-          const snapQuadratic = pointTool.getQuadraticNear( position,
-            GQQueryParameters.snapOffDistance, GQQueryParameters.snapOnDistance );
+          const snapQuadratic = pointTool.getQuadraticNear( position, GQQueryParameters.snapOffDistance, GQQueryParameters.snapOnDistance );
           if ( snapQuadratic ) {
 
             // Get the closest point that is on the quadratic.
