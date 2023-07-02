@@ -53,6 +53,7 @@ export default class GQModel implements TModel {
       valueType: [ Quadratic, null ],
       tandem: tandem.createTandem( 'savedQuadraticProperty' ),
       phetioFeatured: true,
+      phetioReadOnly: true, // see https://github.com/phetsims/graphing-quadratics/issues/200
       phetioDocumentation: 'the saved quadratic, null if there is no saved quadratic',
       phetioValueType: NullableIO( Quadratic.QuadraticIO )
     } );
