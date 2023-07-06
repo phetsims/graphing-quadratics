@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.3.0-dev.6 Thu Jul 06 2023 12:05:13 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.3.0-rc.0 Thu Jul 06 2023 15:32:18 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "cc59d7f0574270924a886cb3d43a1b7507cd0553",
     "branch": "master"
@@ -13,7 +13,7 @@
     "branch": "master"
   },
   "chipper": {
-    "sha": "e79e03a2f2d78e195db87446e5dbb22944015182",
+    "sha": "88bb2cc832e82e5f83ef234b1b12eb86951b70e5",
     "branch": "master"
   },
   "dot": {
@@ -25,8 +25,8 @@
     "branch": "master"
   },
   "graphing-quadratics": {
-    "sha": "4414507bdbff51fd61c6684298f69ad065d353f9",
-    "branch": "master"
+    "sha": "f52a34900b2be8f5c1fe39816fc1331d3cfa2abb",
+    "branch": "1.3"
   },
   "joist": {
     "sha": "a9a09cb272396b6af9c54a0567be934406217242",
