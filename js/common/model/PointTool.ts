@@ -106,7 +106,7 @@ export default class PointTool extends PhetioObject {
     let quadraticNear = this.quadraticProperty.value;
     const quadratics = this.quadraticsProperty.value;
     if ( !quadraticNear ||
-         quadratics.includes( quadraticNear ) ||
+         !quadratics.includes( quadraticNear ) ||
          !quadraticNear.hasSolution( position, offDistance ) ) {
       quadraticNear = null;
       for ( let i = 0; i < quadratics.length && !quadraticNear; i++ ) {
