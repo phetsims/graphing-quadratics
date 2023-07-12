@@ -15,7 +15,7 @@ import { Shape } from '../../../../kite/js/imports.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { Node, NodeOptions, Path, PathOptions } from '../../../../scenery/js/imports.js';
+import { IndexedNodeIO, Node, NodeOptions, Path, PathOptions } from '../../../../scenery/js/imports.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
@@ -73,7 +73,12 @@ export default class QuadraticNode extends Node {
 
       // SelfOptions
       preventVertexAndEquationOverlap: true,
-      lineWidth: 1
+      lineWidth: 1,
+
+      // NodeOptions
+      // Make z-ordering stateful, see https://github.com/phetsims/graphing-quadratics/issues/202
+      phetioType: IndexedNodeIO,
+      phetioState: true
     }, providedOptions );
 
     super( options );

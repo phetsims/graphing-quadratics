@@ -21,7 +21,7 @@ import { Shape } from '../../../../kite/js/imports.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { Circle, DragListener, DragListenerOptions, Node, NodeOptions, Path, PressedDragListener, Rectangle, TColor } from '../../../../scenery/js/imports.js';
+import { Circle, DragListener, DragListenerOptions, IndexedNodeIO, Node, NodeOptions, Path, PressedDragListener, Rectangle, TColor } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
@@ -59,7 +59,12 @@ export default class PointToolNode extends Node {
       phetioInputEnabledPropertyInstrumented: true,
       visiblePropertyOptions: {
         phetioFeatured: true
-      }
+      },
+
+      // PointToolNode moves to the front when you press it. So make z-ordering stateful.
+      // See https://github.com/phetsims/graphing-quadratics/issues/202
+      phetioType: IndexedNodeIO,
+      phetioState: true
     }, providedOptions );
 
     // coordinatesProperty is null when the tool is not on the graph.
@@ -175,7 +180,7 @@ class ProbeNode extends Node {
 
 class PointToolDragListener extends DragListener {
 
-  public constructor( targetNode: Node, pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
+  public constructor( pointToolNode: PointToolNode, pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: DragListenerOptions<PressedDragListener> ) {
 
@@ -196,16 +201,16 @@ class PointToolDragListener extends DragListener {
 
         // Note the mouse-click offset when dragging starts.
         const position = modelViewTransform.modelToViewPosition( pointTool.positionProperty.value );
-        startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
+        startOffset = pointToolNode.globalToParentPoint( event.pointer.point ).minus( position );
 
         // Move the tool that we're dragging to the foreground.
-        targetNode.moveToFront();
+        pointToolNode.moveToFront();
       },
 
       drag: ( event, listener ) => {
 
         // Convert drag point to model position
-        const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
+        const parentPoint = pointToolNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
         let position = modelViewTransform.viewToModelPosition( parentPoint );
 
         // constrained to dragBounds
