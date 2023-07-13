@@ -10,17 +10,18 @@
 import Property from '../../../../axon/js/Property.js';
 import GraphNode from '../../../../graphing-lines/js/common/view/GraphNode.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import optionize from '../../../../phet-core/js/optionize.js';
+import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import { IndexedNodeIO, Node, NodeOptions } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
-import QuadraticNode from './QuadraticNode.js';
+import QuadraticNode, { QuadraticNodeOptions } from './QuadraticNode.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import GQSymbols from '../GQSymbols.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 
 type SelfOptions = {
 
@@ -56,6 +57,14 @@ export default class GQGraphNode extends Node {
     // Cartesian coordinates graph
     const graphNode = new GraphNode( model.graph, model.modelViewTransform, GQSymbols.xMarkupStringProperty, GQSymbols.yMarkupStringProperty );
 
+    // All children of allLinesParent must be instrumented, IndexedNodeIO, and stateful to make z-order stateful.
+    // See https://github.com/phetsims/graphing-quadratics/issues/202
+    const indexedNodeOptions: PhetioObjectOptions = {
+      phetioType: IndexedNodeIO,
+      phetioState: true,
+      phetioReadOnly: true // so its index cannot be changed
+    };
+
     // Interactive quadratic
     const interactiveQuadraticNode = new QuadraticNode(
       model.quadraticProperty,
@@ -63,16 +72,13 @@ export default class GQGraphNode extends Node {
       model.graph.yRange,
       model.modelViewTransform,
       viewProperties.equationForm,
-      viewProperties.equationsVisibleProperty, {
+      viewProperties.equationsVisibleProperty,
+      combineOptions<QuadraticNodeOptions>( {}, {
         lineWidth: GQConstants.INTERACTIVE_QUADRATIC_LINE_WIDTH,
         preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap,
-
-        // All children of allLinesParent must be instrumented, IndexedNodeIO, and stateful to make z-order stateful.
-        // See https://github.com/phetsims/graphing-quadratics/issues/202
-        tandem: options.tandem.createTandem( 'interactiveQuadraticNode' ),
-        phetioType: IndexedNodeIO,
-        phetioState: true
-      } );
+        tandem: options.tandem.createTandem( 'interactiveQuadraticNode' )
+      }, indexedNodeOptions )
+    );
 
     // Updated only when model.savedQuadraticProperty is not null
     const nonNullSavedQuadraticProperty = new Property( model.quadraticProperty.value );
@@ -84,31 +90,23 @@ export default class GQGraphNode extends Node {
       model.graph.yRange,
       model.modelViewTransform,
       viewProperties.equationForm,
-      viewProperties.equationsVisibleProperty, {
-        lineWidth: GQConstants.SAVED_QUADRATIC_LINE_WIDTH,
-        preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap,
+      viewProperties.equationsVisibleProperty,
+      combineOptions<QuadraticNodeOptions>( {}, {
 
         // visible if a saved quadratic exists
         visibleProperty: new DerivedProperty( [ model.savedQuadraticProperty ], savedQuadratic => !!savedQuadratic ),
-
-        // All children of allLinesParent must be instrumented, IndexedNodeIO, and stateful to make z-order stateful.
-        // See https://github.com/phetsims/graphing-quadratics/issues/202
-        tandem: options.tandem.createTandem( 'savedQuadraticNode' ),
-        phetioType: IndexedNodeIO,
-        phetioState: true
-      } );
+        lineWidth: GQConstants.SAVED_QUADRATIC_LINE_WIDTH,
+        preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap,
+        tandem: options.tandem.createTandem( 'savedQuadraticNode' )
+      }, indexedNodeOptions )
+    );
 
     // Parent for other lines, e.g. quadratic terms, directrix, axis of symmetry
-    const otherCurvesLayer = new Node( {
+    const otherCurvesLayer = new Node( combineOptions<NodeOptions>( {
       children: options.otherCurves,
-
-      // All children of allLinesParent must be instrumented, IndexedNodeIO, and stateful to make z-order stateful.
-      // See https://github.com/phetsims/graphing-quadratics/issues/202
       tandem: options.tandem.createTandem( 'otherCurvesLayer' ),
-      phetioType: IndexedNodeIO,
-      phetioState: true,
       phetioVisiblePropertyInstrumented: false
-    } );
+    }, indexedNodeOptions ) );
 
     // All lines, clipped to the graph
     const allLinesParent = new Node( {
