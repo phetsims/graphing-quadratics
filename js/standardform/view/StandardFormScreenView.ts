@@ -23,7 +23,7 @@ export default class StandardFormScreenView extends GQScreenView {
 
     super( model,
       viewProperties,
-      new StandardFormGraphNode( model, viewProperties, tandem ),
+      new StandardFormGraphNode( model, viewProperties, tandem.createTandem( 'graphNode' ) ),
       new StandardFormEquationAccordionBox( model, {
         expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
         tandem: tandem.createTandem( 'equationAccordionBox' )

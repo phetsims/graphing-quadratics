@@ -23,7 +23,7 @@ export default class FocusAndDirectrixScreenView extends GQScreenView {
 
     super( model,
       viewProperties,
-      new FocusAndDirectrixGraphNode( model, viewProperties, tandem ),
+      new FocusAndDirectrixGraphNode( model, viewProperties, tandem.createTandem( 'graphNode' ) ),
       new FocusAndDirectrixEquationAccordionBox( model, {
         expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
         tandem: tandem.createTandem( 'equationAccordionBox' )

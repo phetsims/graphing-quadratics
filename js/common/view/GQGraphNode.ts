@@ -11,7 +11,7 @@ import Property from '../../../../axon/js/Property.js';
 import GraphNode from '../../../../graphing-lines/js/common/view/GraphNode.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import { Node, NodeOptions } from '../../../../scenery/js/imports.js';
+import { IndexedNodeIO, Node, NodeOptions } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
@@ -19,6 +19,8 @@ import GQViewProperties from './GQViewProperties.js';
 import QuadraticNode from './QuadraticNode.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import GQSymbols from '../GQSymbols.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 
 type SelfOptions = {
 
@@ -32,7 +34,7 @@ type SelfOptions = {
   decorations?: Node[];
 };
 
-export type GQGraphNodeOptions = SelfOptions;
+export type GQGraphNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class GQGraphNode extends Node {
 
@@ -43,17 +45,18 @@ export default class GQGraphNode extends Node {
       // SelfOptions
       preventVertexAndEquationOverlap: true,
       otherCurves: [],
-      decorations: []
-    }, providedOptions );
+      decorations: [],
 
-    assert && assert( !options.tandem, 'GQGraphNode should not be instrumented' );
+      // NodeOptions
+      phetioVisiblePropertyInstrumented: false
+    }, providedOptions );
 
     super( options );
 
     // Cartesian coordinates graph
     const graphNode = new GraphNode( model.graph, model.modelViewTransform, GQSymbols.xMarkupStringProperty, GQSymbols.yMarkupStringProperty );
 
-    // Interactive quadratic curve
+    // Interactive quadratic
     const interactiveQuadraticNode = new QuadraticNode(
       model.quadraticProperty,
       model.graph.xRange,
@@ -62,17 +65,50 @@ export default class GQGraphNode extends Node {
       viewProperties.equationForm,
       viewProperties.equationsVisibleProperty, {
         lineWidth: GQConstants.INTERACTIVE_QUADRATIC_LINE_WIDTH,
-        preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
+        preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap,
+
+        // All children of allLinesParent must be instrumented, IndexedNodeIO, and stateful to make z-order stateful.
+        // See https://github.com/phetsims/graphing-quadratics/issues/202
+        tandem: options.tandem.createTandem( 'interactiveQuadraticNode' ),
+        phetioType: IndexedNodeIO,
+        phetioState: true
       } );
 
-    // the saved line
-    let savedQuadraticNode: QuadraticNode | null = null;
+    // Updated only when model.savedQuadraticProperty is not null
+    const nonNullSavedQuadraticProperty = new Property( model.quadraticProperty.value );
+
+    // Saved quadratic
+    const savedQuadraticNode = new QuadraticNode(
+      nonNullSavedQuadraticProperty,
+      model.graph.xRange,
+      model.graph.yRange,
+      model.modelViewTransform,
+      viewProperties.equationForm,
+      viewProperties.equationsVisibleProperty, {
+        lineWidth: GQConstants.SAVED_QUADRATIC_LINE_WIDTH,
+        preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap,
+
+        // visible if a saved quadratic exists
+        visibleProperty: new DerivedProperty( [ model.savedQuadraticProperty ], savedQuadratic => !!savedQuadratic ),
+
+        // All children of allLinesParent must be instrumented, IndexedNodeIO, and stateful to make z-order stateful.
+        // See https://github.com/phetsims/graphing-quadratics/issues/202
+        tandem: options.tandem.createTandem( 'savedQuadraticNode' ),
+        phetioType: IndexedNodeIO,
+        phetioState: true
+      } );
 
     // Parent for other lines, e.g. quadratic terms, directrix, axis of symmetry
-    const otherCurvesLayer = new Node( { children: options.otherCurves } );
+    const otherCurvesLayer = new Node( {
+      children: options.otherCurves,
 
-    // Parent for decorations, e.g. vertex, roots, manipulators
-    const decorationsLayer = new Node( { children: options.decorations } );
+      // All children of allLinesParent must be instrumented, IndexedNodeIO, and stateful to make z-order stateful.
+      // See https://github.com/phetsims/graphing-quadratics/issues/202
+      tandem: options.tandem.createTandem( 'otherCurvesLayer' ),
+      phetioType: IndexedNodeIO,
+      phetioState: true,
+      phetioVisiblePropertyInstrumented: false
+    } );
 
     // All lines, clipped to the graph
     const allLinesParent = new Node( {
@@ -82,7 +118,12 @@ export default class GQGraphNode extends Node {
         model.graph.xRange.getLength(),
         model.graph.yRange.getLength()
       ).transformed( model.modelViewTransform.getMatrix() ),
-      children: [ otherCurvesLayer, interactiveQuadraticNode ]
+      children: [ savedQuadraticNode, otherCurvesLayer, interactiveQuadraticNode ]
+    } );
+
+    // Parent for decorations, e.g. vertex, roots, manipulators. This Node is NOT clipped to the graph.
+    const decorationsLayer = new Node( {
+      children: options.decorations
     } );
 
     // Everything that's on the graph
@@ -96,48 +137,22 @@ export default class GQGraphNode extends Node {
 
     // When the saved quadratic changes...
     model.savedQuadraticProperty.link( savedQuadratic => {
-
-      // Remove and dispose of any previously-saved quadratic.
-      if ( savedQuadraticNode ) {
-        allLinesParent.removeChild( savedQuadraticNode );
-        savedQuadraticNode.dispose();
-        savedQuadraticNode = null;
-      }
-
       if ( savedQuadratic ) {
-        savedQuadraticNode = new QuadraticNode(
-          new Property( savedQuadratic ),
-          model.graph.xRange,
-          model.graph.yRange,
-          model.modelViewTransform,
-          viewProperties.equationForm,
-          viewProperties.equationsVisibleProperty, {
-            lineWidth: GQConstants.SAVED_QUADRATIC_LINE_WIDTH,
-            preventVertexAndEquationOverlap: options.preventVertexAndEquationOverlap
-          } );
+        nonNullSavedQuadraticProperty.value = savedQuadratic;
 
-        // Add savedQuadraticNode to the foreground, so the user can see it.
-        // See https://github.com/phetsims/graphing-quadratics/issues/36
-        allLinesParent.addChild( savedQuadraticNode );
-
-        // When restoring state, if savedQuadratic is identical to quadraticProperty, then leave it in front, so
-        // the user can see it. Otherwise, move it to the back. Note that this does not address the corner case where
-        // the instructional designer has changed quadraticProperty, then changed it back to match savedQuadratic.
-        // We decided not to address that case, see https://github.com/phetsims/graphing-quadratics/issues/165.
-        if ( isSettingPhetioStateProperty.value && !savedQuadratic.hasSameCoefficients( model.quadraticProperty.value ) ) {
-          savedQuadraticNode.moveToBack();
+        // When a quadratic is saved by the user (versus PhET-iO state), move it to the front, so that it
+        // appears in front of the interactive quadratic. See https://github.com/phetsims/graphing-quadratics/issues/202
+        if ( !isSettingPhetioStateProperty.value ) {
+          savedQuadraticNode.moveToFront();
         }
       }
     } );
 
-    // When a quadratic is saved, it is initially in front of quadraticProperty. Otherwise it wouldn't be visible
-    // because they are identical. When quadraticProperty is changed BY THE USER, move the saved quadratic to the back.
-    // If it's changed by restoring PhET-iO state, do nothing, because savedQuadraticProperty listener above will
-    // handle it. See https://github.com/phetsims/graphing-quadratics/issues/36 and
-    // https://github.com/phetsims/graphing-quadratics/issues/165.
+    // When the interactive quadratic is changed by the user (versus PhET-iO state), move the saved quadratic
+    // to the back. See https://github.com/phetsims/graphing-quadratics/issues/202
     model.quadraticProperty.link( quadratic => {
       if ( !isSettingPhetioStateProperty.value ) {
-        savedQuadraticNode && savedQuadraticNode.moveToBack();
+        savedQuadraticNode.moveToBack();
       }
     } );
 

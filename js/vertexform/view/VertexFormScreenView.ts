@@ -23,7 +23,7 @@ export default class VertexFormScreenView extends GQScreenView {
 
     super( model,
       viewProperties,
-      new VertexFormGraphNode( model, viewProperties, tandem ),
+      new VertexFormGraphNode( model, viewProperties, tandem.createTandem( 'graphNode' ) ),
       new VertexFormEquationAccordionBox( model, {
         expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
         tandem: tandem.createTandem( 'equationAccordionBox' )

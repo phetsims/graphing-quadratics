@@ -7,7 +7,7 @@
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';
-import GQGraphNode, { GQGraphNodeOptions } from '../../common/view/GQGraphNode.js';
+import GQGraphNode from '../../common/view/GQGraphNode.js';
 import VertexManipulator from '../../common/view/VertexManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
@@ -25,9 +25,6 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
     assert && assert( coordinatesVisibleProperty );
     const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
     assert && assert( vertexVisibleProperty );
-
-    // We do NOT want to instrument the graph, so tandem is not propagated via options
-    const options: GQGraphNodeOptions = {};
 
     // Directrix line
     const directrixNode = new DirectrixNode(
@@ -83,10 +80,11 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       viewProperties.focusVisibleProperty,
       viewProperties.directrixVisibleProperty );
 
-    options.otherCurves = [ directrixNode, pointOnParabolaLinesNode ]; // rendered in this order
-    options.decorations = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ]; // rendered in this order
-
-    super( model, viewProperties, options );
+    super( model, viewProperties, {
+      otherCurves: [ directrixNode, pointOnParabolaLinesNode ], // rendered in this order
+      decorations: [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ], // rendered in this order
+      tandem: tandem
+    } );
   }
 }
 

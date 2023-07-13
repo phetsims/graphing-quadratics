@@ -15,7 +15,7 @@ import { Shape } from '../../../../kite/js/imports.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { IndexedNodeIO, Node, NodeOptions, Path, PathOptions } from '../../../../scenery/js/imports.js';
+import { Node, NodeOptions, Path, PathOptions } from '../../../../scenery/js/imports.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
@@ -29,7 +29,8 @@ type SelfOptions = {
   preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping
 } & PickOptional<PathOptions, 'lineWidth'>;
 
-export type QuadraticNodeOptions = SelfOptions & PickOptional<NodeOptions, 'visibleProperty'>;
+export type QuadraticNodeOptions = SelfOptions &
+  PickOptional<NodeOptions, 'visibleProperty' | 'tandem' | 'phetioType' | 'phetioState'>;
 
 export default class QuadraticNode extends Node {
 
@@ -76,9 +77,7 @@ export default class QuadraticNode extends Node {
       lineWidth: 1,
 
       // NodeOptions
-      // Make z-ordering stateful, see https://github.com/phetsims/graphing-quadratics/issues/202
-      phetioType: IndexedNodeIO,
-      phetioState: true
+      phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 
     super( options );
