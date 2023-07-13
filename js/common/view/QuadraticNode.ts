@@ -30,7 +30,7 @@ type SelfOptions = {
 } & PickOptional<PathOptions, 'lineWidth'>;
 
 export type QuadraticNodeOptions = SelfOptions &
-  PickOptional<NodeOptions, 'visibleProperty' | 'tandem' | 'phetioType' | 'phetioState'>;
+  PickOptional<NodeOptions, 'visibleProperty' | 'tandem' | 'phetioType' | 'phetioState' | 'phetioReadOnly'>;
 
 export default class QuadraticNode extends Node {
 
