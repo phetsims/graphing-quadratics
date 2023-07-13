@@ -8,7 +8,7 @@
 
 import Tandem from '../../../../tandem/js/Tandem.js';
 import AxisOfSymmetryNode from '../../common/view/AxisOfSymmetryNode.js';
-import GQGraphNode, { GQGraphNodeOptions } from '../../common/view/GQGraphNode.js';
+import GQGraphNode from '../../common/view/GQGraphNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../model/StandardFormModel.js';
 import NoRealRootsNode from './NoRealRootsNode.js';
@@ -26,9 +26,6 @@ export default class StandardFormGraphNode extends GQGraphNode {
     assert && assert( coordinatesVisibleProperty );
     const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
     assert && assert( vertexVisibleProperty );
-
-    // We do NOT want to instrument the graph, so tandem is not propagated via options
-    const options: GQGraphNodeOptions = {};
 
     // Axis of symmetry line
     const axisOfSymmetryNode = new AxisOfSymmetryNode(
@@ -68,10 +65,11 @@ export default class StandardFormGraphNode extends GQGraphNode {
       tandem.createTandem( 'noRealRootsNode' )
     );
 
-    options.otherCurves = [ axisOfSymmetryNode ];
-    options.decorations = [ rootsNode, vertexNode, noRealRootsNode ]; // rendered in this order
-
-    super( model, viewProperties, options );
+    super( model, viewProperties, {
+      otherCurves: [ axisOfSymmetryNode ],
+      decorations: [ rootsNode, vertexNode, noRealRootsNode ], // rendered in this order
+      tandem: tandem
+    } );
   }
 }
 

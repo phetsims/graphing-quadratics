@@ -13,10 +13,11 @@ import QuadraticNode from '../../common/view/QuadraticNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 export default class ExploreGraphNode extends GQGraphNode {
 
-  public constructor( model: ExploreModel, viewProperties: ExploreViewProperties ) {
+  public constructor( model: ExploreModel, viewProperties: ExploreViewProperties, tandem: Tandem ) {
 
     // There is no vertex displayed on this screen.
     const preventVertexAndEquationOverlap = false;
@@ -61,7 +62,8 @@ export default class ExploreGraphNode extends GQGraphNode {
       } );
 
     super( model, viewProperties, {
-      otherCurves: [ constantTermNode, linearTermNode, quadraticTermNode ] // rendered in this order
+      otherCurves: [ constantTermNode, linearTermNode, quadraticTermNode ], // rendered in this order
+      tandem: tandem
     } );
 
     // Make quadratic terms available to the point tool, if they are visible. The order of

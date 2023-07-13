@@ -23,7 +23,7 @@ export default class ExploreScreenView extends GQScreenView {
 
     super( model,
       viewProperties,
-      new ExploreGraphNode( model, viewProperties ), // do not instrument for PhET-iO
+      new ExploreGraphNode( model, viewProperties, tandem.createTandem( 'graphNode' ) ),
       new ExploreEquationAccordionBox( model, {
         expandedProperty: viewProperties.equationAccordionBoxExpandedProperty,
         tandem: tandem.createTandem( 'equationAccordionBox' )

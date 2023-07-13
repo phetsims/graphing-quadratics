@@ -21,7 +21,6 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import Quadratic from './Quadratic.js';
-import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 // which side of the point tool's body the probe is on
 type ProbeSide = 'left' | 'right';
@@ -107,8 +106,7 @@ export default class PointTool extends PhetioObject {
     let quadraticNear = this.quadraticProperty.value;
     const quadratics = this.quadraticsProperty.value;
     if ( !quadraticNear ||
-         // see https://github.com/phetsims/graphing-quadratics/issues/202
-         ( !quadratics.includes( quadraticNear ) && !isSettingPhetioStateProperty.value ) ||
+         !quadratics.includes( quadraticNear ) ||
          !quadraticNear.hasSolution( position, offDistance ) ) {
       quadraticNear = null;
       for ( let i = 0; i < quadratics.length && !quadraticNear; i++ ) {
