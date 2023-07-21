@@ -39,7 +39,8 @@ export default class VertexNode extends PointNode {
       coordinatesBackgroundColor: GQColors.VERTEX,
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
       tandem: tandem,
-      phetioDocumentation: 'displays the vertex of the interactive quadratic'
+      phetioDocumentation: 'displays the vertex of the interactive quadratic',
+      phetioFeatured: true
     };
 
     // position coordinates on the outside of the parabola
