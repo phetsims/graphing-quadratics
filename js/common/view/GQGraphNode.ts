@@ -17,7 +17,6 @@ import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import QuadraticNode, { QuadraticNodeOptions } from './QuadraticNode.js';
-import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import GQSymbols from '../GQSymbols.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -137,19 +136,14 @@ export default class GQGraphNode extends Node {
     model.savedQuadraticProperty.link( savedQuadratic => {
       if ( savedQuadratic ) {
         nonNullSavedQuadraticProperty.value = savedQuadratic;
-
-        // When a quadratic is saved by the user (versus PhET-iO state), move it to the front, so that it
-        // appears in front of the interactive quadratic. See https://github.com/phetsims/graphing-quadratics/issues/202
-        if ( !isSettingPhetioStateProperty.value ) {
-          savedQuadraticNode.moveToFront();
-        }
       }
     } );
 
-    // When the interactive quadratic is changed by the user (versus PhET-iO state), move the saved quadratic
-    // to the back. See https://github.com/phetsims/graphing-quadratics/issues/202
-    model.quadraticProperty.link( quadratic => {
-      if ( !isSettingPhetioStateProperty.value ) {
+    model.isSavedQuadraticInFrontProperty.link( isSavedQuadraticInFront => {
+      if ( isSavedQuadraticInFront ) {
+        savedQuadraticNode.moveToFront();
+      }
+      else {
         savedQuadraticNode.moveToBack();
       }
     } );

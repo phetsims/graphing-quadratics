@@ -22,6 +22,8 @@ import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import PointTool from './PointTool.js';
 import Quadratic from './Quadratic.js';
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 // constants
 const GRAPH_VIEW_ORIGIN = new Vector2( 345, 330 ); // position of the graph's origin, in view coordinates
@@ -42,6 +44,12 @@ export default class GQModel implements TModel {
 
   public readonly leftPointTool: PointTool;
   public readonly rightPointTool: PointTool;
+
+  // Whether the saved quadratic should be displayed in front of the other interactive quadratic. This is true
+  // immediately after saving a quadratic because it is identical to the interactive quadratic, and would therefore
+  // be hidden behind the interactive quadratic.  This Property was needed to properly restore z-order of curves
+  // and association of point tools to curves. See https://github.com/phetsims/graphing-quadratics/issues/202
+  public readonly isSavedQuadraticInFrontProperty: Property<boolean>;
 
   protected constructor( quadraticProperty: TReadOnlyProperty<Quadratic>, tandem: Tandem ) {
 
@@ -67,14 +75,39 @@ export default class GQModel implements TModel {
 
     this.quadraticTermsProperty = new Property<Quadratic[]>( [] );
 
+    this.isSavedQuadraticInFrontProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'isSavedQuadraticInFrontProperty' ),
+      phetioReadOnly: true,
+      phetioDocumentation: 'Determines whether the save quadratic should be displayed in front of the interactive quadratic'
+    } );
+
+    // When we're not restoring PhET-iO state, the save quadratic is moved to the front when it is initially saved,
+    // then moved to the back when the user changes the interactive quadratic.  When we are restoring PhET-iO state,
+    // short-circuit this, and use the saved value of isSavedQuadraticInFrontProperty, so that we do not have problems
+    // with the order that dependencies are restored. See https://github.com/phetsims/graphing-quadratics/issues/202
+    this.savedQuadraticProperty.lazyLink( savedQuadratic => {
+      if ( !isSettingPhetioStateProperty.value ) {
+        this.isSavedQuadraticInFrontProperty.value = !!savedQuadratic;
+      }
+    } );
+    this.quadraticProperty.lazyLink( () => {
+      if ( !isSettingPhetioStateProperty.value ) {
+        this.isSavedQuadraticInFrontProperty.value = false;
+      }
+    } );
+
     // {DerivedProperty.<Quadratic[]>} Quadratics that are visible to the point tools,
     // in the order that they will be considered by point tools (foreground to background).
     // ObservableArrayDef is not used here because we need to change the entire array contents atomically.
     const pointToolQuadraticsProperty = new DerivedProperty(
-      [ this.quadraticProperty, this.quadraticTermsProperty, this.savedQuadraticProperty ],
-      ( quadratic, quadraticTerms, savedQuadratic ) => {
-        // order is important! compact to remove nulls
-        return _.compact( [ quadratic, ...quadraticTerms, savedQuadratic ] );
+      [ this.quadraticProperty, this.quadraticTermsProperty, this.savedQuadraticProperty, this.isSavedQuadraticInFrontProperty ],
+      ( quadratic, quadraticTerms, savedQuadratic, isSavedQuadraticInFront ) => {
+        const quadratics = isSavedQuadraticInFront ?
+          [ savedQuadratic, quadratic, ...quadraticTerms ] :
+          [ quadratic, ...quadraticTerms, savedQuadratic ];
+
+        // compact to remove nulls
+        return _.compact( quadratics );
       } );
 
     this.leftPointTool = new PointTool( pointToolQuadraticsProperty, this.graph, {
@@ -102,6 +135,7 @@ export default class GQModel implements TModel {
     this.savedQuadraticProperty.reset();
     this.leftPointTool.reset();
     this.rightPointTool.reset();
+    this.isSavedQuadraticInFrontProperty.reset();
   }
 
   /**
