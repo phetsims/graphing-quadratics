@@ -199,6 +199,8 @@ class PointToolDragListener extends DragListener {
       // note where the drag started
       start: ( event, listener ) => {
 
+        pointTool.isDragging = true;
+
         // Note the mouse-click offset when dragging starts.
         const position = modelViewTransform.modelToViewPosition( pointTool.positionProperty.value );
         startOffset = pointToolNode.globalToParentPoint( event.pointer.point ).minus( position );
@@ -244,6 +246,10 @@ class PointToolDragListener extends DragListener {
 
         // move the point tool
         pointTool.positionProperty.value = position;
+      },
+
+      end: () => {
+        pointTool.isDragging = false;
       }
     }, providedOptions );
 
