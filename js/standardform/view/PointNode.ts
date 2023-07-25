@@ -39,7 +39,7 @@ type SelfOptions = {
 };
 
 export type PointNodeOptions = SelfOptions & NodeTranslationOptions &
-  PickOptional<NodeOptions, 'visibleProperty' | 'phetioDocumentation' | 'phetioFeatured'> &
+  PickOptional<NodeOptions, 'visibleProperty' | 'phetioDocumentation'> &
   PickRequired<NodeOptions, 'tandem'>;
 
 export default class PointNode extends Node {
