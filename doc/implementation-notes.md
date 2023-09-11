@@ -58,8 +58,8 @@ This section describes how this simulation uses patterns that are common to PhET
 to the view coordinate frame. The origin (0,0) in the model coordinate frame is (not surprisingly) at the origin of the
 graph.
 
-**Query parameters**: Query parameters are used to enable sim-specific features, mainly for debugging and
-testing. Sim-specific query parameters are documented in
+**Query parameters**: Query parameters are used to enable sim-specific features, mainly for debugging and testing.
+Sim-specific query parameters are documented in
 [GQQueryParameters](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/GQQueryParameters.js).
 
 **Assertions**: The implementation makes liberal use of `assert` to verify pre/post assumptions and perform argument
