@@ -36,19 +36,19 @@ export default class VertexFormInteractiveEquationNode extends Node {
     // value pickers
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
-        color: GQColors.VERTEX_FORM_A,
+        color: GQColors.vertexFormAColorProperty,
         tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       } ) );
     const hPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
-        color: GQColors.VERTEX_FORM_H,
+        color: GQColors.vertexFormHColorProperty,
         tandem: tandem.createTandem( 'hPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } )
       } ) );
     const kPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
-        color: GQColors.VERTEX_FORM_K,
+        color: GQColors.vertexFormKColorProperty,
         tandem: tandem.createTandem( 'kPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } )
       } ) );

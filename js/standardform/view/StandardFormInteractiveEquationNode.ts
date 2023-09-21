@@ -36,19 +36,19 @@ export default class StandardFormInteractiveEquationNode extends Node {
     // coefficient pickers
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
-        color: GQColors.STANDARD_FORM_A,
+        color: GQColors.standardFormAColorProperty,
         tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       } ) );
     const bPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
-        color: GQColors.STANDARD_FORM_B,
+        color: GQColors.standardFormBColorProperty,
         tandem: tandem.createTandem( 'bPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'b' } )
       } ) );
     const cPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
-        color: GQColors.STANDARD_FORM_C,
+        color: GQColors.standardFormCColorProperty,
         tandem: tandem.createTandem( 'cPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'c' } )
       } ) );

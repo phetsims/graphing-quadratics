@@ -29,24 +29,48 @@ const GQColors = {
   CONSTANT_TERM: 'magenta',
 
   // Coefficients on the Explore screen
-  EXPLORE_A: PhetColorScheme.RED_COLORBLIND,
-  EXPLORE_B: PhetColorScheme.RED_COLORBLIND,
-  EXPLORE_C: PhetColorScheme.RED_COLORBLIND,
+  exploreAColorProperty: new ProfileColorProperty( graphingQuadratics, 'exploreAColor', {
+    default: PhetColorScheme.RED_COLORBLIND
+  } ),
+  exploreBColorProperty: new ProfileColorProperty( graphingQuadratics, 'exploreBColor', {
+    default: PhetColorScheme.RED_COLORBLIND
+  } ),
+  exploreCColorProperty: new ProfileColorProperty( graphingQuadratics, 'exploreCColor', {
+    default: PhetColorScheme.RED_COLORBLIND
+  } ),
 
   // Coefficients on the Standard Form screen
-  STANDARD_FORM_A: PhetColorScheme.RED_COLORBLIND,
-  STANDARD_FORM_B: PhetColorScheme.RED_COLORBLIND,
-  STANDARD_FORM_C: PhetColorScheme.RED_COLORBLIND,
+  standardFormAColorProperty: new ProfileColorProperty( graphingQuadratics, 'standardFormAColor', {
+    default: PhetColorScheme.RED_COLORBLIND
+  } ),
+  standardFormBColorProperty: new ProfileColorProperty( graphingQuadratics, 'standardFormBColor', {
+    default: PhetColorScheme.RED_COLORBLIND
+  } ),
+  standardFormCColorProperty: new ProfileColorProperty( graphingQuadratics, 'standardFormCColor', {
+    default: PhetColorScheme.RED_COLORBLIND
+  } ),
 
   // Coefficients on the Vertex Form screen
-  VERTEX_FORM_A: FOCUS,
-  VERTEX_FORM_H: VERTEX,
-  VERTEX_FORM_K: VERTEX,
+  vertexFormAColorProperty: new ProfileColorProperty( graphingQuadratics, 'vertexFormAColor', {
+    default: FOCUS
+  } ),
+  vertexFormHColorProperty: new ProfileColorProperty( graphingQuadratics, 'vertexFormHColor', {
+    default: VERTEX
+  } ),
+  vertexFormKColorProperty: new ProfileColorProperty( graphingQuadratics, 'vertexFormKColor', {
+    default: VERTEX
+  } ),
 
   // Coefficients on the Focus & Directrix screen
-  FOCUS_AND_DIRECTRIX_P: FOCUS,
-  FOCUS_AND_DIRECTRIX_H: VERTEX,
-  FOCUS_AND_DIRECTRIX_K: VERTEX,
+  focusAndDirectrixPColorProperty: new ProfileColorProperty( graphingQuadratics, 'focusAndDirectrixPColor', {
+    default: FOCUS
+  } ),
+  focusAndDirectrixHColorProperty: new ProfileColorProperty( graphingQuadratics, 'focusAndDirectrixHColor', {
+    default: VERTEX
+  } ),
+  focusAndDirectrixKColorProperty: new ProfileColorProperty( graphingQuadratics, 'focusAndDirectrixKColor', {
+    default: VERTEX
+  } ),
 
   // common to all screens
   screenBackgroundColorProperty: new ProfileColorProperty( graphingQuadratics, 'screenBackgroundColor', {
@@ -58,13 +82,13 @@ const GQColors = {
   separatorStrokeProperty: new ProfileColorProperty( graphingQuadratics, 'separatorStroke', {
     default: 'rgb( 212, 212, 212 )'
   } ),
-  SAVED_CURVE: 'rgb( 160, 160, 160 )',
   FOCUS: FOCUS,
   DIRECTRIX: 'green',
   VERTEX: VERTEX,
   AXIS_OF_SYMMETRY: VERTEX,
   ROOTS: '#0071bc',
-  POINT_ON_PARABOLA: PhetColorScheme.RED_COLORBLIND
+  POINT_ON_PARABOLA: PhetColorScheme.RED_COLORBLIND,
+  SAVED_CURVE: 'rgb( 160, 160, 160 )'
 };
 
 graphingQuadratics.register( 'GQColors', GQColors );

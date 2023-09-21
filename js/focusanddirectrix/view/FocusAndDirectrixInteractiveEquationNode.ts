@@ -53,7 +53,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const pNumberDisplay = new NumberDisplay( pProperty, pProperty.range,
       combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
-          fill: GQColors.FOCUS_AND_DIRECTRIX_P
+          fill: GQColors.focusAndDirectrixPColorProperty
         },
         decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P
       } ) );
@@ -81,7 +81,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const hNumberDisplay = new NumberDisplay( hProperty, hProperty.range,
       combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
-          fill: GQColors.FOCUS_AND_DIRECTRIX_H
+          fill: GQColors.focusAndDirectrixHColorProperty
         },
         decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H
       } ) );
@@ -94,7 +94,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const kNumberDisplay = new NumberDisplay( kProperty, kProperty.range,
       combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
         textOptions: {
-          fill: GQColors.FOCUS_AND_DIRECTRIX_K
+          fill: GQColors.focusAndDirectrixKColorProperty
         },
         decimalPlaces: GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K
       } ) );
@@ -116,19 +116,19 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       // see https://github.com/phetsims/graphing-quadratics/issues/31
       skipZero: true,
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
-      labelColor: GQColors.FOCUS_AND_DIRECTRIX_P,
+      labelColor: GQColors.focusAndDirectrixPColorProperty,
       tandem: tandem.createTandem( 'pSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
     } );
     const hSlider = new LinearSlider( GQSymbols.hMarkupStringProperty, hProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
-      labelColor: GQColors.FOCUS_AND_DIRECTRIX_H,
+      labelColor: GQColors.focusAndDirectrixHColorProperty,
       tandem: tandem.createTandem( 'hSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
     } );
     const kSlider = new LinearSlider( GQSymbols.kMarkupStringProperty, kProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
-      labelColor: GQColors.FOCUS_AND_DIRECTRIX_K,
+      labelColor: GQColors.focusAndDirectrixKColorProperty,
       tandem: tandem.createTandem( 'kSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
     } );
