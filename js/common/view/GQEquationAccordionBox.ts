@@ -47,7 +47,7 @@ export default class GQEquationAccordionBox extends AccordionBox {
       children: [
         interactiveEquationNode,
         new HSeparator( {
-          stroke: GQColors.SEPARATOR
+          stroke: GQColors.separatorStrokeProperty
         } ),
         buttonGroup
       ]
@@ -57,7 +57,7 @@ export default class GQEquationAccordionBox extends AccordionBox {
     // there's nothing above it, to visually separate the content from the title. So we use an HSeparator, but configure
     // it with isSeparator: false. See https://github.com/phetsims/graphing-quadratics/issues/193
     const topLine = new HSeparator( {
-      stroke: GQColors.SEPARATOR,
+      stroke: GQColors.separatorStrokeProperty,
       layoutOptions: {
         stretch: true, // Not sure why this is needed. Are nested options not being combined correctly in Separator.ts?
         isSeparator: false

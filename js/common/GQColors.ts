@@ -52,15 +52,19 @@ const GQColors = {
   screenBackgroundColorProperty: new ProfileColorProperty( graphingQuadratics, 'screenBackgroundColor', {
     default: 'rgb( 238, 252, 252 )'
   } ),
-  CONTROL_PANEL_BACKGROUND: 'rgb( 238, 238, 238 )',
+  controlPanelFillProperty: new ProfileColorProperty( graphingQuadratics, 'controlPanelFill', {
+    default: 'rgb( 238, 238, 238 )'
+  } ),
+  separatorStrokeProperty: new ProfileColorProperty( graphingQuadratics, 'separatorStroke', {
+    default: 'rgb( 212, 212, 212 )'
+  } ),
   SAVED_CURVE: 'rgb( 160, 160, 160 )',
   FOCUS: FOCUS,
   DIRECTRIX: 'green',
   VERTEX: VERTEX,
   AXIS_OF_SYMMETRY: VERTEX,
   ROOTS: '#0071bc',
-  POINT_ON_PARABOLA: PhetColorScheme.RED_COLORBLIND,
-  SEPARATOR: 'rgb( 212, 212, 212 )'
+  POINT_ON_PARABOLA: PhetColorScheme.RED_COLORBLIND
 };
 
 graphingQuadratics.register( 'GQColors', GQColors );

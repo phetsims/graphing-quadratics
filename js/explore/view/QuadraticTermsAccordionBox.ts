@@ -67,7 +67,7 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
         linearTermCheckbox,
         constantTermCheckbox,
         new HSeparator( {
-          stroke: GQColors.SEPARATOR
+          stroke: GQColors.separatorStrokeProperty
         } ),
         equationsCheckbox
       ]

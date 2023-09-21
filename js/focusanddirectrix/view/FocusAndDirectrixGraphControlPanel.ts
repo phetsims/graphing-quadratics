@@ -57,7 +57,7 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
         focusCheckbox,
         directrixCheckbox,
         pointOnParabolaCheckbox,
-        new HSeparator( { stroke: GQColors.SEPARATOR } ),
+        new HSeparator( { stroke: GQColors.separatorStrokeProperty } ),
         equationsCheckbox,
         coordinatesCheckbox
       ]

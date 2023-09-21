@@ -20,7 +20,7 @@ import GQColors from './GQColors.js';
 const PANEL_CORNER_RADIUS = 5; // corner radius for all panel-like containers
 
 const ACCORDION_BOX_OPTIONS: AccordionBoxOptions = {
-  fill: GQColors.CONTROL_PANEL_BACKGROUND,
+  fill: GQColors.controlPanelFillProperty,
   cornerRadius: PANEL_CORNER_RADIUS,
   titleYMargin: 10,
   buttonXMargin: 10,
@@ -33,7 +33,7 @@ const ACCORDION_BOX_OPTIONS: AccordionBoxOptions = {
 };
 
 const PANEL_OPTIONS: PanelOptions = {
-  fill: GQColors.CONTROL_PANEL_BACKGROUND,
+  fill: GQColors.controlPanelFillProperty,
   cornerRadius: PANEL_CORNER_RADIUS,
   xMargin: 20,
   yMargin: 15

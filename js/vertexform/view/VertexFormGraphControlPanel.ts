@@ -54,7 +54,7 @@ export default class VertexFormGraphControlPanel extends Panel {
       children: [
         vertexCheckbox,
         axisOfSymmetryCheckbox,
-        new HSeparator( { stroke: GQColors.SEPARATOR } ),
+        new HSeparator( { stroke: GQColors.separatorStrokeProperty } ),
         equationsCheckbox,
         coordinatesCheckbox
       ]
