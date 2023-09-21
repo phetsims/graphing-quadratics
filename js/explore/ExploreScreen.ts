@@ -6,15 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import ExploreModel from './model/ExploreModel.js';
 import ExploreScreenView from './view/ExploreScreenView.js';
+import GQColors from '../common/GQColors.js';
 
 export default class ExploreScreen extends Screen<ExploreModel, ExploreScreenView> {
 
@@ -24,7 +23,7 @@ export default class ExploreScreen extends Screen<ExploreModel, ExploreScreenVie
 
       // ScreenOptions
       name: GraphingQuadraticsStrings.screen.exploreStringProperty,
-      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
+      backgroundColorProperty: GQColors.screenBackgroundColorProperty,
       homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.

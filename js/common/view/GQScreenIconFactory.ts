@@ -25,7 +25,7 @@ const POINT_RADIUS = 35;
 const VERTEX_MANIPULATOR_RADIUS = 40;
 const FOCUS_MANIPULATOR_RADIUS = 25;
 const SCREEN_ICON_OPTIONS = {
-  fill: GQColors.SCREEN_BACKGROUND,
+  fill: GQColors.screenBackgroundColorProperty,
   maxIconWidthProportion: 1,
   maxIconHeightProportion: 1
 };

@@ -9,6 +9,7 @@
 
 import PhetColorScheme from '../../../scenery-phet/js/PhetColorScheme.js';
 import graphingQuadratics from '../graphingQuadratics.js';
+import { ProfileColorProperty } from '../../../scenery/js/imports.js';
 
 // common colors
 const VERTEX = 'rgb( 128, 0, 128 )'; // purple
@@ -48,7 +49,9 @@ const GQColors = {
   FOCUS_AND_DIRECTRIX_K: VERTEX,
 
   // common to all screens
-  SCREEN_BACKGROUND: 'rgb( 238, 252, 252 )',
+  screenBackgroundColorProperty: new ProfileColorProperty( graphingQuadratics, 'screenBackgroundColor', {
+    default: 'rgb( 238, 252, 252 )'
+  } ),
   CONTROL_PANEL_BACKGROUND: 'rgb( 238, 238, 238 )',
   SAVED_CURVE: 'rgb( 160, 160, 160 )',
   FOCUS: FOCUS,

@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../axon/js/Property.js';
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
@@ -25,7 +24,7 @@ export default class StandardFormScreen extends Screen<StandardFormModel, Standa
 
       // ScreenOptions
       name: GraphingQuadraticsStrings.screen.standardFormStringProperty,
-      backgroundColorProperty: new Property( GQColors.SCREEN_BACKGROUND ),
+      backgroundColorProperty: GQColors.screenBackgroundColorProperty,
       homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
