@@ -89,7 +89,7 @@ const GQColors = {
     default: FOCUS
   } ),
   directrixColorProperty: new ProfileColorProperty( graphingQuadratics, 'directrixColor', {
-    default: 'green'
+    default: FOCUS
   } ),
   vertexColorProperty: new ProfileColorProperty( graphingQuadratics, 'vertexColor', {
     default: VERTEX
