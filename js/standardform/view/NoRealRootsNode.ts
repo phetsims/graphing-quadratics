@@ -48,7 +48,7 @@ export default class NoRealRootsNode extends Node {
       xMargin: 5,
       yMargin: 1,
       rectangleOptions: {
-        fill: GQColors.ROOTS,
+        fill: GQColors.rootsColorProperty,
         opacity: 0.75,
         cornerRadius: 4
       }

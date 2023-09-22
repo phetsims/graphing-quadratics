@@ -30,7 +30,7 @@ export default class AxisOfSymmetryNode extends Node {
 
     // vertical line
     const lineNode = new Line( 0, 0, 0, 1, {
-      stroke: GQColors.AXIS_OF_SYMMETRY,
+      stroke: GQColors.axisOfSymmetryColorProperty,
       lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
       lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
     } );
@@ -38,7 +38,7 @@ export default class AxisOfSymmetryNode extends Node {
     // equation on a translucent background
     const equationNode = new GQEquationNode( {
       textOptions: {
-        fill: GQColors.AXIS_OF_SYMMETRY,
+        fill: GQColors.axisOfSymmetryColorProperty,
         rotation: Math.PI / 2
       },
       visibleProperty: equationsVisibleProperty,

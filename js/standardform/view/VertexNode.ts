@@ -36,7 +36,7 @@ export default class VertexNode extends PointNode {
       // PointNode options
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
       coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.VERTEX,
+      coordinatesBackgroundColor: GQColors.vertexColorProperty,
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
       tandem: tandem,
       phetioDocumentation: 'displays the vertex of the interactive quadratic'

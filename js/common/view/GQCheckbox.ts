@@ -133,7 +133,7 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.axisOfSymmetryStringProperty,
       icon: new Line( 0, 0, 0, 5 * GQConstants.AXIS_OF_SYMMETRY_LINE_DASH[ 0 ], {
-        stroke: GQColors.AXIS_OF_SYMMETRY,
+        stroke: GQColors.axisOfSymmetryColorProperty,
         lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
         lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
       } ),
@@ -160,7 +160,7 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.directrixStringProperty,
       icon: new Line( 0, 0, 5 * GQConstants.DIRECTRIX_LINE_DASH[ 0 ], 0, {
-        stroke: GQColors.DIRECTRIX,
+        stroke: GQColors.directrixColorProperty,
         lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
         lineDash: GQConstants.DIRECTRIX_LINE_DASH
       } ),
@@ -186,7 +186,7 @@ export default class GQCheckbox extends Checkbox {
   public static createFocusCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.focusStringProperty,
-      icon: Manipulator.createIcon( 8, GQColors.FOCUS ),
+      icon: Manipulator.createIcon( 8, GQColors.focusColorProperty ),
       tandem: tandem,
       phetioDocumentation: 'checkbox that shows the focus on the graph'
     } );
@@ -198,7 +198,7 @@ export default class GQCheckbox extends Checkbox {
   public static createPointOnParabolaCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.pointOnParabolaStringProperty,
-      icon: Manipulator.createIcon( 8, GQColors.POINT_ON_PARABOLA ),
+      icon: Manipulator.createIcon( 8, GQColors.pointOnParabolaColorProperty ),
       tandem: tandem,
       phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'
     } );
@@ -211,7 +211,7 @@ export default class GQCheckbox extends Checkbox {
 
     const circleOptions = {
       radius: 6,
-      fill: GQColors.ROOTS
+      fill: GQColors.rootsColorProperty
     };
 
     const icon = new HBox( {
@@ -237,7 +237,7 @@ export default class GQCheckbox extends Checkbox {
   public static createVertexPointCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.vertexStringProperty,
-      icon: new Circle( 6, { fill: GQColors.VERTEX } ),
+      icon: new Circle( 6, { fill: GQColors.vertexColorProperty } ),
       tandem: tandem,
       phetioDocumentation: 'checkbox that shows the vertex on the graph'
     } );
@@ -249,7 +249,7 @@ export default class GQCheckbox extends Checkbox {
   public static createVertexManipulatorCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.vertexStringProperty,
-      icon: Manipulator.createIcon( 8, GQColors.VERTEX ),
+      icon: Manipulator.createIcon( 8, GQColors.vertexColorProperty ),
       tandem: tandem,
       phetioDocumentation: 'checkbox that shows the vertex manipulator on the graph'
     } );

@@ -90,7 +90,7 @@ export default class RootsNode extends Node {
     const pointNodeOptions = {
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
       coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.ROOTS,
+      coordinatesBackgroundColor: GQColors.rootsColorProperty,
       coordinatesDecimals: GQConstants.ROOTS_DECIMALS,
       x: modelViewTransform.modelToViewX( graph.xRange.getCenter() ),
       y: modelViewTransform.modelToViewY( graph.yRange.getCenter() )

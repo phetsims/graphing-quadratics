@@ -29,7 +29,7 @@ export default class DirectrixNode extends Node {
 
     // horizontal line
     const lineNode = new Line( 0, 0, 0, 1, {
-      stroke: GQColors.DIRECTRIX,
+      stroke: GQColors.directrixColorProperty,
       lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
       lineDash: GQConstants.DIRECTRIX_LINE_DASH
     } );
@@ -37,7 +37,7 @@ export default class DirectrixNode extends Node {
     // equation on a translucent background
     const equationNode = new GQEquationNode( {
       textOptions: {
-        fill: GQColors.DIRECTRIX
+        fill: GQColors.directrixColorProperty
       },
       visibleProperty: equationsVisibleProperty,
       maxWidth: 100 // determined empirically

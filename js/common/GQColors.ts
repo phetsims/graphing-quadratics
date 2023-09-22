@@ -23,6 +23,9 @@ const GQColors = {
   VERTEX_FORM_INTERACTIVE_CURVE: 'black',
   FOCUS_AND_DIRECTRIX_INTERACTIVE_CURVE: 'black',
 
+  // curves common to all screens
+  SAVED_CURVE: 'rgb( 160, 160, 160 )',
+
   // quadratic equation terms on the Explore screen
   QUADRATIC_TERM: 'blue',
   LINEAR_TERM: 'green',
@@ -82,13 +85,24 @@ const GQColors = {
   separatorStrokeProperty: new ProfileColorProperty( graphingQuadratics, 'separatorStroke', {
     default: 'rgb( 212, 212, 212 )'
   } ),
-  FOCUS: FOCUS,
-  DIRECTRIX: 'green',
-  VERTEX: VERTEX,
-  AXIS_OF_SYMMETRY: VERTEX,
-  ROOTS: '#0071bc',
-  POINT_ON_PARABOLA: PhetColorScheme.RED_COLORBLIND,
-  SAVED_CURVE: 'rgb( 160, 160, 160 )'
+  focusColorProperty: new ProfileColorProperty( graphingQuadratics, 'focusColor', {
+    default: FOCUS
+  } ),
+  directrixColorProperty: new ProfileColorProperty( graphingQuadratics, 'directrixColor', {
+    default: 'green'
+  } ),
+  vertexColorProperty: new ProfileColorProperty( graphingQuadratics, 'vertexColor', {
+    default: VERTEX
+  } ),
+  axisOfSymmetryColorProperty: new ProfileColorProperty( graphingQuadratics, 'axisOfSymmetryColor', {
+    default: VERTEX
+  } ),
+  rootsColorProperty: new ProfileColorProperty( graphingQuadratics, 'rootsColor', {
+    default: '#0071bc'
+  } ),
+  pointOnParabolaColorProperty: new ProfileColorProperty( graphingQuadratics, 'pointOnParabolaColor', {
+    default: PhetColorScheme.RED_COLORBLIND
+  } )
 };
 
 graphingQuadratics.register( 'GQColors', GQColors );

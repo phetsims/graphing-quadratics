@@ -62,9 +62,9 @@ export default class FocusManipulator extends GQManipulator {
 
       // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-      color: GQColors.FOCUS,
+      color: GQColors.focusColorProperty,
       coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.FOCUS,
+      coordinatesBackgroundColor: GQColors.focusColorProperty,
       coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
       phetioDocumentation: 'manipulator for the focus'
     }, providedOptions );

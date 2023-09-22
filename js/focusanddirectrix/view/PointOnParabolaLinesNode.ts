@@ -29,7 +29,7 @@ export default class PointOnParabolaLinesNode extends Node {
                       directrixVisibleProperty: TReadOnlyProperty<boolean> ) {
 
     const pathOptions = {
-      stroke: GQColors.POINT_ON_PARABOLA,
+      stroke: GQColors.pointOnParabolaColorProperty,
       lineWidth: GQConstants.POINT_ON_PARABOLA_LINE_WIDTH,
       lineDash: GQConstants.POINT_ON_PARABOLA_LINE_DASH
     };

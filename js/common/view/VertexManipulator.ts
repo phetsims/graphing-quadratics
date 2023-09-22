@@ -57,9 +57,9 @@ export default class VertexManipulator extends GQManipulator {
 
       // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-      color: GQColors.VERTEX,
+      color: GQColors.vertexColorProperty,
       coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.VERTEX,
+      coordinatesBackgroundColor: GQColors.vertexColorProperty,
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
       phetioDocumentation: 'manipulator for the vertex'
     }, providedOptions );

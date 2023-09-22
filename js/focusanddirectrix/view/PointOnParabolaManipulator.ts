@@ -43,9 +43,9 @@ export default class PointOnParabolaManipulator extends GQManipulator {
 
       // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-      color: GQColors.POINT_ON_PARABOLA,
+      color: GQColors.pointOnParabolaColorProperty,
       coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.POINT_ON_PARABOLA,
+      coordinatesBackgroundColor: GQColors.pointOnParabolaColorProperty,
       coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
       phetioDocumentation: 'manipulator for a point on the parabola'
     }, providedOptions );

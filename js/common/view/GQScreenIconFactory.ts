@@ -89,7 +89,7 @@ const GQScreenIconFactory = {
 
     // vertex
     const vertexNode = new Circle( POINT_RADIUS, {
-      fill: GQColors.VERTEX,
+      fill: GQColors.vertexColorProperty,
       centerX: parabolaNode.centerX,
       centerY: parabolaNode.y
     } );
@@ -99,12 +99,12 @@ const GQScreenIconFactory = {
 
     // roots
     const leftRootNode = new Circle( POINT_RADIUS, {
-      fill: GQColors.ROOTS,
+      fill: GQColors.rootsColorProperty,
       centerX: parabolaNode.centerX - root,
       centerY: xAxisNode.y
     } );
     const rightRootNode = new Circle( POINT_RADIUS, {
-      fill: GQColors.ROOTS,
+      fill: GQColors.rootsColorProperty,
       centerX: parabolaNode.centerX + root,
       centerY: xAxisNode.y
     } );
@@ -133,7 +133,7 @@ const GQScreenIconFactory = {
     } );
 
     // vertex
-    const vertexNode = Manipulator.createIcon( VERTEX_MANIPULATOR_RADIUS, GQColors.VERTEX, {
+    const vertexNode = Manipulator.createIcon( VERTEX_MANIPULATOR_RADIUS, GQColors.vertexColorProperty, {
       centerX: parabolaNode.centerX,
       centerY: parabolaNode.y
     } );
@@ -165,14 +165,14 @@ const GQScreenIconFactory = {
     const p = 100;
 
     // focus above the parabola's vertex
-    const focusNode = Manipulator.createIcon( FOCUS_MANIPULATOR_RADIUS, GQColors.FOCUS, {
+    const focusNode = Manipulator.createIcon( FOCUS_MANIPULATOR_RADIUS, GQColors.focusColorProperty, {
       centerX: parabolaNode.centerX,
       centerY: parabolaNode.y - p
     } );
 
     // directrix below the parabola's vertex, fills the width of the icon
     const directrixNode = new Line( 0, 0, ICON_SIZE.width, 0, {
-      stroke: GQColors.DIRECTRIX,
+      stroke: GQColors.directrixColorProperty,
       lineWidth: 15,
       lineDash: [ 24, 24 ],
       centerX: parabolaNode.centerX,
