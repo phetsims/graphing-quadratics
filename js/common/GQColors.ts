@@ -17,6 +17,10 @@ const FOCUS = 'green';
 
 const GQColors = {
 
+  // NOTE: Colors for curves are not using ProfileColorProperty because doing so would require changing the API for
+  // QuadraticIO. So unless there's a solid need to have profile support for these colors, leave them as is.
+  // See https://github.com/phetsims/graphing-quadratics/issues/204#issuecomment-1730736421
+
   // interactive curves on each screen
   EXPLORE_INTERACTIVE_CURVE: PhetColorScheme.RED_COLORBLIND,
   STANDARD_FORM_INTERACTIVE_CURVE: PhetColorScheme.RED_COLORBLIND,
