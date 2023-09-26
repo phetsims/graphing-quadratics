@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.2.14-rc.1 Wed Sep 20 2023 21:19:40 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.2.14 Mon Sep 25 2023 20:50:36 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "f360fa1bd09a47b3c9e49cd90c8dddd136a13e0c",
     "branch": "HEAD"
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "1e001a17c3c09c0c8c3419e56a5713e0e80ad114",
+    "sha": "430cad2ff2661ea09c8a7948dc529a64cf5d59cf",
     "branch": "1.2"
   },
   "joist": {
