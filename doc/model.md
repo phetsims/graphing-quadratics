@@ -15,5 +15,5 @@ equidistance of the vertex from the focus and directrix.
 
 _y_ = (1/(4 _p_))(_x_ - _h_)<sup>2</sup> + _k_
 
-See [Quadratic.js](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/Quadratic.js) for the
+See [Quadratic](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/Quadratic.ts) for the
 implementation, which supports all 3 forms.
