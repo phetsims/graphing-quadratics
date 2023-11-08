@@ -60,7 +60,7 @@ graph.
 
 **Query parameters**: Query parameters are used to enable sim-specific features, mainly for debugging and testing.
 Sim-specific query parameters are documented in
-[GQQueryParameters](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/GQQueryParameters.js).
+[GQQueryParameters](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/GQQueryParameters.ts).
 
 **Assertions**: The implementation makes liberal use of `assert` to verify pre/post assumptions and perform argument
 validation. If you are making modifications to this sim, do so with assertions enabled via the `ea` query parameter.
@@ -82,64 +82,64 @@ Note that this simulation supports _only_ parabolas that open up or down, i.e. h
 _bx_ + _c_. It does not support parabolas that open left or right, i.e. that have the form _x_ = _ay_<sup>2</sup> +
 _by_ + _c_.
 
-[Quadratic](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/Quadratic.js) is the primary model
+[Quadratic](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/Quadratic.ts) is the primary model
 component. It is essentially an immutable data structure that describes a quadratic equation. It supports instantiation
 using standard form (via the constructor), vertex form (via `createFromVertexForm`) and alternate vertex form (
 via `createFromAlternateVertexForm`).
 
-[GQModel](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/GQModel.js) is the base class for
+[GQModel](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/GQModel.ts) is the base class for
 all model "containers". It includes the model components that are common to all screens. Each screen has a subclass
 of `GQModel` that adds things that are specific to that screen. For
-example, [ExploreModel](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/model/ExploreModel.js) is
+example, [ExploreModel](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/model/ExploreModel.ts) is
 the model container for the _Explore_ screen.
 
 ## View
 
 This section provides an overview of the most important view components.
 
-[QuadraticNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/QuadraticNode.js) is the
+[QuadraticNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/QuadraticNode.ts) is the
 primary view component, responsible for rendering the curve that corresponds to a `Quadratic` instance, and labeling the
 curve with an equation. While `QuadraticNode` is responsible for the placement of the equation relative to the
-curve, [GQEquationFactory](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQEquationFactory.js)
+curve, [GQEquationFactory](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQEquationFactory.ts)
 is responsible for creation of equations.
 
-[GQScreenView](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQScreenView.js) is the base
+[GQScreenView](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQScreenView.ts) is the base
 class for all ScreenViews in this sim. It includes the view components that are common to all screens, and it handles
 common layout responsibilities. Each screen has a subclass of `GQScreenView` that adds things that are specific to that
 screen. For
-example, [ExploreScreenView](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreScreenView.js)
+example, [ExploreScreenView](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreScreenView.ts)
 is the view for the _Explore_ screen.
 
-[GQGraphNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQGraphNode.js) is the base class
+[GQGraphNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQGraphNode.ts) is the base class
 for all graphs in this sim. Each screen has a subclass of `GQGraphNode` that adds things that are specific to that
 screen. For
-example, [ExploreGraphNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreGraphNode.js)
+example, [ExploreGraphNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreGraphNode.ts)
 is the graph for the _Explore_ screen.
 
-[GQEquationAccordionBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQEquationAccordionBox.js)
+[GQEquationAccordionBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQEquationAccordionBox.ts)
 is the base class for the accordion box that displays the interactive quadratic. Each screen has a subclass of
 EquationAccordionBox that adds things that are specific to that screen. (Do you see a pattern here? :wink:) For
-example, [ExploreEquationAccordionBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreEquationAccordionBox.js)
+example, [ExploreEquationAccordionBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreEquationAccordionBox.ts)
 is the equation accordion box for the _Explore_ screen.
 
 Each screen has a class whose name ends with "InteractiveEquationNode", for
-example, [ExploreInteractiveEquationNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreInteractiveEquationNode.js).
+example, [ExploreInteractiveEquationNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreInteractiveEquationNode.ts).
 This is the UI for modifying the interactive quadratic indirectly, using sliders or pickers. _Explore_ and _Focus &
 Directrix_ screens use sliders, _Standard Form_ and _Vertex Form_ screens use pickers.
 
 Manipulators are the shaded spheres that appear on the graph. They allow the user to modify the interactive quadratic
 directly, by interacting with its curve.
-The [Manipulator](https://github.com/phetsims/graphing-lines/blob/main/js/common/view/manipulator/Manipulator.js) base
+The [Manipulator](https://github.com/phetsims/graphing-lines/blob/main/js/common/view/manipulator/Manipulator.ts) base
 class is reused from the Graphing Lines sim, and is extended in
-the [GQManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQManipulator.js) base
+the [GQManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQManipulator.ts) base
 class, which adds optional (x,y) coordinates. The 3 subclasses of `GQManipulator`
-are [VertexManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/VertexManipulator.js), [FocusManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/FocusManipulator.js)
-and [PointOnParabolaManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/PointOnParabolaManipulator.js),
+are [VertexManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/VertexManipulator.ts), [FocusManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/FocusManipulator.ts)
+and [PointOnParabolaManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/PointOnParabolaManipulator.ts),
 for changing the vertex, focus, and point on the parabola, respectively.
 
 Each checkbox in this sim is a subclass
-of [GQCheckBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQCheckbox.js), a subtype
+of [GQCheckBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQCheckbox.ts), a subtype
 of `SUN/Checkbox` that supports labeling with an optional icon, and provides standardization of various properties (
 font, fill,...) You can locate a `Checkbox` subclass based on the English text used on checkbox. For
-example, [FocusCheckbox](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/FocusCheckbox.js)
+example, [FocusCheckbox](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/FocusCheckbox.ts)
 is the checkbox labeled with "Focus" and a focus manipulator icon.
