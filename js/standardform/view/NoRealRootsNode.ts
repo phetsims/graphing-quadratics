@@ -97,6 +97,8 @@ export default class NoRealRootsNode extends Node {
           // center at the origin
           return modelViewTransform.modelToViewXY( 0, 0 );
         }
+      }, {
+        accessNonDependencies: true
       }
     );
     centerProperty.linkAttribute( this, 'center' );
