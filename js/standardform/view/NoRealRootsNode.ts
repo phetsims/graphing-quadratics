@@ -98,7 +98,7 @@ export default class NoRealRootsNode extends Node {
           return modelViewTransform.modelToViewXY( 0, 0 );
         }
       }, {
-        accessNonDependencies: true
+        accessNonDependencies: true //TODO https://github.com/phetsims/graphing-quadratics/issues/205
       }
     );
     centerProperty.linkAttribute( this, 'center' );
