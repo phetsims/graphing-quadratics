@@ -89,11 +89,13 @@ export default class NoRealRootsNode extends Node {
              ( quadratic.roots && quadratic.roots.length === 0 ) && // no roots
              // vertex is in a position where its coordinates will overlap
              ( quadratic.vertex && vertexOverlapBounds.containsPoint( quadratic.vertex ) ) ) {
+
           // center above or below the x-axis, y offset determined empirically
           const y = quadratic.vertex.y + ( quadratic.a > 0 ? -Y_OFFSET : Y_OFFSET );
           return modelViewTransform.modelToViewXY( 0, y );
         }
         else {
+
           // center at the origin
           return modelViewTransform.modelToViewXY( 0, 0 );
         }
