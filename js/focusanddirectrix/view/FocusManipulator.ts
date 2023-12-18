@@ -11,7 +11,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { DragListener, DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
+import { DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -24,6 +24,7 @@ import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -126,7 +127,7 @@ export default class FocusManipulator extends GQManipulator {
   }
 }
 
-class FocusDragListener extends DragListener {
+class FocusDragListener extends ManipulatorDragListener {
 
   /**
    * @param targetNode - the Node that we attached this listener to
@@ -146,8 +147,6 @@ class FocusDragListener extends DragListener {
     let startOffset: Vector2; // where the drag started, relative to the manipulator
 
     const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
-
-      allowTouchSnag: true,
 
       // note where the drag started
       start: ( event, listener ) => {

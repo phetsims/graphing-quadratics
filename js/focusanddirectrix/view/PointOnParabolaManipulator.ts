@@ -11,7 +11,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { DragListener, DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
+import { DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
@@ -22,6 +22,7 @@ import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
@@ -91,7 +92,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
   }
 }
 
-class PointOnParabolaDragListener extends DragListener {
+class PointOnParabolaDragListener extends ManipulatorDragListener {
 
   /**
    * @param targetNode - the Node that we attached this listener to
@@ -111,8 +112,6 @@ class PointOnParabolaDragListener extends DragListener {
     let startOffset: Vector2; // where the drag started, relative to the manipulator
 
     const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
-
-      allowTouchSnag: true,
 
       // note where the drag started
       start: ( event, listener ) => {

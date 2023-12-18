@@ -21,12 +21,13 @@ import { Shape } from '../../../../kite/js/imports.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { Circle, DragListener, DragListenerOptions, IndexedNodeIO, Node, NodeOptions, Path, PressedDragListener, Rectangle, TColor } from '../../../../scenery/js/imports.js';
+import { Circle, DragListenerOptions, IndexedNodeIO, Node, NodeOptions, Path, PressedDragListener, Rectangle, TColor } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import PointTool from '../model/PointTool.js';
+import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -178,7 +179,7 @@ class ProbeNode extends Node {
   }
 }
 
-class PointToolDragListener extends DragListener {
+class PointToolDragListener extends ManipulatorDragListener {
 
   public constructor( pointToolNode: PointToolNode, pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
@@ -193,8 +194,6 @@ class PointToolDragListener extends DragListener {
     let startOffset: Vector2; // where the drag started, relative to the tool's origin, in parent view coordinates
 
     const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
-
-      allowTouchSnag: true,
 
       // note where the drag started
       start: ( event, listener ) => {
@@ -229,7 +228,7 @@ class PointToolDragListener extends DragListener {
             position = snapQuadratic.getClosestPoint( position );
 
             // We will be snapping the x value as it will be displayed by the point tool.
-            // See See https://github.com/phetsims/graphing-quadratics/issues/169.
+            // See https://github.com/phetsims/graphing-quadratics/issues/169.
             let x = Utils.toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
 
             // If x is close to an integer value, snap to that integer value.
