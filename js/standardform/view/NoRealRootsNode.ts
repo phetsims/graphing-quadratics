@@ -19,6 +19,7 @@ import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 // const
 const Y_OFFSET = 2; // min offset from vertex, determined empirically
@@ -78,10 +79,10 @@ export default class NoRealRootsNode extends Node {
       modelViewTransform.viewToModelDeltaX( -0.6 * maxWidth ), -Y_OFFSET,
       modelViewTransform.viewToModelDeltaX( 0.6 * maxWidth ), Y_OFFSET );
 
-    // The center of this Node, typically at the origin, except when that would overlap the vertex's coordinates.
+    // Center this Node, typically at the origin, except when that would overlap the vertex's coordinates.
     // In that case, position above or below the x-axis, depending on which way the parabola opens.
     // See https://github.com/phetsims/graphing-quadratics/issues/88
-    const centerProperty = new DerivedProperty(
+    Multilink.multilink(
       [ vertexVisibleProperty, coordinatesVisibleProperty, quadraticProperty, this.boundsProperty ],
       ( vertexVisible, coordinatesVisible, quadratic, bounds ) => {
         if ( vertexVisible && // the Vertex checkbox is checked
@@ -92,21 +93,14 @@ export default class NoRealRootsNode extends Node {
 
           // center above or below the x-axis, y offset determined empirically
           const y = quadratic.vertex.y + ( quadratic.a > 0 ? -Y_OFFSET : Y_OFFSET );
-            return modelViewTransform.modelToViewXY( 0, y );
+          this.center = modelViewTransform.modelToViewXY( 0, y );
         }
         else {
 
           // center at the origin
-          return modelViewTransform.modelToViewXY( 0, 0 );
+          this.center = modelViewTransform.modelToViewXY( 0, 0 );
         }
-      }, {
-
-        // Because Node.validateBounds is reentrant and involves other Node Properties.
-        // See https://github.com/phetsims/graphing-quadratics/issues/205
-        accessNonDependencies: true
-      }
-    );
-    centerProperty.linkAttribute( this, 'center' );
+      } );
   }
 }
 
