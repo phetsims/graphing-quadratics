@@ -92,7 +92,7 @@ export default class NoRealRootsNode extends Node {
 
           // center above or below the x-axis, y offset determined empirically
           const y = quadratic.vertex.y + ( quadratic.a > 0 ? -Y_OFFSET : Y_OFFSET );
-          return modelViewTransform.modelToViewXY( 0, y );
+            return modelViewTransform.modelToViewXY( 0, y );
         }
         else {
 
@@ -100,7 +100,10 @@ export default class NoRealRootsNode extends Node {
           return modelViewTransform.modelToViewXY( 0, 0 );
         }
       }, {
-        accessNonDependencies: true //TODO https://github.com/phetsims/graphing-quadratics/issues/205
+
+        // Because Node.invalidateBounds is reentrant and involves other Node Properties.
+        // See https://github.com/phetsims/graphing-quadratics/issues/205
+        accessNonDependencies: true
       }
     );
     centerProperty.linkAttribute( this, 'center' );
