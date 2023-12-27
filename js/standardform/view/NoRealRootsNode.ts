@@ -101,7 +101,7 @@ export default class NoRealRootsNode extends Node {
         }
       }, {
 
-        // Because Node.invalidateBounds is reentrant and involves other Node Properties.
+        // Because Node.validateBounds is reentrant and involves other Node Properties.
         // See https://github.com/phetsims/graphing-quadratics/issues/205
         accessNonDependencies: true
       }
