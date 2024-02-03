@@ -81,12 +81,6 @@ export default class GQScreenView extends ScreenView {
       ]
     } );
 
-    // rendering order
-    this.addChild( controlsParent );
-    this.addChild( graphContentsToggleButton );
-    this.addChild( graphNode );
-    this.addChild( pointToolsParent );
-
     // Horizontally center controls in the space to the right of the graph.
     controlsParent.boundsProperty.link( () => {
       controlsParent.centerX = graphNode.right + X_SPACING + ( controlPanelMaxWidth / 2 );
@@ -105,7 +99,17 @@ export default class GQScreenView extends ScreenView {
       tandem: tandem.createTandem( 'resetAllButton' ),
       phetioDocumentation: 'button that resets the screen to its initial state'
     } );
-    this.addChild( resetAllButton );
+
+    const screenViewRootNode = new Node( {
+      children: [
+        controlsParent,
+        graphContentsToggleButton,
+        graphNode,
+        pointToolsParent,
+        resetAllButton
+      ]
+    } );
+    this.addChild( screenViewRootNode );
   }
 }
 
