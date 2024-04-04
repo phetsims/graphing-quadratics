@@ -24,6 +24,7 @@ import GQEquationFactory from './GQEquationFactory.js';
 import { EquationForm } from './GQViewProperties.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import GQSymbols from '../GQSymbols.js';
+import platform from '../../../../phet-core/js/platform.js';
 
 type SelfOptions = {
   preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping
@@ -77,7 +78,11 @@ export default class QuadraticNode extends Node {
       lineWidth: 1,
 
       // NodeOptions
-      phetioVisiblePropertyInstrumented: false
+      phetioVisiblePropertyInstrumented: false,
+
+      // Safari has graphical rendering issues, see https://github.com/phetsims/graphing-quadratics/issues/206
+      // TODO: remove this workaround when the Safari issue is resolved, see https://github.com/phetsims/scenery/issues/1628
+      renderer: platform.safari ? 'canvas' : null
     }, providedOptions );
 
     super( options );
