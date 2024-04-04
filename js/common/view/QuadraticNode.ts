@@ -11,7 +11,7 @@
 
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Range from '../../../../dot/js/Range.js';
-import { Shape, Subpath, Quadratic as KiteQuadratic } from '../../../../kite/js/imports.js';
+import { Shape } from '../../../../kite/js/imports.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -24,7 +24,6 @@ import GQEquationFactory from './GQEquationFactory.js';
 import { EquationForm } from './GQViewProperties.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import GQSymbols from '../GQSymbols.js';
-import platform from '../../../../phet-core/js/platform.js';
 
 type SelfOptions = {
   preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping
@@ -147,20 +146,10 @@ export default class QuadraticNode extends Node {
 
     // update shape
     const bezierControlPoints = quadratic.getControlPoints( this.xRange );
-    if ( platform.safari ) {
-      // Significant workaround for Safari in https://github.com/phetsims/graphing-quadratics/issues/206, where
-      // splitting it into four pieces is the only workaround discovered so far to avoid the two artifacts:
-      // (a) the entire line being invisible, and (b) having redraw/repaint issues with parts of the line.
-      const kiteQuadratic = new KiteQuadratic( bezierControlPoints.startPoint, bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
-        .transformed( this.modelViewTransform.getMatrix() );
-      this.quadraticPath.shape = new Shape( [ new Subpath( kiteQuadratic.subdivisions( [ 0.3, 0.5, 0.7 ] ) ) ] );
-    }
-    else {
-      this.quadraticPath.shape = new Shape()
-        .moveToPoint( bezierControlPoints.startPoint )
-        .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
-        .transformed( this.modelViewTransform.getMatrix() );
-    }
+    this.quadraticPath.shape = new Shape()
+      .moveToPoint( bezierControlPoints.startPoint )
+      .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
+      .transformed( this.modelViewTransform.getMatrix() );
 
     // update color
     this.quadraticPath.stroke = quadratic.color;
