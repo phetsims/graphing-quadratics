@@ -80,7 +80,9 @@ export default class QuadraticNode extends Node {
       // NodeOptions
       phetioVisiblePropertyInstrumented: false,
 
-      // Safari has graphical rendering issues, see https://github.com/phetsims/graphing-quadratics/issues/206
+      // Workaround for https://github.com/phetsims/graphing-quadratics/issues/206. Safari 17.4 has SVG rendering issues
+      // with quadratic curves. Use 'canvas' on QuadraticNode instead of this.quadraticPath to minimize the number of
+      // Canvas instances that are created due to layering.
       // TODO: remove this workaround when the Safari issue is resolved, see https://github.com/phetsims/scenery/issues/1628
       renderer: platform.safari ? 'canvas' : null
     }, providedOptions );
