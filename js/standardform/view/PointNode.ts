@@ -14,6 +14,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Circle, Node, NodeOptions, NodeTranslationOptions, TColor } from '../../../../scenery/js/imports.js';
 import CoordinatesNode from '../../common/view/CoordinatesNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 // Positions the coordinates relative to the point
 type LayoutCoordinatesFunction = ( coordinatesNode: Node, pointNode: Node ) => void;
@@ -83,7 +84,8 @@ export default class PointNode extends Node {
     super( options );
 
     // Update layout
-    coordinatesNode.boundsProperty.link( () => options.layoutCoordinates( coordinatesNode, pointNode ) );
+    Multilink.multilink( [ coordinatesProperty, coordinatesNode.boundsProperty ],
+      ( coordinates, bounds ) => options.layoutCoordinates( coordinatesNode, pointNode ) );
   }
 }
 

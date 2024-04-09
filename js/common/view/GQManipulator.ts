@@ -14,6 +14,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Node, TColor } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import CoordinatesNode from './CoordinatesNode.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 // Positions the coordinates relative to the sphere
 type LayoutCoordinatesFunction = ( coordinates: Vector2 | null, coordinatesNode: Node, radius: number ) => void;
@@ -50,6 +51,7 @@ export default class GQManipulator extends Manipulator {
     const options = optionize<GQManipulatorOptions, SelfOptions, ManipulatorOptions>()( {
 
       // SelfOptions
+      isDisposable: false,
       radius: 10,
       color: 'black',
       coordinatesBackgroundColor: 'black',
@@ -80,8 +82,8 @@ export default class GQManipulator extends Manipulator {
     this.addChild( coordinatesNode );
 
     // Update layout
-    coordinatesNode.boundsProperty.link( () =>
-      options.layoutCoordinates( coordinatesProperty.value, coordinatesNode, actualRadius ) );
+    Multilink.multilink( [ coordinatesProperty, coordinatesNode.boundsProperty ],
+      ( coordinates, bounds ) => options.layoutCoordinates( coordinates, coordinatesNode, actualRadius ) );
   }
 }
 
