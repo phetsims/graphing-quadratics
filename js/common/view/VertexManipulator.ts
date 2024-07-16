@@ -114,10 +114,6 @@ export default class VertexManipulator extends GQManipulator {
         this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
       }
     } );
-
-    options.visibleProperty.link( visible => {
-      this.interruptSubtreeInput(); // cancel any drag that is in progress
-    } );
   }
 }
 

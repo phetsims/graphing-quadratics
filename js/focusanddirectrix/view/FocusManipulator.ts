@@ -120,10 +120,6 @@ export default class FocusManipulator extends GQManipulator {
       assert && assert( focus, `expected focus: ${quadratic.focus}` );
       this.translation = modelViewTransform.modelToViewPosition( focus );
     } );
-
-    options.visibleProperty.link( visible => {
-      this.interruptSubtreeInput(); // cancel any drag that is in progress
-    } );
   }
 }
 
