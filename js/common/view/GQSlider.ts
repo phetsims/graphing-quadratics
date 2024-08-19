@@ -74,7 +74,7 @@ export default class GQSlider extends Node {
    * @param coefficientProperty - the coefficient's value
    * @param [providedOptions]
    */
-  public constructor( symbolStringProperty: TReadOnlyProperty<string>, coefficientProperty: NumberProperty, providedOptions: GQSliderOptions ) {
+  protected constructor( symbolStringProperty: TReadOnlyProperty<string>, coefficientProperty: NumberProperty, providedOptions: GQSliderOptions ) {
 
     const options = optionize<GQSliderOptions, StrictOmit<SelfOptions, 'snapToZeroEpsilon'>, VSliderOptions>()( {
 
