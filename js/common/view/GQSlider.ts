@@ -175,6 +175,7 @@ export default class GQSlider extends Node {
 
     // Label that appears above the slider.
     const labelText = new RichText( symbolStringProperty, {
+      visibleProperty: slider.visibleProperty,
       font: GQConstants.SLIDER_LABEL_FONT,
       fill: options.labelColor,
       bottom: slider.top - 2,
