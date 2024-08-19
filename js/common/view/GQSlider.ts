@@ -22,7 +22,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
-import { RichText, TColor, Text } from '../../../../scenery/js/imports.js';
+import { RichText, TColor, Text, Node } from '../../../../scenery/js/imports.js';
 import VSlider, { VSliderOptions } from '../../../../sun/js/VSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
@@ -67,7 +67,7 @@ export type GQSliderOptions = SelfOptions &
   StrictOmit<VSliderOptions, 'majorTickLength' | 'constrainValue' | 'endDrag'> &
   PickRequired<VSliderOptions, 'tandem'>;
 
-export default class GQSlider extends VSlider {
+export default class GQSlider extends Node {
 
   /**
    * @param symbolStringProperty - the coefficient's symbol
@@ -162,12 +162,12 @@ export default class GQSlider extends VSlider {
       options.map( coefficientProperty.range.max )
     );
 
-    super( sliderProperty, sliderRange, options );
+    const slider = new VSlider( sliderProperty, sliderRange, options );
 
     // Create the tick labels
     if ( options.tickValues ) {
       options.tickValues.forEach( tickValue => {
-        this.addMajorTick( options.map( tickValue ), new Text( tickValue, {
+        slider.addMajorTick( options.map( tickValue ), new Text( tickValue, {
           font: GQConstants.SLIDER_TICK_LABEL_FONT
         } ) );
       } );
@@ -177,12 +177,15 @@ export default class GQSlider extends VSlider {
     const labelText = new RichText( symbolStringProperty, {
       font: GQConstants.SLIDER_LABEL_FONT,
       fill: options.labelColor,
-      bottom: this.top - 2,
+      bottom: slider.top - 2,
       maxWidth: 20 // determined empirically
     } );
-    this.addChild( labelText );
     labelText.boundsProperty.link( () => {
       labelText.centerX = 0; // keep the label horizontally centered on the track
+    } );
+
+    super( {
+      children: [ slider, labelText ]
     } );
   }
 }
