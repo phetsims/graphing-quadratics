@@ -117,20 +117,26 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       skipZero: true,
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
       labelColor: GQColors.focusAndDirectrixPColorProperty,
-      tandem: tandem.createTandem( 'pSlider' ),
-      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
+      sliderOptions: {
+        tandem: tandem.createTandem( 'pSlider' ),
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
+      }
     } );
     const hSlider = new LinearSlider( GQSymbols.hMarkupStringProperty, hProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
       labelColor: GQColors.focusAndDirectrixHColorProperty,
-      tandem: tandem.createTandem( 'hSlider' ),
-      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
+      sliderOptions: {
+        tandem: tandem.createTandem( 'hSlider' ),
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
+      }
     } );
     const kSlider = new LinearSlider( GQSymbols.kMarkupStringProperty, kProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
       labelColor: GQColors.focusAndDirectrixKColorProperty,
+      sliderOptions: {
       tandem: tandem.createTandem( 'kSlider' ),
       phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
+        }
     } );
 
     options.children = [ equationNode, pSlider, hSlider, kSlider ];

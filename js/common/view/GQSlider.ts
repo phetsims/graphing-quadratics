@@ -19,21 +19,22 @@ import Property from '../../../../axon/js/Property.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Utils from '../../../../dot/js/Utils.js';
-import optionize from '../../../../phet-core/js/optionize.js';
+import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
-import { RichText, TColor, Text, Node } from '../../../../scenery/js/imports.js';
+import { Node, NodeOptions, RichText, TColor, Text } from '../../../../scenery/js/imports.js';
 import VSlider, { VSliderOptions } from '../../../../sun/js/VSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 
 type TransformFunction = ( value: number ) => number;
 
 const IDENTITY_FUNCTION: TransformFunction = value => value;
 const DEFAULT_TICK_VALUES = [ 0 ];
-const DEFAULT_TRACK_SIZE = new Dimension2( 1, 130 );
-const DEFAULT_THUMB_SIZE = new Dimension2( 40, 20 );
+const TRACK_SIZE = new Dimension2( 1, 130 );
+const THUMB_SIZE = new Dimension2( 40, 20 );
 
 type SelfOptions = {
 
@@ -61,11 +62,13 @@ type SelfOptions = {
 
   // color of the label that appears above the slider
   labelColor?: TColor;
+
+  // Propagated to VSlider. Note that the slider has a tandem, but the GQSlider (parent Node) does not.
+  // See https://github.com/phetsims/graphing-quadratics/issues/208
+  sliderOptions: PickOptional<VSliderOptions, 'phetioDocumentation'> & PickRequired<VSliderOptions, 'tandem'>;
 };
 
-export type GQSliderOptions = SelfOptions &
-  StrictOmit<VSliderOptions, 'majorTickLength' | 'constrainValue' | 'endDrag'> &
-  PickRequired<VSliderOptions, 'tandem'>;
+export type GQSliderOptions = SelfOptions;
 
 export default class GQSlider extends Node {
 
@@ -76,7 +79,7 @@ export default class GQSlider extends Node {
    */
   protected constructor( symbolStringProperty: TReadOnlyProperty<string>, coefficientProperty: NumberProperty, providedOptions: GQSliderOptions ) {
 
-    const options = optionize<GQSliderOptions, StrictOmit<SelfOptions, 'snapToZeroEpsilon'>, VSliderOptions>()( {
+    const options = optionize<GQSliderOptions, StrictOmit<SelfOptions, 'snapToZeroEpsilon'>, NodeOptions>()( {
 
       // SelfOptions
       map: IDENTITY_FUNCTION,
@@ -85,15 +88,7 @@ export default class GQSlider extends Node {
       skipZero: false,
       snapToZero: true,
       tickValues: DEFAULT_TICK_VALUES,
-      labelColor: 'black',
-
-      // SliderOptions
-      trackSize: DEFAULT_TRACK_SIZE,
-      thumbSize: DEFAULT_THUMB_SIZE,
-      thumbTouchAreaXDilation: 8,
-
-      // The slider controls an intermediate DynamicProperty, so link to the relevant model Property.
-      phetioLinkedProperty: coefficientProperty
+      labelColor: 'black'
     }, providedOptions );
 
     assert && assert( options.interval > 0, `invalid interval: ${options.interval}` );
@@ -111,32 +106,39 @@ export default class GQSlider extends Node {
         `invalid snapToZeroEpsilon: ${snapToZeroEpsilon}` );
     }
 
-    // make tick mark lines extend past the thumb
-    const thumbSize = options.thumbSize!;
-    assert && assert( thumbSize );
-    options.majorTickLength = ( thumbSize.width / 2 ) + 3;
+    const sliderOptions = combineOptions<VSliderOptions>( {
+      trackSize: TRACK_SIZE,
+      thumbSize: THUMB_SIZE,
+      thumbTouchAreaXDilation: 8,
 
-    // apply constrains to the view value
-    options.constrainValue = viewValue => {
+      // Make tick mark lines extend past the thumb.
+      majorTickLength: ( THUMB_SIZE.width / 2 ) + 3,
 
-      if ( options.skipZero ) {
+      // The slider controls an intermediate DynamicProperty, so link to the relevant model Property.
+      phetioLinkedProperty: coefficientProperty,
 
-        // map from view to model
-        const newModelValue = options.inverseMap( viewValue );
+      // apply constraints to the view value
+      constrainValue: viewValue => {
 
-        // skip zero
-        if ( Math.abs( newModelValue ) < options.interval ) {
-          return options.map( ( newModelValue > 0 ) ? options.interval : -options.interval );
+        if ( options.skipZero ) {
+
+          // map from view to model
+          const newModelValue = options.inverseMap( viewValue );
+
+          // skip zero
+          if ( Math.abs( newModelValue ) < options.interval ) {
+            return options.map( ( newModelValue > 0 ) ? options.interval : -options.interval );
+          }
         }
+
+        // no constraint applied
+        return viewValue;
       }
+    }, options.sliderOptions );
 
-      // no constraint applied
-      return viewValue;
-    };
-
-    // snap to zero when the drag ends
+    // Snap to zero when the drag ends.
     if ( !options.skipZero && options.snapToZero ) {
-      options.endDrag = () => {
+      sliderOptions.endDrag = () => {
         if ( ( Math.abs( coefficientProperty.value ) < snapToZeroEpsilon ) ) {
           coefficientProperty.value = 0;
         }
@@ -162,7 +164,7 @@ export default class GQSlider extends Node {
       options.map( coefficientProperty.range.max )
     );
 
-    const slider = new VSlider( sliderProperty, sliderRange, options );
+    const slider = new VSlider( sliderProperty, sliderRange, sliderOptions );
 
     // Create the tick labels
     if ( options.tickValues ) {
@@ -175,7 +177,7 @@ export default class GQSlider extends Node {
 
     // Label that appears above the slider.
     const labelText = new RichText( symbolStringProperty, {
-      visibleProperty: slider.visibleProperty,
+      visibleProperty: slider.visibleProperty, // For PhET-iO, label visibility is the same as slider visibility.
       font: GQConstants.SLIDER_LABEL_FONT,
       fill: options.labelColor,
       bottom: slider.top - 2,

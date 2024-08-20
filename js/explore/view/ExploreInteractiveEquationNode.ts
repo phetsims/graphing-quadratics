@@ -106,20 +106,26 @@ export default class ExploreInteractiveEquationNode extends Node {
       interval: GQConstants.EXPLORE_INTERVAL_A,
       snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
       labelColor: GQColors.exploreAColorProperty,
-      tandem: options.tandem.createTandem( 'aSlider' ),
-      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
+      sliderOptions: {
+        tandem: options.tandem.createTandem( 'aSlider' ),
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
+      }
     } );
     const bSlider = new LinearSlider( GQSymbols.bMarkupStringProperty, bProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_B,
       labelColor: GQColors.exploreBColorProperty,
-      tandem: options.tandem.createTandem( 'bSlider' ),
-      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
+      sliderOptions: {
+        tandem: options.tandem.createTandem( 'bSlider' ),
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
+      }
     } );
     const cSlider = new LinearSlider( GQSymbols.cMarkupStringProperty, cProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_C,
       labelColor: GQColors.exploreCColorProperty,
-      tandem: options.tandem.createTandem( 'cSlider' ),
-      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
+      sliderOptions: {
+        tandem: options.tandem.createTandem( 'cSlider' ),
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
+      }
     } );
 
     options.children = [ equationNode, aSlider, bSlider, cSlider ];
