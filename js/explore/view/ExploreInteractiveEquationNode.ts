@@ -1,4 +1,4 @@
-// Copyright 2018-2023, University of Colorado Boulder
+// Copyright 2018-2024, University of Colorado Boulder
 
 /**
  * Standard form equation, y = ax^2 + bx + c, with coefficients that can be changed via sliders.
