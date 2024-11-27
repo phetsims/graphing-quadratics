@@ -7,18 +7,18 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import { Line, Node } from '../../../../scenery/js/imports.js';
-import GQColors from '../../common/GQColors.js';
-import GQConstants from '../../common/GQConstants.js';
-import GQEquationFactory from '../../common/view/GQEquationFactory.js';
-import GQEquationNode from '../../common/view/GQEquationNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
-import Quadratic from '../../common/model/Quadratic.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Multilink from '../../../../axon/js/Multilink.js';
+import { Line, Node } from '../../../../scenery/js/imports.js';
+import GQColors from '../../common/GQColors.js';
+import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
+import Quadratic from '../../common/model/Quadratic.js';
+import GQEquationFactory from '../../common/view/GQEquationFactory.js';
+import GQEquationNode from '../../common/view/GQEquationNode.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
 
 export default class DirectrixNode extends Node {
 

@@ -6,8 +6,10 @@
  * @author Andrea Lin
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import { Node, NodeOptions, RichText, RichTextOptions } from '../../../../scenery/js/imports.js';
@@ -17,8 +19,6 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 
 export default class StandardFormInteractiveEquationNode extends Node {
 

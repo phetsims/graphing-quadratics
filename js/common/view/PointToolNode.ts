@@ -9,13 +9,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Disposable from '../../../../axon/js/Disposable.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 import PointToolBodyNode from '../../../../graphing-lines/js/common/view/PointToolBodyNode.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
@@ -27,7 +28,6 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import PointTool from '../model/PointTool.js';
-import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';

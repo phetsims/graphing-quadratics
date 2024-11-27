@@ -7,20 +7,20 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import GraphNode from '../../../../graphing-lines/js/common/view/GraphNode.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { IndexedNodeIO, Node, NodeOptions } from '../../../../scenery/js/imports.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
+import GQSymbols from '../GQSymbols.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import QuadraticNode, { QuadraticNodeOptions } from './QuadraticNode.js';
-import GQSymbols from '../GQSymbols.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 
 type SelfOptions = {
 

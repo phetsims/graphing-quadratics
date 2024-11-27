@@ -7,9 +7,11 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
 import { Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
@@ -18,8 +20,6 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 
 // const
 const Y_OFFSET = 2; // min offset from vertex, determined empirically

@@ -7,18 +7,18 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Line, Node } from '../../../../scenery/js/imports.js';
+import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
-import Quadratic from '../model/Quadratic.js';
-import GQEquationNode from '../../common/view/GQEquationNode.js';
-import GQEquationFactory from './GQEquationFactory.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import GQSymbols from '../GQSymbols.js';
-import Multilink from '../../../../axon/js/Multilink.js';
+import Quadratic from '../model/Quadratic.js';
+import GQEquationFactory from './GQEquationFactory.js';
 
 export default class AxisOfSymmetryNode extends Node {
 

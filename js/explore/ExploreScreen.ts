@@ -8,12 +8,12 @@
 
 import Screen from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
+import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import ExploreModel from './model/ExploreModel.js';
 import ExploreScreenView from './view/ExploreScreenView.js';
-import GQColors from '../common/GQColors.js';
 
 export default class ExploreScreen extends Screen<ExploreModel, ExploreScreenView> {
 

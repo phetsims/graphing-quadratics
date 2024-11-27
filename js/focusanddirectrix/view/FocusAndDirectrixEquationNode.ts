@@ -7,13 +7,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import { Line, Node, RichText, VBox } from '../../../../scenery/js/imports.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 
 const FONT = GQConstants.INTERACTIVE_EQUATION_FONT;
 const FRACTION_FONT = GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT;

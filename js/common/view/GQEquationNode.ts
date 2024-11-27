@@ -11,8 +11,8 @@ import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import BackgroundNode, { BackgroundNodeOptions } from '../../../../scenery-phet/js/BackgroundNode.js';
 import { Circle, RichText, RichTextOptions, TColor } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import GQQueryParameters from '../GQQueryParameters.js';
 import GQConstants from '../GQConstants.js';
+import GQQueryParameters from '../GQQueryParameters.js';
 
 type SelfOptions = {
   textOptions?: RichTextOptions;

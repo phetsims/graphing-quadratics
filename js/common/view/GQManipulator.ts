@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Manipulator, { ManipulatorOptions } from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
@@ -14,7 +15,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Node, TColor } from '../../../../scenery/js/imports.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import CoordinatesNode from './CoordinatesNode.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 
 // Positions the coordinates relative to the sphere
 type LayoutCoordinatesFunction = ( coordinates: Vector2 | null, coordinatesNode: Node, radius: number ) => void;

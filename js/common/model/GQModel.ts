@@ -7,6 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -15,6 +16,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import TModel from '../../../../joist/js/TModel.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -22,8 +24,6 @@ import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import PointTool from './PointTool.js';
 import Quadratic from './Quadratic.js';
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 // constants
 const GRAPH_VIEW_ORIGIN = new Vector2( 345, 330 ); // position of the graph's origin, in view coordinates

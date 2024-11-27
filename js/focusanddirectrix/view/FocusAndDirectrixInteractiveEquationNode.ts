@@ -7,7 +7,9 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import NumberDisplay, { NumberDisplayOptions } from '../../../../scenery-phet/js/NumberDisplay.js';
@@ -18,8 +20,6 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 
 export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 

@@ -9,6 +9,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -22,7 +23,6 @@ import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import QuadraticSlider from '../../common/view/QuadraticSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 
 type SelfOptions = EmptySelfOptions;
 

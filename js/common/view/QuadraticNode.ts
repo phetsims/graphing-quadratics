@@ -9,22 +9,22 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import platform from '../../../../phet-core/js/platform.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Node, NodeOptions, Path, PathOptions } from '../../../../scenery/js/imports.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
+import GQSymbols from '../GQSymbols.js';
 import Quadratic from '../model/Quadratic.js';
 import GQEquationFactory from './GQEquationFactory.js';
 import { EquationForm } from './GQViewProperties.js';
-import Multilink from '../../../../axon/js/Multilink.js';
-import GQSymbols from '../GQSymbols.js';
-import platform from '../../../../phet-core/js/platform.js';
 
 type SelfOptions = {
   preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping

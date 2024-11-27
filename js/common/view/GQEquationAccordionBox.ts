@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import EraserButton from '../../../../scenery-phet/js/buttons/EraserButton.js';
@@ -19,7 +20,6 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 const BUTTON_ICON_WIDTH = 30;
 

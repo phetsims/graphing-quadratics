@@ -8,8 +8,8 @@
  */
 
 import PhetColorScheme from '../../../scenery-phet/js/PhetColorScheme.js';
-import graphingQuadratics from '../graphingQuadratics.js';
 import { ProfileColorProperty } from '../../../scenery/js/imports.js';
+import graphingQuadratics from '../graphingQuadratics.js';
 
 // common colors
 const VERTEX = 'rgb( 128, 0, 128 )'; // purple

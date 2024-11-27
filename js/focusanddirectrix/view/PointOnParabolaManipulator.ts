@@ -9,20 +9,20 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
+import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
+import Quadratic from '../../common/model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import Quadratic from '../../common/model/Quadratic.js';
-import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
-import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;

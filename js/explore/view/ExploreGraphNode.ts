@@ -7,13 +7,13 @@
  */
 
 import Multilink from '../../../../axon/js/Multilink.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQGraphNode from '../../common/view/GQGraphNode.js';
 import QuadraticNode from '../../common/view/QuadraticNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 
 export default class ExploreGraphNode extends GQGraphNode {
 

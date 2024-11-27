@@ -8,23 +8,23 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
+import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Circle, HBox, Line, Node, RichText, TColor } from '../../../../scenery/js/imports.js';
 import Checkbox, { CheckboxOptions } from '../../../../sun/js/Checkbox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import GQConstants from '../GQConstants.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQColors from '../GQColors.js';
+import GQConstants from '../GQConstants.js';
 import GQSymbols from '../GQSymbols.js';
-import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 type SelfOptions = {
   string: TReadOnlyProperty<string> | string; // required string for text

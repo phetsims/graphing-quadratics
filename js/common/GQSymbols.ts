@@ -9,10 +9,10 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../axon/js/DerivedProperty.js';
 import MathSymbolFont from '../../../scenery-phet/js/MathSymbolFont.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
-import DerivedProperty from '../../../axon/js/DerivedProperty.js';
 
 const xMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.xStringProperty );
 

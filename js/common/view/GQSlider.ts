@@ -16,18 +16,18 @@
 import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import { Node, NodeOptions, RichText, TColor, Text } from '../../../../scenery/js/imports.js';
 import VSlider, { VSliderOptions } from '../../../../sun/js/VSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 
 type TransformFunction = ( value: number ) => number;
 

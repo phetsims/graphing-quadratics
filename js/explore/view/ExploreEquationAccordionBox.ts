@@ -6,13 +6,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import GQEquationAccordionBox, { GQEquationAccordionBoxOptions } from '../../common/view/GQEquationAccordionBox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormEquationNode from '../../standardform/view/StandardFormEquationNode.js';
-import ExploreInteractiveEquationNode from './ExploreInteractiveEquationNode.js';
 import ExploreModel from '../model/ExploreModel.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import ExploreInteractiveEquationNode from './ExploreInteractiveEquationNode.js';
 
 type SelfOptions = EmptySelfOptions;
 

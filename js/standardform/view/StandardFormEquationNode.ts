@@ -8,12 +8,12 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import { Node, RichText } from '../../../../scenery/js/imports.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class StandardFormEquationNode extends Node {
 

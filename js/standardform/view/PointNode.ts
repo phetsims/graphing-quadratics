@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
@@ -14,7 +15,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Circle, Node, NodeOptions, NodeTranslationOptions, TColor } from '../../../../scenery/js/imports.js';
 import CoordinatesNode from '../../common/view/CoordinatesNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 
 // Positions the coordinates relative to the point
 type LayoutCoordinatesFunction = ( coordinatesNode: Node, pointNode: Node ) => void;

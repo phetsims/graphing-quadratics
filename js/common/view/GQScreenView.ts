@@ -8,8 +8,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
+import EyeToggleButton from '../../../../scenery-phet/js/buttons/EyeToggleButton.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
+import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import { Node, VBox } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -17,9 +20,6 @@ import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import PointToolNode from './PointToolNode.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import EyeToggleButton from '../../../../scenery-phet/js/buttons/EyeToggleButton.js';
 
 // constants
 const X_SPACING = 15; // between graph and control panels
