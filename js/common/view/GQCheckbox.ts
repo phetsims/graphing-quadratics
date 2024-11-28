@@ -1,4 +1,4 @@
-// Copyright 2018-2023, University of Colorado Boulder
+// Copyright 2018-2024, University of Colorado Boulder
 
 /**
  * GQCheckbox is the base class for a checkbox that is labeled with text, with an optional icon to the right of the text.
