@@ -34,7 +34,7 @@ type SelfOptions = {
   icon?: Node; // optional icon, to the right of the text
 };
 
-type GQCheckboxOptions = SelfOptions & PickRequired<CheckboxOptions, 'tandem' | 'phetioDocumentation'>;
+type GQCheckboxOptions = SelfOptions & PickRequired<CheckboxOptions, 'tandem' | 'phetioDocumentation'> & Pick<CheckboxOptions, 'phetioDisplayOnlyPropertyInstrumented'>;
 
 export default class GQCheckbox extends Checkbox {
 
@@ -90,6 +90,7 @@ export default class GQCheckbox extends Checkbox {
         ( y, a, x2 ) => `${y} ${MathSymbols.EQUAL_TO} ${a}${x2}` ),
       textFill: GQColors.QUADRATIC_TERM,
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
     } );
   }
@@ -106,6 +107,7 @@ export default class GQCheckbox extends Checkbox {
         ( y, b, x ) => `${y} ${MathSymbols.EQUAL_TO} ${b}${x}` ),
       textFill: GQColors.LINEAR_TERM,
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
     } );
   }
@@ -122,6 +124,7 @@ export default class GQCheckbox extends Checkbox {
         ( y, c ) => `${y} ${MathSymbols.EQUAL_TO} ${c}` ),
       textFill: GQColors.CONSTANT_TERM,
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
     } );
   }
@@ -138,6 +141,7 @@ export default class GQCheckbox extends Checkbox {
         lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
       } ),
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph'
     } );
   }
@@ -165,6 +169,7 @@ export default class GQCheckbox extends Checkbox {
         lineDash: GQConstants.DIRECTRIX_LINE_DASH
       } ),
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the directrix on the graph'
     } );
   }
@@ -188,6 +193,7 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.focusStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.focusColorProperty ),
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the focus on the graph'
     } );
   }
@@ -200,6 +206,7 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.pointOnParabolaStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.pointOnParabolaColorProperty ),
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'
     } );
   }
@@ -227,6 +234,7 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.rootsStringProperty,
       icon: icon,
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows roots on the graph'
     } );
   }
@@ -239,6 +247,7 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.vertexStringProperty,
       icon: new Circle( 6, { fill: GQColors.vertexColorProperty } ),
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the vertex on the graph'
     } );
   }
