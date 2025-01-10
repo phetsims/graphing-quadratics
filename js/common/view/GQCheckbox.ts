@@ -260,6 +260,7 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.vertexStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.vertexColorProperty ),
       tandem: tandem,
+      phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the vertex manipulator on the graph'
     } );
   }
