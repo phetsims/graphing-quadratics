@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "82d02e8704928c174f12413a631edab313662482",
+    "sha": "a11a1deaed6b1f5483e284df5437332ffb054d1a",
     "branch": "HEAD"
   },
   "dot": {
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "graphing-quadratics": {
-    "sha": "459d38d111c38b0b793a0f35f79ab2bfd5e1cdff",
+    "sha": "acc6710e4a0999c59212f8f5624989ea65031c28",
     "branch": "1.3"
   },
   "joist": {
@@ -53,7 +53,7 @@
     "branch": "HEAD"
   },
   "phet-io-wrappers": {
-    "sha": "93732dda101bd158e5a2ab7a706e5fdd2a7933e7",
+    "sha": "af3935c1834035e6659735f8051d907ee0365250",
     "branch": "HEAD"
   },
   "phetcommon": {
