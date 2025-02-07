@@ -11,7 +11,11 @@ import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import EraserButton from '../../../../scenery-phet/js/buttons/EraserButton.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
-import { HBox, HBoxOptions, HSeparator, Node, Path, VBox } from '../../../../scenery/js/imports.js';
+import HBox, { HBoxOptions } from '../../../../scenery/js/layout/nodes/HBox.js';
+import HSeparator from '../../../../scenery/js/layout/nodes/HSeparator.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
 import cameraSolidShape from '../../../../sherpa/js/fontawesome-5/cameraSolidShape.js';
 import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';

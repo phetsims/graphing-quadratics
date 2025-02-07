@@ -12,7 +12,9 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { Circle, Node, NodeOptions, NodeTranslationOptions, TColor } from '../../../../scenery/js/imports.js';
+import Circle from '../../../../scenery/js/nodes/Circle.js';
+import Node, { NodeOptions, NodeTranslationOptions } from '../../../../scenery/js/nodes/Node.js';
+import TColor from '../../../../scenery/js/util/TColor.js';
 import CoordinatesNode from '../../common/view/CoordinatesNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 

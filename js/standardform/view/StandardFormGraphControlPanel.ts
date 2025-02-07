@@ -8,7 +8,8 @@
  */
 
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import { HSeparator, VBox } from '../../../../scenery/js/imports.js';
+import HSeparator from '../../../../scenery/js/layout/nodes/HSeparator.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';

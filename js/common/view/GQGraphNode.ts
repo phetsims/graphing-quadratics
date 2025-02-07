@@ -10,10 +10,11 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import GraphNode from '../../../../graphing-lines/js/common/view/GraphNode.js';
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { IndexedNodeIO, Node, NodeOptions } from '../../../../scenery/js/imports.js';
+import IndexedNodeIO from '../../../../scenery/js/nodes/IndexedNodeIO.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';

@@ -12,7 +12,8 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Manipulator, { ManipulatorOptions } from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { Node, TColor } from '../../../../scenery/js/imports.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import TColor from '../../../../scenery/js/util/TColor.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import CoordinatesNode from './CoordinatesNode.js';
 

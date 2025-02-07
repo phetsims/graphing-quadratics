@@ -24,7 +24,10 @@ import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
-import { Node, NodeOptions, RichText, TColor, Text } from '../../../../scenery/js/imports.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import TColor from '../../../../scenery/js/util/TColor.js';
 import VSlider, { VSliderOptions } from '../../../../sun/js/VSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';

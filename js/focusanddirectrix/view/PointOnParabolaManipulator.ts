@@ -17,7 +17,8 @@ import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/m
 import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { DragListenerOptions, Node, PressedDragListener } from '../../../../scenery/js/imports.js';
+import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';

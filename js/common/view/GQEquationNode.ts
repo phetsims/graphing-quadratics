@@ -9,7 +9,9 @@
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import BackgroundNode, { BackgroundNodeOptions } from '../../../../scenery-phet/js/BackgroundNode.js';
-import { Circle, RichText, RichTextOptions, TColor } from '../../../../scenery/js/imports.js';
+import Circle from '../../../../scenery/js/nodes/Circle.js';
+import RichText, { RichTextOptions } from '../../../../scenery/js/nodes/RichText.js';
+import TColor from '../../../../scenery/js/util/TColor.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';

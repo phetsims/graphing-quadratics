@@ -23,7 +23,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import Vector2, { Vector2StateObject } from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import { Color, ColorState } from '../../../../scenery/js/imports.js';
+import Color, { ColorState } from '../../../../scenery/js/util/Color.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
