@@ -1,4 +1,4 @@
-// Copyright 2018-2023, University of Colorado Boulder
+// Copyright 2018-2025, University of Colorado Boulder
 
 /**
  * Panel that contains controls for various features related to the graph on the 'Focus and Directrix' screen.
