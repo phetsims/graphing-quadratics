@@ -10,6 +10,7 @@
  */
 
 import logGlobal from '../../../phet-core/js/logGlobal.js';
+import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 
 const GQQueryParameters = QueryStringMachine.getAll( {
