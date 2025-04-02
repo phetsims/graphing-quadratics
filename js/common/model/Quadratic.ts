@@ -22,6 +22,7 @@ import Range from '../../../../dot/js/Range.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2, { Vector2StateObject } from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Color, { ColorState } from '../../../../scenery/js/util/Color.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
@@ -400,7 +401,7 @@ export default class Quadratic {
     };
   }
 
-  public static readonly QuadraticIO = new IOType( 'QuadraticIO', {
+  public static readonly QuadraticIO = new IOType<IntentionalAny, IntentionalAny>( 'QuadraticIO', {
     valueType: Quadratic,
     documentation:
       'QuadraticIO is a data structure that describes a quadratic equation in the model. ' +
