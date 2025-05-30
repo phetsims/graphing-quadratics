@@ -61,6 +61,8 @@ export default class PointToolNode extends Node {
       // NodeOptions
       cursor: 'pointer',
       isDisposable: false,
+      tagName: 'div',
+      focusable: true,
       phetioDocumentation: Tandem.PHET_IO_ENABLED ? pointTool.phetioDocumentation : '',
       phetioFeatured: true,
       phetioInputEnabledPropertyInstrumented: true,
