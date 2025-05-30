@@ -30,8 +30,12 @@ export class FocusDragListener extends SoundDragListener {
    * @param interval - dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
    * @param [providedOptions]
    */
-  public constructor( targetNode: Node, pProperty: NumberProperty, quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      yRange: Range, modelViewTransform: ModelViewTransform2, interval: number,
+  public constructor( targetNode: Node,
+                      pProperty: NumberProperty,
+                      quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      yRange: Range,
+                      modelViewTransform: ModelViewTransform2,
+                      interval: number,
                       providedOptions: DragListenerOptions<PressedDragListener> ) {
 
     assert && assert( pProperty.range, 'pProperty is missing range' );
