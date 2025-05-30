@@ -34,6 +34,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import PointTool from '../model/PointTool.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -46,7 +47,7 @@ type SelfOptions = {
 
 type PointToolNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-export default class PointToolNode extends Node {
+export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
   public constructor( pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>, providedOptions: PointToolNodeOptions ) {
