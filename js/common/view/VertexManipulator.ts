@@ -49,7 +49,8 @@ export default class VertexManipulator extends GQManipulator {
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       graph: Graph,
                       modelViewTransform: ModelViewTransform2,
-                      vertexVisibleProperty: TReadOnlyProperty<boolean>, coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                      vertexVisibleProperty: TReadOnlyProperty<boolean>,
+                      coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: VertexManipulatorOptions ) {
 
     const options = optionize<VertexManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {
