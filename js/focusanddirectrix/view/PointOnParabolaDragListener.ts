@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -19,8 +18,9 @@ import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 
-export class PointOnParabolaDragListener extends ManipulatorDragListener {
+export class PointOnParabolaDragListener extends SoundDragListener {
 
   /**
    * @param targetNode - the Node that we attached this listener to

@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 import PointTool from '../model/PointTool.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
@@ -20,8 +19,9 @@ import GQQueryParameters from '../GQQueryParameters.js';
 import PointToolNode from './PointToolNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 
-export class PointToolDragListener extends ManipulatorDragListener {
+export class PointToolDragListener extends SoundDragListener {
 
   public constructor( pointToolNode: PointToolNode, pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,

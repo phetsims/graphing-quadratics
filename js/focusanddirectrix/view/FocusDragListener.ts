@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -18,8 +17,9 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 
-export class FocusDragListener extends ManipulatorDragListener {
+export class FocusDragListener extends SoundDragListener {
 
   /**
    * @param targetNode - the Node that we attached this listener to
