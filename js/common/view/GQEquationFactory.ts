@@ -9,11 +9,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Utils from '../../../../dot/js/Utils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 const GQEquationFactory = {
 
@@ -23,9 +23,9 @@ const GQEquationFactory = {
   createStandardForm( quadratic: Quadratic, yString: string, xString: string, x2String: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
-    const a = Utils.toFixedNumber( quadratic.a, GQConstants.EXPLORE_DECIMALS_A );
-    const b = Utils.toFixedNumber( quadratic.b, GQConstants.EXPLORE_DECIMALS_B );
-    const c = Utils.toFixedNumber( quadratic.c, GQConstants.EXPLORE_DECIMALS_C );
+    const a = toFixedNumber( quadratic.a, GQConstants.EXPLORE_DECIMALS_A );
+    const b = toFixedNumber( quadratic.b, GQConstants.EXPLORE_DECIMALS_B );
+    const c = toFixedNumber( quadratic.c, GQConstants.EXPLORE_DECIMALS_C );
 
     // y =
     let equationString = `${yString} ${MathSymbols.EQUAL_TO} `;
@@ -101,9 +101,9 @@ const GQEquationFactory = {
   createVertexForm( quadratic: Quadratic, yString: string, xString: string, x2String: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
-    const a = Utils.toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
-    const h = ( quadratic.h === undefined ) ? 0 : Utils.toFixedNumber( quadratic.h, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H );
-    const k = ( quadratic.k === undefined ) ? 0 : Utils.toFixedNumber( quadratic.k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
+    const a = toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
+    const h = ( quadratic.h === undefined ) ? 0 : toFixedNumber( quadratic.h, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H );
+    const k = ( quadratic.k === undefined ) ? 0 : toFixedNumber( quadratic.k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
 
     // y =
     let equationString = `${yString} ${MathSymbols.EQUAL_TO} `;
@@ -116,7 +116,7 @@ const GQEquationFactory = {
     else if ( a === 0 ) {
 
       // y = c
-      equationString += Utils.toFixedNumber( quadratic.c, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
+      equationString += toFixedNumber( quadratic.c, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
     }
     else {
 
@@ -161,14 +161,14 @@ const GQEquationFactory = {
    * Creates the RichText string for the directrix equation: y = N
    */
   createDirectrix( directrix: number, yString: string ): string {
-    return `${yString} ${MathSymbols.EQUAL_TO} ${Utils.toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
+    return `${yString} ${MathSymbols.EQUAL_TO} ${toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
   },
 
   /**
    * Creates the RichText string for the axis of symmetry equation: x = N
    */
   createAxisOfSymmetry( axisOfSymmetry: number, xString: string ): string {
-    return `${xString} ${MathSymbols.EQUAL_TO} ${Utils.toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
+    return `${xString} ${MathSymbols.EQUAL_TO} ${toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
 };
 

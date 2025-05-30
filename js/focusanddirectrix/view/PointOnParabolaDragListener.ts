@@ -16,9 +16,9 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import Utils from '../../../../dot/js/Utils.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 export class PointOnParabolaDragListener extends ManipulatorDragListener {
 
@@ -78,7 +78,7 @@ export class PointOnParabolaDragListener extends ManipulatorDragListener {
         // Snap to the x value as it will be displayed, by solving for y.
         // This is so we don't see different y values for the same x value.
         // See https://github.com/phetsims/graphing-quadratics/issues/172.
-        const x = Utils.toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS );
+        const x = toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS );
         const y = quadraticProperty.value.solveY( x );
 
         pointOnParabolaProperty.value = new Vector2( x, y );

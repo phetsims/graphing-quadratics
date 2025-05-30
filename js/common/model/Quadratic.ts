@@ -19,7 +19,7 @@
  */
 
 import Range from '../../../../dot/js/Range.js';
-import Utils from '../../../../dot/js/Utils.js';
+import { solveCubicRootsReal } from '../../../../dot/js/util/solveCubicRootsReal.js';
 import Vector2, { Vector2StateObject } from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
@@ -31,6 +31,7 @@ import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
+import { solveQuadraticRootsReal } from '../../../../dot/js/util/solveQuadraticRootsReal.js';
 
 
 type QuadraticStateObject = {
@@ -310,14 +311,14 @@ export default class Quadratic {
     const c = this.c;
 
     // Use a larger threshold when deciding whether the cubic equation below has one root.
-    // If we don't adjust this threshold, then Utils.solveCubicRootsReal will compute roots that are NaN.
+    // If we don't adjust this threshold, then solveCubicRootsReal will compute roots that are NaN.
     // See https://github.com/phetsims/graphing-quadratics/issues/170
     const discriminantThreshold = 1e-9;
 
     // Finding the closest point requires solving the cubic equation
     // (2a^2)x^3 + (3ab)x^2 + (b^2 + 2ac - 2ay0 + 1)x + (bc - by0 - x0) = 0
     // See http://mathworld.wolfram.com/Point-QuadraticDistance.html
-    const roots = Utils.solveCubicRootsReal(
+    const roots = solveCubicRootsReal(
       2 * a * a,
       3 * a * b,
       b * b + 2 * a * c - 2 * a * y0 + 1,
@@ -449,7 +450,7 @@ export default class Quadratic {
  */
 function solveRoots( a: number, b: number, c: number ): Vector2[] | null {
   let roots = null;
-  let xCoordinates = Utils.solveQuadraticRootsReal( a, b, c );
+  let xCoordinates = solveQuadraticRootsReal( a, b, c );
   if ( xCoordinates !== null ) {
     roots = [];
     xCoordinates = xCoordinates.sort( ( x0, x1 ) => x0 - x1 ); // in ascending order

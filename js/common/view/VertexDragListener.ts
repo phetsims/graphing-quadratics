@@ -15,8 +15,8 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import Utils from '../../../../dot/js/Utils.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 
 export class VertexDragListener extends ManipulatorDragListener {
 
@@ -51,8 +51,8 @@ export class VertexDragListener extends ManipulatorDragListener {
         position = graph.constrain( position );
 
         // constrain to range and snap to integer grid
-        const h = Utils.roundSymmetric( hProperty.range.constrainValue( position.x ) );
-        const k = Utils.roundSymmetric( kProperty.range.constrainValue( position.y ) );
+        const h = roundSymmetric( hProperty.range.constrainValue( position.x ) );
+        const k = roundSymmetric( kProperty.range.constrainValue( position.y ) );
 
         // Setting h and k separately results in an intermediate Quadratic.
         // We decided that this is OK, and we can live with it.

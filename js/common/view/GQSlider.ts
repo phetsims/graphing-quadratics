@@ -19,7 +19,6 @@ import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
-import Utils from '../../../../dot/js/Utils.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -31,6 +30,7 @@ import TColor from '../../../../scenery/js/util/TColor.js';
 import VSlider, { VSliderOptions } from '../../../../sun/js/VSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
+import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 
 type TransformFunction = ( value: number ) => number;
 
@@ -158,7 +158,7 @@ export default class GQSlider extends Node {
       map: ( value: number ) => options.map( value ),
 
       // map from view to model (sliderProperty to coefficientProperty), apply options.interval to model value
-      inverseMap: ( value: number ) => Utils.roundToInterval( options.inverseMap( value ), options.interval )
+      inverseMap: ( value: number ) => roundToInterval( options.inverseMap( value ), options.interval )
     } );
 
     // Convert the range from model to view

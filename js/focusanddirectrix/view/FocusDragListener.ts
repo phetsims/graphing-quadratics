@@ -16,8 +16,8 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import Utils from '../../../../dot/js/Utils.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 
 export class FocusDragListener extends ManipulatorDragListener {
 
@@ -64,7 +64,7 @@ export class FocusDragListener extends ManipulatorDragListener {
 
         // constrain and round
         let p = pProperty.range.constrainValue( y - vertex.y );
-        p = Utils.roundToInterval( p, interval );
+        p = roundToInterval( p, interval );
 
         // skip over p === 0
         if ( p === 0 ) {

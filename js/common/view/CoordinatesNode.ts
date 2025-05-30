@@ -8,7 +8,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -18,6 +17,7 @@ import TColor from '../../../../scenery/js/util/TColor.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQConstants from '../GQConstants.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 type SelfOptions = {
   decimals: number;
@@ -47,8 +47,8 @@ export default class CoordinatesNode extends BackgroundNode {
     const stringProperty = new DerivedProperty(
       [ coordinatesProperty, GraphingQuadraticsStrings.coordinateUnknownStringProperty ],
       ( coordinates, coordinateUnknownString ) => {
-        const x = coordinates ? Utils.toFixedNumber( coordinates.x, options.decimals ) : coordinateUnknownString;
-        const y = coordinates ? Utils.toFixedNumber( coordinates.y, options.decimals ) : coordinateUnknownString;
+        const x = coordinates ? toFixedNumber( coordinates.x, options.decimals ) : coordinateUnknownString;
+        const y = coordinates ? toFixedNumber( coordinates.y, options.decimals ) : coordinateUnknownString;
         return `(${x}, ${y})`;
       } );
 

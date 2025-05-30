@@ -17,9 +17,9 @@ import GQConstants from '../GQConstants.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import GQQueryParameters from '../GQQueryParameters.js';
-import Utils from '../../../../dot/js/Utils.js';
 import PointToolNode from './PointToolNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 export class PointToolDragListener extends ManipulatorDragListener {
 
@@ -71,11 +71,11 @@ export class PointToolDragListener extends ManipulatorDragListener {
 
             // We will be snapping the x value as it will be displayed by the point tool.
             // See https://github.com/phetsims/graphing-quadratics/issues/169.
-            let x = Utils.toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
+            let x = toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
 
             // If x is close to an integer value, snap to that integer value.
             // See https://github.com/phetsims/graphing-quadratics/issues/169.
-            const closestInteger = Utils.toFixedNumber( x, 0 );
+            const closestInteger = toFixedNumber( x, 0 );
             if ( Math.abs( x - closestInteger ) < xSnapTolerance ) {
               x = closestInteger;
             }
