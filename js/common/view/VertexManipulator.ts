@@ -11,15 +11,11 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
-import ManipulatorDragListener from '../../../../graphing-lines/js/common/view/manipulator/ManipulatorDragListener.js';
-import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -27,6 +23,7 @@ import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from './GQManipulator.js';
+import { VertexDragListener } from './VertexDragListener.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -115,53 +112,6 @@ export default class VertexManipulator extends GQManipulator {
         this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
       }
     } );
-  }
-}
-
-class VertexDragListener extends ManipulatorDragListener {
-
-  /**
-   * @param targetNode - the Node that we attached this listener to
-   * @param hProperty - h coefficient of vertex form
-   * @param kProperty - k coefficient of vertex form
-   * @param graph
-   * @param modelViewTransform
-   * @param [providedOptions]
-   */
-  public constructor( targetNode: Node, hProperty: NumberProperty, kProperty: NumberProperty, graph: Graph,
-                      modelViewTransform: ModelViewTransform2, providedOptions: DragListenerOptions<PressedDragListener> ) {
-
-    let startOffset: Vector2; // where the drag started, relative to the manipulator
-
-    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
-
-      // note where the drag started
-      start: ( event, listener ) => {
-        const position = modelViewTransform.modelToViewXY( hProperty.value, kProperty.value );
-        startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
-      },
-
-      drag: ( event, listener ) => {
-
-        // transform the drag point from view to model coordinate frame
-        const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-        let position = modelViewTransform.viewToModelPosition( parentPoint );
-
-        // constrain to the graph
-        position = graph.constrain( position );
-
-        // constrain to range and snap to integer grid
-        const h = Utils.roundSymmetric( hProperty.range.constrainValue( position.x ) );
-        const k = Utils.roundSymmetric( kProperty.range.constrainValue( position.y ) );
-
-        // Setting h and k separately results in an intermediate Quadratic.
-        // We decided that this is OK, and we can live with it.
-        hProperty.value = h;
-        kProperty.value = k;
-      }
-    }, providedOptions );
-
-    super( options );
   }
 }
 
