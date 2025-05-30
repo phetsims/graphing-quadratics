@@ -18,6 +18,8 @@ import VertexFormScreen from './vertexform/VertexFormScreen.js';
 
 simLauncher.launch( () => {
 
+  const titleStringProperty = GraphingQuadraticsStrings[ 'graphing-quadratics' ].titleStringProperty;
+
   const screens = [
     new ExploreScreen( Tandem.ROOT.createTandem( 'exploreScreen' ) ),
     new StandardFormScreen( Tandem.ROOT.createTandem( 'standardFormScreen' ) ),
@@ -37,6 +39,6 @@ simLauncher.launch( () => {
     phetioDesigned: true
   };
 
-  const sim = new Sim( GraphingQuadraticsStrings[ 'graphing-quadratics' ].titleStringProperty, screens, options );
+  const sim = new Sim( titleStringProperty, screens, options );
   sim.start();
 } );
