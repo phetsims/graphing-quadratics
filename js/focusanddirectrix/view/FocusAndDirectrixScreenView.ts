@@ -7,19 +7,25 @@
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';
-import GQScreenView from '../../common/view/GQScreenView.js';
+import GQScreenView, { GQScreenViewOptions } from '../../common/view/GQScreenView.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixEquationAccordionBox from './FocusAndDirectrixEquationAccordionBox.js';
 import FocusAndDirectrixGraphControlPanel from './FocusAndDirectrixGraphControlPanel.js';
 import FocusAndDirectrixGraphNode from './FocusAndDirectrixGraphNode.js';
 import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.js';
+import FocusAndDirectrixScreenSummaryContent from './FocusAndDirectrixScreenSummaryContent.js';
 
 export default class FocusAndDirectrixScreenView extends GQScreenView {
 
   public constructor( model: FocusAndDirectrixModel, tandem: Tandem ) {
 
     const viewProperties = new FocusAndDirectrixViewProperties( tandem.createTandem( 'viewProperties' ) );
+
+    const options: GQScreenViewOptions = {
+      screenSummaryContent: new FocusAndDirectrixScreenSummaryContent( model ),
+      tandem: tandem
+    };
 
     super( model,
       viewProperties,
@@ -29,7 +35,7 @@ export default class FocusAndDirectrixScreenView extends GQScreenView {
         tandem: tandem.createTandem( 'equationAccordionBox' )
       } ),
       new FocusAndDirectrixGraphControlPanel( viewProperties, tandem.createTandem( 'graphControlPanel' ) ),
-      tandem
+      options
     );
   }
 }

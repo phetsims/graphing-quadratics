@@ -9,31 +9,43 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import ScreenView from '../../../../joist/js/ScreenView.js';
+import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
 import EyeToggleButton from '../../../../scenery-phet/js/buttons/EyeToggleButton.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import PointToolNode from './PointToolNode.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 
 // constants
 const X_SPACING = 15; // between graph and control panels
 
+type SelfOptions = EmptySelfOptions;
+
+export type GQScreenViewOptions = SelfOptions & PickRequired<ScreenViewOptions, 'tandem' | 'screenSummaryContent'>;
+
 export default class GQScreenView extends ScreenView {
 
-  public constructor( model: GQModel, viewProperties: GQViewProperties, graphNode: Node,
-                      equationAccordionBox: Node, graphControlPanel: Node, tandem: Tandem ) {
+  public constructor( model: GQModel,
+                      viewProperties: GQViewProperties,
+                      graphNode: Node,
+                      equationAccordionBox: Node,
+                      graphControlPanel: Node,
+                      providedOptions: GQScreenViewOptions ) {
 
-    super( {
-      layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS,
-      tandem: tandem
-    } );
+    const options = optionize<GQScreenViewOptions, SelfOptions, ScreenViewOptions>()( {
+
+      // ScreenViewOptions
+      layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS
+    }, providedOptions );
+
+    super( options );
 
     // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
     const pointToolsParent = new Node();
@@ -42,14 +54,14 @@ export default class GQScreenView extends ScreenView {
       model.modelViewTransform,
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
-        tandem: tandem.createTandem( 'leftPointToolNode' )
+        tandem: options.tandem.createTandem( 'leftPointToolNode' )
       } ) );
     pointToolsParent.addChild( new PointToolNode(
       model.rightPointTool,
       model.modelViewTransform,
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
-        tandem: tandem.createTandem( 'rightPointToolNode' )
+        tandem: options.tandem.createTandem( 'rightPointToolNode' )
       } ) );
 
     // Toggle button for showing/hiding contents of graph
@@ -59,7 +71,7 @@ export default class GQScreenView extends ScreenView {
         graphContentsVisible => graphContentsVisible ? 'white' : PhetColorScheme.BUTTON_YELLOW ),
       left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 21,
       bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
-      tandem: tandem.createTandem( 'graphContentsToggleButton' ),
+      tandem: options.tandem.createTandem( 'graphContentsToggleButton' ),
       phetioDocumentation: 'button that shows/hides the contents of the graph'
     } );
 
@@ -97,7 +109,7 @@ export default class GQScreenView extends ScreenView {
       },
       right: this.layoutBounds.maxX - GQConstants.SCREEN_VIEW_X_MARGIN,
       bottom: this.layoutBounds.maxY - GQConstants.SCREEN_VIEW_Y_MARGIN,
-      tandem: tandem.createTandem( 'resetAllButton' ),
+      tandem: options.tandem.createTandem( 'resetAllButton' ),
       phetioDocumentation: 'button that resets the screen to its initial state'
     } );
 

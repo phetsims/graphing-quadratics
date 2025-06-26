@@ -7,19 +7,25 @@
  */
 
 import Tandem from '../../../../tandem/js/Tandem.js';
-import GQScreenView from '../../common/view/GQScreenView.js';
+import GQScreenView, { GQScreenViewOptions } from '../../common/view/GQScreenView.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormEquationAccordionBox from './StandardFormEquationAccordionBox.js';
 import StandardFormGraphControlPanel from './StandardFormGraphControlPanel.js';
 import StandardFormGraphNode from './StandardFormGraphNode.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
+import StandardFormScreenSummaryContent from './StandardFormScreenSummaryContent.js';
 
 export default class StandardFormScreenView extends GQScreenView {
 
   public constructor( model: StandardFormModel, tandem: Tandem ) {
 
     const viewProperties = new StandardFormViewProperties( tandem.createTandem( 'viewProperties' ) );
+
+    const options: GQScreenViewOptions = {
+      screenSummaryContent: new StandardFormScreenSummaryContent( model ),
+      tandem: tandem
+    };
 
     super( model,
       viewProperties,
@@ -29,7 +35,7 @@ export default class StandardFormScreenView extends GQScreenView {
         tandem: tandem.createTandem( 'equationAccordionBox' )
       } ),
       new StandardFormGraphControlPanel( viewProperties, tandem.createTandem( 'graphControlPanel' ) ),
-      tandem
+      options
     );
   }
 }
