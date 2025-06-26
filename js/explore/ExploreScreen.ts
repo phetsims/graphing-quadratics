@@ -29,6 +29,8 @@ export default class ExploreScreen extends Screen<ExploreModel, ExploreScreenVie
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
       navigationBarIcon: GQScreenIconFactory.createExploreScreenIcon(),
 
+      screenButtonsHelpText: GraphingQuadraticsStrings.a11y.exploreScreen.screenButtonsHelpTextStringProperty,
+
       // phet-io
       tandem: tandem
     };

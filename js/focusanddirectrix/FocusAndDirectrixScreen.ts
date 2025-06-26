@@ -29,6 +29,8 @@ export default class FocusAndDirectrixScreen extends Screen<FocusAndDirectrixMod
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
       navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
 
+      screenButtonsHelpText: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenButtonsHelpTextStringProperty,
+
       // phet-io
       tandem: tandem
     };

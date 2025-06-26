@@ -29,6 +29,8 @@ export default class VertexFormScreen extends Screen<VertexFormModel, VertexForm
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
       navigationBarIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
 
+      screenButtonsHelpText: GraphingQuadraticsStrings.a11y.vertexFormScreen.screenButtonsHelpTextStringProperty,
+
       // phet-io
       tandem: tandem
     };

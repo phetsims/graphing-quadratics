@@ -30,6 +30,8 @@ export default class StandardFormScreen extends Screen<StandardFormModel, Standa
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
       navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
 
+      screenButtonsHelpText: GraphingQuadraticsStrings.a11y.standardFormScreen.screenButtonsHelpTextStringProperty,
+
       // phet-io
       tandem: tandem
     };
