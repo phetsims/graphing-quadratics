@@ -1,9 +1,9 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * PointToolNode is a tool displays the (x,y) coordinates of a point on the graph.
- * If it's sufficiently close to a curve, it will snap to that curve.
- * If it's not on the graph, it will display '( ?, ? )'.
+ * PointToolNode is a tool that displays the (x,y) coordinates of a point on the graph.
+ * If it is sufficiently close to a curve, it will snap to that curve.
+ * If it is not on the graph, it will display '( ?, ? )'.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
