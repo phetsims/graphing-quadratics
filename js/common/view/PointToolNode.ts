@@ -47,8 +47,11 @@ type PointToolNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
-  public constructor( pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
-                      graphContentsVisibleProperty: TReadOnlyProperty<boolean>, providedOptions: PointToolNodeOptions ) {
+  public constructor( pointTool: PointTool,
+                      modelViewTransform: ModelViewTransform2,
+                      graph: Graph,
+                      graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
+                      providedOptions: PointToolNodeOptions ) {
 
     const options = optionize<PointToolNodeOptions, SelfOptions, NodeOptions>()( {
 

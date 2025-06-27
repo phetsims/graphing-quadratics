@@ -26,7 +26,10 @@ export default class StandardFormInteractiveEquationNode extends Node {
   /**
    * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
    */
-  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty, tandem: Tandem ) {
+  public constructor( aProperty: NumberProperty,
+                      bProperty: NumberProperty,
+                      cProperty: NumberProperty,
+                      tandem: Tandem ) {
 
     const options: NodeOptions = {
       excludeInvisibleChildrenFromBounds: true,

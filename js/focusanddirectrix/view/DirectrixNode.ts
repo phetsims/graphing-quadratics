@@ -24,7 +24,8 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 export default class DirectrixNode extends Node {
 
   public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph, modelViewTransform: ModelViewTransform2,
+                      graph: Graph,
+                      modelViewTransform: ModelViewTransform2,
                       directrixVisibleProperty: TReadOnlyProperty<boolean>,
                       equationsVisibleProperty: TReadOnlyProperty<boolean> ) {
 

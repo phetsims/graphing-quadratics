@@ -26,7 +26,10 @@ export default class VertexFormInteractiveEquationNode extends Node {
   /**
    * Constructor parameters are coefficients of the vertex form: y = ax^2 + bx + c
    */
-  public constructor( aProperty: NumberProperty, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
+  public constructor( aProperty: NumberProperty,
+                      hProperty: NumberProperty,
+                      kProperty: NumberProperty,
+                      tandem: Tandem ) {
 
     const options: NodeOptions = {
       excludeInvisibleChildrenFromBounds: true,

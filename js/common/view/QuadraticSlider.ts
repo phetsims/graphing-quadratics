@@ -25,7 +25,9 @@ export default class QuadraticSlider extends GQSlider {
    * @param coefficientProperty - the coefficient's value
    * @param [providedOptions]
    */
-  public constructor( symbolStringProperty: TReadOnlyProperty<string>, coefficientProperty: NumberProperty, providedOptions: QuadraticSliderOptions ) {
+  public constructor( symbolStringProperty: TReadOnlyProperty<string>,
+                      coefficientProperty: NumberProperty,
+                      providedOptions: QuadraticSliderOptions ) {
 
     assert && assert( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,
       `symmetrical range is required: ${coefficientProperty.range}` );

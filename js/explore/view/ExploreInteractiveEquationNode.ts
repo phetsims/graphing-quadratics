@@ -34,7 +34,9 @@ export default class ExploreInteractiveEquationNode extends Node {
   /**
    * Constructor parameters are coefficients of the standard form: y = ax^2 + bx + c
    */
-  public constructor( aProperty: NumberProperty, bProperty: NumberProperty, cProperty: NumberProperty,
+  public constructor( aProperty: NumberProperty,
+                      bProperty: NumberProperty,
+                      cProperty: NumberProperty,
                       providedOptions: ExploreInteractiveEquationNodeOptions ) {
 
     const options = optionize<ExploreInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {

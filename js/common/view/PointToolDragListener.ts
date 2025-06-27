@@ -23,7 +23,10 @@ import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js'
 
 export class PointToolDragListener extends SoundDragListener {
 
-  public constructor( pointToolNode: PointToolNode, pointTool: PointTool, modelViewTransform: ModelViewTransform2, graph: Graph,
+  public constructor( pointToolNode: PointToolNode,
+                      pointTool: PointTool,
+                      modelViewTransform: ModelViewTransform2,
+                      graph: Graph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: DragListenerOptions<PressedDragListener> ) {
 

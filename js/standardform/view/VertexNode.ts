@@ -25,7 +25,8 @@ const COORDINATES_Y_SPACING = 5;
 
 export default class VertexNode extends PointNode {
 
-  public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>, graph: Graph,
+  public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      graph: Graph,
                       modelViewTransform: ModelViewTransform2,
                       vertexVisibleProperty: TReadOnlyProperty<boolean>,
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,

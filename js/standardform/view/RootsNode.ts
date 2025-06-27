@@ -28,7 +28,8 @@ const COORDINATES_X_SPACING = 15; // between root point and its coordinates disp
 export default class RootsNode extends Node {
 
   public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph, modelViewTransform: ModelViewTransform2,
+                      graph: Graph,
+                      modelViewTransform: ModelViewTransform2,
                       rootsVisibleProperty: TReadOnlyProperty<boolean>,
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       tandem: Tandem ) {

@@ -30,7 +30,10 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
   /**
    * Constructor parameters are coefficients of the alternate vertex form: y = (1/(4p))(x - h)^2 + k
    */
-  public constructor( pProperty: NumberProperty, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
+  public constructor( pProperty: NumberProperty,
+                      hProperty: NumberProperty,
+                      kProperty: NumberProperty,
+                      tandem: Tandem ) {
 
     const options: NodeOptions = {
       excludeInvisibleChildrenFromBounds: true,

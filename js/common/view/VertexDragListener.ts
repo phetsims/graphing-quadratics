@@ -28,8 +28,11 @@ export class VertexDragListener extends SoundDragListener {
    * @param modelViewTransform
    * @param [providedOptions]
    */
-  public constructor( targetNode: Node, hProperty: NumberProperty, kProperty: NumberProperty, graph: Graph,
-                      modelViewTransform: ModelViewTransform2, providedOptions: DragListenerOptions<PressedDragListener> ) {
+  public constructor( targetNode: Node,
+                      hProperty: NumberProperty,
+                      kProperty: NumberProperty, graph: Graph,
+                      modelViewTransform: ModelViewTransform2,
+                      providedOptions: DragListenerOptions<PressedDragListener> ) {
 
     let startOffset: Vector2; // where the drag started, relative to the manipulator
 
