@@ -1,7 +1,8 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * FocusRichDragListener is the drag listener for FocusManipulator.
+ * FocusRichDragListener is the drag listener that supports both pointer and keyboard input for changing the
+ * focus of a quadratic.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
