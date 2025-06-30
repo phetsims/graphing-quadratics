@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Node from '../../../../scenery/js/nodes/Node.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../../common/model/Quadratic.js';
@@ -20,7 +19,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 export class FocusDragListener extends SoundDragListener {
 
   /**
-   * @param targetNode - the Node that we attached this listener to
    * @param pProperty - p coefficient of alternate vertex form
    * @param quadraticProperty - the interactive quadratic
    * @param yRange - range of the graph's y-axis
@@ -28,8 +26,7 @@ export class FocusDragListener extends SoundDragListener {
    * @param interval - dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
    * @param tandem
    */
-  public constructor( targetNode: Node,
-                      pProperty: NumberProperty,
+  public constructor( pProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       yRange: Range,
                       modelViewTransform: ModelViewTransform2,
