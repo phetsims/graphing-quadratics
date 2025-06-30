@@ -54,6 +54,7 @@ export default class PointOnParabolaLinesNode extends Node {
     }, pathOptions ) );
 
     super( {
+      isDisposable: false,
       children: [ focusLine, directrixLine ]
     } );
 

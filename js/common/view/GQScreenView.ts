@@ -42,6 +42,7 @@ export default class GQScreenView extends ScreenView {
     const options = optionize<GQScreenViewOptions, SelfOptions, ScreenViewOptions>()( {
 
       // ScreenViewOptions
+      isDisposable: false,
       layoutBounds: GQConstants.SCREEN_VIEW_LAYOUT_BOUNDS
     }, providedOptions );
 

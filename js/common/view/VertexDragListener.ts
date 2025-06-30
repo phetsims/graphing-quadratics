@@ -31,6 +31,7 @@ export class VertexDragListener extends SoundDragListener {
                       tandem: Tandem ) {
 
     super( {
+      isDisposable: false,
       transform: modelViewTransform,
       drag: ( event, listener ) => {
 

@@ -35,6 +35,7 @@ export default class RootsNode extends Node {
                       tandem: Tandem ) {
 
     const options: NodeOptions = {
+      isDisposable: false,
       tandem: tandem,
       phetioDocumentation: 'displays the roots of the interactive quadratic'
     };

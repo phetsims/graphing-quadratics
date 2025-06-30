@@ -15,6 +15,7 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
 
   public constructor( hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
     super( {
+      isDisposable: false,
       moveOnHoldInterval: 100,
 
       /**

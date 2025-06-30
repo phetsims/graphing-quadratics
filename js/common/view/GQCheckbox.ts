@@ -54,7 +54,10 @@ export default class GQCheckbox extends Checkbox {
       mouseAreaXDilation: 5,
       mouseAreaYDilation: GQConstants.CHECKBOXES_Y_SPACING / 2,
       touchAreaXDilation: 5,
-      touchAreaYDilation: GQConstants.CHECKBOXES_Y_SPACING / 2
+      touchAreaYDilation: GQConstants.CHECKBOXES_Y_SPACING / 2,
+
+      // CheckboxOptions
+      isDisposable: false
     }, providedOptions );
 
     const text = new RichText( options.string, {

@@ -61,6 +61,7 @@ export default class PointNode extends Node {
       layoutCoordinates: DEFAULT_LAYOUT_COORDINATES,
 
       // NodeOptions
+      isDisposable: false,
       visiblePropertyOptions: { phetioReadOnly: true }
     }, providedOptions );
 

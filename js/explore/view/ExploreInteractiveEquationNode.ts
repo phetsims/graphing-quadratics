@@ -42,6 +42,7 @@ export default class ExploreInteractiveEquationNode extends Node {
     const options = optionize<ExploreInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
+      isDisposable: false,
       excludeInvisibleChildrenFromBounds: true,
       visiblePropertyOptions: {
         phetioFeatured: true

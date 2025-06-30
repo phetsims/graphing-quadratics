@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Screen from '../../../joist/js/Screen.js';
+import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
@@ -19,20 +19,15 @@ export default class FocusAndDirectrixScreen extends Screen<FocusAndDirectrixMod
 
   public constructor( tandem: Tandem ) {
 
-    const options = {
-
-      // ScreenOptions
+    const options: ScreenOptions = {
       name: GraphingQuadraticsStrings.screen.focusAndDirectrixStringProperty,
       backgroundColorProperty: GQColors.screenBackgroundColorProperty,
       homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
+      screenButtonsHelpText: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenButtonsHelpTextStringProperty,
+      tandem: tandem,
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
-      navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
-
-      screenButtonsHelpText: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenButtonsHelpTextStringProperty,
-
-      // phet-io
-      tandem: tandem
+      navigationBarIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon()
     };
 
     super(

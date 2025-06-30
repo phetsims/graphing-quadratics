@@ -37,6 +37,7 @@ export class PointToolDragListener extends SoundDragListener {
                       providedOptions: DragListenerOptions<PressedDragListener> ) {
 
     const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
+      isDisposable: false,
       transform: modelViewTransform,
 
       start: ( event, listener ) => {

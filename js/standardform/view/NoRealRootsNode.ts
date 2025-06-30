@@ -35,6 +35,7 @@ export default class NoRealRootsNode extends Node {
                       tandem: Tandem ) {
 
     const options: NodeOptions = {
+      isDisposable: false,
       maxWidth: 200, // determined empirically
       tandem: tandem,
       phetioDocumentation: 'displays NO REAL ROOTS when the interactive quadratic has no real roots'

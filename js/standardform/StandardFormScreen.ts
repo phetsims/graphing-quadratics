@@ -7,7 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Screen from '../../../joist/js/Screen.js';
+import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
@@ -20,20 +20,15 @@ export default class StandardFormScreen extends Screen<StandardFormModel, Standa
 
   public constructor( tandem: Tandem ) {
 
-    const options = {
-
-      // ScreenOptions
+    const options: ScreenOptions = {
       name: GraphingQuadraticsStrings.screen.standardFormStringProperty,
       backgroundColorProperty: GQColors.screenBackgroundColorProperty,
       homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
+      screenButtonsHelpText: GraphingQuadraticsStrings.a11y.standardFormScreen.screenButtonsHelpTextStringProperty,
+      tandem: tandem,
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
-      navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
-
-      screenButtonsHelpText: GraphingQuadraticsStrings.a11y.standardFormScreen.screenButtonsHelpTextStringProperty,
-
-      // phet-io
-      tandem: tandem
+      navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon()
     };
 
     super(

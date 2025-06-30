@@ -39,6 +39,7 @@ export default class GQEquationAccordionBox extends AccordionBox {
       {}, GQConstants.ACCORDION_BOX_OPTIONS, {
 
         // AccordionBoxOptions
+        isDisposable: false,
         phetioDocumentation: 'the accordion box that contains the interactive equation'
       }, providedOptions );
 

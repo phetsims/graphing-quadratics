@@ -91,7 +91,10 @@ export default class GQSlider extends Node {
       skipZero: false,
       snapToZero: true,
       tickValues: DEFAULT_TICK_VALUES,
-      labelColor: 'black'
+      labelColor: 'black',
+
+      // NodeOptions
+      isDisposable: false
     }, providedOptions );
 
     assert && assert( options.interval > 0, `invalid interval: ${options.interval}` );

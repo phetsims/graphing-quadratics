@@ -37,6 +37,7 @@ export default class StandardFormEquationNode extends Node {
     } );
 
     super( {
+      isDisposable: false,
       maxWidth: 225, // determined empirically
       children: [ textNode ] // Wrap the RichText so that its API is not accessible to clients or PhET-iO.
     } );

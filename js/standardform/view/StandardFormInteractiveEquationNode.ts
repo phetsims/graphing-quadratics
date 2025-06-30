@@ -32,6 +32,7 @@ export default class StandardFormInteractiveEquationNode extends Node {
                       tandem: Tandem ) {
 
     const options: NodeOptions = {
+      isDisposable: false,
       excludeInvisibleChildrenFromBounds: true,
       tandem: tandem,
       phetioDocumentation: 'the interactive equation in this accordion box'

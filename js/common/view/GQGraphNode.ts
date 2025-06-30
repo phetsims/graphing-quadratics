@@ -49,6 +49,7 @@ export default class GQGraphNode extends Node {
       decorations: [],
 
       // NodeOptions
+      isDisposable: false,
       phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 

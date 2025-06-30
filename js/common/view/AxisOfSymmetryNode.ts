@@ -51,6 +51,7 @@ export default class AxisOfSymmetryNode extends Node {
     const maxY = modelViewTransform.modelToViewY( graph.yRange.min );
 
     super( {
+      isDisposable: false,
       children: [ lineNode, equationNode ],
       visibleProperty: new DerivedProperty(
         [ axisOfSymmetryVisibleProperty, quadraticProperty ],

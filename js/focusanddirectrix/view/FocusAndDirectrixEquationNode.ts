@@ -87,6 +87,7 @@ export default class FocusAndDirectrixEquationNode extends Node {
       } );
 
     super( {
+      isDisposable: false,
       maxWidth: 225, // determined empirically
       children: [ yEqualsNode, fractionNode, rightNode ]
     } );

@@ -56,6 +56,7 @@ export default class GQViewProperties extends PhetioObject {
       coordinatesVisible: null,
 
       // PhetioObjectOptions
+      isDisposable: false,
       phetioDocumentation: 'Properties that are specific to the view',
       phetioState: false
     }, providedOptions );

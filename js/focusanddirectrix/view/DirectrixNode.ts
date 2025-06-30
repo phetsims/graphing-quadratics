@@ -46,6 +46,7 @@ export default class DirectrixNode extends Node {
     } );
 
     super( {
+      isDisposable: false,
       children: [ lineNode, equationNode ],
       visibleProperty: new DerivedProperty(
         [ directrixVisibleProperty, quadraticProperty ],

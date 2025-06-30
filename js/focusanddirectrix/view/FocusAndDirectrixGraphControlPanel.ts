@@ -22,6 +22,7 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
   public constructor( viewProperties: FocusAndDirectrixViewProperties, tandem: Tandem ) {
 
     const options = combineOptions<PanelOptions>( {}, GQConstants.PANEL_OPTIONS, {
+      isDisposable: false,
       tandem: tandem,
       phetioDocumentation: 'panel that contains controls related to the graph',
       visiblePropertyOptions: {
