@@ -21,6 +21,12 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 
+// When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
+// how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
+// We decided that the most effective value was the smallest interval that the point tool displays.
+// See https://github.com/phetsims/graphing-quadratics/issues/169.
+const X_SNAP_TOLERANCE = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
+
 export class PointToolDragListener extends SoundDragListener {
 
   public constructor( pointToolNode: PointToolNode,
@@ -29,12 +35,6 @@ export class PointToolDragListener extends SoundDragListener {
                       graph: Graph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: DragListenerOptions<PressedDragListener> ) {
-
-    // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
-    // how close the point tool's x-coordinate must be in order to snap to the closest integer x coordinate.
-    // We decided that the most effective value was the smallest interval that the point tool displays.
-    // See https://github.com/phetsims/graphing-quadratics/issues/169.
-    const xSnapTolerance = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
 
     const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
       transform: modelViewTransform,
@@ -69,7 +69,7 @@ export class PointToolDragListener extends SoundDragListener {
             // If x is close to an integer value, snap to that integer value.
             // See https://github.com/phetsims/graphing-quadratics/issues/169.
             const closestInteger = toFixedNumber( x, 0 );
-            if ( Math.abs( x - closestInteger ) < xSnapTolerance ) {
+            if ( Math.abs( x - closestInteger ) < X_SNAP_TOLERANCE ) {
               x = closestInteger;
             }
 
