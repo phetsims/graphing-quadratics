@@ -39,7 +39,8 @@ export class FocusRichDragListener extends SoundRichDragListener {
     super( {
       transform: modelViewTransform,
       keyboardDragListenerOptions: {
-        moveOnHoldInterval: 100
+        dragDelta: modelViewTransform.modelToViewDeltaX( 0.5 ),
+        shiftDragDelta: modelViewTransform.modelToViewDeltaX( 0.1 )
       },
       drag: ( event, listener ) => {
 
