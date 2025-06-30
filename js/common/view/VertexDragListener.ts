@@ -7,11 +7,9 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Node from '../../../../scenery/js/nodes/Node.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Vector2 from '../../../../dot/js/Vector2.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
@@ -20,38 +18,24 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 export class VertexDragListener extends SoundDragListener {
 
   /**
-   * @param targetNode - the Node that we attached this listener to
    * @param hProperty - h coefficient of vertex form
    * @param kProperty - k coefficient of vertex form
    * @param graph
    * @param modelViewTransform
    * @param tandem
    */
-  public constructor( targetNode: Node,
-                      hProperty: NumberProperty,
+  public constructor( hProperty: NumberProperty,
                       kProperty: NumberProperty,
                       graph: Graph,
                       modelViewTransform: ModelViewTransform2,
                       tandem: Tandem ) {
 
-    let startOffset: Vector2; // where the drag started, relative to the manipulator
-
     super( {
-
-      // note where the drag started
-      start: ( event, listener ) => {
-        const position = modelViewTransform.modelToViewXY( hProperty.value, kProperty.value );
-        startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
-      },
-
+      transform: modelViewTransform,
       drag: ( event, listener ) => {
 
-        // transform the drag point from view to model coordinate frame
-        const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-        let position = modelViewTransform.viewToModelPosition( parentPoint );
-
         // constrain to the graph
-        position = graph.constrain( position );
+        const position = graph.constrain( listener.modelPoint );
 
         // constrain to range and snap to integer grid
         const h = roundSymmetric( hProperty.range.constrainValue( position.x ) );

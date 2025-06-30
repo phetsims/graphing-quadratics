@@ -103,7 +103,7 @@ export default class VertexManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
-    this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform,
+    this.addInputListener( new VertexDragListener( hProperty, kProperty, graph, modelViewTransform,
       options.tandem.createTandem( 'dragListener' ) ) );
 
     this.addInputListener( new VertexKeyboardDragListener( hProperty, kProperty,
