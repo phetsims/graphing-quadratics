@@ -37,7 +37,7 @@ export class PointOnParabolaRichDragListener extends SoundRichDragListener {
     super( {
       transform: modelViewTransform,
       keyboardDragListenerOptions: {
-        dragSpeed: 500,
+        dragSpeed: 400,
         shiftDragSpeed: 50
       },
       drag: ( event, listener ) => {
