@@ -1,7 +1,8 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * PointOnParabolaDragListener is the drag listener for PointOnParabolaManipulator.
+ * PointOnParabolaDragListener is the drag listener that supports both pointer and keyboard input for changing
+ * the point on the parabola.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -15,30 +16,33 @@ import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
-import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
 
-export class PointOnParabolaDragListener extends SoundDragListener {
+export class PointOnParabolaDragListener extends SoundRichDragListener {
 
   /**
    * @param pointOnParabolaProperty - the point
    * @param quadraticProperty - the interactive quadratic
    * @param modelViewTransform
    * @param graph
-   * @param tandem
+   * @param parentTandem
    */
   public constructor( pointOnParabolaProperty: Property<Vector2>,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       modelViewTransform: ModelViewTransform2,
                       graph: Graph,
-                      tandem: Tandem ) {
+                      parentTandem: Tandem ) {
 
     super( {
       transform: modelViewTransform,
-
+      keyboardDragListenerOptions: {
+        dragSpeed: 500,
+        shiftDragSpeed: 50
+      },
       drag: ( event, listener ) => {
 
-        const point = listener.modelPoint;
+        const point = pointOnParabolaProperty.value.plus( listener.modelDelta );
 
         // get the closest point on the parabola
         const pointOnParabola = quadraticProperty.value.getClosestPoint( point );
@@ -70,7 +74,7 @@ export class PointOnParabolaDragListener extends SoundDragListener {
 
         pointOnParabolaProperty.value = new Vector2( x, y );
       },
-      tandem: tandem
+      tandem: parentTandem
     } );
   }
 }
