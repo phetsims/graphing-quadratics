@@ -25,14 +25,14 @@ export class FocusRichDragListener extends SoundRichDragListener {
    * @param yRange - range of the graph's y-axis
    * @param modelViewTransform
    * @param interval - dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
-   * @param tandem
+   * @param parentTandem
    */
   public constructor( pProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       yRange: Range,
                       modelViewTransform: ModelViewTransform2,
                       interval: number,
-                      tandem: Tandem ) {
+                      parentTandem: Tandem ) {
 
     assert && assert( pProperty.range, 'pProperty is missing range' );
 
@@ -63,7 +63,7 @@ export class FocusRichDragListener extends SoundRichDragListener {
 
         pProperty.value = p;
       },
-      tandem: tandem
+      tandem: parentTandem
     } );
   }
 }
