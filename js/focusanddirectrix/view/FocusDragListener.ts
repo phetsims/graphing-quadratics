@@ -12,12 +12,11 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import Range from '../../../../dot/js/Range.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 export class FocusDragListener extends SoundDragListener {
 
@@ -28,7 +27,7 @@ export class FocusDragListener extends SoundDragListener {
    * @param yRange - range of the graph's y-axis
    * @param modelViewTransform
    * @param interval - dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
-   * @param [providedOptions]
+   * @param tandem
    */
   public constructor( targetNode: Node,
                       pProperty: NumberProperty,
@@ -36,13 +35,13 @@ export class FocusDragListener extends SoundDragListener {
                       yRange: Range,
                       modelViewTransform: ModelViewTransform2,
                       interval: number,
-                      providedOptions: DragListenerOptions<PressedDragListener> ) {
+                      tandem: Tandem ) {
 
     assert && assert( pProperty.range, 'pProperty is missing range' );
 
     let startOffset: Vector2; // where the drag started, relative to the manipulator
 
-    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
+    super( {
 
       // note where the drag started
       start: ( event, listener ) => {
@@ -77,10 +76,9 @@ export class FocusDragListener extends SoundDragListener {
         assert && assert( p !== 0, 'p=0 is not supported' );
 
         pProperty.value = p;
-      }
-    }, providedOptions );
-
-    super( options );
+      },
+      tandem: tandem
+    } );
   }
 }
 

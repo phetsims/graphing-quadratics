@@ -107,9 +107,7 @@ export default class FocusManipulator extends GQManipulator {
 
     // add the drag listener
     this.addInputListener( new FocusDragListener( this, pProperty, quadraticProperty, graph.yRange,
-      modelViewTransform, options.interval, {
-        tandem: options.tandem.createTandem( 'dragListener' )
-      } ) );
+      modelViewTransform, options.interval, options.tandem.createTandem( 'dragListener' ) ) );
 
     // move the manipulator
     quadraticProperty.link( quadratic => {

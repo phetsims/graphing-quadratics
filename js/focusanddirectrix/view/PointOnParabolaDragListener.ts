@@ -13,12 +13,11 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
-import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 export class PointOnParabolaDragListener extends SoundDragListener {
 
@@ -28,18 +27,18 @@ export class PointOnParabolaDragListener extends SoundDragListener {
    * @param quadraticProperty - the interactive quadratic
    * @param modelViewTransform
    * @param graph
-   * @param [providedOptions]
+   * @param tandem
    */
   public constructor( targetNode: Node,
                       pointOnParabolaProperty: Property<Vector2>,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       modelViewTransform: ModelViewTransform2,
                       graph: Graph,
-                      providedOptions: DragListenerOptions<PressedDragListener> ) {
+                      tandem: Tandem ) {
 
     let startOffset: Vector2; // where the drag started, relative to the manipulator
 
-    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
+    super( {
 
       // note where the drag started
       start: ( event, listener ) => {
@@ -82,10 +81,9 @@ export class PointOnParabolaDragListener extends SoundDragListener {
         const y = quadraticProperty.value.solveY( x );
 
         pointOnParabolaProperty.value = new Vector2( x, y );
-      }
-    }, providedOptions );
-
-    super( options );
+      },
+      tandem: tandem
+    } );
   }
 }
 
