@@ -78,7 +78,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
     // add drag handler
-    this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
+    this.addInputListener( new PointOnParabolaDragListener( pointOnParabolaProperty, quadraticProperty,
       modelViewTransform, graph, options.tandem.createTandem( 'dragListener' ) ) );
 
     // move the manipulator

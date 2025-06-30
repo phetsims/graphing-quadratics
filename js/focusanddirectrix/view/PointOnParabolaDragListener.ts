@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Node from '../../../../scenery/js/nodes/Node.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -22,35 +21,24 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 export class PointOnParabolaDragListener extends SoundDragListener {
 
   /**
-   * @param targetNode - the Node that we attached this listener to
    * @param pointOnParabolaProperty - the point
    * @param quadraticProperty - the interactive quadratic
    * @param modelViewTransform
    * @param graph
    * @param tandem
    */
-  public constructor( targetNode: Node,
-                      pointOnParabolaProperty: Property<Vector2>,
+  public constructor( pointOnParabolaProperty: Property<Vector2>,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       modelViewTransform: ModelViewTransform2,
                       graph: Graph,
                       tandem: Tandem ) {
 
-    let startOffset: Vector2; // where the drag started, relative to the manipulator
-
     super( {
-
-      // note where the drag started
-      start: ( event, listener ) => {
-        const position = modelViewTransform.modelToViewPosition( pointOnParabolaProperty.value );
-        startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
-      },
+      transform: modelViewTransform,
 
       drag: ( event, listener ) => {
 
-        // transform the drag point from view to model coordinate frame
-        const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-        const point = modelViewTransform.viewToModelPosition( parentPoint );
+        const point = listener.modelPoint;
 
         // get the closest point on the parabola
         const pointOnParabola = quadraticProperty.value.getClosestPoint( point );
