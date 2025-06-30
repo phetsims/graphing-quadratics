@@ -12,7 +12,6 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import Range from '../../../../dot/js/Range.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Vector2 from '../../../../dot/js/Vector2.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
@@ -39,28 +38,15 @@ export class FocusDragListener extends SoundDragListener {
 
     assert && assert( pProperty.range, 'pProperty is missing range' );
 
-    let startOffset: Vector2; // where the drag started, relative to the manipulator
-
     super( {
-
-      // note where the drag started
-      start: ( event, listener ) => {
-
-        const focus = quadraticProperty.value.focus!;
-        assert && assert( focus, `expected focus: ${focus}` );
-
-        const position = modelViewTransform.modelToViewPosition( focus );
-        startOffset = targetNode.globalToParentPoint( event.pointer.point ).minus( position );
-      },
+      transform: modelViewTransform,
 
       drag: ( event, listener ) => {
 
         const vertex = quadraticProperty.value.vertex!;
         assert && assert( vertex, `expected vertex: ${vertex}` );
 
-        // transform the drag point from view to model coordinate frame
-        const parentPoint = targetNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-        const position = modelViewTransform.viewToModelPosition( parentPoint );
+        const position = listener.modelPoint;
 
         // constrain to the graph
         const y = yRange.constrainValue( position.y );
