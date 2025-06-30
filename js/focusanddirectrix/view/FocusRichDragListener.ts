@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * FocusDragListener is the drag listener for FocusManipulator.
+ * FocusRichDragListener is the drag listener for FocusManipulator.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -16,7 +16,7 @@ import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
 
-export class FocusDragListener extends SoundRichDragListener {
+export class FocusRichDragListener extends SoundRichDragListener {
 
   /**
    * @param pProperty - p coefficient of alternate vertex form
@@ -67,4 +67,4 @@ export class FocusDragListener extends SoundRichDragListener {
   }
 }
 
-graphingQuadratics.register( 'FocusDragListener', FocusDragListener );
+graphingQuadratics.register( 'FocusRichDragListener', FocusRichDragListener );

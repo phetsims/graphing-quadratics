@@ -21,7 +21,7 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import { FocusDragListener } from './FocusDragListener.js';
+import { FocusRichDragListener } from './FocusRichDragListener.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -105,7 +105,7 @@ export default class FocusManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
-    this.addInputListener( new FocusDragListener( pProperty, quadraticProperty, graph.yRange,
+    this.addInputListener( new FocusRichDragListener( pProperty, quadraticProperty, graph.yRange,
       modelViewTransform, options.interval, options.tandem ) );
 
     // move the manipulator
