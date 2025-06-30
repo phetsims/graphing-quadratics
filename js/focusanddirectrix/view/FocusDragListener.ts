@@ -13,10 +13,10 @@ import Range from '../../../../dot/js/Range.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
-import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
 
-export class FocusDragListener extends SoundDragListener {
+export class FocusDragListener extends SoundRichDragListener {
 
   /**
    * @param pProperty - p coefficient of alternate vertex form
@@ -37,16 +37,18 @@ export class FocusDragListener extends SoundDragListener {
 
     super( {
       transform: modelViewTransform,
-
+      keyboardDragListenerOptions: {
+        moveOnHoldInterval: 100
+      },
       drag: ( event, listener ) => {
 
         const vertex = quadraticProperty.value.vertex!;
         assert && assert( vertex, `expected vertex: ${vertex}` );
 
-        const position = listener.modelPoint;
+        let y = pProperty.value + listener.modelDelta.y;
 
         // constrain to the graph
-        const y = yRange.constrainValue( position.y );
+        y = yRange.constrainValue( y );
 
         // constrain and round
         let p = pProperty.range.constrainValue( y - vertex.y );
