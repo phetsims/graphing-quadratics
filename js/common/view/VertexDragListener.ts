@@ -29,7 +29,8 @@ export class VertexDragListener extends SoundDragListener {
    */
   public constructor( targetNode: Node,
                       hProperty: NumberProperty,
-                      kProperty: NumberProperty, graph: Graph,
+                      kProperty: NumberProperty,
+                      graph: Graph,
                       modelViewTransform: ModelViewTransform2,
                       tandem: Tandem ) {
 
