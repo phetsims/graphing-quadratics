@@ -20,7 +20,7 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import { PointOnParabolaDragListener } from './PointOnParabolaDragListener.js';
+import { PointOnParabolaRichDragListener } from './PointOnParabolaRichDragListener.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
@@ -78,7 +78,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
     // add drag handler
-    this.addInputListener( new PointOnParabolaDragListener( pointOnParabolaProperty, quadraticProperty,
+    this.addInputListener( new PointOnParabolaRichDragListener( pointOnParabolaProperty, quadraticProperty,
       modelViewTransform, graph, options.tandem ) );
 
     // move the manipulator

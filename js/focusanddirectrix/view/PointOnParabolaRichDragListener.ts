@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * PointOnParabolaDragListener is the drag listener that supports both pointer and keyboard input for changing
+ * PointOnParabolaRichDragListener is the drag listener that supports both pointer and keyboard input for changing
  * the point on the parabola.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -19,7 +19,7 @@ import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
 
-export class PointOnParabolaDragListener extends SoundRichDragListener {
+export class PointOnParabolaRichDragListener extends SoundRichDragListener {
 
   /**
    * @param pointOnParabolaProperty - the point
@@ -79,4 +79,4 @@ export class PointOnParabolaDragListener extends SoundRichDragListener {
   }
 }
 
-graphingQuadratics.register( 'PointOnParabolaDragListener', PointOnParabolaDragListener );
+graphingQuadratics.register( 'PointOnParabolaRichDragListener', PointOnParabolaRichDragListener );
