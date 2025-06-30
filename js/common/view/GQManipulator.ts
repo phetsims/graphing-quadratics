@@ -52,7 +52,6 @@ export default class GQManipulator extends Manipulator {
     const options = optionize<GQManipulatorOptions, SelfOptions, ManipulatorOptions>()( {
 
       // SelfOptions
-      isDisposable: false,
       radius: 10,
       color: 'black',
       coordinatesBackgroundColor: 'black',
@@ -61,6 +60,7 @@ export default class GQManipulator extends Manipulator {
       layoutCoordinates: DEFAULT_LAYOUT_COORDINATES,
 
       // ManipulatorOptions
+      isDisposable: false,
       haloAlpha: 0.15,
       phetioInputEnabledPropertyInstrumented: true
     }, providedOptions );
