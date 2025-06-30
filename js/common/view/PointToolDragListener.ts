@@ -31,23 +31,17 @@ export class PointToolDragListener extends SoundDragListener {
                       providedOptions: DragListenerOptions<PressedDragListener> ) {
 
     // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
-    // how close the point tool's x coordinate must be in order to snap to the closest integer x coordinate.
+    // how close the point tool's x-coordinate must be in order to snap to the closest integer x coordinate.
     // We decided that the most effective value was the smallest interval that the point tool displays.
     // See https://github.com/phetsims/graphing-quadratics/issues/169.
     const xSnapTolerance = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
 
-    let startOffset: Vector2; // where the drag started, relative to the tool's origin, in parent view coordinates
-
     const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
+      transform: modelViewTransform,
 
-      // note where the drag started
       start: ( event, listener ) => {
 
         pointTool.isDragging = true;
-
-        // Note the mouse-click offset when dragging starts.
-        const position = modelViewTransform.modelToViewPosition( pointTool.positionProperty.value );
-        startOffset = pointToolNode.globalToParentPoint( event.pointer.point ).minus( position );
 
         // Move the tool that we're dragging to the foreground.
         pointToolNode.moveToFront();
@@ -55,12 +49,8 @@ export class PointToolDragListener extends SoundDragListener {
 
       drag: ( event, listener ) => {
 
-        // Convert drag point to model position
-        const parentPoint = pointToolNode.globalToParentPoint( event.pointer.point ).minus( startOffset );
-        let position = modelViewTransform.viewToModelPosition( parentPoint );
-
-        // constrained to dragBounds
-        position = pointTool.dragBounds.closestPointTo( position );
+        // Constrained to dragBounds.
+        let position = pointTool.dragBounds.closestPointTo( listener.modelPoint );
 
         // If we're on the graph and the contents of the graph are visible...
         if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
@@ -88,7 +78,7 @@ export class PointToolDragListener extends SoundDragListener {
           }
         }
 
-        // move the point tool
+        // Move the point tool.
         pointTool.positionProperty.value = position;
       },
 
