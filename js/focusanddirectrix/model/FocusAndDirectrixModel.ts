@@ -32,8 +32,8 @@ export default class FocusAndDirectrixModel extends GQModel {
 
   // Coefficients of the alternative vertex form: y = (1/(4p))(x - h)^2 + k
   public readonly pProperty: NumberProperty;
-  public readonly hProperty: NumberProperty;
-  public readonly kProperty: NumberProperty;
+  public readonly hProperty: NumberProperty; // h is the horizontal shift.
+  public readonly kProperty: NumberProperty; // k is the vertical shift.
 
   // the interactive point on the parabola
   public readonly pointOnParabolaProperty: Property<Vector2>;

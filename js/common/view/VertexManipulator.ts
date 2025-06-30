@@ -24,6 +24,7 @@ import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from './GQManipulator.js';
 import { VertexDragListener } from './VertexDragListener.js';
+import VertexKeyboardDragListener from './VertexKeyboardDragListener.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -102,10 +103,11 @@ export default class VertexManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
-    // add the drag listener
-    this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'dragListener' )
-    } ) );
+    this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform,
+      options.tandem.createTandem( 'dragListener' ) ) );
+
+    this.addInputListener( new VertexKeyboardDragListener( hProperty, kProperty,
+      options.tandem.createTandem( 'keyboardDragListener' ) ) );
 
     // move the manipulator
     quadraticProperty.link( quadratic => {

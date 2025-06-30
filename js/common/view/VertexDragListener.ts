@@ -11,12 +11,11 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 export class VertexDragListener extends SoundDragListener {
 
@@ -26,17 +25,17 @@ export class VertexDragListener extends SoundDragListener {
    * @param kProperty - k coefficient of vertex form
    * @param graph
    * @param modelViewTransform
-   * @param [providedOptions]
+   * @param tandem
    */
   public constructor( targetNode: Node,
                       hProperty: NumberProperty,
                       kProperty: NumberProperty, graph: Graph,
                       modelViewTransform: ModelViewTransform2,
-                      providedOptions: DragListenerOptions<PressedDragListener> ) {
+                      tandem: Tandem ) {
 
     let startOffset: Vector2; // where the drag started, relative to the manipulator
 
-    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
+    super( {
 
       // note where the drag started
       start: ( event, listener ) => {
@@ -61,10 +60,9 @@ export class VertexDragListener extends SoundDragListener {
         // We decided that this is OK, and we can live with it.
         hProperty.value = h;
         kProperty.value = k;
-      }
-    }, providedOptions );
-
-    super( options );
+      },
+      tandem: tandem
+    } );
   }
 }
 
