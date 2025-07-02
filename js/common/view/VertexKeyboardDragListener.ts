@@ -10,10 +10,13 @@ import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboard
 import graphingQuadratics from '../../graphingQuadratics.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import VertexManipulator from './VertexManipulator.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class VertexKeyboardDragListener extends SoundKeyboardDragListener {
 
-  public constructor( hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
+  public constructor( vertexManipulator: VertexManipulator, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
     super( {
       isDisposable: false,
       moveOnHoldInterval: 100,
@@ -49,6 +52,13 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
         // Set the new values.
         hProperty.value = h;
         kProperty.value = k;
+      },
+      end: () => {
+        const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
+          h: hProperty.value,
+          k: kProperty.value
+        } );
+        vertexManipulator.addAccessibleObjectResponse( response );
       },
       tandem: tandem
     } );

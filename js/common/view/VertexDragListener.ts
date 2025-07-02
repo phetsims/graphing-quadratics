@@ -14,17 +14,22 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import VertexManipulator from './VertexManipulator.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 
 export class VertexDragListener extends SoundDragListener {
 
   /**
+   * @para vertexManipulator
    * @param hProperty - h coefficient of vertex form
    * @param kProperty - k coefficient of vertex form
    * @param graph
    * @param modelViewTransform
    * @param tandem
    */
-  public constructor( hProperty: NumberProperty,
+  public constructor( vertexManipulator: VertexManipulator,
+                      hProperty: NumberProperty,
                       kProperty: NumberProperty,
                       graph: Graph,
                       modelViewTransform: ModelViewTransform2,
@@ -46,6 +51,13 @@ export class VertexDragListener extends SoundDragListener {
         // We decided that this is OK, and we can live with it.
         hProperty.value = h;
         kProperty.value = k;
+      },
+      end: () => {
+        const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
+          h: hProperty.value,
+          k: kProperty.value
+        } );
+        vertexManipulator.addAccessibleObjectResponse( response );
       },
       tandem: tandem
     } );

@@ -11,7 +11,6 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Manipulator, { ManipulatorOptions } from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
@@ -41,7 +40,7 @@ type SelfOptions = {
   layoutCoordinates?: LayoutCoordinatesFunction;
 };
 
-export type GQManipulatorOptions = SelfOptions & ManipulatorOptions & PickRequired<ManipulatorOptions, 'tandem'>;
+export type GQManipulatorOptions = SelfOptions & ManipulatorOptions;
 
 export default class GQManipulator extends Manipulator {
 

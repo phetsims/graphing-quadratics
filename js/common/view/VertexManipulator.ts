@@ -13,7 +13,7 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
@@ -25,13 +25,15 @@ import Quadratic from '../model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from './GQManipulator.js';
 import { VertexDragListener } from './VertexDragListener.js';
 import VertexKeyboardDragListener from './VertexKeyboardDragListener.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
 
 type SelfOptions = EmptySelfOptions;
 
-type VertexManipulatorOptions = SelfOptions & StrictOmit<GQManipulatorOptions, 'layoutCoordinates'>;
+type VertexManipulatorOptions = SelfOptions & StrictOmit<GQManipulatorOptions, 'layoutCoordinates' | 'accessibleName' | 'accessibleHelpText'>;
 
 export default class VertexManipulator extends GQManipulator {
 
@@ -54,7 +56,7 @@ export default class VertexManipulator extends GQManipulator {
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: VertexManipulatorOptions ) {
 
-    const options = optionize<VertexManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {
+    const options = optionize4<VertexManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {}, {
 
       // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
@@ -62,8 +64,10 @@ export default class VertexManipulator extends GQManipulator {
       coordinatesForegroundColor: 'white',
       coordinatesBackgroundColor: GQColors.vertexColorProperty,
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
+      accessibleName: GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleHelpTextStringProperty,
       phetioDocumentation: 'manipulator for the vertex'
-    }, providedOptions );
+    }, AccessibleDraggableOptions, providedOptions );
 
     // position coordinates based on which way the parabola opens
     options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
@@ -103,10 +107,10 @@ export default class VertexManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
-    this.addInputListener( new VertexDragListener( hProperty, kProperty, graph, modelViewTransform,
+    this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform,
       options.tandem.createTandem( 'dragListener' ) ) );
 
-    this.addInputListener( new VertexKeyboardDragListener( hProperty, kProperty,
+    this.addInputListener( new VertexKeyboardDragListener( this, hProperty, kProperty,
       options.tandem.createTandem( 'keyboardDragListener' ) ) );
 
     // move the manipulator
