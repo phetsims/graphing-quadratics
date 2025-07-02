@@ -44,6 +44,7 @@ export default class StandardFormInteractiveEquationNode extends Node {
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.standardFormAColorProperty,
         accessibleName: GraphingQuadraticsStrings.aStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.aPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       } ) );
@@ -51,6 +52,7 @@ export default class StandardFormInteractiveEquationNode extends Node {
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.standardFormBColorProperty,
         accessibleName: GraphingQuadraticsStrings.bStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.bPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'bPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'b' } )
       } ) );
@@ -58,6 +60,7 @@ export default class StandardFormInteractiveEquationNode extends Node {
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.standardFormCColorProperty,
         accessibleName: GraphingQuadraticsStrings.cStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.cPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'cPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'c' } )
       } ) );

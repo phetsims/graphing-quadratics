@@ -180,6 +180,21 @@ type StringsType = {
     };
     'kSlider': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'aPicker': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'bPicker': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'cPicker': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'hPicker': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'kPicker': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     }
   }
 };

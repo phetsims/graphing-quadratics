@@ -44,6 +44,7 @@ export default class VertexFormInteractiveEquationNode extends Node {
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormAColorProperty,
         accessibleName: GraphingQuadraticsStrings.aStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.aPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       } ) );
@@ -51,6 +52,7 @@ export default class VertexFormInteractiveEquationNode extends Node {
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormHColorProperty,
         accessibleName: GraphingQuadraticsStrings.hStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.hPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'hPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } )
       } ) );
@@ -58,6 +60,7 @@ export default class VertexFormInteractiveEquationNode extends Node {
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormKColorProperty,
         accessibleName: GraphingQuadraticsStrings.kStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.kPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'kPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } )
       } ) );
