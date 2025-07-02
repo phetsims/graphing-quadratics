@@ -22,6 +22,7 @@ import GQViewProperties from './GQViewProperties.js';
 import PointToolNode from './PointToolNode.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 // constants
 const X_SPACING = 15; // between graph and control panels
@@ -72,6 +73,8 @@ export default class GQScreenView extends ScreenView {
         graphContentsVisible => graphContentsVisible ? 'white' : PhetColorScheme.BUTTON_YELLOW ),
       left: model.modelViewTransform.modelToViewX( model.graph.xRange.max ) + 21,
       bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
+      accessibleName: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleHelpTextStringProperty,
       tandem: options.tandem.createTandem( 'graphContentsToggleButton' ),
       phetioDocumentation: 'button that shows/hides the contents of the graph'
     } );
