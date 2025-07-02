@@ -16,10 +16,16 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
+import FocusManipulator from './FocusManipulator.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import GQConstants from '../../common/GQConstants.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 export class FocusRichDragListener extends SoundRichDragListener {
 
   /**
+   * @param manipulator
    * @param pProperty - p coefficient of alternate vertex form
    * @param quadraticProperty - the interactive quadratic
    * @param yRange - range of the graph's y-axis
@@ -27,7 +33,8 @@ export class FocusRichDragListener extends SoundRichDragListener {
    * @param interval - dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
    * @param parentTandem
    */
-  public constructor( pProperty: NumberProperty,
+  public constructor( manipulator: FocusManipulator,
+                      pProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       yRange: Range,
                       modelViewTransform: ModelViewTransform2,
@@ -63,6 +70,15 @@ export class FocusRichDragListener extends SoundRichDragListener {
         assert && assert( p !== 0, 'p=0 is not supported' );
 
         pProperty.value = p;
+      },
+      end: () => {
+        const focus = quadraticProperty.value.focus!;
+        assert && assert( focus );
+        const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.focusManipulator.accessibleObjectResponseStringProperty, {
+          x: toFixedNumber( focus.x, GQConstants.FOCUS_DECIMALS ),
+          y: toFixedNumber( focus.y, GQConstants.FOCUS_DECIMALS )
+        } );
+        manipulator.addAccessibleObjectResponse( response );
       },
       tandem: parentTandem
     } );

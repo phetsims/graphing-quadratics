@@ -14,7 +14,6 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
-import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
@@ -27,26 +26,17 @@ import { VertexDragListener } from './VertexDragListener.js';
 import VertexKeyboardDragListener from './VertexKeyboardDragListener.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
 
 type SelfOptions = EmptySelfOptions;
 
-type VertexManipulatorOptions = SelfOptions & StrictOmit<GQManipulatorOptions, 'layoutCoordinates' | 'accessibleName' | 'accessibleHelpText'>;
+type VertexManipulatorOptions = SelfOptions & PickRequired<GQManipulatorOptions, 'tandem' | 'phetioDocumentation'>;
 
 export default class VertexManipulator extends GQManipulator {
 
-  /**
-   * @param hProperty - h coefficient of the vertex form of the quadratic equation
-   * @param kProperty - k coefficient of the vertex form of the quadratic equation
-   * @param quadraticProperty - the interactive quadratic
-   * @param graph
-   * @param modelViewTransform
-   * @param vertexVisibleProperty
-   * @param coordinatesVisibleProperty
-   * @param [providedOptions]
-   */
   public constructor( hProperty: NumberProperty,
                       kProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
@@ -107,10 +97,10 @@ export default class VertexManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
-    this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform,
+    this.addInputListener( new VertexDragListener( this, hProperty, kProperty, quadraticProperty, graph, modelViewTransform,
       options.tandem.createTandem( 'dragListener' ) ) );
 
-    this.addInputListener( new VertexKeyboardDragListener( this, hProperty, kProperty,
+    this.addInputListener( new VertexKeyboardDragListener( this, hProperty, kProperty, quadraticProperty,
       options.tandem.createTandem( 'keyboardDragListener' ) ) );
 
     // move the manipulator

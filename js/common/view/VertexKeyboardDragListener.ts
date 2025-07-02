@@ -13,10 +13,18 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import VertexManipulator from './VertexManipulator.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import GQConstants from '../GQConstants.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Quadratic from '../model/Quadratic.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 export default class VertexKeyboardDragListener extends SoundKeyboardDragListener {
 
-  public constructor( vertexManipulator: VertexManipulator, hProperty: NumberProperty, kProperty: NumberProperty, tandem: Tandem ) {
+  public constructor( manipulator: VertexManipulator,
+                      hProperty: NumberProperty,
+                      kProperty: NumberProperty,
+                      quadraticProperty: TReadOnlyProperty<Quadratic>,
+                      tandem: Tandem ) {
     super( {
       isDisposable: false,
       moveOnHoldInterval: 100,
@@ -54,11 +62,13 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
         kProperty.value = k;
       },
       end: () => {
+        const vertex = quadraticProperty.value.vertex!;
+        assert && assert( vertex );
         const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
-          h: hProperty.value,
-          k: kProperty.value
+          x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
+          y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
         } );
-        vertexManipulator.addAccessibleObjectResponse( response );
+        manipulator.addAccessibleObjectResponse( response );
       },
       tandem: tandem
     } );

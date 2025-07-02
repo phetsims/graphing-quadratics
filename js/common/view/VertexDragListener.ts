@@ -14,23 +14,20 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import VertexManipulator from './VertexManipulator.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Quadratic from '../model/Quadratic.js';
+import GQConstants from '../GQConstants.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import VertexManipulator from './VertexManipulator.js';
 
 export class VertexDragListener extends SoundDragListener {
 
-  /**
-   * @para vertexManipulator
-   * @param hProperty - h coefficient of vertex form
-   * @param kProperty - k coefficient of vertex form
-   * @param graph
-   * @param modelViewTransform
-   * @param tandem
-   */
-  public constructor( vertexManipulator: VertexManipulator,
+  public constructor( manipulator: VertexManipulator,
                       hProperty: NumberProperty,
                       kProperty: NumberProperty,
+                      quadraticProperty: TReadOnlyProperty<Quadratic>,
                       graph: Graph,
                       modelViewTransform: ModelViewTransform2,
                       tandem: Tandem ) {
@@ -53,11 +50,13 @@ export class VertexDragListener extends SoundDragListener {
         kProperty.value = k;
       },
       end: () => {
+        const vertex = quadraticProperty.value.vertex!;
+        assert && assert( vertex );
         const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
-          h: hProperty.value,
-          k: kProperty.value
+          x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
+          y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
         } );
-        vertexManipulator.addAccessibleObjectResponse( response );
+        manipulator.addAccessibleObjectResponse( response );
       },
       tandem: tandem
     } );

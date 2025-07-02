@@ -13,7 +13,6 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
-import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
@@ -23,13 +22,15 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { PointOnParabolaRichDragListener } from './PointOnParabolaRichDragListener.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
 
 type SelfOptions = EmptySelfOptions;
 
-type PointOnParabolaManipulatorOptions = SelfOptions & StrictOmit<GQManipulatorOptions, 'layoutCoordinates'>;
+type PointOnParabolaManipulatorOptions = SelfOptions &
+  PickRequired<GQManipulatorOptions, 'visibleProperty' | 'tandem' | 'phetioDocumentation'>;
 
 export default class PointOnParabolaManipulator extends GQManipulator {
 

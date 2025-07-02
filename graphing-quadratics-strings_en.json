@@ -180,7 +180,7 @@
         "value": "Move to relocate vertex of quadratic"
       },
       "accessibleObjectResponse": {
-        "value": "{{h}} {{k}}"
+        "value": "{{x}} {{y}}"
       }
     },
     "focusManipulator": {

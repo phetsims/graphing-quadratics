@@ -12,8 +12,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
-import optionize from '../../../../phet-core/js/optionize.js';
-import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
@@ -22,6 +20,9 @@ import Quadratic from '../../common/model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { FocusRichDragListener } from './FocusRichDragListener.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -32,19 +33,10 @@ type SelfOptions = {
   interval?: number;
 };
 
-type FocusManipulatorOptions = SelfOptions & StrictOmit<GQManipulatorOptions, 'layoutCoordinates'>;
+type FocusManipulatorOptions = SelfOptions & PickRequired<GQManipulatorOptions, 'tandem' | 'phetioDocumentation'>;
 
 export default class FocusManipulator extends GQManipulator {
 
-  /**
-   * @param pProperty - p coefficient of alternate vertex form
-   * @param quadraticProperty - the interactive quadratic
-   * @param graph
-   * @param modelViewTransform
-   * @param focusVisibleProperty
-   * @param coordinatesVisibleProperty
-   * @param [providedOptions]
-   */
   public constructor( pProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       graph: Graph,
@@ -64,7 +56,8 @@ export default class FocusManipulator extends GQManipulator {
       coordinatesForegroundColor: 'white',
       coordinatesBackgroundColor: GQColors.focusColorProperty,
       coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
-      phetioDocumentation: 'manipulator for the focus'
+      accessibleName: GraphingQuadraticsStrings.a11y.focusManipulator.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.focusManipulator.accessibleHelpTextStringProperty
     }, providedOptions );
 
     // position coordinates based on which way the parabola opens
@@ -105,7 +98,7 @@ export default class FocusManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
-    this.addInputListener( new FocusRichDragListener( pProperty, quadraticProperty, graph.yRange,
+    this.addInputListener( new FocusRichDragListener( this, pProperty, quadraticProperty, graph.yRange,
       modelViewTransform, options.interval, options.tandem ) );
 
     // move the manipulator

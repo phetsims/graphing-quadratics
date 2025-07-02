@@ -21,7 +21,6 @@ import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragList
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import { toFixed } from '../../../../dot/js/util/toFixed.js';
 
 export class PointOnParabolaRichDragListener extends SoundRichDragListener {
 
@@ -82,8 +81,8 @@ export class PointOnParabolaRichDragListener extends SoundRichDragListener {
       },
       end: () => {
         const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleObjectResponseStringProperty, {
-          x: toFixed( pointOnParabolaProperty.value.x, GQConstants.POINT_ON_PARABOLA_DECIMALS ),
-          y: toFixed( pointOnParabolaProperty.value.y, GQConstants.POINT_ON_PARABOLA_DECIMALS )
+          x: toFixedNumber( pointOnParabolaProperty.value.x, GQConstants.POINT_ON_PARABOLA_DECIMALS ),
+          y: toFixedNumber( pointOnParabolaProperty.value.y, GQConstants.POINT_ON_PARABOLA_DECIMALS )
         } );
         manipulator.addAccessibleObjectResponse( response );
       },
