@@ -128,6 +128,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       labelColor: GQColors.focusAndDirectrixPColorProperty,
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.pStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.pSlider.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'pSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
       }
@@ -137,6 +138,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       labelColor: GQColors.focusAndDirectrixHColorProperty,
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.hStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.hSlider.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'hSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
       }
@@ -146,6 +148,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       labelColor: GQColors.focusAndDirectrixKColorProperty,
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.kStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.kSlider.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'kSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
       }

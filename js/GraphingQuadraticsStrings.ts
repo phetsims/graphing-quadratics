@@ -162,6 +162,24 @@ type StringsType = {
     };
     'pointOnParabolaCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'aSlider': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'bSlider': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'cSlider': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'pSlider': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'hSlider': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'kSlider': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     }
   }
 };

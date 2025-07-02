@@ -113,6 +113,7 @@ export default class ExploreInteractiveEquationNode extends Node {
       labelColor: GQColors.exploreAColorProperty,
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.aStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.aSlider.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'aSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
       }
@@ -122,6 +123,7 @@ export default class ExploreInteractiveEquationNode extends Node {
       labelColor: GQColors.exploreBColorProperty,
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.bStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.bSlider.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'bSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
       }
@@ -131,6 +133,7 @@ export default class ExploreInteractiveEquationNode extends Node {
       labelColor: GQColors.exploreCColorProperty,
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.cStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.cSlider.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'cSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
       }

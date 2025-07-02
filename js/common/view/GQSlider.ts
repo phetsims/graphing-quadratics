@@ -20,8 +20,6 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
-import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
@@ -33,6 +31,7 @@ import GQConstants from '../GQConstants.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { numberOfDecimalPlaces } from '../../../../dot/js/util/numberOfDecimalPlaces.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 
 type TransformFunction = ( value: number ) => number;
 
@@ -70,7 +69,7 @@ type SelfOptions = {
 
   // Propagated to VSlider. Note that the slider has a tandem, but the GQSlider (parent Node) does not.
   // See https://github.com/phetsims/graphing-quadratics/issues/208
-  sliderOptions: PickOptional<VSliderOptions, 'phetioDocumentation'> & PickRequired<VSliderOptions, 'tandem' | 'accessibleName'>;
+  sliderOptions: WithRequired<VSliderOptions, 'tandem'>;
 };
 
 export type GQSliderOptions = SelfOptions;
