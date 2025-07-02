@@ -13,7 +13,6 @@ import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Manipulator from '../../../../graphing-lines/js/common/view/manipulator/Manipulator.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -30,6 +29,7 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQSymbols from '../GQSymbols.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 
 type SelfOptions = {
   string: TReadOnlyProperty<string> | string; // required string for text
@@ -39,7 +39,7 @@ type SelfOptions = {
   icon?: Node; // optional icon, to the right of the text
 };
 
-type GQCheckboxOptions = SelfOptions & PickRequired<CheckboxOptions, 'tandem' | 'phetioDocumentation'> & Pick<CheckboxOptions, 'phetioDisplayOnlyPropertyInstrumented'>;
+type GQCheckboxOptions = SelfOptions & WithRequired<CheckboxOptions, 'tandem' | 'phetioDocumentation'>;
 
 export default class GQCheckbox extends Checkbox {
 
@@ -97,6 +97,8 @@ export default class GQCheckbox extends Checkbox {
         [ GQSymbols.yMarkupStringProperty, GQSymbols.aMarkupStringProperty, GQSymbols.xSquaredMarkupStringProperty ],
         ( y, a, x2 ) => `${y} ${MathSymbols.EQUAL_TO} ${a}${x2}` ),
       textFill: GQColors.QUADRATIC_TERM,
+      accessibleName: GraphingQuadraticsStrings.a11y.quadraticTermCheckbox.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.quadraticTermCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
@@ -114,6 +116,8 @@ export default class GQCheckbox extends Checkbox {
         [ GQSymbols.yMarkupStringProperty, GQSymbols.bMarkupStringProperty, GQSymbols.xMarkupStringProperty ],
         ( y, b, x ) => `${y} ${MathSymbols.EQUAL_TO} ${b}${x}` ),
       textFill: GQColors.LINEAR_TERM,
+      accessibleName: GraphingQuadraticsStrings.a11y.linearTermCheckbox.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.linearTermCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
@@ -131,6 +135,8 @@ export default class GQCheckbox extends Checkbox {
         [ GQSymbols.yMarkupStringProperty, GQSymbols.cMarkupStringProperty ],
         ( y, c ) => `${y} ${MathSymbols.EQUAL_TO} ${c}` ),
       textFill: GQColors.CONSTANT_TERM,
+      accessibleName: GraphingQuadraticsStrings.a11y.constantTermCheckbox.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.constantTermCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
@@ -148,6 +154,7 @@ export default class GQCheckbox extends Checkbox {
         lineWidth: GQConstants.AXIS_OF_SYMMETRY_LINE_WIDTH,
         lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
       } ),
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.axisOfSymmetryCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph'
@@ -160,6 +167,7 @@ export default class GQCheckbox extends Checkbox {
   public static createCoordinatesCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.coordinatesStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.coordinatesCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph'
     } );
@@ -176,6 +184,7 @@ export default class GQCheckbox extends Checkbox {
         lineWidth: GQConstants.DIRECTRIX_LINE_WIDTH,
         lineDash: GQConstants.DIRECTRIX_LINE_DASH
       } ),
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.directrixCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the directrix on the graph'
@@ -188,6 +197,7 @@ export default class GQCheckbox extends Checkbox {
   public static createEquationsCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.equationsStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.equationsCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDocumentation: 'checkbox that shows equations on graphed curves'
     } );
@@ -200,6 +210,7 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.focusStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.focusColorProperty ),
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.focusCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the focus on the graph'
@@ -213,6 +224,7 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.pointOnParabolaStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.pointOnParabolaColorProperty ),
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.pointOnParabolaCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'
@@ -241,6 +253,7 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.rootsStringProperty,
       icon: icon,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.rootsCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows roots on the graph'
@@ -254,6 +267,7 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.vertexStringProperty,
       icon: new Circle( 6, { fill: GQColors.vertexColorProperty } ),
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexPointCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the vertex on the graph'
@@ -267,6 +281,7 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.vertexStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.vertexColorProperty ),
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexManipulatorCheckbox.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the vertex manipulator on the graph'

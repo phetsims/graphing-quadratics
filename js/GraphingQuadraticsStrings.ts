@@ -111,6 +111,45 @@ type StringsType = {
     'rightPointToolNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'quadraticTermCheckbox': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'linearTermCheckbox': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'constantTermCheckbox': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'equationsCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'vertexManipulatorCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'vertexPointCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'axisOfSymmetryCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'rootsCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'coordinatesCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'focusCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'directrixCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'pointOnParabolaCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     }
   }
 };
