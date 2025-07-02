@@ -21,17 +21,14 @@ import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipul
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { FocusRichDragListener } from './FocusRichDragListener.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import optionize from '../../../../phet-core/js/optionize.js';
+import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
 
-type SelfOptions = {
-
-  // dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
-  interval?: number;
-};
+type SelfOptions = EmptySelfOptions;
 
 type FocusManipulatorOptions = SelfOptions & PickRequired<GQManipulatorOptions, 'tandem' | 'phetioDocumentation'>;
 
@@ -45,10 +42,7 @@ export default class FocusManipulator extends GQManipulator {
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: FocusManipulatorOptions ) {
 
-    const options = optionize<FocusManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {
-
-      // SelfOptions
-      interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
+    const options = optionize4<FocusManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {}, {
 
       // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
@@ -58,7 +52,7 @@ export default class FocusManipulator extends GQManipulator {
       coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
       accessibleName: GraphingQuadraticsStrings.a11y.focusManipulator.accessibleNameStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.focusManipulator.accessibleHelpTextStringProperty
-    }, providedOptions );
+    }, AccessibleDraggableOptions, providedOptions );
 
     // position coordinates based on which way the parabola opens
     assert && assert( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );
@@ -99,7 +93,7 @@ export default class FocusManipulator extends GQManipulator {
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
     this.addInputListener( new FocusRichDragListener( this, pProperty, quadraticProperty, graph.yRange,
-      modelViewTransform, options.interval, options.tandem ) );
+      modelViewTransform, options.tandem ) );
 
     // move the manipulator
     quadraticProperty.link( quadratic => {

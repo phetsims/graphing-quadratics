@@ -30,7 +30,6 @@ export class FocusRichDragListener extends SoundRichDragListener {
    * @param quadraticProperty - the interactive quadratic
    * @param yRange - range of the graph's y-axis
    * @param modelViewTransform
-   * @param interval - dragging this manipulator changes p to be a multiple of this value, in model coordinate frame
    * @param parentTandem
    */
   public constructor( manipulator: FocusManipulator,
@@ -38,7 +37,6 @@ export class FocusRichDragListener extends SoundRichDragListener {
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       yRange: Range,
                       modelViewTransform: ModelViewTransform2,
-                      interval: number,
                       parentTandem: Tandem ) {
 
     assert && assert( pProperty.range, 'pProperty is missing range' );
@@ -61,11 +59,11 @@ export class FocusRichDragListener extends SoundRichDragListener {
 
         // constrain and round
         let p = pProperty.range.constrainValue( y - vertex.y );
-        p = roundToInterval( p, interval );
+        p = roundToInterval( p, GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P );
 
         // skip over p === 0
         if ( p === 0 ) {
-          p = ( pProperty.value > 0 ) ? interval : -interval;
+          p = ( pProperty.value > 0 ) ? GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P : -GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P;
         }
         assert && assert( p !== 0, 'p=0 is not supported' );
 
