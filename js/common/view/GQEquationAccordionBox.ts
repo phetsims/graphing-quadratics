@@ -24,6 +24,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 const BUTTON_ICON_WIDTH = 30;
 
@@ -107,6 +108,8 @@ class ButtonGroup extends HBox {
       } ),
       baseColor: PhetColorScheme.BUTTON_YELLOW,
       listener: () => { model.saveQuadratic(); },
+      accessibleName: GraphingQuadraticsStrings.a11y.saveButton.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.saveButton.accessibleHelpTextStringProperty,
       tandem: tandem.createTandem( 'saveButton' ),
       phetioDocumentation: 'the button used to save a quadratic',
       visiblePropertyOptions: {
@@ -122,6 +125,8 @@ class ButtonGroup extends HBox {
     const eraseButton = new EraserButton( {
       iconWidth: BUTTON_ICON_WIDTH,
       listener: () => { model.eraseQuadratic(); },
+      accessibleName: GraphingQuadraticsStrings.a11y.eraseButton.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.eraseButton.accessibleHelpTextStringProperty,
       tandem: tandem.createTandem( 'eraseButton' ),
       phetioDocumentation: 'the button used to erase the saved quadratic',
       visiblePropertyOptions: {
