@@ -41,18 +41,19 @@ export default class PointOnParabolaManipulator extends GQManipulator {
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: PointOnParabolaManipulatorOptions ) {
 
-    const options = optionize4<PointOnParabolaManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {}, {
+    const options = optionize4<PointOnParabolaManipulatorOptions, SelfOptions, GQManipulatorOptions>()(
+      {}, AccessibleDraggableOptions, {
 
-      // GQManipulatorOptions
-      radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-      color: GQColors.pointOnParabolaColorProperty,
-      coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.pointOnParabolaColorProperty,
-      coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
-      accessibleName: GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleNameStringProperty,
-      accessibleHelpText: GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleHelpTextStringProperty,
-      phetioDocumentation: 'manipulator for a point on the parabola'
-    }, AccessibleDraggableOptions, providedOptions );
+        // GQManipulatorOptions
+        radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        color: GQColors.pointOnParabolaColorProperty,
+        coordinatesForegroundColor: 'white',
+        coordinatesBackgroundColor: GQColors.pointOnParabolaColorProperty,
+        coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
+        accessibleName: GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleNameStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleHelpTextStringProperty,
+        phetioDocumentation: 'manipulator for a point on the parabola'
+      }, providedOptions );
 
     // position coordinates based on which side of the parabola the point is on
     assert && assert( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );

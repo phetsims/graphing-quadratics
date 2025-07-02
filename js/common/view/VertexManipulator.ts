@@ -46,18 +46,19 @@ export default class VertexManipulator extends GQManipulator {
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: VertexManipulatorOptions ) {
 
-    const options = optionize4<VertexManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {}, {
+    const options = optionize4<VertexManipulatorOptions, SelfOptions, GQManipulatorOptions>()(
+      {}, AccessibleDraggableOptions, {
 
-      // GQManipulatorOptions
-      radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-      color: GQColors.vertexColorProperty,
-      coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.vertexColorProperty,
-      coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
-      accessibleName: GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleNameStringProperty,
-      accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleHelpTextStringProperty,
-      phetioDocumentation: 'manipulator for the vertex'
-    }, AccessibleDraggableOptions, providedOptions );
+        // GQManipulatorOptions
+        radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        color: GQColors.vertexColorProperty,
+        coordinatesForegroundColor: 'white',
+        coordinatesBackgroundColor: GQColors.vertexColorProperty,
+        coordinatesDecimals: GQConstants.VERTEX_DECIMALS,
+        accessibleName: GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleNameStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleHelpTextStringProperty,
+        phetioDocumentation: 'manipulator for the vertex'
+      }, providedOptions );
 
     // position coordinates based on which way the parabola opens
     options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {

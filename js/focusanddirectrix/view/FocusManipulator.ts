@@ -42,17 +42,18 @@ export default class FocusManipulator extends GQManipulator {
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: FocusManipulatorOptions ) {
 
-    const options = optionize4<FocusManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {}, {
+    const options = optionize4<FocusManipulatorOptions, SelfOptions, GQManipulatorOptions>()(
+      {}, AccessibleDraggableOptions, {
 
-      // GQManipulatorOptions
-      radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
-      color: GQColors.focusColorProperty,
-      coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.focusColorProperty,
-      coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
-      accessibleName: GraphingQuadraticsStrings.a11y.focusManipulator.accessibleNameStringProperty,
-      accessibleHelpText: GraphingQuadraticsStrings.a11y.focusManipulator.accessibleHelpTextStringProperty
-    }, AccessibleDraggableOptions, providedOptions );
+        // GQManipulatorOptions
+        radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
+        color: GQColors.focusColorProperty,
+        coordinatesForegroundColor: 'white',
+        coordinatesBackgroundColor: GQColors.focusColorProperty,
+        coordinatesDecimals: GQConstants.FOCUS_DECIMALS,
+        accessibleName: GraphingQuadraticsStrings.a11y.focusManipulator.accessibleNameStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.focusManipulator.accessibleHelpTextStringProperty
+      }, providedOptions );
 
     // position coordinates based on which way the parabola opens
     assert && assert( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );

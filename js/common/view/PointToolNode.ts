@@ -54,30 +54,31 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: PointToolNodeOptions ) {
 
-    const options = optionize4<PointToolNodeOptions, SelfOptions, NodeOptions>()( {}, AccessibleDraggableOptions, {
+    const options = optionize4<PointToolNodeOptions, SelfOptions, NodeOptions>()(
+      {}, AccessibleDraggableOptions, {
 
-      // SelfOptions
-      backgroundNormalColor: 'white',
-      foregroundNormalColor: 'black',
-      foregroundHighlightColor: 'white',
+        // SelfOptions
+        backgroundNormalColor: 'white',
+        foregroundNormalColor: 'black',
+        foregroundHighlightColor: 'white',
 
-      // NodeOptions
-      cursor: 'pointer',
-      isDisposable: false,
-      tagName: 'div',
-      focusable: true,
-      phetioDocumentation: Tandem.PHET_IO_ENABLED ? pointTool.phetioDocumentation : '',
-      phetioFeatured: true,
-      phetioInputEnabledPropertyInstrumented: true,
-      visiblePropertyOptions: {
-        phetioFeatured: true
-      },
+        // NodeOptions
+        cursor: 'pointer',
+        isDisposable: false,
+        tagName: 'div',
+        focusable: true,
+        phetioDocumentation: Tandem.PHET_IO_ENABLED ? pointTool.phetioDocumentation : '',
+        phetioFeatured: true,
+        phetioInputEnabledPropertyInstrumented: true,
+        visiblePropertyOptions: {
+          phetioFeatured: true
+        },
 
-      // PointToolNode moves to the front when you press it. So make z-ordering stateful.
-      // See https://github.com/phetsims/graphing-quadratics/issues/202
-      phetioType: IndexedNodeIO,
-      phetioState: true
-    }, providedOptions );
+        // PointToolNode moves to the front when you press it. So make z-ordering stateful.
+        // See https://github.com/phetsims/graphing-quadratics/issues/202
+        phetioType: IndexedNodeIO,
+        phetioState: true
+      }, providedOptions );
 
     // coordinatesProperty is null when the tool is not on the graph.
     const coordinatesProperty = new DerivedProperty( [ pointTool.positionProperty ],
