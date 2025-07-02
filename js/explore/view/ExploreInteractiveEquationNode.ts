@@ -24,6 +24,7 @@ import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import QuadraticSlider from '../../common/view/QuadraticSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -111,6 +112,7 @@ export default class ExploreInteractiveEquationNode extends Node {
       snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
       labelColor: GQColors.exploreAColorProperty,
       sliderOptions: {
+        accessibleName: GraphingQuadraticsStrings.aStringProperty,
         tandem: options.tandem.createTandem( 'aSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
       }
@@ -119,6 +121,7 @@ export default class ExploreInteractiveEquationNode extends Node {
       interval: GQConstants.EXPLORE_INTERVAL_B,
       labelColor: GQColors.exploreBColorProperty,
       sliderOptions: {
+        accessibleName: GraphingQuadraticsStrings.bStringProperty,
         tandem: options.tandem.createTandem( 'bSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
       }
@@ -127,6 +130,7 @@ export default class ExploreInteractiveEquationNode extends Node {
       interval: GQConstants.EXPLORE_INTERVAL_C,
       labelColor: GQColors.exploreCColorProperty,
       sliderOptions: {
+        accessibleName: GraphingQuadraticsStrings.cStringProperty,
         tandem: options.tandem.createTandem( 'cSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
       }

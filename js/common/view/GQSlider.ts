@@ -68,7 +68,7 @@ type SelfOptions = {
 
   // Propagated to VSlider. Note that the slider has a tandem, but the GQSlider (parent Node) does not.
   // See https://github.com/phetsims/graphing-quadratics/issues/208
-  sliderOptions: PickOptional<VSliderOptions, 'phetioDocumentation'> & PickRequired<VSliderOptions, 'tandem'>;
+  sliderOptions: PickOptional<VSliderOptions, 'phetioDocumentation'> & PickRequired<VSliderOptions, 'tandem' | 'accessibleName'>;
 };
 
 export type GQSliderOptions = SelfOptions;

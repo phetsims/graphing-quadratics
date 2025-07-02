@@ -24,6 +24,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
@@ -126,6 +127,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
       labelColor: GQColors.focusAndDirectrixPColorProperty,
       sliderOptions: {
+        accessibleName: GraphingQuadraticsStrings.pStringProperty,
         tandem: tandem.createTandem( 'pSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
       }
@@ -134,6 +136,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
       labelColor: GQColors.focusAndDirectrixHColorProperty,
       sliderOptions: {
+        accessibleName: GraphingQuadraticsStrings.hStringProperty,
         tandem: tandem.createTandem( 'hSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
       }
@@ -142,9 +145,10 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
       labelColor: GQColors.focusAndDirectrixKColorProperty,
       sliderOptions: {
-      tandem: tandem.createTandem( 'kSlider' ),
-      phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
-        }
+        accessibleName: GraphingQuadraticsStrings.kStringProperty,
+        tandem: tandem.createTandem( 'kSlider' ),
+        phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
+      }
     } );
 
     options.children = [ equationNode, pSlider, hSlider, kSlider ];
