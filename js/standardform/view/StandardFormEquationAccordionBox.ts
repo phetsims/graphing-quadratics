@@ -13,6 +13,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormEquationNode from './StandardFormEquationNode.js';
 import StandardFormInteractiveEquationNode from './StandardFormInteractiveEquationNode.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -27,6 +28,7 @@ export default class StandardFormEquationAccordionBox extends GQEquationAccordio
 
       // GQEquationAccordionBoxOptions
       titleNode: new StandardFormEquationNode(),
+      accessibleName: GraphingQuadraticsStrings.a11y.standardFormScreen.equationAccordionBox.accessibleNameStringProperty,
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

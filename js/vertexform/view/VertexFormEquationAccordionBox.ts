@@ -13,6 +13,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import VertexFormModel from '../model/VertexFormModel.js';
 import VertexFormEquationNode from './VertexFormEquationNode.js';
 import VertexFormInteractiveEquationNode from './VertexFormInteractiveEquationNode.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -27,6 +28,7 @@ export default class VertexFormEquationAccordionBox extends GQEquationAccordionB
 
       // GQEquationAccordionBoxOptions
       titleNode: new VertexFormEquationNode(),
+      accessibleName: GraphingQuadraticsStrings.a11y.vertexFormScreen.equationAccordionBox.accessibleNameStringProperty,
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

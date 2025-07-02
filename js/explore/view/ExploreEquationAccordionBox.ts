@@ -13,6 +13,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormEquationNode from '../../standardform/view/StandardFormEquationNode.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreInteractiveEquationNode from './ExploreInteractiveEquationNode.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -26,7 +27,8 @@ export default class ExploreEquationAccordionBox extends GQEquationAccordionBox 
     const options = optionize<ExploreEquationAccordionBoxOptions, SelfOptions, GQEquationAccordionBoxOptions>()( {
 
       // GQEquationAccordionBoxOptions
-      titleNode: new StandardFormEquationNode()
+      titleNode: new StandardFormEquationNode(),
+      accessibleName: GraphingQuadraticsStrings.a11y.exploreScreen.equationAccordionBox.accessibleNameStringProperty
     }, providedOptions );
 
     const interactiveEquationNode = new ExploreInteractiveEquationNode(

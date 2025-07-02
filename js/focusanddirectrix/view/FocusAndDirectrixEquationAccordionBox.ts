@@ -13,6 +13,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixEquationNode from './FocusAndDirectrixEquationNode.js';
 import FocusAndDirectrixInteractiveEquationNode from './FocusAndDirectrixInteractiveEquationNode.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -27,6 +28,7 @@ export default class FocusAndDirectrixEquationAccordionBox extends GQEquationAcc
 
       // GQEquationAccordionBoxOptions
       titleNode: new FocusAndDirectrixEquationNode(),
+      accessibleName: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.equationAccordionBox.accessibleNameStringProperty,
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 
