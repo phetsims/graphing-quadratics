@@ -18,17 +18,23 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
+import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
 
 export class PointOnParabolaRichDragListener extends SoundRichDragListener {
 
   /**
+   * @param manipulator
    * @param pointOnParabolaProperty - the point
    * @param quadraticProperty - the interactive quadratic
    * @param modelViewTransform
    * @param graph
    * @param parentTandem
    */
-  public constructor( pointOnParabolaProperty: Property<Vector2>,
+  public constructor( manipulator: PointOnParabolaManipulator,
+                      pointOnParabolaProperty: Property<Vector2>,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       modelViewTransform: ModelViewTransform2,
                       graph: Graph,
@@ -73,6 +79,13 @@ export class PointOnParabolaRichDragListener extends SoundRichDragListener {
         const y = quadraticProperty.value.solveY( x );
 
         pointOnParabolaProperty.value = new Vector2( x, y );
+      },
+      end: () => {
+        const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleObjectResponseStringProperty, {
+          x: toFixed( pointOnParabolaProperty.value.x, GQConstants.POINT_ON_PARABOLA_DECIMALS ),
+          y: toFixed( pointOnParabolaProperty.value.y, GQConstants.POINT_ON_PARABOLA_DECIMALS )
+        } );
+        manipulator.addAccessibleObjectResponse( response );
       },
       tandem: parentTandem
     } );

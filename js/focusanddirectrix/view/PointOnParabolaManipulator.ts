@@ -12,7 +12,7 @@ import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import GQColors from '../../common/GQColors.js';
@@ -21,6 +21,8 @@ import Quadratic from '../../common/model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { PointOnParabolaRichDragListener } from './PointOnParabolaRichDragListener.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
@@ -38,7 +40,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: PointOnParabolaManipulatorOptions ) {
 
-    const options = optionize<PointOnParabolaManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {
+    const options = optionize4<PointOnParabolaManipulatorOptions, SelfOptions, GQManipulatorOptions>()( {}, {
 
       // GQManipulatorOptions
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.MANIPULATOR_RADIUS ),
@@ -46,8 +48,10 @@ export default class PointOnParabolaManipulator extends GQManipulator {
       coordinatesForegroundColor: 'white',
       coordinatesBackgroundColor: GQColors.pointOnParabolaColorProperty,
       coordinatesDecimals: GQConstants.POINT_ON_PARABOLA_DECIMALS,
+      accessibleName: GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleHelpTextStringProperty,
       phetioDocumentation: 'manipulator for a point on the parabola'
-    }, providedOptions );
+    }, AccessibleDraggableOptions, providedOptions );
 
     // position coordinates based on which side of the parabola the point is on
     assert && assert( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );
@@ -78,7 +82,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
     // add drag handler
-    this.addInputListener( new PointOnParabolaRichDragListener( pointOnParabolaProperty, quadraticProperty,
+    this.addInputListener( new PointOnParabolaRichDragListener( this, pointOnParabolaProperty, quadraticProperty,
       modelViewTransform, graph, options.tandem ) );
 
     // move the manipulator
