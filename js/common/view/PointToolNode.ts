@@ -17,7 +17,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import PointToolBodyNode from '../../../../graphing-lines/js/common/view/PointToolBodyNode.js';
 import Shape from '../../../../kite/js/Shape.js';
-import optionize from '../../../../phet-core/js/optionize.js';
+import { optionize4 } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Circle from '../../../../scenery/js/nodes/Circle.js';
@@ -33,6 +33,7 @@ import GQQueryParameters from '../GQQueryParameters.js';
 import PointTool from '../model/PointTool.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import { PointToolDragListener } from './PointToolDragListener.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -43,7 +44,7 @@ type SelfOptions = {
   foregroundHighlightColor?: TColor;
 };
 
-type PointToolNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
+type PointToolNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | 'accessibleName' | 'accessibleHelpText'>;
 
 export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
@@ -53,7 +54,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: PointToolNodeOptions ) {
 
-    const options = optionize<PointToolNodeOptions, SelfOptions, NodeOptions>()( {
+    const options = optionize4<PointToolNodeOptions, SelfOptions, NodeOptions>()( {}, AccessibleDraggableOptions, {
 
       // SelfOptions
       backgroundNormalColor: 'white',

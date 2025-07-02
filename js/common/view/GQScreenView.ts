@@ -56,6 +56,8 @@ export default class GQScreenView extends ScreenView {
       model.modelViewTransform,
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
+        accessibleName: GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleNameStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'leftPointToolNode' )
       } ) );
     pointToolsParent.addChild( new PointToolNode(
@@ -63,6 +65,8 @@ export default class GQScreenView extends ScreenView {
       model.modelViewTransform,
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
+        accessibleName: GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleNameStringProperty,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'rightPointToolNode' )
       } ) );
 

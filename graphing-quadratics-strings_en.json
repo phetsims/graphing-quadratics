@@ -204,6 +204,22 @@
       "accessibleObjectResponse": {
         "value": "{{x}} {{y}}"
       }
+    },
+    "leftPointToolNode": {
+      "accessibleName": {
+        "value": "TODO leftPointToolNode.accessibleName"
+      },
+      "accessibleHelpText": {
+        "value": "TODO leftPointToolNode.accessibleHelpText"
+      }
+    },
+    "rightPointToolNode": {
+      "accessibleName": {
+        "value": "TODO rightPointToolNode.accessibleName"
+      },
+      "accessibleHelpText": {
+        "value": "TODO rightPointToolNode.accessibleHelpText"
+      }
     }
   }
 }
