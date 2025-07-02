@@ -31,6 +31,8 @@ import VSlider, { VSliderOptions } from '../../../../sun/js/VSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import { numberOfDecimalPlaces } from '../../../../dot/js/util/numberOfDecimalPlaces.js';
 
 type TransformFunction = ( value: number ) => number;
 
@@ -139,7 +141,11 @@ export default class GQSlider extends Node {
 
         // no constraint applied
         return viewValue;
-      }
+      },
+
+      // Using pdomCreateAriaValueText instead of pdomMapPDOMValue because we want trailing zeros in the
+      // decimal places to be included.
+      pdomCreateAriaValueText: value => toFixed( value, numberOfDecimalPlaces( options.interval ) )
     }, options.sliderOptions );
 
     // Snap to zero when the drag ends.
