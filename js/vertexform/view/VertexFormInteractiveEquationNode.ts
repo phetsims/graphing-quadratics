@@ -20,6 +20,7 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class VertexFormInteractiveEquationNode extends Node {
 
@@ -42,18 +43,21 @@ export default class VertexFormInteractiveEquationNode extends Node {
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormAColorProperty,
+        accessibleName: GraphingQuadraticsStrings.aStringProperty,
         tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       } ) );
     const hPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormHColorProperty,
+        accessibleName: GraphingQuadraticsStrings.hStringProperty,
         tandem: tandem.createTandem( 'hPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } )
       } ) );
     const kPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormKColorProperty,
+        accessibleName: GraphingQuadraticsStrings.kStringProperty,
         tandem: tandem.createTandem( 'kPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } )
       } ) );
