@@ -52,7 +52,7 @@ export class FocusRichDragListener extends SoundRichDragListener {
         const vertex = quadraticProperty.value.vertex!;
         assert && assert( vertex, `expected vertex: ${vertex}` );
 
-        let y = pProperty.value + listener.modelDelta.y;
+        let y = pProperty.value + vertex.y + listener.modelDelta.y;
 
         // constrain to the graph
         y = yRange.constrainValue( y );
