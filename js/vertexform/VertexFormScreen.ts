@@ -14,6 +14,7 @@ import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import VertexFormModel from './model/VertexFormModel.js';
 import VertexFormScreenView from './view/VertexFormScreenView.js';
+import VertexFormKeyboardHelpContent from './view/VertexFormKeyboardHelpContent.js';
 
 export default class VertexFormScreen extends Screen<VertexFormModel, VertexFormScreenView> {
 
@@ -24,6 +25,7 @@ export default class VertexFormScreen extends Screen<VertexFormModel, VertexForm
       backgroundColorProperty: GQColors.screenBackgroundColorProperty,
       homeScreenIcon: GQScreenIconFactory.createVertexFormScreenIcon(),
       screenButtonsHelpText: GraphingQuadraticsStrings.a11y.vertexFormScreen.screenButtonsHelpTextStringProperty,
+      createKeyboardHelpNode: () => new VertexFormKeyboardHelpContent(),
       tandem: tandem,
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.

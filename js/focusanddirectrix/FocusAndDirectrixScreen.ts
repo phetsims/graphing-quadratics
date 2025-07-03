@@ -14,6 +14,7 @@ import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import FocusAndDirectrixModel from './model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixScreenView from './view/FocusAndDirectrixScreenView.js';
+import FocusAndDirectrixKeyboardHelpContent from './view/FocusAndDirectrixKeyboardHelpContent.js';
 
 export default class FocusAndDirectrixScreen extends Screen<FocusAndDirectrixModel, FocusAndDirectrixScreenView> {
 
@@ -24,6 +25,7 @@ export default class FocusAndDirectrixScreen extends Screen<FocusAndDirectrixMod
       backgroundColorProperty: GQColors.screenBackgroundColorProperty,
       homeScreenIcon: GQScreenIconFactory.createFocusAndDirectrixScreenIcon(),
       screenButtonsHelpText: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenButtonsHelpTextStringProperty,
+      createKeyboardHelpNode: () => new FocusAndDirectrixKeyboardHelpContent(),
       tandem: tandem,
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.

@@ -14,6 +14,7 @@ import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import ExploreModel from './model/ExploreModel.js';
 import ExploreScreenView from './view/ExploreScreenView.js';
+import ExploreKeyboardHelpContent from './view/ExploreKeyboardHelpContent.js';
 
 export default class ExploreScreen extends Screen<ExploreModel, ExploreScreenView> {
 
@@ -24,6 +25,7 @@ export default class ExploreScreen extends Screen<ExploreModel, ExploreScreenVie
       backgroundColorProperty: GQColors.screenBackgroundColorProperty,
       homeScreenIcon: GQScreenIconFactory.createExploreScreenIcon(),
       screenButtonsHelpText: GraphingQuadraticsStrings.a11y.exploreScreen.screenButtonsHelpTextStringProperty,
+      createKeyboardHelpNode: () => new ExploreKeyboardHelpContent(),
       tandem: tandem,
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.

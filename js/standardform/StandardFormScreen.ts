@@ -15,6 +15,7 @@ import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import StandardFormModel from './model/StandardFormModel.js';
 import StandardFormScreenView from './view/StandardFormScreenView.js';
+import StandardFormKeyboardHelpContent from './view/StandardFormKeyboardHelpContent.js';
 
 export default class StandardFormScreen extends Screen<StandardFormModel, StandardFormScreenView> {
 
@@ -25,6 +26,7 @@ export default class StandardFormScreen extends Screen<StandardFormModel, Standa
       backgroundColorProperty: GQColors.screenBackgroundColorProperty,
       homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
       screenButtonsHelpText: GraphingQuadraticsStrings.a11y.standardFormScreen.screenButtonsHelpTextStringProperty,
+      createKeyboardHelpNode: () => new StandardFormKeyboardHelpContent(),
       tandem: tandem,
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
