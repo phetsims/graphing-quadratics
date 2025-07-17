@@ -1,4 +1,4 @@
-// Copyright 2018-2024, University of Colorado Boulder
+// Copyright 2018-2025, University of Colorado Boulder
 
 /**
  * Strings for mathematical symbols, with markup for RichText.
@@ -14,19 +14,21 @@ import MathSymbolFont from '../../../scenery-phet/js/MathSymbolFont.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 
-const xMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.xStringProperty );
+export default class GQSymbols {
 
-const GQSymbols = {
-  aMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.aStringProperty ),
-  bMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.bStringProperty ),
-  cMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.cStringProperty ),
-  hMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.hStringProperty ),
-  kMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.kStringProperty ),
-  pMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.pStringProperty ),
-  xMarkupStringProperty: xMarkupStringProperty,
-  xSquaredMarkupStringProperty: new DerivedProperty( [ xMarkupStringProperty ], x => `${x}<sup>2</sup>` ),
-  yMarkupStringProperty: MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.yStringProperty )
-};
+  private constructor() {
+    // Not intended for instantiation.
+  }
+  
+  public static readonly aMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.aStringProperty );
+  public static readonly bMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.bStringProperty );
+  public static readonly cMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.cStringProperty );
+  public static readonly hMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.hStringProperty );
+  public static readonly kMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.kStringProperty );
+  public static readonly pMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.pStringProperty );
+  public static readonly xMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.xStringProperty );
+  public static readonly xSquaredMarkupStringProperty = new DerivedProperty( [ GQSymbols.xMarkupStringProperty ], x => `${x}<sup>2</sup>` );
+  public static readonly yMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.yStringProperty );
+}
 
 graphingQuadratics.register( 'GQSymbols', GQSymbols );
-export default GQSymbols;
