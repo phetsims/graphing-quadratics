@@ -109,6 +109,8 @@ export default class PointOnParabolaManipulator extends GQManipulator {
   public doAccessibleObjectResponse(): void {
     const pointOnParabola = this.pointOnParabolaProperty.value;
     const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleObjectResponseStringProperty, {
+
+      // Use the same formatting and number of decimal places as the visual UI.
       x: toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS ),
       y: toFixedNumber( pointOnParabola.y, GQConstants.POINT_ON_PARABOLA_DECIMALS )
     } );

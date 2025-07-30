@@ -168,6 +168,8 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     let response: string;
     if ( this.graph.contains( position ) ) {
       response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseStringProperty.value, {
+
+        // Use the same formatting and number of decimal places as the visual UI.
         x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
         y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
       } );

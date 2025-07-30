@@ -121,6 +121,8 @@ export default class FocusManipulator extends GQManipulator {
     const focus = this.quadraticProperty.value.focus;
     if ( focus ) {
       const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.focusManipulator.accessibleObjectResponseStringProperty, {
+
+        // Use the same formatting and number of decimal places as the visual UI.
         x: toFixedNumber( focus.x, GQConstants.FOCUS_DECIMALS ),
         y: toFixedNumber( focus.y, GQConstants.FOCUS_DECIMALS )
       } );

@@ -129,6 +129,8 @@ export default class VertexManipulator extends GQManipulator {
     const vertex = this.quadraticProperty.value.vertex;
     if ( vertex ) {
       const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
+
+        // Use the same formatting and number of decimal places as the visual UI.
         x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
         y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
       } );
