@@ -14,12 +14,8 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../model/Quadratic.js';
-import GQConstants from '../GQConstants.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import VertexManipulator from './VertexManipulator.js';
 
 export class VertexDragListener extends SoundDragListener {
@@ -48,15 +44,11 @@ export class VertexDragListener extends SoundDragListener {
         // We decided that this is OK, and we can live with it.
         hProperty.value = h;
         kProperty.value = k;
-      },
-      end: () => {
+
+        // accessibleObjectResponse
         const vertex = quadraticProperty.value.vertex!;
         assert && assert( vertex );
-        const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
-          x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
-          y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
-        } );
-        manipulator.addAccessibleObjectResponse( response );
+        manipulator.addAccessibleObjectResponse( VertexManipulator.createAccessibleObjectResponse( vertex ) );
       },
       tandem: tandem
     } );

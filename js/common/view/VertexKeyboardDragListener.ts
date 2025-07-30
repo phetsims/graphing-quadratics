@@ -11,12 +11,8 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import VertexManipulator from './VertexManipulator.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import GQConstants from '../GQConstants.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../model/Quadratic.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 export default class VertexKeyboardDragListener extends SoundKeyboardDragListener {
 
@@ -60,15 +56,11 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
         // Set the new values.
         hProperty.value = h;
         kProperty.value = k;
-      },
-      end: () => {
+
+        // accessibleObjectResponse
         const vertex = quadraticProperty.value.vertex!;
         assert && assert( vertex );
-        const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
-          x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
-          y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
-        } );
-        manipulator.addAccessibleObjectResponse( response );
+        manipulator.addAccessibleObjectResponse( VertexManipulator.createAccessibleObjectResponse( vertex ) );
       },
       tandem: tandem
     } );

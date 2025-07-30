@@ -24,6 +24,8 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -101,6 +103,19 @@ export default class FocusManipulator extends GQManipulator {
       const focus = quadratic.focus!;
       assert && assert( focus, `expected focus: ${quadratic.focus}` );
       this.translation = modelViewTransform.modelToViewPosition( focus );
+    } );
+
+    this.focusedProperty.lazyLink( focused => {
+      if ( focused && quadraticProperty.value.focus ) {
+        this.addAccessibleObjectResponse( FocusManipulator.createAccessibleObjectResponse( quadraticProperty.value.focus ) );
+      }
+    } );
+  }
+
+  public static createAccessibleObjectResponse( focus: Vector2 ): string {
+    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.focusManipulator.accessibleObjectResponseStringProperty, {
+      x: toFixedNumber( focus.x, GQConstants.FOCUS_DECIMALS ),
+      y: toFixedNumber( focus.y, GQConstants.FOCUS_DECIMALS )
     } );
   }
 }

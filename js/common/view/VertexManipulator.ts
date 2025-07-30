@@ -27,6 +27,8 @@ import VertexKeyboardDragListener from './VertexKeyboardDragListener.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -109,6 +111,20 @@ export default class VertexManipulator extends GQManipulator {
       if ( quadratic.vertex ) {
         this.translation = modelViewTransform.modelToViewPosition( quadratic.vertex );
       }
+    } );
+
+    this.focusedProperty.lazyLink( focused => {
+      console.log( `VertexManipulator focused=${focused} vertex=${quadraticProperty.value.vertex}` );
+      if ( focused && quadraticProperty.value.vertex ) {
+        this.addAccessibleObjectResponse( VertexManipulator.createAccessibleObjectResponse( quadraticProperty.value.vertex ) );
+      }
+    } );
+  }
+
+  public static createAccessibleObjectResponse( vertex: Vector2 ): string {
+    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
+      x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
+      y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
     } );
   }
 }

@@ -23,6 +23,8 @@ import { PointOnParabolaRichDragListener } from './PointOnParabolaRichDragListen
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
@@ -90,6 +92,19 @@ export default class PointOnParabolaManipulator extends GQManipulator {
     // move the manipulator
     pointOnParabolaProperty.link( pointOnParabola => {
       this.translation = modelViewTransform.modelToViewPosition( pointOnParabola );
+    } );
+
+    this.focusedProperty.lazyLink( focused => {
+      if ( focused ) {
+        this.addAccessibleObjectResponse( PointOnParabolaManipulator.createAccessibleObjectResponse( pointOnParabolaProperty.value ) );
+      }
+    } );
+  }
+
+  public static createAccessibleObjectResponse( pointOnParabola: Vector2 ): string {
+    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleObjectResponseStringProperty, {
+      x: toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS ),
+      y: toFixedNumber( pointOnParabola.y, GQConstants.POINT_ON_PARABOLA_DECIMALS )
     } );
   }
 }

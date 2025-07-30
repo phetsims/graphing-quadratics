@@ -200,7 +200,7 @@
         "value": "Move to relocate vertex of quadratic"
       },
       "accessibleObjectResponse": {
-        "value": "{{x}},{{y}}"
+        "value": "{{x}}, {{y}}"
       }
     },
     "focusManipulator": {
@@ -211,7 +211,7 @@
         "value": "Move to relocate focus of quadratic"
       },
       "accessibleObjectResponse": {
-        "value": "{{x}},{{y}}"
+        "value": "{{x}}, {{y}}"
       }
     },
     "pointOnParabolaManipulator": {
@@ -222,7 +222,7 @@
         "value": "Move to relocate point on parabola"
       },
       "accessibleObjectResponse": {
-        "value": "{{x}},{{y}}"
+        "value": "{{x}}, {{y}}"
       }
     },
     "leftPointToolNode": {
