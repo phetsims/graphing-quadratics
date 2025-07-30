@@ -36,6 +36,8 @@ type FocusManipulatorOptions = SelfOptions & PickRequired<GQManipulatorOptions, 
 
 export default class FocusManipulator extends GQManipulator {
 
+  private readonly quadraticProperty: TReadOnlyProperty<Quadratic>;
+
   public constructor( pProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       graph: Graph,
@@ -95,6 +97,8 @@ export default class FocusManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
+    this.quadraticProperty = quadraticProperty;
+
     this.addInputListener( new FocusRichDragListener( this, pProperty, quadraticProperty, graph.yRange,
       modelViewTransform, options.tandem ) );
 
@@ -106,17 +110,22 @@ export default class FocusManipulator extends GQManipulator {
     } );
 
     this.focusedProperty.lazyLink( focused => {
-      if ( focused && quadraticProperty.value.focus ) {
-        this.addAccessibleObjectResponse( FocusManipulator.createAccessibleObjectResponse( quadraticProperty.value.focus ) );
-      }
+      focused && this.doAccessibleObjectResponse();
     } );
   }
 
-  public static createAccessibleObjectResponse( focus: Vector2 ): string {
-    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.focusManipulator.accessibleObjectResponseStringProperty, {
-      x: toFixedNumber( focus.x, GQConstants.FOCUS_DECIMALS ),
-      y: toFixedNumber( focus.y, GQConstants.FOCUS_DECIMALS )
-    } );
+  /**
+   * Adds an accessible object response that describes the focus of the quadratic.
+   */
+  public doAccessibleObjectResponse(): void {
+    const focus = this.quadraticProperty.value.focus;
+    if ( focus ) {
+      const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.focusManipulator.accessibleObjectResponseStringProperty, {
+        x: toFixedNumber( focus.x, GQConstants.FOCUS_DECIMALS ),
+        y: toFixedNumber( focus.y, GQConstants.FOCUS_DECIMALS )
+      } );
+      this.addAccessibleObjectResponse( response );
+    }
   }
 }
 

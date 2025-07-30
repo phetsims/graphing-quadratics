@@ -67,9 +67,7 @@ export class FocusRichDragListener extends SoundRichDragListener {
         pProperty.value = p;
 
         // accessibleObjectResponse
-        const focus = quadraticProperty.value.focus!;
-        assert && assert( focus );
-        manipulator.addAccessibleObjectResponse( FocusManipulator.createAccessibleObjectResponse( focus ) );
+        manipulator.doAccessibleObjectResponse();
       },
       tandem: parentTandem
     } );

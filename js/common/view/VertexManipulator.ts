@@ -39,6 +39,8 @@ type VertexManipulatorOptions = SelfOptions & PickRequired<GQManipulatorOptions,
 
 export default class VertexManipulator extends GQManipulator {
 
+  private readonly quadraticProperty: TReadOnlyProperty<Quadratic>;
+
   public constructor( hProperty: NumberProperty,
                       kProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
@@ -100,6 +102,8 @@ export default class VertexManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
+    this.quadraticProperty = quadraticProperty;
+
     this.addInputListener( new VertexDragListener( this, hProperty, kProperty, quadraticProperty, graph, modelViewTransform,
       options.tandem.createTandem( 'dragListener' ) ) );
 
@@ -114,18 +118,22 @@ export default class VertexManipulator extends GQManipulator {
     } );
 
     this.focusedProperty.lazyLink( focused => {
-      console.log( `VertexManipulator focused=${focused} vertex=${quadraticProperty.value.vertex}` );
-      if ( focused && quadraticProperty.value.vertex ) {
-        this.addAccessibleObjectResponse( VertexManipulator.createAccessibleObjectResponse( quadraticProperty.value.vertex ) );
-      }
+      focused && this.doAccessibleObjectResponse();
     } );
   }
 
-  public static createAccessibleObjectResponse( vertex: Vector2 ): string {
-    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
-      x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
-      y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
-    } );
+  /**
+   * Adds an accessible object response that describes the vertex of the quadratic.
+   */
+  public doAccessibleObjectResponse(): void {
+    const vertex = this.quadraticProperty.value.vertex;
+    if ( vertex ) {
+      const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
+        x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
+        y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
+      } );
+      this.addAccessibleObjectResponse( response );
+    }
   }
 }
 

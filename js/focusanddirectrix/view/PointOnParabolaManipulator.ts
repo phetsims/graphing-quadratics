@@ -36,6 +36,8 @@ type PointOnParabolaManipulatorOptions = SelfOptions &
 
 export default class PointOnParabolaManipulator extends GQManipulator {
 
+  private readonly pointOnParabolaProperty: Property<Vector2>;
+
   public constructor( pointOnParabolaProperty: Property<Vector2>,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       graph: Graph,
@@ -85,6 +87,8 @@ export default class PointOnParabolaManipulator extends GQManipulator {
 
     super( coordinatesProperty, coordinatesVisibleProperty, options );
 
+    this.pointOnParabolaProperty = pointOnParabolaProperty;
+
     // add drag handler
     this.addInputListener( new PointOnParabolaRichDragListener( this, pointOnParabolaProperty, quadraticProperty,
       modelViewTransform, graph, options.tandem ) );
@@ -95,17 +99,20 @@ export default class PointOnParabolaManipulator extends GQManipulator {
     } );
 
     this.focusedProperty.lazyLink( focused => {
-      if ( focused ) {
-        this.addAccessibleObjectResponse( PointOnParabolaManipulator.createAccessibleObjectResponse( pointOnParabolaProperty.value ) );
-      }
+      focused && this.doAccessibleObjectResponse();
     } );
   }
 
-  public static createAccessibleObjectResponse( pointOnParabola: Vector2 ): string {
-    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleObjectResponseStringProperty, {
+  /**
+   * Adds an accessible object response that describes the point on the parabola.
+   */
+  public doAccessibleObjectResponse(): void {
+    const pointOnParabola = this.pointOnParabolaProperty.value;
+    const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleObjectResponseStringProperty, {
       x: toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS ),
       y: toFixedNumber( pointOnParabola.y, GQConstants.POINT_ON_PARABOLA_DECIMALS )
     } );
+    this.addAccessibleObjectResponse( response );
   }
 }
 

@@ -78,7 +78,7 @@ export class PointOnParabolaRichDragListener extends SoundRichDragListener {
         pointOnParabolaProperty.value = new Vector2( x, y );
 
         // accessibleObjectResponse
-        manipulator.addAccessibleObjectResponse( PointOnParabolaManipulator.createAccessibleObjectResponse( pointOnParabolaProperty.value ) );
+        manipulator.doAccessibleObjectResponse();
       },
       tandem: parentTandem
     } );

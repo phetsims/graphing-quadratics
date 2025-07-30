@@ -58,9 +58,7 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
         kProperty.value = k;
 
         // accessibleObjectResponse
-        const vertex = quadraticProperty.value.vertex!;
-        assert && assert( vertex );
-        manipulator.addAccessibleObjectResponse( VertexManipulator.createAccessibleObjectResponse( vertex ) );
+        manipulator.doAccessibleObjectResponse();
       },
       tandem: tandem
     } );

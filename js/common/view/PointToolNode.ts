@@ -151,9 +151,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     this.addLinkedElement( pointTool );
 
     this.focusedProperty.lazyLink( focused => {
-      if ( focused ) {
-        this.doAccessibleObjectResponse();
-      }
+      focused && this.doAccessibleObjectResponse();
     } );
   }
 
