@@ -81,6 +81,9 @@ export class PointToolDragListener extends SoundDragListener {
 
         // Move the point tool.
         pointTool.positionProperty.value = position;
+
+        // accessibleObjectResponse
+        pointToolNode.addAccessibleObjectResponse( PointToolNode.createAccessibleObjectResponse( pointTool.positionProperty.value, graph ) );
       },
 
       end: () => {

@@ -116,6 +116,10 @@ type StringsType = {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
       'accessibleObjectResponseStringProperty': LocalizedStringProperty;
     };
+    'pointToolNode': {
+      'accessibleObjectResponseStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseNoPointStringProperty': LocalizedStringProperty;
+    };
     'leftPointToolNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;

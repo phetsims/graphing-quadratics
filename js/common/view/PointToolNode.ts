@@ -34,6 +34,9 @@ import PointTool from '../model/PointTool.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import { PointToolDragListener } from './PointToolDragListener.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -139,11 +142,29 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
     // Requested in https://github.com/phetsims/graphing-quadratics/issues/191
     this.addLinkedElement( pointTool );
+
+    this.focusedProperty.lazyLink( focused => {
+      if ( focused ) {
+        this.addAccessibleObjectResponse( PointToolNode.createAccessibleObjectResponse( pointTool.positionProperty.value, graph ) );
+      }
+    } );
   }
 
   public override dispose(): void {
     Disposable.assertNotDisposable();
     super.dispose();
+  }
+
+  public static createAccessibleObjectResponse( pointToolPosition: Vector2, graph: Graph ): string {
+    if ( graph.contains( pointToolPosition ) ) {
+      return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseStringProperty.value, {
+        x: toFixedNumber( pointToolPosition.x, GQConstants.POINT_TOOL_DECIMALS ),
+        y: toFixedNumber( pointToolPosition.y, GQConstants.POINT_TOOL_DECIMALS )
+      } );
+    }
+    else {
+      return GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseNoPointStringProperty.value;
+    }
   }
 }
 
