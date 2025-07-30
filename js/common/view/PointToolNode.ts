@@ -51,6 +51,9 @@ type PointToolNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | '
 
 export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
+  private readonly pointTool: PointTool;
+  private readonly graph: Graph;
+
   public constructor( pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,
                       graph: Graph,
@@ -108,7 +111,11 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     bodyNode.centerY = probeNode.centerY;
 
     options.children = [ bodyNode, probeNode ];
+
     super( options );
+
+    this.pointTool = pointTool;
+    this.graph = graph;
 
     Multilink.multilink( [ pointTool.positionProperty, pointTool.quadraticProperty, graphContentsVisibleProperty ],
       ( position, onQuadratic, graphContentsVisible ) => {
@@ -145,7 +152,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
     this.focusedProperty.lazyLink( focused => {
       if ( focused ) {
-        this.addAccessibleObjectResponse( PointToolNode.createAccessibleObjectResponse( pointTool.positionProperty.value, graph ) );
+        this.doAccessibleObjectResponse();
       }
     } );
   }
@@ -155,16 +162,22 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     super.dispose();
   }
 
-  public static createAccessibleObjectResponse( pointToolPosition: Vector2, graph: Graph ): string {
-    if ( graph.contains( pointToolPosition ) ) {
-      return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseStringProperty.value, {
-        x: toFixedNumber( pointToolPosition.x, GQConstants.POINT_TOOL_DECIMALS ),
-        y: toFixedNumber( pointToolPosition.y, GQConstants.POINT_TOOL_DECIMALS )
+  /**
+   * Adds an accessible object response that describes the point that the point tool is currently measuring.
+   */
+  public doAccessibleObjectResponse(): void {
+    const position = this.pointTool.positionProperty.value;
+    let response: string;
+    if ( this.graph.contains( position ) ) {
+      response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseStringProperty.value, {
+        x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
+        y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
       } );
     }
     else {
-      return GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseNoPointStringProperty.value;
+      response = GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseNoPointStringProperty.value;
     }
+    this.addAccessibleObjectResponse( response );
   }
 }
 
