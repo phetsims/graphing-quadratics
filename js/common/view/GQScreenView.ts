@@ -135,13 +135,13 @@ export default class GQScreenView extends ScreenView {
     // Play Area focus order
     this.pdomPlayAreaNode.pdomOrder = [
       graphNode,
-      pointToolsParent,
-      controlsParent,
-      graphContentsToggleButton
+      controlsParent
     ];
 
     // Control Area focus order
     this.pdomControlAreaNode.pdomOrder = [
+      pointToolsParent,
+      graphContentsToggleButton,
       resetAllButton
     ];
   }
