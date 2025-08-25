@@ -25,6 +25,9 @@ import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
 
 export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
@@ -36,9 +39,18 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
                       kProperty: NumberProperty,
                       tandem: Tandem ) {
 
+    // y equals 1 over (4 times {{p}}), times (x minus {{h}}}) squared, plus {{k}}
+    const accessibleParagraphProperty = new PatternStringProperty(
+      GraphingQuadraticsStrings.a11y.focusAndDirectrixFormEquationNode.accessibleParagraphStringProperty, {
+        p: new DerivedStringProperty( [ pProperty ], p => toFixed( p, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_P ) ),
+        h: new DerivedStringProperty( [ hProperty ], h => toFixed( h, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H ) ),
+        k: new DerivedStringProperty( [ kProperty ], k => toFixed( k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K ) )
+      } );
+
     const options: NodeOptions = {
       isDisposable: false,
       excludeInvisibleChildrenFromBounds: true,
+      accessibleParagraph: accessibleParagraphProperty,
       tandem: tandem,
       phetioDocumentation: 'the interactive equation in this accordion box',
       visiblePropertyOptions: {

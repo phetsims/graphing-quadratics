@@ -21,6 +21,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 export default class VertexFormInteractiveEquationNode extends Node {
 
@@ -32,9 +33,18 @@ export default class VertexFormInteractiveEquationNode extends Node {
                       kProperty: NumberProperty,
                       tandem: Tandem ) {
 
+    // y equals {{a}} times (x minus {{h}}), squared, plus {{k}}
+    const accessibleParagraphProperty = new PatternStringProperty(
+      GraphingQuadraticsStrings.a11y.vertexFormEquationNode.accessibleParagraphStringProperty, {
+        a: aProperty,
+        h: hProperty,
+        k: kProperty
+      } );
+
     const options: NodeOptions = {
       isDisposable: false,
       excludeInvisibleChildrenFromBounds: true,
+      accessibleParagraph: accessibleParagraphProperty,
       tandem: tandem,
       phetioDocumentation: 'the interactive equation in this accordion box'
     };

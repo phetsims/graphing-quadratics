@@ -229,6 +229,12 @@ type StringsType = {
     };
     'standardFormEquationNode': {
       'accessibleParagraphStringProperty': LocalizedStringProperty;
+    };
+    'vertexFormEquationNode': {
+      'accessibleParagraphStringProperty': LocalizedStringProperty;
+    };
+    'focusAndDirectrixFormEquationNode': {
+      'accessibleParagraphStringProperty': LocalizedStringProperty;
     }
   }
 };
