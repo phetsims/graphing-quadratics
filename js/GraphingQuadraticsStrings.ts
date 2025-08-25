@@ -97,7 +97,7 @@ type StringsType = {
     };
     'eraseButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
-      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseStringProperty': LocalizedStringProperty;
     };
     'vertexManipulator': {
       'accessibleNameStringProperty': LocalizedStringProperty;

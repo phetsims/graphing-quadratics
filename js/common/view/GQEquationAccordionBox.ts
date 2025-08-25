@@ -127,7 +127,7 @@ class ButtonGroup extends HBox {
       iconWidth: BUTTON_ICON_WIDTH,
       listener: () => { model.eraseQuadratic(); },
       accessibleName: GraphingQuadraticsStrings.a11y.eraseButton.accessibleNameStringProperty,
-      accessibleHelpText: GraphingQuadraticsStrings.a11y.eraseButton.accessibleHelpTextStringProperty,
+      accessibleContextResponse: GraphingQuadraticsStrings.a11y.eraseButton.accessibleContextResponseStringProperty,
       tandem: tandem.createTandem( 'eraseButton' ),
       phetioDocumentation: 'the button used to erase the saved quadratic',
       visiblePropertyOptions: {
