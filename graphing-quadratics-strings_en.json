@@ -441,6 +441,11 @@
       "graphFeaturesHeading": {
         "value": "Graph Features"
       }
+    },
+    "exploreInteractiveEquationNode": {
+      "accessibleParagraph": {
+        "value": "y equals {{a}} x squared plus {{b}} x plus {{c}}"
+      }
     }
   }
 }

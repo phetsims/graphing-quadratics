@@ -226,6 +226,9 @@ type StringsType = {
     'accessibleHeadings': {
       'coordinateGridHeadingStringProperty': LocalizedStringProperty;
       'graphFeaturesHeadingStringProperty': LocalizedStringProperty;
+    };
+    'exploreInteractiveEquationNode': {
+      'accessibleParagraphStringProperty': LocalizedStringProperty;
     }
   }
 };

@@ -25,6 +25,9 @@ import LinearSlider from '../../common/view/LinearSlider.js';
 import QuadraticSlider from '../../common/view/QuadraticSlider.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -40,11 +43,20 @@ export default class ExploreInteractiveEquationNode extends Node {
                       cProperty: NumberProperty,
                       providedOptions: ExploreInteractiveEquationNodeOptions ) {
 
+    // y equals {{a}} x squared plus {{b}} x plus {{c}}
+    const accessibleParagraphProperty = new PatternStringProperty(
+      GraphingQuadraticsStrings.a11y.exploreInteractiveEquationNode.accessibleParagraphStringProperty, {
+        a: new DerivedStringProperty( [ aProperty ], a => toFixed( a, GQConstants.EXPLORE_DECIMALS_A ) ),
+        b: new DerivedStringProperty( [ bProperty ], b => toFixed( b, GQConstants.EXPLORE_DECIMALS_B ) ),
+        c: new DerivedStringProperty( [ cProperty ], c => toFixed( c, GQConstants.EXPLORE_DECIMALS_C ) )
+      } );
+
     const options = optionize<ExploreInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
       isDisposable: false,
       excludeInvisibleChildrenFromBounds: true,
+      accessibleParagraph: accessibleParagraphProperty,
       visiblePropertyOptions: {
         phetioFeatured: true
       }
