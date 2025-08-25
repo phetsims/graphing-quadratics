@@ -28,7 +28,7 @@ export default class FocusAndDirectrixEquationAccordionBox extends GQEquationAcc
 
       // GQEquationAccordionBoxOptions
       titleNode: new FocusAndDirectrixEquationNode(),
-      accessibleName: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.equationAccordionBox.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.equationAccordionBox.accessibleHelpTextStringProperty,
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

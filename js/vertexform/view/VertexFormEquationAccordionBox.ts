@@ -28,7 +28,7 @@ export default class VertexFormEquationAccordionBox extends GQEquationAccordionB
 
       // GQEquationAccordionBoxOptions
       titleNode: new VertexFormEquationNode(),
-      accessibleName: GraphingQuadraticsStrings.a11y.vertexFormScreen.equationAccordionBox.accessibleNameStringProperty,
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexFormScreen.equationAccordionBox.accessibleHelpTextStringProperty,
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

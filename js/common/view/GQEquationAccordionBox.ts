@@ -41,6 +41,7 @@ export default class GQEquationAccordionBox extends AccordionBox {
 
         // AccordionBoxOptions
         isDisposable: false,
+        accessibleName: GraphingQuadraticsStrings.a11y.equationAccordionBox.accessibleNameStringProperty,
         phetioDocumentation: 'the accordion box that contains the interactive equation'
       }, providedOptions );
 

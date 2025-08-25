@@ -28,7 +28,7 @@ export default class ExploreEquationAccordionBox extends GQEquationAccordionBox 
 
       // GQEquationAccordionBoxOptions
       titleNode: new StandardFormEquationNode(),
-      accessibleName: GraphingQuadraticsStrings.a11y.exploreScreen.equationAccordionBox.accessibleNameStringProperty
+      accessibleHelpText: GraphingQuadraticsStrings.a11y.equationAccordionBox.accessibleHelpTextStringProperty
     }, providedOptions );
 
     const interactiveEquationNode = new ExploreInteractiveEquationNode(

@@ -48,9 +48,6 @@ type StringsType = {
         'controlAreaStringProperty': LocalizedStringProperty;
         'currentDetailsStringProperty': LocalizedStringProperty;
         'interactionHintStringProperty': LocalizedStringProperty;
-      };
-      'equationAccordionBox': {
-        'accessibleNameStringProperty': LocalizedStringProperty;
       }
     };
     'standardFormScreen': {
@@ -60,9 +57,6 @@ type StringsType = {
         'controlAreaStringProperty': LocalizedStringProperty;
         'currentDetailsStringProperty': LocalizedStringProperty;
         'interactionHintStringProperty': LocalizedStringProperty;
-      };
-      'equationAccordionBox': {
-        'accessibleNameStringProperty': LocalizedStringProperty;
       }
     };
     'vertexFormScreen': {
@@ -74,7 +68,7 @@ type StringsType = {
         'interactionHintStringProperty': LocalizedStringProperty;
       };
       'equationAccordionBox': {
-        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
       }
     };
     'focusAndDirectrixScreen': {
@@ -86,8 +80,12 @@ type StringsType = {
         'interactionHintStringProperty': LocalizedStringProperty;
       };
       'equationAccordionBox': {
-        'accessibleNameStringProperty': LocalizedStringProperty;
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
       }
+    };
+    'equationAccordionBox': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'graphContentsToggleButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
