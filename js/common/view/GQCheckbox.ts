@@ -99,6 +99,8 @@ export default class GQCheckbox extends Checkbox {
       textFill: GQColors.QUADRATIC_TERM,
       accessibleName: GraphingQuadraticsStrings.a11y.quadraticTermCheckbox.accessibleNameStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.quadraticTermCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.quadraticTermCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.quadraticTermCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the quadratic term (y = ax^2) visible on the graph'
@@ -118,6 +120,8 @@ export default class GQCheckbox extends Checkbox {
       textFill: GQColors.LINEAR_TERM,
       accessibleName: GraphingQuadraticsStrings.a11y.linearTermCheckbox.accessibleNameStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.linearTermCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.linearTermCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.linearTermCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the linear term (y = bx) visible on the graph'
@@ -137,6 +141,8 @@ export default class GQCheckbox extends Checkbox {
       textFill: GQColors.CONSTANT_TERM,
       accessibleName: GraphingQuadraticsStrings.a11y.constantTermCheckbox.accessibleNameStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.constantTermCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.constantTermCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.constantTermCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the constant term (y = c) visible on the graph'
@@ -198,6 +204,8 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.equationsStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.equationsCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.equationsCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.equationsCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDocumentation: 'checkbox that shows equations on graphed curves'
     } );
