@@ -139,28 +139,28 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
       labelColor: GQColors.focusAndDirectrixPColorProperty,
       sliderOptions: {
-        accessibleName: GraphingQuadraticsStrings.pStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.pSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.pSlider.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'pSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'p' } )
       }
     } );
+
     const hSlider = new LinearSlider( GQSymbols.hMarkupStringProperty, hProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
       labelColor: GQColors.focusAndDirectrixHColorProperty,
       sliderOptions: {
-        accessibleName: GraphingQuadraticsStrings.hStringProperty,
-        accessibleHelpText: GraphingQuadraticsStrings.a11y.hSlider.accessibleHelpTextStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.hSlider.accessibleNameStringProperty,
         tandem: tandem.createTandem( 'hSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
       }
     } );
+
     const kSlider = new LinearSlider( GQSymbols.kMarkupStringProperty, kProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
       labelColor: GQColors.focusAndDirectrixKColorProperty,
       sliderOptions: {
-        accessibleName: GraphingQuadraticsStrings.kStringProperty,
-        accessibleHelpText: GraphingQuadraticsStrings.a11y.kSlider.accessibleHelpTextStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.kSlider.accessibleNameStringProperty,
         tandem: tandem.createTandem( 'kSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )
       }

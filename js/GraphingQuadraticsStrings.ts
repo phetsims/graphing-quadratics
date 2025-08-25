@@ -197,13 +197,14 @@ type StringsType = {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'pSlider': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'hSlider': {
-      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleNameStringProperty': LocalizedStringProperty;
     };
     'kSlider': {
-      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleNameStringProperty': LocalizedStringProperty;
     };
     'aPicker': {
       'accessibleNameStringProperty': LocalizedStringProperty;
