@@ -437,6 +437,9 @@
     "accessibleHeadings": {
       "coordinateGridHeading": {
         "value": "Coordinate Grid"
+      },
+      "graphFeaturesHeading": {
+        "value": "Graph Features"
       }
     }
   }

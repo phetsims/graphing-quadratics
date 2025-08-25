@@ -225,6 +225,7 @@ type StringsType = {
     };
     'accessibleHeadings': {
       'coordinateGridHeadingStringProperty': LocalizedStringProperty;
+      'graphFeaturesHeadingStringProperty': LocalizedStringProperty;
     }
   }
 };

@@ -17,6 +17,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class StandardFormGraphControlPanel extends Panel {
 
@@ -24,6 +25,7 @@ export default class StandardFormGraphControlPanel extends Panel {
 
     const options = combineOptions<PanelOptions>( {}, GQConstants.PANEL_OPTIONS, {
       isDisposable: false,
+      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.graphFeaturesHeadingStringProperty,
       tandem: tandem,
       phetioDocumentation: 'panel that contains controls related to the graph',
       visiblePropertyOptions: {

@@ -16,6 +16,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class FocusAndDirectrixGraphControlPanel extends Panel {
 
@@ -23,6 +24,7 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
 
     const options = combineOptions<PanelOptions>( {}, GQConstants.PANEL_OPTIONS, {
       isDisposable: false,
+      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.graphFeaturesHeadingStringProperty,
       tandem: tandem,
       phetioDocumentation: 'panel that contains controls related to the graph',
       visiblePropertyOptions: {
