@@ -34,6 +34,7 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
         // AccordionBoxOptions
         titleAlignX: 'left',
         titleXSpacing: 8,
+        accessibleHelpText: GraphingQuadraticsStrings.a11y.quadraticTermsAccordionBox.accessibleHelpTextStringProperty,
         phetioDocumentation: 'the Quadratic Terms accordion box'
       }, providedOptions );
 

@@ -87,6 +87,9 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
+    'quadraticTermsAccordionBox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
     'graphContentsToggleButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
