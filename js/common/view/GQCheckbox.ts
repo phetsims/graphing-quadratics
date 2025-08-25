@@ -176,6 +176,8 @@ export default class GQCheckbox extends Checkbox {
     return new GQCheckbox( property, {
       string: GraphingQuadraticsStrings.coordinatesStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.coordinatesCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.coordinatesCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.coordinatesCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDocumentation: 'checkbox that makes the (x,y) coordinates visible on points on the graph'
     } );

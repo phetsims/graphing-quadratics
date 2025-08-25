@@ -172,6 +172,8 @@ type StringsType = {
     };
     'coordinatesCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
     };
     'focusCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
