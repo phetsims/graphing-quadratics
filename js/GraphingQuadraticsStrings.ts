@@ -199,8 +199,6 @@ type StringsType = {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'accessibleHeadings': {
-      'equationControlsHeadingStringProperty': LocalizedStringProperty;
-      'graphFeaturesHeadingStringProperty': LocalizedStringProperty;
       'coordinateGridHeadingStringProperty': LocalizedStringProperty;
     }
   }

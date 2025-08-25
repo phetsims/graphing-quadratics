@@ -163,7 +163,7 @@
         "value": "Equation Controls"
       },
       "accessibleHelpText": {
-        "value": "Adjust values a, b, and c of the equation y equals a x squared plus b x plus c."
+        "value": "Adjust values a, b, and c of the equation y equals a x squared, plus b x, plus c."
       }
     },
     "graphContentsToggleButton": {
@@ -372,12 +372,6 @@
       }
     },
     "accessibleHeadings": {
-      "equationControlsHeading": {
-        "value": "Equation Controls"
-      },
-      "graphFeaturesHeading": {
-        "value": "Graph Features"
-      },
       "coordinateGridHeading": {
         "value": "Coordinate Grid"
       }
