@@ -161,6 +161,8 @@ export default class GQCheckbox extends Checkbox {
         lineDash: GQConstants.AXIS_OF_SYMMETRY_LINE_DASH
       } ),
       accessibleHelpText: GraphingQuadraticsStrings.a11y.axisOfSymmetryCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.axisOfSymmetryCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.axisOfSymmetryCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that makes the axis of symmetry visible on the graph'
@@ -262,6 +264,8 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.rootsStringProperty,
       icon: icon,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.rootsCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.rootsCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.rootsCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows roots on the graph'
@@ -276,6 +280,8 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.vertexStringProperty,
       icon: new Circle( 6, { fill: GQColors.vertexColorProperty } ),
       accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexPointCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.vertexPointCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.vertexPointCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the vertex on the graph'

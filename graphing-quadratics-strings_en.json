@@ -298,22 +298,40 @@
     },
     "vertexPointCheckbox": {
       "accessibleHelpText": {
-        "value": "TODO.vertexPointCheckbox.accessibleHelpText"
+        "value": "Show or hide vertex on parabola."
+      },
+      "accessibleContextResponseChecked": {
+        "value": "vertex shown"
+      },
+      "accessibleContextResponseUnchecked": {
+        "value": "vertex hidden"
       }
     },
     "axisOfSymmetryCheckbox": {
       "accessibleHelpText": {
-        "value": "TODO.axisOfSymmetryCheckbox.accessibleHelpText"
+        "value": "Show or hide axis of symmetry of parabola."
+      },
+      "accessibleContextResponseChecked": {
+        "value": "axis of symmetry shown"
+      },
+      "accessibleContextResponseUnchecked": {
+        "value": "axis of symmetry hidden"
       }
     },
     "rootsCheckbox": {
       "accessibleHelpText": {
-        "value": "TODO.rootsCheckbox.accessibleHelpText"
+        "value": "Show or hide roots of parabola, if they are real."
+      },
+      "accessibleContextResponseChecked": {
+        "value": "roots shown, if real"
+      },
+      "accessibleContextResponseUnchecked": {
+        "value": "roots hidden"
       }
     },
     "coordinatesCheckbox": {
       "accessibleHelpText": {
-        "value": "TODO.coordinatesCheckbox.accessibleHelpText"
+        "value": "Explore with or without coordinates of graph features labeled."
       }
     },
     "focusCheckbox": {

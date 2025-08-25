@@ -155,12 +155,18 @@ type StringsType = {
     };
     'vertexPointCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
     };
     'axisOfSymmetryCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
     };
     'rootsCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
     };
     'coordinatesCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
