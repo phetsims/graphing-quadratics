@@ -45,7 +45,7 @@ export default class ExploreInteractiveEquationNode extends Node {
 
     // y equals {{a}} x squared plus {{b}} x plus {{c}}
     const accessibleParagraphProperty = new PatternStringProperty(
-      GraphingQuadraticsStrings.a11y.exploreInteractiveEquationNode.accessibleParagraphStringProperty, {
+      GraphingQuadraticsStrings.a11y.standardFormEquationNode.accessibleParagraphStringProperty, {
         a: new DerivedStringProperty( [ aProperty ], a => toFixed( a, GQConstants.EXPLORE_DECIMALS_A ) ),
         b: new DerivedStringProperty( [ bProperty ], b => toFixed( b, GQConstants.EXPLORE_DECIMALS_B ) ),
         c: new DerivedStringProperty( [ cProperty ], c => toFixed( c, GQConstants.EXPLORE_DECIMALS_C ) )

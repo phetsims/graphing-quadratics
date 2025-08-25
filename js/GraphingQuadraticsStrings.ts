@@ -227,7 +227,7 @@ type StringsType = {
       'coordinateGridHeadingStringProperty': LocalizedStringProperty;
       'graphFeaturesHeadingStringProperty': LocalizedStringProperty;
     };
-    'exploreInteractiveEquationNode': {
+    'standardFormEquationNode': {
       'accessibleParagraphStringProperty': LocalizedStringProperty;
     }
   }

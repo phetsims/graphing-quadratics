@@ -21,6 +21,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 export default class StandardFormInteractiveEquationNode extends Node {
 
@@ -32,9 +33,18 @@ export default class StandardFormInteractiveEquationNode extends Node {
                       cProperty: NumberProperty,
                       tandem: Tandem ) {
 
+    // y equals {{a}} x squared plus {{b}} x plus {{c}}
+    const accessibleParagraphProperty = new PatternStringProperty(
+      GraphingQuadraticsStrings.a11y.standardFormEquationNode.accessibleParagraphStringProperty, {
+        a: aProperty,
+        b: bProperty,
+        c: cProperty
+      } );
+
     const options: NodeOptions = {
       isDisposable: false,
       excludeInvisibleChildrenFromBounds: true,
+      accessibleParagraph: accessibleParagraphProperty,
       tandem: tandem,
       phetioDocumentation: 'the interactive equation in this accordion box'
     };

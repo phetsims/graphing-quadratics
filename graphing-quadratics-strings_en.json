@@ -442,7 +442,7 @@
         "value": "Graph Features"
       }
     },
-    "exploreInteractiveEquationNode": {
+    "standardFormEquationNode": {
       "accessibleParagraph": {
         "value": "y equals {{a}} x squared plus {{b}} x plus {{c}}"
       }
