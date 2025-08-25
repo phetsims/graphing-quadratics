@@ -214,10 +214,10 @@ type StringsType = {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'hPicker': {
-      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleNameStringProperty': LocalizedStringProperty;
     };
     'kPicker': {
-      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleNameStringProperty': LocalizedStringProperty;
     };
     'accessibleHeadings': {
       'coordinateGridHeadingStringProperty': LocalizedStringProperty;

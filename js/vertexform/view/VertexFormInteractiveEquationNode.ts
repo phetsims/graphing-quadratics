@@ -43,24 +43,23 @@ export default class VertexFormInteractiveEquationNode extends Node {
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormAColorProperty,
-        accessibleName: GraphingQuadraticsStrings.aStringProperty,
-        accessibleHelpText: GraphingQuadraticsStrings.a11y.aPicker.accessibleHelpTextStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.aPicker.accessibleNameStringProperty,
         tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       } ) );
+
     const hPicker = new NumberPicker( hProperty, new Property( hProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormHColorProperty,
-        accessibleName: GraphingQuadraticsStrings.hStringProperty,
-        accessibleHelpText: GraphingQuadraticsStrings.a11y.hPicker.accessibleHelpTextStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.hPicker.accessibleNameStringProperty,
         tandem: tandem.createTandem( 'hPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'h' } )
       } ) );
+
     const kPicker = new NumberPicker( kProperty, new Property( kProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.vertexFormKColorProperty,
-        accessibleName: GraphingQuadraticsStrings.kStringProperty,
-        accessibleHelpText: GraphingQuadraticsStrings.a11y.kPicker.accessibleHelpTextStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.kPicker.accessibleNameStringProperty,
         tandem: tandem.createTandem( 'kPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'k' } )
       } ) );
