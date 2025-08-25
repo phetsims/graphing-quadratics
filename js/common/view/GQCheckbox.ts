@@ -296,6 +296,8 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.vertexStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.vertexColorProperty ),
       accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexManipulatorCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.vertexManipulatorCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.vertexManipulatorCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the vertex manipulator on the graph'

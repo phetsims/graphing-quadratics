@@ -152,6 +152,8 @@ type StringsType = {
     };
     'vertexManipulatorCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
     };
     'vertexPointCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
