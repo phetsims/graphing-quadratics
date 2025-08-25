@@ -195,6 +195,8 @@ export default class GQCheckbox extends Checkbox {
         lineDash: GQConstants.DIRECTRIX_LINE_DASH
       } ),
       accessibleHelpText: GraphingQuadraticsStrings.a11y.directrixCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.directrixCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.directrixCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the directrix on the graph'
@@ -223,6 +225,8 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.focusStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.focusColorProperty ),
       accessibleHelpText: GraphingQuadraticsStrings.a11y.focusCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.focusCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.focusCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the focus on the graph'
@@ -237,6 +241,8 @@ export default class GQCheckbox extends Checkbox {
       string: GraphingQuadraticsStrings.pointOnParabolaStringProperty,
       icon: Manipulator.createIcon( 8, GQColors.pointOnParabolaColorProperty ),
       accessibleHelpText: GraphingQuadraticsStrings.a11y.pointOnParabolaCheckbox.accessibleHelpTextStringProperty,
+      accessibleContextResponseChecked: GraphingQuadraticsStrings.a11y.pointOnParabolaCheckbox.accessibleContextResponseCheckedStringProperty,
+      accessibleContextResponseUnchecked: GraphingQuadraticsStrings.a11y.pointOnParabolaCheckbox.accessibleContextResponseUncheckedStringProperty,
       tandem: tandem,
       phetioDisplayOnlyPropertyInstrumented: true,
       phetioDocumentation: 'checkbox that shows the point on the parabola on the graph'

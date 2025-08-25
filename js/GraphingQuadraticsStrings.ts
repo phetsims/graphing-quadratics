@@ -177,12 +177,18 @@ type StringsType = {
     };
     'focusCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
     };
     'directrixCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
     };
     'pointOnParabolaCheckbox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseCheckedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseUncheckedStringProperty': LocalizedStringProperty;
     };
     'aSlider': {
       'accessibleNameStringProperty': LocalizedStringProperty;
