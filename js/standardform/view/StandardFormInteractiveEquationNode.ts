@@ -43,23 +43,25 @@ export default class StandardFormInteractiveEquationNode extends Node {
     const aPicker = new NumberPicker( aProperty, new Property( aProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.standardFormAColorProperty,
-        accessibleName: GraphingQuadraticsStrings.aStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.aPicker.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.aPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'aPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'a' } )
       } ) );
+
     const bPicker = new NumberPicker( bProperty, new Property( bProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.standardFormBColorProperty,
-        accessibleName: GraphingQuadraticsStrings.bStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.bPicker.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.bPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'bPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'b' } )
       } ) );
+
     const cPicker = new NumberPicker( cProperty, new Property( cProperty.range ),
       combineOptions<NumberPickerOptions>( {}, GQConstants.NUMBER_PICKER_OPTIONS, {
         color: GQColors.standardFormCColorProperty,
-        accessibleName: GraphingQuadraticsStrings.cStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.cPicker.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.cPicker.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'cPicker' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.PICKER_DOC, { symbol: 'c' } )
