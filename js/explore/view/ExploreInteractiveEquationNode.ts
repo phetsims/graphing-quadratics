@@ -112,27 +112,29 @@ export default class ExploreInteractiveEquationNode extends Node {
       snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
       labelColor: GQColors.exploreAColorProperty,
       sliderOptions: {
-        accessibleName: GraphingQuadraticsStrings.aStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.aSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.aSlider.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'aSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
       }
     } );
+
     const bSlider = new LinearSlider( GQSymbols.bMarkupStringProperty, bProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_B,
       labelColor: GQColors.exploreBColorProperty,
       sliderOptions: {
-        accessibleName: GraphingQuadraticsStrings.bStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.bSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.bSlider.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'bSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
       }
     } );
+
     const cSlider = new LinearSlider( GQSymbols.cMarkupStringProperty, cProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_C,
       labelColor: GQColors.exploreCColorProperty,
       sliderOptions: {
-        accessibleName: GraphingQuadraticsStrings.cStringProperty,
+        accessibleName: GraphingQuadraticsStrings.a11y.cSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.cSlider.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'cSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
