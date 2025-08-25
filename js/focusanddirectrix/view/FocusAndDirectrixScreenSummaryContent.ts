@@ -6,20 +6,15 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import GQScreenSummaryContent from '../../common/view/GQScreenSummaryContent.js';
 
-export default class FocusAndDirectrixScreenSummaryContent extends ScreenSummaryContent {
+export default class FocusAndDirectrixScreenSummaryContent extends GQScreenSummaryContent {
 
-  public constructor( model: FocusAndDirectrixModel ) {
-    super( {
-      playAreaContent: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenSummary.playAreaStringProperty,
-      controlAreaContent: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenSummary.controlAreaStringProperty,
-      currentDetailsContent: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenSummary.currentDetailsStringProperty,
-      interactionHintContent: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenSummary.interactionHintStringProperty
-    } );
+  public constructor( graphContentsVisibleProperty: TReadOnlyProperty<boolean> ) {
+    super( GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.screenSummary.playAreaStringProperty, graphContentsVisibleProperty );
   }
 }
 

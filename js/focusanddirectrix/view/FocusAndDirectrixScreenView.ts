@@ -23,7 +23,7 @@ export default class FocusAndDirectrixScreenView extends GQScreenView {
     const viewProperties = new FocusAndDirectrixViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     const options: GQScreenViewOptions = {
-      screenSummaryContent: new FocusAndDirectrixScreenSummaryContent( model ),
+      screenSummaryContent: new FocusAndDirectrixScreenSummaryContent( viewProperties.graphContentsVisibleProperty ),
       tandem: tandem
     };
 

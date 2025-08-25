@@ -41,31 +41,30 @@ type StringsType = {
   'pStringProperty': LocalizedStringProperty;
   'coordinateUnknownStringProperty': LocalizedStringProperty;
   'a11y': {
+    'allScreens': {
+      'screenSummary': {
+        'controlAreaStringProperty': LocalizedStringProperty;
+        'currentDetailsStringProperty': LocalizedStringProperty;
+        'currentDetailsEmptyStringProperty': LocalizedStringProperty;
+        'interactionHintStringProperty': LocalizedStringProperty;
+      }
+    };
     'exploreScreen': {
       'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
-        'controlAreaStringProperty': LocalizedStringProperty;
-        'currentDetailsStringProperty': LocalizedStringProperty;
-        'interactionHintStringProperty': LocalizedStringProperty;
       }
     };
     'standardFormScreen': {
       'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
-        'controlAreaStringProperty': LocalizedStringProperty;
-        'currentDetailsStringProperty': LocalizedStringProperty;
-        'interactionHintStringProperty': LocalizedStringProperty;
       }
     };
     'vertexFormScreen': {
       'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
-        'controlAreaStringProperty': LocalizedStringProperty;
-        'currentDetailsStringProperty': LocalizedStringProperty;
-        'interactionHintStringProperty': LocalizedStringProperty;
       };
       'equationAccordionBox': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;
@@ -75,9 +74,6 @@ type StringsType = {
       'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
-        'controlAreaStringProperty': LocalizedStringProperty;
-        'currentDetailsStringProperty': LocalizedStringProperty;
-        'interactionHintStringProperty': LocalizedStringProperty;
       };
       'equationAccordionBox': {
         'accessibleHelpTextStringProperty': LocalizedStringProperty;

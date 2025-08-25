@@ -23,7 +23,7 @@ export default class StandardFormScreenView extends GQScreenView {
     const viewProperties = new StandardFormViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     const options: GQScreenViewOptions = {
-      screenSummaryContent: new StandardFormScreenSummaryContent( model ),
+      screenSummaryContent: new StandardFormScreenSummaryContent( viewProperties.graphContentsVisibleProperty ),
       tandem: tandem
     };
 

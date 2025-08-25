@@ -6,20 +6,15 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import ExploreModel from '../model/ExploreModel.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import GQScreenSummaryContent from '../../common/view/GQScreenSummaryContent.js';
 
-export default class ExploreScreenSummaryContent extends ScreenSummaryContent {
+export default class ExploreScreenSummaryContent extends GQScreenSummaryContent {
 
-  public constructor( model: ExploreModel ) {
-    super( {
-      playAreaContent: GraphingQuadraticsStrings.a11y.exploreScreen.screenSummary.playAreaStringProperty,
-      controlAreaContent: GraphingQuadraticsStrings.a11y.exploreScreen.screenSummary.controlAreaStringProperty,
-      currentDetailsContent: GraphingQuadraticsStrings.a11y.exploreScreen.screenSummary.currentDetailsStringProperty,
-      interactionHintContent: GraphingQuadraticsStrings.a11y.exploreScreen.screenSummary.interactionHintStringProperty
-    } );
+  public constructor( graphContentsVisibleProperty: TReadOnlyProperty<boolean> ) {
+    super( GraphingQuadraticsStrings.a11y.exploreScreen.screenSummary.playAreaStringProperty, graphContentsVisibleProperty );
   }
 }
 

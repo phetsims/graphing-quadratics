@@ -23,7 +23,7 @@ export default class VertexFormScreenView extends GQScreenView {
     const viewProperties = new VertexFormViewProperties( tandem.createTandem( 'viewProperties' ) );
 
     const options: GQScreenViewOptions = {
-      screenSummaryContent: new VertexFormScreenSummaryContent( model ),
+      screenSummaryContent: new VertexFormScreenSummaryContent( viewProperties.graphContentsVisibleProperty ),
       tandem: tandem
     };
 
