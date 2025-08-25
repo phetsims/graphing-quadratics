@@ -224,18 +224,18 @@
     },
     "leftPointToolNode": {
       "accessibleName": {
-        "value": "TODO.leftPointToolNode.accessibleName"
+        "value": "Left-handed Point Tool"
       },
       "accessibleHelpText": {
-        "value": "TODO.leftPointToolNode.accessibleHelpText"
+        "value": "Place in grid for x,y coordinates. Tool has handle on left, scope on right."
       }
     },
     "rightPointToolNode": {
       "accessibleName": {
-        "value": "TODO.rightPointToolNode.accessibleName"
+        "value": "Right-handed Point Tool"
       },
       "accessibleHelpText": {
-        "value": "TODO.rightPointToolNode.accessibleHelpText"
+        "value": "Place in grid for x,y coordinates. Tool has handle on right, scope on left."
       }
     },
     "quadraticTermCheckbox": {
