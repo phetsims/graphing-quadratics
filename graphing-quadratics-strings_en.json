@@ -186,7 +186,7 @@
         "value": "Vertex"
       },
       "accessibleHelpText": {
-        "value": "Move to relocate vertex of quadratic"
+        "value": "Adjust vertex of parabola."
       },
       "accessibleObjectResponse": {
         "value": "{{x}}, {{y}}"
