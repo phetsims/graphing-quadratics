@@ -48,9 +48,7 @@ export default class GQScreenView extends ScreenView {
 
     super( options );
 
-    // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
-    const pointToolsParent = new Node();
-    pointToolsParent.addChild( new PointToolNode(
+    const leftPointToolNode = new PointToolNode(
       model.leftPointTool,
       model.modelViewTransform,
       model.graph,
@@ -58,8 +56,9 @@ export default class GQScreenView extends ScreenView {
         accessibleName: GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'leftPointToolNode' )
-      } ) );
-    pointToolsParent.addChild( new PointToolNode(
+      } );
+
+    const rightPointToolNode = new PointToolNode(
       model.rightPointTool,
       model.modelViewTransform,
       model.graph,
@@ -67,7 +66,12 @@ export default class GQScreenView extends ScreenView {
         accessibleName: GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'rightPointToolNode' )
-      } ) );
+      } );
+
+    // Point tools moveToFront when dragged, so give them a common parent to preserve rendering order.
+    const pointToolsParent = new Node( {
+      children: [ leftPointToolNode, rightPointToolNode ]
+    } );
 
     // Toggle button for showing/hiding contents of graph
     const graphContentsToggleButton = new EyeToggleButton( viewProperties.graphContentsVisibleProperty, {
@@ -120,8 +124,32 @@ export default class GQScreenView extends ScreenView {
       phetioDocumentation: 'button that resets the screen to its initial state'
     } );
 
+    // 'Equation Controls' accessible heading
+    const equationControlsHeading = new Node( {
+      pdomOrder: [ equationAccordionBox ],
+      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.equationControlsHeadingStringProperty
+    } );
+
+    // 'Graph Features' accessible heading
+    const graphFeaturesHeading = new Node( {
+      pdomOrder: [ graphControlPanel ],
+      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.graphFeaturesHeadingStringProperty
+    } );
+
+    // 'Coordinate Grid' accessible heading
+    const coordinateGridHeading = new Node( {
+      pdomOrder: [ graphNode ],
+      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.coordinateGridHeadingStringProperty
+    } );
+
     const screenViewRootNode = new Node( {
       children: [
+
+        // Accessible headings can be put anywhere in rendering order because they have no children. Put them all first.
+        equationControlsHeading,
+        graphFeaturesHeading,
+        coordinateGridHeading,
+
         controlsParent,
         graphContentsToggleButton,
         graphNode,
@@ -133,8 +161,9 @@ export default class GQScreenView extends ScreenView {
 
     // Play Area focus order
     this.pdomPlayAreaNode.pdomOrder = [
-      graphNode,
-      controlsParent
+      equationControlsHeading,
+      graphFeaturesHeading,
+      coordinateGridHeading
     ];
 
     // Control Area focus order

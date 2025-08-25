@@ -199,6 +199,11 @@ type StringsType = {
     };
     'kPicker': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'accessibleHeadings': {
+      'equationControlsHeadingStringProperty': LocalizedStringProperty;
+      'graphFeaturesHeadingStringProperty': LocalizedStringProperty;
+      'coordinateGridHeadingStringProperty': LocalizedStringProperty;
     }
   }
 };
