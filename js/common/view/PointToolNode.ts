@@ -10,7 +10,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Disposable from '../../../../axon/js/Disposable.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -153,11 +152,6 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     this.focusedProperty.lazyLink( focused => {
       focused && this.doAccessibleObjectResponse();
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 
   /**
