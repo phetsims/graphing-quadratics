@@ -90,7 +90,7 @@
     },
     "exploreScreen": {
       "screenButtonsHelpText": {
-        "value": "Create custom parabolas by manipulating coefficients of quadratic function in standard form."
+        "value": "Create custom parabolas by manipulating coefficients of a quadratic function in standard form."
       },
       "screenSummary": {
         "playArea": {
