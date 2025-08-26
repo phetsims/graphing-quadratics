@@ -8,7 +8,6 @@
 
 import AccessibleListNode, { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import StringProperty from '../../../../axon/js/StringProperty.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
@@ -24,29 +23,46 @@ export default class ExploreGraphAccessibleListNode extends AccessibleListNode {
                               'The contents of the coordinate grid are hidden.' );
 
     const primaryParabolaItem = {
-      stringProperty: new StringProperty( 'Primary Parabola' ),
+      stringProperty: new DerivedStringProperty(
+        [ viewProperties.equationsVisibleProperty ],
+        equationsVisible => equationsVisible ? 'Primary Parabola, y equals a x squared plus b x plus c' : 'Primary Parabola' ),
       visibleProperty: viewProperties.graphContentsVisibleProperty
     };
 
     const savedParabolaItem = {
-      stringProperty: new StringProperty( 'Saved Parabola' ),
+      stringProperty: new DerivedStringProperty(
+        [ model.savedQuadraticProperty, viewProperties.equationsVisibleProperty ],
+        ( savedQuadratic, equationsVisible ) => {
+          if ( savedQuadratic ) {
+            return equationsVisible ? 'Saved Parabola, y equals a x squared plus b x plus c' : 'Saved Parabola';
+          }
+          else {
+            return '';
+          }
+        } ),
       visibleProperty: new DerivedProperty(
         [ viewProperties.graphContentsVisibleProperty, model.savedQuadraticProperty ],
         ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
     };
 
     const quadraticTermItem = {
-      stringProperty: new StringProperty( 'Quadratic Term' ),
+      stringProperty: new DerivedStringProperty(
+        [ viewProperties.equationsVisibleProperty ],
+        equationsVisible => equationsVisible ? 'Quadratic Term, y equals a x squared' : 'Quadratic Term' ),
       visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.quadraticTermVisibleProperty ] )
     };
 
     const linearTermItem = {
-      stringProperty: new StringProperty( 'Linear Term' ),
+      stringProperty: new DerivedStringProperty(
+        [ viewProperties.equationsVisibleProperty ],
+        equationsVisible => equationsVisible ? 'Linear Term, y equals b x' : 'Linear Term' ),
       visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.linearTermVisibleProperty ] )
     };
 
     const constantTermItem = {
-      stringProperty: new StringProperty( 'Constant Term' ),
+      stringProperty: new DerivedStringProperty(
+        [ viewProperties.equationsVisibleProperty ],
+        equationsVisible => equationsVisible ? 'Constant Term, y equals c' : 'Constant Term' ),
       visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.constantTermVisibleProperty ] )
     };
 
