@@ -242,7 +242,9 @@ type StringsType = {
     };
     'focusAndDirectrixFormEquationNode': {
       'accessibleParagraphStringProperty': LocalizedStringProperty;
-    }
+    };
+    'coordinateGridCurrentlyContainsStringProperty': LocalizedStringProperty;
+    'contentsOfCoordinateGridAreHiddenStringProperty': LocalizedStringProperty;
   }
 };
 

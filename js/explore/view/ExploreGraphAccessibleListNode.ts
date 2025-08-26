@@ -1,26 +1,23 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ExploreGraphAccessibleListNode is the dynamic description of what is shown on the graph in the 'Explore' screen.
+ * ExploreGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on the graph
+ * in the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import AccessibleListNode, { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import GQGraphAccessibleListNode from '../../common/view/GQGraphAccessibleListNode.js';
 
-export default class ExploreGraphAccessibleListNode extends AccessibleListNode {
+export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
   public constructor( model: ExploreModel, viewProperties: ExploreViewProperties ) {
-
-    const leadingParagraphStringProperty = new DerivedStringProperty( [ viewProperties.graphContentsVisibleProperty ],
-      graphContentsVisible => graphContentsVisible ?
-                              'Coordinate grid currently contains:' :
-                              'The contents of the coordinate grid are hidden.' );
 
     const primaryParabolaItem = {
       stringProperty: new DerivedStringProperty(
@@ -74,9 +71,7 @@ export default class ExploreGraphAccessibleListNode extends AccessibleListNode {
       constantTermItem
     ];
 
-    super( listItems, {
-      leadingParagraphStringProperty: leadingParagraphStringProperty
-    } );
+    super( listItems, viewProperties.graphContentsVisibleProperty );
   }
 }
 

@@ -477,6 +477,12 @@
       "accessibleParagraph": {
         "value": "y equals 1 over (4 times {{p}}), times (x minus {{h}}}) squared, plus {{k}}"
       }
+    },
+    "coordinateGridCurrentlyContains": {
+      "value": "Coordinate grid currently contains:"
+    },
+    "contentsOfCoordinateGridAreHidden": {
+      "value": "Contents of coordinate grid are hidden."
     }
   }
 }
