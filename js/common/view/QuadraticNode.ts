@@ -124,9 +124,9 @@ export default class QuadraticNode extends Node {
     // Must be disposed.
     const multilink = new Multilink(
       [ equationsVisibleProperty, GQSymbols.yMarkupStringProperty, GQSymbols.xMarkupStringProperty, GQSymbols.xSquaredMarkupStringProperty ],
-      ( visible, yString, xString, x2String ) => {
+      ( visible, yString, xString, xSquaredString ) => {
         this.equationParent.visible = visible;
-        visible && this.updateEquation( this.quadraticProperty.value, yString, xString, x2String );
+        visible && this.updateEquation( this.quadraticProperty.value, yString, xString, xSquaredString );
       } );
 
     // Update when this Node becomes visible.
@@ -169,14 +169,14 @@ export default class QuadraticNode extends Node {
   /**
    * Updates the equation displayed on the quadratic.
    */
-  private updateEquation( quadratic: Quadratic, yString: string, xString: string, x2String: string ): void {
+  private updateEquation( quadratic: Quadratic, yString: string, xString: string, xSquaredString: string ): void {
 
     // update the equation text
     if ( this.equationForm === 'standard' ) {
-      this.equationNode.setTextString( GQEquationFactory.createStandardForm( quadratic, yString, xString, x2String ) );
+      this.equationNode.setTextString( GQEquationFactory.createStandardForm( quadratic, yString, xString, xSquaredString ) );
     }
     else {
-      this.equationNode.setTextString( GQEquationFactory.createVertexForm( quadratic, yString, xString, x2String ) );
+      this.equationNode.setTextString( GQEquationFactory.createVertexForm( quadratic, yString, xString, xSquaredString ) );
     }
 
     // update the equation color

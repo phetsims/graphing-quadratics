@@ -245,6 +245,16 @@ type StringsType = {
     };
     'coordinateGridCurrentlyContainsStringProperty': LocalizedStringProperty;
     'contentsOfCoordinateGridAreHiddenStringProperty': LocalizedStringProperty;
+    'primaryParabolaStringProperty': LocalizedStringProperty;
+    'primaryParabolaEquationStringProperty': LocalizedStringProperty;
+    'savedParabolaStringProperty': LocalizedStringProperty;
+    'savedParabolaEquationStringProperty': LocalizedStringProperty;
+    'quadraticTermStringProperty': LocalizedStringProperty;
+    'quadraticTermEquationStringProperty': LocalizedStringProperty;
+    'linearTermStringProperty': LocalizedStringProperty;
+    'linearTermEquationStringProperty': LocalizedStringProperty;
+    'constantTermStringProperty': LocalizedStringProperty;
+    'constantTermEquationStringProperty': LocalizedStringProperty;
   }
 };
 

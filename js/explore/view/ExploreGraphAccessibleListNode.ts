@@ -14,24 +14,59 @@ import ExploreViewProperties from './ExploreViewProperties.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import GQGraphAccessibleListNode from '../../common/view/GQGraphAccessibleListNode.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import GQDescriptionUtils from '../../common/GQDescriptionUtils.js';
 
 export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
   public constructor( model: ExploreModel, viewProperties: ExploreViewProperties ) {
 
+    // 'Primary Parabola', optionally followed by standard form equation
     const primaryParabolaItem = {
       stringProperty: new DerivedStringProperty(
-        [ viewProperties.equationsVisibleProperty ],
-        equationsVisible => equationsVisible ? 'Primary Parabola, y equals a x squared plus b x plus c' : 'Primary Parabola' ),
+        [
+          model.quadraticProperty,
+          viewProperties.equationsVisibleProperty,
+          GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
+          GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
+          GraphingQuadraticsStrings.yStringProperty,
+          GraphingQuadraticsStrings.xStringProperty
+        ],
+        ( quadratic, equationsVisible, primaryParabolaString, primaryParabolaEquationString, yString, xString ) => {
+          if ( equationsVisible ) {
+            return StringUtils.fillIn( primaryParabolaEquationString, {
+              equation: GQDescriptionUtils.getStandardFormDescription( quadratic )
+            } );
+          }
+          else {
+            return primaryParabolaString;
+          }
+        } ),
       visibleProperty: viewProperties.graphContentsVisibleProperty
     };
 
+    // 'Saved Parabola', optionally followed by standard form equation
     const savedParabolaItem = {
       stringProperty: new DerivedStringProperty(
-        [ model.savedQuadraticProperty, viewProperties.equationsVisibleProperty ],
-        ( savedQuadratic, equationsVisible ) => {
+        [
+          model.savedQuadraticProperty,
+          viewProperties.equationsVisibleProperty,
+          GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
+          GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
+          GraphingQuadraticsStrings.yStringProperty,
+          GraphingQuadraticsStrings.xStringProperty
+        ],
+        ( savedQuadratic, equationsVisible, savedParabolaString, savedParabolaEquationString, yString, xString ) => {
           if ( savedQuadratic ) {
-            return equationsVisible ? 'Saved Parabola, y equals a x squared plus b x plus c' : 'Saved Parabola';
+            if ( equationsVisible ) {
+              return StringUtils.fillIn( savedParabolaEquationString, {
+                equation: GQDescriptionUtils.getStandardFormDescription( savedQuadratic )
+              } );
+            }
+            else {
+              return savedParabolaString;
+            }
           }
           else {
             return '';
@@ -44,22 +79,70 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
 
     const quadraticTermItem = {
       stringProperty: new DerivedStringProperty(
-        [ viewProperties.equationsVisibleProperty ],
-        equationsVisible => equationsVisible ? 'Quadratic Term, y equals a x squared' : 'Quadratic Term' ),
+        [
+          model.quadraticProperty,
+          viewProperties.equationsVisibleProperty,
+          GraphingQuadraticsStrings.a11y.quadraticTermStringProperty,
+          GraphingQuadraticsStrings.a11y.quadraticTermEquationStringProperty,
+          GraphingQuadraticsStrings.yStringProperty,
+          GraphingQuadraticsStrings.xStringProperty
+        ],
+        ( quadratic, equationsVisible, quadraticTermString, quadraticTermEquationString, yString, xString ) => {
+          if ( equationsVisible ) {
+            return StringUtils.fillIn( quadraticTermEquationString, {
+              equation: GQDescriptionUtils.getQuadraticTermDescription( quadratic )
+            } );
+          }
+          else {
+            return quadraticTermString;
+          }
+        } ),
       visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.quadraticTermVisibleProperty ] )
     };
 
     const linearTermItem = {
       stringProperty: new DerivedStringProperty(
-        [ viewProperties.equationsVisibleProperty ],
-        equationsVisible => equationsVisible ? 'Linear Term, y equals b x' : 'Linear Term' ),
+        [
+          model.quadraticProperty,
+          viewProperties.equationsVisibleProperty,
+          GraphingQuadraticsStrings.a11y.linearTermStringProperty,
+          GraphingQuadraticsStrings.a11y.linearTermEquationStringProperty,
+          GraphingQuadraticsStrings.yStringProperty,
+          GraphingQuadraticsStrings.xStringProperty
+        ],
+        ( quadratic, equationsVisible, linearTermString, linearTermEquationString, yString, xString ) => {
+          if ( equationsVisible ) {
+            return StringUtils.fillIn( linearTermEquationString, {
+              equation: GQDescriptionUtils.getLinearTermDescription( quadratic )
+            } );
+          }
+          else {
+            return linearTermString;
+          }
+        } ),
       visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.linearTermVisibleProperty ] )
     };
 
     const constantTermItem = {
       stringProperty: new DerivedStringProperty(
-        [ viewProperties.equationsVisibleProperty ],
-        equationsVisible => equationsVisible ? 'Constant Term, y equals c' : 'Constant Term' ),
+        [
+          model.quadraticProperty,
+          viewProperties.equationsVisibleProperty,
+          GraphingQuadraticsStrings.a11y.constantTermStringProperty,
+          GraphingQuadraticsStrings.a11y.constantTermEquationStringProperty,
+          GraphingQuadraticsStrings.yStringProperty,
+          GraphingQuadraticsStrings.xStringProperty
+        ],
+        ( quadratic, equationsVisible, constantTermString, constantTermEquationString, yString, xString ) => {
+          if ( equationsVisible ) {
+            return StringUtils.fillIn( constantTermEquationString, {
+              equation: GQDescriptionUtils.getConstantTermDescription( quadratic )
+            } );
+          }
+          else {
+            return constantTermString;
+          }
+        } ),
       visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.constantTermVisibleProperty ] )
     };
 

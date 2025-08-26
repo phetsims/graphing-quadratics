@@ -20,7 +20,7 @@ const GQEquationFactory = {
   /**
    * Creates the RichText string for an equation in standard form, y = ax^2 + bx + c
    */
-  createStandardForm( quadratic: Quadratic, yString: string, xString: string, x2String: string ): string {
+  createStandardForm( quadratic: Quadratic, yString: string, xString: string, xSquaredString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.EXPLORE_DECIMALS_A );
@@ -47,7 +47,7 @@ const GQEquationFactory = {
           equationString += a; // ax^2
         }
 
-        equationString += x2String;
+        equationString += xSquaredString;
 
         if ( b !== 0 || c !== 0 ) {
           equationString += ' ';
@@ -98,7 +98,7 @@ const GQEquationFactory = {
   /**
    * Creates the RichText string for an equation in vertex form, y = a(x - h)^2 + k
    */
-  createVertexForm( quadratic: Quadratic, yString: string, xString: string, x2String: string ): string {
+  createVertexForm( quadratic: Quadratic, yString: string, xString: string, xSquaredString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
@@ -129,7 +129,7 @@ const GQEquationFactory = {
       }
 
       if ( h === 0 ) {
-        equationString += x2String;
+        equationString += xSquaredString;
       }
       else {
         equationString += `(${xString} `;
