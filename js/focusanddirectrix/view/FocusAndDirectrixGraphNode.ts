@@ -85,6 +85,8 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       decorations: [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ], // rendered in this order
       tandem: tandem
     } );
+
+    this.pdomOrder = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ];
   }
 }
 

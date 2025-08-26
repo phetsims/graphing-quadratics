@@ -51,6 +51,8 @@ export default class VertexFormGraphNode extends GQGraphNode {
       decorations: [ vertexManipulator ],
       tandem: tandem
     } );
+
+    this.pdomOrder = [ vertexManipulator ];
   }
 }
 
