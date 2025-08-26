@@ -128,18 +128,8 @@ export default class GQScreenView extends ScreenView {
       phetioDocumentation: 'button that resets the screen to its initial state'
     } );
 
-    // 'Coordinate Grid' accessible heading
-    const coordinateGridHeading = new Node( {
-      pdomOrder: [ graphNode ],
-      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.coordinateGridHeadingStringProperty
-    } );
-
     const screenViewRootNode = new Node( {
       children: [
-
-        // Accessible headings can be put anywhere in rendering order because they have no children. Put them all first.
-        coordinateGridHeading,
-
         controlsParent,
         graphContentsToggleButton,
         graphNode,
@@ -153,7 +143,7 @@ export default class GQScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       equationAccordionBox,
       graphControlPanel,
-      coordinateGridHeading
+      graphNode
     ];
 
     // Control Area focus order

@@ -22,6 +22,7 @@ import GQSymbols from '../GQSymbols.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import QuadraticNode, { QuadraticNodeOptions } from './QuadraticNode.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 type SelfOptions = {
 
@@ -50,6 +51,7 @@ export default class GQGraphNode extends Node {
 
       // NodeOptions
       isDisposable: false,
+      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.coordinateGridHeadingStringProperty,
       phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 
