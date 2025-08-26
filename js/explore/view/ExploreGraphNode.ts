@@ -14,6 +14,7 @@ import QuadraticNode from '../../common/view/QuadraticNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
+import ExploreGraphAccessibleListNode from './ExploreGraphAccessibleListNode.js';
 
 export default class ExploreGraphNode extends GQGraphNode {
 
@@ -85,6 +86,9 @@ export default class ExploreGraphNode extends GQGraphNode {
         constantTermVisible && constantTerm
       ] );
     } );
+
+    // Describes what is currently shown on the graph.
+    this.addChild( new ExploreGraphAccessibleListNode( model, viewProperties ) );
   }
 }
 
