@@ -151,13 +151,18 @@ export default class GQScreenView extends ScreenView {
 
     // Play Area focus order
     this.pdomPlayAreaNode.pdomOrder = [
-      controlsParent,
+      equationAccordionBox,
+      graphControlPanel,
       coordinateGridHeading
     ];
 
     // Control Area focus order
     this.pdomControlAreaNode.pdomOrder = [
-      pointToolsParent,
+
+      // Point tools moveToFront when dragged. So add leftPointToolNode and rightPointToolNode instead of
+      // pointToolsParent so that pdomOrder is not affected.
+      leftPointToolNode,
+      rightPointToolNode,
       graphContentsToggleButton,
       resetAllButton
     ];
