@@ -381,7 +381,7 @@
     },
     "aSlider": {
       "accessibleName": {
-        "value": "a, Leading Coefficient"
+        "value": "a, Coefficient of x squared"
       },
       "accessibleHelpText": {
         "value": "Adjust coefficient of quadratic term in equation."
