@@ -16,7 +16,8 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import GQGraphAccessibleListNode from '../../common/view/GQGraphAccessibleListNode.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import GQDescriptionUtils from '../../common/GQDescriptionUtils.js';
+import GQEquationDescriber from '../../common/view/GQEquationDescriber.js';
+import Quadratic from '../../common/model/Quadratic.js';
 
 export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
@@ -31,12 +32,18 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
           GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
           GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
           GraphingQuadraticsStrings.yStringProperty,
-          GraphingQuadraticsStrings.xStringProperty
+          GraphingQuadraticsStrings.xStringProperty,
+          GraphingQuadraticsStrings.a11y.xSquaredStringProperty,
+          GraphingQuadraticsStrings.a11y.equalsStringProperty,
+          GraphingQuadraticsStrings.a11y.plusStringProperty,
+          GraphingQuadraticsStrings.a11y.minusStringProperty,
+          GraphingQuadraticsStrings.a11y.negativeStringProperty
         ],
-        ( quadratic, equationsVisible, primaryParabolaString, primaryParabolaEquationString, yString, xString ) => {
+        ( quadratic, equationsVisible, primaryParabolaString, primaryParabolaEquationString, yString, xString,
+          xSquaredString, equalsString, plusString, minusString, negativeString ) => {
           if ( equationsVisible ) {
             return StringUtils.fillIn( primaryParabolaEquationString, {
-              equation: GQDescriptionUtils.getStandardFormDescription( quadratic )
+              equation: GQEquationDescriber.createStandardForm( quadratic, yString, xString, xSquaredString, equalsString, plusString, minusString, negativeString )
             } );
           }
           else {
@@ -55,13 +62,19 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
           GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
           GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
           GraphingQuadraticsStrings.yStringProperty,
-          GraphingQuadraticsStrings.xStringProperty
+          GraphingQuadraticsStrings.xStringProperty,
+          GraphingQuadraticsStrings.a11y.xSquaredStringProperty,
+          GraphingQuadraticsStrings.a11y.equalsStringProperty,
+          GraphingQuadraticsStrings.a11y.plusStringProperty,
+          GraphingQuadraticsStrings.a11y.minusStringProperty,
+          GraphingQuadraticsStrings.a11y.negativeStringProperty
         ],
-        ( savedQuadratic, equationsVisible, savedParabolaString, savedParabolaEquationString, yString, xString ) => {
+        ( savedQuadratic, equationsVisible, savedParabolaString, savedParabolaEquationString, yString, xString,
+          xSquaredString, equalsString, plusString, minusString, negativeString ) => {
           if ( savedQuadratic ) {
             if ( equationsVisible ) {
               return StringUtils.fillIn( savedParabolaEquationString, {
-                equation: GQDescriptionUtils.getStandardFormDescription( savedQuadratic )
+                equation: GQEquationDescriber.createStandardForm( savedQuadratic, yString, xString, xSquaredString, equalsString, plusString, minusString, negativeString )
               } );
             }
             else {
@@ -85,12 +98,19 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
           GraphingQuadraticsStrings.a11y.quadraticTermStringProperty,
           GraphingQuadraticsStrings.a11y.quadraticTermEquationStringProperty,
           GraphingQuadraticsStrings.yStringProperty,
-          GraphingQuadraticsStrings.xStringProperty
+          GraphingQuadraticsStrings.xStringProperty,
+          GraphingQuadraticsStrings.a11y.xSquaredStringProperty,
+          GraphingQuadraticsStrings.a11y.equalsStringProperty,
+          GraphingQuadraticsStrings.a11y.plusStringProperty,
+          GraphingQuadraticsStrings.a11y.minusStringProperty,
+          GraphingQuadraticsStrings.a11y.negativeStringProperty
         ],
-        ( quadratic, equationsVisible, quadraticTermString, quadraticTermEquationString, yString, xString ) => {
+        ( quadratic, equationsVisible, quadraticTermString, quadraticTermEquationString, yString, xString,
+          xSquaredString, equalsString, plusString, minusString, negativeString ) => {
           if ( equationsVisible ) {
+            const quadraticTerm = new Quadratic( quadratic.a, 0, 0 );
             return StringUtils.fillIn( quadraticTermEquationString, {
-              equation: GQDescriptionUtils.getQuadraticTermDescription( quadratic )
+              equation: GQEquationDescriber.createStandardForm( quadraticTerm, yString, xString, xSquaredString, equalsString, plusString, minusString, negativeString )
             } );
           }
           else {
@@ -108,12 +128,19 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
           GraphingQuadraticsStrings.a11y.linearTermStringProperty,
           GraphingQuadraticsStrings.a11y.linearTermEquationStringProperty,
           GraphingQuadraticsStrings.yStringProperty,
-          GraphingQuadraticsStrings.xStringProperty
+          GraphingQuadraticsStrings.xStringProperty,
+          GraphingQuadraticsStrings.a11y.xSquaredStringProperty,
+          GraphingQuadraticsStrings.a11y.equalsStringProperty,
+          GraphingQuadraticsStrings.a11y.plusStringProperty,
+          GraphingQuadraticsStrings.a11y.minusStringProperty,
+          GraphingQuadraticsStrings.a11y.negativeStringProperty
         ],
-        ( quadratic, equationsVisible, linearTermString, linearTermEquationString, yString, xString ) => {
+        ( quadratic, equationsVisible, linearTermString, linearTermEquationString, yString, xString,
+          xSquaredString, equalsString, plusString, minusString, negativeString ) => {
           if ( equationsVisible ) {
+            const linearTerm = new Quadratic( 0, quadratic.b, 0 );
             return StringUtils.fillIn( linearTermEquationString, {
-              equation: GQDescriptionUtils.getLinearTermDescription( quadratic )
+              equation: GQEquationDescriber.createStandardForm( linearTerm, yString, xString, xSquaredString, equalsString, plusString, minusString, negativeString )
             } );
           }
           else {
@@ -131,12 +158,19 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
           GraphingQuadraticsStrings.a11y.constantTermStringProperty,
           GraphingQuadraticsStrings.a11y.constantTermEquationStringProperty,
           GraphingQuadraticsStrings.yStringProperty,
-          GraphingQuadraticsStrings.xStringProperty
+          GraphingQuadraticsStrings.xStringProperty,
+          GraphingQuadraticsStrings.a11y.xSquaredStringProperty,
+          GraphingQuadraticsStrings.a11y.equalsStringProperty,
+          GraphingQuadraticsStrings.a11y.plusStringProperty,
+          GraphingQuadraticsStrings.a11y.minusStringProperty,
+          GraphingQuadraticsStrings.a11y.negativeStringProperty
         ],
-        ( quadratic, equationsVisible, constantTermString, constantTermEquationString, yString, xString ) => {
+        ( quadratic, equationsVisible, constantTermString, constantTermEquationString, yString, xString,
+          xSquaredString, equalsString, plusString, minusString, negativeString ) => {
           if ( equationsVisible ) {
+            const constantTerm = new Quadratic( 0, 0, quadratic.c );
             return StringUtils.fillIn( constantTermEquationString, {
-              equation: GQDescriptionUtils.getConstantTermDescription( quadratic )
+              equation: GQEquationDescriber.createStandardForm( constantTerm, yString, xString, xSquaredString, equalsString, plusString, minusString, negativeString )
             } );
           }
           else {
