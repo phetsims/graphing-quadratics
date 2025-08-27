@@ -18,6 +18,8 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import GQEquationDescriber from './GQEquationDescriber.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import GQConstants from '../GQConstants.js';
 
 export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
@@ -38,7 +40,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
-   * Creates an AccessibleListItem that describes the primary quadratic as it appears on the graph.
+   * Creates an AccessibleListItem that describes the primary quadratic, as it appears on the graph.
    */
   protected static createPrimaryQuadraticItem(
     quadraticProperty: TReadOnlyProperty<Quadratic>,
@@ -56,7 +58,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
-   * Creates an AccessibleListItem that describes the saved quadratic as it appears on the graph.
+   * Creates an AccessibleListItem that describes the saved quadratic, as it appears on the graph.
    */
   protected static createSavedQuadraticItem(
     savedQuadraticProperty: ReadOnlyProperty<Quadratic | null>,
@@ -76,7 +78,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
-   * Creates an AccessibleListItem that describes the axis of symmetry as it appears on the graph.
+   * Creates an AccessibleListItem that describes the axis of symmetry, as it appears on the graph.
    */
   protected static createAxisOfSymmetryItem(
     quadraticProperty: TReadOnlyProperty<Quadratic>,
@@ -88,7 +90,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
     return {
       stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
 
-      // Note that axis of symmetry will be undefined when a = 0.
+      // Note that the axis of symmetry will be undefined when a = 0.
       visibleProperty: new DerivedProperty( [
           quadraticProperty,
           axisOfSymmetryVisibleProperty,
@@ -99,7 +101,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
-   * Creates an AccessibleListItem that describes directrix as it appears on the graph.
+   * Creates an AccessibleListItem that describes directrix, as it appears on the graph.
    */
   protected static createDirectrixItem(
     quadraticProperty: TReadOnlyProperty<Quadratic>,
@@ -111,13 +113,54 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
     return {
       stringProperty: GQGraphAccessibleListNode.createDirectrixDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
 
-      // Note that directrix will be undefined when a = 0.
+      // Note that the directrix will be undefined when a = 0.
       visibleProperty: new DerivedProperty( [
           quadraticProperty,
           directrixVisibleProperty,
           graphContentsVisibleProperty
         ],
         ( quadratic, directrixVisible, graphContentsVisible ) => ( quadratic.directrix !== undefined ) && directrixVisible && graphContentsVisible )
+    };
+  }
+
+  /**
+   * Creates an AccessibleListItem that describes the movable vertex, as it appears on the graph.
+   */
+  protected static createMovableVertexItem(
+    quadraticProperty: TReadOnlyProperty<Quadratic>,
+    coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+    vertexVisibleProperty: TReadOnlyProperty<boolean>,
+    graphContentsVisibleProperty: TReadOnlyProperty<boolean>
+  ): AccessibleListItem {
+    return {
+      stringProperty: new DerivedStringProperty( [
+          quadraticProperty,
+          coordinatesVisibleProperty,
+          GraphingQuadraticsStrings.a11y.movableVertexStringProperty,
+          GraphingQuadraticsStrings.a11y.movableVertexAtCoordinatesStringProperty
+        ],
+        ( quadratic, coordinatesVisible, movableVertexString, movableVertexAtCoordinatesString ) => {
+          const vertex = quadratic.vertex;
+          if ( vertex === undefined ) {
+            return '';
+          }
+          else {
+            if ( coordinatesVisible ) {
+              return StringUtils.fillIn( movableVertexAtCoordinatesString, {
+                x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
+                y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
+              } );
+            }
+            else {
+              return movableVertexString;
+            }
+          }
+        } ),
+
+      // Note that the vertex will be undefined when a = 0.
+      visibleProperty: new DerivedProperty(
+        [ quadraticProperty, vertexVisibleProperty, graphContentsVisibleProperty ],
+        ( quadratic, vertexVisible, graphContentsVisible ) => ( quadratic.vertex !== undefined ) && vertexVisible && graphContentsVisible )
     };
   }
 

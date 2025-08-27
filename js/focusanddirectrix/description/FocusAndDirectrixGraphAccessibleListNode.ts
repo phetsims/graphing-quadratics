@@ -25,6 +25,12 @@ export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAcc
     const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem( model.savedQuadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
+    // 'Movable vertex', optionally followed by coordinates
+    assert && assert( viewProperties.coordinatesVisibleProperty, 'expected coordinatesVisibleProperty to be defined' );
+    assert && assert( viewProperties.vertexVisibleProperty, 'expected vertexVisibleProperty to be defined' );
+    const movableVertexItem = GQGraphAccessibleListNode.createMovableVertexItem( model.quadraticProperty,
+      viewProperties.coordinatesVisibleProperty!, viewProperties.vertexVisibleProperty!, viewProperties.graphContentsVisibleProperty );
+
     // 'Directrix', optionally followed by equation.
     const directrixItem = GQGraphAccessibleListNode.createDirectrixItem( model.quadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.directrixVisibleProperty, viewProperties.graphContentsVisibleProperty );
@@ -32,7 +38,7 @@ export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAcc
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,
       savedParabolaItem,
-      //TODO https://github.com/phetsims/graphing-quadratics/issues/214 vertexItem
+      movableVertexItem,
       directrixItem
       //TODO https://github.com/phetsims/graphing-quadratics/issues/214 pointOnParabolaItem
     ];

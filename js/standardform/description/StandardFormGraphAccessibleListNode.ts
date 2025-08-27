@@ -59,14 +59,14 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
           }
         } ),
 
-      // Note that vertex will be undefined when a = 0.
+      // Note that the vertex will be undefined when a = 0.
       visibleProperty: new DerivedProperty(
         [ model.quadraticProperty, viewProperties.vertexVisibleProperty!, viewProperties.graphContentsVisibleProperty ],
         ( quadratic, vertexVisible, graphContentsVisible ) => ( quadratic.vertex !== undefined ) && vertexVisible && graphContentsVisible )
     };
 
     // 'Axis of Symmetry', optionally followed by equation.
-    // Note that there will be no axis of symmetry when a = 0, because y = bx + c is a line, not a parabola.
+    // Note that the axis of symmetry will be undefined when a = 0.
     assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
     const axisOfSymmetryItem = GQGraphAccessibleListNode.createAxisOfSymmetryItem( model.quadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty!, viewProperties.graphContentsVisibleProperty );
