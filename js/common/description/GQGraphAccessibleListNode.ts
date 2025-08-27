@@ -3,6 +3,7 @@
 /**
  * GQGraphAccessibleListNode is the base class for dynamic description (in bullet list format) of what is shown on the graph.
  * The base class is responsible for parts of the description that are the same for all screens.
+ * It also has static methods that create AccessibleListItems that are common to all screens.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -15,10 +16,12 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import Quadratic from '../model/Quadratic.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import GQEquationDescriber from './GQEquationDescriber.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 
 export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
-  public constructor( listItems: AccessibleListItem[], graphContentsVisibleProperty: TReadOnlyProperty<boolean> ) {
+  protected constructor( listItems: AccessibleListItem[], graphContentsVisibleProperty: TReadOnlyProperty<boolean> ) {
 
     // Lists in all screens have the same leading paragraph, depending on whether the graph contents are visible.
     const leadingParagraphStringProperty = new DerivedStringProperty( [
@@ -35,6 +38,65 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
+   * Creates an AccessibleListItem that describes the primary quadratic as it appears on the graph.
+   */
+  protected static createPrimaryQuadraticItem(
+    quadraticProperty: TReadOnlyProperty<Quadratic>,
+    equationsVisibleProperty: TReadOnlyProperty<boolean>,
+    graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
+
+    return {
+      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+        quadraticProperty,
+        GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
+        GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
+        equationsVisibleProperty ),
+      visibleProperty: graphContentsVisibleProperty
+    };
+  }
+
+  /**
+   * Creates an AccessibleListItem that describes the saved quadratic as it appears on the graph.
+   */
+  protected static createSavedQuadraticItem(
+    savedQuadraticProperty: ReadOnlyProperty<Quadratic | null>,
+    equationsVisibleProperty: TReadOnlyProperty<boolean>,
+    graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
+
+    return {
+      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+        savedQuadraticProperty,
+        GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
+        GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
+        equationsVisibleProperty ),
+      visibleProperty: new DerivedProperty(
+        [ graphContentsVisibleProperty, savedQuadraticProperty ],
+        ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
+    };
+  }
+
+  /**
+   * Creates an AccessibleListItem that describes the axis of symmetry as it appears on the graph.
+   */
+  protected static createAxisOfSymmetryItem(
+    quadraticProperty: TReadOnlyProperty<Quadratic>,
+    equationsVisibleProperty: TReadOnlyProperty<boolean>,
+    axisOfSymmetryVisibleProperty: TReadOnlyProperty<boolean>,
+    graphContentsVisibleProperty: TReadOnlyProperty<boolean>
+  ): AccessibleListItem {
+
+    return {
+      stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
+      visibleProperty: new DerivedProperty( [
+          quadraticProperty,
+          axisOfSymmetryVisibleProperty,
+          graphContentsVisibleProperty
+        ],
+        ( quadratic, axisOfSymmetryVisible, graphContentsVisible ) => ( quadratic.axisOfSymmetry !== undefined ) && axisOfSymmetryVisible && graphContentsVisible )
+    };
+  }
+
+  /**
    * Description of a quadratic, optionally followed by its standard-form equation.
    */
   protected static createQuadraticStandardFormDescriptionProperty(
@@ -42,6 +104,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
     nameStringProperty: TReadOnlyProperty<string>,
     nameEquationStringProperty: TReadOnlyProperty<string>,
     equationsVisibleProperty: TReadOnlyProperty<boolean> ): TReadOnlyProperty<string> {
+
     return new DerivedStringProperty(
       [
         quadraticProperty,

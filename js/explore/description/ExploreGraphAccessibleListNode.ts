@@ -19,27 +19,13 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
 
   public constructor( model: ExploreModel, viewProperties: ExploreViewProperties ) {
 
-    // 'Primary Parabola', optionally followed by standard form equation
-    const primaryParabolaItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
-        model.quadraticProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
-        viewProperties.equationsVisibleProperty ),
-      visibleProperty: viewProperties.graphContentsVisibleProperty
-    };
+    // 'Primary Parabola', optionally followed by standard-form equation
+    const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem(
+      model.quadraticProperty, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
-    // 'Saved Parabola', optionally followed by standard form equation
-    const savedParabolaItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
-        model.savedQuadraticProperty,
-        GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
-        viewProperties.equationsVisibleProperty ),
-      visibleProperty: new DerivedProperty(
-        [ viewProperties.graphContentsVisibleProperty, model.savedQuadraticProperty ],
-        ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
-    };
+    // 'Saved Parabola', optionally followed by standard-form equation
+    const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem(
+      model.savedQuadraticProperty, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Quadratic Term', optionally followed by equation
     const quadraticTermItem = {
@@ -48,7 +34,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
         GraphingQuadraticsStrings.a11y.quadraticTermStringProperty,
         GraphingQuadraticsStrings.a11y.quadraticTermEquationStringProperty,
         viewProperties.equationsVisibleProperty ),
-      visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.quadraticTermVisibleProperty ] )
+      visibleProperty: DerivedProperty.and( [ viewProperties.quadraticTermVisibleProperty, viewProperties.graphContentsVisibleProperty ] )
     };
 
     // 'Linear Term', optionally followed by equation
@@ -58,7 +44,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
         GraphingQuadraticsStrings.a11y.linearTermStringProperty,
         GraphingQuadraticsStrings.a11y.linearTermEquationStringProperty,
         viewProperties.equationsVisibleProperty ),
-      visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.linearTermVisibleProperty ] )
+      visibleProperty: DerivedProperty.and( [ viewProperties.linearTermVisibleProperty, viewProperties.graphContentsVisibleProperty ] )
     };
 
     // 'Constant Term', optionally followed by equation
@@ -68,7 +54,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
         GraphingQuadraticsStrings.a11y.constantTermStringProperty,
         GraphingQuadraticsStrings.a11y.constantTermEquationStringProperty,
         viewProperties.equationsVisibleProperty ),
-      visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.constantTermVisibleProperty ] )
+      visibleProperty: DerivedProperty.and( [ viewProperties.constantTermVisibleProperty, viewProperties.graphContentsVisibleProperty ] )
     };
 
     const listItems: AccessibleListItem[] = [

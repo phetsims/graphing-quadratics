@@ -12,47 +12,24 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQGraphAccessibleListNode from '../../common/description/GQGraphAccessibleListNode.js';
 import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormViewProperties from '../view/StandardFormViewProperties.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class StandardFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
   public constructor( model: StandardFormModel, viewProperties: StandardFormViewProperties ) {
 
     // 'Primary Parabola', optionally followed by standard form equation
-    const primaryParabolaItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
-        model.quadraticProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
-        viewProperties.equationsVisibleProperty ),
-      visibleProperty: viewProperties.graphContentsVisibleProperty
-    };
+    const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem( model.quadraticProperty,
+      viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Saved Parabola', optionally followed by standard form equation
-    const savedParabolaItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
-        model.savedQuadraticProperty,
-        GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
-        viewProperties.equationsVisibleProperty ),
-      visibleProperty: new DerivedProperty(
-        [ viewProperties.graphContentsVisibleProperty, model.savedQuadraticProperty ],
-        ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
-    };
+    const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem( model.savedQuadraticProperty,
+      viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Axis of Symmetry', optionally followed by equation.
     // Note that there will be no axis of symmetry when a = 0, because y = bx + c is a line, not a parabola.
     assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
-    const axisOfSymmetryItem = {
-      stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryDescriptionProperty( model.quadraticProperty, viewProperties.equationsVisibleProperty ),
-      visibleProperty: new DerivedProperty( [
-          model.quadraticProperty,
-          viewProperties.graphContentsVisibleProperty,
-          viewProperties.axisOfSymmetryVisibleProperty!
-        ],
-        ( quadratic, graphContentsVisible, axisOfSymmetryVisible ) => ( quadratic.axisOfSymmetry !== undefined ) && graphContentsVisible && axisOfSymmetryVisible )
-    };
+    const axisOfSymmetryItem = GQGraphAccessibleListNode.createAxisOfSymmetryItem( model.quadraticProperty,
+      viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty!, viewProperties.graphContentsVisibleProperty );
 
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,
