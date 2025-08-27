@@ -21,19 +21,12 @@ export default class StandardFormGraphNode extends GQGraphNode {
 
   public constructor( model: StandardFormModel, viewProperties: StandardFormViewProperties, tandem: Tandem ) {
 
-    const axisOfSymmetryVisibleProperty = viewProperties.axisOfSymmetryVisibleProperty!;
-    assert && assert( axisOfSymmetryVisibleProperty );
-    const coordinatesVisibleProperty = viewProperties.coordinatesVisibleProperty!;
-    assert && assert( coordinatesVisibleProperty );
-    const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
-    assert && assert( vertexVisibleProperty );
-
     // Axis of symmetry line
     const axisOfSymmetryNode = new AxisOfSymmetryNode(
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      axisOfSymmetryVisibleProperty,
+      viewProperties.axisOfSymmetryVisibleProperty,
       viewProperties.equationsVisibleProperty );
 
     // Roots
@@ -42,7 +35,7 @@ export default class StandardFormGraphNode extends GQGraphNode {
       model.graph,
       model.modelViewTransform,
       viewProperties.rootsVisibleProperty,
-      coordinatesVisibleProperty,
+      viewProperties.coordinatesVisibleProperty,
       tandem.createTandem( 'rootsNode' )
     );
 
@@ -51,16 +44,16 @@ export default class StandardFormGraphNode extends GQGraphNode {
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      vertexVisibleProperty,
-      coordinatesVisibleProperty,
+      viewProperties.vertexVisibleProperty,
+      viewProperties.coordinatesVisibleProperty,
       tandem.createTandem( 'vertexNode' )
     );
 
     // 'NO REAL ROOTS' label
     const noRealRootsNode = new NoRealRootsNode(
       viewProperties.rootsVisibleProperty,
-      vertexVisibleProperty,
-      coordinatesVisibleProperty,
+      viewProperties.vertexVisibleProperty,
+      viewProperties.coordinatesVisibleProperty,
       model.quadraticProperty,
       model.modelViewTransform,
       tandem.createTandem( 'noRealRootsNode' )

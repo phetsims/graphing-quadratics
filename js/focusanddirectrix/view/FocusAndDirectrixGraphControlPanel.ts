@@ -32,13 +32,8 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
       }
     } );
 
-    const coordinatesVisibleProperty = viewProperties.coordinatesVisibleProperty!;
-    assert && assert( coordinatesVisibleProperty );
-    const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
-    assert && assert( vertexVisibleProperty );
-
     // checkboxes
-    const vertexCheckbox = GQCheckbox.createVertexManipulatorCheckbox( vertexVisibleProperty,
+    const vertexCheckbox = GQCheckbox.createVertexManipulatorCheckbox( viewProperties.vertexVisibleProperty,
       tandem.createTandem( 'vertexCheckbox' ) );
     const focusCheckbox = GQCheckbox.createFocusCheckbox( viewProperties.focusVisibleProperty,
       tandem.createTandem( 'focusCheckbox' ) );
@@ -48,7 +43,7 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
       tandem.createTandem( 'pointOnParabolaCheckbox' ) );
     const equationsCheckbox = GQCheckbox.createEquationsCheckbox( viewProperties.equationsVisibleProperty,
       tandem.createTandem( 'equationsCheckbox' ) );
-    const coordinatesCheckbox = GQCheckbox.createCoordinatesCheckbox( coordinatesVisibleProperty,
+    const coordinatesCheckbox = GQCheckbox.createCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
       tandem.createTandem( 'coordinatesCheckbox' ) );
 
     // vertical layout

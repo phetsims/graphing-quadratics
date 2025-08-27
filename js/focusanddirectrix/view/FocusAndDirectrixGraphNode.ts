@@ -22,11 +22,6 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
 
   public constructor( model: FocusAndDirectrixModel, viewProperties: FocusAndDirectrixViewProperties, tandem: Tandem ) {
 
-    const coordinatesVisibleProperty = viewProperties.coordinatesVisibleProperty!;
-    assert && assert( coordinatesVisibleProperty );
-    const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
-    assert && assert( vertexVisibleProperty );
-
     // Directrix line
     const directrixNode = new DirectrixNode(
       model.quadraticProperty,
@@ -42,8 +37,8 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      vertexVisibleProperty,
-      coordinatesVisibleProperty, {
+      viewProperties.vertexVisibleProperty,
+      viewProperties.coordinatesVisibleProperty, {
         tandem: tandem.createTandem( 'vertexManipulator' ),
         phetioDocumentation: 'the manipulator for changing the vertex'
       } );
@@ -55,7 +50,7 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       model.graph,
       model.modelViewTransform,
       viewProperties.focusVisibleProperty,
-      coordinatesVisibleProperty, {
+      viewProperties.coordinatesVisibleProperty, {
         tandem: tandem.createTandem( 'focusManipulator' ),
         phetioDocumentation: 'the manipulator for changing the focus'
       } );
@@ -66,7 +61,7 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      coordinatesVisibleProperty, {
+      viewProperties.coordinatesVisibleProperty, {
         visibleProperty: viewProperties.pointOnParabolaVisibleProperty,
         tandem: tandem.createTandem( 'pointOnParabolaManipulator' ),
         phetioDocumentation: 'the manipulator for changing the point on the parabola'

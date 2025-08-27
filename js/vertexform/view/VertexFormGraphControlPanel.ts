@@ -33,21 +33,14 @@ export default class VertexFormGraphControlPanel extends Panel {
       }
     } );
 
-    const axisOfSymmetryVisibleProperty = viewProperties.axisOfSymmetryVisibleProperty!;
-    assert && assert( axisOfSymmetryVisibleProperty );
-    const coordinatesVisibleProperty = viewProperties.coordinatesVisibleProperty!;
-    assert && assert( coordinatesVisibleProperty );
-    const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
-    assert && assert( vertexVisibleProperty );
-
     // checkboxes
-    const vertexCheckbox = GQCheckbox.createVertexManipulatorCheckbox( vertexVisibleProperty,
+    const vertexCheckbox = GQCheckbox.createVertexManipulatorCheckbox( viewProperties.vertexVisibleProperty,
       tandem.createTandem( 'vertexCheckbox' ) );
     const axisOfSymmetryCheckbox = GQCheckbox.createAxisOfSymmetryCheckbox(
-      axisOfSymmetryVisibleProperty, tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
+      viewProperties.axisOfSymmetryVisibleProperty, tandem.createTandem( 'axisOfSymmetryCheckbox' ) );
     const equationsCheckbox = GQCheckbox.createEquationsCheckbox( viewProperties.equationsVisibleProperty,
       tandem.createTandem( 'equationsCheckbox' ) );
-    const coordinatesCheckbox = GQCheckbox.createCoordinatesCheckbox( coordinatesVisibleProperty,
+    const coordinatesCheckbox = GQCheckbox.createCoordinatesCheckbox( viewProperties.coordinatesVisibleProperty,
       tandem.createTandem( 'coordinatesCheckbox' ) );
 
     // vertical layout

@@ -19,19 +19,12 @@ export default class VertexFormGraphNode extends GQGraphNode {
 
   public constructor( model: VertexFormModel, viewProperties: VertexFormViewProperties, tandem: Tandem ) {
 
-    const axisOfSymmetryVisibleProperty = viewProperties.axisOfSymmetryVisibleProperty!;
-    assert && assert( axisOfSymmetryVisibleProperty );
-    const coordinatesVisibleProperty = viewProperties.coordinatesVisibleProperty!;
-    assert && assert( coordinatesVisibleProperty );
-    const vertexVisibleProperty = viewProperties.vertexVisibleProperty!;
-    assert && assert( vertexVisibleProperty );
-
     // Axis of symmetry
     const axisOfSymmetryNode = new AxisOfSymmetryNode(
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      axisOfSymmetryVisibleProperty,
+      viewProperties.axisOfSymmetryVisibleProperty,
       viewProperties.equationsVisibleProperty );
 
     // Vertex
@@ -41,8 +34,8 @@ export default class VertexFormGraphNode extends GQGraphNode {
       model.quadraticProperty,
       model.graph,
       model.modelViewTransform,
-      vertexVisibleProperty,
-      coordinatesVisibleProperty, {
+      viewProperties.vertexVisibleProperty,
+      viewProperties.coordinatesVisibleProperty, {
         tandem: tandem.createTandem( 'vertexManipulator' ),
         phetioDocumentation: 'manipulator for the vertex'
       } );
