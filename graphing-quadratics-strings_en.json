@@ -240,7 +240,7 @@
     },
     "quadraticTermCheckbox": {
       "accessibleName": {
-        "value": "Quadratic Term"
+        "value": "y equals a x squared"
       },
       "accessibleHelpText": {
         "value": "Show or hide graph of quadratic term."
@@ -254,7 +254,7 @@
     },
     "linearTermCheckbox": {
       "accessibleName": {
-        "value": "Linear Term"
+        "value": "y equals b x"
       },
       "accessibleHelpText": {
         "value": "Show or hide graph of linear term."
@@ -268,7 +268,7 @@
     },
     "constantTermCheckbox": {
       "accessibleName": {
-        "value": "Constant Term"
+        "value": "y equals c"
       },
       "accessibleHelpText": {
         "value": "Show or hide graph of constant term."
