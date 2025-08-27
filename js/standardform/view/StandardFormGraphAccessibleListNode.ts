@@ -41,6 +41,8 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
         ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
     };
 
+    // 'Axis of Symmetry', optionally followed by equation.
+    // Note that there will be no axis of symmetry when a = 0, because y = bx + c is a line, not a parabola.
     assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
     const axisOfSymmetryItem = {
       stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryStringProperty( model.quadraticProperty, viewProperties.equationsVisibleProperty ),
