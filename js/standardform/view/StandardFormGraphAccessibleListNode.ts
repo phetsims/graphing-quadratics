@@ -44,7 +44,12 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
     assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
     const axisOfSymmetryItem = {
       stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryStringProperty( model.quadraticProperty, viewProperties.equationsVisibleProperty ),
-      visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty! ] )
+      visibleProperty: new DerivedProperty( [
+          model.quadraticProperty,
+          viewProperties.graphContentsVisibleProperty,
+          viewProperties.axisOfSymmetryVisibleProperty!
+        ],
+        ( quadratic, graphContentsVisible, axisOfSymmetryVisible ) => ( quadratic.axisOfSymmetry !== undefined ) && graphContentsVisible && axisOfSymmetryVisible )
     };
 
     const listItems: AccessibleListItem[] = [

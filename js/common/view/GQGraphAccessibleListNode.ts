@@ -90,14 +90,20 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
         GraphingQuadraticsStrings.a11y.equalsStringProperty
       ],
       ( quadratic, equationsVisible, axisOfSymmetryString, axisOfSymmetryEquationString, xString, equalsString ) => {
-        if ( equationsVisible ) {
-          assert && assert( quadratic.axisOfSymmetry !== undefined, 'expected axisOfSymmetry to be defined' );
-          return StringUtils.fillIn( axisOfSymmetryEquationString, {
-            equation: GQEquationDescriber.createAxisOfSymmetry( quadratic.axisOfSymmetry!, xString, equalsString )
-          } );
+        const axisOfSymmetry = quadratic.axisOfSymmetry;
+        if ( axisOfSymmetry === undefined ) {
+          return '';
         }
         else {
-          return axisOfSymmetryString;
+          if ( equationsVisible ) {
+            assert && assert( quadratic.axisOfSymmetry !== undefined, 'expected axisOfSymmetry to be defined' );
+            return StringUtils.fillIn( axisOfSymmetryEquationString, {
+              equation: GQEquationDescriber.createAxisOfSymmetry( quadratic.axisOfSymmetry!, xString, equalsString )
+            } );
+          }
+          else {
+            return axisOfSymmetryString;
+          }
         }
       } );
   }
