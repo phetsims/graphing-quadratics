@@ -116,7 +116,7 @@ export default class GQEquationDescriber {
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
     const h = ( quadratic.h === undefined ) ? 0 : toFixedNumber( quadratic.h, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H );
-    const k = ( quadratic.k === undefined ) ? 0 : toFixedNumber( quadratic.k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
+    const k = ( quadratic.k === undefined ) ? quadratic.c : toFixedNumber( quadratic.k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
 
     // y =
     let equationString = `${yString} ${equalsString} `;
@@ -128,8 +128,8 @@ export default class GQEquationDescriber {
     }
     else if ( a === 0 ) {
 
-      // y = c
-      equationString += toFixedNumber( quadratic.c, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
+      // y = k
+      equationString += toFixedNumber( k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
     }
     else {
 
