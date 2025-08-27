@@ -12,18 +12,27 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQGraphAccessibleListNode from '../../common/view/GQGraphAccessibleListNode.js';
 import StandardFormModel from '../../standardform/model/StandardFormModel.js';
 import StandardFormViewProperties from '../../standardform/view/StandardFormViewProperties.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class StandardFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
   public constructor( model: StandardFormModel, viewProperties: StandardFormViewProperties ) {
 
     // 'Primary Parabola', optionally followed by standard form equation
-    const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryParabolaStandardFormItem(
-      model.quadraticProperty, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
+    const primaryParabolaItem = GQGraphAccessibleListNode.createParabolaStandardFormItem(
+      model.quadraticProperty,
+      GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
+      GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
+      viewProperties.equationsVisibleProperty,
+      viewProperties.graphContentsVisibleProperty );
 
     // 'Saved Parabola', optionally followed by standard form equation
-    const savedParabolaItem = GQGraphAccessibleListNode.createSavedParabolaStandardFormItem(
-      model.savedQuadraticProperty, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
+    const savedParabolaItem = GQGraphAccessibleListNode.createParabolaStandardFormItem(
+      model.savedQuadraticProperty,
+      GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
+      GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
+      viewProperties.equationsVisibleProperty,
+      viewProperties.graphContentsVisibleProperty );
 
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,

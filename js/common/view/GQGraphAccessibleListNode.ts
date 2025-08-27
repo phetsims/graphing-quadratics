@@ -36,41 +36,13 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
-   * 'Primary Parabola', optionally followed by standard form equation.
-   */
-  protected static createPrimaryParabolaStandardFormItem( quadraticProperty: TReadOnlyProperty<Quadratic>,
-                                                          equationsVisibleProperty: TReadOnlyProperty<boolean>,
-                                                          graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
-    return GQGraphAccessibleListNode.createParabolaStandardFormItem(
-        quadraticProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
-        equationsVisibleProperty,
-        graphContentsVisibleProperty );
-  }
-
-  /**
-   * 'Saved Parabola', optionally followed by standard form equation.
-   */
-  protected static createSavedParabolaStandardFormItem( savedQuadraticProperty: TReadOnlyProperty<Quadratic | null>,
-                                                        equationsVisibleProperty: TReadOnlyProperty<boolean>,
-                                                        graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
-    return GQGraphAccessibleListNode.createParabolaStandardFormItem(
-      savedQuadraticProperty,
-      GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
-      GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
-      equationsVisibleProperty,
-      graphContentsVisibleProperty );
-  }
-
-  /**
    * Description of a parabola in standard form, optionally followed by standard form equation.
    */
-  private static createParabolaStandardFormItem( quadraticProperty: TReadOnlyProperty<Quadratic | null>,
-                                                 nameStringProperty: TReadOnlyProperty<string>,
-                                                 nameEquationStringProperty: TReadOnlyProperty<string>,
-                                                 equationsVisibleProperty: TReadOnlyProperty<boolean>,
-                                                 graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
+  protected static createParabolaStandardFormItem( quadraticProperty: TReadOnlyProperty<Quadratic | null>,
+                                                   nameStringProperty: TReadOnlyProperty<string>,
+                                                   nameEquationStringProperty: TReadOnlyProperty<string>,
+                                                   equationsVisibleProperty: TReadOnlyProperty<boolean>,
+                                                   graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
     return {
       stringProperty: new DerivedStringProperty(
         [
