@@ -15,6 +15,7 @@ import NoRealRootsNode from './NoRealRootsNode.js';
 import RootsNode from './RootsNode.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
 import VertexNode from './VertexNode.js';
+import StandardFormGraphAccessibleListNode from '../../explore/view/StandardFormGraphAccessibleListNode.js';
 
 export default class StandardFormGraphNode extends GQGraphNode {
 
@@ -70,6 +71,9 @@ export default class StandardFormGraphNode extends GQGraphNode {
       decorations: [ rootsNode, vertexNode, noRealRootsNode ], // rendered in this order
       tandem: tandem
     } );
+
+    // Describes what is currently shown on the graph.
+    this.addChild( new StandardFormGraphAccessibleListNode( model, viewProperties ) );
   }
 }
 
