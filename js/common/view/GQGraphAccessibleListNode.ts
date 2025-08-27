@@ -15,7 +15,6 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import GQEquationDescriber from './GQEquationDescriber.js';
 import Quadratic from '../model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
@@ -38,45 +37,41 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   /**
    * Description of a parabola in standard form, optionally followed by standard form equation.
    */
-  protected static createParabolaStandardFormItem( quadraticProperty: TReadOnlyProperty<Quadratic | null>,
-                                                   nameStringProperty: TReadOnlyProperty<string>,
-                                                   nameEquationStringProperty: TReadOnlyProperty<string>,
-                                                   equationsVisibleProperty: TReadOnlyProperty<boolean>,
-                                                   graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
-    return {
-      stringProperty: new DerivedStringProperty(
-        [
-          quadraticProperty,
-          equationsVisibleProperty,
-          nameStringProperty,
-          nameEquationStringProperty,
-          GraphingQuadraticsStrings.yStringProperty,
-          GraphingQuadraticsStrings.xStringProperty,
-          GraphingQuadraticsStrings.a11y.squaredStringProperty,
-          GraphingQuadraticsStrings.a11y.equalsStringProperty,
-          GraphingQuadraticsStrings.a11y.plusStringProperty,
-          GraphingQuadraticsStrings.a11y.minusStringProperty,
-          GraphingQuadraticsStrings.a11y.negativeStringProperty
-        ],
-        ( quadratic, equationsVisible, nameString, nameEquationString, yString, xString,
-          squaredString, equalsString, plusString, minusString, negativeString ) => {
-          if ( quadratic ) {
-            if ( equationsVisible ) {
-              return StringUtils.fillIn( nameEquationString, {
-                equation: GQEquationDescriber.createStandardForm( quadratic, yString, xString, squaredString, equalsString, plusString, minusString, negativeString )
-              } );
-            }
-            else {
-              return nameString;
-            }
+  protected static createParabolaStandardFormStringProperty(
+    quadraticProperty: TReadOnlyProperty<Quadratic | null>,
+    nameStringProperty: TReadOnlyProperty<string>,
+    nameEquationStringProperty: TReadOnlyProperty<string>,
+    equationsVisibleProperty: TReadOnlyProperty<boolean> ): TReadOnlyProperty<string> {
+    return new DerivedStringProperty(
+      [
+        quadraticProperty,
+        equationsVisibleProperty,
+        nameStringProperty,
+        nameEquationStringProperty,
+        GraphingQuadraticsStrings.yStringProperty,
+        GraphingQuadraticsStrings.xStringProperty,
+        GraphingQuadraticsStrings.a11y.squaredStringProperty,
+        GraphingQuadraticsStrings.a11y.equalsStringProperty,
+        GraphingQuadraticsStrings.a11y.plusStringProperty,
+        GraphingQuadraticsStrings.a11y.minusStringProperty,
+        GraphingQuadraticsStrings.a11y.negativeStringProperty
+      ],
+      ( quadratic, equationsVisible, nameString, nameEquationString, yString, xString,
+        squaredString, equalsString, plusString, minusString, negativeString ) => {
+        if ( quadratic ) {
+          if ( equationsVisible ) {
+            return StringUtils.fillIn( nameEquationString, {
+              equation: GQEquationDescriber.createStandardForm( quadratic, yString, xString, squaredString, equalsString, plusString, minusString, negativeString )
+            } );
           }
           else {
-            return '';
+            return nameString;
           }
-        } ),
-      visibleProperty: new DerivedProperty( [ graphContentsVisibleProperty, quadraticProperty ],
-        ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
-    };
+        }
+        else {
+          return '';
+        }
+      } );
   }
 }
 

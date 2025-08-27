@@ -13,50 +13,63 @@ import ExploreModel from '../model/ExploreModel.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
 import GQGraphAccessibleListNode from '../../common/view/GQGraphAccessibleListNode.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
   public constructor( model: ExploreModel, viewProperties: ExploreViewProperties ) {
 
     // 'Primary Parabola', optionally followed by standard form equation
-    const primaryParabolaItem = GQGraphAccessibleListNode.createParabolaStandardFormItem(
-      model.quadraticProperty,
-      GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
-      GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
-      viewProperties.equationsVisibleProperty,
-      viewProperties.graphContentsVisibleProperty );
+    const primaryParabolaItem = {
+      stringProperty: GQGraphAccessibleListNode.createParabolaStandardFormStringProperty(
+        model.quadraticProperty,
+        GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
+        GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
+        viewProperties.equationsVisibleProperty ),
+      visibleProperty: viewProperties.graphContentsVisibleProperty
+    };
 
     // 'Saved Parabola', optionally followed by standard form equation
-    const savedParabolaItem = GQGraphAccessibleListNode.createParabolaStandardFormItem(
-      model.savedQuadraticProperty,
-      GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
-      GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
-      viewProperties.equationsVisibleProperty,
-      viewProperties.graphContentsVisibleProperty );
+    const savedParabolaItem = {
+      stringProperty: GQGraphAccessibleListNode.createParabolaStandardFormStringProperty(
+        model.savedQuadraticProperty,
+        GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
+        GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
+        viewProperties.equationsVisibleProperty ),
+      visibleProperty: new DerivedProperty(
+        [ viewProperties.graphContentsVisibleProperty, model.savedQuadraticProperty ],
+        ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
+    };
 
     // 'Quadratic Term', optionally followed by equation
-    const quadraticTermItem = GQGraphAccessibleListNode.createParabolaStandardFormItem(
-      model.quadraticTermProperty,
-      GraphingQuadraticsStrings.a11y.quadraticTermStringProperty,
-      GraphingQuadraticsStrings.a11y.quadraticTermEquationStringProperty,
-      viewProperties.equationsVisibleProperty,
-      viewProperties.graphContentsVisibleProperty );
+    const quadraticTermItem = {
+      stringProperty: GQGraphAccessibleListNode.createParabolaStandardFormStringProperty(
+        model.quadraticTermProperty,
+        GraphingQuadraticsStrings.a11y.quadraticTermStringProperty,
+        GraphingQuadraticsStrings.a11y.quadraticTermEquationStringProperty,
+        viewProperties.equationsVisibleProperty ),
+      visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.quadraticTermVisibleProperty ] )
+    };
 
     // 'Linear Term', optionally followed by equation
-    const linearTermItem = GQGraphAccessibleListNode.createParabolaStandardFormItem(
-      model.linearTermProperty,
-      GraphingQuadraticsStrings.a11y.linearTermStringProperty,
-      GraphingQuadraticsStrings.a11y.linearTermEquationStringProperty,
-      viewProperties.equationsVisibleProperty,
-      viewProperties.graphContentsVisibleProperty );
+    const linearTermItem = {
+      stringProperty: GQGraphAccessibleListNode.createParabolaStandardFormStringProperty(
+        model.linearTermProperty,
+        GraphingQuadraticsStrings.a11y.linearTermStringProperty,
+        GraphingQuadraticsStrings.a11y.linearTermEquationStringProperty,
+        viewProperties.equationsVisibleProperty ),
+      visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.linearTermVisibleProperty ] )
+    };
 
     // 'Constant Term', optionally followed by equation
-    const constantTermItem = GQGraphAccessibleListNode.createParabolaStandardFormItem(
-      model.constantTermProperty,
-      GraphingQuadraticsStrings.a11y.constantTermStringProperty,
-      GraphingQuadraticsStrings.a11y.constantTermEquationStringProperty,
-      viewProperties.equationsVisibleProperty,
-      viewProperties.graphContentsVisibleProperty );
+    const constantTermItem = {
+      stringProperty: GQGraphAccessibleListNode.createParabolaStandardFormStringProperty(
+        model.constantTermProperty,
+        GraphingQuadraticsStrings.a11y.constantTermStringProperty,
+        GraphingQuadraticsStrings.a11y.constantTermEquationStringProperty,
+        viewProperties.equationsVisibleProperty ),
+      visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.constantTermVisibleProperty ] )
+    };
 
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,
