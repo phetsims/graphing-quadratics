@@ -108,7 +108,6 @@ export default class Quadratic {
     this.c = c;
     this.color = options.color;
     this.roots = solveRoots( a, b, c );
-    console.log( this.roots );
 
     // Strictly speaking, we don't have a quadratic (or a parabola) if a === 0.
     // If that's the case, then the fields in this if block will be undefined.
