@@ -517,6 +517,9 @@
     "axisOfSymmetryEquation": {
       "value": "Axis of Symmetry, {{equation}}"
     },
+    "directrixEquation": {
+      "value": "Directrix, {{equation}}"
+    },
     "xSquared": {
       "value": "x squared"
     },

@@ -13,6 +13,7 @@ import VertexManipulator from '../../common/view/VertexManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import VertexFormModel from '../model/VertexFormModel.js';
 import VertexFormViewProperties from './VertexFormViewProperties.js';
+import VertexFormGraphAccessibleListNode from '../description/VertexFormGraphAccessibleListNode.js';
 
 export default class VertexFormGraphNode extends GQGraphNode {
 
@@ -52,7 +53,11 @@ export default class VertexFormGraphNode extends GQGraphNode {
       tandem: tandem
     } );
 
-    this.pdomOrder = [ vertexManipulator ];
+    // Describes what is currently shown on the graph.
+    const accessibleListNode = new VertexFormGraphAccessibleListNode( model, viewProperties );
+    this.addChild( accessibleListNode );
+
+    this.pdomOrder = [ vertexManipulator, accessibleListNode ];
   }
 }
 

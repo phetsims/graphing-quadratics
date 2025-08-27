@@ -256,6 +256,7 @@ type StringsType = {
     'constantTermStringProperty': LocalizedStringProperty;
     'constantTermEquationStringProperty': LocalizedStringProperty;
     'axisOfSymmetryEquationStringProperty': LocalizedStringProperty;
+    'directrixEquationStringProperty': LocalizedStringProperty;
     'xSquaredStringProperty': LocalizedStringProperty;
     'equalsStringProperty': LocalizedStringProperty;
     'plusStringProperty': LocalizedStringProperty;

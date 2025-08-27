@@ -1,8 +1,8 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ExploreGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on the graph
- * in the 'Explore' screen.
+ * ExploreGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on
+ * the graph in the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

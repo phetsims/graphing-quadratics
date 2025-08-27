@@ -1,8 +1,8 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * StandardFormGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on
- * the graph in the 'Standard Form' screen.
+ * VertexFormGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on
+ * the graph in the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -10,12 +10,12 @@
 import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQGraphAccessibleListNode from '../../common/description/GQGraphAccessibleListNode.js';
-import StandardFormModel from '../model/StandardFormModel.js';
-import StandardFormViewProperties from '../view/StandardFormViewProperties.js';
+import VertexFormModel from '../model/VertexFormModel.js';
+import VertexFormViewProperties from '../view/VertexFormViewProperties.js';
 
-export default class StandardFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
+export default class VertexFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
-  public constructor( model: StandardFormModel, viewProperties: StandardFormViewProperties ) {
+  public constructor( model: VertexFormModel, viewProperties: VertexFormViewProperties ) {
 
     // 'Primary Parabola', optionally followed by standard form equation
     const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem( model.quadraticProperty,
@@ -36,11 +36,10 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
       savedParabolaItem,
       //TODO https://github.com/phetsims/graphing-quadratics/issues/214 vertexItem
       axisOfSymmetryItem
-      //TODO https://github.com/phetsims/graphing-quadratics/issues/214 rootsItem
     ];
 
     super( listItems, viewProperties.graphContentsVisibleProperty );
   }
 }
 
-graphingQuadratics.register( 'StandardFormGraphAccessibleListNode', StandardFormGraphAccessibleListNode );
+graphingQuadratics.register( 'VertexFormGraphAccessibleListNode', VertexFormGraphAccessibleListNode );

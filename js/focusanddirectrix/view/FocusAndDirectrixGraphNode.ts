@@ -16,6 +16,7 @@ import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.j
 import FocusManipulator from './FocusManipulator.js';
 import PointOnParabolaLinesNode from './PointOnParabolaLinesNode.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
+import FocusAndDirectrixGraphAccessibleListNode from '../description/FocusAndDirectrixGraphAccessibleListNode.js';
 
 export default class FocusAndDirectrixGraphNode extends GQGraphNode {
 
@@ -86,7 +87,11 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
       tandem: tandem
     } );
 
-    this.pdomOrder = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator ];
+    // Describes what is currently shown on the graph.
+    const accessibleListNode = new FocusAndDirectrixGraphAccessibleListNode( model, viewProperties );
+    this.addChild( accessibleListNode );
+
+    this.pdomOrder = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator, accessibleListNode ];
   }
 }
 

@@ -97,6 +97,27 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
+   * Creates an AccessibleListItem that describes directrix as it appears on the graph.
+   */
+  protected static createDirectrixItem(
+    quadraticProperty: TReadOnlyProperty<Quadratic>,
+    equationsVisibleProperty: TReadOnlyProperty<boolean>,
+    directrixVisibleProperty: TReadOnlyProperty<boolean>,
+    graphContentsVisibleProperty: TReadOnlyProperty<boolean>
+  ): AccessibleListItem {
+
+    return {
+      stringProperty: GQGraphAccessibleListNode.createDirectrixDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
+      visibleProperty: new DerivedProperty( [
+          quadraticProperty,
+          directrixVisibleProperty,
+          graphContentsVisibleProperty
+        ],
+        ( quadratic, directrixVisible, graphContentsVisible ) => ( quadratic.directrix !== undefined ) && directrixVisible && graphContentsVisible )
+    };
+  }
+
+  /**
    * Description of a quadratic, optionally followed by its standard-form equation.
    */
   protected static createQuadraticStandardFormDescriptionProperty(
@@ -145,7 +166,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   /**
    * Description of the axis of symmetry, optionally followed by its equation.
    */
-  protected static createAxisOfSymmetryDescriptionProperty(
+  private static createAxisOfSymmetryDescriptionProperty(
     quadraticProperty: TReadOnlyProperty<Quadratic>,
     equationsVisibleProperty: TReadOnlyProperty<boolean> ): TReadOnlyProperty<string> {
 
@@ -166,13 +187,47 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
         }
         else {
           if ( equationsVisible ) {
-            assert && assert( quadratic.axisOfSymmetry !== undefined, 'expected axisOfSymmetry to be defined' );
             return StringUtils.fillIn( axisOfSymmetryEquationString, {
-              equation: GQEquationDescriber.createAxisOfSymmetryDescription( quadratic.axisOfSymmetry!, xString, equalsString )
+              equation: GQEquationDescriber.createAxisOfSymmetryDescription( axisOfSymmetry, xString, equalsString )
             } );
           }
           else {
             return axisOfSymmetryString;
+          }
+        }
+      } );
+  }
+
+  /**
+   * Description of the directrix, optionally followed by its equation.
+   */
+  private static createDirectrixDescriptionProperty(
+    quadraticProperty: TReadOnlyProperty<Quadratic>,
+    equationsVisibleProperty: TReadOnlyProperty<boolean> ): TReadOnlyProperty<string> {
+
+    return new DerivedStringProperty( [
+        quadraticProperty,
+        equationsVisibleProperty,
+
+        // Localized strings that are used in the derivation.
+        GraphingQuadraticsStrings.directrixStringProperty,
+        GraphingQuadraticsStrings.a11y.directrixEquationStringProperty,
+        GraphingQuadraticsStrings.yStringProperty,
+        GraphingQuadraticsStrings.a11y.equalsStringProperty
+      ],
+      ( quadratic, equationsVisible, directrixString, directrixEquationString, yString, equalsString ) => {
+        const directrix = quadratic.directrix;
+        if ( directrix === undefined ) {
+          return '';
+        }
+        else {
+          if ( equationsVisible ) {
+            return StringUtils.fillIn( directrixEquationString, {
+              equation: GQEquationDescriber.createDirectrixDescription( directrix, yString, equalsString )
+            } );
+          }
+          else {
+            return directrixString;
           }
         }
       } );
