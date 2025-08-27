@@ -265,6 +265,8 @@ type StringsType = {
     'movableFocusAtStringProperty': LocalizedStringProperty;
     'movablePointOnParabolaStringProperty': LocalizedStringProperty;
     'movablePointOnParabolaAtCoordinatesStringProperty': LocalizedStringProperty;
+    'rootsAtCoordinates1StringProperty': LocalizedStringProperty;
+    'rootsAtCoordinates2StringProperty': LocalizedStringProperty;
     'xSquaredStringProperty': LocalizedStringProperty;
     'equalsStringProperty': LocalizedStringProperty;
     'plusStringProperty': LocalizedStringProperty;

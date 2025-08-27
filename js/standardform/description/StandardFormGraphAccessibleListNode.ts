@@ -68,12 +68,62 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
     const axisOfSymmetryItem = GQGraphAccessibleListNode.createAxisOfSymmetryItem( model.quadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
+    // 'No real roots', or 'Roots' optionally followed by coordinates.
+    const rootsItem = {
+      stringProperty: new DerivedStringProperty( [
+          model.quadraticProperty,
+          viewProperties.coordinatesVisibleProperty,
+          GraphingQuadraticsStrings.noRealRootsStringProperty,
+          GraphingQuadraticsStrings.rootsStringProperty,
+          GraphingQuadraticsStrings.a11y.rootsAtCoordinates1StringProperty,
+          GraphingQuadraticsStrings.a11y.rootsAtCoordinates2StringProperty
+        ],
+        ( quadratic, coordinatesVisible, noRealRootsString, rootsString, rootsAtCoordinates1String, rootsAtCoordinates2String ) => {
+          const roots = quadratic.roots;
+          if ( roots === null ) {
+            return ''; // All points are roots (y = 0), and the visual UI does not show roots.
+          }
+          else {
+            assert && assert( roots.length <= 2 );
+            if ( roots.length === 0 ) {
+              return noRealRootsString;
+            }
+            else if ( !coordinatesVisible ) {
+              return rootsString;
+            }
+            else if ( roots.length === 1 ) {
+              const root = roots[ 0 ];
+              return StringUtils.fillIn( rootsAtCoordinates1String, {
+                x: toFixedNumber( root.x, GQConstants.ROOTS_DECIMALS ),
+                y: toFixedNumber( root.y, GQConstants.ROOTS_DECIMALS )
+              } );
+            }
+            else {
+              // roots.length === 2
+              const root1 = roots[ 0 ];
+              const root2 = roots[ 1 ];
+              return StringUtils.fillIn( rootsAtCoordinates2String, {
+                x1: toFixedNumber( root1.x, GQConstants.ROOTS_DECIMALS ),
+                y1: toFixedNumber( root1.y, GQConstants.ROOTS_DECIMALS ),
+                x2: toFixedNumber( root2.x, GQConstants.ROOTS_DECIMALS ),
+                y2: toFixedNumber( root2.y, GQConstants.ROOTS_DECIMALS )
+              } );
+            }
+          }
+        } ),
+
+      // Note that roots === null means that all points are roots (y = 0), and nothing is shown in the visual UI.
+      visibleProperty: new DerivedProperty(
+        [ model.quadraticProperty, viewProperties.rootsVisibleProperty, viewProperties.graphContentsVisibleProperty ],
+        ( quadratic, rootsVisible, graphContentsVisible ) => ( quadratic !== null ) && rootsVisible && graphContentsVisible )
+    };
+
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,
       savedParabolaItem,
       vertexItem,
-      axisOfSymmetryItem
-      //TODO https://github.com/phetsims/graphing-quadratics/issues/214 rootsItem
+      axisOfSymmetryItem,
+      rootsItem
     ];
 
     super( listItems, viewProperties.graphContentsVisibleProperty );
