@@ -14,6 +14,7 @@ import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormViewProperties from '../view/StandardFormViewProperties.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import GQEquationDescriber from '../../common/description/GQEquationDescriber.js';
 
 export default class StandardFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
@@ -21,7 +22,7 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
 
     // 'Primary Parabola', optionally followed by standard form equation
     const primaryParabolaItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+      stringProperty: GQEquationDescriber.createQuadraticStandardFormDescriptionProperty(
         model.quadraticProperty,
         GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
         GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
@@ -31,7 +32,7 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
 
     // 'Saved Parabola', optionally followed by standard form equation
     const savedParabolaItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+      stringProperty: GQEquationDescriber.createQuadraticStandardFormDescriptionProperty(
         model.savedQuadraticProperty,
         GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
         GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
@@ -45,7 +46,7 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
     // Note that there will be no axis of symmetry when a = 0, because y = bx + c is a line, not a parabola.
     assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
     const axisOfSymmetryItem = {
-      stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryDescriptionProperty( model.quadraticProperty, viewProperties.equationsVisibleProperty ),
+      stringProperty: GQEquationDescriber.createAxisOfSymmetryDescriptionProperty( model.quadraticProperty, viewProperties.equationsVisibleProperty ),
       visibleProperty: new DerivedProperty( [
           model.quadraticProperty,
           viewProperties.graphContentsVisibleProperty,

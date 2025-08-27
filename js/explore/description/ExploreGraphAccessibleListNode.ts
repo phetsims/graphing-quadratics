@@ -14,6 +14,7 @@ import ExploreViewProperties from '../view/ExploreViewProperties.js';
 import GQGraphAccessibleListNode from '../../common/description/GQGraphAccessibleListNode.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import GQEquationDescriber from '../../common/description/GQEquationDescriber.js';
 
 export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
@@ -21,7 +22,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
 
     // 'Primary Parabola', optionally followed by standard form equation
     const primaryParabolaItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+      stringProperty: GQEquationDescriber.createQuadraticStandardFormDescriptionProperty(
         model.quadraticProperty,
         GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
         GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
@@ -31,7 +32,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
 
     // 'Saved Parabola', optionally followed by standard form equation
     const savedParabolaItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+      stringProperty: GQEquationDescriber.createQuadraticStandardFormDescriptionProperty(
         model.savedQuadraticProperty,
         GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
         GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
@@ -43,7 +44,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
 
     // 'Quadratic Term', optionally followed by equation
     const quadraticTermItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+      stringProperty: GQEquationDescriber.createQuadraticStandardFormDescriptionProperty(
         model.quadraticTermProperty,
         GraphingQuadraticsStrings.a11y.quadraticTermStringProperty,
         GraphingQuadraticsStrings.a11y.quadraticTermEquationStringProperty,
@@ -53,7 +54,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
 
     // 'Linear Term', optionally followed by equation
     const linearTermItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+      stringProperty: GQEquationDescriber.createQuadraticStandardFormDescriptionProperty(
         model.linearTermProperty,
         GraphingQuadraticsStrings.a11y.linearTermStringProperty,
         GraphingQuadraticsStrings.a11y.linearTermEquationStringProperty,
@@ -63,7 +64,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
 
     // 'Constant Term', optionally followed by equation
     const constantTermItem = {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+      stringProperty: GQEquationDescriber.createQuadraticStandardFormDescriptionProperty(
         model.constantTermProperty,
         GraphingQuadraticsStrings.a11y.constantTermStringProperty,
         GraphingQuadraticsStrings.a11y.constantTermEquationStringProperty,
