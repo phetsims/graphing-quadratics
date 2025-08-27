@@ -26,16 +26,13 @@ export default class VertexFormGraphAccessibleListNode extends GQGraphAccessible
       viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Movable vertex', optionally followed by coordinates
-    assert && assert( viewProperties.coordinatesVisibleProperty, 'expected coordinatesVisibleProperty to be defined' );
-    assert && assert( viewProperties.vertexVisibleProperty, 'expected vertexVisibleProperty to be defined' );
     const movableVertexItem = GQGraphAccessibleListNode.createMovableVertexItem( model.quadraticProperty,
-      viewProperties.coordinatesVisibleProperty!, viewProperties.vertexVisibleProperty!, viewProperties.graphContentsVisibleProperty );
+      viewProperties.coordinatesVisibleProperty, viewProperties.vertexVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Axis of Symmetry', optionally followed by equation.
     // Note that there the axis of symmetry will be undefined when a = 0.
-    assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
     const axisOfSymmetryItem = GQGraphAccessibleListNode.createAxisOfSymmetryItem( model.quadraticProperty,
-      viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty!, viewProperties.graphContentsVisibleProperty );
+      viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,

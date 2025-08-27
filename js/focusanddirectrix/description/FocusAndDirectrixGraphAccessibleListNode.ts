@@ -26,10 +26,8 @@ export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAcc
       viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Movable vertex', optionally followed by coordinates
-    assert && assert( viewProperties.coordinatesVisibleProperty, 'expected coordinatesVisibleProperty to be defined' );
-    assert && assert( viewProperties.vertexVisibleProperty, 'expected vertexVisibleProperty to be defined' );
     const movableVertexItem = GQGraphAccessibleListNode.createMovableVertexItem( model.quadraticProperty,
-      viewProperties.coordinatesVisibleProperty!, viewProperties.vertexVisibleProperty!, viewProperties.graphContentsVisibleProperty );
+      viewProperties.coordinatesVisibleProperty, viewProperties.vertexVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Directrix', optionally followed by equation.
     const directrixItem = GQGraphAccessibleListNode.createDirectrixItem( model.quadraticProperty,

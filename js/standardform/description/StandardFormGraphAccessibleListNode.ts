@@ -32,12 +32,10 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
       viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Vertex', optionally followed by coordinates
-    assert && assert( viewProperties.coordinatesVisibleProperty, 'expected coordinatesVisibleProperty to be defined' );
-    assert && assert( viewProperties.vertexVisibleProperty, 'expected vertexVisibleProperty to be defined' );
     const vertexItem = {
       stringProperty: new DerivedStringProperty( [
           model.quadraticProperty,
-          viewProperties.coordinatesVisibleProperty!,
+          viewProperties.coordinatesVisibleProperty,
           GraphingQuadraticsStrings.vertexStringProperty,
           GraphingQuadraticsStrings.a11y.vertexAtCoordinatesStringProperty
         ],
@@ -61,15 +59,14 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
 
       // Note that the vertex will be undefined when a = 0.
       visibleProperty: new DerivedProperty(
-        [ model.quadraticProperty, viewProperties.vertexVisibleProperty!, viewProperties.graphContentsVisibleProperty ],
+        [ model.quadraticProperty, viewProperties.vertexVisibleProperty, viewProperties.graphContentsVisibleProperty ],
         ( quadratic, vertexVisible, graphContentsVisible ) => ( quadratic.vertex !== undefined ) && vertexVisible && graphContentsVisible )
     };
 
     // 'Axis of Symmetry', optionally followed by equation.
     // Note that the axis of symmetry will be undefined when a = 0.
-    assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
     const axisOfSymmetryItem = GQGraphAccessibleListNode.createAxisOfSymmetryItem( model.quadraticProperty,
-      viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty!, viewProperties.graphContentsVisibleProperty );
+      viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,

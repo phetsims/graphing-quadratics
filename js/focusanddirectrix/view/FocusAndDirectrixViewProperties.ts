@@ -14,18 +14,23 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 
 export default class FocusAndDirectrixViewProperties extends GQViewProperties {
 
-  // See phetioDocumentation below
+  public readonly vertexVisibleProperty: Property<boolean>;
   public readonly focusVisibleProperty: Property<boolean>;
   public readonly directrixVisibleProperty: Property<boolean>;
   public readonly pointOnParabolaVisibleProperty: Property<boolean>;
+  public readonly coordinatesVisibleProperty: Property<boolean>;
 
   public constructor( tandem: Tandem ) {
 
     super( {
       equationForm: 'vertex',
-      vertexVisible: true,
-      coordinatesVisible: true,
       tandem: tandem
+    } );
+
+    this.vertexVisibleProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'vertexVisibleProperty' ),
+      phetioFeatured: true,
+      phetioDocumentation: 'whether the vertex point or manipulator is visible'
     } );
 
     this.focusVisibleProperty = new BooleanProperty( true, {
@@ -45,12 +50,20 @@ export default class FocusAndDirectrixViewProperties extends GQViewProperties {
       phetioFeatured: true,
       phetioDocumentation: 'whether the manipulator for the point on the parabola is visible'
     } );
+
+    this.coordinatesVisibleProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'coordinatesVisibleProperty' ),
+      phetioFeatured: true,
+      phetioDocumentation: 'whether (x,y) coordinates are visible on points that are displayed on the graph'
+    } );
   }
 
   public override reset(): void {
+    this.vertexVisibleProperty.reset();
     this.focusVisibleProperty.reset();
     this.directrixVisibleProperty.reset();
     this.pointOnParabolaVisibleProperty.reset();
+    this.coordinatesVisibleProperty.reset();
     super.reset();
   }
 }
