@@ -49,7 +49,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
       stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
         quadraticProperty,
         GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaEquationStringProperty,
+        GraphingQuadraticsStrings.a11y.primaryParabolaAtEquationStringProperty,
         equationsVisibleProperty ),
       visibleProperty: graphContentsVisibleProperty
     };
@@ -67,7 +67,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
       stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
         savedQuadraticProperty,
         GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.savedParabolaEquationStringProperty,
+        GraphingQuadraticsStrings.a11y.savedParabolaAtEquationStringProperty,
         equationsVisibleProperty ),
       visibleProperty: new DerivedProperty(
         [ graphContentsVisibleProperty, savedQuadraticProperty ],
@@ -176,7 +176,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
         // Localized strings that are used in the derivation.
         GraphingQuadraticsStrings.axisOfSymmetryStringProperty,
-        GraphingQuadraticsStrings.a11y.axisOfSymmetryEquationStringProperty,
+        GraphingQuadraticsStrings.a11y.axisOfSymmetryAtEquationStringProperty,
         GraphingQuadraticsStrings.xStringProperty,
         GraphingQuadraticsStrings.a11y.equalsStringProperty
       ],
@@ -211,7 +211,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
         // Localized strings that are used in the derivation.
         GraphingQuadraticsStrings.directrixStringProperty,
-        GraphingQuadraticsStrings.a11y.directrixEquationStringProperty,
+        GraphingQuadraticsStrings.a11y.directrixAtEquationStringProperty,
         GraphingQuadraticsStrings.yStringProperty,
         GraphingQuadraticsStrings.a11y.equalsStringProperty
       ],

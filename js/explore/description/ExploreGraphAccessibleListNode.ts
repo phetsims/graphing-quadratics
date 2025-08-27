@@ -32,7 +32,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
       stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
         model.quadraticTermProperty,
         GraphingQuadraticsStrings.a11y.quadraticTermStringProperty,
-        GraphingQuadraticsStrings.a11y.quadraticTermEquationStringProperty,
+        GraphingQuadraticsStrings.a11y.quadraticTermAtEquationStringProperty,
         viewProperties.equationsVisibleProperty ),
       visibleProperty: DerivedProperty.and( [ viewProperties.quadraticTermVisibleProperty, viewProperties.graphContentsVisibleProperty ] )
     };
@@ -42,7 +42,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
       stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
         model.linearTermProperty,
         GraphingQuadraticsStrings.a11y.linearTermStringProperty,
-        GraphingQuadraticsStrings.a11y.linearTermEquationStringProperty,
+        GraphingQuadraticsStrings.a11y.linearTermAtEquationStringProperty,
         viewProperties.equationsVisibleProperty ),
       visibleProperty: DerivedProperty.and( [ viewProperties.linearTermVisibleProperty, viewProperties.graphContentsVisibleProperty ] )
     };
@@ -52,7 +52,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
       stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
         model.constantTermProperty,
         GraphingQuadraticsStrings.a11y.constantTermStringProperty,
-        GraphingQuadraticsStrings.a11y.constantTermEquationStringProperty,
+        GraphingQuadraticsStrings.a11y.constantTermAtEquationStringProperty,
         viewProperties.equationsVisibleProperty ),
       visibleProperty: DerivedProperty.and( [ viewProperties.constantTermVisibleProperty, viewProperties.graphContentsVisibleProperty ] )
     };
