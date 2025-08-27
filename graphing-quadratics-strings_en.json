@@ -243,7 +243,7 @@
         "value": "Quadratic Term"
       },
       "accessibleHelpText": {
-        "value": "Explore with or without graph of quadratic term."
+        "value": "Show or hide graph of quadratic term."
       },
       "accessibleContextResponseChecked": {
         "value": "quadratic term graphed"
@@ -257,7 +257,7 @@
         "value": "Linear Term"
       },
       "accessibleHelpText": {
-        "value": "Explore with or without graph of linear term."
+        "value": "Show or hide graph of linear term."
       },
       "accessibleContextResponseChecked": {
         "value": "linear term graphed"
@@ -271,7 +271,7 @@
         "value": "Constant Term"
       },
       "accessibleHelpText": {
-        "value": "Explore with or without graph of constant term."
+        "value": "Show or hide graph of constant term."
       },
       "accessibleContextResponseChecked": {
         "value": "constant term graphed"
