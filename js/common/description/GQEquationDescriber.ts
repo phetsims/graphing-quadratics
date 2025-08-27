@@ -138,10 +138,8 @@ export default class GQEquationDescriber {
         equationString += `${negativeString} `;
       }
       else if ( a !== 1 ) {
-        equationString += `${a} `;
+        equationString += `${a} ${timesString} `;
       }
-
-      equationString += `${timesString} `;
 
       if ( h === 0 ) {
         equationString += `${xString} ${squaredString} `;
@@ -150,7 +148,7 @@ export default class GQEquationDescriber {
         equationString += `( ${xString} `;
         equationString += ( h > 0 ) ? minusString : plusString;
         equationString += ` ${Math.abs( h )}`;
-        equationString += `) ${squaredString}`;
+        equationString += ` ) ${squaredString}`;
       }
 
       if ( k !== 0 ) {
