@@ -255,6 +255,7 @@ type StringsType = {
     'linearTermEquationStringProperty': LocalizedStringProperty;
     'constantTermStringProperty': LocalizedStringProperty;
     'constantTermEquationStringProperty': LocalizedStringProperty;
+    'axisOfSymmetryEquationStringProperty': LocalizedStringProperty;
     'xSquaredStringProperty': LocalizedStringProperty;
     'equalsStringProperty': LocalizedStringProperty;
     'plusStringProperty': LocalizedStringProperty;

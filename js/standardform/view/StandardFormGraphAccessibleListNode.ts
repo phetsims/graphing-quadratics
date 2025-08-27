@@ -41,11 +41,17 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
         ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
     };
 
+    assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
+    const axisOfSymmetryItem = {
+      stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryStringProperty( model.quadraticProperty, viewProperties.equationsVisibleProperty ),
+      visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty! ] )
+    };
+
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,
-      savedParabolaItem
+      savedParabolaItem,
       //TODO https://github.com/phetsims/graphing-quadratics/issues/214 vertexItem
-      //TODO https://github.com/phetsims/graphing-quadratics/issues/214 axisOfSymmetryItem
+      axisOfSymmetryItem
       //TODO https://github.com/phetsims/graphing-quadratics/issues/214 rootsItem
     ];
 

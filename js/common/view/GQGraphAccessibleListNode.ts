@@ -73,6 +73,35 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
         }
       } );
   }
+
+  /**
+   * Description of a parabola in standard form, optionally followed by standard form equation.
+   */
+  protected static createAxisOfSymmetryStringProperty(
+    quadraticProperty: TReadOnlyProperty<Quadratic>,
+    equationsVisibleProperty: TReadOnlyProperty<boolean> ): TReadOnlyProperty<string> {
+
+    return new DerivedStringProperty( [
+        quadraticProperty,
+        equationsVisibleProperty,
+        GraphingQuadraticsStrings.axisOfSymmetryStringProperty,
+        GraphingQuadraticsStrings.a11y.axisOfSymmetryEquationStringProperty,
+        GraphingQuadraticsStrings.xStringProperty,
+        GraphingQuadraticsStrings.a11y.equalsStringProperty
+      ],
+      ( quadratic, equationsVisible, axisOfSymmetryString, axisOfSymmetryEquationString, xString, equalsString ) => {
+        if ( equationsVisible ) {
+          assert && assert( quadratic.axisOfSymmetry !== undefined, 'expected axisOfSymmetry to be defined' );
+          return StringUtils.fillIn( axisOfSymmetryEquationString, {
+            equation: GQEquationDescriber.createAxisOfSymmetry( quadratic.axisOfSymmetry!, xString, equalsString )
+          } );
+        }
+        else {
+          return axisOfSymmetryString;
+        }
+      } );
+  }
+
 }
 
 graphingQuadratics.register( 'GQGraphAccessibleListNode', GQGraphAccessibleListNode );
