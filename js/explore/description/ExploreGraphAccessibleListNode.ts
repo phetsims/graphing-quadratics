@@ -20,12 +20,12 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
   public constructor( model: ExploreModel, viewProperties: ExploreViewProperties ) {
 
     // 'Primary Parabola', optionally followed by standard-form equation
-    const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem(
-      model.quadraticProperty, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
+    const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem( model.quadraticProperty,
+      viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Saved Parabola', optionally followed by standard-form equation
-    const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem(
-      model.savedQuadraticProperty, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
+    const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem( model.savedQuadraticProperty,
+      viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Quadratic Term', optionally followed by equation
     const quadraticTermItem = {

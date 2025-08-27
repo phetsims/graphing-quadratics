@@ -25,11 +25,11 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
 
     // 'Primary Parabola', optionally followed by standard form equation
     const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem( model.quadraticProperty,
-      viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
+      viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Saved Parabola', optionally followed by standard form equation
     const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem( model.savedQuadraticProperty,
-      viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
+      viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Vertex', optionally followed by coordinates
     const vertexItem = {

@@ -20,6 +20,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import GQConstants from '../GQConstants.js';
+import { EquationForm } from '../view/GQViewProperties.js';
 
 export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
@@ -44,15 +45,22 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
    */
   protected static createPrimaryQuadraticItem(
     quadraticProperty: TReadOnlyProperty<Quadratic>,
+    equationForm: EquationForm,
     equationsVisibleProperty: TReadOnlyProperty<boolean>,
     graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
 
     return {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
-        quadraticProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.primaryParabolaAtEquationStringProperty,
-        equationsVisibleProperty ),
+      stringProperty: ( equationForm === 'standard' ) ?
+                      GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+                        quadraticProperty,
+                        GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
+                        GraphingQuadraticsStrings.a11y.primaryParabolaAtEquationStringProperty,
+                        equationsVisibleProperty ) :
+                      GQGraphAccessibleListNode.createQuadraticVertexFormDescriptionProperty(
+                        quadraticProperty,
+                        GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
+                        GraphingQuadraticsStrings.a11y.primaryParabolaAtEquationStringProperty,
+                        equationsVisibleProperty ),
       visibleProperty: graphContentsVisibleProperty
     };
   }
@@ -62,15 +70,22 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
    */
   protected static createSavedQuadraticItem(
     savedQuadraticProperty: ReadOnlyProperty<Quadratic | null>,
+    equationForm: EquationForm,
     equationsVisibleProperty: TReadOnlyProperty<boolean>,
     graphContentsVisibleProperty: TReadOnlyProperty<boolean> ): AccessibleListItem {
 
     return {
-      stringProperty: GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
-        savedQuadraticProperty,
-        GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
-        GraphingQuadraticsStrings.a11y.savedParabolaAtEquationStringProperty,
-        equationsVisibleProperty ),
+      stringProperty: ( equationForm === 'standard' ) ?
+                      GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+                        savedQuadraticProperty,
+                        GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
+                        GraphingQuadraticsStrings.a11y.savedParabolaAtEquationStringProperty,
+                        equationsVisibleProperty ) :
+                      GQGraphAccessibleListNode.createQuadraticVertexFormDescriptionProperty(
+                        savedQuadraticProperty,
+                        GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
+                        GraphingQuadraticsStrings.a11y.savedParabolaAtEquationStringProperty,
+                        equationsVisibleProperty ),
       visibleProperty: new DerivedProperty(
         [ graphContentsVisibleProperty, savedQuadraticProperty ],
         ( graphContentsVisible, savedQuadratic ) => graphContentsVisible && !!savedQuadratic )
@@ -198,6 +213,53 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
             return StringUtils.fillIn( nameEquationString, {
               equation: GQEquationDescriber.createStandardFormDescription( quadratic, yString, xString, squaredString,
                 equalsString, plusString, minusString, negativeString )
+            } );
+          }
+          else {
+            return nameString;
+          }
+        }
+        else {
+          return '';
+        }
+      } );
+  }
+
+  /**
+   * Description of a quadratic, optionally followed by its vertex-form equation.
+   */
+  protected static createQuadraticVertexFormDescriptionProperty(
+    quadraticProperty: TReadOnlyProperty<Quadratic | null>,
+    nameStringProperty: TReadOnlyProperty<string>,
+    nameEquationStringProperty: TReadOnlyProperty<string>,
+    equationsVisibleProperty: TReadOnlyProperty<boolean> ): TReadOnlyProperty<string> {
+
+    return new DerivedStringProperty(
+      [
+        quadraticProperty,
+        equationsVisibleProperty,
+
+        // The name given to the quadratic, with and without the associated equation.
+        nameStringProperty,
+        nameEquationStringProperty,
+
+        // Other localized strings that are used in the derivation.
+        GraphingQuadraticsStrings.yStringProperty,
+        GraphingQuadraticsStrings.xStringProperty,
+        GraphingQuadraticsStrings.a11y.squaredStringProperty,
+        GraphingQuadraticsStrings.a11y.equalsStringProperty,
+        GraphingQuadraticsStrings.a11y.plusStringProperty,
+        GraphingQuadraticsStrings.a11y.minusStringProperty,
+        GraphingQuadraticsStrings.a11y.timesStringProperty,
+        GraphingQuadraticsStrings.a11y.negativeStringProperty
+      ],
+      ( quadratic, equationsVisible, nameString, nameEquationString, yString, xString,
+        squaredString, equalsString, plusString, minusString, timesString, negativeString ) => {
+        if ( quadratic ) {
+          if ( equationsVisible ) {
+            return StringUtils.fillIn( nameEquationString, {
+              equation: GQEquationDescriber.createVertexFormDescription( quadratic, yString, xString, squaredString,
+                equalsString, plusString, minusString, timesString, negativeString )
             } );
           }
           else {
