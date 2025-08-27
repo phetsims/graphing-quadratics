@@ -65,7 +65,8 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
         if ( quadratic ) {
           if ( equationsVisible ) {
             return StringUtils.fillIn( nameEquationString, {
-              equation: GQEquationDescriber.createStandardForm( quadratic, yString, xString, squaredString, equalsString, plusString, minusString, negativeString )
+              equation: GQEquationDescriber.createStandardFormDescription( quadratic, yString, xString, squaredString,
+                equalsString, plusString, minusString, negativeString )
             } );
           }
           else {
@@ -104,7 +105,7 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
           if ( equationsVisible ) {
             assert && assert( quadratic.axisOfSymmetry !== undefined, 'expected axisOfSymmetry to be defined' );
             return StringUtils.fillIn( axisOfSymmetryEquationString, {
-              equation: GQEquationDescriber.createAxisOfSymmetry( quadratic.axisOfSymmetry!, xString, equalsString )
+              equation: GQEquationDescriber.createAxisOfSymmetryDescription( quadratic.axisOfSymmetry!, xString, equalsString )
             } );
           }
           else {
@@ -113,7 +114,6 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
         }
       } );
   }
-
 }
 
 graphingQuadratics.register( 'GQGraphAccessibleListNode', GQGraphAccessibleListNode );

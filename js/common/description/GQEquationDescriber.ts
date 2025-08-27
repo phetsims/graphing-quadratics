@@ -16,16 +16,16 @@ import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 export default class GQEquationDescriber {
 
   /**
-   * Creates the description string for an equation in standard form.
+   * Creates the description for a standard-form equation.
    */
-  public static createStandardForm( quadratic: Quadratic,
-                                    yString: string,
-                                    xString: string,
-                                    squaredString: string,
-                                    equalsString: string,
-                                    plusString: string,
-                                    minusString: string,
-                                    negativeString: string ): string {
+  public static createStandardFormDescription( quadratic: Quadratic,
+                                               yString: string,
+                                               xString: string,
+                                               squaredString: string,
+                                               equalsString: string,
+                                               plusString: string,
+                                               minusString: string,
+                                               negativeString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.EXPLORE_DECIMALS_A );
@@ -101,17 +101,17 @@ export default class GQEquationDescriber {
   }
 
   /**
-   * Creates the description string for an equation in vertex form.
+   * Creates the description for a vertex-form equation.
    */
-  public static createVertexForm( quadratic: Quadratic,
-                                  yString: string,
-                                  xString: string,
-                                  squaredString: string,
-                                  equalsString: string,
-                                  plusString: string,
-                                  minusString: string,
-                                  timesString: string,
-                                  negativeString: string ): string {
+  public static createVertexFormDescription( quadratic: Quadratic,
+                                             yString: string,
+                                             xString: string,
+                                             squaredString: string,
+                                             equalsString: string,
+                                             plusString: string,
+                                             minusString: string,
+                                             timesString: string,
+                                             negativeString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
@@ -173,16 +173,16 @@ export default class GQEquationDescriber {
   }
 
   /**
-   * Creates the description string for the directrix equation.
+   * Creates the description for the directrix equation.
    */
-  public static createDirectrix( directrix: number, yString: string, equalsString: string ): string {
+  public static createDirectrixDescription( directrix: number, yString: string, equalsString: string ): string {
     return `${yString} ${equalsString} ${toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
   }
 
   /**
-   * Creates the description string for the axis of symmetry equation.
+   * Creates the description for the axis of symmetry equation.
    */
-  public static createAxisOfSymmetry( axisOfSymmetry: number, xString: string, equalsString: string ): string {
+  public static createAxisOfSymmetryDescription( axisOfSymmetry: number, xString: string, equalsString: string ): string {
     return `${xString} ${equalsString} ${toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
 }
