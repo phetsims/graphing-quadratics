@@ -138,12 +138,9 @@ export default class GQEquationFactory {
         equationString += ')<sup>2</sup>';
       }
 
-      if ( k !== 0 ) {
-        equationString += ' ';
-      }
-
       // k term
       if ( k !== 0 ) {
+        equationString += ' ';
         if ( a === 0 ) {
           equationString += k;
         }

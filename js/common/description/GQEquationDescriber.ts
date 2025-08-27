@@ -151,12 +151,9 @@ export default class GQEquationDescriber {
         equationString += ` ) ${squaredString}`;
       }
 
-      if ( k !== 0 ) {
-        equationString += ' ';
-      }
-
       // k term
       if ( k !== 0 ) {
+        equationString += ' ';
         if ( a === 0 ) {
           equationString += k;
         }
