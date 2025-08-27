@@ -12,6 +12,12 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQGraphAccessibleListNode from '../../common/description/GQGraphAccessibleListNode.js';
 import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixViewProperties from '../view/FocusAndDirectrixViewProperties.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import GQConstants from '../../common/GQConstants.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
@@ -33,12 +39,34 @@ export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAcc
     const directrixItem = GQGraphAccessibleListNode.createDirectrixItem( model.quadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.directrixVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
+    // 'Movable point on parabola', optionally followed by coordinates
+    const movablePointOnParabolaItem = {
+      stringProperty: new DerivedStringProperty( [
+          model.pointOnParabolaProperty,
+          viewProperties.coordinatesVisibleProperty,
+          GraphingQuadraticsStrings.a11y.movablePointOnParabolaStringProperty,
+          GraphingQuadraticsStrings.a11y.movablePointOnParabolaAtCoordinatesStringProperty
+        ],
+        ( pointOnParabola, coordinatesVisible, movablePointOnParabola, movablePointOnParabolaAtCoordinatesString ) => {
+          if ( coordinatesVisible ) {
+            return StringUtils.fillIn( movablePointOnParabolaAtCoordinatesString, {
+              x: toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS ),
+              y: toFixedNumber( pointOnParabola.y, GQConstants.POINT_ON_PARABOLA_DECIMALS )
+            } );
+          }
+          else {
+            return movablePointOnParabola;
+          }
+        } ),
+      visibleProperty: DerivedProperty.and( [ viewProperties.pointOnParabolaVisibleProperty, viewProperties.graphContentsVisibleProperty ] )
+    };
+
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,
       savedParabolaItem,
       movableVertexItem,
-      directrixItem
-      //TODO https://github.com/phetsims/graphing-quadratics/issues/214 pointOnParabolaItem
+      directrixItem,
+      movablePointOnParabolaItem
     ];
 
     super( listItems, viewProperties.graphContentsVisibleProperty );
