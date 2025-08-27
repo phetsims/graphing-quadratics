@@ -259,6 +259,8 @@ type StringsType = {
     'equalsStringProperty': LocalizedStringProperty;
     'plusStringProperty': LocalizedStringProperty;
     'minusStringProperty': LocalizedStringProperty;
+    'timesStringProperty': LocalizedStringProperty;
+    'squaredStringProperty': LocalizedStringProperty;
     'negativeStringProperty': LocalizedStringProperty;
   }
 };

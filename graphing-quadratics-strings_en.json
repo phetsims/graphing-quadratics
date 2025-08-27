@@ -526,6 +526,12 @@
     "minus": {
       "value": "minus"
     },
+    "times": {
+      "value": "times"
+    },
+    "squared": {
+      "value": "squared"
+    },
     "negative": {
       "value": "negative"
     }

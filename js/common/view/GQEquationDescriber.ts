@@ -2,11 +2,12 @@
 
 /**
  * GQEquationDescriber is a collection of methods for creating descriptions of quadratic equations.
+ * This was created by copying GQEquationFactory, then changing the implementation to produce natural language
+ * instead of RichText markup.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
@@ -20,7 +21,7 @@ export default class GQEquationDescriber {
   public static createStandardForm( quadratic: Quadratic,
                                     yString: string,
                                     xString: string,
-                                    xSquaredString: string,
+                                    squaredString: string,
                                     equalsString: string,
                                     plusString: string,
                                     minusString: string,
@@ -51,7 +52,7 @@ export default class GQEquationDescriber {
           equationString += `${a} `; // ax^2
         }
 
-        equationString += `${xSquaredString}`;
+        equationString += `${xString} ${squaredString}`;
 
         if ( b !== 0 || c !== 0 ) {
           equationString += ' ';
@@ -105,7 +106,12 @@ export default class GQEquationDescriber {
   public static createVertexForm( quadratic: Quadratic,
                                   yString: string,
                                   xString: string,
-                                  xSquaredString: string ): string {
+                                  squaredString: string,
+                                  equalsString: string,
+                                  plusString: string,
+                                  minusString: string,
+                                  timesString: string,
+                                  negativeString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
@@ -113,7 +119,7 @@ export default class GQEquationDescriber {
     const k = ( quadratic.k === undefined ) ? 0 : toFixedNumber( quadratic.k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
 
     // y =
-    let equationString = `${yString} ${MathSymbols.EQUAL_TO} `;
+    let equationString = `${yString} ${equalsString} `;
 
     if ( a === 0 && k === 0 ) {
 
@@ -129,20 +135,22 @@ export default class GQEquationDescriber {
 
       // a(x - h)^2 term
       if ( a === -1 ) {
-        equationString += MathSymbols.UNARY_MINUS;
+        equationString += `${negativeString} `;
       }
       else if ( a !== 1 ) {
-        equationString += a;
+        equationString += `${a} `;
       }
 
+      equationString += `${timesString} `;
+
       if ( h === 0 ) {
-        equationString += xSquaredString;
+        equationString += `${xString} ${squaredString} `;
       }
       else {
-        equationString += `(${xString} `;
-        equationString += ( h > 0 ) ? MathSymbols.MINUS : MathSymbols.PLUS;
+        equationString += `( ${xString} `;
+        equationString += ( h > 0 ) ? minusString : plusString;
         equationString += ` ${Math.abs( h )}`;
-        equationString += ')<sup>2</sup>';
+        equationString += `) ${squaredString}`;
       }
 
       if ( k !== 0 ) {
@@ -155,7 +163,7 @@ export default class GQEquationDescriber {
           equationString += k;
         }
         else {
-          equationString += ( k > 0 ) ? MathSymbols.PLUS : MathSymbols.MINUS;
+          equationString += ( k > 0 ) ? plusString : minusString;
           equationString += ` ${Math.abs( k )}`;
         }
       }
