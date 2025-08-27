@@ -87,6 +87,8 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
     return {
       stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
+
+      // Note that axis of symmetry will be undefined when a = 0.
       visibleProperty: new DerivedProperty( [
           quadraticProperty,
           axisOfSymmetryVisibleProperty,
@@ -108,6 +110,8 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
     return {
       stringProperty: GQGraphAccessibleListNode.createDirectrixDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
+
+      // Note that directrix will be undefined when a = 0.
       visibleProperty: new DerivedProperty( [
           quadraticProperty,
           directrixVisibleProperty,

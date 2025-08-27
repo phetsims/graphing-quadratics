@@ -12,6 +12,12 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import GQGraphAccessibleListNode from '../../common/description/GQGraphAccessibleListNode.js';
 import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormViewProperties from '../view/StandardFormViewProperties.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import GQConstants from '../../common/GQConstants.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 
 export default class StandardFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
@@ -25,6 +31,40 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
     const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem( model.savedQuadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
+    // 'Vertex', optionally followed by coordinates
+    assert && assert( viewProperties.coordinatesVisibleProperty, 'expected coordinatesVisibleProperty to be defined' );
+    assert && assert( viewProperties.vertexVisibleProperty, 'expected vertexVisibleProperty to be defined' );
+    const vertexItem = {
+      stringProperty: new DerivedStringProperty( [
+          model.quadraticProperty,
+          viewProperties.coordinatesVisibleProperty!,
+          GraphingQuadraticsStrings.vertexStringProperty,
+          GraphingQuadraticsStrings.a11y.vertexAtCoordinatesStringProperty
+        ],
+        ( quadratic, coordinatesVisible, vertexString, vertexAtCoordinatesString ) => {
+          const vertex = quadratic.vertex;
+          if ( vertex === undefined ) {
+            return '';
+          }
+          else {
+            if ( coordinatesVisible ) {
+              return StringUtils.fillIn( vertexAtCoordinatesString, {
+                x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
+                y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
+              } );
+            }
+            else {
+              return vertexString;
+            }
+          }
+        } ),
+
+      // Note that vertex will be undefined when a = 0.
+      visibleProperty: new DerivedProperty(
+        [ model.quadraticProperty, viewProperties.vertexVisibleProperty!, viewProperties.graphContentsVisibleProperty ],
+        ( quadratic, vertexVisible, graphContentsVisible ) => ( quadratic.vertex !== undefined ) && vertexVisible && graphContentsVisible )
+    };
+
     // 'Axis of Symmetry', optionally followed by equation.
     // Note that there will be no axis of symmetry when a = 0, because y = bx + c is a line, not a parabola.
     assert && assert( viewProperties.axisOfSymmetryVisibleProperty, 'expected axisOfSymmetryVisibleProperty to be defined' );
@@ -34,7 +74,7 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
     const listItems: AccessibleListItem[] = [
       primaryParabolaItem,
       savedParabolaItem,
-      //TODO https://github.com/phetsims/graphing-quadratics/issues/214 vertexItem
+      vertexItem,
       axisOfSymmetryItem
       //TODO https://github.com/phetsims/graphing-quadratics/issues/214 rootsItem
     ];
