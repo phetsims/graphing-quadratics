@@ -267,7 +267,6 @@ type StringsType = {
     'movablePointOnParabolaAtCoordinatesStringProperty': LocalizedStringProperty;
     'rootsAtCoordinates1StringProperty': LocalizedStringProperty;
     'rootsAtCoordinates2StringProperty': LocalizedStringProperty;
-    'xSquaredStringProperty': LocalizedStringProperty;
     'equalsStringProperty': LocalizedStringProperty;
     'plusStringProperty': LocalizedStringProperty;
     'minusStringProperty': LocalizedStringProperty;
