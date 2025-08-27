@@ -35,9 +35,9 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
-   * Description of a parabola in standard form, optionally followed by standard form equation.
+   * Description of a quadratic, optionally followed by the standard-form equation.
    */
-  protected static createParabolaStandardFormStringProperty(
+  protected static createQuadraticStandardFormDescriptionProperty(
     quadraticProperty: TReadOnlyProperty<Quadratic | null>,
     nameStringProperty: TReadOnlyProperty<string>,
     nameEquationStringProperty: TReadOnlyProperty<string>,
@@ -79,15 +79,17 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
-   * Description of a parabola in standard form, optionally followed by standard form equation.
+   * Description of the axis of symmetry for a quadratic.
    */
-  protected static createAxisOfSymmetryStringProperty(
+  protected static createAxisOfSymmetryDescriptionProperty(
     quadraticProperty: TReadOnlyProperty<Quadratic>,
     equationsVisibleProperty: TReadOnlyProperty<boolean> ): TReadOnlyProperty<string> {
 
     return new DerivedStringProperty( [
         quadraticProperty,
         equationsVisibleProperty,
+
+        // Localized strings that are used in the derivation.
         GraphingQuadraticsStrings.axisOfSymmetryStringProperty,
         GraphingQuadraticsStrings.a11y.axisOfSymmetryEquationStringProperty,
         GraphingQuadraticsStrings.xStringProperty,
