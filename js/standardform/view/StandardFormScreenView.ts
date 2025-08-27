@@ -14,7 +14,7 @@ import StandardFormEquationAccordionBox from './StandardFormEquationAccordionBox
 import StandardFormGraphControlPanel from './StandardFormGraphControlPanel.js';
 import StandardFormGraphNode from './StandardFormGraphNode.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
-import StandardFormScreenSummaryContent from './StandardFormScreenSummaryContent.js';
+import StandardFormScreenSummaryContent from '../description/StandardFormScreenSummaryContent.js';
 
 export default class StandardFormScreenView extends GQScreenView {
 
