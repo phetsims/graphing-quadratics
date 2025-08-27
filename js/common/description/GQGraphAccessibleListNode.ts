@@ -46,8 +46,12 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
       [
         quadraticProperty,
         equationsVisibleProperty,
+
+        // The name given to the quadratic, with and without the associated equation.
         nameStringProperty,
         nameEquationStringProperty,
+
+        // Other localized strings that are used in the derivation.
         GraphingQuadraticsStrings.yStringProperty,
         GraphingQuadraticsStrings.xStringProperty,
         GraphingQuadraticsStrings.a11y.squaredStringProperty,
