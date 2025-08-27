@@ -31,6 +31,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
     const savedParabolaItem = GQGraphAccessibleListNode.createSavedParabolaStandardFormItem(
       model.savedQuadraticProperty, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
+    // 'Quadratic Term', optionally followed by equation
     const quadraticTermItem = {
       stringProperty: new DerivedStringProperty(
         [
@@ -61,6 +62,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
       visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.quadraticTermVisibleProperty ] )
     };
 
+    // 'Linear Term', optionally followed by equation
     const linearTermItem = {
       stringProperty: new DerivedStringProperty(
         [
@@ -91,6 +93,7 @@ export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleLis
       visibleProperty: DerivedProperty.and( [ viewProperties.graphContentsVisibleProperty, viewProperties.linearTermVisibleProperty ] )
     };
 
+    // 'Constant Term', optionally followed by equation
     const constantTermItem = {
       stringProperty: new DerivedStringProperty(
         [
