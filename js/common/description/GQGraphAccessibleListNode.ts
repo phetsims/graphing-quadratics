@@ -12,7 +12,7 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import GQEquationDescriber from './GQEquationDescriber.js';
+import GQEquationDescriber from '../view/GQEquationDescriber.js';
 import Quadratic from '../model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 

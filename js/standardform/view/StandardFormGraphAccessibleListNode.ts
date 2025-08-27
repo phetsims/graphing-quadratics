@@ -9,7 +9,7 @@
 
 import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import GQGraphAccessibleListNode from '../../common/view/GQGraphAccessibleListNode.js';
+import GQGraphAccessibleListNode from '../../common/description/GQGraphAccessibleListNode.js';
 import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
