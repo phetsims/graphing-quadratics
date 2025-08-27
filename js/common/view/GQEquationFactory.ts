@@ -15,12 +15,12 @@ import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
-const GQEquationFactory = {
+export default class GQEquationFactory {
 
   /**
    * Creates the RichText string for an equation in standard form, y = ax^2 + bx + c
    */
-  createStandardForm( quadratic: Quadratic, yString: string, xString: string, xSquaredString: string ): string {
+  public static createStandardForm( quadratic: Quadratic, yString: string, xString: string, xSquaredString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.EXPLORE_DECIMALS_A );
@@ -93,12 +93,12 @@ const GQEquationFactory = {
     }
 
     return equationString;
-  },
+  }
 
   /**
    * Creates the RichText string for an equation in vertex form, y = a(x - h)^2 + k
    */
-  createVertexForm( quadratic: Quadratic, yString: string, xString: string, xSquaredString: string ): string {
+  public static createVertexForm( quadratic: Quadratic, yString: string, xString: string, xSquaredString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
@@ -155,22 +155,21 @@ const GQEquationFactory = {
     }
 
     return equationString;
-  },
+  }
 
   /**
    * Creates the RichText string for the directrix equation: y = N
    */
-  createDirectrix( directrix: number, yString: string ): string {
+  public static createDirectrix( directrix: number, yString: string ): string {
     return `${yString} ${MathSymbols.EQUAL_TO} ${toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
-  },
+  }
 
   /**
    * Creates the RichText string for the axis of symmetry equation: x = N
    */
-  createAxisOfSymmetry( axisOfSymmetry: number, xString: string ): string {
+  public static createAxisOfSymmetry( axisOfSymmetry: number, xString: string ): string {
     return `${xString} ${MathSymbols.EQUAL_TO} ${toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
-};
+}
 
 graphingQuadratics.register( 'GQEquationFactory', GQEquationFactory );
-export default GQEquationFactory;
