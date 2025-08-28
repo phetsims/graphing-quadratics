@@ -94,7 +94,7 @@
       },
       "screenSummary": {
         "playArea": {
-          "value": "There is an equation control panel to adjust coefficient values in equation y equals a x squared plus b x plus c, an individual quadratic terms panel, and a coordinate grid. The equation control allows you to manipulate the quadratic function. Coordinate grid area shows active curves."
+          "value": "There is an equation control panel to adjust coefficient values in equation y equals a x squared plus b x plus c, an individual quadratic terms panel, and a coordinate grid. The equation control allows you to manipulate the quadratic function. Graph area shows active curves."
         }
       }
     },
