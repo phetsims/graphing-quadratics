@@ -426,7 +426,7 @@
     },
     "aPicker": {
       "accessibleName": {
-        "value": "a, Leading Coefficient"
+        "value": "a, Coefficient of x Squared"
       },
       "accessibleHelpText": {
         "value": "Adjust coefficient of quadratic term in equation."
