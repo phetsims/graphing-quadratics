@@ -29,6 +29,14 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 *
 -->
 
+## 1.4 (in progress)
+
+### New Features
+* Alternative Input
+* Interactive Highlights
+* Core Description
+* Basic Sound
+
 ## 1.3 (2023-07-25)
 
 ### New Features
