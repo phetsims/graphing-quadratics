@@ -181,7 +181,7 @@
         "value": "Erase Saved Parabola"
       },
       "accessibleContextResponse": {
-        "value": "No saved parabola."
+        "value": "saved parabola erased"
       }
     },
     "vertexManipulator": {
