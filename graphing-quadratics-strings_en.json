@@ -285,13 +285,13 @@
     },
     "equationsCheckbox": {
       "accessibleHelpText": {
-        "value": "Show or hide equations labeling graphs."
+        "value": "Show or hide equations labeling curves."
       },
       "accessibleContextResponseChecked": {
-        "value": "graphs labeled with equations"
+        "value": "curves labeled with equations"
       },
       "accessibleContextResponseUnchecked": {
-        "value": "graphs not labeled with equations"
+        "value": "curves not labeled with equations"
       }
     },
     "vertexManipulatorCheckbox": {
