@@ -478,7 +478,7 @@
     },
     "focusAndDirectrixFormEquationNode": {
       "accessibleParagraph": {
-        "value": "y equals 1 over ( 4 times {{p}} ) times the quantity (x minus {{h}}}) squared plus {{k}}"
+        "value": "y equals 1 over ( 4 times {{p}} ) times the quantity (x minus {{h}}}) squared, plus {{k}}"
       }
     },
     "graphAreaCurrentlyContains": {
