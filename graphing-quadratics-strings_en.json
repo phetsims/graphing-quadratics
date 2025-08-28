@@ -156,7 +156,7 @@
         "value": "Graph Contents Visibility"
       },
       "accessibleHelpText": {
-        "value": "Show or hide curves and graph features in coordinate grid."
+        "value": "Show or hide parabolas and parabolas features in graph area."
       },
       "accessibleContextResponseHidden": {
         "value": "graph contents hidden"
