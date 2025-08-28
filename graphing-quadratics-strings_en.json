@@ -473,7 +473,7 @@
     },
     "vertexFormEquationNode": {
       "accessibleParagraph": {
-        "value": "y equals {{a}} times the quantity (x minus {{h}}) squared plus {{k}}"
+        "value": "y equals {{a}} times the quantity (x minus {{h}}) squared, plus {{k}}"
       }
     },
     "focusAndDirectrixFormEquationNode": {
