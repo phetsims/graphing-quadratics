@@ -232,7 +232,7 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };
     'accessibleHeadings': {
-      'coordinateGridHeadingStringProperty': LocalizedStringProperty;
+      'graphAreaHeadingStringProperty': LocalizedStringProperty;
       'graphFeaturesHeadingStringProperty': LocalizedStringProperty;
     };
     'standardFormEquationNode': {

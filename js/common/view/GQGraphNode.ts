@@ -51,7 +51,7 @@ export default class GQGraphNode extends Node {
 
       // NodeOptions
       isDisposable: false,
-      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.coordinateGridHeadingStringProperty,
+      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.graphAreaHeadingStringProperty,
       phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 

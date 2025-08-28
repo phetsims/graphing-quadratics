@@ -459,8 +459,8 @@
       }
     },
     "accessibleHeadings": {
-      "coordinateGridHeading": {
-        "value": "Coordinate Grid"
+      "graphAreaHeading": {
+        "value": "Graph Area"
       },
       "graphFeaturesHeading": {
         "value": "Graph Features"
