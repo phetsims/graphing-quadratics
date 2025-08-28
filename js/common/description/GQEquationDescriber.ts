@@ -145,10 +145,10 @@ export default class GQEquationDescriber {
         equationString += `${xString} ${squaredString}`;
       }
       else {
-        equationString += `( ${xString} `;
+        equationString += `(${xString} `;
         equationString += ( h > 0 ) ? minusString : plusString;
         equationString += ` ${Math.abs( h )}`;
-        equationString += ` ) ${squaredString}`;
+        equationString += `) ${squaredString}`;
       }
 
       // k term
