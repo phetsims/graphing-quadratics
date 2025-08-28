@@ -142,7 +142,7 @@ export default class GQEquationDescriber {
       }
 
       if ( h === 0 ) {
-        equationString += `${xString} ${squaredString} `;
+        equationString += `${xString} ${squaredString}`;
       }
       else {
         equationString += `( ${xString} `;
@@ -153,7 +153,7 @@ export default class GQEquationDescriber {
 
       // k term
       if ( k !== 0 ) {
-        equationString += ' ';
+        equationString += ', ';
         if ( a === 0 ) {
           equationString += k;
         }
