@@ -19,6 +19,7 @@ import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 export class PointOnParabolaRichDragListener extends SoundRichDragListener {
 
@@ -63,7 +64,7 @@ export class PointOnParabolaRichDragListener extends SoundRichDragListener {
           // y is out of range, so constrain y, solve for x, and choose the closer of the 2 solutions
           pointOnParabola.setY( graph.yRange.constrainValue( pointOnParabola.y ) );
           const xSolutions = quadraticProperty.value.solveX( pointOnParabola.y )!;
-          assert && assert( xSolutions && xSolutions.length === 2, `expected 2 solutions for x: ${xSolutions}` );
+          affirm( xSolutions && xSolutions.length === 2, `expected 2 solutions for x: ${xSolutions}` );
           const xClosest = ( Math.abs( xSolutions[ 0 ] - pointOnParabola.x ) < Math.abs( xSolutions[ 1 ] - pointOnParabola.x ) )
                            ? xSolutions[ 0 ] : xSolutions[ 1 ];
           pointOnParabola.setX( xClosest );

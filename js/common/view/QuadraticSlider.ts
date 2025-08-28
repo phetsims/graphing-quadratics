@@ -13,6 +13,7 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQSlider, { GQSliderOptions } from './GQSlider.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -29,7 +30,7 @@ export default class QuadraticSlider extends GQSlider {
                       coefficientProperty: NumberProperty,
                       providedOptions: QuadraticSliderOptions ) {
 
-    assert && assert( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,
+    affirm( Math.abs( coefficientProperty.range.min ) === coefficientProperty.range.max,
       `symmetrical range is required: ${coefficientProperty.range}` );
 
     // coefficient for quadratic equation y = ax^2

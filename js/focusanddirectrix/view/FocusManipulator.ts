@@ -26,6 +26,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -60,9 +61,9 @@ export default class FocusManipulator extends GQManipulator {
       }, providedOptions );
 
     // position coordinates based on which way the parabola opens
-    assert && assert( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );
+    affirm( !options.layoutCoordinates, 'FocusManipulator sets layoutCoordinates' );
     options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
-      assert && assert( coordinates, 'expected coordinates' );
+      affirm( coordinates, 'expected coordinates' );
       coordinatesNode.centerX = 0;
       const yOffset = radius + COORDINATES_Y_SPACING;
       if ( quadraticProperty.value.a > 0 ) {
@@ -83,7 +84,7 @@ export default class FocusManipulator extends GQManipulator {
       } );
 
     // visibility of this Node
-    assert && assert( !options.visibleProperty, 'FocusManipulator sets visibleProperty' );
+    affirm( !options.visibleProperty, 'FocusManipulator sets visibleProperty' );
     options.visibleProperty = new DerivedProperty(
       [ focusVisibleProperty, quadraticProperty ],
       ( focusVisible, quadratic ) =>
@@ -105,7 +106,7 @@ export default class FocusManipulator extends GQManipulator {
     // move the manipulator
     quadraticProperty.link( quadratic => {
       const focus = quadratic.focus!;
-      assert && assert( focus, `expected focus: ${quadratic.focus}` );
+      affirm( focus, `expected focus: ${quadratic.focus}` );
       this.translation = modelViewTransform.modelToViewPosition( focus );
     } );
 

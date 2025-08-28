@@ -21,6 +21,7 @@ import GQConstants from '../../common/GQConstants.js';
 import GQModel from '../../common/model/GQModel.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 // constants
 const P_RANGE = new RangeWithValue( -9, 9, 2 ); // p coefficient
@@ -100,11 +101,11 @@ export default class FocusAndDirectrixModel extends GQModel {
 
     // update the point
     this.quadraticProperty.lazyLink( ( quadratic, oldQuadratic ) => {
-      assert && assert( quadratic.vertex, `expected quadratic.vertex: ${quadratic.vertex}` );
-      assert && assert( oldQuadratic.vertex, `expected oldQuadratic.vertex: ${oldQuadratic.vertex}` );
+      affirm( quadratic.vertex, `expected quadratic.vertex: ${quadratic.vertex}` );
+      affirm( oldQuadratic.vertex, `expected oldQuadratic.vertex: ${oldQuadratic.vertex}` );
 
       if ( !isSettingPhetioStateProperty.value ) {
-        const dx = quadratic.vertex!.x - oldQuadratic.vertex!.x;
+        const dx = quadratic.vertex.x - oldQuadratic.vertex.x;
         const x = this.pointOnParabolaProperty.value.x + dx;
         this.pointOnParabolaProperty.value = quadratic.getClosestPointInRange( x, this.graph.xRange, this.graph.yRange );
       }

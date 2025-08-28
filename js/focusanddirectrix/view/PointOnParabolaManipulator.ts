@@ -25,6 +25,7 @@ import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibilit
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
@@ -60,13 +61,13 @@ export default class PointOnParabolaManipulator extends GQManipulator {
       }, providedOptions );
 
     // position coordinates based on which side of the parabola the point is on
-    assert && assert( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );
+    affirm( !options.layoutCoordinates, 'PointOnParabolaManipulator sets layoutCoordinates' );
     options.layoutCoordinates = ( coordinates, coordinatesNode, radius ) => {
-      assert && assert( coordinates, 'expected coordinates' );
+      affirm( coordinates, 'expected coordinates' );
       const vertex = quadraticProperty.value.vertex!;
-      assert && assert( vertex, 'expected a parabola' );
+      affirm( vertex, 'expected a parabola' );
       const xOffset = radius + COORDINATES_X_SPACING;
-      if ( coordinates!.x >= vertex.x ) {
+      if ( coordinates.x >= vertex.x ) {
         coordinatesNode.left = xOffset;
       }
       else {

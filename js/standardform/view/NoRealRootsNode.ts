@@ -21,6 +21,7 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 // const
 const Y_OFFSET = 2; // min offset from vertex, determined empirically
@@ -76,7 +77,7 @@ export default class NoRealRootsNode extends Node {
     // typically centered at the origin. Width is based on maxWidth, height was determined empirically.
     // See https://github.com/phetsims/graphing-quadratics/issues/88
     const maxWidth = options.maxWidth!;
-    assert && assert( maxWidth !== null && maxWidth !== undefined );
+    affirm( maxWidth !== null && maxWidth !== undefined );
     const vertexOverlapBounds = new Bounds2(
       modelViewTransform.viewToModelDeltaX( -0.6 * maxWidth ), -Y_OFFSET,
       modelViewTransform.viewToModelDeltaX( 0.6 * maxWidth ), Y_OFFSET );

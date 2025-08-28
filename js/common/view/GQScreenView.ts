@@ -23,6 +23,7 @@ import PointToolNode from './PointToolNode.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 // constants
 const X_SPACING = 15; // between graph and control panels
@@ -92,7 +93,7 @@ export default class GQScreenView extends ScreenView {
 
     // Set maxWidth for each control panel individually
     const controlPanelMaxWidth = this.layoutBounds.width - graphNode.width - ( 2 * GQConstants.SCREEN_VIEW_X_MARGIN ) - X_SPACING;
-    assert && assert( controlPanelMaxWidth > 0, `unexpected controlPanelMaxWidth: ${controlPanelMaxWidth}` );
+    affirm( controlPanelMaxWidth > 0, `unexpected controlPanelMaxWidth: ${controlPanelMaxWidth}` );
     equationAccordionBox.maxWidth = controlPanelMaxWidth;
     graphControlPanel.maxWidth = controlPanelMaxWidth;
 

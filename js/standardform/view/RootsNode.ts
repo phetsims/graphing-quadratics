@@ -21,6 +21,7 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import PointNode, { PointNodeOptions } from './PointNode.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 // constants
 const COORDINATES_X_SPACING = 15; // between root point and its coordinates display
@@ -76,7 +77,7 @@ export default class RootsNode extends Node {
         else {
 
           // 2 roots
-          assert && assert( quadratic.roots.length === 2, `expected 2 roots, found ${quadratic.roots.length}` );
+          affirm( quadratic.roots.length === 2, `expected 2 roots, found ${quadratic.roots.length}` );
           return quadratic.roots[ 1 ];
         }
       }, {
@@ -149,7 +150,7 @@ export default class RootsNode extends Node {
       const roots = quadratic.roots;
 
       if ( roots && roots.length !== 0 ) {
-        assert && assert( roots.length === 1 || roots.length === 2, `unexpected number of roots: ${roots.length}` );
+        affirm( roots.length === 1 || roots.length === 2, `unexpected number of roots: ${roots.length}` );
 
         const leftRoot = roots[ 0 ];
         leftRootNode.translation = modelViewTransform.modelToViewPosition( leftRoot );
@@ -157,7 +158,7 @@ export default class RootsNode extends Node {
 
         if ( roots.length === 2 ) {
           const rightRoot = roots[ 1 ];
-          assert && assert( leftRoot.x < rightRoot.x, `unexpected order of roots: ${roots}` );
+          affirm( leftRoot.x < rightRoot.x, `unexpected order of roots: ${roots}` );
           rightRootNode.translation = modelViewTransform.modelToViewPosition( rightRoot );
           rightRootNode.visible = graph.contains( rightRoot );
         }

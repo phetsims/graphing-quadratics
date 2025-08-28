@@ -19,6 +19,7 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 export default class PointOnParabolaLinesNode extends Node {
 
@@ -62,13 +63,13 @@ export default class PointOnParabolaLinesNode extends Node {
     Multilink.multilink( [ quadraticProperty, pointOnParabolaProperty ],
       ( quadratic, pointOnParabola ) => {
 
-        assert && assert( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
-        assert && assert( quadratic.focus );
-        assert && assert( quadratic.directrix !== undefined );
+        affirm( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
+        affirm( quadratic.focus );
+        affirm( quadratic.directrix !== undefined );
 
         const pointView = modelViewTransform.modelToViewPosition( pointOnParabola );
-        const focusView = modelViewTransform.modelToViewPosition( quadratic.focus! );
-        const directrixView = modelViewTransform.modelToViewY( quadratic.directrix! );
+        const focusView = modelViewTransform.modelToViewPosition( quadratic.focus );
+        const directrixView = modelViewTransform.modelToViewY( quadratic.directrix );
 
         focusLine.setLine( pointView.x, pointView.y, focusView.x, focusView.y );
         directrixLine.setLine( pointView.x, pointView.y, pointView.x, directrixView );

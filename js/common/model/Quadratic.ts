@@ -32,6 +32,7 @@ import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import { solveQuadraticRootsReal } from '../../../../dot/js/util/solveQuadraticRootsReal.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 
 type QuadraticStateObject = {
@@ -153,7 +154,7 @@ export default class Quadratic {
    * This method is used in the Focus & Directrix screen, where the user controls p, h, and k.
    */
   public static createFromAlternateVertexForm( p: number, h: number, k: number, options?: QuadraticOptions ): Quadratic {
-    assert && assert( p !== 0, 'p cannot be zero' );
+    affirm( p !== 0, 'p cannot be zero' );
     const a = 1 / ( 4 * p );
     return Quadratic.createFromVertexForm( a, h, k, options );
   }
@@ -218,7 +219,7 @@ export default class Quadratic {
   public solveX( y: number ): number[] | null {
     if ( this.isaParabola() ) {
       const vertex = this.vertex!;
-      assert && assert( vertex !== undefined );
+      affirm( vertex !== undefined );
 
       if ( ( this.a > 0 && y < vertex.y ) || ( this.a < 0 && y > vertex.y ) ) {
 
@@ -227,9 +228,9 @@ export default class Quadratic {
       }
       else {
         const k = this.k!;
-        assert && assert( k !== undefined );
+        affirm( k !== undefined );
         const h = this.h!;
-        assert && assert( h !== undefined );
+        affirm( h !== undefined );
 
         // For a parabola, use vertex form.
         // y = a(x - h)^2 + k => x = h +- Math.sqrt((y - k)/a)
@@ -261,7 +262,7 @@ export default class Quadratic {
    * Gets the slope of the tangent line at point (x,f(x)) on the quadratic.
    */
   public getTangentSlope( x: number ): number {
-    assert && assert( this.isaParabola(), 'not supported for non-parabola' );
+    affirm( this.isaParabola(), 'not supported for non-parabola' );
     return ( 2 * this.a * x ) + this.b; // first derivative
   }
 
@@ -293,7 +294,7 @@ export default class Quadratic {
    * @param [distance] - how close the point must be to the solution, defaults to 0 for exact solution
    */
   public hasSolution( point: Vector2, distance = 0 ): boolean {
-    assert && assert( distance >= 0, `invalid distance: ${distance}` );
+    affirm( distance >= 0, `invalid distance: ${distance}` );
     const closestPoint = this.getClosestPoint( point );
     return point.distance( closestPoint ) <= distance;
   }
@@ -325,8 +326,8 @@ export default class Quadratic {
       b * c - b * y0 - x0,
       discriminantThreshold
     )!;
-    assert && assert( roots, 'all values are roots' );
-    assert && assert( roots.length > 0, `unexpected number of roots: ${roots.length}` );
+    affirm( roots, 'all values are roots' );
+    affirm( roots.length > 0, `unexpected number of roots: ${roots.length}` );
 
     // Determine which solution is closest to point (x0,y0)
     let rootPoint;
@@ -355,21 +356,21 @@ export default class Quadratic {
       // y is outside range, constrain y and solve for x
       y = yRange.constrainValue( y );
       const xValues = this.solveX( y )!;
-      assert && assert( xValues, `${'No solution exists, the parabola is likely off the graph. ' +
+      affirm( xValues, `${'No solution exists, the parabola is likely off the graph. ' +
                                     'x='}${x}, quadratic=${this.toString()}` );
 
       if ( this.isaParabola() ) {
 
         // parabola
-        assert && assert( xValues.length === 2, `unexpected number of xValues: ${xValues}` );
-        assert && assert( xValues[ 0 ] < xValues[ 1 ], `unexpected order of xValues: ${xValues}` );
-        assert && assert( this.vertex );
-        x = ( x < this.vertex!.x ) ? xValues[ 0 ] : xValues[ 1 ];
+        affirm( xValues.length === 2, `unexpected number of xValues: ${xValues}` );
+        affirm( xValues[ 0 ] < xValues[ 1 ], `unexpected order of xValues: ${xValues}` );
+        affirm( this.vertex );
+        x = ( x < this.vertex.x ) ? xValues[ 0 ] : xValues[ 1 ];
       }
       else {
 
         // straight line
-        assert && assert( xValues.length === 1, `unexpected number of xValues: ${xValues}` );
+        affirm( xValues.length === 1, `unexpected number of xValues: ${xValues}` );
         x = xValues[ 0 ];
       }
     }
@@ -456,7 +457,7 @@ function solveRoots( a: number, b: number, c: number ): Vector2[] | null {
     xCoordinates = xCoordinates.sort( ( x0, x1 ) => x0 - x1 ); // in ascending order
     _.uniq( xCoordinates ).forEach( x => { roots.push( new Vector2( x, 0 ) ); } );
   }
-  assert && assert( roots === null || ( roots.length >= 0 && roots.length <= 2 ), `unexpected roots: ${roots}` );
+  affirm( roots === null || ( roots.length >= 0 && roots.length <= 2 ), `unexpected roots: ${roots}` );
   return roots;
 }
 

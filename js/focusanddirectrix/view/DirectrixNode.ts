@@ -20,6 +20,7 @@ import Quadratic from '../../common/model/Quadratic.js';
 import GQEquationFactory from '../../common/view/GQEquationFactory.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 export default class DirectrixNode extends Node {
 
@@ -64,10 +65,10 @@ export default class DirectrixNode extends Node {
     // update when the interactive quadratic changes
     Multilink.multilink( [ quadraticProperty, GQSymbols.yMarkupStringProperty ], ( quadratic, yString ) => {
 
-      assert && assert( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
+      affirm( quadratic.isaParabola(), `expected a parabola, quadratic=${quadratic}` );
       const directrix = quadratic.directrix || 0;
       const vertex = quadratic.vertex!;
-      assert && assert( vertex );
+      affirm( vertex );
 
       // update the horizontal line
       const y = modelViewTransform.modelToViewY( directrix );

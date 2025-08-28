@@ -32,6 +32,7 @@ import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { numberOfDecimalPlaces } from '../../../../dot/js/util/numberOfDecimalPlaces.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 type TransformFunction = ( value: number ) => number;
 
@@ -98,7 +99,7 @@ export default class GQSlider extends Node {
       isDisposable: false
     }, providedOptions );
 
-    assert && assert( options.interval > 0, `invalid interval: ${options.interval}` );
+    affirm( options.interval > 0, `invalid interval: ${options.interval}` );
 
     // default and validation for snapToZeroEpsilon
     let snapToZeroEpsilon: number;
@@ -109,7 +110,7 @@ export default class GQSlider extends Node {
       else {
         snapToZeroEpsilon = options.snapToZeroEpsilon;
       }
-      assert && assert( ( snapToZeroEpsilon >= 0 ) && ( snapToZeroEpsilon >= options.interval ),
+      affirm( ( snapToZeroEpsilon >= 0 ) && ( snapToZeroEpsilon >= options.interval ),
         `invalid snapToZeroEpsilon: ${snapToZeroEpsilon}` );
     }
 

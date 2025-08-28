@@ -18,6 +18,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
 import FocusManipulator from './FocusManipulator.js';
 import GQConstants from '../../common/GQConstants.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 export class FocusRichDragListener extends SoundRichDragListener {
 
@@ -36,7 +37,7 @@ export class FocusRichDragListener extends SoundRichDragListener {
                       modelViewTransform: ModelViewTransform2,
                       parentTandem: Tandem ) {
 
-    assert && assert( pProperty.range, 'pProperty is missing range' );
+    affirm( pProperty.range, 'pProperty is missing range' );
 
     super( {
       transform: modelViewTransform,
@@ -47,7 +48,7 @@ export class FocusRichDragListener extends SoundRichDragListener {
       drag: ( event, listener ) => {
 
         const vertex = quadraticProperty.value.vertex!;
-        assert && assert( vertex, `expected vertex: ${vertex}` );
+        affirm( vertex, `expected vertex: ${vertex}` );
 
         let y = pProperty.value + vertex.y + listener.modelDelta.y;
 
@@ -62,7 +63,7 @@ export class FocusRichDragListener extends SoundRichDragListener {
         if ( p === 0 ) {
           p = ( pProperty.value > 0 ) ? GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P : -GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P;
         }
-        assert && assert( p !== 0, 'p=0 is not supported' );
+        affirm( p !== 0, 'p=0 is not supported' );
 
         pProperty.value = p;
 

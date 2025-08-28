@@ -29,6 +29,7 @@ import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibilit
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -88,7 +89,7 @@ export default class VertexManipulator extends GQManipulator {
       } );
 
     // visibility of this Node
-    assert && assert( !options.visibleProperty, 'VertexManipulator sets visibleProperty' );
+    affirm( !options.visibleProperty, 'VertexManipulator sets visibleProperty' );
     options.visibleProperty = new DerivedProperty(
       [ vertexVisibleProperty, quadraticProperty ],
       ( vertexVisible, quadratic ) =>

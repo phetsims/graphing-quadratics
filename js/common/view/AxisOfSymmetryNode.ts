@@ -20,6 +20,7 @@ import GQConstants from '../GQConstants.js';
 import GQSymbols from '../GQSymbols.js';
 import Quadratic from '../model/Quadratic.js';
 import GQEquationFactory from './GQEquationFactory.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 export default class AxisOfSymmetryNode extends Node {
 
@@ -67,9 +68,9 @@ export default class AxisOfSymmetryNode extends Node {
 
       if ( quadratic.isaParabola() ) {
         const axisOfSymmetry = quadratic.axisOfSymmetry!;
-        assert && assert( axisOfSymmetry !== undefined );
+        affirm( axisOfSymmetry !== undefined );
         const vertex = quadratic.vertex!;
-        assert && assert( vertex !== undefined );
+        affirm( vertex !== undefined );
 
         // update the vertical line
         const x = modelViewTransform.modelToViewX( axisOfSymmetry );

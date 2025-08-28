@@ -26,6 +26,7 @@ import GQSymbols from '../GQSymbols.js';
 import Quadratic from '../model/Quadratic.js';
 import GQEquationFactory from './GQEquationFactory.js';
 import { EquationForm } from './GQViewProperties.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 type SelfOptions = {
   preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping
@@ -192,7 +193,7 @@ export default class QuadraticNode extends Node {
       // straight line: equation above left end of line
       const x = this.xEquationRange.min;
       const p = quadratic.getClosestPointInRange( x, this.xEquationRange, this.yEquationRange );
-      assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), `p is off the graph: ${p}` );
+      affirm( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), `p is off the graph: ${p}` );
 
       // rotate to match line's slope
       this.equationParent.rotation = -Math.atan( quadratic.b );
@@ -205,12 +206,12 @@ export default class QuadraticNode extends Node {
     }
     else {
       const vertex = quadratic.vertex!;
-      assert && assert( vertex );
+      affirm( vertex );
 
       // parabola: pick a point on the parabola, at the edge of the graph
       const x = ( vertex.x >= 0 ) ? this.xEquationRange.min : this.xEquationRange.max;
       const p = quadratic.getClosestPointInRange( x, this.xEquationRange, this.yEquationRange );
-      assert && assert( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), `p is off the graph: ${p}` );
+      affirm( this.xRange.contains( p.x ) && this.yRange.contains( p.y ), `p is off the graph: ${p}` );
 
       // Width of the equation in model coordinates
       const equationModelWidth = Math.abs( this.modelViewTransform.viewToModelDeltaX( this.equationNode.width ) );

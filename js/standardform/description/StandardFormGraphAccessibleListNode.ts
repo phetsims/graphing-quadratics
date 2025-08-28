@@ -18,6 +18,7 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import GQConstants from '../../common/GQConstants.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 export default class StandardFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
 
@@ -84,7 +85,7 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
             return ''; // All points are roots (y = 0), and the visual UI does not show roots.
           }
           else {
-            assert && assert( roots.length <= 2 );
+            affirm( roots.length <= 2 );
             if ( roots.length === 0 ) {
               return noRealRootsString;
             }
