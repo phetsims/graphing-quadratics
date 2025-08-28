@@ -114,7 +114,7 @@
       },
       "screenSummary": {
         "playArea": {
-          "value": "There is an equation control panel to adjust coefficient values in the equation y equals a times the quantity ( x minus h ) squared, plus k, visibility checkboxes for key parabola features, and a coordinate grid. Equation controls allow you to manipulate the quadratic function. Graph area shows active parabola and parabola features."
+          "value": "There is an equation control panel to adjust coefficient values in the equation y equals a times the quantity (x minus h) squared, plus k, visibility checkboxes for key parabola features, and a coordinate grid. Equation controls allow you to manipulate the quadratic function. Graph area shows active parabola and parabola features."
         }
       },
       "equationAccordionBox": {
@@ -134,7 +134,7 @@
       },
       "equationAccordionBox": {
         "accessibleHelpText": {
-          "value": "Adjust values p, h, and k in equation y equals 1 over 4p, times (x minus h) squared, plus k."
+          "value": "Adjust values p, h, and k in equation y equals 1 over 4p, times the quantity (x minus h) squared, plus k."
         }
       }
     },
@@ -473,12 +473,12 @@
     },
     "vertexFormEquationNode": {
       "accessibleParagraph": {
-        "value": "y equals {{a}} times ( x minus {{h}} ) squared plus {{k}}"
+        "value": "y equals {{a}} times the quantity (x minus {{h}}) squared plus {{k}}"
       }
     },
     "focusAndDirectrixFormEquationNode": {
       "accessibleParagraph": {
-        "value": "y equals 1 over ( 4 times {{p}} ) times the quantity (x minus {{h}}}) squared, plus {{k}}"
+        "value": "y equals 1 over (4 times {{p}}) times the quantity (x minus {{h}}}) squared, plus {{k}}"
       }
     },
     "graphAreaCurrentlyContains": {
