@@ -24,7 +24,7 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
 
     const options = combineOptions<PanelOptions>( {}, GQConstants.PANEL_OPTIONS, {
       isDisposable: false,
-      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.graphFeaturesHeadingStringProperty,
+      accessibleHeading: GraphingQuadraticsStrings.a11y.accessibleHeadings.parabolaFeaturesHeadingStringProperty,
       tandem: tandem,
       phetioDocumentation: 'panel that contains controls related to the graph',
       visiblePropertyOptions: {

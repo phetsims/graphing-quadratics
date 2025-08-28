@@ -233,7 +233,7 @@ type StringsType = {
     };
     'accessibleHeadings': {
       'graphAreaHeadingStringProperty': LocalizedStringProperty;
-      'graphFeaturesHeadingStringProperty': LocalizedStringProperty;
+      'parabolaFeaturesHeadingStringProperty': LocalizedStringProperty;
     };
     'standardFormEquationNode': {
       'accessibleParagraphStringProperty': LocalizedStringProperty;

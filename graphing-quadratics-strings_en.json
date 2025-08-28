@@ -462,8 +462,8 @@
       "graphAreaHeading": {
         "value": "Graph Area"
       },
-      "graphFeaturesHeading": {
-        "value": "Graph Features"
+      "parabolaFeaturesHeading": {
+        "value": "Parabola Features"
       }
     },
     "standardFormEquationNode": {
