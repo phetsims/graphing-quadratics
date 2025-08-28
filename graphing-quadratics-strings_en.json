@@ -129,7 +129,7 @@
       },
       "screenSummary": {
         "playArea": {
-          "value": "There is an equation control panel to adjust coefficient values in the equation y equals 1 over 4 p, times (x minus h) squared, plus k, visibility checkboxes for key parabola features, and a coordinate grid. Equation controls allow you to manipulate the quadratic function. Graph area shows active graphs and graph features."
+          "value": "There is an equation control panel to adjust coefficient values in the equation y equals 1 over 4 p, times the quantity (x minus h) squared, plus k, visibility checkboxes for key parabola features, and a coordinate grid. Equation controls allow you to manipulate the quadratic function. Graph area shows active parabolas and parabolas features."
         }
       },
       "equationAccordionBox": {
