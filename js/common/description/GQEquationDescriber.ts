@@ -111,41 +111,43 @@ export default class GQEquationDescriber {
                                              plusString: string,
                                              minusString: string,
                                              timesString: string,
-                                             negativeString: string ): string {
+                                             negativeString: string,
+                                             theQuantityString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
     const h = ( quadratic.h === undefined ) ? 0 : toFixedNumber( quadratic.h, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_H );
     const k = ( quadratic.k === undefined ) ? quadratic.c : toFixedNumber( quadratic.k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
 
-    // y =
+    // y equals
     let equationString = `${yString} ${equalsString} `;
 
     if ( a === 0 && k === 0 ) {
 
-      // y = 0
+      // y equals 0
       equationString += '0';
     }
     else if ( a === 0 ) {
 
-      // y = k
+      // y equals {{k}}
       equationString += toFixedNumber( k, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_K );
     }
     else {
-
-      // a(x - h)^2 term
-      if ( a === -1 ) {
-        equationString += `${negativeString} `;
-      }
-      else if ( a !== 1 ) {
-        equationString += `${a} ${timesString} `;
-      }
-
       if ( h === 0 ) {
-        equationString += `${xString} ${squaredString}`;
+
+        // {{a}} x squared
+        if ( a !== 1 ) {
+          equationString += `${a}`;
+        }
+        equationString += ` ${xString} ${squaredString}`;
       }
       else {
-        equationString += `(${xString} `;
+
+        // {{a}} times the quantity (x plus|minus {{h}}) squared
+        if ( a !== 1 ) {
+          equationString += `${a} ${timesString} `;
+        }
+        equationString += `${theQuantityString} (${xString} `;
         equationString += ( h > 0 ) ? minusString : plusString;
         equationString += ` ${Math.abs( h )}`;
         equationString += `) ${squaredString}`;
