@@ -14,7 +14,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../model/Quadratic.js';
 import VertexManipulator from './VertexManipulator.js';
 

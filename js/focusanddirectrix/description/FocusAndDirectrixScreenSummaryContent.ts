@@ -8,7 +8,7 @@
 
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import GQScreenSummaryContent from '../../common/description/GQScreenSummaryContent.js';
 
 export default class FocusAndDirectrixScreenSummaryContent extends GQScreenSummaryContent {

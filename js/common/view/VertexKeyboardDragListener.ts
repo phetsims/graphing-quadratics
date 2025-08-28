@@ -11,7 +11,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import VertexManipulator from './VertexManipulator.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../model/Quadratic.js';
 
 export default class VertexKeyboardDragListener extends SoundKeyboardDragListener {

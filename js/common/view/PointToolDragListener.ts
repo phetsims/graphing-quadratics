@@ -10,7 +10,7 @@
 import PointTool from '../model/PointTool.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
 import GQConstants from '../GQConstants.js';
 import Vector2 from '../../../../dot/js/Vector2.js';

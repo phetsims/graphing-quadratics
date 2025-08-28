@@ -11,7 +11,7 @@
 import AccessibleListNode, { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import Quadratic from '../model/Quadratic.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
