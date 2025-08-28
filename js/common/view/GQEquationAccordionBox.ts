@@ -111,6 +111,7 @@ class ButtonGroup extends HBox {
       listener: () => { model.saveQuadratic(); },
       accessibleName: GraphingQuadraticsStrings.a11y.saveButton.accessibleNameStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.saveButton.accessibleHelpTextStringProperty,
+      accessibleContextResponse: GraphingQuadraticsStrings.a11y.saveButton.accessibleContextResponseStringProperty,
       tandem: tandem.createTandem( 'saveButton' ),
       phetioDocumentation: 'the button used to save a quadratic',
       visiblePropertyOptions: {

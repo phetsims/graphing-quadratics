@@ -171,6 +171,9 @@
       },
       "accessibleHelpText": {
         "value": "Save current parabola to grid and continue exploring primary parabola. Saved parabola not interactive."
+      },
+      "accessibleContextResponse": {
+        "value": "current parabola saved to grid"
       }
     },
     "eraseButton": {

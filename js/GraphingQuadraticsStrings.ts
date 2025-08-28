@@ -95,6 +95,7 @@ type StringsType = {
     'saveButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseStringProperty': LocalizedStringProperty;
     };
     'eraseButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
