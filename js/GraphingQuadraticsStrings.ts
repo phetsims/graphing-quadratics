@@ -244,8 +244,8 @@ type StringsType = {
     'focusAndDirectrixFormEquationNode': {
       'accessibleParagraphStringProperty': LocalizedStringProperty;
     };
-    'coordinateGridCurrentlyContainsStringProperty': LocalizedStringProperty;
-    'contentsOfCoordinateGridAreHiddenStringProperty': LocalizedStringProperty;
+    'graphAreaCurrentlyContainsStringProperty': LocalizedStringProperty;
+    'contentsOfGraphAreaAreHiddenStringProperty': LocalizedStringProperty;
     'primaryParabolaStringProperty': LocalizedStringProperty;
     'primaryParabolaAtEquationStringProperty': LocalizedStringProperty;
     'savedParabolaStringProperty': LocalizedStringProperty;

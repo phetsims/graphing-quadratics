@@ -29,11 +29,11 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
     // Lists in all screens have the same leading paragraph, depending on whether the graph contents are visible.
     const leadingParagraphStringProperty = new DerivedStringProperty( [
         graphContentsVisibleProperty,
-        GraphingQuadraticsStrings.a11y.coordinateGridCurrentlyContainsStringProperty,
-        GraphingQuadraticsStrings.a11y.contentsOfCoordinateGridAreHiddenStringProperty
+        GraphingQuadraticsStrings.a11y.graphAreaCurrentlyContainsStringProperty,
+        GraphingQuadraticsStrings.a11y.contentsOfGraphAreaAreHiddenStringProperty
       ],
-      ( ( graphContentsVisible, coordinateGridCurrentlyContains, contentsOfCoordinateGridAreHidden ) =>
-        graphContentsVisible ? coordinateGridCurrentlyContains : contentsOfCoordinateGridAreHidden ) );
+      ( ( graphContentsVisible, graphAreaCurrentlyContainsString, contentsOfGraphAreaAreHiddenString ) =>
+        graphContentsVisible ? graphAreaCurrentlyContainsString : contentsOfGraphAreaAreHiddenString ) );
 
     super( listItems, {
       leadingParagraphStringProperty: leadingParagraphStringProperty
