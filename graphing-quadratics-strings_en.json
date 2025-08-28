@@ -340,7 +340,7 @@
     },
     "coordinatesCheckbox": {
       "accessibleHelpText": {
-        "value": "Show or hide coordinates of graph features."
+        "value": "Show or hide coordinates of parabola features."
       },
       "accessibleContextResponseChecked": {
         "value": "coordinates shown"
