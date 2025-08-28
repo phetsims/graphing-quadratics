@@ -37,6 +37,9 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 * Core Description
 * Basic Sound
 
+### Bug Fixes
+* Vertex Form screen: Fixed the equation shown on the graph when a=0 and h=0.
+
 ## 1.3 (2023-07-25)
 
 ### New Features
