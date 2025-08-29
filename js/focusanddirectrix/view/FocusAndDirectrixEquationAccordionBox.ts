@@ -14,6 +14,7 @@ import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixEquationNode from './FocusAndDirectrixEquationNode.js';
 import FocusAndDirectrixInteractiveEquationNode from './FocusAndDirectrixInteractiveEquationNode.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -28,7 +29,9 @@ export default class FocusAndDirectrixEquationAccordionBox extends GQEquationAcc
 
       // GQEquationAccordionBoxOptions
       titleNode: new FocusAndDirectrixEquationNode(),
-      accessibleHelpText: GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.equationAccordionBox.accessibleHelpTextStringProperty,
+      accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.focusAndDirectrixScreen.equationAccordionBox.accessibleHelpTextStringProperty, {
+        equation: GraphingQuadraticsStrings.a11y.focusAndDirectrixFormEquationStringProperty
+      } ),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

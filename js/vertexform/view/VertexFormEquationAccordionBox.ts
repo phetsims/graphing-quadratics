@@ -14,6 +14,7 @@ import VertexFormModel from '../model/VertexFormModel.js';
 import VertexFormEquationNode from './VertexFormEquationNode.js';
 import VertexFormInteractiveEquationNode from './VertexFormInteractiveEquationNode.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -28,7 +29,9 @@ export default class VertexFormEquationAccordionBox extends GQEquationAccordionB
 
       // GQEquationAccordionBoxOptions
       titleNode: new VertexFormEquationNode(),
-      accessibleHelpText: GraphingQuadraticsStrings.a11y.vertexFormScreen.equationAccordionBox.accessibleHelpTextStringProperty,
+      accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.vertexFormScreen.equationAccordionBox.accessibleHelpTextStringProperty, {
+        equation: GraphingQuadraticsStrings.a11y.vertexFormEquationStringProperty
+      } ),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 

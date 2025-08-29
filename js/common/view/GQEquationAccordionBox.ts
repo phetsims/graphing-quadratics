@@ -30,7 +30,8 @@ const BUTTON_ICON_WIDTH = 30;
 
 type SelfOptions = EmptySelfOptions;
 
-export type GQEquationAccordionBoxOptions = SelfOptions & AccordionBoxOptions & PickRequired<AccordionBoxOptions, 'tandem'>;
+export type GQEquationAccordionBoxOptions = SelfOptions & AccordionBoxOptions &
+  PickRequired<AccordionBoxOptions, 'tandem' | 'titleNode' | 'accessibleHelpText'>;
 
 export default class GQEquationAccordionBox extends AccordionBox {
 

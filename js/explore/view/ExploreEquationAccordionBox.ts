@@ -14,6 +14,7 @@ import StandardFormEquationNode from '../../standardform/view/StandardFormEquati
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreInteractiveEquationNode from './ExploreInteractiveEquationNode.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -28,7 +29,9 @@ export default class ExploreEquationAccordionBox extends GQEquationAccordionBox 
 
       // GQEquationAccordionBoxOptions
       titleNode: new StandardFormEquationNode(),
-      accessibleHelpText: GraphingQuadraticsStrings.a11y.equationAccordionBox.accessibleHelpTextStringProperty
+      accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.exploreScreen.equationAccordionBox.accessibleHelpTextStringProperty, {
+        equation: GraphingQuadraticsStrings.a11y.standardFormEquationStringProperty
+      } )
     }, providedOptions );
 
     const interactiveEquationNode = new ExploreInteractiveEquationNode(

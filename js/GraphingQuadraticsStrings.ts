@@ -41,6 +41,9 @@ type StringsType = {
   'pStringProperty': LocalizedStringProperty;
   'coordinateUnknownStringProperty': LocalizedStringProperty;
   'a11y': {
+    'standardFormEquationStringProperty': LocalizedStringProperty;
+    'vertexFormEquationStringProperty': LocalizedStringProperty;
+    'focusAndDirectrixFormEquationStringProperty': LocalizedStringProperty;
     'allScreens': {
       'screenSummary': {
         'controlAreaStringProperty': LocalizedStringProperty;
@@ -53,12 +56,18 @@ type StringsType = {
       'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
+      };
+      'equationAccordionBox': {
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
       }
     };
     'standardFormScreen': {
       'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
+      };
+      'equationAccordionBox': {
+        'accessibleHelpTextStringProperty': LocalizedStringProperty;
       }
     };
     'vertexFormScreen': {
@@ -81,7 +90,6 @@ type StringsType = {
     };
     'equationAccordionBox': {
       'accessibleNameStringProperty': LocalizedStringProperty;
-      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'quadraticTermsAccordionBox': {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;

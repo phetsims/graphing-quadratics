@@ -14,6 +14,7 @@ import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormEquationNode from './StandardFormEquationNode.js';
 import StandardFormInteractiveEquationNode from './StandardFormInteractiveEquationNode.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -28,7 +29,9 @@ export default class StandardFormEquationAccordionBox extends GQEquationAccordio
 
       // GQEquationAccordionBoxOptions
       titleNode: new StandardFormEquationNode(),
-      accessibleHelpText: GraphingQuadraticsStrings.a11y.equationAccordionBox.accessibleHelpTextStringProperty,
+      accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.standardFormScreen.equationAccordionBox.accessibleHelpTextStringProperty, {
+        equation: GraphingQuadraticsStrings.a11y.standardFormEquationStringProperty
+      } ),
       phetioDocumentation: 'accordion box that contains the interactive equation'
     }, providedOptions );
 
