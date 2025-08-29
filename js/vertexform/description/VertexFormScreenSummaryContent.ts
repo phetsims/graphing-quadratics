@@ -14,7 +14,7 @@ import GQScreenSummaryContent from '../../common/description/GQScreenSummaryCont
 export default class VertexFormScreenSummaryContent extends GQScreenSummaryContent {
 
   public constructor( graphContentsVisibleProperty: TReadOnlyProperty<boolean> ) {
-    super( GraphingQuadraticsStrings.a11y.standardFormScreen.screenSummary.playAreaStringProperty, graphContentsVisibleProperty );
+    super( GraphingQuadraticsStrings.a11y.vertexFormScreen.screenSummary.playAreaStringProperty, graphContentsVisibleProperty );
   }
 }
 
