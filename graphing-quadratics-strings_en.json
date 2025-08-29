@@ -587,8 +587,11 @@
     "negative": {
       "value": "negative"
     },
-    "theQuantity": {
-      "value": "the quantity"
+    "openParen": {
+      "value": "open paren"
+    },
+    "closeParen": {
+      "value": "close paren"
     }
   }
 }

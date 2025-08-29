@@ -251,16 +251,16 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
         GraphingQuadraticsStrings.a11y.plusStringProperty,
         GraphingQuadraticsStrings.a11y.minusStringProperty,
         GraphingQuadraticsStrings.a11y.timesStringProperty,
-        GraphingQuadraticsStrings.a11y.negativeStringProperty,
-        GraphingQuadraticsStrings.a11y.theQuantityStringProperty
+        GraphingQuadraticsStrings.a11y.openParenStringProperty,
+        GraphingQuadraticsStrings.a11y.closeParenStringProperty
       ],
       ( quadratic, equationsVisible, nameString, nameEquationString, yString, xString, squaredString,
-        equalsString, plusString, minusString, timesString, negativeString, theQuantityString ) => {
+        equalsString, plusString, minusString, timesString, openParenString, closeParenString ) => {
         if ( quadratic ) {
           if ( equationsVisible ) {
             return StringUtils.fillIn( nameEquationString, {
               equation: GQEquationDescriber.createVertexFormDescription( quadratic, yString, xString, squaredString,
-                equalsString, plusString, minusString, timesString, negativeString, theQuantityString )
+                equalsString, plusString, minusString, timesString, openParenString, closeParenString )
             } );
           }
           else {

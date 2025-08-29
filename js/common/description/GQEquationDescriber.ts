@@ -111,8 +111,8 @@ export default class GQEquationDescriber {
                                              plusString: string,
                                              minusString: string,
                                              timesString: string,
-                                             negativeString: string,
-                                             theQuantityString: string ): string {
+                                             openParenString: string,
+                                             closeParenString: string ): string {
 
     // use toFixedNumber so we don't have trailing zeros
     const a = toFixedNumber( quadratic.a, GQConstants.FOCUS_AND_DIRECTRIX_DECIMALS_A );
@@ -147,15 +147,14 @@ export default class GQEquationDescriber {
         if ( a !== 1 ) {
           equationString += `${a} ${timesString} `;
         }
-        equationString += `${theQuantityString} (${xString} `;
+        equationString += `${openParenString} ${xString} `;
         equationString += ( h > 0 ) ? minusString : plusString;
-        equationString += ` ${Math.abs( h )}`;
-        equationString += `) ${squaredString}`;
+        equationString += ` ${Math.abs( h )} ${closeParenString} ${squaredString}`;
       }
 
       // k term
       if ( k !== 0 ) {
-        equationString += ', ';
+        equationString += ' ';
         if ( a === 0 ) {
           equationString += k;
         }

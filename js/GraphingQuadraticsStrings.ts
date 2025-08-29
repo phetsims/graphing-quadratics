@@ -282,7 +282,8 @@ type StringsType = {
     'timesStringProperty': LocalizedStringProperty;
     'squaredStringProperty': LocalizedStringProperty;
     'negativeStringProperty': LocalizedStringProperty;
-    'theQuantityStringProperty': LocalizedStringProperty;
+    'openParenStringProperty': LocalizedStringProperty;
+    'closeParenStringProperty': LocalizedStringProperty;
   }
 };
 
