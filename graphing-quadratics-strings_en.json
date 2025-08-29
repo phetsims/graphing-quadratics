@@ -222,7 +222,7 @@
         "value": "{{x}}, {{y}}"
       },
       "accessibleObjectResponseNoPoint": {
-        "value": "off graph"
+        "value": "off grid"
       }
     },
     "leftPointToolNode": {
