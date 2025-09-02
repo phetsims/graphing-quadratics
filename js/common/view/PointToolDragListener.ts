@@ -21,7 +21,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlayer.js';
-import cardMovement6_mp3 from '../../../../tambo/sounds/cardMovement6_mp3.js';
+import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 
 // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
 // how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
@@ -30,7 +30,7 @@ import cardMovement6_mp3 from '../../../../tambo/sounds/cardMovement6_mp3.js';
 const X_SNAP_TOLERANCE = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
 
 // Sound that is played when the tool snaps to the quadratic.
-const SNAP_SOUND_PLAYER = new SoundClipPlayer( cardMovement6_mp3, {
+const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
   soundClipOptions: {
     initialOutputLevel: 0.7
   },
