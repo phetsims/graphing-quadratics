@@ -20,12 +20,24 @@ import PointToolNode from './PointToolNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlayer.js';
+import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 
 // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
 // how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
 // We decided that the most effective value was the smallest interval that the point tool displays.
 // See https://github.com/phetsims/graphing-quadratics/issues/169.
 const X_SNAP_TOLERANCE = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
+
+// Sound that is played when the tool snaps to the quadratic.
+const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
+  soundClipOptions: {
+    initialOutputLevel: 0.7
+  },
+  soundManagerOptions: {
+    categoryName: 'user-interface'
+  }
+} );
 
 export class PointToolDragListener extends SoundDragListener {
 
@@ -35,6 +47,8 @@ export class PointToolDragListener extends SoundDragListener {
                       graph: Graph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: DragListenerOptions<PressedDragListener> ) {
+
+    let snappedToQuadratic = false;
 
     const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
       isDisposable: false,
@@ -76,6 +90,16 @@ export class PointToolDragListener extends SoundDragListener {
 
             const y = snapQuadratic.solveY( x );
             position = new Vector2( x, y );
+
+            // Play a sound to emphasize that the tool snapped to the curve.
+            if ( !snappedToQuadratic ) {
+              console.log( 'click' );
+              SNAP_SOUND_PLAYER.play();
+            }
+            snappedToQuadratic = true;
+          }
+          else {
+            snappedToQuadratic = false;
           }
         }
 
