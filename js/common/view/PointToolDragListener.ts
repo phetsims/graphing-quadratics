@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * PointToolDragListener is the drag listener for PointToolNode.
+ * PointToolDragListener is the drag listener for PointToolNode.  It handles point and keyboard input.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -11,17 +11,16 @@ import PointTool from '../model/PointTool.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
-import { DragListenerOptions, PressedDragListener } from '../../../../scenery/js/listeners/DragListener.js';
 import GQConstants from '../GQConstants.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import PointToolNode from './PointToolNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
-import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlayer.js';
 import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
+import SoundRichDragListener, { SoundRichDragListenerOptions } from '../../../../scenery-phet/js/SoundRichDragListener.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
 // how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
@@ -40,20 +39,24 @@ const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
   }
 } );
 
-export class PointToolDragListener extends SoundDragListener {
+export class PointToolDragListener extends SoundRichDragListener {
 
   public constructor( pointToolNode: PointToolNode,
                       pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,
                       graph: Graph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
-                      providedOptions: DragListenerOptions<PressedDragListener> ) {
+                      tandem: Tandem ) {
 
     let snappedToQuadratic = false;
 
-    const options = combineOptions<DragListenerOptions<PressedDragListener>>( {
-      isDisposable: false,
+    const options: SoundRichDragListenerOptions = {
+      positionProperty: pointTool.positionProperty,
       transform: modelViewTransform,
+      keyboardDragListenerOptions: {
+        dragSpeed: 200,
+        shiftDragSpeed: 50
+      },
 
       start: ( event, listener ) => {
 
@@ -111,10 +114,12 @@ export class PointToolDragListener extends SoundDragListener {
         pointToolNode.doAccessibleObjectResponse();
       },
 
-      end: () => {
+      end: ( event, listener ) => {
         pointTool.isDragging = false;
-      }
-    }, providedOptions );
+      },
+
+      tandem: tandem
+    };
 
     super( options );
   }

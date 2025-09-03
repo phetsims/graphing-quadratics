@@ -135,11 +135,9 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
         }
       } );
 
-    // add the drag listener
+    // Drag listeners for pointer and keyboard input.
     this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
-      graphContentsVisibleProperty, {
-        tandem: this.tandem.createTandem( 'dragListener' )
-      } ) );
+      graphContentsVisibleProperty, this.tandem ) );
 
     // put a red dot at the origin, for debugging positioning
     if ( GQQueryParameters.showOrigin ) {
