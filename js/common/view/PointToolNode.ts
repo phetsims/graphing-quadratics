@@ -36,6 +36,7 @@ import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibilit
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -52,6 +53,20 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
   private readonly pointTool: PointTool;
   private readonly graph: Graph;
+
+  // Keyboard shortcut for "jump to next curve".
+  public static readonly JUMP_TO_NEXT_CURVE_HOTKEY_DATA = new HotkeyData( {
+    keys: [ 'j' ],
+    repoName: graphingQuadratics.name,
+    keyboardHelpDialogLabelStringProperty: GraphingQuadraticsStrings.keyboardHelpDialog.jumpToNextCurveStringProperty
+  } );
+
+  // Keyboard shortcut for "move off grid".
+  public static readonly MOVE_OFF_GRID_HOTKEY_DATA = new HotkeyData( {
+    keys: [ 'k' ],
+    repoName: graphingQuadratics.name,
+    keyboardHelpDialogLabelStringProperty: GraphingQuadraticsStrings.keyboardHelpDialog.moveOffGridStringProperty
+  } );
 
   public constructor( pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,
@@ -148,15 +163,14 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     this.addLinkedElement( pointTool );
 
     this.focusedProperty.lazyLink( focused => {
-      focused && this.doAccessibleObjectResponse();
+      focused && this.doAccessibleObjectResponse( this.pointTool.positionProperty.value );
     } );
   }
 
   /**
    * Adds an accessible object response that describes the point that the point tool is currently measuring.
    */
-  public doAccessibleObjectResponse(): void {
-    const position = this.pointTool.positionProperty.value;
+  public doAccessibleObjectResponse( position: Vector2 ): void {
     let response: string;
     if ( this.graph.contains( position ) ) {
       response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseStringProperty.value, {

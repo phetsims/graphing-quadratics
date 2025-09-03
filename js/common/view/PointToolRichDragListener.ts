@@ -21,6 +21,9 @@ import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlay
 import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 import SoundRichDragListener, { SoundRichDragListenerOptions } from '../../../../scenery-phet/js/SoundRichDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import GQEquationDescriber from '../description/GQEquationDescriber.js';
 
 // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
 // how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
@@ -47,7 +50,8 @@ export class PointToolRichDragListener extends SoundRichDragListener {
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       tandem: Tandem ) {
 
-    let snappedToQuadratic = false;
+    // Whether the tool is currently snapped to a curve.
+    let isSnappedToCurve = false;
 
     const options: SoundRichDragListenerOptions = {
       positionProperty: pointTool.positionProperty,
@@ -66,6 +70,9 @@ export class PointToolRichDragListener extends SoundRichDragListener {
       },
 
       drag: ( event, listener ) => {
+
+        // Whether the tool snapped to a curve on this drag step.
+        let didSnapToCurve = false;
 
         // Constrained to dragBounds.
         let position = pointTool.dragBounds.closestPointTo( listener.modelPoint );
@@ -95,14 +102,29 @@ export class PointToolRichDragListener extends SoundRichDragListener {
             position = new Vector2( x, y );
 
             // Play a sound to emphasize that the tool snapped to the curve.
-            if ( !snappedToQuadratic ) {
-              console.log( 'click' );
+            if ( !isSnappedToCurve ) {
               SNAP_SOUND_PLAYER.play();
             }
-            snappedToQuadratic = true;
+            isSnappedToCurve = true;
+            didSnapToCurve = true;
+
+            // "On {{equation}}, use J to jump to next curve, K to move off grid."
+            pointToolNode.addAccessibleContextResponse( StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleContextResponseStringProperty, {
+              equation: GQEquationDescriber.createStandardFormDescription( snapQuadratic,
+                GraphingQuadraticsStrings.yStringProperty.value,
+                GraphingQuadraticsStrings.xStringProperty.value,
+                GraphingQuadraticsStrings.a11y.squaredStringProperty.value,
+                GraphingQuadraticsStrings.a11y.equalsStringProperty.value,
+                GraphingQuadraticsStrings.a11y.plusStringProperty.value,
+                GraphingQuadraticsStrings.a11y.minusStringProperty.value,
+                GraphingQuadraticsStrings.a11y.negativeStringProperty.value
+              ),
+              x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
+              y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
+            } ) );
           }
           else {
-            snappedToQuadratic = false;
+            isSnappedToCurve = false;
           }
         }
 
@@ -110,7 +132,9 @@ export class PointToolRichDragListener extends SoundRichDragListener {
         pointTool.positionProperty.value = position;
 
         // accessibleObjectResponse
-        pointToolNode.doAccessibleObjectResponse();
+        if ( !didSnapToCurve ) {
+          pointToolNode.doAccessibleObjectResponse( position );
+        }
       },
 
       end: ( event, listener ) => {

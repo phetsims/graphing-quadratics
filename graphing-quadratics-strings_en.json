@@ -71,6 +71,12 @@
   "coordinateUnknown": {
     "value": "?"
   },
+  "keyboardHelpDialog.moveOffGrid": {
+    "value": "Move off grid."
+  },
+  "keyboardHelpDialog.jumpToNextCurve": {
+    "value": "Jump to next curve."
+  },
   "a11y": {
     "standardFormEquation": {
       "value": "y equals a x squared plus b x plus c"
@@ -239,6 +245,9 @@
       },
       "accessibleObjectResponseNoPoint": {
         "value": "off grid"
+      },
+      "accessibleContextResponse": {
+        "value": "On {{equation}} at {{x}}, {{y}}. Use J to jump to next curve, K to move off grid."
       }
     },
     "leftPointToolNode": {

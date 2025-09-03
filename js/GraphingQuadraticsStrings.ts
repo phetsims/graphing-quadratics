@@ -40,6 +40,10 @@ type StringsType = {
   'kStringProperty': LocalizedStringProperty;
   'pStringProperty': LocalizedStringProperty;
   'coordinateUnknownStringProperty': LocalizedStringProperty;
+  'keyboardHelpDialog': {
+    'moveOffGridStringProperty': LocalizedStringProperty;
+    'jumpToNextCurveStringProperty': LocalizedStringProperty;
+  };
   'a11y': {
     'standardFormEquationStringProperty': LocalizedStringProperty;
     'vertexFormEquationStringProperty': LocalizedStringProperty;
@@ -127,6 +131,7 @@ type StringsType = {
     'pointToolNode': {
       'accessibleObjectResponseStringProperty': LocalizedStringProperty;
       'accessibleObjectResponseNoPointStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseStringProperty': LocalizedStringProperty;
     };
     'leftPointToolNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
