@@ -71,6 +71,9 @@
   "coordinateUnknown": {
     "value": "?"
   },
+  "keyboardHelpDialog.pointToolShortcuts": {
+    "value": "Point Tool Shortcuts"
+  },
   "keyboardHelpDialog.moveOffGrid": {
     "value": "Move off grid."
   },
@@ -601,6 +604,14 @@
     },
     "closeParen": {
       "value": "close paren"
+    },
+    "keyboardHelpDialog": {
+      "jumpToNextCurveDescription": {
+        "value": "Jump to next curve with J key."
+      },
+      "moveOffGridDescription": {
+        "value": "Move off grid with K key."
+      }
     }
   }
 }

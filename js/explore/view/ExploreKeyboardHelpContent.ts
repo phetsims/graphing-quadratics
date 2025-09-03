@@ -11,6 +11,7 @@ import MoveDraggableItemsKeyboardHelpSection from '../../../../scenery-phet/js/k
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
+import { PointToolShortcutsSection } from '../../common/view/PointToolShortcutsSection.js';
 
 export default class ExploreKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -19,8 +20,8 @@ export default class ExploreKeyboardHelpContent extends TwoColumnKeyboardHelpCon
     // Sections in the left column.
     const leftSections = [
 
-      // Move Draggable Items
-      new MoveDraggableItemsKeyboardHelpSection(),
+      // Point Tool Shortcuts
+      new PointToolShortcutsSection(),
 
       // Slider Controls
       new SliderControlsKeyboardHelpSection()
@@ -28,6 +29,9 @@ export default class ExploreKeyboardHelpContent extends TwoColumnKeyboardHelpCon
 
     // Sections in the right column.
     const rightSections = [
+
+      // Move Draggable Items
+      new MoveDraggableItemsKeyboardHelpSection(),
 
       // Basic Actions
       new BasicActionsKeyboardHelpSection( {

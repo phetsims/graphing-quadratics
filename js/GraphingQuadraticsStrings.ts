@@ -41,6 +41,7 @@ type StringsType = {
   'pStringProperty': LocalizedStringProperty;
   'coordinateUnknownStringProperty': LocalizedStringProperty;
   'keyboardHelpDialog': {
+    'pointToolShortcutsStringProperty': LocalizedStringProperty;
     'moveOffGridStringProperty': LocalizedStringProperty;
     'jumpToNextCurveStringProperty': LocalizedStringProperty;
   };
@@ -289,6 +290,10 @@ type StringsType = {
     'negativeStringProperty': LocalizedStringProperty;
     'openParenStringProperty': LocalizedStringProperty;
     'closeParenStringProperty': LocalizedStringProperty;
+    'keyboardHelpDialog': {
+      'jumpToNextCurveDescriptionStringProperty': LocalizedStringProperty;
+      'moveOffGridDescriptionStringProperty': LocalizedStringProperty;
+    }
   }
 };
 
