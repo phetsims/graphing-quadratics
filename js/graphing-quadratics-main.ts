@@ -30,8 +30,6 @@ simLauncher.launch( () => {
 
   const options: SimOptions = {
     credits: GQConstants.CREDITS,
-
-    // phet-io options
     phetioDesigned: true
   };
 
