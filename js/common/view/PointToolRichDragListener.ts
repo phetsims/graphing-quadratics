@@ -133,7 +133,7 @@ export class PointToolRichDragListener extends SoundRichDragListener {
 
         // accessibleObjectResponse
         if ( !didSnapToCurve ) {
-          pointToolNode.doAccessibleObjectResponse( position );
+          pointToolNode.doAccessibleObjectResponse();
         }
       },
 
