@@ -16,6 +16,7 @@ import { NumberPickerOptions } from '../../../sun/js/NumberPicker.js';
 import { PanelOptions } from '../../../sun/js/Panel.js';
 import graphingQuadratics from '../graphingQuadratics.js';
 import GQColors from './GQColors.js';
+import { CreditsData } from '../../../joist/js/CreditsNode.js';
 
 const PANEL_CORNER_RADIUS = 5; // corner radius for all panel-like containers
 
@@ -25,7 +26,14 @@ export default class GQConstants {
     // Not intended for instantiation.
   }
 
-  // Custom layout bounds because this sim is part of the Graphing Lines family, which was ported to Java.
+  public static readonly CREDITS: CreditsData = {
+    leadDesign: 'Amanda McGarry',
+    softwareDevelopment: 'Chris Malley (PixelZoom, Inc.), Andrea Lin',
+    team: 'Catherine Carter, Mike Dubson, Karina K. R. Hensberry, Trish Loeblein, Ariel Paul, Kathy Perkins, Taliesin Smith',
+    qualityAssurance: 'Jaspe Arias, Steele Dalton, Jaron Droder, Clifford Hardin, Brooklyn Lash, Emily Miller, Laura Rea, Jacob Romero, Nancy Salpepi, Ethan Ward, Kathryn Woessner, Kelly Wurtz'
+  };
+
+    // Custom layout bounds because this sim is part of the Graphing Lines family, which was ported to Java.
   // We used Java's layoutBounds in order to avoid changing sizes, fonts, etc. during the port.
   // The bounds width was modified to match the default HTML5 layoutBounds aspect ratio.
   // See https://github.com/phetsims/graphing-quadratics/issues/121

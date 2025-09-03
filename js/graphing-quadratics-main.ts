@@ -15,6 +15,7 @@ import FocusAndDirectrixScreen from './focusanddirectrix/FocusAndDirectrixScreen
 import GraphingQuadraticsStrings from './GraphingQuadraticsStrings.js';
 import StandardFormScreen from './standardform/StandardFormScreen.js';
 import VertexFormScreen from './vertexform/VertexFormScreen.js';
+import GQConstants from './common/GQConstants.js';
 
 simLauncher.launch( () => {
 
@@ -28,12 +29,7 @@ simLauncher.launch( () => {
   ];
 
   const options: SimOptions = {
-    credits: {
-      leadDesign: 'Amanda McGarry',
-      softwareDevelopment: 'Chris Malley (PixelZoom, Inc.), Andrea Lin',
-      team: 'Catherine Carter, Mike Dubson, Karina K. R. Hensberry, Trish Loeblein, Ariel Paul, Kathy Perkins, Taliesin Smith',
-      qualityAssurance: 'Jaspe Arias, Steele Dalton, Jaron Droder, Clifford Hardin, Brooklyn Lash, Emily Miller, Laura Rea, Jacob Romero, Nancy Salpepi, Ethan Ward, Kathryn Woessner, Kelly Wurtz'
-    },
+    credits: GQConstants.CREDITS,
 
     // phet-io options
     phetioDesigned: true
