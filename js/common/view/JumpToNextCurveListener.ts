@@ -22,6 +22,7 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ hotkeyData ] ),
       fire: ( event, keysPressed ) => {
         if ( hotkeyData.hasKeyStroke( keysPressed ) ) {
+          phet.log && phet.log( `${keysPressed} shortcut` );
 
           // Jump to the closest point on the next curve that is displayed on the graph.
           //TODO https://github.com/phetsims/graphing-quadratics/issues/216
