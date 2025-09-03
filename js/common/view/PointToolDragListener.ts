@@ -30,6 +30,7 @@ import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 const X_SNAP_TOLERANCE = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
 
 // Sound that is played when the tool snaps to the quadratic.
+//TODO https://github.com/phetsims/graphing-quadratics/issues/209 Play this sound for keyboard input.
 const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
   soundClipOptions: {
     initialOutputLevel: 0.7
