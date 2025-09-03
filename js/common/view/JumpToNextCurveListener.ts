@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * MoveOffGridListener is a keyboard shortcut that moves the point tool off the grid.
+ * JumpToNextCurveListener is a keyboard shortcut (J) that jumps the point tool to the closest point on the next curve.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -12,19 +12,19 @@ import type { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import PointToolNode from './PointToolNode.js';
 
-export default class MoveOffGridListener extends KeyboardListener<OneKeyStroke[]> {
+export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStroke[]> {
 
   public constructor( pointToolNode: PointToolNode ) {
 
-    const hotkeyData = PointToolNode.MOVE_OFF_GRID_HOTKEY_DATA;
+    const hotkeyData = PointToolNode.JUMP_TO_NEXT_CURVE_HOTKEY_DATA;
 
     super( {
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ hotkeyData ] ),
       fire: ( event, keysPressed ) => {
         if ( hotkeyData.hasKeyStroke( keysPressed ) ) {
 
-          // Jump to the tool's initial 'off grid' position.
-          pointToolNode.pointTool.positionProperty.value = pointToolNode.pointTool.positionProperty.initialValue;
+          // Jump to the closest point on the next curve that is displayed on the graph.
+          //TODO https://github.com/phetsims/graphing-quadratics/issues/216
 
           // Describe the tool's new position.
           pointToolNode.doAccessibleObjectResponse();
@@ -34,4 +34,4 @@ export default class MoveOffGridListener extends KeyboardListener<OneKeyStroke[]
   }
 }
 
-graphingQuadratics.register( 'MoveOffGridListener', MoveOffGridListener );
+graphingQuadratics.register( 'JumpToNextCurveListener', JumpToNextCurveListener );

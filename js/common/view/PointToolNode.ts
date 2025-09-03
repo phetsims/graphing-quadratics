@@ -37,7 +37,7 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
-import MoveOffGridListener from './MoveOffGridListener.js';
+import MoveOffGraphListener from './MoveOffGraphListener.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -155,8 +155,8 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     this.addInputListener( new PointToolRichDragListener( this, pointTool, modelViewTransform, graph,
       graphContentsVisibleProperty, this.tandem ) );
 
-    // 'K' shortcut, to move tool off grid.
-    this.addInputListener( new MoveOffGridListener( this ) );
+    // 'K' shortcut, to move tool off graph.
+    this.addInputListener( new MoveOffGraphListener( this, graph ) );
 
     // put a red dot at the origin, for debugging positioning
     if ( GQQueryParameters.showOrigin ) {
