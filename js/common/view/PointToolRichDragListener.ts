@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * PointToolDragListener is the drag listener for PointToolNode.  It handles point and keyboard input.
+ * PointToolRichDragListener is the drag listener for PointToolNode. It supports pointer and keyboard input.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -39,7 +39,7 @@ const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
   }
 } );
 
-export class PointToolDragListener extends SoundRichDragListener {
+export class PointToolRichDragListener extends SoundRichDragListener {
 
   public constructor( pointToolNode: PointToolNode,
                       pointTool: PointTool,
@@ -125,4 +125,4 @@ export class PointToolDragListener extends SoundRichDragListener {
   }
 }
 
-graphingQuadratics.register( 'PointToolDragListener', PointToolDragListener );
+graphingQuadratics.register( 'PointToolRichDragListener', PointToolRichDragListener );

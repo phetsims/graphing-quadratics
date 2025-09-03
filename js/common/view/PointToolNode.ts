@@ -31,7 +31,7 @@ import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import PointTool from '../model/PointTool.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
-import { PointToolDragListener } from './PointToolDragListener.js';
+import { PointToolRichDragListener } from './PointToolRichDragListener.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
@@ -136,7 +136,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
       } );
 
     // Drag listeners for pointer and keyboard input.
-    this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
+    this.addInputListener( new PointToolRichDragListener( this, pointTool, modelViewTransform, graph,
       graphContentsVisibleProperty, this.tandem ) );
 
     // put a red dot at the origin, for debugging positioning
