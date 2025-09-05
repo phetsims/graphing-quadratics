@@ -45,7 +45,7 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
               affirm( nextQuadratic );
 
               //TODO https://github.com/phetsims/graphing-quadratics/issues/216 getClosestPoint may be off the graph
-              //TODO https://github.com/phetsims/graphing-quadratics/issues/216 pointTool.quadraticProperty will not be nextQuadratic is there is another quadratic in front at that point.
+              //TODO https://github.com/phetsims/graphing-quadratics/issues/216 pointTool.quadraticProperty will not be nextQuadratic if there is another quadratic in front at that point.
               pointTool.positionProperty.value = nextQuadratic.getClosestPoint( pointTool.positionProperty.value );
             }
             else {
