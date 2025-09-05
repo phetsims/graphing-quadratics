@@ -41,12 +41,16 @@ export default class PointTool extends PhetioObject {
   public readonly probeSide: ProbeSide;
   public readonly dragBounds: Bounds2;
   public isDragging: boolean; // true while the user is dragging the point tool
-  private readonly quadraticsProperty: TReadOnlyProperty<Quadratic[]>;
   public readonly positionProperty: Property<Vector2>;
+
+  // Quadratics that the tool might intersect, in foreground-to-background order
+  public readonly quadraticsProperty: TReadOnlyProperty<Quadratic[]>;
+
+  // Quadratic that this point tool is on, null if it is not on a Quadratic.
   public readonly quadraticProperty: TReadOnlyProperty<Quadratic | null>;
 
   /**
-   * @param quadraticsProperty - Quadratics that the tool might intersect, in foreground-to-background order
+   * @param quadraticsProperty
    * @param graph
    * @param providedOptions
    */
