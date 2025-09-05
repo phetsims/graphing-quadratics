@@ -9,7 +9,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
@@ -19,6 +18,7 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import PointNode, { PointNodeOptions } from './PointNode.js';
+import GQGraph from '../../common/model/GQGraph.js';
 
 // constants
 const COORDINATES_Y_SPACING = 5;
@@ -26,7 +26,7 @@ const COORDINATES_Y_SPACING = 5;
 export default class VertexNode extends PointNode {
 
   public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph,
+                      graph: GQGraph,
                       modelViewTransform: ModelViewTransform2,
                       vertexVisibleProperty: TReadOnlyProperty<boolean>,
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,

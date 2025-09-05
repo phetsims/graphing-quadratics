@@ -12,7 +12,6 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
@@ -30,6 +29,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import GQGraph from '../model/GQGraph.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -45,7 +45,7 @@ export default class VertexManipulator extends GQManipulator {
   public constructor( hProperty: NumberProperty,
                       kProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph,
+                      graph: GQGraph,
                       modelViewTransform: ModelViewTransform2,
                       vertexVisibleProperty: TReadOnlyProperty<boolean>,
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,

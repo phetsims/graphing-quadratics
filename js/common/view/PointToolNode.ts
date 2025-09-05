@@ -13,7 +13,6 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import PointToolBodyNode from '../../../../graphing-lines/js/common/view/PointToolBodyNode.js';
 import Shape from '../../../../kite/js/Shape.js';
 import { optionize4 } from '../../../../phet-core/js/optionize.js';
@@ -39,6 +38,7 @@ import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';
+import GQGraph from '../model/GQGraph.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -54,7 +54,7 @@ type PointToolNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | '
 export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
   public readonly pointTool: PointTool;
-  private readonly graph: Graph;
+  private readonly graph: GQGraph;
 
   // Keyboard shortcut for "jump to next curve".
   public static readonly JUMP_TO_NEXT_CURVE_HOTKEY_DATA = new HotkeyData( {
@@ -72,7 +72,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
   public constructor( pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,
-                      graph: Graph,
+                      graph: GQGraph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: PointToolNodeOptions ) {
 

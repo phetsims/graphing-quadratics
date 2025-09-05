@@ -11,7 +11,6 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import GQColors from '../../common/GQColors.js';
@@ -26,6 +25,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import GQGraph from '../../common/model/GQGraph.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
@@ -41,7 +41,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
 
   public constructor( pointOnParabolaProperty: Property<Vector2>,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph,
+                      graph: GQGraph,
                       modelViewTransform: ModelViewTransform2,
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: PointOnParabolaManipulatorOptions ) {

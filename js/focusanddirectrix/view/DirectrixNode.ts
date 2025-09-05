@@ -9,7 +9,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Line from '../../../../scenery/js/nodes/Line.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -21,11 +20,12 @@ import GQEquationFactory from '../../common/view/GQEquationFactory.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import GQGraph from '../../common/model/GQGraph.js';
 
 export default class DirectrixNode extends Node {
 
   public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph,
+                      graph: GQGraph,
                       modelViewTransform: ModelViewTransform2,
                       directrixVisibleProperty: TReadOnlyProperty<boolean>,
                       equationsVisibleProperty: TReadOnlyProperty<boolean> ) {

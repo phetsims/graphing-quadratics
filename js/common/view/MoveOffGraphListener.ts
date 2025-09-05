@@ -11,11 +11,11 @@ import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.
 import type { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import PointToolNode from './PointToolNode.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import GQGraph from '../model/GQGraph.js';
 
 export default class MoveOffGraphListener extends KeyboardListener<OneKeyStroke[]> {
 
-  public constructor( pointToolNode: PointToolNode, graph: Graph ) {
+  public constructor( pointToolNode: PointToolNode, graph: GQGraph ) {
 
     const hotkeyData = PointToolNode.MOVE_OFF_GRID_HOTKEY_DATA;
 

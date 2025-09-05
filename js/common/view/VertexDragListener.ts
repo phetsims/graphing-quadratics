@@ -8,7 +8,6 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
@@ -17,6 +16,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../model/Quadratic.js';
 import VertexManipulator from './VertexManipulator.js';
+import GQGraph from '../model/GQGraph.js';
 
 export class VertexDragListener extends SoundDragListener {
 
@@ -24,7 +24,7 @@ export class VertexDragListener extends SoundDragListener {
                       hProperty: NumberProperty,
                       kProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph,
+                      graph: GQGraph,
                       modelViewTransform: ModelViewTransform2,
                       tandem: Tandem ) {
 

@@ -13,7 +13,6 @@ import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import TModel from '../../../../joist/js/TModel.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
@@ -24,6 +23,7 @@ import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import PointTool from './PointTool.js';
 import Quadratic from './Quadratic.js';
+import GQGraph from './GQGraph.js';
 
 // constants
 const GRAPH_VIEW_ORIGIN = new Vector2( 345, 330 ); // position of the graph's origin, in view coordinates
@@ -31,7 +31,7 @@ const GRAPH_VIEW_WIDTH = 530; // width of the graph, in view coordinates
 
 export default class GQModel implements TModel {
 
-  public readonly graph: Graph; // graph where the quadratics will be plotted
+  public readonly graph: GQGraph; // graph where the quadratics will be plotted
   public readonly quadraticProperty: TReadOnlyProperty<Quadratic>; // the interactive quadratic
   public readonly savedQuadraticProperty: Property<Quadratic | null>; // the saved quadratic, null if nothing is saved
 
@@ -53,7 +53,7 @@ export default class GQModel implements TModel {
 
   protected constructor( quadraticProperty: TReadOnlyProperty<Quadratic>, tandem: Tandem ) {
 
-    this.graph = new Graph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
+    this.graph = new GQGraph( GQConstants.X_AXIS_RANGE, GQConstants.Y_AXIS_RANGE );
 
     this.quadraticProperty = quadraticProperty;
 

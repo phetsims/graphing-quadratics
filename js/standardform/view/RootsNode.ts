@@ -9,7 +9,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -22,6 +21,7 @@ import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import PointNode, { PointNodeOptions } from './PointNode.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import GQGraph from '../../common/model/GQGraph.js';
 
 // constants
 const COORDINATES_X_SPACING = 15; // between root point and its coordinates display
@@ -29,7 +29,7 @@ const COORDINATES_X_SPACING = 15; // between root point and its coordinates disp
 export default class RootsNode extends Node {
 
   public constructor( quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph,
+                      graph: GQGraph,
                       modelViewTransform: ModelViewTransform2,
                       rootsVisibleProperty: TReadOnlyProperty<boolean>,
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,

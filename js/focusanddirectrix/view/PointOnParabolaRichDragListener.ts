@@ -12,7 +12,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
@@ -20,6 +19,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import GQGraph from '../../common/model/GQGraph.js';
 
 export class PointOnParabolaRichDragListener extends SoundRichDragListener {
 
@@ -35,7 +35,7 @@ export class PointOnParabolaRichDragListener extends SoundRichDragListener {
                       pointOnParabolaProperty: Property<Vector2>,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       modelViewTransform: ModelViewTransform2,
-                      graph: Graph,
+                      graph: GQGraph,
                       parentTandem: Tandem ) {
 
     super( {

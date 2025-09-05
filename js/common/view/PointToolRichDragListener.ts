@@ -9,7 +9,6 @@
 
 import PointTool from '../model/PointTool.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import GQConstants from '../GQConstants.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -24,6 +23,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQEquationDescriber from '../description/GQEquationDescriber.js';
+import GQGraph from '../model/GQGraph.js';
 
 // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
 // how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
@@ -46,7 +46,7 @@ export class PointToolRichDragListener extends SoundRichDragListener {
   public constructor( pointToolNode: PointToolNode,
                       pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,
-                      graph: Graph,
+                      graph: GQGraph,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       tandem: Tandem ) {
 

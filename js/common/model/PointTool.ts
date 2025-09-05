@@ -12,7 +12,6 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -22,6 +21,7 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import Quadratic from './Quadratic.js';
+import GQGraph from './GQGraph.js';
 
 // which side of the point tool's body the probe is on
 type ProbeSide = 'left' | 'right';
@@ -50,7 +50,7 @@ export default class PointTool extends PhetioObject {
    * @param graph
    * @param providedOptions
    */
-  public constructor( quadraticsProperty: TReadOnlyProperty<Quadratic[]>, graph: Graph, providedOptions: PointToolOptions ) {
+  public constructor( quadraticsProperty: TReadOnlyProperty<Quadratic[]>, graph: GQGraph, providedOptions: PointToolOptions ) {
 
     const options = optionize<PointToolOptions, SelfOptions, PhetioObjectOptions>()( {
 

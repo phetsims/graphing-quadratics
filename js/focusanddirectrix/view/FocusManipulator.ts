@@ -11,7 +11,6 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
@@ -27,6 +26,7 @@ import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibilit
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import GQGraph from '../../common/model/GQGraph.js';
 
 // constants
 const COORDINATES_Y_SPACING = 1;
@@ -41,7 +41,7 @@ export default class FocusManipulator extends GQManipulator {
 
   public constructor( pProperty: NumberProperty,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
-                      graph: Graph,
+                      graph: GQGraph,
                       modelViewTransform: ModelViewTransform2,
                       focusVisibleProperty: TReadOnlyProperty<boolean>,
                       coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
