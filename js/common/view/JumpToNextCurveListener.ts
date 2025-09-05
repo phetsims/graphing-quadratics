@@ -12,6 +12,8 @@ import type { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import PointToolNode from './PointToolNode.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import Quadratic from '../model/Quadratic.js';
 
 export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStroke[]> {
 
@@ -32,31 +34,34 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
           affirm( quadratics.length > 0 );
 
           // Determine which Quadratic to snap to.
+          let nextQuadratic: Quadratic | null;
           if ( pointTool.quadraticProperty.value ) {
 
-            // Point tool is snapped to a quadratic. Jump to the closest point on the next quadratic in the list.
+            // Point tool is snapped to a quadratic. Jump to the next quadratic in the list, at the point that is closest to the origin.
             if ( quadratics.length > 1 ) {
               const currentQuadratic = pointTool.quadraticProperty.value;
               const indexOfCurrentQuadratic = quadratics.indexOf( currentQuadratic );
               affirm( indexOfCurrentQuadratic !== -1 );
 
               const indexOfNextQuadratic = ( indexOfCurrentQuadratic === quadratics.length - 1 ) ? 0 : indexOfCurrentQuadratic + 1;
-              const nextQuadratic = quadratics[ indexOfNextQuadratic ];
+              nextQuadratic = quadratics[ indexOfNextQuadratic ];
               affirm( nextQuadratic );
-
-              //TODO https://github.com/phetsims/graphing-quadratics/issues/216 getClosestPoint may be off the graph
-              //TODO https://github.com/phetsims/graphing-quadratics/issues/216 pointTool.quadraticProperty will not be nextQuadratic if there is another quadratic in front at that position.
-              pointTool.positionProperty.value = nextQuadratic.getClosestPoint( pointTool.positionProperty.value );
             }
             else {
               // There is only one Quadratic, and therefore no "next quadratic", so do nothing.
+              nextQuadratic = null;
             }
           }
           else {
 
             // Point tool is NOT snapped to a quadratic. Jump to the first quadratic in the list.
-            const firstQuadratic = pointTool.quadraticsProperty.value[ 0 ];
-            pointTool.positionProperty.value = firstQuadratic.getClosestPoint( pointTool.positionProperty.value );
+            nextQuadratic = pointTool.quadraticsProperty.value[ 0 ];
+          }
+
+          // Jump to the point that is closest to the origin. This guarantees that the point will be on the graph.
+          //TODO https://github.com/phetsims/graphing-quadratics/issues/216 pointTool.quadraticProperty will not be nextQuadratic if there is another quadratic in front at that position.
+          if ( nextQuadratic ) {
+            pointTool.positionProperty.value = nextQuadratic.getClosestPoint( Vector2.ZERO );
           }
 
           // Describe the tool's new position.

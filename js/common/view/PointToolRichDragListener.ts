@@ -81,6 +81,7 @@ export class PointToolRichDragListener extends SoundRichDragListener {
         if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
 
           // If we're close enough to a quadratic, snap to that quadratic.
+          //TODO https://github.com/phetsims/graphing-quadratics/issues/216 Point tool does not stay on pointTool.quadraticProperty.value when another quadratic is in front.
           const snapQuadratic = pointTool.getQuadraticNear( position, GQQueryParameters.snapOffDistance, GQQueryParameters.snapOnDistance );
           if ( snapQuadratic ) {
 
