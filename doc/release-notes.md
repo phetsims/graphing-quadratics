@@ -39,7 +39,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 
 ### Bug Fixes
 * Vertex Form screen: Fixed the equation shown on the graph when a=0 and h=0.
-* Negative coordinates are now displayed correctly in the point tools for right-to-left (RTL) languages. For example, `-1` instead of `1-`.
+* Point tools: Negative coordinates are now displayed correctly for right-to-left (RTL) languages. For example, `-1` instead of `1-`.
 
 ## 1.3 (2023-07-25)
 
