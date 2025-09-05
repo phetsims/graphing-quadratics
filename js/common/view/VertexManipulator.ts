@@ -105,7 +105,7 @@ export default class VertexManipulator extends GQManipulator {
 
     this.quadraticProperty = quadraticProperty;
 
-    this.addInputListener( new VertexDragListener( this, hProperty, kProperty, quadraticProperty, graph, modelViewTransform,
+    this.addInputListener( new VertexDragListener( this, hProperty, kProperty, graph, modelViewTransform,
       options.tandem.createTandem( 'dragListener' ) ) );
 
     this.addInputListener( new VertexKeyboardDragListener( this, hProperty, kProperty, quadraticProperty,
