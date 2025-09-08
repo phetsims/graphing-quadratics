@@ -109,7 +109,7 @@ export default class GQColors {
     default: '#0071bc'
   } );
   public static readonly pointOnParabolaColorProperty = new ProfileColorProperty( graphingQuadratics, 'pointOnParabolaColor', {
-    default: PhetColorScheme.RED_COLORBLIND
+    default: '#dd3b05'
   } );
 }
 
