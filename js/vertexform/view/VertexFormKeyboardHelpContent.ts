@@ -11,6 +11,7 @@ import MoveDraggableItemsKeyboardHelpSection from '../../../../scenery-phet/js/k
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { PointToolShortcutsSection } from '../../common/view/PointToolShortcutsSection.js';
+import SpinnerControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SpinnerControlsKeyboardHelpSection.js';
 
 export default class VertexFormKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -23,7 +24,12 @@ export default class VertexFormKeyboardHelpContent extends TwoColumnKeyboardHelp
       new PointToolShortcutsSection(),
 
       // Move Draggable Items
-      new MoveDraggableItemsKeyboardHelpSection()
+      new MoveDraggableItemsKeyboardHelpSection(),
+
+      // Spinner Controls
+      new SpinnerControlsKeyboardHelpSection( {
+        includeSmallerStepsRow: false
+      } )
     ];
 
     // Sections in the right column.
