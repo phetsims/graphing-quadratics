@@ -71,8 +71,9 @@ const GQScreenIconFactory = {
 
   /**
    * Creates the icon for the Standard Form screen.
+   * Note that call sites will set rootsLineWidth empirically to account for ScreenIcon scaling.
    */
-  createStandardFormScreenIcon(): ScreenIcon {
+  createStandardFormScreenIcon( rootsLineWidth: number ): ScreenIcon {
 
     // invisible rectangle that fills the entire icon
     const rectangle = new Rectangle( 0, 0, ICON_SIZE.width, ICON_SIZE.height );
@@ -105,7 +106,7 @@ const GQScreenIconFactory = {
     const rootsOptions = {
       fill: GQColors.rootsFillProperty,
       stroke: GQColors.rootsStrokeProperty,
-      lineWidth: 6 // set empirically, to account for scaling of the screen icon
+      lineWidth: rootsLineWidth
     };
     const leftRootNode = new Circle( POINT_RADIUS, combineOptions<CircleOptions>( {
       centerX: parabolaNode.centerX - root,

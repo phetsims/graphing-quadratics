@@ -94,7 +94,7 @@ export default class RootsNode extends Node {
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
       pointFill: GQColors.rootsFillProperty,
       pointStroke: GQColors.rootsStrokeProperty,
-      pointLineWidth: 2,
+      pointLineWidth: GQConstants.ROOTS_LINE_WIDTH,
 
       // Reverse fill and stroke for coordinates, see https://github.com/phetsims/graphing-quadratics/issues/215#issuecomment-3259903748.
       coordinatesForegroundColor: GQColors.rootsFillProperty,

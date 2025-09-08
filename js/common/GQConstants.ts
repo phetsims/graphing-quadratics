@@ -113,6 +113,7 @@ export default class GQConstants {
   public static readonly AXIS_OF_SYMMETRY_LINE_WIDTH = 3;
   public static readonly DIRECTRIX_LINE_WIDTH = 3;
   public static readonly POINT_ON_PARABOLA_LINE_WIDTH = 3; // lines that connect point to focus and directrix
+  public static readonly ROOTS_LINE_WIDTH = 3;
 
   // line dashes
   public static readonly AXIS_OF_SYMMETRY_LINE_DASH = [ 5, 5 ];

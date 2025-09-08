@@ -24,13 +24,13 @@ export default class StandardFormScreen extends Screen<StandardFormModel, Standa
     const options: ScreenOptions = {
       name: GraphingQuadraticsStrings.screen.standardFormStringProperty,
       backgroundColorProperty: GQColors.screenBackgroundColorProperty,
-      homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon(),
+      homeScreenIcon: GQScreenIconFactory.createStandardFormScreenIcon( 10 ),
       screenButtonsHelpText: GraphingQuadraticsStrings.a11y.standardFormScreen.screenButtonsHelpTextStringProperty,
       createKeyboardHelpNode: () => new StandardFormKeyboardHelpContent(),
       tandem: tandem,
 
       // Workaround for https://github.com/phetsims/joist/issues/532, which will not be fixed.
-      navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon()
+      navigationBarIcon: GQScreenIconFactory.createStandardFormScreenIcon( 20 )
     };
 
     super(
