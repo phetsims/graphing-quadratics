@@ -12,8 +12,8 @@ import ProfileColorProperty from '../../../scenery/js/util/ProfileColorProperty.
 import graphingQuadratics from '../graphingQuadratics.js';
 
 // common colors
-const VERTEX = 'rgb( 128, 0, 128 )'; // purple
-const FOCUS = 'green';
+const VERTEX_COLOR = 'rgb( 128, 0, 128 )'; // purple
+const FOCUS_COLOR = 'green';
 
 export default class GQColors {
 
@@ -63,24 +63,24 @@ export default class GQColors {
 
   // Coefficients on the Vertex Form screen
   public static readonly vertexFormAColorProperty = new ProfileColorProperty( graphingQuadratics, 'vertexFormAColor', {
-    default: FOCUS
+    default: FOCUS_COLOR
   } );
   public static readonly vertexFormHColorProperty = new ProfileColorProperty( graphingQuadratics, 'vertexFormHColor', {
-    default: VERTEX
+    default: VERTEX_COLOR
   } );
   public static readonly vertexFormKColorProperty = new ProfileColorProperty( graphingQuadratics, 'vertexFormKColor', {
-    default: VERTEX
+    default: VERTEX_COLOR
   } );
 
   // Coefficients on the Focus & Directrix screen
   public static readonly focusAndDirectrixPColorProperty = new ProfileColorProperty( graphingQuadratics, 'focusAndDirectrixPColor', {
-    default: FOCUS
+    default: FOCUS_COLOR
   } );
   public static readonly focusAndDirectrixHColorProperty = new ProfileColorProperty( graphingQuadratics, 'focusAndDirectrixHColor', {
-    default: VERTEX
+    default: VERTEX_COLOR
   } );
   public static readonly focusAndDirectrixKColorProperty = new ProfileColorProperty( graphingQuadratics, 'focusAndDirectrixKColor', {
-    default: VERTEX
+    default: VERTEX_COLOR
   } );
 
   // common to all screens
@@ -94,16 +94,16 @@ export default class GQColors {
     default: 'rgb( 212, 212, 212 )'
   } );
   public static readonly focusColorProperty = new ProfileColorProperty( graphingQuadratics, 'focusColor', {
-    default: FOCUS
+    default: FOCUS_COLOR
   } );
   public static readonly directrixColorProperty = new ProfileColorProperty( graphingQuadratics, 'directrixColor', {
-    default: FOCUS
+    default: FOCUS_COLOR
   } );
   public static readonly vertexColorProperty = new ProfileColorProperty( graphingQuadratics, 'vertexColor', {
-    default: VERTEX
+    default: VERTEX_COLOR
   } );
   public static readonly axisOfSymmetryColorProperty = new ProfileColorProperty( graphingQuadratics, 'axisOfSymmetryColor', {
-    default: VERTEX
+    default: VERTEX_COLOR
   } );
   public static readonly rootsFillProperty = new ProfileColorProperty( graphingQuadratics, 'rootsFill', {
     default: 'white'
