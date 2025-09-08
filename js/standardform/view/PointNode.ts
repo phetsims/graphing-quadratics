@@ -32,6 +32,11 @@ type SelfOptions = {
   // radius of the point
   radius?: number;
 
+  // options passed to Circle
+  pointFill?: TColor;
+  pointStroke?: TColor;
+  pointLineWidth?: number;
+
   // options passed to CoordinatesNode
   coordinatesBackgroundColor?: TColor;
   coordinatesForegroundColor?: TColor;
@@ -55,6 +60,9 @@ export default class PointNode extends Node {
 
       // SelfOptions
       radius: 10,
+      pointFill: 'black',
+      pointStroke: null,
+      pointLineWidth: 1,
       coordinatesBackgroundColor: 'black',
       coordinatesForegroundColor: 'white',
       coordinatesDecimals: 0,
@@ -67,7 +75,9 @@ export default class PointNode extends Node {
 
     // the point
     const pointNode = new Circle( options.radius, {
-      fill: options.coordinatesBackgroundColor,
+      fill: options.pointFill,
+      stroke: options.pointStroke,
+      lineWidth: options.pointLineWidth,
       x: 0,
       y: 0
     } );

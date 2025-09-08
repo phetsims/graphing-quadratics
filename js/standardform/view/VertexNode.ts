@@ -36,6 +36,7 @@ export default class VertexNode extends PointNode {
 
       // PointNode options
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
+      pointFill: GQColors.vertexColorProperty,
       coordinatesForegroundColor: 'white',
       coordinatesBackgroundColor: GQColors.vertexColorProperty,
       coordinatesDecimals: GQConstants.VERTEX_DECIMALS,

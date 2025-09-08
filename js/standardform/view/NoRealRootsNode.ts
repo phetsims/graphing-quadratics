@@ -44,7 +44,7 @@ export default class NoRealRootsNode extends Node {
 
     const textNode = new Text( GraphingQuadraticsStrings.noRealRootsStringProperty, {
       font: GQConstants.NO_REAL_ROOTS_FONT,
-      fill: 'white'
+      fill: GQColors.rootsFillProperty
     } );
 
     // Translucent background, dynamically sized to textNode
@@ -52,7 +52,7 @@ export default class NoRealRootsNode extends Node {
       xMargin: 5,
       yMargin: 1,
       rectangleOptions: {
-        fill: GQColors.rootsColorProperty,
+        fill: GQColors.rootsStrokeProperty, // Intentionally using the point's stroke color here.
         opacity: 0.75,
         cornerRadius: 4
       }

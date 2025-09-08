@@ -92,8 +92,13 @@ export default class RootsNode extends Node {
     // options common to both PointNode instances
     const pointNodeOptions = {
       radius: modelViewTransform.modelToViewDeltaX( GQConstants.POINT_RADIUS ),
-      coordinatesForegroundColor: 'white',
-      coordinatesBackgroundColor: GQColors.rootsColorProperty,
+      pointFill: GQColors.rootsFillProperty,
+      pointStroke: GQColors.rootsStrokeProperty,
+      pointLineWidth: 2,
+
+      // Reverse fill and stroke for coordinates, see https://github.com/phetsims/graphing-quadratics/issues/215#issuecomment-3259903748.
+      coordinatesForegroundColor: GQColors.rootsFillProperty,
+      coordinatesBackgroundColor: GQColors.rootsStrokeProperty,
       coordinatesDecimals: GQConstants.ROOTS_DECIMALS,
       x: modelViewTransform.modelToViewX( graph.xRange.getCenter() ),
       y: modelViewTransform.modelToViewY( graph.yRange.getCenter() )

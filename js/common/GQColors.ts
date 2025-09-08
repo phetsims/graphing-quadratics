@@ -105,7 +105,10 @@ export default class GQColors {
   public static readonly axisOfSymmetryColorProperty = new ProfileColorProperty( graphingQuadratics, 'axisOfSymmetryColor', {
     default: VERTEX
   } );
-  public static readonly rootsColorProperty = new ProfileColorProperty( graphingQuadratics, 'rootsColor', {
+  public static readonly rootsFillProperty = new ProfileColorProperty( graphingQuadratics, 'rootsFill', {
+    default: 'white'
+  } );
+  public static readonly rootsStrokeProperty = new ProfileColorProperty( graphingQuadratics, 'rootsStroke', {
     default: '#0071bc'
   } );
   public static readonly pointOnParabolaColorProperty = new ProfileColorProperty( graphingQuadratics, 'pointOnParabolaColor', {

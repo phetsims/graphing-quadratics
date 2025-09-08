@@ -256,7 +256,9 @@ export default class GQCheckbox extends Checkbox {
 
     const circleOptions = {
       radius: 6,
-      fill: GQColors.rootsColorProperty
+      fill: GQColors.rootsFillProperty,
+      stroke: GQColors.rootsStrokeProperty,
+      lineWidth: 2
     };
 
     const icon = new HBox( {

@@ -13,7 +13,7 @@ import Screen from '../../../../joist/js/Screen.js';
 import ScreenIcon from '../../../../joist/js/ScreenIcon.js';
 import Shape from '../../../../kite/js/Shape.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import Circle from '../../../../scenery/js/nodes/Circle.js';
+import Circle, { CircleOptions } from '../../../../scenery/js/nodes/Circle.js';
 import Line from '../../../../scenery/js/nodes/Line.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path, { PathOptions } from '../../../../scenery/js/nodes/Path.js';
@@ -102,16 +102,19 @@ const GQScreenIconFactory = {
     const root = 152;
 
     // roots
-    const leftRootNode = new Circle( POINT_RADIUS, {
-      fill: GQColors.rootsColorProperty,
+    const rootsOptions = {
+      fill: GQColors.rootsFillProperty,
+      stroke: GQColors.rootsStrokeProperty,
+      lineWidth: 6 // set empirically, to account for scaling of the screen icon
+    };
+    const leftRootNode = new Circle( POINT_RADIUS, combineOptions<CircleOptions>( {
       centerX: parabolaNode.centerX - root,
       centerY: xAxisNode.y
-    } );
-    const rightRootNode = new Circle( POINT_RADIUS, {
-      fill: GQColors.rootsColorProperty,
+    }, rootsOptions ) );
+    const rightRootNode = new Circle( POINT_RADIUS, combineOptions<CircleOptions>( {
       centerX: parabolaNode.centerX + root,
       centerY: xAxisNode.y
-    } );
+    }, rootsOptions ) );
 
     // put all the pieces together, clipped to the icon size
     const iconNode = new Node( {
