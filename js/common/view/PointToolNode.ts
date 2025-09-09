@@ -39,6 +39,7 @@ import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import GQGraph from '../model/GQGraph.js';
+import GQEquationDescriber from '../description/GQEquationDescriber.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -182,15 +183,39 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     let response: string;
     const position = this.pointTool.positionProperty.value;
     if ( this.graph.contains( position ) ) {
-      response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseStringProperty.value, {
+      const snapQuadratic = this.pointTool.quadraticProperty.value;
+      if ( snapQuadratic ) {
 
-        // Use the same formatting and number of decimal places as the visual UI.
-        x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
-        y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
-      } );
+        // "On {{equation}}, use J to jump to next curve, K to move off grid."
+        response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseEquationXYStringProperty, {
+          equation: GQEquationDescriber.createStandardFormDescription( snapQuadratic,
+            GraphingQuadraticsStrings.yStringProperty.value,
+            GraphingQuadraticsStrings.xStringProperty.value,
+            GraphingQuadraticsStrings.a11y.squaredStringProperty.value,
+            GraphingQuadraticsStrings.a11y.equalsStringProperty.value,
+            GraphingQuadraticsStrings.a11y.plusStringProperty.value,
+            GraphingQuadraticsStrings.a11y.minusStringProperty.value,
+            GraphingQuadraticsStrings.a11y.negativeStringProperty.value
+          ),
+          x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
+          y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
+        } );
+      }
+      else {
+
+        // "{{x}}, {{y}}"
+        response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseXYStringProperty.value, {
+
+          // Use the same formatting and number of decimal places as the visual UI.
+          x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
+          y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
+        } );
+      }
     }
     else {
-      response = GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseNoPointStringProperty.value;
+
+      // "off grid"
+      response = GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseOffGridStringProperty.value;
     }
     this.addAccessibleObjectResponse( response );
   }

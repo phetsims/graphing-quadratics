@@ -130,9 +130,9 @@ type StringsType = {
       'accessibleObjectResponseStringProperty': LocalizedStringProperty;
     };
     'pointToolNode': {
-      'accessibleObjectResponseStringProperty': LocalizedStringProperty;
-      'accessibleObjectResponseNoPointStringProperty': LocalizedStringProperty;
-      'accessibleContextResponseStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseXYStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseEquationXYStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseOffGridStringProperty': LocalizedStringProperty;
     };
     'leftPointToolNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

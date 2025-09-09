@@ -20,9 +20,6 @@ import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlay
 import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 import SoundRichDragListener, { SoundRichDragListenerOptions } from '../../../../scenery-phet/js/SoundRichDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import GQEquationDescriber from '../description/GQEquationDescriber.js';
 import GQGraph from '../model/GQGraph.js';
 import Quadratic from '../model/Quadratic.js';
 
@@ -72,9 +69,6 @@ export class PointToolRichDragListener extends SoundRichDragListener {
 
       drag: ( event, listener ) => {
 
-        // Whether the tool snapped to a curve on this drag step.
-        let didSnapToCurve = false;
-
         // Constrained to dragBounds.
         let position = pointTool.dragBounds.closestPointTo( listener.modelPoint );
 
@@ -123,22 +117,6 @@ export class PointToolRichDragListener extends SoundRichDragListener {
               SNAP_SOUND_PLAYER.play();
             }
             isSnappedToCurve = true;
-            didSnapToCurve = true;
-
-            // "On {{equation}}, use J to jump to next curve, K to move off grid."
-            pointToolNode.addAccessibleContextResponse( StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleContextResponseStringProperty, {
-              equation: GQEquationDescriber.createStandardFormDescription( snapQuadratic,
-                GraphingQuadraticsStrings.yStringProperty.value,
-                GraphingQuadraticsStrings.xStringProperty.value,
-                GraphingQuadraticsStrings.a11y.squaredStringProperty.value,
-                GraphingQuadraticsStrings.a11y.equalsStringProperty.value,
-                GraphingQuadraticsStrings.a11y.plusStringProperty.value,
-                GraphingQuadraticsStrings.a11y.minusStringProperty.value,
-                GraphingQuadraticsStrings.a11y.negativeStringProperty.value
-              ),
-              x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
-              y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
-            } ) );
           }
           else {
             isSnappedToCurve = false;
@@ -148,10 +126,7 @@ export class PointToolRichDragListener extends SoundRichDragListener {
         // Move the point tool.
         pointTool.positionProperty.value = position;
 
-        // accessibleObjectResponse
-        if ( !didSnapToCurve ) {
-          pointToolNode.doAccessibleObjectResponse();
-        }
+        pointToolNode.doAccessibleObjectResponse();
       },
 
       end: ( event, listener ) => {
