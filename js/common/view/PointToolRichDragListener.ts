@@ -97,15 +97,22 @@ export class PointToolRichDragListener extends SoundRichDragListener {
             // Get the closest point that is on the quadratic.
             position = snapQuadratic.getClosestPoint( position );
 
-            // We will be snapping the x value as it will be displayed by the point tool.
-            // See https://github.com/phetsims/graphing-quadratics/issues/169.
-            let x = toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
+            let x = position.x;
 
-            // If x is close to an integer value, snap to that integer value.
-            // See https://github.com/phetsims/graphing-quadratics/issues/169.
-            const closestInteger = toFixedNumber( x, 0 );
-            if ( Math.abs( x - closestInteger ) < X_SNAP_TOLERANCE ) {
-              x = closestInteger;
+            // If the event came from the keyboard, skip snapping the x value. Otherwise, the left and right arrow keys
+            // will stop working when the slope of the curve gets steep.
+            if ( !event.isFromPDOM() ) {
+
+              // We will be snapping the x value as it will be displayed by the point tool.
+              // See https://github.com/phetsims/graphing-quadratics/issues/169.
+              x = toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
+
+              // If x is close to an integer value, snap to that integer value.
+              // See https://github.com/phetsims/graphing-quadratics/issues/169.
+              const closestInteger = toFixedNumber( x, 0 );
+              if ( Math.abs( x - closestInteger ) < X_SNAP_TOLERANCE ) {
+                x = closestInteger;
+              }
             }
 
             const y = snapQuadratic.solveY( x );
