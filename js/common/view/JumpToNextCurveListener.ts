@@ -58,9 +58,9 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
             nextQuadratic = pointTool.quadraticsProperty.value[ 0 ];
           }
 
-          // Jump to the point that is closest to the origin. This guarantees that the point will be on the graph.
-          //TODO https://github.com/phetsims/graphing-quadratics/issues/216 pointTool.quadraticProperty will not be nextQuadratic if there is another quadratic in front at that position.
+          // Jump to the next curve, at a point that is closest to the origin. This guarantees that the point will be on the graph.
           if ( nextQuadratic ) {
+            pointTool.quadraticProperty.value = nextQuadratic;
             pointTool.positionProperty.value = nextQuadratic.getClosestPoint( Vector2.ZERO );
           }
 

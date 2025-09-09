@@ -47,7 +47,7 @@ export default class PointTool extends PhetioObject {
   public readonly quadraticsProperty: TReadOnlyProperty<Quadratic[]>;
 
   // Quadratic that this point tool is on, null if it is not on a Quadratic.
-  public readonly quadraticProperty: TReadOnlyProperty<Quadratic | null>;
+  public readonly quadraticProperty: Property<Quadratic | null>;
 
   /**
    * @param quadraticsProperty
@@ -101,9 +101,17 @@ export default class PointTool extends PhetioObject {
     Multilink.multilink( [ this.positionProperty, quadraticsProperty ],
       ( position, quadratics ) => {
         if ( !isSettingPhetioStateProperty.value ) {
-          quadraticProperty.value = ( graph.contains( position ) ) ?
-                                    this.getQuadraticNear( position, GQQueryParameters.pointToolThreshold, GQQueryParameters.pointToolThreshold ) :
-                                    null;
+          if ( !graph.contains( position ) ) {
+            quadraticProperty.value = null;
+          }
+          else if ( this.quadraticProperty.value &&
+                    this.quadraticProperty.value.hasSolution( position, GQQueryParameters.snapOffDistance ) &&
+                    this.quadraticsProperty.value.includes( this.quadraticProperty.value ) ) {
+            // Do nothing, stay snapped to the current curve.
+          }
+          else {
+            quadraticProperty.value = this.getQuadraticNear( position, GQQueryParameters.pointToolThreshold );
+          }
         }
       } );
   }
@@ -111,26 +119,17 @@ export default class PointTool extends PhetioObject {
   /**
    * Gets the quadratic that is close to a specified position, within a specified distance. Candidates are considered
    * in foreground-to-background order, which is the order of this.quadraticsProperty.
-   * While the point tool is being dragged, this algorithm prefers to return the quadratic that the point tool is
-   * already on, so that it does not jump to some other (closer) quadratic.
-   * See https://github.com/phetsims/graphing-quadratics/issues/47 and https://github.com/phetsims/graphing-quadratics/issues/202.
    * @param position - the point tool's position
-   * @param offDistance - if <= to this distance, snaps ON to a curve
-   * @param onDistance - if > this distance, snaps OFF of a curve
+   * @param onDistance - distance from position to curve must be <= onDistance to be considered "on the curve"
    * @returns null if no quadratic is close enough
    */
-  public getQuadraticNear( position: Vector2, offDistance: number, onDistance: number ): Quadratic | null {
-    let quadraticNear = this.isDragging ? this.quadraticProperty.value : null;
+  public getQuadraticNear( position: Vector2, onDistance: number ): Quadratic | null {
+    let quadraticNear = null;
     const quadratics = this.quadraticsProperty.value;
-    if ( !quadraticNear ||
-         !quadratics.includes( quadraticNear ) ||
-         !quadraticNear.hasSolution( position, offDistance ) ) {
-      quadraticNear = null;
-      for ( let i = 0; i < quadratics.length && !quadraticNear; i++ ) {
-        const quadratic = quadratics[ i ];
-        if ( quadratic.hasSolution( position, onDistance ) ) {
-          quadraticNear = quadratic;
-        }
+    for ( let i = 0; i < quadratics.length && !quadraticNear; i++ ) {
+      const quadratic = quadratics[ i ];
+      if ( quadratic.hasSolution( position, onDistance ) ) {
+        quadraticNear = quadratic;
       }
     }
     return quadraticNear;

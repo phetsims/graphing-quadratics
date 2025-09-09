@@ -24,6 +24,7 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQEquationDescriber from '../description/GQEquationDescriber.js';
 import GQGraph from '../model/GQGraph.js';
+import Quadratic from '../model/Quadratic.js';
 
 // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
 // how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
@@ -80,9 +81,17 @@ export class PointToolRichDragListener extends SoundRichDragListener {
         // If we're on the graph and the contents of the graph are visible...
         if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
 
+          // Prefer the quadratic that the tool is already snapped to. Otherwise, attempt to locate another quadratic.
+          let snapQuadratic: Quadratic | null;
+          const quadraticNear = pointTool.quadraticProperty.value;
+          if ( quadraticNear && quadraticNear.hasSolution( position, GQQueryParameters.snapOffDistance ) ) {
+            snapQuadratic = quadraticNear;
+          }
+          else {
+            snapQuadratic = pointTool.getQuadraticNear( position, GQQueryParameters.snapOnDistance );
+          }
+
           // If we're close enough to a quadratic, snap to that quadratic.
-          //TODO https://github.com/phetsims/graphing-quadratics/issues/216 Point tool does not stay on pointTool.quadraticProperty.value when another quadratic is in front.
-          const snapQuadratic = pointTool.getQuadraticNear( position, GQQueryParameters.snapOffDistance, GQQueryParameters.snapOnDistance );
           if ( snapQuadratic ) {
 
             // Get the closest point that is on the quadratic.
