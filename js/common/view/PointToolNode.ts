@@ -186,7 +186,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
       const snapQuadratic = this.pointTool.quadraticProperty.value;
       if ( snapQuadratic ) {
 
-        // "On {{equation}}, use J to jump to next curve, K to move off grid."
+        // Snapped to a curve: "On {{equation}}, use J to jump to next curve, K to move off grid."
         response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseEquationXYStringProperty, {
           equation: GQEquationDescriber.createStandardFormDescription( snapQuadratic,
             GraphingQuadraticsStrings.yStringProperty.value,
@@ -203,7 +203,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
       }
       else {
 
-        // "{{x}}, {{y}}"
+        // On the graph, but not snapped to a curve: "{{x}}, {{y}}"
         response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseXYStringProperty.value, {
 
           // Use the same formatting and number of decimal places as the visual UI.
