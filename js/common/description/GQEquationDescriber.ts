@@ -1,8 +1,16 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * GQEquationDescriber is a collection of methods for creating descriptions of quadratic equations.
- * This was created by copying GQEquationFactory, then changing the implementation to produce natural language
+ * GQEquationDescriber is a collection of methods for creating natural language descriptions of quadratic equations.
+ *
+ * When core description was added to Graphing Quadratics in 2025, PhET had no support for converting mathematical
+ * expressions into spoken language. The sim team decided that a reasonable path forward was to evaluate existing tools
+ * to see how they addressed accessibility of mathematical expressions.  MathJax looked promising, and it supports
+ * various "speech rule engines", the default being ClearSpeak.  We could not use MathJax or ClearSpeak directly in
+ * the sim because MaxJax lacks support for localization. So we decided to generate our own natural language
+ * descriptions that emulate ClearSpeak. See https://github.com/phetsims/graphing-quadratics/issues/226 for history.
+ *
+ * This class was created by copying GQEquationFactory, then changing the implementation to produce natural language
  * instead of RichText markup.
  *
  * @author Chris Malley (PixelZoom, Inc.)
