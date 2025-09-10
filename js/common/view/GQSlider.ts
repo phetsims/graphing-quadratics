@@ -80,7 +80,7 @@ export default class GQSlider extends Node {
   /**
    * @param symbolStringProperty - the coefficient's symbol
    * @param coefficientProperty - the coefficient's value
-   * @param [providedOptions]
+   * @param providedOptions
    */
   protected constructor( symbolStringProperty: TReadOnlyProperty<string>, coefficientProperty: NumberProperty, providedOptions: GQSliderOptions ) {
 

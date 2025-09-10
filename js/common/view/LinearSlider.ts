@@ -23,7 +23,7 @@ export default class LinearSlider extends GQSlider {
   /**
    * @param symbolStringProperty - the coefficient's symbol
    * @param coefficientProperty - the coefficient's value
-   * @param [provideOptions]
+   * @param provideOptions
    */
   public constructor( symbolStringProperty: TReadOnlyProperty<string>,
                       coefficientProperty: NumberProperty,

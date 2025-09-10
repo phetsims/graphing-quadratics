@@ -24,7 +24,7 @@ export default class QuadraticSlider extends GQSlider {
   /**
    * @param symbolStringProperty - the coefficient's symbol
    * @param coefficientProperty - the coefficient's value
-   * @param [providedOptions]
+   * @param providedOptions
    */
   public constructor( symbolStringProperty: TReadOnlyProperty<string>,
                       coefficientProperty: NumberProperty,
