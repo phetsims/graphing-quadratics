@@ -3,6 +3,9 @@
 /**
  * VertexKeyboardDragListener is the keyboard drag listener for VertexManipulator.
  *
+ * Because the vertex moves in integer steps, creating a separate handler for keyboard input was easier than
+ * rewriting VertexDragListener to extend SoundRichDragListener.
+ *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
