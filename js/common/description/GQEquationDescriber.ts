@@ -10,7 +10,7 @@
  * the sim because MaxJax lacks support for localization. So we decided to generate our own natural language
  * descriptions that emulate ClearSpeak. See https://github.com/phetsims/graphing-quadratics/issues/226 for history.
  *
- * This class was created by copying GQEquationFactory, then changing the implementation to produce natural language
+ * This class was created by copying GQEquationFactory, then adjusting the implementation to produce natural language
  * instead of RichText markup.
  *
  * @author Chris Malley (PixelZoom, Inc.)
