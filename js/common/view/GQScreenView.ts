@@ -54,6 +54,7 @@ export default class GQScreenView extends ScreenView {
       model.leftPointTool,
       model.modelViewTransform,
       model.graph,
+      model.getCurveName.bind( model ),
       viewProperties.graphContentsVisibleProperty, {
         accessibleName: GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleNameStringProperty,
         accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleHelpTextStringProperty, {
@@ -66,6 +67,7 @@ export default class GQScreenView extends ScreenView {
       model.rightPointTool,
       model.modelViewTransform,
       model.graph,
+      model.getCurveName.bind( model ),
       viewProperties.graphContentsVisibleProperty, {
         accessibleName: GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleNameStringProperty,
         accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleHelpTextStringProperty, {

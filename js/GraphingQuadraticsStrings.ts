@@ -131,7 +131,7 @@ type StringsType = {
     };
     'pointToolNode': {
       'accessibleObjectResponseXYStringProperty': LocalizedStringProperty;
-      'accessibleObjectResponseEquationXYStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseXYCurveNameStringProperty': LocalizedStringProperty;
       'accessibleObjectResponseOffGridStringProperty': LocalizedStringProperty;
       'keyboardHelpStringProperty': LocalizedStringProperty;
     };

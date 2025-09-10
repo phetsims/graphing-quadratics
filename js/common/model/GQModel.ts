@@ -24,6 +24,7 @@ import GQConstants from '../GQConstants.js';
 import PointTool from './PointTool.js';
 import Quadratic from './Quadratic.js';
 import GQGraph from './GQGraph.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 // constants
 const GRAPH_VIEW_ORIGIN = new Vector2( 345, 330 ); // position of the graph's origin, in view coordinates
@@ -150,6 +151,22 @@ export default class GQModel implements TModel {
    */
   public eraseQuadratic(): void {
     this.savedQuadraticProperty.value = null;
+  }
+
+  /**
+   * Gets the name of the quadratic, as it appears in interactive descriptions.  We did not add Property to Quadratic because
+   * it would have involved changing the PhET-iO API and state object for Quadratic.
+   */
+  public getCurveName( quadratic: Quadratic ): string | null {
+    if ( quadratic === this.quadraticProperty.value ) {
+      return GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty.value;
+    }
+    else if ( quadratic === this.savedQuadraticProperty.value ) {
+      return GraphingQuadraticsStrings.a11y.savedParabolaStringProperty.value;
+    }
+    else {
+      return null;
+    }
   }
 }
 

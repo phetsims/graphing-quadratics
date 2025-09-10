@@ -13,6 +13,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../../standardform/model/StandardFormModel.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class ExploreModel extends StandardFormModel {
 
@@ -49,6 +50,30 @@ export default class ExploreModel extends StandardFormModel {
         phetioDocumentation: 'the constant term (y = c) of the interactive quadratic',
         phetioValueType: Quadratic.QuadraticIO
       } );
+  }
+
+  /**
+   * Gets the name of a quadratic, as it appears in interactive descriptions.
+   */
+  public override getCurveName( quadratic: Quadratic ): string | null {
+
+    // Compare to primary and saved quadratic first.
+    let curveName = super.getCurveName( quadratic );
+
+    // Compare to the individual terms.
+    if ( curveName === null ) {
+      if ( quadratic === this.quadraticTermProperty.value ) {
+        curveName = GraphingQuadraticsStrings.a11y.quadraticTermStringProperty.value;
+      }
+      else if ( quadratic === this.linearTermProperty.value ) {
+        curveName = GraphingQuadraticsStrings.a11y.linearTermStringProperty.value;
+      }
+      else if ( quadratic === this.constantTermProperty.value ) {
+        curveName = GraphingQuadraticsStrings.a11y.constantTermStringProperty.value;
+      }
+    }
+
+    return curveName;
   }
 }
 

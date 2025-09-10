@@ -39,7 +39,7 @@ import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import GQGraph from '../model/GQGraph.js';
-import GQEquationDescriber from '../description/GQEquationDescriber.js';
+import Quadratic from '../model/Quadratic.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -56,6 +56,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
   public readonly pointTool: PointTool;
   private readonly graph: GQGraph;
+  private readonly getCurveName: ( quadratic: Quadratic ) => string | null;
 
   // Keyboard shortcut for "jump to next curve".
   public static readonly JUMP_TO_NEXT_CURVE_HOTKEY_DATA = new HotkeyData( {
@@ -74,6 +75,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
   public constructor( pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,
                       graph: GQGraph,
+                      getCurveName: ( quadratic: Quadratic ) => string | null,
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       providedOptions: PointToolNodeOptions ) {
 
@@ -133,6 +135,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
     this.pointTool = pointTool;
     this.graph = graph;
+    this.getCurveName = getCurveName;
 
     Multilink.multilink( [ pointTool.positionProperty, pointTool.quadraticProperty, graphContentsVisibleProperty ],
       ( position, onQuadratic, graphContentsVisible ) => {
@@ -186,19 +189,11 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
       const snapQuadratic = this.pointTool.quadraticProperty.value;
       if ( snapQuadratic ) {
 
-        // Snapped to a curve: "On {{equation}}, use J to jump to next curve, K to move off grid."
-        response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseEquationXYStringProperty, {
-          equation: GQEquationDescriber.createStandardFormDescription( snapQuadratic,
-            GraphingQuadraticsStrings.yStringProperty.value,
-            GraphingQuadraticsStrings.xStringProperty.value,
-            GraphingQuadraticsStrings.a11y.squaredStringProperty.value,
-            GraphingQuadraticsStrings.a11y.equalsStringProperty.value,
-            GraphingQuadraticsStrings.a11y.plusStringProperty.value,
-            GraphingQuadraticsStrings.a11y.minusStringProperty.value,
-            GraphingQuadraticsStrings.a11y.negativeStringProperty.value
-          ),
+        // Snapped to a curve: "{{x}}, {{y}} on {{curveName}}"
+        response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseXYCurveNameStringProperty, {
           x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
-          y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
+          y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS ),
+          curveName: this.getCurveName( snapQuadratic )
         } );
       }
       else {
