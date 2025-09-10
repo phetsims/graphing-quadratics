@@ -133,6 +133,7 @@ type StringsType = {
       'accessibleObjectResponseXYStringProperty': LocalizedStringProperty;
       'accessibleObjectResponseEquationXYStringProperty': LocalizedStringProperty;
       'accessibleObjectResponseOffGridStringProperty': LocalizedStringProperty;
+      'keyboardHelpStringProperty': LocalizedStringProperty;
     };
     'leftPointToolNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

@@ -24,6 +24,7 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 // constants
 const X_SPACING = 15; // between graph and control panels
@@ -55,7 +56,9 @@ export default class GQScreenView extends ScreenView {
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
         accessibleName: GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleNameStringProperty,
-        accessibleHelpText: GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleHelpTextStringProperty,
+        accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.leftPointToolNode.accessibleHelpTextStringProperty, {
+          keyboardHelp: GraphingQuadraticsStrings.a11y.pointToolNode.keyboardHelpStringProperty
+        } ),
         tandem: options.tandem.createTandem( 'leftPointToolNode' )
       } );
 
@@ -65,7 +68,9 @@ export default class GQScreenView extends ScreenView {
       model.graph,
       viewProperties.graphContentsVisibleProperty, {
         accessibleName: GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleNameStringProperty,
-        accessibleHelpText: GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleHelpTextStringProperty,
+        accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.rightPointToolNode.accessibleHelpTextStringProperty, {
+          keyboardHelp: GraphingQuadraticsStrings.a11y.pointToolNode.keyboardHelpStringProperty
+        } ),
         tandem: options.tandem.createTandem( 'rightPointToolNode' )
       } );
 
