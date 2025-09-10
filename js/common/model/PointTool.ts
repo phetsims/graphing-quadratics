@@ -1,7 +1,8 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Model of the point tool. Knows when it is placed on one of the quadratics.
+ * PointTool is the model of the point tool. It knows where it is placed on the graph, and when
+ * it is placed on one of the quadratics.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

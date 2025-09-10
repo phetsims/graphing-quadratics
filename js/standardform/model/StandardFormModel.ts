@@ -1,7 +1,7 @@
 // Copyright 2014-2023, University of Colorado Boulder
 
 /**
- * Model for the 'Standard Form' screen.
+ * StandardFormModel is the model for the 'Standard Form' screen.
  * Standard form of the quadratic equation is: y = ax^2 + bx + c
  *
  * @author Chris Malley (PixelZoom, Inc.)

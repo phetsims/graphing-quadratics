@@ -1,7 +1,7 @@
 // Copyright 2014-2025, University of Colorado Boulder
 
 /**
- * Colors used throughout this project.
+ * GQColors is the set of colors used throughout this project.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

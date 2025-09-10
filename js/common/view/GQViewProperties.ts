@@ -1,7 +1,8 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * View-specific Properties and properties that are common to more than one screen.
+ * GQViewProperties is a base class that is responsible for a set of view-specific Properties that are common to
+ * more than one screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -33,7 +34,7 @@ export default class GQViewProperties extends PhetioObject {
   public readonly equationAccordionBoxExpandedProperty: Property<boolean>;
   public readonly equationsVisibleProperty: Property<boolean>;
 
-  public constructor( providedOptions: GQViewPropertiesOptions ) {
+  protected constructor( providedOptions: GQViewPropertiesOptions ) {
 
     const options = optionize<GQViewPropertiesOptions, SelfOptions, PhetioObjectOptions>()( {
 

@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Model for the 'Focus & Directrix' screen.
+ * FocusAndDirectrixModel is the model for the 'Focus & Directrix' screen.
  * Alternate vertex form of the quadratic equation is: y = (1/(4p)(x - h)^2 - k
  *
  * @author Chris Malley (PixelZoom, Inc.)

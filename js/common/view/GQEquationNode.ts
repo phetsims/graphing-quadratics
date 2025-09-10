@@ -1,7 +1,7 @@
 // Copyright 2019-2025, University of Colorado Boulder
 
 /**
- * Puts a Node on a rectangular background, dynamically sized to fit the Node.
+ * GQEquationNode puts a Node on a rectangular background, dynamically sized to fit the Node.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

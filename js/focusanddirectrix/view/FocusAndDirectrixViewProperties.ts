@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * View-specific Properties and properties for the 'Focus & Directrix' screen.
+ * FocusAndDirectrixViewProperties is the set of view-specific Properties for the 'Focus & Directrix' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

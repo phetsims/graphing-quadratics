@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Static equation in standard form: y = ax^2 + bx + c
+ * StandardFormEquationNode displays the static equation: y = ax^2 + bx + c
  * This is sometimes referred to as general form, typically in the context of conics.
  *
  * @author Andrea Lin

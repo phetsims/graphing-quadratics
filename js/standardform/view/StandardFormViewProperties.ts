@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * View-specific Properties for the 'Standard Form' screen.
+ * StandardFormViewProperties is the set of view-specific Properties for the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

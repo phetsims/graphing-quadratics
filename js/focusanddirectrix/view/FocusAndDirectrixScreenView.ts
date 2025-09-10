@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * View for the 'Focus and Directrix' screen.
+ * FocusAndDirectrixScreenView is the view for the 'Focus and Directrix' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

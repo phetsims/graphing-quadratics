@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Creates screen icons for this sim.  Most of the magic numbers herein were determined empirically,
+ * GQScreenIconFactory creates screen icons for this sim.  Most of the magic numbers herein were determined empirically,
  * to match the mockups provided in https://github.com/phetsims/graphing-quadratics/issues/11#issuecomment-427149327.
  *
  * @author Chris Malley (PixelZoom, Inc.)

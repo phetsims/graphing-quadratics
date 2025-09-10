@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * View-specific Properties and properties for the 'Vertex Form' screen.
+ * VertexFormViewProperties is the set of view-specific Properties for the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

@@ -1,7 +1,7 @@
 // Copyright 2014-2025, University of Colorado Boulder
 
 /**
- * View for the 'Vertex Form' screen.
+ * VertexFormScreenView is the view for the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

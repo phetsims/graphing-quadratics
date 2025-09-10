@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Displays '(x, y)' coordinates.  If the coordinates are null, this displays '(?, ?)'.
+ * CoordinatesNode displays '(x, y)' coordinates.  If the coordinates are null, this displays '(?, ?)'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

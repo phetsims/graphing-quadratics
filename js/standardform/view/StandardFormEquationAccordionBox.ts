@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Equation accordion box in the 'Standard Form' screen.
+ * StandardFormEquationAccordionBox is the Equation accordion box in the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

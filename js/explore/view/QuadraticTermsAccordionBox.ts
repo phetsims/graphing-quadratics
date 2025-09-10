@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Accordion box for showing and hiding terms of the interactive quadratic equation.
+ * QuadraticTermsAccordionBox is the accordion box for showing and hiding terms of the interactive quadratic equation.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Dashed lines that connect the 'point on parabola' to the focus and directrix.
+ * PointOnParabolaLinesNode displays the dashed lines that connect the 'point on parabola' to the focus and directrix.
  * The visibility of the point-focus and point-directrix lines is controlled independently.
  *
  * @author Chris Malley (PixelZoom, Inc.)

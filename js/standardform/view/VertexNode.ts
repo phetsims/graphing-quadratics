@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Displays the vertex as a non-interactive point with coordinates label.
+ * VertexNode displays the vertex as a non-interactive point with coordinates label.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Draws the curve that is described by a quadratic equation.
+ * QuadraticNode draws the curve that is described by a quadratic equation.
  * The curve is labeled with the equation.
  * Performance is optimized to update only what's visible.
  *

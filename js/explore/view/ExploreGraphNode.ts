@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Graph for the 'Explore' screen.
+ * ExploreGraphNode displays the graph for the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

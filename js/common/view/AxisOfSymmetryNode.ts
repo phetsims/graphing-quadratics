@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Displays the axis of symmetry for a quadratic.
+ * AxisOfSymmetryNode displays the axis of symmetry for a quadratic.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

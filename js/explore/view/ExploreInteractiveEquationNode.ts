@@ -1,9 +1,9 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Standard form equation, y = ax^2 + bx + c, with coefficients that can be changed via sliders.
- * The slider for coefficient 'a' has a quadratic taper (since it's modifying a quadratic term), while
- * the other sliders are linear.
+ * ExploreInteractiveEquationNode displays the interactive equation in standard form equation, y = ax^2 + bx + c,
+ * with coefficients that can be changed via sliders. The slider for coefficient 'a' has a quadratic taper (since
+ * it's modifying a quadratic term), while the other sliders are linear.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

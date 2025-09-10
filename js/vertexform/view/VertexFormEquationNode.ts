@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Static equation in vertex form: y = a(x - h)^2 + k
+ * VertexFormEquationNode displays the static equation: y = a(x - h)^2 + k
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

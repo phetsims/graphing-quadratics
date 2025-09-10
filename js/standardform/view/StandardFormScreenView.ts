@@ -1,7 +1,7 @@
 // Copyright 2014-2025, University of Colorado Boulder
 
 /**
- * View for the 'Standard Form' screen.
+ * StandardFormScreenView is the view for the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

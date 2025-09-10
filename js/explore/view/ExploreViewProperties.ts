@@ -1,7 +1,7 @@
 // Copyright 2018-2023, University of Colorado Boulder
 
 /**
- * View-specific Properties and properties for the 'Explore' screen.
+ * ExploreViewProperties is set of view-specific Properties for the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

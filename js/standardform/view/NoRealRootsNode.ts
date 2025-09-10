@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Displays 'NO REAL ROOTS', used when a quadratic has no real roots.
+ * NoRealRootsNode displays 'NO REAL ROOTS' when the quadratic has no real roots.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

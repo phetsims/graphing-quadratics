@@ -1,7 +1,8 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Alternate vertex form equation, y = (1/(4p))(x - h)^2 + k, with coefficients that can be changed via sliders.
+ * FocusAndDirectrixInteractiveEquationNode displays the interactive equation in alternate vertex form,
+ * y = (1/(4p))(x - h)^2 + k, with coefficients that can be changed via sliders.
  * All sliders have a linear taper.
  *
  * @author Chris Malley (PixelZoom, Inc.)

@@ -1,7 +1,8 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Panel that contains controls for various features related to the graph on the 'Standard Form' screen.
+ * StandardFormGraphControlPanel is the panel that contains controls for various features related to the graph on
+ * the 'Standard Form' screen.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

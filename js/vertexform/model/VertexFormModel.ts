@@ -1,7 +1,7 @@
 // Copyright 2014-2023, University of Colorado Boulder
 
 /**
- * Model for the 'Vertex Form' screen.
+ * VertexFormModel is the model for the 'Vertex Form' screen.
  * Vertex form of the quadratic equation is: y = a(x - h)^2 + k
  *
  * @author Chris Malley (PixelZoom, Inc.)

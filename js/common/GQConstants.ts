@@ -1,7 +1,7 @@
 // Copyright 2014-2025, University of Colorado Boulder
 
 /**
- * Constants that are global to this sim.
+ * GQConstants is the set of constants that are global to this sim.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)

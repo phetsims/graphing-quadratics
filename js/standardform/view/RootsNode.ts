@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Displays the roots of a quadratic as non-interactive points with coordinate labels.
+ * RootsNode displays the roots of a quadratic as non-interactive points with coordinate labels.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

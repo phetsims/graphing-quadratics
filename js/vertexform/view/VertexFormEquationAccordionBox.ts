@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Accordion box in the 'Vertex Form' screen.
+ * VertexFormEquationAccordionBox is the Equation accordion box in the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

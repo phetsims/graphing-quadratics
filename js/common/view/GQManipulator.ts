@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * An extension of Manipulator that adds a display of the manipulator's (x,y) coordinates.
+ * GQManipulator is a base class that extends Manipulator. It adds a display of the manipulator's (x,y) coordinates.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

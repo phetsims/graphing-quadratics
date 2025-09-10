@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Equation accordion box in the 'Explore' screen.
+ * ExploreEquationAccordionBox is the Equation accordion box in the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

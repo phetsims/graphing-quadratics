@@ -1,7 +1,8 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * Vertex form equation, y = ax^2 + bx + c, with integer coefficients that can be changed via pickers.
+ * VertexFormInteractiveEquationNode displays the interactive equation in vertex form, y = ax^2 + bx + c,
+ * with integer coefficients that can be changed via pickers.
  *
  * @author Andrea Lin
  */
