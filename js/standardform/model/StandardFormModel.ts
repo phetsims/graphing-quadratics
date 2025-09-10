@@ -10,8 +10,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty, { NumberPropertyOptions } from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
-import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
-import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
@@ -25,10 +23,6 @@ const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
 const B_RANGE = new RangeWithValue( -6, 6, 0 ); // b coefficient
 const C_RANGE = new RangeWithValue( -6, 6, 0 ); // c constant
 
-type SelfOptions = PickOptional<NumberPropertyOptions, 'numberType'>;
-
-type StandardFormModelOptions = SelfOptions;
-
 export default class StandardFormModel extends GQModel {
 
   // Coefficients for standard form: y = ax^2 + bx + c
@@ -36,44 +30,36 @@ export default class StandardFormModel extends GQModel {
   public readonly bProperty: NumberProperty;
   public readonly cProperty: NumberProperty;
 
-  public constructor( tandem: Tandem, providedOptions?: StandardFormModelOptions ) {
-
-    const options = optionize<StandardFormModelOptions, SelfOptions>()( {
-
-      // SelfOptions
-      numberType: 'Integer'
-    }, providedOptions );
-
-    // Options for all NumberProperty instances
-    const numberPropertyOptions = {
-      numberType: options.numberType
-    };
+  public constructor( tandem: Tandem, numberType: NumberPropertyOptions[ 'numberType' ] = 'Integer' ) {
 
     // a
-    const aProperty = new NumberProperty( A_RANGE.defaultValue, combineOptions<NumberPropertyOptions>( {
+    const aProperty = new NumberProperty( A_RANGE.defaultValue, {
+      numberType: numberType,
       range: A_RANGE,
       tandem: tandem.createTandem( 'aProperty' ),
       phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'a' } )
-    }, numberPropertyOptions ) );
+    } );
     phet.log && aProperty.link( a => { phet.log( `a=${a}` ); } );
 
     // b
-    const bProperty = new NumberProperty( B_RANGE.defaultValue, combineOptions<NumberPropertyOptions>( {
+    const bProperty = new NumberProperty( B_RANGE.defaultValue, {
+      numberType: numberType,
       range: B_RANGE,
       tandem: tandem.createTandem( 'bProperty' ),
       phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'b' } )
-    }, numberPropertyOptions ) );
+    } );
     phet.log && bProperty.link( b => { phet.log( `b=${b}` ); } );
 
     // c
-    const cProperty = new NumberProperty( C_RANGE.defaultValue, combineOptions<NumberPropertyOptions>( {
+    const cProperty = new NumberProperty( C_RANGE.defaultValue, {
+      numberType: numberType,
       range: C_RANGE,
       tandem: tandem.createTandem( 'cProperty' ),
       phetioFeatured: true,
       phetioDocumentation: StringUtils.fillIn( GQConstants.VALUE_DOC, { symbol: 'c' } )
-    }, numberPropertyOptions ) );
+    } );
     phet.log && cProperty.link( c => { phet.log( `c=${c}` ); } );
 
     // {DerivedProperty.<Quadratic>}

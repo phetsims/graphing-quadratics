@@ -24,11 +24,7 @@ export default class ExploreModel extends StandardFormModel {
 
   public constructor( tandem: Tandem ) {
 
-    super( tandem, {
-
-      // NumberProperty coefficients values in this screen are continuous, controlled by sliders
-      numberType: 'FloatingPoint'
-    } );
+    super( tandem, 'FloatingPoint' /* Coefficients this screen are continuous, set using sliders. */ );
 
     this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
       quadratic => quadratic.getQuadraticTerm(), {
