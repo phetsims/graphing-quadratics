@@ -7,7 +7,7 @@
  * - snap to zero (see snapToZero)
  * - skip zero (see skipZero)
  * - change the taper (see map and inverseMap)
- * - a label about the slider
+ * - a label above the slider
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
