@@ -154,8 +154,9 @@ export default class GQModel implements TModel {
   }
 
   /**
-   * Gets the name of the quadratic, as it appears in interactive descriptions.  We did not add Property to Quadratic because
-   * it would have involved changing the PhET-iO API and state object for Quadratic.
+   * Gets the name of the quadratic, as it appears in natural language descriptions. A cleaner implementation would
+   * have been to add a nameProperty to Quadratic. We did not do that because it would have involved a very expensive
+   * change to the PhET-iO API and QuadraticStateObject.
    */
   public getCurveName( quadratic: Quadratic ): string | null {
     if ( quadratic === this.quadraticProperty.value ) {
