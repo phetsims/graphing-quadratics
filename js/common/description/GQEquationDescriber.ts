@@ -30,7 +30,9 @@ export default class GQEquationDescriber {
 
   /**
    * Creates the description for a standard-form equation, y = ax^2 + bx + c.
-   * Coefficients 0, 1, and -1 change the format of the description significantly.
+   * Terms that evaluate to 0 are omitted from the description.
+   * b and c are described as their absolute values, and the preceding operator is plus or minus accordingly.
+   * a and b require special handling when their value is 1 or -1.
    */
   public static createStandardFormDescription( quadratic: Quadratic,
                                                yString: string,
@@ -116,7 +118,9 @@ export default class GQEquationDescriber {
 
   /**
    * Creates the description for a vertex-form equation, y = a(x - h)^2 + k.
-   * Coefficients 0, 1, and -1 change the format of the description significantly.
+   * Terms that evaluate to 0 are omitted from the description.
+   * h and k are described as their absolute values, and the preceding operator is plus or minus accordingly.
+   * a requires special handling when its value is 1 or -1.
    */
   public static createVertexFormDescription( quadratic: Quadratic,
                                              yString: string,
