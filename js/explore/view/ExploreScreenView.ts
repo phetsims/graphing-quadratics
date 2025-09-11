@@ -14,7 +14,7 @@ import ExploreEquationAccordionBox from './ExploreEquationAccordionBox.js';
 import ExploreGraphNode from './ExploreGraphNode.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
 import QuadraticTermsAccordionBox from './QuadraticTermsAccordionBox.js';
-import ExploreScreenSummaryContent from '../description/ExploreScreenSummaryContent.js';
+import ExploreScreenSummaryContent from './description/ExploreScreenSummaryContent.js';
 
 export default class ExploreScreenView extends GQScreenView {
 

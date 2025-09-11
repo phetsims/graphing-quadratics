@@ -15,7 +15,7 @@ import NoRealRootsNode from './NoRealRootsNode.js';
 import RootsNode from './RootsNode.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
 import VertexNode from './VertexNode.js';
-import StandardFormGraphAccessibleListNode from '../description/StandardFormGraphAccessibleListNode.js';
+import StandardFormGraphAccessibleListNode from './description/StandardFormGraphAccessibleListNode.js';
 
 export default class StandardFormGraphNode extends GQGraphNode {
 

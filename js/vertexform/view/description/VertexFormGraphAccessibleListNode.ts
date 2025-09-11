@@ -7,11 +7,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
-import GQGraphAccessibleListNode from '../../common/view/description/GQGraphAccessibleListNode.js';
-import VertexFormModel from '../model/VertexFormModel.js';
-import VertexFormViewProperties from '../view/VertexFormViewProperties.js';
+import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import GQGraphAccessibleListNode from '../../../common/view/description/GQGraphAccessibleListNode.js';
+import VertexFormModel from '../../model/VertexFormModel.js';
+import VertexFormViewProperties from '../VertexFormViewProperties.js';
 
 export default class VertexFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
 

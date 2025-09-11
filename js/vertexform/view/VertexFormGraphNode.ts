@@ -13,7 +13,7 @@ import VertexManipulator from '../../common/view/VertexManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import VertexFormModel from '../model/VertexFormModel.js';
 import VertexFormViewProperties from './VertexFormViewProperties.js';
-import VertexFormGraphAccessibleListNode from '../description/VertexFormGraphAccessibleListNode.js';
+import VertexFormGraphAccessibleListNode from './description/VertexFormGraphAccessibleListNode.js';
 
 export default class VertexFormGraphNode extends GQGraphNode {
 

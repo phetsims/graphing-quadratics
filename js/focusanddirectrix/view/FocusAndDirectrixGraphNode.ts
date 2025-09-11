@@ -16,7 +16,7 @@ import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.j
 import FocusManipulator from './FocusManipulator.js';
 import PointOnParabolaLinesNode from './PointOnParabolaLinesNode.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
-import FocusAndDirectrixGraphAccessibleListNode from '../description/FocusAndDirectrixGraphAccessibleListNode.js';
+import FocusAndDirectrixGraphAccessibleListNode from './description/FocusAndDirectrixGraphAccessibleListNode.js';
 
 export default class FocusAndDirectrixGraphNode extends GQGraphNode {
 

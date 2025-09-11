@@ -7,18 +7,18 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
-import GQGraphAccessibleListNode from '../../common/view/description/GQGraphAccessibleListNode.js';
-import StandardFormModel from '../model/StandardFormModel.js';
-import StandardFormViewProperties from '../view/StandardFormViewProperties.js';
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
-import GQConstants from '../../common/GQConstants.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import GQGraphAccessibleListNode from '../../../common/view/description/GQGraphAccessibleListNode.js';
+import StandardFormModel from '../../model/StandardFormModel.js';
+import StandardFormViewProperties from '../StandardFormViewProperties.js';
+import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
+import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
+import GQConstants from '../../../common/GQConstants.js';
+import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
+import affirm from '../../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 export default class StandardFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
 

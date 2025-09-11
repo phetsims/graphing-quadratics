@@ -14,7 +14,7 @@ import VertexFormEquationAccordionBox from './VertexFormEquationAccordionBox.js'
 import VertexFormGraphControlPanel from './VertexFormGraphControlPanel.js';
 import VertexFormGraphNode from './VertexFormGraphNode.js';
 import VertexFormViewProperties from './VertexFormViewProperties.js';
-import VertexFormScreenSummaryContent from '../description/VertexFormScreenSummaryContent.js';
+import VertexFormScreenSummaryContent from './description/VertexFormScreenSummaryContent.js';
 
 export default class VertexFormScreenView extends GQScreenView {
 

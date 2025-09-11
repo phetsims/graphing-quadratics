@@ -6,11 +6,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import graphingQuadratics from '../../graphingQuadratics.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
-import GQScreenSummaryContent from '../../common/view/description/GQScreenSummaryContent.js';
-import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
+import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
+import GQScreenSummaryContent from '../../../common/view/description/GQScreenSummaryContent.js';
+import PatternStringProperty from '../../../../../axon/js/PatternStringProperty.js';
 
 export default class StandardFormScreenSummaryContent extends GQScreenSummaryContent {
 

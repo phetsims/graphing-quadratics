@@ -7,13 +7,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
-import ExploreModel from '../model/ExploreModel.js';
-import ExploreViewProperties from '../view/ExploreViewProperties.js';
-import GQGraphAccessibleListNode from '../../common/view/description/GQGraphAccessibleListNode.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import ExploreModel from '../../model/ExploreModel.js';
+import ExploreViewProperties from '../ExploreViewProperties.js';
+import GQGraphAccessibleListNode from '../../../common/view/description/GQGraphAccessibleListNode.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 
 export default class ExploreGraphAccessibleListNode extends GQGraphAccessibleListNode {
 

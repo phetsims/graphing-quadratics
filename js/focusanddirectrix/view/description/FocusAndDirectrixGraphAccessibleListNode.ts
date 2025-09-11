@@ -7,17 +7,17 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
-import GQGraphAccessibleListNode from '../../common/view/description/GQGraphAccessibleListNode.js';
-import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
-import FocusAndDirectrixViewProperties from '../view/FocusAndDirectrixViewProperties.js';
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
-import GQConstants from '../../common/GQConstants.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import GQGraphAccessibleListNode from '../../../common/view/description/GQGraphAccessibleListNode.js';
+import FocusAndDirectrixModel from '../../model/FocusAndDirectrixModel.js';
+import FocusAndDirectrixViewProperties from '../FocusAndDirectrixViewProperties.js';
+import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
+import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
+import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
+import GQConstants from '../../../common/GQConstants.js';
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 
 export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAccessibleListNode {
 

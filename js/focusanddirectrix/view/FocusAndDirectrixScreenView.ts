@@ -14,7 +14,7 @@ import FocusAndDirectrixEquationAccordionBox from './FocusAndDirectrixEquationAc
 import FocusAndDirectrixGraphControlPanel from './FocusAndDirectrixGraphControlPanel.js';
 import FocusAndDirectrixGraphNode from './FocusAndDirectrixGraphNode.js';
 import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.js';
-import FocusAndDirectrixScreenSummaryContent from '../description/FocusAndDirectrixScreenSummaryContent.js';
+import FocusAndDirectrixScreenSummaryContent from './description/FocusAndDirectrixScreenSummaryContent.js';
 
 export default class FocusAndDirectrixScreenView extends GQScreenView {
 

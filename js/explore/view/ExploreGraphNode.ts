@@ -14,7 +14,7 @@ import QuadraticNode from '../../common/view/QuadraticNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
-import ExploreGraphAccessibleListNode from '../description/ExploreGraphAccessibleListNode.js';
+import ExploreGraphAccessibleListNode from './description/ExploreGraphAccessibleListNode.js';
 
 export default class ExploreGraphNode extends GQGraphNode {
 
