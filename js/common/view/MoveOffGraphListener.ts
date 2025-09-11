@@ -28,6 +28,8 @@ export default class MoveOffGraphListener extends KeyboardListener<OneKeyStroke[
     super( {
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ MoveOffGraphListener.HOTKEY_DATA ] ),
       fire: ( event, keysPressed ) => {
+
+        // If the 'K' key was pressed and the point tool is on the graph...
         if ( MoveOffGraphListener.HOTKEY_DATA.hasKeyStroke( keysPressed ) && graph.contains( pointToolNode.pointTool.positionProperty.value ) ) {
           phet.log && phet.log( `${keysPressed} shortcut` );
 
