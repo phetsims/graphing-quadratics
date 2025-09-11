@@ -11,7 +11,7 @@ import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/Ac
 import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreViewProperties from '../view/ExploreViewProperties.js';
-import GQGraphAccessibleListNode from '../../common/description/GQGraphAccessibleListNode.js';
+import GQGraphAccessibleListNode from '../../common/view/description/GQGraphAccessibleListNode.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 

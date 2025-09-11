@@ -6,11 +6,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
+import ScreenSummaryContent from '../../../../../joist/js/ScreenSummaryContent.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
+import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 
 export default class GQScreenSummaryContent extends ScreenSummaryContent {
 

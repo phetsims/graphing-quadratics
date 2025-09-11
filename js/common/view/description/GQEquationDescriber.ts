@@ -21,10 +21,10 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import graphingQuadratics from '../../graphingQuadratics.js';
-import GQConstants from '../GQConstants.js';
-import Quadratic from '../model/Quadratic.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import GQConstants from '../../GQConstants.js';
+import Quadratic from '../../model/Quadratic.js';
+import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
 
 export default class GQEquationDescriber {
 

@@ -9,7 +9,7 @@
 
 import { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import GQGraphAccessibleListNode from '../../common/description/GQGraphAccessibleListNode.js';
+import GQGraphAccessibleListNode from '../../common/view/description/GQGraphAccessibleListNode.js';
 import VertexFormModel from '../model/VertexFormModel.js';
 import VertexFormViewProperties from '../view/VertexFormViewProperties.js';
 

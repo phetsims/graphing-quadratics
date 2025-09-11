@@ -8,19 +8,19 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import AccessibleListNode, { AccessibleListItem } from '../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
-import Quadratic from '../model/Quadratic.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import AccessibleListNode, { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
+import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import Quadratic from '../../model/Quadratic.js';
+import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import GQEquationDescriber from './GQEquationDescriber.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
-import GQConstants from '../GQConstants.js';
-import { EquationForm } from '../view/GQViewProperties.js';
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
+import ReadOnlyProperty from '../../../../../axon/js/ReadOnlyProperty.js';
+import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
+import GQConstants from '../../GQConstants.js';
+import { EquationForm } from '../GQViewProperties.js';
 
 export default class GQGraphAccessibleListNode extends AccessibleListNode {
 
