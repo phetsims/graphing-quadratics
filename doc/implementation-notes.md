@@ -154,7 +154,7 @@ The largest chunks of code that implement core description can be found in the v
 
 Smaller pieces of code related to core description can be found by searching for description-related options
 (`accessibleName`, `accessibleHelpText`, `accessibleObjectResponse`, `accessibleContextResponse`) and 
-the `doAccessibleObjectResponse` method in classes for draggable objects.
+the `doAccessibleObjectResponse` method in classes for draggable objects (manipulators, point tools).
 
 ## PhET-iO
 
