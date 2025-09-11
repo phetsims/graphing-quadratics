@@ -52,8 +52,8 @@ type PointToolNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | '
 export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
   public readonly pointTool: PointTool;
-  private readonly graph: GQGraph;
-  private readonly getCurveName: ( quadratic: Quadratic ) => string | null;
+  public readonly graph: GQGraph;
+  public readonly getCurveName: ( quadratic: Quadratic ) => string | null;
 
   public constructor( pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,
@@ -167,7 +167,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
    * Adds an accessible object response that describes what the point tool is currently measuring.
    */
   public doAccessibleObjectResponse(): void {
-    this.addAccessibleObjectResponse( PointToolDescriber.createObjectResponse( this.pointTool, this.graph, this.getCurveName ) );
+    this.addAccessibleObjectResponse( PointToolDescriber.createObjectResponse( this ) );
   }
 }
 

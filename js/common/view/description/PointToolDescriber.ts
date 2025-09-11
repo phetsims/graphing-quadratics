@@ -11,9 +11,7 @@ import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
 import GQConstants from '../../GQConstants.js';
-import PointTool from '../../model/PointTool.js';
-import GQGraph from '../../model/GQGraph.js';
-import Quadratic from '../../model/Quadratic.js';
+import PointToolNode from '../PointToolNode.js';
 
 export default class PointToolDescriber {
 
@@ -24,14 +22,14 @@ export default class PointToolDescriber {
   /**
    * Creates the accessible object response that describes what the point tool is currently measuring.
    */
-  public static createObjectResponse( pointTool: PointTool,
-                                      graph: GQGraph,
-                                      getCurveName: ( quadratic: Quadratic ) => string | null ): string {
+  public static createObjectResponse( pointToolNode: PointToolNode ): string {
 
     let response: string;
+
+    const pointTool = pointToolNode.pointTool;
     const position = pointTool.positionProperty.value;
 
-    if ( graph.contains( position ) ) {
+    if ( pointToolNode.graph.contains( position ) ) {
 
       // Get the curve that the point tool is currently snapped to.
       const snapQuadratic = pointTool.quadraticProperty.value;
@@ -42,15 +40,13 @@ export default class PointToolDescriber {
         response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseXYCurveNameStringProperty, {
           x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
           y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS ),
-          curveName: getCurveName( snapQuadratic )
+          curveName: pointToolNode.getCurveName( snapQuadratic )
         } );
       }
       else {
 
         // On the graph, but not snapped to a curve: "{{x}}, {{y}}"
         response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseXYStringProperty.value, {
-
-          // Use the same formatting and number of decimal places as the visual UI.
           x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
           y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
         } );
