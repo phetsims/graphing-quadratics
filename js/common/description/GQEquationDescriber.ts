@@ -29,7 +29,8 @@ import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 export default class GQEquationDescriber {
 
   /**
-   * Creates the description for a standard-form equation.
+   * Creates the description for a standard-form equation, y = ax^2 + bx + c.
+   * Coefficients 0, 1, and -1 change the format of the description significantly.
    */
   public static createStandardFormDescription( quadratic: Quadratic,
                                                yString: string,
@@ -114,7 +115,8 @@ export default class GQEquationDescriber {
   }
 
   /**
-   * Creates the description for a vertex-form equation.
+   * Creates the description for a vertex-form equation, y = a(x - h)^2 + k.
+   * Coefficients 0, 1, and -1 change the format of the description significantly.
    */
   public static createVertexFormDescription( quadratic: Quadratic,
                                              yString: string,
@@ -182,14 +184,14 @@ export default class GQEquationDescriber {
   }
 
   /**
-   * Creates the description for the directrix equation.
+   * Creates the description for the directrix equation, y = {{directrix}}.
    */
   public static createDirectrixDescription( directrix: number, yString: string, equalsString: string ): string {
     return `${yString} ${equalsString} ${toFixedNumber( directrix, GQConstants.DIRECTRIX_DECIMALS )}`;
   }
 
   /**
-   * Creates the description for the axis of symmetry equation.
+   * Creates the description for the axis of symmetry equation, x = {{axisOfSymmetry}}.
    */
   public static createAxisOfSymmetryDescription( axisOfSymmetry: number, xString: string, equalsString: string ): string {
     return `${xString} ${equalsString} ${toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
