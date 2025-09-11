@@ -87,8 +87,8 @@ component. It is essentially an immutable data structure that describes a quadra
 using standard form (via the constructor), vertex form (via `createFromVertexForm`) and alternate vertex form (
 via `createFromAlternateVertexForm`).
 
-[GQModel](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/GQModel.ts) is the base class for the top-level model in all screens. It includes the model components that are
-common to all screens. Each screen has a subclass of `GQModel` that adds things that are specific to that screen.
+[GQModel](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/GQModel.ts) is the base class for the top-level model in all screens,
+and includes the model components that are common to all screens. Each screen has a subclass of `GQModel` that adds things that are specific to that screen.
 For example, [ExploreModel](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/model/ExploreModel.ts) is
 the model container for the _Explore_ screen.
 
