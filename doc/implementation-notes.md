@@ -153,7 +153,7 @@ The big chunks of code that implement core description can be found in the view/
 * `GQScreenSummaryContent` and its subclasses (one per screen) describe the Screen summaries.
 
 Smaller pieces of code related to core description can be found by searching for description-related options
-(`accessibleName`, `accessibleHelpText`, `accessibleObjectResponse`, `accessibleContextResponse`) and 
+(`accessibleName`, `accessibleHelpText`, `accessibleObjectResponse`, `accessibleContextResponse`, ...) and 
 the `doAccessibleObjectResponse` method in classes for draggable objects (manipulators, point tools).
 
 ## PhET-iO
