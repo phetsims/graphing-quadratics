@@ -27,14 +27,12 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
 
   public constructor( pointToolNode: PointToolNode ) {
 
-    const hotkeyData = JumpToNextCurveListener.HOTKEY_DATA;
-
     const pointTool = pointToolNode.pointTool;
 
     super( {
-      keyStringProperties: HotkeyData.combineKeyStringProperties( [ hotkeyData ] ),
+      keyStringProperties: HotkeyData.combineKeyStringProperties( [ JumpToNextCurveListener.HOTKEY_DATA ] ),
       fire: ( event, keysPressed ) => {
-        if ( hotkeyData.hasKeyStroke( keysPressed ) ) {
+        if ( JumpToNextCurveListener.HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
           phet.log && phet.log( `${keysPressed} shortcut` );
 
           // We should have at least 1 Quadratic, the interactive Quadratic.

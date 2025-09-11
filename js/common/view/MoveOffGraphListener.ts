@@ -25,12 +25,10 @@ export default class MoveOffGraphListener extends KeyboardListener<OneKeyStroke[
 
   public constructor( pointToolNode: PointToolNode, graph: GQGraph ) {
 
-    const hotkeyData = MoveOffGraphListener.HOTKEY_DATA;
-
     super( {
-      keyStringProperties: HotkeyData.combineKeyStringProperties( [ hotkeyData ] ),
+      keyStringProperties: HotkeyData.combineKeyStringProperties( [ MoveOffGraphListener.HOTKEY_DATA ] ),
       fire: ( event, keysPressed ) => {
-        if ( hotkeyData.hasKeyStroke( keysPressed ) && graph.contains( pointToolNode.pointTool.positionProperty.value ) ) {
+        if ( MoveOffGraphListener.HOTKEY_DATA.hasKeyStroke( keysPressed ) && graph.contains( pointToolNode.pointTool.positionProperty.value ) ) {
           phet.log && phet.log( `${keysPressed} shortcut` );
 
           // Move to the tool's initial 'off graph' position.
