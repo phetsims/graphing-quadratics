@@ -25,14 +25,17 @@ export default class PointToolDescriber {
    * Creates the accessible object response that describes what the point tool is currently measuring.
    */
   public static createObjectResponse( pointTool: PointTool,
-                                   graph: GQGraph,
-                                   getCurveName: ( quadratic: Quadratic ) => string | null ): string {
+                                      graph: GQGraph,
+                                      getCurveName: ( quadratic: Quadratic ) => string | null ): string {
 
     let response: string;
-
     const position = pointTool.positionProperty.value;
+
     if ( graph.contains( position ) ) {
+
+      // Get the curve that the point tool is currently snapped to.
       const snapQuadratic = pointTool.quadraticProperty.value;
+
       if ( snapQuadratic ) {
 
         // Snapped to a curve: "{{x}}, {{y}} on {{curveName}}"
