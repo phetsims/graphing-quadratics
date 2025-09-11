@@ -49,11 +49,11 @@ export default class ExploreModel extends StandardFormModel {
   }
 
   /**
-   * Gets the name of a quadratic, as it appears in interactive descriptions.
+   * Gets the name of the quadratic, as it appears in natural language descriptions.
    */
   public override getCurveName( quadratic: Quadratic ): string | null {
 
-    // Compare to primary and saved quadratic first.
+    // Compare to primary and saved quadratic first, handled by the superclass.
     let curveName = super.getCurveName( quadratic );
 
     // Compare to the individual terms.
