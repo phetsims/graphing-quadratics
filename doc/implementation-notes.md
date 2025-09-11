@@ -146,11 +146,11 @@ is the checkbox labeled with "Focus" and a focus manipulator icon.
 
 ## Core Description
 
-The largest chunks of code that implement core description can be found in the view/description/ subdirectories. For example:
-* `GQScreenSummaryContent` and its subclasses describe the Screen summaries.
+The big chunks of code that implement core description can be found in the view/description/ subdirectories:
 * `GQEquationDescriber` describes mathematical equations.
 * `PointToolDescriber` describes what a point tool is measuring.
-* `GQGraphAccessibleListNode` and its subclasses describe what is shown in the Graph Area.
+* `GQGraphAccessibleListNode` and its subclasses (one per screen) describe what is shown in the Graph Area.
+* `GQScreenSummaryContent` and its subclasses (one per screen) describe the Screen summaries.
 
 Smaller pieces of code related to core description can be found by searching for description-related options
 (`accessibleName`, `accessibleHelpText`, `accessibleObjectResponse`, `accessibleContextResponse`) and 
