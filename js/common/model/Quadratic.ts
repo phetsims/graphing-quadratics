@@ -396,6 +396,9 @@ export default class Quadratic {
     };
   }
 
+  /**
+   * QuadraticIO implements data-type serialization for Quadratic instances.
+   */
   public static readonly QuadraticIO = new IOType<IntentionalAny, IntentionalAny>( 'QuadraticIO', {
     valueType: Quadratic,
     documentation:
