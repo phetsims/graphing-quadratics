@@ -10,6 +10,11 @@
  * the sim because MaxJax lacks support for localization. So we decided to generate our own natural language
  * descriptions that emulate ClearSpeak. See https://github.com/phetsims/graphing-quadratics/issues/226 for history.
  *
+ * Note that we are using string concatenation to assemble these descriptions. Concatenation is typically verboten in
+ * the general case, because it results in a string whose order is fixed and cannot be localized. But math expressions
+ * seem to be an exception, as equations and expressions are written in the same left-to-right order regardless of
+ * locale. So it's acceptable to use concatenation here -- and practically speaking, we had no other choice.
+ *
  * This class was created by copying GQEquationFactory, then adjusting the implementation to produce natural language
  * instead of RichText markup.
  *
