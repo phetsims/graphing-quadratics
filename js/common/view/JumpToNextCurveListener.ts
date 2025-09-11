@@ -14,12 +14,20 @@ import PointToolNode from './PointToolNode.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Quadratic from '../model/Quadratic.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStroke[]> {
 
+  // Keystroke and metadata for this shortcut.
+  public static readonly HOTKEY_DATA = new HotkeyData( {
+    keys: [ 'j' ],
+    repoName: graphingQuadratics.name,
+    keyboardHelpDialogLabelStringProperty: GraphingQuadraticsStrings.keyboardHelpDialog.jumpToNextCurveStringProperty
+  } );
+
   public constructor( pointToolNode: PointToolNode ) {
 
-    const hotkeyData = PointToolNode.JUMP_TO_NEXT_CURVE_HOTKEY_DATA;
+    const hotkeyData = JumpToNextCurveListener.HOTKEY_DATA;
 
     const pointTool = pointToolNode.pointTool;
 

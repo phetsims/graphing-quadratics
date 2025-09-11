@@ -35,7 +35,6 @@ import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibilit
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
-import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import GQGraph from '../model/GQGraph.js';
@@ -57,20 +56,6 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
   public readonly pointTool: PointTool;
   private readonly graph: GQGraph;
   private readonly getCurveName: ( quadratic: Quadratic ) => string | null;
-
-  // Keyboard shortcut for "jump to next curve".
-  public static readonly JUMP_TO_NEXT_CURVE_HOTKEY_DATA = new HotkeyData( {
-    keys: [ 'j' ],
-    repoName: graphingQuadratics.name,
-    keyboardHelpDialogLabelStringProperty: GraphingQuadraticsStrings.keyboardHelpDialog.jumpToNextCurveStringProperty
-  } );
-
-  // Keyboard shortcut for "move off grid".
-  public static readonly MOVE_OFF_GRID_HOTKEY_DATA = new HotkeyData( {
-    keys: [ 'k' ],
-    repoName: graphingQuadratics.name,
-    keyboardHelpDialogLabelStringProperty: GraphingQuadraticsStrings.keyboardHelpDialog.moveOffGridStringProperty
-  } );
 
   public constructor( pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,

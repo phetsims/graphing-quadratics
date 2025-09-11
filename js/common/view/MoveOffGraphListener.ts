@@ -12,12 +12,20 @@ import type { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import PointToolNode from './PointToolNode.js';
 import GQGraph from '../model/GQGraph.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
 export default class MoveOffGraphListener extends KeyboardListener<OneKeyStroke[]> {
 
+  // Keystroke and metadata for this shortcut.
+  public static readonly HOTKEY_DATA = new HotkeyData( {
+    keys: [ 'k' ],
+    repoName: graphingQuadratics.name,
+    keyboardHelpDialogLabelStringProperty: GraphingQuadraticsStrings.keyboardHelpDialog.moveOffGridStringProperty
+  } );
+
   public constructor( pointToolNode: PointToolNode, graph: GQGraph ) {
 
-    const hotkeyData = PointToolNode.MOVE_OFF_GRID_HOTKEY_DATA;
+    const hotkeyData = MoveOffGraphListener.HOTKEY_DATA;
 
     super( {
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ hotkeyData ] ),
