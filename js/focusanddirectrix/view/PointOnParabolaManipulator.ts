@@ -99,6 +99,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
       this.translation = modelViewTransform.modelToViewPosition( pointOnParabola );
     } );
 
+    // When this manipulator gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
       focused && this.doAccessibleObjectResponse();
     } );

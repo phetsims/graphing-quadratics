@@ -118,6 +118,7 @@ export default class VertexManipulator extends GQManipulator {
       }
     } );
 
+    // When this manipulator gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
       focused && this.doAccessibleObjectResponse();
     } );

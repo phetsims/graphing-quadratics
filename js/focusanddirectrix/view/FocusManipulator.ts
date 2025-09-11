@@ -110,6 +110,7 @@ export default class FocusManipulator extends GQManipulator {
       this.translation = modelViewTransform.modelToViewPosition( focus );
     } );
 
+    // When this manipulator gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
       focused && this.doAccessibleObjectResponse();
     } );

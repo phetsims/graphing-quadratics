@@ -28,6 +28,10 @@ import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
 
 export default class GQEquationDescriber {
 
+  private constructor() {
+    // Not intended for instantiation.
+  }
+
   /**
    * Creates the description for a standard-form equation, y = ax^2 + bx + c.
    * Terms that evaluate to 0 are omitted from the description.

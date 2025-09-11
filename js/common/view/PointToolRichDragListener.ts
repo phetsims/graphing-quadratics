@@ -69,7 +69,7 @@ export class PointToolRichDragListener extends SoundRichDragListener {
 
       drag: ( event, listener ) => {
 
-        // Constrained to dragBounds.
+        // Constrain to dragBounds.
         let position = pointTool.dragBounds.closestPointTo( listener.modelPoint );
 
         // If we're on the graph and the contents of the graph are visible...
@@ -126,6 +126,7 @@ export class PointToolRichDragListener extends SoundRichDragListener {
         // Move the point tool.
         pointTool.positionProperty.value = position;
 
+        // Describe what the point tool is measuring.
         pointToolNode.doAccessibleObjectResponse();
       },
 

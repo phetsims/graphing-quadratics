@@ -32,13 +32,11 @@ import PointTool from '../model/PointTool.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import { PointToolRichDragListener } from './PointToolRichDragListener.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import GQGraph from '../model/GQGraph.js';
 import Quadratic from '../model/Quadratic.js';
+import PointToolDescriber from './description/PointToolDescriber.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -159,45 +157,17 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     // Requested in https://github.com/phetsims/graphing-quadratics/issues/191
     this.addLinkedElement( pointTool );
 
+    // When this tool gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
       focused && this.doAccessibleObjectResponse();
     } );
   }
 
   /**
-   * Adds an accessible object response that describes the point that the point tool is currently measuring.
+   * Adds an accessible object response that describes what the point tool is currently measuring.
    */
   public doAccessibleObjectResponse(): void {
-    let response: string;
-    const position = this.pointTool.positionProperty.value;
-    if ( this.graph.contains( position ) ) {
-      const snapQuadratic = this.pointTool.quadraticProperty.value;
-      if ( snapQuadratic ) {
-
-        // Snapped to a curve: "{{x}}, {{y}} on {{curveName}}"
-        response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseXYCurveNameStringProperty, {
-          x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
-          y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS ),
-          curveName: this.getCurveName( snapQuadratic )
-        } );
-      }
-      else {
-
-        // On the graph, but not snapped to a curve: "{{x}}, {{y}}"
-        response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseXYStringProperty.value, {
-
-          // Use the same formatting and number of decimal places as the visual UI.
-          x: toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS ),
-          y: toFixedNumber( position.y, GQConstants.POINT_TOOL_DECIMALS )
-        } );
-      }
-    }
-    else {
-
-      // "off grid"
-      response = GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseOffGridStringProperty.value;
-    }
-    this.addAccessibleObjectResponse( response );
+    this.addAccessibleObjectResponse( PointToolDescriber.createObjectResponse( this.pointTool, this.graph, this.getCurveName ) );
   }
 }
 
