@@ -37,16 +37,27 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
         if ( JumpToNextCurveListener.HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
           phet.log && phet.log( `${keysPressed} shortcut` );
 
-          // We should have at least 1 Quadratic, the interactive Quadratic.
+          // Get the set of curves that the tool may intersect. There is always at least 1 curve, the interactive quadratic.
           const quadratics = pointTool.quadraticsProperty.value;
           affirm( quadratics.length > 0 );
 
-          // Determine which Quadratic to snap to.
+          // Determine which curve to snap to.
           let nextQuadratic: Quadratic | null;
-          if ( pointTool.quadraticProperty.value ) {
+          if ( pointTool.quadraticProperty.value === null ) {
 
-            // Point tool is snapped to a quadratic. Jump to the next quadratic in the list, at the point that is closest to the origin.
-            if ( quadratics.length > 1 ) {
+            // The tool is NOT snapped to a curve. Jump to the first quadratic in the list.
+            nextQuadratic = quadratics[ 0 ];
+          }
+          else {
+
+            if ( quadratics.length === 1 ) {
+
+              // There is only one quadratic, and therefore no "next curve".
+              nextQuadratic = null;
+            }
+            else {
+
+              // Identify the next curve.
               const currentQuadratic = pointTool.quadraticProperty.value;
               const indexOfCurrentQuadratic = quadratics.indexOf( currentQuadratic );
               affirm( indexOfCurrentQuadratic !== -1 );
@@ -55,18 +66,9 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
               nextQuadratic = quadratics[ indexOfNextQuadratic ];
               affirm( nextQuadratic );
             }
-            else {
-              // There is only one Quadratic, and therefore no "next quadratic", so do nothing.
-              nextQuadratic = null;
-            }
-          }
-          else {
-
-            // Point tool is NOT snapped to a quadratic. Jump to the first quadratic in the list.
-            nextQuadratic = pointTool.quadraticsProperty.value[ 0 ];
           }
 
-          // Jump to the next curve, at a point that is closest to the origin. This guarantees that the point will be on the graph.
+          // Jump to the next curve, at the point that is closest to the origin. This guarantees that the point will be on the graph.
           if ( nextQuadratic ) {
             pointTool.quadraticProperty.value = nextQuadratic;
             pointTool.positionProperty.value = nextQuadratic.getClosestPoint( Vector2.ZERO );
