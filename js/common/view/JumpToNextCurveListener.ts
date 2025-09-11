@@ -32,6 +32,8 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
     super( {
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ JumpToNextCurveListener.HOTKEY_DATA ] ),
       fire: ( event, keysPressed ) => {
+
+        // If the 'J' key was pressed...
         if ( JumpToNextCurveListener.HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
           phet.log && phet.log( `${keysPressed} shortcut` );
 
