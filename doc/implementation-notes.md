@@ -143,3 +143,22 @@ of `SUN/Checkbox` that supports labeling with an optional icon, and provides sta
 font, fill,...) You can locate a `Checkbox` subclass based on the English text used on checkbox. For
 example, [FocusCheckbox](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/FocusCheckbox.ts)
 is the checkbox labeled with "Focus" and a focus manipulator icon.
+
+## Core Description
+
+The largest chunks of code that implement core description can be found in the view/description/ subdirectories. For example:
+* `GQScreenSummaryContent` and its subclasses describe the Screen summaries.
+* `GQEquationDescriber` describes mathematical equations.
+* `PointToolDescriber` describes what a point tool is measuring.
+* `GQGraphAccessibleListNode` and its subclasses describe what is shown in the Graph Area.
+
+Smaller pieces of code related to core description can be found by searching for description-related options
+(`accessibleName`, `accessibleHelpText`, `accessibleObjectResponse`, `accessibleContextResponse`) and 
+the `doAccessibleObjectResponse` in the classes for draggable objects.
+
+## PhET-iO
+
+There are no dynamic elements in this sim, and therefore no uses of `PhetioGroup` or `PhetioCapsule`.
+  
+`Quadratic.QuadraticIO` is a custom `IOType` that implements data-type serialization for quadratic equations. 
+It is used as the `phetioValueType` for various Properties whose value is of type `Quadratic`.
