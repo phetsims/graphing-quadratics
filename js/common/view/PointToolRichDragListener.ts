@@ -23,8 +23,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraph from '../model/GQGraph.js';
 import Quadratic from '../model/Quadratic.js';
 
-// REVIEW: Is the first part of this comment accurate?  When interacting with the point tool, it doesn't seem to be
-//         snapping to integer x-coordinates.  The snapping resolution seems much finer than that (as it should be).
 // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
 // how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
 // We decided that the most effective value was the smallest interval that the point tool displays.
@@ -97,6 +95,7 @@ export class PointToolRichDragListener extends SoundRichDragListener {
 
             // If the event came from the keyboard, skip snapping the x value. Otherwise, the left and right arrow keys
             // will stop working when the slope of the curve gets steep.
+            //TODO https://github.com/phetsims/graphing-quadratics/issues/238 Skipping this does not address the problem that required X_SNAP_TOLERANCE.
             if ( !event.isFromPDOM() ) {
 
               // We will be snapping the x value as it will be displayed by the point tool.
