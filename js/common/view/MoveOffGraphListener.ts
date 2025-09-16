@@ -28,15 +28,13 @@ export default class MoveOffGraphListener extends KeyboardListener<OneKeyStroke[
     super( {
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ MoveOffGraphListener.HOTKEY_DATA ] ),
       fire: ( event, keysPressed ) => {
-        if ( MoveOffGraphListener.HOTKEY_DATA.hasKeyStroke( keysPressed ) && graph.contains( pointToolNode.pointTool.positionProperty.value ) ) {
-          phet.log && phet.log( `${keysPressed} shortcut` );
+        phet.log && phet.log( `${keysPressed} shortcut` );
 
-          // Move to the tool's initial 'off graph' position.
-          pointToolNode.pointTool.positionProperty.value = pointToolNode.pointTool.positionProperty.initialValue;
+        // Move to the tool's initial 'off graph' position.
+        pointToolNode.pointTool.positionProperty.value = pointToolNode.pointTool.positionProperty.initialValue;
 
-          // Describe the tool's new position.
-          pointToolNode.doAccessibleObjectResponse();
-        }
+        // Describe the tool's new position.
+        pointToolNode.doAccessibleObjectResponse();
       }
     } );
   }
