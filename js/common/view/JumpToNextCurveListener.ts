@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * JumpToNextCurveListener is a keyboard shortcut (J) that jumps the point tool to the closest point on the next curve.
+ * JumpToNextCurveListener is a keyboard shortcut that jumps the point tool to the closest point on the next curve.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -32,8 +32,6 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
     super( {
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ JumpToNextCurveListener.HOTKEY_DATA ] ),
       fire: ( event, keysPressed ) => {
-
-        // If the 'J' key was pressed...
         if ( JumpToNextCurveListener.HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
           phet.log && phet.log( `${keysPressed} shortcut` );
 
