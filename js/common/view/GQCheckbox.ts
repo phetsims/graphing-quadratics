@@ -1,12 +1,9 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
-// REVIEW: The comment below says that GQCheckbox is a base class, but I'm not seeing any extensions of it, and it seems
-//         like it contains the needed behavior and provides static factory methods for the variations.  Is this comment
-//         out of date?
 /**
- * GQCheckbox is the base class for a checkbox that is labeled with text, with an optional icon to the right of the text.
- * This provides consistent font and textNode.maxWidth for all checkboxes in the sim, and factory methods for
- * creating each checkbox.
+ * GQCheckbox is a specialization of Checkbox to meet the "look" and feature needs of this simulation.
+ * Specific option values provide the "look", and it adds an optional icon to the right of the text.
+ * The constructor is private, and instances are instantiated via a set of public factory methods.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
