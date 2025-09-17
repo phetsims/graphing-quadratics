@@ -121,17 +121,17 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     this.getCurveName = getCurveName;
 
     Multilink.multilink( [ pointTool.positionProperty, pointTool.quadraticProperty, graphContentsVisibleProperty ],
-      ( position, onQuadratic, graphContentsVisible ) => {
+      ( position, quadratic, graphContentsVisible ) => {
 
         // move to position
         this.translation = modelViewTransform.modelToViewPosition( position );
 
         // update colors
-        if ( graph.contains( position ) && onQuadratic && graphContentsVisible ) {
+        if ( graph.contains( position ) && quadratic && graphContentsVisible ) {
 
           // color code the display to onQuadratic
           bodyNode.setTextFill( options.foregroundHighlightColor );
-          bodyNode.setBackgroundFill( onQuadratic.color );
+          bodyNode.setBackgroundFill( quadratic.color );
         }
         else {
           bodyNode.setTextFill( options.foregroundNormalColor );
