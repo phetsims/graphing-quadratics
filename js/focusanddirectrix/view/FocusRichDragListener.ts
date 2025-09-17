@@ -42,6 +42,7 @@ export class FocusRichDragListener extends SoundRichDragListener {
     super( {
       transform: modelViewTransform,
       keyboardDragListenerOptions: {
+        moveOnHoldInterval: 400, // See https://github.com/phetsims/graphing-quadratics/issues/242#issuecomment-3300782241
         dragDelta: modelViewTransform.modelToViewDeltaX( 0.5 ),
         shiftDragDelta: modelViewTransform.modelToViewDeltaX( 0.1 )
       },
