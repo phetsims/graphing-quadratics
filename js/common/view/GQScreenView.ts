@@ -9,22 +9,22 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import EyeToggleButton from '../../../../scenery-phet/js/buttons/EyeToggleButton.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
 import GQViewProperties from './GQViewProperties.js';
 import PointToolNode from './PointToolNode.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
-import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 // constants
 const X_SPACING = 15; // between graph and control panels
@@ -90,10 +90,8 @@ export default class GQScreenView extends ScreenView {
       bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
       accessibleName: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleNameStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleHelpTextStringProperty,
-      accessibleContextResponse: new DerivedProperty( [ viewProperties.graphContentsVisibleProperty ],
-        graphContentsVisible => graphContentsVisible ?
-                                GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleContextResponseShownStringProperty :
-                                GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleContextResponseHiddenStringProperty ),
+      accessibleContextResponseOn: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleContextResponseHiddenStringProperty,
+      accessibleContextResponseOff: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleContextResponseShownStringProperty,
       tandem: options.tandem.createTandem( 'graphContentsToggleButton' ),
       phetioDocumentation: 'button that shows/hides the contents of the graph'
     } );
