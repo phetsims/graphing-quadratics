@@ -24,8 +24,11 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
     super( {
       isDisposable: false,
 
-      // ms, see https://github.com/phetsims/graphing-quadratics/issues/242#issuecomment-3300782241
-      moveOnHoldInterval: 400,
+      // For keyboard input, use 'delta' API because this manipulator moves in discrete increments, and should have
+      // a discrete feel. Values are in units per moveOnHoldInterval.
+      dragDelta: 1,
+      shiftDragDelta: 0.1,
+      moveOnHoldInterval: 400, // ms, see https://github.com/phetsims/graphing-quadratics/issues/242#issuecomment-3300782241
 
       /**
        * Move one unit horizontally or vertically each time drag is called.
@@ -38,17 +41,11 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
         let k = kProperty.value;
 
         // Change the value that corresponds to the drag motion.
-        if ( listener.modelDelta.x > 0 ) {
-          h++;
+        if ( listener.modelDelta.x !== 0 ) {
+          h += listener.modelDelta.x;
         }
-        else if ( listener.modelDelta.x < 0 ) {
-          h--;
-        }
-        else if ( listener.modelDelta.y > 0 ) {
-          k--;
-        }
-        else if ( listener.modelDelta.y < 0 ) {
-          k++;
+        else if ( listener.modelDelta.y !== 0 ) {
+          k -= listener.modelDelta.y;
         }
 
         // Constrain to the ranges of h and k.
