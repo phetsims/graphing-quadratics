@@ -2,7 +2,8 @@
 
 /**
  * FocusRichDragListener is the drag listener that supports both pointer and keyboard input for changing the
- * focus of a quadratic.
+ * focus of a quadratic.  Because the associated Property is pProperty (a scalar) and not a positionProperty (Vector2),
+ * there is some logic that is different for pointer input vs keyboard input.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -19,6 +20,7 @@ import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragList
 import FocusManipulator from './FocusManipulator.js';
 import GQConstants from '../../common/GQConstants.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 
 export class FocusRichDragListener extends SoundRichDragListener {
 
@@ -39,25 +41,50 @@ export class FocusRichDragListener extends SoundRichDragListener {
 
     affirm( pProperty.range, 'pProperty is missing range' );
 
+    // For pointer input, where the drag started, relative to the manipulator's origin.
+    let pointerStartOffset: Vector2;
+
     super( {
       transform: modelViewTransform,
-      keyboardDragListenerOptions: {
 
-        // Use 'delta' API because this manipulator moves in discrete increments, and should have a discrete feel.
-        // Values are in view units per moveOnHoldInterval.
+      // For keyboard input, use 'delta' API because this manipulator moves in discrete increments, and should have
+      // a discrete feel. Values are in view units per moveOnHoldInterval.
+      keyboardDragListenerOptions: {
         dragDelta: modelViewTransform.modelToViewDeltaX( 0.5 ),
         shiftDragDelta: modelViewTransform.modelToViewDeltaX( 0.1 ),
         moveOnHoldInterval: 400 // ms, see https://github.com/phetsims/graphing-quadratics/issues/242#issuecomment-3300782241
       },
+
+      // For pointer input, note where the drag started.
+      start: ( event, listener ) => {
+        if ( !event.isFromPDOM() ) {
+          const focus = quadraticProperty.value.focus!;
+          affirm( focus, `expected focus: ${focus}` );
+          const position = modelViewTransform.modelToViewPosition( focus );
+          pointerStartOffset = manipulator.globalToParentPoint( event.pointer.point ).minus( position );
+        }
+      },
+
       drag: ( event, listener ) => {
 
         const vertex = quadraticProperty.value.vertex!;
         affirm( vertex, `expected vertex: ${vertex}` );
 
-        let y = pProperty.value + vertex.y + listener.modelDelta.y;
+        // Compute the new y-coordinate of the vertex.
+        let y: number;
+        if ( event.isFromPDOM() ) {
 
-        // constrain to the graph
-        y = yRange.constrainValue( y );
+          // Handle keyboard drag.
+          y = pProperty.value + vertex.y + listener.modelDelta.y;
+          y = yRange.constrainValue( y );
+        }
+        else {
+
+          // Handle pointer drag.
+          const parentPoint = manipulator.globalToParentPoint( event.pointer.point ).minus( pointerStartOffset );
+          const position = modelViewTransform.viewToModelPosition( parentPoint );
+          y = yRange.constrainValue( position.y );
+        }
 
         // constrain and round
         let p = pProperty.range.constrainValue( y - vertex.y );
