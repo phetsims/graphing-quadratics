@@ -74,6 +74,10 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const numeratorNode = new RichText( '1', equationOptions );
     const pNumberDisplay = new NumberDisplay( pProperty, pProperty.range,
       combineOptions<NumberDisplayOptions>( {}, GQConstants.NUMBER_DISPLAY_OPTIONS, {
+
+        // For 'p', center aligning looks better due to the parentheses around the value.
+        // See https://github.com/phetsims/graphing-quadratics/issues/241.
+        align: 'center',
         textOptions: {
           fill: GQColors.focusAndDirectrixPColorProperty
         },
