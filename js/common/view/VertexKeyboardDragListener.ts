@@ -23,7 +23,9 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
                       tandem: Tandem ) {
     super( {
       isDisposable: false,
-      moveOnHoldInterval: 400, // See https://github.com/phetsims/graphing-quadratics/issues/242#issuecomment-3300782241
+
+      // ms, see https://github.com/phetsims/graphing-quadratics/issues/242#issuecomment-3300782241
+      moveOnHoldInterval: 400,
 
       /**
        * Move one unit horizontally or vertically each time drag is called.
