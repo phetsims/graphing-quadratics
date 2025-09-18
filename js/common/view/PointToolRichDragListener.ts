@@ -97,13 +97,10 @@ export class PointToolRichDragListener extends SoundRichDragListener {
             // will stop working when the slope of the curve gets steep.
             //TODO https://github.com/phetsims/graphing-quadratics/issues/238 Skipping this does not address the problem that required X_SNAP_TOLERANCE.
             if ( !event.isFromPDOM() ) {
-
-              // We will be snapping the x value as it will be displayed by the point tool.
-              // See https://github.com/phetsims/graphing-quadratics/issues/169.
               x = toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
 
-              // If x is close to an integer value, snap to that integer value.
-              // See https://github.com/phetsims/graphing-quadratics/issues/169.
+              // If the x-coordinate is so close to an integer value that the point tool will display it as an integer,
+              // snap to that integer value. See https://github.com/phetsims/graphing-quadratics/issues/169.
               const closestInteger = toFixedNumber( x, 0 );
               if ( Math.abs( x - closestInteger ) < X_SNAP_TOLERANCE ) {
                 x = closestInteger;
