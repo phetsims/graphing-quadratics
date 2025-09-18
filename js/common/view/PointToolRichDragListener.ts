@@ -107,6 +107,7 @@ export class PointToolRichDragListener extends SoundRichDragListener {
               const closestInteger = toFixedNumber( x, 0 );
               if ( Math.abs( x - closestInteger ) < X_SNAP_TOLERANCE ) {
                 x = closestInteger;
+                phet.log && phet.log( `pointTool snapped to integer x = ${x}` );
               }
             }
 
