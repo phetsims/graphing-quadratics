@@ -135,7 +135,7 @@ export default class GQSlider extends Node {
 
           // skip zero
           if ( Math.abs( newModelValue ) < options.interval ) {
-            return options.map( ( newModelValue > 0 ) ? options.interval : -options.interval );
+            return options.map( ( newModelValue > coefficientProperty.value ) ? options.interval : -options.interval );
           }
         }
 
