@@ -41,6 +41,7 @@ export default class PointTool extends PhetioObject {
 
   public readonly probeSide: ProbeSide;
   public readonly dragBounds: Bounds2;
+  //TODO https://github.com/phetsims/graphing-quadratics/issues/216 isDragging is set but not used.
   public isDragging: boolean; // true while the user is dragging the point tool
   public readonly positionProperty: Property<Vector2>;
 
@@ -106,7 +107,7 @@ export default class PointTool extends PhetioObject {
             quadraticProperty.value = null;
           }
           else if ( this.quadraticProperty.value &&
-                    this.quadraticProperty.value.hasSolution( position, GQQueryParameters.snapOffDistance ) &&
+                    this.quadraticProperty.value.hasSolution( position, GQQueryParameters.pointToolThreshold ) &&
                     this.quadraticsProperty.value.includes( this.quadraticProperty.value ) ) {
             // Do nothing, stay snapped to the current curve.
           }
