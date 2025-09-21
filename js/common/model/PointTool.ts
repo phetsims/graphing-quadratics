@@ -51,11 +51,6 @@ export default class PointTool extends PhetioObject {
   // Quadratic that this point tool is on, null if it is not on a Quadratic.
   public readonly quadraticProperty: Property<Quadratic | null>;
 
-  /**
-   * @param quadraticsProperty
-   * @param graph
-   * @param providedOptions
-   */
   public constructor( quadraticsProperty: TReadOnlyProperty<Quadratic[]>, graph: GQGraph, providedOptions: PointToolOptions ) {
 
     const options = optionize<PointToolOptions, SelfOptions, PhetioObjectOptions>()( {
