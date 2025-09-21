@@ -144,6 +144,8 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
       labelColor: GQColors.focusAndDirectrixPColorProperty,
       sliderOptions: {
+        keyboardStep: GQConstants.P_KEYBOARD_STEP,
+        shiftKeyboardStep: GQConstants.P_SHIFT_KEYBOARD_STEP,
         accessibleName: GraphingQuadraticsStrings.a11y.pSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.pSlider.accessibleHelpTextStringProperty,
         tandem: tandem.createTandem( 'pSlider' ),
