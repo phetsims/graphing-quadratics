@@ -19,6 +19,7 @@ import GQColors from './GQColors.js';
 import { CreditsData } from '../../../joist/js/CreditsNode.js';
 
 const PANEL_CORNER_RADIUS = 5; // corner radius for all panel-like containers
+const LINEAR_SLIDER_KEYBOARD_STEP = 0.5; // Keyboard step for all linear sliders.
 
 export default class GQConstants {
 
@@ -144,6 +145,20 @@ export default class GQConstants {
   public static readonly FOCUS_AND_DIRECTRIX_INTERVAL_P = 0.1;
   public static readonly FOCUS_AND_DIRECTRIX_INTERVAL_H = 0.1;
   public static readonly FOCUS_AND_DIRECTRIX_INTERVAL_K = 0.1;
+
+  // keyboard steps for sliders
+  public static readonly A_KEYBOARD_STEP = 0.5;
+  public static readonly A_SHIFT_KEYBOARD_STEP = GQConstants.EXPLORE_INTERVAL_A;
+  public static readonly B_KEYBOARD_STEP = LINEAR_SLIDER_KEYBOARD_STEP;
+  public static readonly B_SHIFT_KEYBOARD_STEP = GQConstants.EXPLORE_INTERVAL_B;
+  public static readonly C_KEYBOARD_STEP = LINEAR_SLIDER_KEYBOARD_STEP;
+  public static readonly C_SHIFT_KEYBOARD_STEP = GQConstants.EXPLORE_INTERVAL_C;
+  public static readonly P_KEYBOARD_STEP = LINEAR_SLIDER_KEYBOARD_STEP;
+  public static readonly P_SHIFT_KEYBOARD_STEP = GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P;
+  public static readonly H_KEYBOARD_STEP = LINEAR_SLIDER_KEYBOARD_STEP;
+  public static readonly H_SHIFT_KEYBOARD_STEP = GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H;
+  public static readonly K_KEYBOARD_STEP = LINEAR_SLIDER_KEYBOARD_STEP;
+  public static readonly K_SHIFT_KEYBOARD_STEP = GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K;
 
   // margins between equations and edges of graph
   // Caution! Changing these may cause an equation to go off the graph. Test thoroughly!

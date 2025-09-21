@@ -155,6 +155,8 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
       labelColor: GQColors.focusAndDirectrixHColorProperty,
       sliderOptions: {
+        keyboardStep: GQConstants.H_KEYBOARD_STEP,
+        shiftKeyboardStep: GQConstants.H_SHIFT_KEYBOARD_STEP,
         accessibleName: GraphingQuadraticsStrings.a11y.hSlider.accessibleNameStringProperty,
         tandem: tandem.createTandem( 'hSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'h' } )
@@ -165,6 +167,8 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
       labelColor: GQColors.focusAndDirectrixKColorProperty,
       sliderOptions: {
+        keyboardStep: GQConstants.K_KEYBOARD_STEP,
+        shiftKeyboardStep: GQConstants.K_SHIFT_KEYBOARD_STEP,
         accessibleName: GraphingQuadraticsStrings.a11y.kSlider.accessibleNameStringProperty,
         tandem: tandem.createTandem( 'kSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'k' } )

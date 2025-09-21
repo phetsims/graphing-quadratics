@@ -135,6 +135,8 @@ export default class ExploreInteractiveEquationNode extends Node {
       interval: GQConstants.EXPLORE_INTERVAL_B,
       labelColor: GQColors.exploreBColorProperty,
       sliderOptions: {
+        keyboardStep: GQConstants.B_KEYBOARD_STEP,
+        shiftKeyboardStep: GQConstants.B_SHIFT_KEYBOARD_STEP,
         accessibleName: GraphingQuadraticsStrings.a11y.bSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.bSlider.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'bSlider' ),
@@ -146,6 +148,8 @@ export default class ExploreInteractiveEquationNode extends Node {
       interval: GQConstants.EXPLORE_INTERVAL_C,
       labelColor: GQColors.exploreCColorProperty,
       sliderOptions: {
+        keyboardStep: GQConstants.C_KEYBOARD_STEP,
+        shiftKeyboardStep: GQConstants.C_SHIFT_KEYBOARD_STEP,
         accessibleName: GraphingQuadraticsStrings.a11y.cSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.cSlider.accessibleHelpTextStringProperty,
         tandem: options.tandem.createTandem( 'cSlider' ),
