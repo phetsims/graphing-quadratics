@@ -60,24 +60,9 @@ export default class QuadraticSlider extends GQSlider {
     options.sliderOptions = combineOptions<QuadraticSliderOptions[ 'sliderOptions']>( {
       pdomMapValue: ( newSliderValue, previousSliderValue ) => {
         const previousCoefficient = options.inverseMap( previousSliderValue );
-        let deltaSliderValue;
-        if ( globalKeyStateTracker.shiftKeyDown ) {
-          if ( newSliderValue > previousSliderValue ) {
-            deltaSliderValue = options.map( previousCoefficient + options.quadraticShiftKeyboardStep ) - previousSliderValue;
-          }
-          else {
-            deltaSliderValue = options.map( previousCoefficient - options.quadraticShiftKeyboardStep ) - previousSliderValue;
-          }
-        }
-        else {
-          if ( newSliderValue > previousSliderValue ) {
-            deltaSliderValue = options.map( previousCoefficient + options.quadraticKeyboardStep ) - previousSliderValue;
-          }
-          else {
-            deltaSliderValue = options.map( previousCoefficient - options.quadraticKeyboardStep ) - previousSliderValue;
-          }
-        }
-        return previousSliderValue + deltaSliderValue;
+        const coefficientStep = ( globalKeyStateTracker.shiftKeyDown ) ? options.quadraticShiftKeyboardStep : options.quadraticKeyboardStep;
+        const sign = ( newSliderValue > previousSliderValue ) ? 1 : -1;
+        return options.map( previousCoefficient + sign * coefficientStep );
       }
     }, options.sliderOptions );
 
