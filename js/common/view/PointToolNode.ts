@@ -30,7 +30,7 @@ import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import PointTool from '../model/PointTool.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
-import { PointToolRichDragListener } from './PointToolRichDragListener.js';
+import { PointToolDragListener } from './PointToolDragListener.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';
@@ -140,7 +140,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
       } );
 
     // Drag listeners for pointer and keyboard input.
-    this.addInputListener( new PointToolRichDragListener( this, pointTool, modelViewTransform, graph,
+    this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
       graphContentsVisibleProperty, this.tandem ) );
 
     // 'J' shortcut, jump to next curve
