@@ -25,6 +25,7 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
                       tandem: Tandem ) {
 
     const options: SoundKeyboardDragListenerOptions = {
+      tandem: tandem,
       positionProperty: pointTool.positionProperty,
       transform: modelViewTransform,
       dragSpeed: 200,
@@ -38,9 +39,7 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
       drag: ( event, listener ) => {
         //TODO https://github.com/phetsims/graphing-quadratics/issues/216
-      },
-
-      tandem: tandem
+      }
     };
 
     super( options );

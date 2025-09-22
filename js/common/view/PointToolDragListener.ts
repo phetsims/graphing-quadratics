@@ -45,9 +45,9 @@ export class PointToolDragListener extends SoundDragListener {
     let isSnappedToCurve = false;
 
     const options: SoundDragListenerOptions = {
+      tandem: tandem,
       positionProperty: pointTool.positionProperty,
       transform: modelViewTransform,
-      tandem: tandem,
 
       start: ( event, listener ) => {
 
