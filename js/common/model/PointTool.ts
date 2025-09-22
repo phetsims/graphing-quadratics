@@ -79,7 +79,7 @@ export default class PointTool extends PhetioObject {
     // This was originally a DerivedProperty. But an ordering dependency was discovered when restoring PhET-iO state,
     // so it was converted to a Property with phetioReadOnly: true.
     // See https://github.com/phetsims/graphing-quadratics/issues/202
-    const quadraticProperty = new Property<Quadratic | null>( null, {
+    this.quadraticProperty = new Property<Quadratic | null>( null, {
       valueType: [ Quadratic, null ],
       tandem: options.tandem.createTandem( 'quadraticProperty' ),
       phetioFeatured: true,
@@ -87,7 +87,6 @@ export default class PointTool extends PhetioObject {
       phetioValueType: NullableIO( Quadratic.QuadraticIO ),
       phetioReadOnly: true
     } );
-    this.quadraticProperty = quadraticProperty;
 
     // When we're not restoring PhET-iO state, derived the value of quadraticProperty. Otherwise, short-circuit this
     // listener, and restore the value from PhET-iO state, so that we do not have problems with the order that
@@ -96,7 +95,7 @@ export default class PointTool extends PhetioObject {
       ( position, quadratics ) => {
         if ( !isSettingPhetioStateProperty.value ) {
           if ( !graph.contains( position ) ) {
-            quadraticProperty.value = null;
+            this.quadraticProperty.value = null;
           }
           else if ( this.quadraticProperty.value &&
                     this.quadraticsProperty.value.includes( this.quadraticProperty.value ) &&
@@ -104,7 +103,7 @@ export default class PointTool extends PhetioObject {
             // Do nothing, stay snapped to the current curve.
           }
           else {
-            quadraticProperty.value = this.getQuadraticNear( position, GQQueryParameters.pointToolThreshold );
+            this.quadraticProperty.value = this.getQuadraticNear( position, GQQueryParameters.pointToolThreshold );
           }
         }
       } );
