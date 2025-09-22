@@ -41,8 +41,6 @@ export default class PointTool extends PhetioObject {
 
   public readonly probeSide: ProbeSide;
   public readonly dragBounds: Bounds2;
-  //TODO https://github.com/phetsims/graphing-quadratics/issues/216 isDragging is set but not used.
-  public isDragging: boolean; // true while the user is dragging the point tool
   public readonly positionProperty: Property<Vector2>;
 
   // Quadratics that the tool might intersect, in foreground-to-background order
@@ -70,7 +68,6 @@ export default class PointTool extends PhetioObject {
 
     this.probeSide = options.probeSide;
     this.dragBounds = options.dragBounds;
-    this.isDragging = false;
     this.quadraticsProperty = quadraticsProperty;
 
     this.positionProperty = new Vector2Property( options.position, {

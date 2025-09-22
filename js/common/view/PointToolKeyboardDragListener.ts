@@ -32,18 +32,12 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
       start: ( event, listener ) => {
 
-        pointTool.isDragging = true;
-
         // Move the tool that we're dragging to the foreground.
         pointToolNode.moveToFront();
       },
 
       drag: ( event, listener ) => {
         //TODO https://github.com/phetsims/graphing-quadratics/issues/216
-      },
-
-      end: ( event, listener ) => {
-        pointTool.isDragging = false;
       },
 
       tandem: tandem

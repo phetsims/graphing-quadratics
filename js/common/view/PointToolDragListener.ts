@@ -57,8 +57,6 @@ export class PointToolDragListener extends SoundDragListener {
 
       start: ( event, listener ) => {
 
-        pointTool.isDragging = true;
-
         // Move the tool that we're dragging to the foreground.
         pointToolNode.moveToFront();
       },
@@ -116,10 +114,6 @@ export class PointToolDragListener extends SoundDragListener {
 
         // Describe what the point tool is measuring.
         pointToolNode.doAccessibleObjectResponse();
-      },
-
-      end: ( event, listener ) => {
-        pointTool.isDragging = false;
       },
 
       tandem: tandem
