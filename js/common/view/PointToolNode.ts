@@ -140,9 +140,11 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
         }
       } );
 
-    // Drag listeners for pointer and keyboard input.
+    // Pointer input
     this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
       graphContentsVisibleProperty, this.tandem.createTandem( 'dragListener' ) ) );
+
+    // Keyboard input
     this.addInputListener( new PointToolKeyboardDragListener( this, pointTool, modelViewTransform, graph,
       graphContentsVisibleProperty, this.tandem.createTandem( 'keyboardDragListener' ) ) );
 
@@ -152,7 +154,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     // 'K' shortcut, move off graph
     this.addInputListener( new MoveOffGraphListener( this, graph ) );
 
-    // put a red dot at the origin, for debugging positioning
+    // Put a red dot at the origin, for debugging positioning.
     if ( GQQueryParameters.showOrigin ) {
       this.addChild( new Circle( 3, { fill: 'red' } ) );
     }
