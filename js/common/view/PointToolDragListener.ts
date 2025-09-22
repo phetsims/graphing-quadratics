@@ -47,6 +47,7 @@ export class PointToolDragListener extends SoundDragListener {
     const options: SoundDragListenerOptions = {
       positionProperty: pointTool.positionProperty,
       transform: modelViewTransform,
+      tandem: tandem,
 
       start: ( event, listener ) => {
 
@@ -105,9 +106,7 @@ export class PointToolDragListener extends SoundDragListener {
 
         // Describe what the point tool is measuring.
         pointToolNode.doAccessibleObjectResponse();
-      },
-
-      tandem: tandem
+      }
     };
 
     super( options );
