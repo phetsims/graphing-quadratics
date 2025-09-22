@@ -20,14 +20,7 @@ import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlay
 import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraph from '../model/GQGraph.js';
-import Quadratic from '../model/Quadratic.js';
 import SoundDragListener, { SoundDragListenerOptions } from '../../../../scenery-phet/js/SoundDragListener.js';
-
-// When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
-// how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
-// We decided that the most effective value was the smallest interval that the point tool displays.
-// See https://github.com/phetsims/graphing-quadratics/issues/169.
-const X_SNAP_TOLERANCE = 1 / Math.pow( 10, GQConstants.POINT_TOOL_DECIMALS );
 
 // Sound that is played when the tool snaps to the quadratic.
 const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
@@ -69,40 +62,38 @@ export class PointToolDragListener extends SoundDragListener {
         // If we're on the graph and the contents of the graph are visible...
         if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
 
-          // Prefer the quadratic that the tool is already snapped to. Otherwise, attempt to locate another quadratic.
-          let snapQuadratic: Quadratic | null;
-          const quadraticNear = pointTool.quadraticProperty.value;
-          if ( quadraticNear && quadraticNear.hasSolution( position, GQQueryParameters.snapOffDistance ) ) {
-            snapQuadratic = quadraticNear;
-          }
-          else {
+          // Locate a curve that is close enough to snap to, preferring the curve that the tool is already snapped to.
+          let snapQuadratic = pointTool.quadraticProperty.value;
+          if ( !snapQuadratic?.hasSolution( position, GQQueryParameters.snapOffDistance ) ) {
             snapQuadratic = pointTool.getQuadraticNear( position, GQQueryParameters.snapOnDistance );
           }
 
-          // If we're close enough to a quadratic, snap to that quadratic.
+          // If we're close enough to a curve, snap to that curve.
           if ( snapQuadratic ) {
 
-            // Get the closest point that is on the quadratic.
+            // Get the closest point that is on the curve.
             position = snapQuadratic.getClosestPoint( position );
 
-            let x = toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
-
-            // If the x-coordinate is so close to an integer value that the point tool will display it as an integer,
-            // snap to that integer value. See https://github.com/phetsims/graphing-quadratics/issues/169.
-            const closestInteger = toFixedNumber( x, 0 );
-            if ( Math.abs( x - closestInteger ) < X_SNAP_TOLERANCE ) {
-              x = closestInteger;
+            // If the x-coordinate will be displayed as an integer, snap to that integer value.
+            // See https://github.com/phetsims/graphing-quadratics/issues/169.
+            let x = position.x;
+            const xDisplayed = toFixedNumber( x, GQConstants.POINT_TOOL_DECIMALS );
+            if ( Number.isInteger( xDisplayed ) ) {
+              x = xDisplayed;
               phet.log && phet.log( `pointTool snapped to integer x = ${x}` );
             }
 
+            // After adjusting x, solve for y.
             const y = snapQuadratic.solveY( x );
+
+            // The tool's new position, snapped to the curve.
             position = new Vector2( x, y );
 
             // Play a sound to emphasize that the tool snapped to the curve.
             if ( !isSnappedToCurve ) {
               SNAP_SOUND_PLAYER.play();
+              isSnappedToCurve = true;
             }
-            isSnappedToCurve = true;
           }
           else {
             isSnappedToCurve = false;
