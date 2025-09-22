@@ -123,6 +123,8 @@ export default class ExploreInteractiveEquationNode extends Node {
       interval: GQConstants.EXPLORE_INTERVAL_A,
       snapToZeroEpsilon: GQConstants.EXPLORE_SNAP_TO_ZERO_EPSILON_A,
       labelColor: GQColors.exploreAColorProperty,
+      quadraticKeyboardStep: GQConstants.A_KEYBOARD_STEP,
+      quadraticShiftKeyboardStep: GQConstants.A_SHIFT_KEYBOARD_STEP,
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.a11y.aSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.aSlider.accessibleHelpTextStringProperty,
