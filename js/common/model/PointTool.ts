@@ -99,8 +99,8 @@ export default class PointTool extends PhetioObject {
             quadraticProperty.value = null;
           }
           else if ( this.quadraticProperty.value &&
-                    this.quadraticProperty.value.hasSolution( position, GQQueryParameters.pointToolThreshold ) &&
-                    this.quadraticsProperty.value.includes( this.quadraticProperty.value ) ) {
+                    this.quadraticsProperty.value.includes( this.quadraticProperty.value ) &&
+                    this.quadraticProperty.value.hasSolution( position, GQQueryParameters.pointToolThreshold ) ) {
             // Do nothing, stay snapped to the current curve.
           }
           else {
