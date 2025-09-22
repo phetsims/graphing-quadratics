@@ -139,7 +139,7 @@ export default class GQConstants {
 
   // slider intervals
   public static readonly EXPLORE_INTERVAL_A = 0.01;
-  public static readonly EXPLORE_SNAP_TO_ZERO_EPSILON_A = 0.03;
+  public static readonly EXPLORE_SNAP_TO_ZERO_EPSILON_A = 0.01;
   public static readonly EXPLORE_INTERVAL_B = 0.1;
   public static readonly EXPLORE_INTERVAL_C = 0.1;
   public static readonly FOCUS_AND_DIRECTRIX_INTERVAL_P = 0.1;
