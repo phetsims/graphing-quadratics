@@ -37,6 +37,7 @@ import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import GQGraph from '../model/GQGraph.js';
 import Quadratic from '../model/Quadratic.js';
 import PointToolDescriber from './description/PointToolDescriber.js';
+import { PointToolKeyboardDragListener } from './PointToolKeyboardDragListener.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -141,7 +142,9 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
     // Drag listeners for pointer and keyboard input.
     this.addInputListener( new PointToolDragListener( this, pointTool, modelViewTransform, graph,
-      graphContentsVisibleProperty, this.tandem ) );
+      graphContentsVisibleProperty, this.tandem.createTandem( 'dragListener' ) ) );
+    this.addInputListener( new PointToolKeyboardDragListener( this, pointTool, modelViewTransform, graph,
+      graphContentsVisibleProperty, this.tandem.createTandem( 'keyboardDragListener' ) ) );
 
     // 'J' shortcut, jump to next curve
     this.addInputListener( new JumpToNextCurveListener( this ) );

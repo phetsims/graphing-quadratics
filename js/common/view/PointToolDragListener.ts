@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * PointToolDragListener is the drag listener for PointToolNode. It supports pointer and keyboard input.
+ * PointToolDragListener handles pointer input for a point tool.
  *
  * @author Andrea Lin
  * @author Chris Malley (PixelZoom, Inc.)
@@ -18,10 +18,10 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlayer.js';
 import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
-import SoundRichDragListener, { SoundRichDragListenerOptions } from '../../../../scenery-phet/js/SoundRichDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraph from '../model/GQGraph.js';
 import Quadratic from '../model/Quadratic.js';
+import SoundDragListener, { SoundDragListenerOptions } from '../../../../scenery-phet/js/SoundDragListener.js';
 
 // When the point tool is snapped to a curve, it will also snap to integer x coordinates. This value determines
 // how close the point tool's x-coordinate must be in order to snap to the closest integer x-coordinate.
@@ -39,7 +39,7 @@ const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
   }
 } );
 
-export class PointToolDragListener extends SoundRichDragListener {
+export class PointToolDragListener extends SoundDragListener {
 
   public constructor( pointToolNode: PointToolNode,
                       pointTool: PointTool,
@@ -51,13 +51,9 @@ export class PointToolDragListener extends SoundRichDragListener {
     // Whether the tool is currently snapped to a curve.
     let isSnappedToCurve = false;
 
-    const options: SoundRichDragListenerOptions = {
+    const options: SoundDragListenerOptions = {
       positionProperty: pointTool.positionProperty,
       transform: modelViewTransform,
-      keyboardDragListenerOptions: {
-        dragSpeed: 200,
-        shiftDragSpeed: 50
-      },
 
       start: ( event, listener ) => {
 
@@ -91,21 +87,14 @@ export class PointToolDragListener extends SoundRichDragListener {
             // Get the closest point that is on the quadratic.
             position = snapQuadratic.getClosestPoint( position );
 
-            let x = position.x;
+            let x = toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
 
-            // If the event came from the keyboard, skip snapping the x value. Otherwise, the left and right arrow keys
-            // will stop working when the slope of the curve gets steep.
-            //TODO https://github.com/phetsims/graphing-quadratics/issues/238 Skipping this does not address the problem that required X_SNAP_TOLERANCE.
-            if ( !event.isFromPDOM() ) {
-              x = toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
-
-              // If the x-coordinate is so close to an integer value that the point tool will display it as an integer,
-              // snap to that integer value. See https://github.com/phetsims/graphing-quadratics/issues/169.
-              const closestInteger = toFixedNumber( x, 0 );
-              if ( Math.abs( x - closestInteger ) < X_SNAP_TOLERANCE ) {
-                x = closestInteger;
-                phet.log && phet.log( `pointTool snapped to integer x = ${x}` );
-              }
+            // If the x-coordinate is so close to an integer value that the point tool will display it as an integer,
+            // snap to that integer value. See https://github.com/phetsims/graphing-quadratics/issues/169.
+            const closestInteger = toFixedNumber( x, 0 );
+            if ( Math.abs( x - closestInteger ) < X_SNAP_TOLERANCE ) {
+              x = closestInteger;
+              phet.log && phet.log( `pointTool snapped to integer x = ${x}` );
             }
 
             const y = snapQuadratic.solveY( x );
