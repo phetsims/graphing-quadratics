@@ -149,7 +149,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
       graphContentsVisibleProperty, this.tandem.createTandem( 'keyboardDragListener' ) ) );
 
     // 'J' shortcut, jump to next curve
-    this.addInputListener( new JumpToNextCurveListener( this ) );
+    this.addInputListener( new JumpToNextCurveListener( this, graphContentsVisibleProperty ) );
 
     // 'K' shortcut, move off graph
     this.addInputListener( new MoveOffGraphListener( this, graph ) );
