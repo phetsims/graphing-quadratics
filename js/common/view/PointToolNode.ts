@@ -130,7 +130,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
         // update colors
         if ( graph.contains( position ) && quadratic && graphContentsVisible ) {
 
-          // color code the display to onQuadratic
+          // color code the display to quadratic
           bodyNode.setTextFill( options.foregroundHighlightColor );
           bodyNode.setBackgroundFill( quadratic.color );
         }
