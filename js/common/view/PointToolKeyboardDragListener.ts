@@ -67,6 +67,14 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
             // Attempting to use upArrow or downArrow for a horizontal line, so do nothing.
           }
+          else if ( listener.modelDelta.x === 0 && currentQuadratic.isaParabola() &&
+                    ( ( currentQuadratic.a > 0 && newPosition.y <= currentQuadratic.vertex!.y ) ||
+                     ( currentQuadratic.a < 0 && newPosition.y >= currentQuadratic.vertex!.y ) ) ) {
+
+            // With leftArrow or rightArrow, the new position would pass the vertex, so snap to the vertex.
+            pointTool.positionProperty.value = currentQuadratic.vertex!;
+            console.log( 'snapped to vertex' );
+          }
           else {
 
             // If the tool is snapped to a curve, move along that curve at constant speed, using a numerical solution
