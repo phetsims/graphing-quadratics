@@ -14,6 +14,8 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraph from '../model/GQGraph.js';
 import SoundKeyboardDragListener, { SoundKeyboardDragListenerOptions } from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
+import GQQueryParameters from '../GQQueryParameters.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 
 export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
@@ -26,7 +28,6 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
     const options: SoundKeyboardDragListenerOptions = {
       tandem: tandem,
-      positionProperty: pointTool.positionProperty,
       transform: modelViewTransform,
       dragSpeed: 200,
       shiftDragSpeed: 50,
@@ -38,7 +39,42 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
       },
 
       drag: ( event, listener ) => {
-        //TODO https://github.com/phetsims/graphing-quadratics/issues/216
+
+        const currentPosition = pointTool.positionProperty.value;
+
+        let newPosition = new Vector2( currentPosition.x + listener.modelDelta.x, currentPosition.y + listener.modelDelta.y );
+
+        // Constrain to dragBounds.
+        newPosition = pointTool.dragBounds.closestPointTo( newPosition );
+
+        if ( !graph.contains( newPosition ) || !graphContentsVisibleProperty.value ) {
+
+          // If the tool is not on the graph, or the graph contents are hidden, then the tool is not snapped to a curve,
+          // and it should simply be moved to its new position.
+          pointTool.quadraticProperty.value = null;
+          pointTool.positionProperty.value = newPosition;
+        }
+        else if ( pointTool.quadraticProperty.value ) {
+
+          // If the tool is snapped to a curve, move along that curve.
+          //TODO https://github.com/phetsims/graphing-quadratics/issues/216
+        }
+        else {
+
+          // Find a curve that is close to the tool, and snap to it. If no curve is found, simply move to the new position.
+          const snapQuadratic = pointTool.getQuadraticNear( newPosition, GQQueryParameters.snapOnDistance );
+          pointTool.quadraticProperty.value = snapQuadratic;
+          if ( snapQuadratic ) {
+            pointTool.positionProperty.value = snapQuadratic.getClosestPoint( newPosition );
+            PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
+          }
+          else {
+            pointTool.positionProperty.value = newPosition;
+          }
+        }
+
+        // Describe what the point tool is measuring.
+        pointToolNode.doAccessibleObjectResponse();
       }
     };
 
