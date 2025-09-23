@@ -34,6 +34,8 @@ const GQQueryParameters = QueryStringMachine.getAll( {
   },
 
   // Distance that a point tool must be from a curve in order to register as being ON the curve, in model coordinates.
+  // This should be less than the precision of the point tool (see GQConstants.POINT_TOOL_DECIMALS) in order to prevent
+  // bogus "on curve" measurements when the contents of the graph are made visible via graphContentsVisibleProperty.
   // See https://github.com/phetsims/graphing-quadratics/issues/81
   // For internal use only.
   pointToolThreshold: {
