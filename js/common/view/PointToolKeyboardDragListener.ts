@@ -16,6 +16,13 @@ import GQGraph from '../model/GQGraph.js';
 import SoundKeyboardDragListener, { SoundKeyboardDragListenerOptions } from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import globalKeyStateTracker from '../../../../scenery/js/accessibility/globalKeyStateTracker.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+
+// When the tool is snapped to a curve, these constants specify the distance to move along the curve for each drag event.
+const SNAPPED_KEYBOARD_STEP = 0.1;
+const SNAPPED_SHIFT_KEYBOARD_STEP = 0.01;
+affirm( SNAPPED_SHIFT_KEYBOARD_STEP < SNAPPED_KEYBOARD_STEP );
 
 export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
@@ -56,8 +63,22 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
         }
         else if ( pointTool.quadraticProperty.value ) {
 
-          // If the tool is snapped to a curve, move along that curve.
-          //TODO https://github.com/phetsims/graphing-quadratics/issues/216
+          //TODO https://github.com/phetsims/graphing-quadratics/issues/216 upArrow and downArrow do not work as expected.
+
+          // If the tool is snapped to a curve, move along that curve at constant speed, using a numerical solution
+          // to find the next point on the quadratic. The numerical solution is a modified Euler's method, described
+          // by Google AI Overview with prompt "numerical method Euler to find constant distance on parabola".
+          // The variables in this algorithm are:
+          // d is the distance to move along the parabola.
+          // (x0,y0) is the current position of the point tool.
+          // (x1,y1) is the next position of the point tool.
+          const x0 = pointTool.positionProperty.value.x;
+          const dAbs = globalKeyStateTracker.shiftKeyDown ? SNAPPED_SHIFT_KEYBOARD_STEP : SNAPPED_KEYBOARD_STEP;
+          const d = ( newPosition.x > x0 ) ? dAbs : -dAbs;
+          const dx = d / Math.sqrt( 1 + Math.pow( pointTool.quadraticProperty.value.derivative( x0 ), 2 ) );
+          const x1 = x0 + dx;
+          const y1 = pointTool.quadraticProperty.value.solveY( x1 );
+          pointTool.positionProperty.value = new Vector2( x1, y1 );
         }
         else {
 

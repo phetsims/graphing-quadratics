@@ -252,6 +252,13 @@ export default class Quadratic {
   }
 
   /**
+   * Given x, solve for the derivative f'(x).
+   */
+  public derivative( x: number ): number {
+    return 2 * this.a * x + this.b; // f'(x) = 2ax + b
+  }
+
+  /**
    * Gets the slope of the tangent line at point (x,f(x)) on the quadratic.
    */
   public getTangentSlope( x: number ): number {
