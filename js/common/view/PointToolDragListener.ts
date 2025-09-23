@@ -21,6 +21,7 @@ import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraph from '../model/GQGraph.js';
 import SoundDragListener, { SoundDragListenerOptions } from '../../../../scenery-phet/js/SoundDragListener.js';
+import Quadratic from '../model/Quadratic.js';
 
 // Sound that is played when the tool snaps to the quadratic.
 const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
@@ -46,7 +47,6 @@ export class PointToolDragListener extends SoundDragListener {
 
     const options: SoundDragListenerOptions = {
       tandem: tandem,
-      positionProperty: pointTool.positionProperty,
       transform: modelViewTransform,
 
       start: ( event, listener ) => {
@@ -60,11 +60,13 @@ export class PointToolDragListener extends SoundDragListener {
         // Constrain to dragBounds.
         let position = pointTool.dragBounds.closestPointTo( listener.modelPoint );
 
+        let snapQuadratic: Quadratic | null = null;
+
         // If we're on the graph and the contents of the graph are visible...
         if ( graph.contains( position ) && graphContentsVisibleProperty.value ) {
 
           // Locate a curve that is close enough to snap to, preferring the curve that the tool is already snapped to.
-          let snapQuadratic = pointTool.quadraticProperty.value;
+          snapQuadratic = pointTool.quadraticProperty.value;
           if ( !snapQuadratic?.hasSolution( position, GQQueryParameters.snapOffDistance ) ) {
             snapQuadratic = pointTool.getQuadraticNear( position, GQQueryParameters.snapOnDistance );
           }
@@ -100,6 +102,8 @@ export class PointToolDragListener extends SoundDragListener {
             isSnappedToCurve = false;
           }
         }
+
+        pointTool.quadraticProperty.value = snapQuadratic;
 
         // Move the point tool.
         pointTool.positionProperty.value = position;
