@@ -38,7 +38,7 @@ const GQQueryParameters = QueryStringMachine.getAll( {
   // For internal use only.
   pointToolThreshold: {
     type: 'number',
-    defaultValue: 0.1,
+    defaultValue: 0.005,
     isValidValue: value => ( value > 0 )
   },
 
