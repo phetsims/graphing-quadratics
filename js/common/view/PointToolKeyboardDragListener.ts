@@ -48,6 +48,7 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
       drag: ( event, listener ) => {
 
         const currentPosition = pointTool.positionProperty.value;
+        const currentQuadratic = pointTool.quadraticProperty.value;
 
         let newPosition = new Vector2( currentPosition.x + listener.modelDelta.x, currentPosition.y + listener.modelDelta.y );
 
@@ -61,24 +62,56 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
           pointTool.quadraticProperty.value = null;
           pointTool.positionProperty.value = newPosition;
         }
-        else if ( pointTool.quadraticProperty.value ) {
+        else if ( currentQuadratic !== null ) {
+          if ( listener.modelDelta.x === 0 && currentQuadratic.isaHorizontalLine() ) {
 
-          //TODO https://github.com/phetsims/graphing-quadratics/issues/216 upArrow and downArrow do not work as expected.
+            // Attempting to use upArrow or downArrow for a horizontal line, so do nothing.
+          }
+          else {
 
-          // If the tool is snapped to a curve, move along that curve at constant speed, using a numerical solution
-          // to find the next point on the quadratic. The numerical solution is a modified Euler's method, described
-          // by Google AI Overview with prompt "numerical method Euler to find constant distance on parabola".
-          // The variables in this algorithm are:
-          // d is the distance to move along the parabola.
-          // (x0,y0) is the current position of the point tool.
-          // (x1,y1) is the next position of the point tool.
-          const x0 = pointTool.positionProperty.value.x;
-          const dAbs = globalKeyStateTracker.shiftKeyDown ? SNAPPED_SHIFT_KEYBOARD_STEP : SNAPPED_KEYBOARD_STEP;
-          const d = ( newPosition.x > x0 ) ? dAbs : -dAbs;
-          const dx = d / Math.sqrt( 1 + Math.pow( pointTool.quadraticProperty.value.derivative( x0 ), 2 ) );
-          const x1 = x0 + dx;
-          const y1 = pointTool.quadraticProperty.value.solveY( x1 );
-          pointTool.positionProperty.value = new Vector2( x1, y1 );
+            // If the tool is snapped to a curve, move along that curve at constant speed, using a numerical solution
+            // to find the next point on the quadratic. The numerical solution is a modified Euler's method, described
+            // by Google AI Overview with prompt "numerical method Euler to find constant distance on parabola".
+            // The variables in this algorithm are:
+            // d is the distance to move along the parabola.
+            // (x0,y0) is the current position of the point tool.
+            // (x1,y1) is the next position of the point tool.
+            const x0 = pointTool.positionProperty.value.x;
+            const dAbs = globalKeyStateTracker.shiftKeyDown ? SNAPPED_SHIFT_KEYBOARD_STEP : SNAPPED_KEYBOARD_STEP;
+            let d: number;
+            if ( listener.modelDelta.x !== 0 ) {
+
+              // leftArrow or rightArrow was used, so d is straightforward and (because our parabola only opens up
+              // or down, not left or right) works with all types of curves. Note that if multiple arrow keys are
+              // held down at the same time, we prefer the horizontal movement and ignore the vertical movement.
+              d = ( newPosition.x > x0 ) ? dAbs : -dAbs;
+            }
+            else if ( currentQuadratic.isaLine() ) {
+
+              // upArrow or downArrow was used with a straight line. Determine how the sign of d based on the slope.
+              if ( listener.modelDelta.y > 0 ) {
+                d = ( currentQuadratic.b > 0 ) ? dAbs : -dAbs;
+              }
+              else {
+                d = ( currentQuadratic.b > 0 ) ? -dAbs : dAbs;
+              }
+            }
+            else {
+              affirm( currentQuadratic.isaParabola() );
+              const vertex = currentQuadratic.vertex!;
+              affirm( vertex );
+
+              // upArrow or downArrow was used with a parabola. Determine the sign of d based on whether the parabola
+              // opens up or down, where the vertex is, and which side of the vertex the point tool is on.
+              //TODO https://github.com/phetsims/graphing-quadratics/issues/216 Handle upArrow and downArrow on a parabola.
+              //TODO https://github.com/phetsims/graphing-quadratics/issues/216 Snap to the vertex when newPosition.y would be on the closed side of the parabola.
+              d = ( newPosition.x > x0 ) ? dAbs : -dAbs;
+            }
+            const dx = d / Math.sqrt( 1 + Math.pow( currentQuadratic.derivative( x0 ), 2 ) );
+            const x1 = x0 + dx;
+            const y1 = currentQuadratic.solveY( x1 );
+            pointTool.positionProperty.value = new Vector2( x1, y1 );
+          }
         }
         else {
 

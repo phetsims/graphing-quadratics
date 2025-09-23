@@ -204,6 +204,20 @@ export default class Quadratic {
   }
 
   /**
+   * Does this quadratic describe a line, y = bx + c.
+   */
+  public isaLine(): boolean {
+    return ( this.a === 0 );
+  }
+
+  /**
+   * Does this quadratic describe a horizontal line, y = c.
+   */
+  public isaHorizontalLine(): boolean {
+    return ( this.a === 0 ) && ( this.b === 0 );
+  }
+
+  /**
    * Given y, solve for x.
    * If there is more than one solution, they will be in ascending order.
    * @param y
