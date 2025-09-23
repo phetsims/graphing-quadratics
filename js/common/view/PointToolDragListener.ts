@@ -16,22 +16,10 @@ import GQQueryParameters from '../GQQueryParameters.js';
 import PointToolNode from './PointToolNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
-import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlayer.js';
-import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraph from '../model/GQGraph.js';
 import SoundDragListener, { SoundDragListenerOptions } from '../../../../scenery-phet/js/SoundDragListener.js';
 import Quadratic from '../model/Quadratic.js';
-
-// Sound that is played when the tool snaps to the quadratic.
-const SNAP_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
-  soundClipOptions: {
-    initialOutputLevel: 0.7
-  },
-  soundManagerOptions: {
-    categoryName: 'user-interface'
-  }
-} );
 
 export class PointToolDragListener extends SoundDragListener {
 
@@ -94,7 +82,7 @@ export class PointToolDragListener extends SoundDragListener {
 
             // Play a sound to emphasize that the tool snapped to the curve.
             if ( !isSnappedToCurve ) {
-              SNAP_SOUND_PLAYER.play();
+              PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
               isSnappedToCurve = true;
             }
           }

@@ -38,6 +38,8 @@ import GQGraph from '../model/GQGraph.js';
 import Quadratic from '../model/Quadratic.js';
 import PointToolDescriber from './description/PointToolDescriber.js';
 import { PointToolKeyboardDragListener } from './PointToolKeyboardDragListener.js';
+import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
+import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlayer.js';
 
 const PROBE_RADIUS = 15;
 const PROBE_STROKE = 'black';
@@ -55,6 +57,16 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
   public readonly pointTool: PointTool;
   public readonly graph: GQGraph;
   public readonly getCurveName: ( quadratic: Quadratic ) => string | null;
+
+  // Sound that is played when the tool snaps to a curve.
+  public static readonly SNAP_TO_CURVE_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
+    soundClipOptions: {
+      initialOutputLevel: 0.7
+    },
+    soundManagerOptions: {
+      categoryName: 'user-interface'
+    }
+  } );
 
   public constructor( pointTool: PointTool,
                       modelViewTransform: ModelViewTransform2,
