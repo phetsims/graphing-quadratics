@@ -70,7 +70,7 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
             // Attempting to use upArrow or downArrow for a horizontal line, so do nothing.
           }
-          else if ( listener.modelDelta.x === 0 && currentQuadratic.vertex !== undefined &&
+          else if ( listener.modelDelta.x === 0 && currentQuadratic.vertex &&
                     ( ( currentQuadratic.a > 0 && newPosition.y <= currentQuadratic.vertex.y ) ||
                       ( currentQuadratic.a < 0 && newPosition.y >= currentQuadratic.vertex.y ) ) ) {
 
