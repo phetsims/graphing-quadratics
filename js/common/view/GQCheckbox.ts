@@ -204,7 +204,7 @@ export default class GQCheckbox extends Checkbox {
   }
 
   /**
-   * Creates the 'Equations' checkbox.
+   * Creates the 'Equations' checkbox, which has no icon.
    */
   public static createEquationsCheckbox( property: Property<boolean>, tandem: Tandem ): GQCheckbox {
     return new GQCheckbox( property, {
