@@ -42,7 +42,7 @@ export default class PointToolKeyboardDragListener2 extends SoundKeyboardDragLis
       tandem: tandem,
       transform: modelViewTransform,
       moveOnHoldDelay: 200,
-      moveOnHoldInterval: 30,
+      moveOnHoldInterval: 40,
 
       start: ( event, listener ) => {
 
@@ -55,10 +55,14 @@ export default class PointToolKeyboardDragListener2 extends SoundKeyboardDragLis
         const currentPosition = pointTool.positionProperty.value;
         const currentQuadratic = pointTool.quadraticProperty.value;
 
-        let newPosition = new Vector2( currentPosition.x + listener.modelDelta.x, currentPosition.y + listener.modelDelta.y );
+        // Compute dx and dy, based on how listener.modelDelta changed.
+        // If multiple arrow keys are pressed at the same time, use dx and ignore dy.
+        const step = globalKeyStateTracker.shiftKeyDown ? SNAPPED_SHIFT_KEYBOARD_STEP : SNAPPED_KEYBOARD_STEP;
+        const dx = Math.sign( listener.modelDelta.x ) * step;
+        const dy = ( dx !== 0 ) ? 0 : Math.sign( listener.modelDelta.y ) * step;
 
-        // Constrain to dragBounds.
-        newPosition = pointTool.dragBounds.closestPointTo( newPosition );
+        // New tool position, constrained to dragBounds.
+        const newPosition = pointTool.dragBounds.closestPointTo( new Vector2( currentPosition.x + dx, currentPosition.y + dy ) );
 
         if ( !graph.contains( newPosition ) || !graphContentsVisibleProperty.value ) {
 
@@ -76,9 +80,18 @@ export default class PointToolKeyboardDragListener2 extends SoundKeyboardDragLis
             // If the tool is sufficient close to a curve, snap to it.
             pointTool.quadraticProperty.value = snapQuadratic;
             const snapPosition = snapQuadratic.getClosestPoint( newPosition );
+
+            // Round x1 to the number of decimal places that the tool will display. This prevents situations where
+            // there would appear to be 2 different y values for the same displayed x value, because snapPosition.x
+            // values are different in decimal places that are not displayed.  This was first discovered (and is most
+            // common and obvious) with integer snapPosition.x values, but is actually a potential problem with all
+            // snapPosition.x values. See https://github.com/phetsims/graphing-quadratics/issues/169 and
+            // https://github.com/phetsims/graphing-quadratics/issues/238.
             const x1 = toFixedNumber( snapPosition.x, GQConstants.POINT_TOOL_DECIMALS );
             const y1 = snapQuadratic.solveY( x1 );
             pointTool.positionProperty.value = new Vector2( x1, y1 );
+
+            // Play a sound when the tool snaps to a curve.
             PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
           }
           else {
@@ -90,28 +103,26 @@ export default class PointToolKeyboardDragListener2 extends SoundKeyboardDragLis
         else {
 
           // The tool is currently snapped to a curve...
-          if ( listener.modelDelta.x === 0 && currentQuadratic.isaHorizontalLine() ) {
+          if ( dy !== 0 && currentQuadratic.isaHorizontalLine() ) {
 
             // Attempting to use upArrow or downArrow for a horizontal line does nothing.
           }
           else {
 
             // Move along the curve.
-            const delta = globalKeyStateTracker.shiftKeyDown ? SNAPPED_SHIFT_KEYBOARD_STEP : SNAPPED_KEYBOARD_STEP;
-            if ( listener.modelDelta.x !== 0 ) {
+            if ( dx !== 0 ) {
 
               // leftArrow or rightArrow: advance x by delta, compute y
-              const x1 = toFixedNumber( currentPosition.x, GQConstants.POINT_TOOL_DECIMALS ) +
-                         toFixedNumber( listener.modelDelta.x > 0 ? delta : -delta, GQConstants.POINT_TOOL_DECIMALS );
+              const x1 = toFixedNumber( currentPosition.x + dx, GQConstants.POINT_TOOL_DECIMALS );
               const y1 = currentQuadratic.solveY( x1 );
               pointTool.positionProperty.value = new Vector2( x1, y1 );
             }
             else {
+              affirm( dy !== 0 );
 
               // upArrow or downArrow: advance y by delta, compute x
               let x1: number;
-              let y1 = toFixedNumber( currentPosition.y, GQConstants.POINT_TOOL_DECIMALS ) +
-                       toFixedNumber( listener.modelDelta.y > 0 ? delta : -delta, GQConstants.POINT_TOOL_DECIMALS );
+              let y1 = toFixedNumber( currentPosition.y + dy, GQConstants.POINT_TOOL_DECIMALS );
 
               if ( currentQuadratic.isaParabola() ) {
 
