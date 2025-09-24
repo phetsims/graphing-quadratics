@@ -42,7 +42,7 @@ export default class PointToolKeyboardDragListener2 extends SoundKeyboardDragLis
       tandem: tandem,
       transform: modelViewTransform,
       moveOnHoldDelay: 200,
-      moveOnHoldInterval: 40,
+      moveOnHoldInterval: 18,
 
       start: ( event, listener ) => {
 
