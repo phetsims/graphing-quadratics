@@ -65,14 +65,12 @@ export class PointToolDragListener extends SoundDragListener {
             // Get the closest point that is on the curve.
             position = snapQuadratic.getClosestPoint( position );
 
-            // If the x-coordinate will be displayed as an integer, snap to that integer value.
-            // See https://github.com/phetsims/graphing-quadratics/issues/169.
-            let x = position.x;
-            const xDisplayed = toFixedNumber( x, GQConstants.POINT_TOOL_DECIMALS );
-            if ( Number.isInteger( xDisplayed ) ) {
-              x = xDisplayed;
-              phet.log && phet.log( `pointTool snapped to integer x = ${x}` );
-            }
+            // Snap position.x to the value that will be displayed by the point tool. This prevents situations where
+            // there would appear to be 2 different y values for the same displayed x value, because position.x values
+            // are different in decimal places that are not displayed.  This was first discovered (and is most common
+            // and obvious) with integer position.x values, but is actually a potential problem with all position.x
+            // values. See https://github.com/phetsims/graphing-quadratics/issues/169.
+            const x = toFixedNumber( position.x, GQConstants.POINT_TOOL_DECIMALS );
 
             // After adjusting x, solve for y.
             const y = snapQuadratic.solveY( x );
