@@ -2,9 +2,14 @@
 
 //TODO Alternative implement that avoids https://github.com/phetsims/graphing-quadratics/issues/238.
 /**
- * PointToolKeyboardDragListener2 handles keyboard input for a point tool. When the tool is sufficiently close to
- * a curve, it snaps to that curve, then continues to move along it by advancing the point tool's x or y position
- * in discrete steps, depending on which arrow key is pressed, and whether the Shift key is pressed.
+ * PointToolKeyboardDragListener2 handles keyboard input for a point tool.
+ *
+ * The point tool is moved by advancing its x or y position in discrete steps, depending on which arrow key is pressed,
+ * and whether the Shift key is pressed. This allows the user to precisely position the tool at a specific point.
+ *
+ * When the tool is sufficiently close to a curve, it snaps to that curve, and will then move along that curve.
+ * The speed that it moves along the curve is determined by the shape of the curve.
+ * Snapping off the curve requires using a keyboard shortcut - see MoveOffGraphListener and JumpToNextCurveListener.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -24,7 +29,7 @@ import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import GQConstants from '../GQConstants.js';
 
-// When the tool is snapped to a curve, these constants specify the distance to move along the curve for each drag event.
+// These constants specify the position delta (dx or dy) each time that drag is called.
 const SNAPPED_KEYBOARD_STEP = 0.1;
 const SNAPPED_SHIFT_KEYBOARD_STEP = 0.01;
 affirm( SNAPPED_SHIFT_KEYBOARD_STEP < SNAPPED_KEYBOARD_STEP );
