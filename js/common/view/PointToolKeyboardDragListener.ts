@@ -26,7 +26,7 @@ const SNAPPED_KEYBOARD_STEP = 0.1;
 const SNAPPED_SHIFT_KEYBOARD_STEP = 0.01;
 affirm( SNAPPED_SHIFT_KEYBOARD_STEP < SNAPPED_KEYBOARD_STEP );
 
-export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
+export default class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
   public constructor( pointToolNode: PointToolNode,
                       pointTool: PointTool,

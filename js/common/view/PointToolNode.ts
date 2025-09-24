@@ -37,7 +37,7 @@ import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import GQGraph from '../model/GQGraph.js';
 import Quadratic from '../model/Quadratic.js';
 import PointToolDescriber from './description/PointToolDescriber.js';
-import { PointToolKeyboardDragListener } from './PointToolKeyboardDragListener.js';
+import PointToolKeyboardDragListener from './PointToolKeyboardDragListener.js';
 import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlayer.js';
 

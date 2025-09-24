@@ -1,5 +1,6 @@
 // Copyright 2025, University of Colorado Boulder
 
+//TODO Alternative implement that avoids https://github.com/phetsims/graphing-quadratics/issues/238.
 /**
  * PointToolKeyboardDragListener2 handles keyboard input for a point tool. When the tool is sufficiently close to
  * a curve, it snaps to that curve, then continues to move along it by advancing the point tool's x or y position
@@ -28,7 +29,7 @@ const SNAPPED_KEYBOARD_STEP = 0.1;
 const SNAPPED_SHIFT_KEYBOARD_STEP = 0.01;
 affirm( SNAPPED_SHIFT_KEYBOARD_STEP < SNAPPED_KEYBOARD_STEP );
 
-export class PointToolKeyboardDragListener2 extends SoundKeyboardDragListener {
+export default class PointToolKeyboardDragListener2 extends SoundKeyboardDragListener {
 
   public constructor( pointToolNode: PointToolNode,
                       pointTool: PointTool,
