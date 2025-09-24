@@ -37,7 +37,7 @@ import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import GQGraph from '../model/GQGraph.js';
 import Quadratic from '../model/Quadratic.js';
 import PointToolDescriber from './description/PointToolDescriber.js';
-import PointToolKeyboardDragListener from './PointToolKeyboardDragListener.js';
+import PointToolKeyboardDragListener2 from './PointToolKeyboardDragListener2.js';
 import click_mp3 from '../../../../tambo/sounds/click_mp3.js';
 import SoundClipPlayer from '../../../../tambo/js/sound-generators/SoundClipPlayer.js';
 
@@ -159,7 +159,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
       graphContentsVisibleProperty, this.tandem.createTandem( 'dragListener' ) ) );
 
     // Keyboard input
-    this.addInputListener( new PointToolKeyboardDragListener( this, pointTool, modelViewTransform, graph,
+    this.addInputListener( new PointToolKeyboardDragListener2( this, pointTool, modelViewTransform, graph,
       graphContentsVisibleProperty, this.tandem.createTandem( 'keyboardDragListener' ) ) );
 
     // 'J' shortcut, jump to next curve
