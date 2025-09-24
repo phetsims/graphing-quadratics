@@ -51,13 +51,13 @@ export default class GQCheckbox extends Checkbox {
       textFill: 'black',
       textMaxWidth: 180, // determined empirically
       font: GQConstants.CHECKBOX_LABEL_FONT,
+
+      // CheckboxOptions
+      isDisposable: false,
       mouseAreaXDilation: 5,
       mouseAreaYDilation: GQConstants.CHECKBOXES_Y_SPACING / 2,
       touchAreaXDilation: 5,
-      touchAreaYDilation: GQConstants.CHECKBOXES_Y_SPACING / 2,
-
-      // CheckboxOptions
-      isDisposable: false
+      touchAreaYDilation: GQConstants.CHECKBOXES_Y_SPACING / 2
     }, providedOptions );
 
     const text = new RichText( options.string, {
