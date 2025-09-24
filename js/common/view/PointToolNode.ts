@@ -30,7 +30,7 @@ import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import PointTool from '../model/PointTool.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
-import { PointToolDragListener } from './PointToolDragListener.js';
+import PointToolDragListener from './PointToolDragListener.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';

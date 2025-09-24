@@ -21,7 +21,7 @@ import GQGraph from '../model/GQGraph.js';
 import SoundDragListener, { SoundDragListenerOptions } from '../../../../scenery-phet/js/SoundDragListener.js';
 import Quadratic from '../model/Quadratic.js';
 
-export class PointToolDragListener extends SoundDragListener {
+export default class PointToolDragListener extends SoundDragListener {
 
   public constructor( pointToolNode: PointToolNode,
                       pointTool: PointTool,
