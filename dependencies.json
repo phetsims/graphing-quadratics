@@ -1,11 +1,11 @@
 {
-  "comment": "# graphing-quadratics 1.4.0-dev.6 Tue Sep 23 2025 18:54:44 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.4.0-dev.7 Wed Sep 24 2025 12:17:37 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "main"
   },
   "axon": {
-    "sha": "75350d43779386dd6d061b6170f38411c6329777",
+    "sha": "a8c9de0d9cc715d5306501f9d4eb4ad26fcc852b",
     "branch": "main"
   },
   "brand": {
@@ -25,11 +25,11 @@
     "branch": "main"
   },
   "graphing-quadratics": {
-    "sha": "be2980d149f5f86ffe44b7bffd0533fa1e4c0223",
+    "sha": "0c01657fe35fd92eba97f8eae566187423f28aa0",
     "branch": "main"
   },
   "joist": {
-    "sha": "cbabbf77aa5e42bd28206da2fcf51cde86baad10",
+    "sha": "817862d7bcbbe0e064da1ee0cefff805d67612e6",
     "branch": "main"
   },
   "kite": {
@@ -73,7 +73,7 @@
     "branch": "main"
   },
   "scenery-phet": {
-    "sha": "a7a0880a6cd18f1c7dd42d8655c620c32c032ba8",
+    "sha": "84172c072c0f476f14578a48a840ecfcfac5db27",
     "branch": "main"
   },
   "sherpa": {
@@ -101,7 +101,7 @@
     "branch": "main"
   },
   "utterance-queue": {
-    "sha": "1daf1a7b73fa0d7b51c0d7c1deb044b83ca5984a",
+    "sha": "0e66523e7eacf9bab1f1a9987d91d887067317a1",
     "branch": "main"
   }
 }
