@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * DirectrixNode displays the directrix for a quadratic.
+ * DirectrixNode displays the directrix (y = {{directrix}}) for a quadratic.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
