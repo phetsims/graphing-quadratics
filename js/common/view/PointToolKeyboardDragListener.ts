@@ -1,7 +1,9 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * PointToolKeyboardDragListener handles keyboard input for a point tool.
+ * PointToolKeyboardDragListener handles keyboard input for a point tool. When the tool is sufficiently close to
+ * a curve, it snaps to that curve, then continues to move the curve at constant speed (or slower constant speed
+ * if the Shift key is pressed.)
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -36,6 +38,8 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
     const options: SoundKeyboardDragListenerOptions = {
       tandem: tandem,
       transform: modelViewTransform,
+
+      // Continuous dragging, relevant only when not snapped to a curve.
       dragSpeed: 200,
       shiftDragSpeed: 50,
 
@@ -74,7 +78,7 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
                     ( ( currentQuadratic.a > 0 && newPosition.y <= currentQuadratic.vertex.y ) ||
                       ( currentQuadratic.a < 0 && newPosition.y >= currentQuadratic.vertex.y ) ) ) {
 
-            // With leftArrow or rightArrow, the new position would pass the vertex, so snap to the vertex.
+            // With upArrow or downArrow, the new position would pass the vertex, so snap to the vertex.
             pointTool.positionProperty.value = currentQuadratic.vertex;
           }
           else {
