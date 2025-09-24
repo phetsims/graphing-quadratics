@@ -63,13 +63,16 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
           pointTool.positionProperty.value = newPosition;
         }
         else if ( currentQuadratic !== null ) {
+
+          // The tool is currently snapped to a curve, so move along the curve.
+
           if ( listener.modelDelta.x === 0 && currentQuadratic.isaHorizontalLine() ) {
 
             // Attempting to use upArrow or downArrow for a horizontal line, so do nothing.
           }
           else if ( listener.modelDelta.x === 0 && currentQuadratic.isaParabola() &&
                     ( ( currentQuadratic.a > 0 && newPosition.y <= currentQuadratic.vertex!.y ) ||
-                     ( currentQuadratic.a < 0 && newPosition.y >= currentQuadratic.vertex!.y ) ) ) {
+                      ( currentQuadratic.a < 0 && newPosition.y >= currentQuadratic.vertex!.y ) ) ) {
 
             // With leftArrow or rightArrow, the new position would pass the vertex, so snap to the vertex.
             pointTool.positionProperty.value = currentQuadratic.vertex!;
@@ -77,11 +80,11 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
           }
           else {
 
-            // If the tool is snapped to a curve, move along that curve at constant speed, using a numerical solution
+            // The tool is snapped to a curve. Move along that curve at constant speed, using a numerical solution
             // to find the next point on the quadratic. The numerical solution is a modified Euler's method, described
             // by Google AI Overview with prompt "numerical method Euler to find constant distance on parabola".
             // The variables in this algorithm are:
-            // d is the distance to move along the parabola.
+            // d is the distance to move along the parabola. This quantity is signed.
             // (x0,y0) is the current position of the point tool.
             // (x1,y1) is the next position of the point tool.
             const x0 = pointTool.positionProperty.value.x;
@@ -91,12 +94,12 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
 
               // leftArrow or rightArrow was used, so d is straightforward and (because our parabola only opens up
               // or down, not left or right) works with all types of curves. Note that if multiple arrow keys are
-              // held down at the same time, we prefer the horizontal movement and ignore the vertical movement.
+              // pressed at the same time, we prefer the horizontal movement and ignore the vertical movement.
               d = ( newPosition.x > x0 ) ? dAbs : -dAbs;
             }
             else if ( currentQuadratic.isaLine() ) {
 
-              // upArrow or downArrow was used with a straight line. Determine how the sign of d based on the slope.
+              // upArrow or downArrow was used with a straight line. Determine the sign of d based on the slope.
               if ( listener.modelDelta.y > 0 ) {
                 d = ( currentQuadratic.b > 0 ) ? dAbs : -dAbs;
               }
@@ -106,15 +109,38 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
             }
             else {
               affirm( currentQuadratic.isaParabola() );
-              const vertex = currentQuadratic.vertex!;
-              affirm( vertex );
+              const axisOfSymmetry = currentQuadratic.axisOfSymmetry!;
+              affirm( axisOfSymmetry !== undefined );
 
               // upArrow or downArrow was used with a parabola. Determine the sign of d based on whether the parabola
-              // opens up or down, where the vertex is, and which side of the vertex the point tool is on.
-              //TODO https://github.com/phetsims/graphing-quadratics/issues/216 Handle upArrow and downArrow on a parabola.
-              //TODO https://github.com/phetsims/graphing-quadratics/issues/216 Snap to the vertex when newPosition.y would be on the closed side of the parabola.
-              d = ( newPosition.x > x0 ) ? dAbs : -dAbs;
+              // opens up or down (value of a), and which side of the axis of symmetry the point tool is on.
+              if ( newPosition.x >= axisOfSymmetry ) {
+
+                // Tool is to the right of the axisOfSymmetry.
+                if ( currentQuadratic.a > 0 ) {
+                  // Parabola opens upward.
+                  d = ( listener.modelDelta.y > 0 ) ? dAbs : -dAbs;
+                }
+                else {
+                  // Parabola opens downward.
+                  d = ( listener.modelDelta.y > 0 ) ? -dAbs : dAbs;
+                }
+              }
+              else {
+
+                // Tool is to the left of the axisOfSymmetry.
+                if ( currentQuadratic.a > 0 ) {
+                  // Parabola opens upward.
+                  d = ( listener.modelDelta.y > 0 ) ? -dAbs : dAbs;
+                }
+                else {
+                  // Parabola opens downward.
+                  d = ( listener.modelDelta.y > 0 ) ? dAbs : -dAbs;
+                }
+              }
             }
+
+            // Now that we have d (with a sign), compute the tool's new position on the curve.
             const dx = d / Math.sqrt( 1 + Math.pow( currentQuadratic.derivative( x0 ), 2 ) );
             const x1 = x0 + dx;
             const y1 = currentQuadratic.solveY( x1 );
@@ -123,7 +149,8 @@ export class PointToolKeyboardDragListener extends SoundKeyboardDragListener {
         }
         else {
 
-          // Find a curve that is close to the tool, and snap to it. If no curve is found, simply move to the new position.
+          // The tool is not currently snapped to a curve. Find a curve that is close to the tool, and snap to it.
+          // If no curve is found, simply move to the new position.
           const snapQuadratic = pointTool.getQuadraticNear( newPosition, GQQueryParameters.snapOnDistance );
           pointTool.quadraticProperty.value = snapQuadratic;
           if ( snapQuadratic ) {
