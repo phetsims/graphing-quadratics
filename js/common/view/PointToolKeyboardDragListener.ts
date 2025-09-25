@@ -1,9 +1,18 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * PointToolKeyboardDragListener handles keyboard input for a point tool. When the tool is sufficiently close to
- * a curve, it snaps to that curve, then continues to move the curve at constant speed (or slower constant speed
- * if the Shift key is pressed.)
+ * PointToolKeyboardDragListener handles keyboard input for a point tool.
+ *
+ * The point tool is moved by advancing its x or y position in discrete steps, depending on which arrow key is pressed,
+ * and whether the Shift key is pressed. This allows the user to precisely position the tool at a specific point.
+ *
+ * When the tool is sufficiently close to a curve, it snaps to that curve, and will then move along that curve.
+ * The speed that it moves along the curve is determined by the shape of the curve.
+ * Snapping off the curve requires using a keyboard shortcut - see MoveOffGraphListener and JumpToNextCurveListener.
+ *
+ * Note that there was an earlier version of PointToolKeyboardDragListener that moved at constant speed.
+ * See https://github.com/phetsims/graphing-quadratics/issues/238#issuecomment-3330220355 for why we switched.
+ * See the implementation in https://github.com/phetsims/graphing-quadratics/blob/0c2647c0b39197c4e06cb176c95ad747cb20b965/js/common/view/PointToolKeyboardDragListener.ts.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,8 +29,10 @@ import GQQueryParameters from '../GQQueryParameters.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import globalKeyStateTracker from '../../../../scenery/js/accessibility/globalKeyStateTracker.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import GQConstants from '../GQConstants.js';
 
-// When the tool is snapped to a curve, these constants specify the distance to move along the curve for each drag event.
+// These constants specify the position delta (dx or dy) each time that drag is called.
 const SNAPPED_KEYBOARD_STEP = 0.1;
 const SNAPPED_SHIFT_KEYBOARD_STEP = 0.01;
 affirm( SNAPPED_SHIFT_KEYBOARD_STEP < SNAPPED_KEYBOARD_STEP );
@@ -37,11 +48,9 @@ export default class PointToolKeyboardDragListener extends SoundKeyboardDragList
 
     const options: SoundKeyboardDragListenerOptions = {
       tandem: tandem,
-      transform: modelViewTransform,
-
-      // Continuous dragging, relevant only when not snapped to a curve.
-      dragSpeed: 200,
-      shiftDragSpeed: 50,
+      transform: modelViewTransform, // so that +y is up
+      moveOnHoldDelay: 200,
+      moveOnHoldInterval: 18,
 
       start: ( event, listener ) => {
 
@@ -54,10 +63,14 @@ export default class PointToolKeyboardDragListener extends SoundKeyboardDragList
         const currentPosition = pointTool.positionProperty.value;
         const currentQuadratic = pointTool.quadraticProperty.value;
 
-        let newPosition = new Vector2( currentPosition.x + listener.modelDelta.x, currentPosition.y + listener.modelDelta.y );
+        // Compute dx and dy, based on how listener.modelDelta changed.
+        // If multiple arrow keys are pressed at the same time, use dx and ignore dy.
+        const step = globalKeyStateTracker.shiftKeyDown ? SNAPPED_SHIFT_KEYBOARD_STEP : SNAPPED_KEYBOARD_STEP;
+        const dx = Math.sign( listener.modelDelta.x ) * step;
+        const dy = ( dx !== 0 ) ? 0 : Math.sign( listener.modelDelta.y ) * step;
 
-        // Constrain to dragBounds.
-        newPosition = pointTool.dragBounds.closestPointTo( newPosition );
+        // New tool position, constrained to dragBounds.
+        const newPosition = pointTool.dragBounds.closestPointTo( new Vector2( currentPosition.x + dx, currentPosition.y + dy ) );
 
         if ( !graph.contains( newPosition ) || !graphContentsVisibleProperty.value ) {
 
@@ -66,102 +79,89 @@ export default class PointToolKeyboardDragListener extends SoundKeyboardDragList
           pointTool.quadraticProperty.value = null;
           pointTool.positionProperty.value = newPosition;
         }
-        else if ( currentQuadratic !== null ) {
+        else if ( currentQuadratic === null ) {
 
-          // The tool is currently snapped to a curve, so move along the curve.
+          // The tool is not currently snapped to a curve.
+          const snapQuadratic = pointTool.getQuadraticNear( newPosition, GQQueryParameters.snapOnDistance );
+          if ( snapQuadratic ) {
 
-          if ( listener.modelDelta.x === 0 && currentQuadratic.isaHorizontalLine() ) {
+            // If the tool is sufficient close to a curve, snap to it.
+            pointTool.quadraticProperty.value = snapQuadratic;
+            const snapPosition = snapQuadratic.getClosestPoint( newPosition );
 
-            // Attempting to use upArrow or downArrow for a horizontal line, so do nothing.
-          }
-          else if ( listener.modelDelta.x === 0 && currentQuadratic.vertex &&
-                    ( ( currentQuadratic.a > 0 && newPosition.y <= currentQuadratic.vertex.y ) ||
-                      ( currentQuadratic.a < 0 && newPosition.y >= currentQuadratic.vertex.y ) ) ) {
+            // Round x1 to the number of decimal places that the tool will display. This prevents situations where
+            // there would appear to be 2 different y values for the same displayed x value, because snapPosition.x
+            // values are different in decimal places that are not displayed.  This was first discovered (and is most
+            // common and obvious) with integer snapPosition.x values, but is actually a potential problem with all
+            // snapPosition.x values. See https://github.com/phetsims/graphing-quadratics/issues/169 and
+            // https://github.com/phetsims/graphing-quadratics/issues/238.
+            const x1 = toFixedNumber( snapPosition.x, GQConstants.POINT_TOOL_DECIMALS );
+            const y1 = snapQuadratic.solveY( x1 );
+            pointTool.positionProperty.value = new Vector2( x1, y1 );
 
-            // With upArrow or downArrow, the new position would pass the vertex, so snap to the vertex.
-            pointTool.positionProperty.value = currentQuadratic.vertex;
+            // Play a sound when the tool snaps to a curve.
+            PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
           }
           else {
 
-            // The tool is snapped to a curve. Move along that curve at constant speed, using a numerical solution
-            // to find the next point on the quadratic. The numerical solution is a modified Euler's method, described
-            // by Google AI Overview with prompt "numerical method Euler to find constant distance on parabola".
-            // The variables in this algorithm are:
-            // d is the distance to move along the parabola. This quantity is signed.
-            // (x0,y0) is the current position of the point tool.
-            // (x1,y1) is the next position of the point tool.
-            const x0 = pointTool.positionProperty.value.x;
-            const dAbs = globalKeyStateTracker.shiftKeyDown ? SNAPPED_SHIFT_KEYBOARD_STEP : SNAPPED_KEYBOARD_STEP;
-            let d: number;
-            if ( listener.modelDelta.x !== 0 ) {
-
-              // leftArrow or rightArrow was used, so d is straightforward and (because our parabola only opens up
-              // or down, not left or right) works with all types of curves. Note that if multiple arrow keys are
-              // pressed at the same time, we prefer the horizontal movement and ignore the vertical movement.
-              d = ( newPosition.x > x0 ) ? dAbs : -dAbs;
-            }
-            else if ( currentQuadratic.isaLine() ) {
-
-              // upArrow or downArrow was used with a straight line. Determine the sign of d based on the slope.
-              if ( listener.modelDelta.y > 0 ) {
-                d = ( currentQuadratic.b > 0 ) ? dAbs : -dAbs;
-              }
-              else {
-                d = ( currentQuadratic.b > 0 ) ? -dAbs : dAbs;
-              }
-            }
-            else {
-              affirm( currentQuadratic.isaParabola() );
-              const axisOfSymmetry = currentQuadratic.axisOfSymmetry!;
-              affirm( axisOfSymmetry !== undefined );
-
-              // upArrow or downArrow was used with a parabola. Determine the sign of d based on whether the parabola
-              // opens up or down (value of a), and which side of the axis of symmetry the point tool is on.
-              if ( newPosition.x >= axisOfSymmetry ) {
-
-                // Tool is to the right of the axisOfSymmetry.
-                if ( currentQuadratic.a > 0 ) {
-                  // Parabola opens upward.
-                  d = ( listener.modelDelta.y > 0 ) ? dAbs : -dAbs;
-                }
-                else {
-                  // Parabola opens downward.
-                  d = ( listener.modelDelta.y > 0 ) ? -dAbs : dAbs;
-                }
-              }
-              else {
-
-                // Tool is to the left of the axisOfSymmetry.
-                if ( currentQuadratic.a > 0 ) {
-                  // Parabola opens upward.
-                  d = ( listener.modelDelta.y > 0 ) ? -dAbs : dAbs;
-                }
-                else {
-                  // Parabola opens downward.
-                  d = ( listener.modelDelta.y > 0 ) ? dAbs : -dAbs;
-                }
-              }
-            }
-
-            // Now that we have d (with a sign), compute the tool's new position on the curve.
-            const dx = d / Math.sqrt( 1 + Math.pow( currentQuadratic.derivative( x0 ), 2 ) );
-            const x1 = x0 + dx;
-            const y1 = currentQuadratic.solveY( x1 );
-            pointTool.positionProperty.value = new Vector2( x1, y1 );
+            // If the tool is not sufficient close to a curve, simply move to the new position.
+            pointTool.positionProperty.value = newPosition;
           }
         }
         else {
 
-          // The tool is not currently snapped to a curve. Find a curve that is close to the tool, and snap to it.
-          // If no curve is found, simply move to the new position.
-          const snapQuadratic = pointTool.getQuadraticNear( newPosition, GQQueryParameters.snapOnDistance );
-          pointTool.quadraticProperty.value = snapQuadratic;
-          if ( snapQuadratic ) {
-            pointTool.positionProperty.value = snapQuadratic.getClosestPoint( newPosition );
-            PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
+          // The tool is currently snapped to a curve...
+          if ( dy !== 0 && currentQuadratic.isaHorizontalLine() ) {
+
+            // Attempting to use upArrow or downArrow for a horizontal line does nothing.
           }
           else {
-            pointTool.positionProperty.value = newPosition;
+
+            // Move along the curve.
+            if ( dx !== 0 ) {
+
+              // leftArrow or rightArrow: advance x by delta, compute y
+              const x1 = toFixedNumber( currentPosition.x + dx, GQConstants.POINT_TOOL_DECIMALS );
+              const y1 = currentQuadratic.solveY( x1 );
+              pointTool.positionProperty.value = new Vector2( x1, y1 );
+            }
+            else {
+              affirm( dy !== 0 );
+
+              // upArrow or downArrow: advance y by delta, compute x
+              let x1: number;
+              let y1 = toFixedNumber( currentPosition.y + dy, GQConstants.POINT_TOOL_DECIMALS );
+
+              if ( currentQuadratic.isaParabola() ) {
+
+                const vertex = currentQuadratic.vertex!;
+                affirm( vertex );
+                if ( ( currentQuadratic.a > 0 && y1 <= vertex.y ) || ( currentQuadratic.a < 0 && y1 >= vertex.y ) ) {
+
+                  // The new position would pass the vertex, so snap to the vertex.
+                  x1 = vertex.x;
+                  y1 = vertex.y;
+                }
+                else {
+
+                  // A parabola has 2 solutions for x, in ascending order. Look at the tool's position relative to
+                  // the axis of symmetry to decide which solution to use.
+                  const xValues = currentQuadratic.solveX( y1 )!;
+                  affirm( xValues && xValues.length === 2 );
+                  const axisOfSymmetry = currentQuadratic.axisOfSymmetry!;
+                  affirm( axisOfSymmetry !== undefined );
+                  x1 = ( currentPosition.x < axisOfSymmetry ) ? xValues[ 0 ] : xValues[ 1 ];
+                }
+              }
+              else {
+
+                // A line has 1 solution for x.
+                const xValues = currentQuadratic.solveX( y1 )!;
+                affirm( xValues.length === 1 );
+                x1 = xValues[ 0 ];
+              }
+              pointTool.positionProperty.value = new Vector2( x1, y1 );
+            }
           }
         }
 
