@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.4.0-dev.7 Wed Sep 24 2025 12:17:37 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.4.0-dev.8 Thu Sep 25 2025 14:45:22 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "main"
@@ -25,7 +25,7 @@
     "branch": "main"
   },
   "graphing-quadratics": {
-    "sha": "0c01657fe35fd92eba97f8eae566187423f28aa0",
+    "sha": "833a3ae245d52cef8019175153957a4f644b2f6d",
     "branch": "main"
   },
   "joist": {
@@ -45,7 +45,7 @@
     "branch": "main"
   },
   "phet-io": {
-    "sha": "af763af99e7a95798f6798cd03cfc8e86d8d264d",
+    "sha": "990df5f5aba545490477f64478c18822c74ebf9e",
     "branch": "main"
   },
   "phet-io-sim-specific": {
@@ -57,7 +57,7 @@
     "branch": "main"
   },
   "phetcommon": {
-    "sha": "a71d1495fe9738ec2cf7afb5ebf77ccee9374af0",
+    "sha": "8130db3074f830d9dcc5d09558ec4b7b8b4e9991",
     "branch": "main"
   },
   "phetmarks": {
@@ -93,7 +93,7 @@
     "branch": "main"
   },
   "tandem": {
-    "sha": "cdc69443b74b586b91e5a0bc4ea4e9890784a7ba",
+    "sha": "b3f06bccf16ca8ee28bb6bd977d6d9ecdbe130f5",
     "branch": "main"
   },
   "twixt": {
