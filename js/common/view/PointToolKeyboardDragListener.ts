@@ -50,7 +50,7 @@ export default class PointToolKeyboardDragListener extends SoundKeyboardDragList
       tandem: tandem,
       transform: modelViewTransform, // so that +y is up
       moveOnHoldDelay: 200,
-      moveOnHoldInterval: 18,
+      moveOnHoldInterval: GQQueryParameters.pointToolMoveOnHoldInterval,
 
       start: ( event, listener ) => {
 

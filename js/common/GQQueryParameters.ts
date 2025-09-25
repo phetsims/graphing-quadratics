@@ -53,6 +53,13 @@ const GQQueryParameters = QueryStringMachine.getAll( {
   equationsBackgroundColor: {
     type: 'string',
     defaultValue: 'white'
+  },
+
+  // Controls how often (in ms) the point tool keyboard drag listener fires when holding down the arrow keys.
+  pointToolMoveOnHoldInterval: {
+    type: 'number',
+    defaultValue: 18,
+    isValidValue: value => ( value > 0 && value <= 200 )
   }
 } );
 
