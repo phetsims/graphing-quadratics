@@ -56,6 +56,7 @@ const GQQueryParameters = QueryStringMachine.getAll( {
   },
 
   // Controls how often (in ms) the point tool keyboard drag listener fires when holding down the arrow keys.
+  // Larger values make the point tool move slower.
   // See https://github.com/phetsims/graphing-quadratics/issues/238.
   pointToolMoveOnHoldInterval: {
     type: 'number',
