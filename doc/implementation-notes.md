@@ -45,7 +45,7 @@ PhET-specific terminology:
 * erase button - button with an eraser icon, used to erase the saved curve
 * graph contents - everything that is displayed on the graph, excluding the grid and axes
 * 'hide graph contents' button - button with an eyeball icon that shows/hides the graph contents
-* interactive quadratic - the quadratic that the user can interact with, via sliders, pickers, and/or manipulators
+* interactive quadratic - the quadratic that the user can interact with, via sliders, spinners, and/or manipulators
 * manipulator - shaded sphere that appears on the graph, used to change some aspect of the interactive quadratic
 * saved curve - the saved state of the interactive quadratic, appears on the graph as a gray parabola or line
 * save button - button with a camera icon, used to create the saved curve
@@ -123,8 +123,8 @@ is the equation accordion box for the _Explore_ screen.
 
 Each screen has a class whose name ends with "InteractiveEquationNode", for
 example, [ExploreInteractiveEquationNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreInteractiveEquationNode.ts).
-This is the UI for modifying the interactive quadratic indirectly, using sliders or pickers. _Explore_ and _Focus &
-Directrix_ screens use sliders, _Standard Form_ and _Vertex Form_ screens use pickers.
+This is the UI for modifying the interactive quadratic indirectly, using sliders or spinners. _Explore_ and _Focus &
+Directrix_ screens use sliders, _Standard Form_ and _Vertex Form_ screens use spinners.
 
 Manipulators are the shaded spheres that appear on the graph. They allow the user to modify the interactive quadratic
 directly, by interacting with its curve.
