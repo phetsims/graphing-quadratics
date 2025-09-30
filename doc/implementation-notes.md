@@ -151,4 +151,4 @@ the `doAccessibleObjectResponse` method in classes for draggable objects (manipu
 `Quadratic.QuadraticIO` is a custom `IOType` that implements data-type serialization for quadratic equations. 
 It is used as the `phetioValueType` for various Properties whose value is of type `Quadratic`.
 
-There are no dynamic elements in this sim, and therefore no uses of `PhetioGroup` or `PhetioCapsule`.
+There are no dynamic PhET-iO elements in this sim, and therefore no uses of `PhetioGroup` or `PhetioCapsule`.
