@@ -139,9 +139,7 @@ for changing the vertex, focus, and point on the parabola, respectively.
 Each checkbox in this sim is a subclass
 of [GQCheckBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQCheckbox.ts), a subtype
 of `SUN/Checkbox` that supports labeling with an optional icon, and provides standardization of various properties (
-font, fill,...) You can locate a `Checkbox` subclass based on the English text used on checkbox. For
-example, [FocusCheckbox](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/FocusCheckbox.ts)
-is the checkbox labeled with "Focus" and a focus manipulator icon.
+font, fill,...)
 
 ## Core Description
 
