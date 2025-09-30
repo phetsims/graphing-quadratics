@@ -82,7 +82,7 @@ _bx_ + _c_. It does not support parabolas that open left or right, i.e. that hav
 _by_ + _c_.
 
 [Quadratic](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/model/Quadratic.ts) is the primary model
-component. It is essentially an immutable data structure that describes a quadratic equation. It supports instantiation
+component. It is an immutable data structure that describes a quadratic equation. It supports instantiation
 using standard form (via the constructor), vertex form (via `createFromVertexForm`) and alternate vertex form (
 via `createFromAlternateVertexForm`).
 
