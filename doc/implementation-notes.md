@@ -134,7 +134,7 @@ for changing the vertex, focus, and point on the parabola, respectively.
 
 ## Core Description
 
-The big chunks of code that implement core description can be found in the view/description/ subdirectories.
+The big chunks of code that implement core description can be found in the `view/description/` subdirectories.
 
 The most important classes are:
 * [GQEquationDescriber](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/description/GQEquationDescriber.ts) describes mathematical equations.
