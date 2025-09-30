@@ -144,7 +144,7 @@ The most important classes are:
 
 Smaller pieces of code related to core description can be found by searching for description-related options
 (`accessibleName`, `accessibleHelpText`, `accessibleObjectResponse`, `accessibleContextResponse`, ...) and 
-the `doAccessibleObjectResponse` method in classes for draggable objects (manipulators, point tools).
+the `doAccessibleObjectResponse` method in classes for draggable objects (manipulators and point tools).
 
 ## PhET-iO
  
