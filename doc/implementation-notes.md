@@ -132,11 +132,6 @@ class and its 3 subclasses, [VertexManipulator](https://github.com/phetsims/grap
 and [PointOnParabolaManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/PointOnParabolaManipulator.ts),
 for changing the vertex, focus, and point on the parabola, respectively.
 
-Each checkbox in this sim is a subclass
-of [GQCheckBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQCheckbox.ts), a subclass
-of `SUN/Checkbox` that supports labeling with an optional icon, and provides standardization of various properties (
-font, fill,...)
-
 ## Core Description
 
 The big chunks of code that implement core description can be found in the view/description/ subdirectories:
