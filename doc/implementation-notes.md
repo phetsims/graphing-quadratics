@@ -34,7 +34,7 @@ Standard terminology:
   distance from a fixed line (directrix)
 * quadratic - short for "quadratic equation", in any of the 3 supported forms
 * quadratic term - the _ax_<sup>2</sup> term of _y_ = _ax_<sup>2</sup> + _bx_ + _c_
-* roots - or real roots, zero or more point(s) where a polynomial intersects the x axis
+* roots (or real roots) - zero or more point(s) where a polynomial intersects the x axis
 * standard form - see [model.md](https://github.com/phetsims/graphing-quadratics/blob/main/doc/model.md)
 * vertex - the highest or lowest point of a parabola, also it's turning point
 * vertex form - see [model.md](https://github.com/phetsims/graphing-quadratics/blob/main/doc/model.md)
