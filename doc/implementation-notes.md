@@ -47,7 +47,7 @@ PhET-specific terminology:
 * 'hide graph contents' button - button with an eyeball icon that shows/hides the graph contents
 * interactive quadratic - the quadratic that the user can interact with, via sliders, pickers, and/or manipulators
 * manipulator - shaded sphere that appears on the graph, used to change some aspect of the interactive quadratic
-* saved curve - the saved state of the interactive quadratic, appears on the graph as a gray line
+* saved curve - the saved state of the interactive quadratic, appears on the graph as a gray parabola or line
 * save button - button with a camera icon, used to create the saved curve
 
 ## Common Patterns
