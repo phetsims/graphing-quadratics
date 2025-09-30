@@ -62,17 +62,16 @@ graph.
 Sim-specific query parameters are documented in
 [GQQueryParameters](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/GQQueryParameters.ts).
 
-**Assertions**: The implementation makes liberal use of `assert` to verify pre/post assumptions and perform argument
+**Assertions**: The implementation makes liberal use of `affirm` to verify pre/post assumptions and perform argument
 validation. If you are making modifications to this sim, do so with assertions enabled via the `ea` query parameter.
 
-**Memory management**: Unless otherwise documented in the source code, assume
-that `unlink`, `removeListener`, `dispose`, etc. are generally not needed. Most object instances exist for the lifetime
-of the sim. The exception is `QuadraticNode` for the saved curve.
+**Memory management**: `isDisposable: false` is used to identify classes that do not support `dispose`. Unless otherwise
+documented in the source code, assume that `unlink`, `removeListener`, `dispose`, etc. are generally not needed. Most object 
+instances exist for the lifetime of the sim. The exception is `QuadraticNode` for the saved curve.
 
 ## Related simulations
 
-This sim reuses a very small number of model and view components from Graphing Lines. Search for "GRAPHING_LINES/" to
-identify what is reused.
+This sim reuses a small amount of code from the **Graphing Lines** simulation. Search for "graphing-lines/" to identify what is reused.
 
 ## Model
 
