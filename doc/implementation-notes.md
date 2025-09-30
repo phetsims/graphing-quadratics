@@ -122,11 +122,11 @@ is the equation accordion box for the _Explore_ screen.
 
 Each screen has a class whose name ends with "InteractiveEquationNode", for
 example, [ExploreInteractiveEquationNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/explore/view/ExploreInteractiveEquationNode.ts).
-This is the UI for modifying the interactive quadratic indirectly, using sliders or spinners. _Explore_ and _Focus &
+This is the UI for modifying the interactive quadratic _indirectly_, using sliders or spinners. _Explore_ and _Focus &
 Directrix_ screens use sliders, _Standard Form_ and _Vertex Form_ screens use spinners.
 
 Manipulators are the shaded spheres that appear on the graph. They allow the user to modify the interactive quadratic
-directly, by interacting with its curve.
+_directly_, by interacting with its curve.
 The [Manipulator](https://github.com/phetsims/graphing-lines/blob/main/js/common/view/manipulator/Manipulator.ts) base
 class is reused from the Graphing Lines sim, and is extended in
 the [GQManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQManipulator.ts) base
