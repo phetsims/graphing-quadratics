@@ -127,16 +127,13 @@ Directrix_ screens use sliders, _Standard Form_ and _Vertex Form_ screens use sp
 
 Manipulators are the shaded spheres that appear on the graph. They allow the user to modify the interactive quadratic
 _directly_, by interacting with its curve.
-The [Manipulator](https://github.com/phetsims/graphing-lines/blob/main/js/common/view/manipulator/Manipulator.ts) base
-class is reused from the Graphing Lines sim, and is extended in
-the [GQManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQManipulator.ts) base
-class, which adds optional (x,y) coordinates. The 3 subclasses of `GQManipulator`
-are [VertexManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/VertexManipulator.ts), [FocusManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/FocusManipulator.ts)
+See [GQManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQManipulator.ts) base
+class and its 3 subclasses, [VertexManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/VertexManipulator.ts), [FocusManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/FocusManipulator.ts)
 and [PointOnParabolaManipulator](https://github.com/phetsims/graphing-quadratics/blob/main/js/focusanddirectrix/view/PointOnParabolaManipulator.ts),
 for changing the vertex, focus, and point on the parabola, respectively.
 
 Each checkbox in this sim is a subclass
-of [GQCheckBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQCheckbox.ts), a subtype
+of [GQCheckBox](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/GQCheckbox.ts), a subclass
 of `SUN/Checkbox` that supports labeling with an optional icon, and provides standardization of various properties (
 font, fill,...)
 
