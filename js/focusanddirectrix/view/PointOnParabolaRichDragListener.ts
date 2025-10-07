@@ -42,7 +42,7 @@ export class PointOnParabolaRichDragListener extends SoundRichDragListener {
       transform: modelViewTransform,
       keyboardDragListenerOptions: {
 
-        // Use 'speed' API because this manipulator displays values to 2 decimal places, and want a continuous feel.
+        // Use 'speed' API because this manipulator displays values to 2 decimal places, and we want a continuous feel.
         // Values are in view units per second.
         dragSpeed: 400,
         shiftDragSpeed: 50
