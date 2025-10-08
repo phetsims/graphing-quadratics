@@ -55,7 +55,7 @@ export default class PointOnParabolaKeyboardDragListener extends SoundKeyboardDr
         if ( dx !== 0 ) {
 
           // Using leftArrow or rightArrow, so simply change x and compute y.
-          x1 = graph.xRange.constrainValue( pointOnParabolaProperty.value.x + dx );
+          x1 = pointOnParabolaProperty.value.x + dx;
           y1 = quadraticProperty.value.solveY( x1 );
         }
         else {
@@ -67,8 +67,7 @@ export default class PointOnParabolaKeyboardDragListener extends SoundKeyboardDr
           const vertex = quadratic.vertex;
           affirm( vertex );
 
-          // Constrain y to the graph.
-          y1 = graph.yRange.constrainValue( pointOnParabolaProperty.value.y + dy );
+          y1 = pointOnParabolaProperty.value.y + dy;
 
           if ( ( quadratic.a > 0 && y1 <= vertex.y ) || ( quadratic.a < 0 && y1 >= vertex.y ) ) {
 
@@ -88,6 +87,28 @@ export default class PointOnParabolaKeyboardDragListener extends SoundKeyboardDr
                    xSolutions[ 0 ] :
                    xSolutions[ 1 ];
             }
+          }
+        }
+
+        // If x is out of range, constrain x, and solve for y.
+        if ( !graph.xRange.contains( x1 ) ) {
+          x1 = graph.xRange.constrainValue( x1 );
+          y1 = quadraticProperty.value.solveY( x1 );
+        }
+
+        // If y is out of range, constrain y, solve for x.
+        if ( !graph.yRange.contains( y1 ) ) {
+          y1 = graph.yRange.constrainValue( y1 );
+          const xSolutions = quadraticProperty.value.solveX( y1 )!;
+          affirm( xSolutions !== null, `no solutions for y=${y1}` );
+
+          // If there are 2 solutions for x, choose the closer of the 2 solutions.
+          const x0 = pointOnParabolaProperty.value.x;
+          x1 = xSolutions[ 0 ];
+          if ( xSolutions.length > 1 ) {
+            x1 = ( Math.abs( xSolutions[ 0 ] - x0 ) < Math.abs( xSolutions[ 1 ] - x0 ) ) ?
+                 xSolutions[ 0 ] :
+                 xSolutions[ 1 ];
           }
         }
 
