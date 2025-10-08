@@ -1,8 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * PointOnParabolaDragListener is the drag listener that supports both pointer and keyboard input for changing
- * the point on the parabola.
+ * PointOnParabolaDragListener is the drag listener that handles pointer input for PointOnParabolaManipulator.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -12,44 +11,39 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import GQConstants from '../../common/GQConstants.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
-import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
-import GQGraph from '../../common/model/GQGraph.js';
+import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 
-export default class PointOnParabolaDragListener extends SoundRichDragListener {
+export default class PointOnParabolaDragListener extends SoundDragListener {
 
-  /**
-   * @param manipulator
-   * @param pointOnParabolaProperty - the point
-   * @param quadraticProperty - the interactive quadratic
-   * @param modelViewTransform
-   * @param graph
-   * @param parentTandem
-   */
   public constructor( manipulator: PointOnParabolaManipulator,
                       pointOnParabolaProperty: Property<Vector2>,
                       quadraticProperty: TReadOnlyProperty<Quadratic>,
                       modelViewTransform: ModelViewTransform2,
-                      graph: GQGraph,
-                      parentTandem: Tandem ) {
+                      graph: Graph,
+                      tandem: Tandem ) {
+
+    let startOffset: Vector2; // where the drag started, relative to the manipulator
 
     super( {
-      transform: modelViewTransform,
-      keyboardDragListenerOptions: {
 
-        // Use 'speed' API because this manipulator displays values to 2 decimal places, and we want a continuous feel.
-        // Values are in view units per second.
-        dragSpeed: 400,
-        shiftDragSpeed: 50
+      // note where the drag started
+      start: ( event, listener ) => {
+        const position = modelViewTransform.modelToViewPosition( pointOnParabolaProperty.value );
+        startOffset = manipulator.globalToParentPoint( event.pointer.point ).minus( position );
       },
+
       drag: ( event, listener ) => {
 
-        const point = pointOnParabolaProperty.value.plus( listener.modelDelta );
+        // transform the drag point from view to model coordinate frame
+        const parentPoint = manipulator.globalToParentPoint( event.pointer.point ).minus( startOffset );
+        const point = modelViewTransform.viewToModelPosition( parentPoint );
 
         // get the closest point on the parabola
         const pointOnParabola = quadraticProperty.value.getClosestPoint( point );
@@ -84,7 +78,7 @@ export default class PointOnParabolaDragListener extends SoundRichDragListener {
         // accessibleObjectResponse
         manipulator.doAccessibleObjectResponse();
       },
-      tandem: parentTandem
+      tandem: tandem
     } );
   }
 }

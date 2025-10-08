@@ -62,6 +62,15 @@ const GQQueryParameters = QueryStringMachine.getAll( {
     type: 'number',
     defaultValue: 22,
     isValidValue: value => ( value > 0 && value <= 200 )
+  },
+
+  // Controls how often (in ms) the point-on-parabola keyboard drag listener fires when holding down the arrow keys.
+  // Larger values make the point move slower.
+  // See https://github.com/phetsims/graphing-quadratics/issues/249.
+  pointOnParabolaMoveOnHoldInterval: {
+    type: 'number',
+    defaultValue: 22,
+    isValidValue: value => ( value > 0 && value <= 200 )
   }
 } );
 

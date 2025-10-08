@@ -26,6 +26,7 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import GQGraph from '../../common/model/GQGraph.js';
+import PointOnParabolaKeyboardDragListener from './PointOnParabolaKeyboardDragListener.js';
 
 // constants
 const COORDINATES_X_SPACING = 1;
@@ -90,9 +91,10 @@ export default class PointOnParabolaManipulator extends GQManipulator {
 
     this.pointOnParabolaProperty = pointOnParabolaProperty;
 
-    // add drag handler
     this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
-      modelViewTransform, graph, options.tandem ) );
+      modelViewTransform, graph, options.tandem.createTandem( 'dragListener' ) ) );
+    this.addInputListener( new PointOnParabolaKeyboardDragListener( this, pointOnParabolaProperty, quadraticProperty,
+      modelViewTransform, graph, options.tandem.createTandem( 'keyboardDragListener' ) ) );
 
     // move the manipulator
     pointOnParabolaProperty.link( pointOnParabola => {
