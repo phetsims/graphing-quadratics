@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * PointOnParabolaRichDragListener is the drag listener that supports both pointer and keyboard input for changing
+ * PointOnParabolaDragListener is the drag listener that supports both pointer and keyboard input for changing
  * the point on the parabola.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -21,7 +21,7 @@ import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import GQGraph from '../../common/model/GQGraph.js';
 
-export default class PointOnParabolaRichDragListener extends SoundRichDragListener {
+export default class PointOnParabolaDragListener extends SoundRichDragListener {
 
   /**
    * @param manipulator
@@ -89,4 +89,4 @@ export default class PointOnParabolaRichDragListener extends SoundRichDragListen
   }
 }
 
-graphingQuadratics.register( 'PointOnParabolaRichDragListener', PointOnParabolaRichDragListener );
+graphingQuadratics.register( 'PointOnParabolaDragListener', PointOnParabolaDragListener );

@@ -18,7 +18,7 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import PointOnParabolaRichDragListener from './PointOnParabolaRichDragListener.js';
+import PointOnParabolaDragListener from './PointOnParabolaDragListener.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -91,7 +91,7 @@ export default class PointOnParabolaManipulator extends GQManipulator {
     this.pointOnParabolaProperty = pointOnParabolaProperty;
 
     // add drag handler
-    this.addInputListener( new PointOnParabolaRichDragListener( this, pointOnParabolaProperty, quadraticProperty,
+    this.addInputListener( new PointOnParabolaDragListener( this, pointOnParabolaProperty, quadraticProperty,
       modelViewTransform, graph, options.tandem ) );
 
     // move the manipulator
