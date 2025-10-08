@@ -33,7 +33,7 @@ export default class PointOnParabolaDragListener extends SoundDragListener {
 
     super( {
 
-      // note where the drag started
+      // Note where the drag started.
       start: ( event, listener ) => {
         const position = modelViewTransform.modelToViewPosition( pointOnParabolaProperty.value );
         startOffset = manipulator.globalToParentPoint( event.pointer.point ).minus( position );
@@ -41,30 +41,33 @@ export default class PointOnParabolaDragListener extends SoundDragListener {
 
       drag: ( event, listener ) => {
 
-        // transform the drag point from view to model coordinate frame
+        // Transform the drag point from view to model coordinate frame.
         const parentPoint = manipulator.globalToParentPoint( event.pointer.point ).minus( startOffset );
         const point = modelViewTransform.viewToModelPosition( parentPoint );
 
-        // get the closest point on the parabola
+        // Get the closest point on the parabola.
         const pointOnParabola = quadraticProperty.value.getClosestPoint( point );
 
-        // constrain to the range of the graph. x & y may both be out of range.
+        // If x is out of range, constrain x, and solve for y.
         if ( !graph.xRange.contains( pointOnParabola.x ) ) {
-
-          // x is out of range, so constrain x, and solve for y
           pointOnParabola.setX( graph.xRange.constrainValue( pointOnParabola.x ) );
           pointOnParabola.setY( quadraticProperty.value.solveY( pointOnParabola.x ) );
         }
 
+        // If y is out of range, constrain y, solve for x.
         if ( !graph.yRange.contains( pointOnParabola.y ) ) {
-
-          // y is out of range, so constrain y, solve for x, and choose the closer of the 2 solutions
           pointOnParabola.setY( graph.yRange.constrainValue( pointOnParabola.y ) );
           const xSolutions = quadraticProperty.value.solveX( pointOnParabola.y )!;
-          affirm( xSolutions && xSolutions.length === 2, `expected 2 solutions for x: ${xSolutions}` );
-          const xClosest = ( Math.abs( xSolutions[ 0 ] - pointOnParabola.x ) < Math.abs( xSolutions[ 1 ] - pointOnParabola.x ) )
-                           ? xSolutions[ 0 ] : xSolutions[ 1 ];
-          pointOnParabola.setX( xClosest );
+          affirm( xSolutions !== null, `no solutions for y=${pointOnParabola.y}` );
+
+          // If there are 2 solutions for x, choose the closer of the 2 solutions.
+          let x1 = xSolutions[ 0 ];
+          if ( xSolutions.length > 1 ) {
+            x1 = ( Math.abs( xSolutions[ 0 ] - pointOnParabola.x ) < Math.abs( xSolutions[ 1 ] - pointOnParabola.x ) ) ?
+                 xSolutions[ 0 ] :
+                 xSolutions[ 1 ];
+          }
+          pointOnParabola.setX( x1 );
         }
 
         // Snap to the x value as it will be displayed, by solving for y.
