@@ -16,7 +16,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import VertexManipulator from './VertexManipulator.js';
 import GQGraph from '../model/GQGraph.js';
 
-export class VertexDragListener extends SoundDragListener {
+export default class VertexDragListener extends SoundDragListener {
 
   public constructor( manipulator: VertexManipulator,
                       hProperty: NumberProperty,

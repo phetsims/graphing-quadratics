@@ -22,7 +22,7 @@ import GQConstants from '../../common/GQConstants.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 
-export class FocusRichDragListener extends SoundRichDragListener {
+export default class FocusRichDragListener extends SoundRichDragListener {
 
   /**
    * @param manipulator

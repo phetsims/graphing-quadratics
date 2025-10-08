@@ -18,7 +18,7 @@ import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
-import { FocusRichDragListener } from './FocusRichDragListener.js';
+import FocusRichDragListener from './FocusRichDragListener.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';

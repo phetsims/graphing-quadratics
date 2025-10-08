@@ -21,7 +21,7 @@ import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from './GQManipulator.js';
-import { VertexDragListener } from './VertexDragListener.js';
+import VertexDragListener from './VertexDragListener.js';
 import VertexKeyboardDragListener from './VertexKeyboardDragListener.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';

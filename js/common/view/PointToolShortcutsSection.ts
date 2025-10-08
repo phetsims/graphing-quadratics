@@ -13,7 +13,7 @@ import graphingQuadratics from '../../graphingQuadratics.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 
-export class PointToolShortcutsSection extends KeyboardHelpSection {
+export default class PointToolShortcutsSection extends KeyboardHelpSection {
 
   public constructor() {
 

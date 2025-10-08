@@ -21,7 +21,7 @@ import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import GQGraph from '../../common/model/GQGraph.js';
 
-export class PointOnParabolaRichDragListener extends SoundRichDragListener {
+export default class PointOnParabolaRichDragListener extends SoundRichDragListener {
 
   /**
    * @param manipulator
