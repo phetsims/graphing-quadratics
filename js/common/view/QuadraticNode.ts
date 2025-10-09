@@ -27,6 +27,7 @@ import Quadratic from '../model/Quadratic.js';
 import GQEquationFactory from './GQEquationFactory.js';
 import { EquationForm } from './GQViewProperties.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import Subpath from '../../../../kite/js/util/Subpath.js';
 
 type SelfOptions = {
   preventVertexAndEquationOverlap?: boolean; // prevent a parabola's vertex and equation from overlapping
@@ -159,6 +160,13 @@ export default class QuadraticNode extends Node {
       .moveToPoint( bezierControlPoints.startPoint )
       .quadraticCurveToPoint( bezierControlPoints.controlPoint, bezierControlPoints.endPoint )
       .transformed( this.modelViewTransform.getMatrix() );
+
+    // Workaround: Subdivide the quadratic around the vertex to remove the visual issues reported on Safari in
+    // https://github.com/phetsims/graphing-quadratics/issues/252.
+    if ( quadratic.isaParabola() ) {
+      const quadraticSegment = this.quadraticPath.shape.subpaths[ 0 ].segments[ 0 ];
+      this.quadraticPath.shape = new Shape( [ new Subpath( quadraticSegment.subdivisions( [ 0.4, 0.47, 0.5, 0.53, 0.6 ] ) ) ] );
+    }
 
     // update color
     this.quadraticPath.stroke = quadratic.color;
