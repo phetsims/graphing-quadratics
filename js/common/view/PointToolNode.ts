@@ -182,6 +182,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     } );
 
     // When the point tool snaps to a curve, play a sound.
+    // See https://github.com/phetsims/graphing-quadratics/issues/250
     pointTool.quadraticProperty.lazyLink( quadratic => {
       if ( quadratic ) {
         PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
