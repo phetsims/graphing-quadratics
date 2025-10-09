@@ -98,9 +98,6 @@ export default class PointToolKeyboardDragListener extends SoundKeyboardDragList
             const x1 = toFixedNumber( snapPosition.x, GQConstants.POINT_TOOL_DECIMALS );
             const y1 = snapQuadratic.solveY( x1 );
             pointTool.positionProperty.value = new Vector2( x1, y1 );
-
-            // Play a sound when the tool snaps to a curve.
-            PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
           }
           else {
 

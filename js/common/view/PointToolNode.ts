@@ -61,7 +61,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
   public readonly getCurveName: ( quadratic: Quadratic ) => string | null;
 
   // Sound that is played when the tool snaps to a curve.
-  public static readonly SNAP_TO_CURVE_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
+  private static readonly SNAP_TO_CURVE_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
     soundClipOptions: {
       initialOutputLevel: 0.7
     },
@@ -179,6 +179,13 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     // When this tool gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
       focused && this.doAccessibleObjectResponse();
+    } );
+
+    // When the point tool snaps to a curve, play a sound.
+    pointTool.quadraticProperty.lazyLink( quadratic => {
+      if ( quadratic ) {
+        PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
+      }
     } );
   }
 

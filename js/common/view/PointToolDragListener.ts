@@ -30,9 +30,6 @@ export default class PointToolDragListener extends SoundDragListener {
                       graphContentsVisibleProperty: TReadOnlyProperty<boolean>,
                       tandem: Tandem ) {
 
-    // Whether the tool is currently snapped to a curve.
-    let isSnappedToCurve = false;
-
     const options: SoundDragListenerOptions = {
       tandem: tandem,
       transform: modelViewTransform,
@@ -77,15 +74,6 @@ export default class PointToolDragListener extends SoundDragListener {
 
             // The tool's new position, snapped to the curve.
             position = new Vector2( x, y );
-
-            // Play a sound to emphasize that the tool snapped to the curve.
-            if ( !isSnappedToCurve ) {
-              PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
-              isSnappedToCurve = true;
-            }
-          }
-          else {
-            isSnappedToCurve = false;
           }
         }
 
