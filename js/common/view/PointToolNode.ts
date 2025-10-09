@@ -61,7 +61,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
   public readonly getCurveName: ( quadratic: Quadratic ) => string | null;
 
   // Sound that is played when the tool snaps to a curve.
-  public static readonly SNAP_TO_CURVE_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
+  private static readonly SNAP_TO_CURVE_SOUND_PLAYER = new SoundClipPlayer( click_mp3, {
     soundClipOptions: {
       initialOutputLevel: 0.7
     },
@@ -179,6 +179,17 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     // When this tool gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
       focused && this.doAccessibleObjectResponse();
+    } );
+
+    // When the point tool snaps to a curve, play a sound. Note that because a new Quadratic instance is created
+    // whenever the primary quadratic is changed, we need someway to know if we've snapped to a different curve
+    // from the user's perspective. We do this by comparing the colors of the curves. If the color has changed, we
+    // have snapped to a different curve, and should play the sound. This assumes that the curves have unique colors,
+    // which is verified in GQColors. More at https://github.com/phetsims/graphing-quadratics/issues/250.
+    pointTool.quadraticProperty.lazyLink( ( newQuadratic, previousQuadratic ) => {
+      if ( newQuadratic !== null && ( previousQuadratic === null || !newQuadratic.color.equals( previousQuadratic.color ) ) ) {
+        PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
+      }
     } );
   }
 

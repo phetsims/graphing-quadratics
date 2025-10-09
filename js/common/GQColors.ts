@@ -10,6 +10,8 @@
 import PhetColorScheme from '../../../scenery-phet/js/PhetColorScheme.js';
 import ProfileColorProperty from '../../../scenery/js/util/ProfileColorProperty.js';
 import graphingQuadratics from '../graphingQuadratics.js';
+import affirm from '../../../perennial-alias/js/browser-and-node/affirm.js';
+import Color from '../../../scenery/js/util/Color.js';
 
 // common colors
 const VERTEX_COLOR = 'rgb( 128, 0, 128 )'; // purple
@@ -115,5 +117,22 @@ export default class GQColors {
     default: '#dd3b05'
   } );
 }
+
+// Compares two colors to determine if they are the same.
+function equalColors( color1: Color | string, color2: Color | string ): boolean {
+  return Color.toColor( color1 ).equals( Color.toColor( color2 ) );
+}
+
+// Determines whether a set of colors are unique.
+function uniqueColors( colors: Array<Color | string> ): boolean {
+  return _.uniqWith( colors, equalColors ).length === colors.length;
+}
+
+// Verify that all curves on each screen have unique colors, as required by PointToolNode and
+// https://github.com/phetsims/graphing-quadratics/issues/250.
+affirm( uniqueColors( [ GQColors.EXPLORE_INTERACTIVE_CURVE, GQColors.SAVED_CURVE, GQColors.QUADRATIC_TERM, GQColors.LINEAR_TERM, GQColors.CONSTANT_TERM ] ) );
+affirm( uniqueColors( [ GQColors.STANDARD_FORM_INTERACTIVE_CURVE, GQColors.SAVED_CURVE ] ) );
+affirm( uniqueColors( [ GQColors.VERTEX_FORM_INTERACTIVE_CURVE, GQColors.SAVED_CURVE ] ) );
+affirm( uniqueColors( [ GQColors.FOCUS_AND_DIRECTRIX_INTERACTIVE_CURVE, GQColors.SAVED_CURVE ] ) );
 
 graphingQuadratics.register( 'GQColors', GQColors );

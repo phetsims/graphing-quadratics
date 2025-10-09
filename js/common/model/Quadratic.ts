@@ -78,7 +78,7 @@ export default class Quadratic {
   public readonly c: number;
 
   // The color used to render the curve.
-  public readonly color: Color | string;
+  public readonly color: Color;
 
   // Roots are ordered from left to right along the x-axis. null means that all points are roots (y = 0)
   public readonly roots: Vector2[] | null;
@@ -107,7 +107,7 @@ export default class Quadratic {
     this.a = a;
     this.b = b;
     this.c = c;
-    this.color = options.color;
+    this.color = Color.toColor( options.color );
     this.roots = solveRoots( a, b, c );
 
     // Strictly speaking, we don't have a quadratic (or a parabola) if a === 0.
@@ -159,6 +159,10 @@ export default class Quadratic {
     return new Quadratic( stateObject.a, stateObject.b, stateObject.c, {
       color: Color.fromStateObject( stateObject.color )
     } );
+  }
+
+  public equals( quadratic: Quadratic ): boolean {
+    return ( this.a === quadratic.a ) && ( this.b === quadratic.b ) && ( this.c === quadratic.c );
   }
 
   /**

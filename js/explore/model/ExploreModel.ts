@@ -28,6 +28,7 @@ export default class ExploreModel extends StandardFormModel {
 
     this.quadraticTermProperty = new DerivedProperty( [ this.quadraticProperty ],
       quadratic => quadratic.getQuadraticTerm(), {
+        valueComparisonStrategy: 'equalsFunction',
         tandem: tandem.createTandem( 'quadraticTermProperty' ),
         phetioDocumentation: 'the quadratic term (y = ax^2) of the interactive quadratic',
         phetioValueType: Quadratic.QuadraticIO
@@ -35,6 +36,7 @@ export default class ExploreModel extends StandardFormModel {
 
     this.linearTermProperty = new DerivedProperty( [ this.quadraticProperty ],
       quadratic => quadratic.getLinearTerm(), {
+        valueComparisonStrategy: 'equalsFunction',
         tandem: tandem.createTandem( 'linearTermProperty' ),
         phetioDocumentation: 'the linear term (y = bx) of the interactive quadratic',
         phetioValueType: Quadratic.QuadraticIO
@@ -42,6 +44,7 @@ export default class ExploreModel extends StandardFormModel {
 
     this.constantTermProperty = new DerivedProperty( [ this.quadraticProperty ],
       quadratic => quadratic.getConstantTerm(), {
+        valueComparisonStrategy: 'equalsFunction',
         tandem: tandem.createTandem( 'constantTermProperty' ),
         phetioDocumentation: 'the constant term (y = c) of the interactive quadratic',
         phetioValueType: Quadratic.QuadraticIO
