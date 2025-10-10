@@ -11,8 +11,7 @@
 
 import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import NumberDisplay, { NumberDisplayOptions } from '../../../../scenery-phet/js/NumberDisplay.js';
@@ -28,10 +27,7 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-
-type SelfOptions = EmptySelfOptions;
-
-type ExploreInteractiveEquationNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem' | 'phetioDocumentation'>;
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 export default class ExploreInteractiveEquationNode extends Node {
 
@@ -41,7 +37,7 @@ export default class ExploreInteractiveEquationNode extends Node {
   public constructor( aProperty: NumberProperty,
                       bProperty: NumberProperty,
                       cProperty: NumberProperty,
-                      providedOptions: ExploreInteractiveEquationNodeOptions ) {
+                      tandem: Tandem ) {
 
     // y equals {{a}} x squared plus {{b}} x plus {{c}}
     const accessibleParagraphProperty = new PatternStringProperty(
@@ -51,7 +47,7 @@ export default class ExploreInteractiveEquationNode extends Node {
         c: new DerivedStringProperty( [ cProperty ], c => toFixed( c, GQConstants.EXPLORE_DECIMALS_C ) )
       } );
 
-    const options = optionize<ExploreInteractiveEquationNodeOptions, SelfOptions, NodeOptions>()( {
+    const options: NodeOptions = {
 
       // NodeOptions
       isDisposable: false,
@@ -64,10 +60,12 @@ export default class ExploreInteractiveEquationNode extends Node {
       tagName: 'div',
       descriptionContent: accessibleParagraphProperty,
 
+      tandem: tandem,
+      phetioDocumentation: 'the interactive equation in this accordion box',
       visiblePropertyOptions: {
         phetioFeatured: true
       }
-    }, providedOptions );
+    };
 
     const equationOptions: RichTextOptions = {
       font: GQConstants.INTERACTIVE_EQUATION_FONT
@@ -118,7 +116,7 @@ export default class ExploreInteractiveEquationNode extends Node {
     // All parts of equation in one Node, for PhET-iO
     const equationNode = new Node( {
       children: [ yText, equalToText, aNumberDisplay, xSquaredText, plusText, xText, bNumberDisplay, plusText2, cNumberDisplay ],
-      tandem: options.tandem.createTandem( 'equationNode' ),
+      tandem: tandem.createTandem( 'equationNode' ),
       phetioDocumentation: 'the equation that changes as the sliders are adjusted',
       visiblePropertyOptions: {
         phetioFeatured: true
@@ -135,7 +133,7 @@ export default class ExploreInteractiveEquationNode extends Node {
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.a11y.aSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.aSlider.accessibleHelpTextStringProperty,
-        tandem: options.tandem.createTandem( 'aSlider' ),
+        tandem: tandem.createTandem( 'aSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'a' } )
       }
     } );
@@ -148,7 +146,7 @@ export default class ExploreInteractiveEquationNode extends Node {
         shiftKeyboardStep: GQConstants.B_SHIFT_KEYBOARD_STEP,
         accessibleName: GraphingQuadraticsStrings.a11y.bSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.bSlider.accessibleHelpTextStringProperty,
-        tandem: options.tandem.createTandem( 'bSlider' ),
+        tandem: tandem.createTandem( 'bSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'b' } )
       }
     } );
@@ -161,7 +159,7 @@ export default class ExploreInteractiveEquationNode extends Node {
         shiftKeyboardStep: GQConstants.C_SHIFT_KEYBOARD_STEP,
         accessibleName: GraphingQuadraticsStrings.a11y.cSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.cSlider.accessibleHelpTextStringProperty,
-        tandem: options.tandem.createTandem( 'cSlider' ),
+        tandem: tandem.createTandem( 'cSlider' ),
         phetioDocumentation: StringUtils.fillIn( GQConstants.SLIDER_DOC, { symbol: 'c' } )
       }
     } );

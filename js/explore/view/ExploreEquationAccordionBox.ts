@@ -35,10 +35,7 @@ export default class ExploreEquationAccordionBox extends GQEquationAccordionBox 
     }, providedOptions );
 
     const interactiveEquationNode = new ExploreInteractiveEquationNode(
-      model.aProperty, model.bProperty, model.cProperty, {
-        tandem: options.tandem.createTandem( 'interactiveEquationNode' ),
-        phetioDocumentation: 'the interactive equation in this accordion box'
-      } );
+      model.aProperty, model.bProperty, model.cProperty, options.tandem.createTandem( 'interactiveEquationNode' ) );
 
     super( model, interactiveEquationNode, options );
   }
