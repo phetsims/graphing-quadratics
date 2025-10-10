@@ -180,6 +180,45 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
   }
 
   /**
+   * Creates an AccessibleListItem that describes the movable focus, as it appears on the graph.
+   */
+  protected static createMovableFocusItem( quadraticProperty: TReadOnlyProperty<Quadratic>,
+                                           coordinatesVisibleProperty: TReadOnlyProperty<boolean>,
+                                           focusVisibleProperty: TReadOnlyProperty<boolean>,
+                                           graphContentsVisibleProperty: TReadOnlyProperty<boolean>
+  ): AccessibleListItem {
+    return {
+      stringProperty: new DerivedStringProperty( [
+          quadraticProperty,
+          coordinatesVisibleProperty,
+          GraphingQuadraticsStrings.a11y.movableFocusStringProperty,
+          GraphingQuadraticsStrings.a11y.movableFocusAtCoordinatesStringProperty
+        ],
+        ( quadratic, coordinatesVisible, movableFocusString, movableFocusAtCoordinates ) => {
+          const focus = quadratic.focus;
+          if ( focus === undefined ) {
+            return '';
+          }
+          else {
+            if ( coordinatesVisible ) {
+              return StringUtils.fillIn( movableFocusAtCoordinates, {
+                x: toFixedNumber( focus.x, GQConstants.VERTEX_DECIMALS ),
+                y: toFixedNumber( focus.y, GQConstants.VERTEX_DECIMALS )
+              } );
+            }
+            else {
+              return movableFocusString;
+            }
+          }
+        } ),
+
+      visibleProperty: new DerivedProperty(
+        [ quadraticProperty, focusVisibleProperty, graphContentsVisibleProperty ],
+        ( quadratic, focusVisible, graphContentsVisible ) => ( quadratic.focus !== undefined ) && focusVisible && graphContentsVisible )
+    };
+  }
+
+  /**
    * Description of a quadratic, optionally followed by its standard-form equation.
    */
   protected static createQuadraticStandardFormDescriptionProperty(

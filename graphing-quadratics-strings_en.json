@@ -569,7 +569,7 @@
     "movableFocus": {
       "value": "Movable focus"
     },
-    "movableFocusAt": {
+    "movableFocusAtCoordinates": {
       "value": "Movable focus at {{x}} {{y}}"
     },
     "movablePointOnParabola": {

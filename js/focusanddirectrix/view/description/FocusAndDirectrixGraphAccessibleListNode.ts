@@ -35,6 +35,10 @@ export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAcc
     const movableVertexItem = GQGraphAccessibleListNode.createMovableVertexItem( model.quadraticProperty,
       viewProperties.coordinatesVisibleProperty, viewProperties.vertexVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
+    // 'Movable focus', optionally followed by coordinates
+    const movableFocusItem = GQGraphAccessibleListNode.createMovableFocusItem( model.quadraticProperty,
+      viewProperties.coordinatesVisibleProperty, viewProperties.focusVisibleProperty, viewProperties.graphContentsVisibleProperty );
+
     // 'Directrix', optionally followed by equation.
     const directrixItem = GQGraphAccessibleListNode.createDirectrixItem( model.quadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.directrixVisibleProperty, viewProperties.graphContentsVisibleProperty );
@@ -65,6 +69,7 @@ export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAcc
       primaryParabolaItem,
       savedParabolaItem,
       movableVertexItem,
+      movableFocusItem,
       directrixItem,
       movablePointOnParabolaItem
     ];
