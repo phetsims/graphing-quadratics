@@ -34,7 +34,7 @@ export default class PointToolDescriber {
       // Get the curve that the point tool is currently snapped to.
       const snapQuadratic = pointTool.quadraticProperty.value;
 
-      if ( snapQuadratic ) {
+      if ( snapQuadratic && pointToolNode.graphContentsVisibleProperty.value ) {
 
         // Snapped to a curve: "{{x}}, {{y}} on {{curveName}}"
         response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointToolNode.accessibleObjectResponseXYCurveNameStringProperty, {

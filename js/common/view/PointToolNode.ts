@@ -56,6 +56,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
   public readonly pointTool: PointTool;
   public readonly graph: GQGraph;
+  public readonly graphContentsVisibleProperty: TReadOnlyProperty<boolean>;
 
   // Gets the name of the curve, as used in description.
   public readonly getCurveName: ( quadratic: Quadratic ) => string | null;
@@ -133,6 +134,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
     this.pointTool = pointTool;
     this.graph = graph;
+    this.graphContentsVisibleProperty = graphContentsVisibleProperty;
     this.getCurveName = getCurveName;
 
     Multilink.multilink( [ pointTool.positionProperty, pointTool.quadraticProperty, graphContentsVisibleProperty ],
