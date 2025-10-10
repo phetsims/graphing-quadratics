@@ -187,7 +187,16 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
     // have snapped to a different curve, and should play the sound. This assumes that the curves have unique colors,
     // which is verified in GQColors. More at https://github.com/phetsims/graphing-quadratics/issues/250.
     pointTool.quadraticProperty.lazyLink( ( newQuadratic, previousQuadratic ) => {
-      if ( newQuadratic !== null && ( previousQuadratic === null || !newQuadratic.color.equals( previousQuadratic.color ) ) ) {
+      if ( graphContentsVisibleProperty.value &&
+           newQuadratic !== null &&
+           ( previousQuadratic === null || !newQuadratic.color.equals( previousQuadratic.color ) ) ) {
+        PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
+      }
+    } );
+
+    // When the graph contents are made visible, play a sound if the point tool is snapped to a curve.
+    graphContentsVisibleProperty.lazyLink( graphContentsVisible => {
+      if ( graphContentsVisible && pointTool.quadraticProperty.value !== null ) {
         PointToolNode.SNAP_TO_CURVE_SOUND_PLAYER.play();
       }
     } );
