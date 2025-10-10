@@ -56,7 +56,14 @@ export default class ExploreInteractiveEquationNode extends Node {
       // NodeOptions
       isDisposable: false,
       excludeInvisibleChildrenFromBounds: true,
-      accessibleParagraph: accessibleParagraphProperty,
+
+      //TODO https://github.com/phetsims/scenery/issues/1721 - Use tagName and descriptionContent instead of
+      // accessibleParagraph as a workaround for https://github.com/phetsims/graphing-quadratics/issues/257,
+      // to avoid re-rendering many DOM elements when the content changes.
+      // accessibleParagraph: accessibleParagraphProperty,
+      tagName: 'div',
+      descriptionContent: accessibleParagraphProperty,
+
       visiblePropertyOptions: {
         phetioFeatured: true
       }
