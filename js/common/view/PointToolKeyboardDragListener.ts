@@ -163,7 +163,9 @@ export default class PointToolKeyboardDragListener extends SoundKeyboardDragList
         }
 
         // Describe what the point tool is measuring.
-        pointToolNode.doAccessibleObjectResponse();
+        if ( graphContentsVisibleProperty.value ) {
+          pointToolNode.doAccessibleObjectResponse();
+        }
       }
     };
 
