@@ -31,7 +31,9 @@ export default class GQConstants {
     leadDesign: 'Amanda McGarry',
     softwareDevelopment: 'Chris Malley (PixelZoom, Inc.), Andrea Lin',
     team: 'Catherine Carter, Mike Dubson, Karina K. R. Hensberry, Trish Loeblein, Ariel Paul, Kathy Perkins, Taliesin Smith',
-    qualityAssurance: 'Jaspe Arias, Steele Dalton, Jaron Droder, Clifford Hardin, Brooklyn Lash, Emily Miller, Laura Rea, Jacob Romero, Nancy Salpepi, Ethan Ward, Kathryn Woessner, Kelly Wurtz'
+    qualityAssurance: 'Jaspe Arias, Steele Dalton, Jaron Droder, Clifford Hardin, Brooklyn Lash, Emily Miller, ' +
+                      'Matthew Moore, Valentina Pérez, Laura Rea, Jacob Romero, Nancy Salpepi, Ethan Ward, ' +
+                      'Kathryn Woessner, Kelly Wurtz'
   };
 
     // Custom layout bounds because this sim is part of the Graphing Lines family, which was ported to Java.
