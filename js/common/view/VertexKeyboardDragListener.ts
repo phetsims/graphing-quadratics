@@ -25,9 +25,10 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
       isDisposable: false,
 
       // For keyboard input, use 'delta' API because this manipulator moves in discrete increments, and should have
-      // a discrete feel. Values are in units per moveOnHoldInterval.
+      // a discrete feel. Values are in units per moveOnHoldInterval. Dragging must be constrained to integers to
+      // support the Vertex Form screen, see https://github.com/phetsims/graphing-quadratics/issues/259.
       dragDelta: 1,
-      shiftDragDelta: 0.1,
+      shiftDragDelta: 1,
       moveOnHoldInterval: 400, // ms, see https://github.com/phetsims/graphing-quadratics/issues/242#issuecomment-3300782241
 
       /**
