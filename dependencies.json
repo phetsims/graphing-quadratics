@@ -1,5 +1,5 @@
 {
-  "comment": "# graphing-quadratics 1.4.0-dev.10 Mon Oct 06 2025 10:15:33 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# graphing-quadratics 1.4.0-rc.0 Mon Oct 13 2025 13:52:04 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "1a4637cfff70e7e8b0844dc43848a86ae89b4cf5",
     "branch": "main"
@@ -13,7 +13,7 @@
     "branch": "main"
   },
   "chipper": {
-    "sha": "12c3b01e8e8c9028930fed3b123074a7b0002f45",
+    "sha": "f165778c16fcef786ae10bdbbe882bda6a4ad679",
     "branch": "main"
   },
   "dot": {
@@ -21,12 +21,12 @@
     "branch": "main"
   },
   "graphing-lines": {
-    "sha": "85ae15364ea810cec0fc9f42f2f2ef15be8dffee",
+    "sha": "e8c293d5925472b811f504923f7b33a5d6dd7244",
     "branch": "main"
   },
   "graphing-quadratics": {
-    "sha": "b144a4257c00bd2089be46fe016f18d89341cbec",
-    "branch": "main"
+    "sha": "8dd881bea50e7412a3d69b2047e33653347887a6",
+    "branch": "1.4"
   },
   "joist": {
     "sha": "a47c7a5bd0a74c7658a8b5a736394fe5d0957dd6",
@@ -37,7 +37,7 @@
     "branch": "main"
   },
   "perennial-alias": {
-    "sha": "1fc8f0bef4b563f7e19ea3f9618b4553d0db04cd",
+    "sha": "4a562aa17e73739352f53c989c07aefce7eb3c2d",
     "branch": "main"
   },
   "phet-core": {
@@ -57,7 +57,7 @@
     "branch": "main"
   },
   "phetcommon": {
-    "sha": "8130db3074f830d9dcc5d09558ec4b7b8b4e9991",
+    "sha": "6343150359f1fafb499144c7ea35abc465ebf47b",
     "branch": "main"
   },
   "phetmarks": {
@@ -65,11 +65,11 @@
     "branch": "main"
   },
   "query-string-machine": {
-    "sha": "e4cf7353683ff7c71463679a78b05ab9982fdeb2",
+    "sha": "e0b764e61a19a08a747c0b2152656bac5420a0b1",
     "branch": "main"
   },
   "scenery": {
-    "sha": "a16485a6466ceaeda93f054f17e12835c6e8189a",
+    "sha": "3ecbad6d4e86000e3a2dc05ee2b0eedb7b1017e1",
     "branch": "main"
   },
   "scenery-phet": {
@@ -77,15 +77,15 @@
     "branch": "main"
   },
   "sherpa": {
-    "sha": "f2ed9e8e2dd1339551e1cf987e8b272996ec969a",
+    "sha": "c0051f610de98c2c1f10bf6c0a905ed7201a6c2e",
     "branch": "main"
   },
   "studio": {
-    "sha": "a21f168ceb964e7ba75aef1e872f2178b68a4963",
+    "sha": "800157e29caf0f8e1476ee4e060535bcbcb29587",
     "branch": "main"
   },
   "sun": {
-    "sha": "5a36c75519f79d156223b85fe8b55a31c57ac135",
+    "sha": "3752ac6c9a33f4a57b426a51f509605d77f225ef",
     "branch": "main"
   },
   "tambo": {
