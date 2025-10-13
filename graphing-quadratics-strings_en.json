@@ -563,9 +563,6 @@
     "movableVertexAtCoordinates": {
       "value": "Movable vertex at {{x}} {{y}}"
     },
-    "focusAtCoordinates": {
-      "value": "Focus at {{x}} {{y}}"
-    },
     "movableFocus": {
       "value": "Movable focus"
     },

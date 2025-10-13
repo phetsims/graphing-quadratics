@@ -276,7 +276,6 @@ type StringsType = {
     'vertexAtCoordinatesStringProperty': LocalizedStringProperty;
     'movableVertexStringProperty': LocalizedStringProperty;
     'movableVertexAtCoordinatesStringProperty': LocalizedStringProperty;
-    'focusAtCoordinatesStringProperty': LocalizedStringProperty;
     'movableFocusStringProperty': LocalizedStringProperty;
     'movableFocusAtCoordinatesStringProperty': LocalizedStringProperty;
     'movablePointOnParabolaStringProperty': LocalizedStringProperty;
