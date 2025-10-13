@@ -11,6 +11,9 @@
       "path": "../graphing-lines/tsconfig.json"
     },
     {
+      "path": "../vegas/tsconfig.json"
+    },
+    {
       "path": "../perennial-alias/tsconfig/buildjson/tsconfig.json"
     }
   ]

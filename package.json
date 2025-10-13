@@ -12,7 +12,8 @@
   "phet": {
     "requirejsNamespace": "GRAPHING_QUADRATICS",
     "phetLibs": [
-      "graphing-lines"
+      "graphing-lines",
+      "vegas"
     ],
     "runnable": true,
     "supportedBrands": [
