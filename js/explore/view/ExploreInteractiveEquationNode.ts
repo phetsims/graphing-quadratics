@@ -28,6 +28,7 @@ import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js'
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import AlignGroup from '../../../../scenery/js/layout/constraints/AlignGroup.js';
 
 export default class ExploreInteractiveEquationNode extends Node {
 
@@ -123,6 +124,13 @@ export default class ExploreInteractiveEquationNode extends Node {
       }
     } );
 
+    // To make all slider labels have the same effective height.
+    // See https://github.com/phetsims/graphing-quadratics/issues/262.
+    const labelAlignGroup = new AlignGroup( {
+      matchHorizontal: false,
+      matchVertical: true
+    } );
+
     // a, b, c sliders
     const aSlider = new QuadraticSlider( GQSymbols.aMarkupStringProperty, aProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_A,
@@ -130,6 +138,7 @@ export default class ExploreInteractiveEquationNode extends Node {
       labelColor: GQColors.exploreAColorProperty,
       quadraticKeyboardStep: GQConstants.A_KEYBOARD_STEP,
       quadraticShiftKeyboardStep: GQConstants.A_SHIFT_KEYBOARD_STEP,
+      labelAlignGroup: labelAlignGroup,
       sliderOptions: {
         accessibleName: GraphingQuadraticsStrings.a11y.aSlider.accessibleNameStringProperty,
         accessibleHelpText: GraphingQuadraticsStrings.a11y.aSlider.accessibleHelpTextStringProperty,
@@ -141,6 +150,7 @@ export default class ExploreInteractiveEquationNode extends Node {
     const bSlider = new LinearSlider( GQSymbols.bMarkupStringProperty, bProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_B,
       labelColor: GQColors.exploreBColorProperty,
+      labelAlignGroup: labelAlignGroup,
       sliderOptions: {
         keyboardStep: GQConstants.B_KEYBOARD_STEP,
         shiftKeyboardStep: GQConstants.B_SHIFT_KEYBOARD_STEP,
@@ -154,6 +164,7 @@ export default class ExploreInteractiveEquationNode extends Node {
     const cSlider = new LinearSlider( GQSymbols.cMarkupStringProperty, cProperty, {
       interval: GQConstants.EXPLORE_INTERVAL_C,
       labelColor: GQColors.exploreCColorProperty,
+      labelAlignGroup: labelAlignGroup,
       sliderOptions: {
         keyboardStep: GQConstants.C_KEYBOARD_STEP,
         shiftKeyboardStep: GQConstants.C_SHIFT_KEYBOARD_STEP,

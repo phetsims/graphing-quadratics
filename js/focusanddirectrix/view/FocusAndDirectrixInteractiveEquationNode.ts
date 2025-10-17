@@ -29,6 +29,7 @@ import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import AlignGroup from '../../../../scenery/js/layout/constraints/AlignGroup.js';
 
 export default class FocusAndDirectrixInteractiveEquationNode extends Node {
 
@@ -142,6 +143,13 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       }
     } );
 
+    // To make all slider labels have the same effective height.
+    // See https://github.com/phetsims/graphing-quadratics/issues/262.
+    const labelAlignGroup = new AlignGroup( {
+      matchHorizontal: false,
+      matchVertical: true
+    } );
+
     // p, h, k sliders
     const pSlider = new LinearSlider( GQSymbols.pMarkupStringProperty, pProperty, {
 
@@ -150,6 +158,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       skipZero: true,
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_P,
       labelColor: GQColors.focusAndDirectrixPColorProperty,
+      labelAlignGroup: labelAlignGroup,
       sliderOptions: {
         keyboardStep: GQConstants.P_KEYBOARD_STEP,
         shiftKeyboardStep: GQConstants.P_SHIFT_KEYBOARD_STEP,
@@ -163,6 +172,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const hSlider = new LinearSlider( GQSymbols.hMarkupStringProperty, hProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_H,
       labelColor: GQColors.focusAndDirectrixHColorProperty,
+      labelAlignGroup: labelAlignGroup,
       sliderOptions: {
         keyboardStep: GQConstants.H_KEYBOARD_STEP,
         shiftKeyboardStep: GQConstants.H_SHIFT_KEYBOARD_STEP,
@@ -175,6 +185,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const kSlider = new LinearSlider( GQSymbols.kMarkupStringProperty, kProperty, {
       interval: GQConstants.FOCUS_AND_DIRECTRIX_INTERVAL_K,
       labelColor: GQColors.focusAndDirectrixKColorProperty,
+      labelAlignGroup: labelAlignGroup,
       sliderOptions: {
         keyboardStep: GQConstants.K_KEYBOARD_STEP,
         shiftKeyboardStep: GQConstants.K_SHIFT_KEYBOARD_STEP,
