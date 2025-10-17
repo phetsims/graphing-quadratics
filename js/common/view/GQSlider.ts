@@ -33,6 +33,7 @@ import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { numberOfDecimalPlaces } from '../../../../dot/js/util/numberOfDecimalPlaces.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import AlignGroup from '../../../../scenery/js/layout/constraints/AlignGroup.js';
 
 type TransformFunction = ( value: number ) => number;
 
@@ -67,6 +68,9 @@ type SelfOptions = {
 
   // color of the label that appears above the slider
   labelColor?: TColor;
+
+  // For making all labels have the same effective size. See https://github.com/phetsims/graphing-quadratics/issues/262.
+  labelAlignGroup: AlignGroup;
 
   // Propagated to VSlider. Note that the slider has a tandem, but the GQSlider (parent Node) does not.
   // See https://github.com/phetsims/graphing-quadratics/issues/208
@@ -192,15 +196,21 @@ export default class GQSlider extends Node {
       visibleProperty: slider.visibleProperty, // For PhET-iO, label visibility is the same as slider visibility.
       font: GQConstants.SLIDER_LABEL_FONT,
       fill: options.labelColor,
-      bottom: slider.top - 2,
       maxWidth: 20 // determined empirically
     } );
-    labelText.boundsProperty.link( () => {
-      labelText.centerX = 0; // keep the label horizontally centered on the track
+
+    // Make the labels for all sliders have the same effective size.
+    // See https://github.com/phetsims/graphing-quadratics/issues/262.
+    const labelBox = options.labelAlignGroup.createBox( labelText, {
+      align: 'center',
+      bottom: slider.top - 2
+    } );
+    labelBox.boundsProperty.link( () => {
+      labelBox.centerX = 0; // keep the label horizontally centered on the track
     } );
 
     super( {
-      children: [ slider, labelText ]
+      children: [ slider, labelBox ]
     } );
   }
 }
