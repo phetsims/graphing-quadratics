@@ -43,7 +43,7 @@ export default class GQConstants {
   // PhET-iO customizations may rely on these bounds, so do not change!
   // See https://github.com/phetsims/graphing-quadratics/issues/181
   public static readonly SCREEN_VIEW_LAYOUT_BOUNDS = new Bounds2( 0, 0, 1160, 700 );
-  public static readonly SCREEN_VIEW_X_MARGIN = 50;
+  public static readonly SCREEN_VIEW_X_MARGIN = 20;
   public static readonly SCREEN_VIEW_Y_MARGIN = 16;
 
   // range of the graph's axes
