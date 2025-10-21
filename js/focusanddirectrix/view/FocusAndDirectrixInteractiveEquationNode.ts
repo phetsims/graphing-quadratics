@@ -52,14 +52,6 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const options: NodeOptions = {
       isDisposable: false,
       excludeInvisibleChildrenFromBounds: true,
-
-      //TODO https://github.com/phetsims/scenery/issues/1721 - Use tagName and descriptionContent instead of
-      // accessibleParagraph as a workaround for https://github.com/phetsims/graphing-quadratics/issues/257,
-      // to avoid re-rendering many DOM elements when the content changes.
-      // accessibleParagraph: accessibleParagraphProperty,
-      tagName: 'div',
-      descriptionContent: accessibleParagraphProperty,
-
       tandem: tandem,
       phetioDocumentation: 'the interactive equation in this accordion box',
       visiblePropertyOptions: {
@@ -137,6 +129,7 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
     const equationNode = new Node( {
       children: [ yText, equalToText, fractionNode, parentText, xText, minusText, hNumberDisplay, parenSquaredText, plusText, kNumberDisplay ],
       tandem: tandem.createTandem( 'equationNode' ),
+      accessibleParagraph: accessibleParagraphProperty,
       phetioDocumentation: 'the equation that changes as the sliders are adjusted',
       visiblePropertyOptions: {
         phetioFeatured: true
