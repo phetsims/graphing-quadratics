@@ -29,7 +29,7 @@ export default class ExploreEquationAccordionBox extends GQEquationAccordionBox 
 
       // GQEquationAccordionBoxOptions
       titleNode: new StandardFormEquationNode(),
-      accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.exploreScreen.equationAccordionBox.accessibleHelpTextStringProperty, {
+      accessibleHelpTextCollapsed: new PatternStringProperty( GraphingQuadraticsStrings.a11y.exploreScreen.equationAccordionBox.accessibleHelpTextStringProperty, {
         equation: GraphingQuadraticsStrings.a11y.standardFormEquationStringProperty
       } )
     }, providedOptions );

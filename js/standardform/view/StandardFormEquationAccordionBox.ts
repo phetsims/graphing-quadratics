@@ -29,7 +29,7 @@ export default class StandardFormEquationAccordionBox extends GQEquationAccordio
 
       // GQEquationAccordionBoxOptions
       titleNode: new StandardFormEquationNode(),
-      accessibleHelpText: new PatternStringProperty( GraphingQuadraticsStrings.a11y.standardFormScreen.equationAccordionBox.accessibleHelpTextStringProperty, {
+      accessibleHelpTextCollapsed: new PatternStringProperty( GraphingQuadraticsStrings.a11y.standardFormScreen.equationAccordionBox.accessibleHelpTextStringProperty, {
         equation: GraphingQuadraticsStrings.a11y.standardFormEquationStringProperty
       } ),
       phetioDocumentation: 'accordion box that contains the interactive equation'
