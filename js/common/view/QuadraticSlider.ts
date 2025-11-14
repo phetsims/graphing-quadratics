@@ -39,7 +39,7 @@ export default class QuadraticSlider extends GQSlider {
 
     affirm( !providedOptions.sliderOptions.keyboardStep, 'use quadraticKeyboardStep instead of sliderOptions.keyboardStep' );
     affirm( !providedOptions.sliderOptions.shiftKeyboardStep, 'use quadraticShiftKeyboardStep instead of sliderOptions.shiftKeyboardStep' );
-    affirm( !providedOptions.sliderOptions.pdomMapValue, 'QuadraticSlider sets sliderOptions.pdomMapValue' );
+    affirm( !providedOptions.sliderOptions.mapPropertyValue, 'QuadraticSlider sets sliderOptions.mapPropertyValue' );
 
     // coefficient for quadratic equation y = ax^2
     const a = 1 / coefficientProperty.range.max;
@@ -54,11 +54,11 @@ export default class QuadraticSlider extends GQSlider {
     }, providedOptions );
 
     // Because this is implemented as a linear slider that maps to a quadratic value, setting keyboardStep and
-    // shiftKeyboard step will not provide the desired behavior.  So as a last resort, we use pdomMapValue to apply
+    // shiftKeyboard step will not provide the desired behavior.  So as a last resort, we use mapPropertyValue to apply
     // the correct delta to the previous value, based on whether the Shift key was down.
     // See https://github.com/phetsims/graphing-quadratics/issues/245.
     options.sliderOptions = combineOptions<QuadraticSliderOptions[ 'sliderOptions']>( {
-      pdomMapValue: ( newSliderValue, previousSliderValue ) => {
+      mapPropertyValue: ( newSliderValue, previousSliderValue ) => {
         const previousCoefficient = options.inverseMap( previousSliderValue );
         const coefficientStep = ( globalKeyStateTracker.shiftKeyDown ) ? options.quadraticShiftKeyboardStep : options.quadraticKeyboardStep;
         const sign = ( newSliderValue > previousSliderValue ) ? 1 : -1;
