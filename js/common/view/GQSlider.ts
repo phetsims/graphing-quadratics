@@ -147,9 +147,9 @@ export default class GQSlider extends Node {
         return viewValue;
       },
 
-      // Using pdomCreateAriaValueText instead of mapPDOMValue because we want trailing zeros in the
+      // Using createAriaValueText instead of mapPDOMValue because we want trailing zeros in the
       // decimal places to be included. Applying inverseMap results in the value that is displayed in the visual UI.
-      pdomCreateAriaValueText: value => toFixed( options.inverseMap( value ), numberOfDecimalPlaces( options.interval ) )
+      createAriaValueText: value => toFixed( options.inverseMap( value ), numberOfDecimalPlaces( options.interval ) )
     }, options.sliderOptions );
 
     // Snap to zero when the drag ends.
