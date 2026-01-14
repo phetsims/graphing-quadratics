@@ -90,8 +90,8 @@ export default class GQScreenView extends ScreenView {
       bottom: model.modelViewTransform.modelToViewY( model.graph.yRange.min ),
       accessibleName: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleNameStringProperty,
       accessibleHelpText: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleHelpTextStringProperty,
-      accessibleContextResponseOn: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleContextResponseHiddenStringProperty,
-      accessibleContextResponseOff: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleContextResponseShownStringProperty,
+      accessibleContextResponseOn: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleContextResponseShownStringProperty,
+      accessibleContextResponseOff: GraphingQuadraticsStrings.a11y.graphContentsToggleButton.accessibleContextResponseHiddenStringProperty,
       tandem: options.tandem.createTandem( 'graphContentsToggleButton' ),
       phetioDocumentation: 'button that shows/hides the contents of the graph'
     } );
