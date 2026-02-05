@@ -100,7 +100,8 @@ type StringsType = {
       'accessibleHelpTextCollapsedStringProperty': LocalizedStringProperty;
     };
     'graphContentsToggleButton': {
-      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleNameOnStringProperty': LocalizedStringProperty;
+      'accessibleNameOffStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
       'accessibleContextResponseHiddenStringProperty': LocalizedStringProperty;
       'accessibleContextResponseShownStringProperty': LocalizedStringProperty;

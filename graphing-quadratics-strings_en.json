@@ -177,8 +177,11 @@
       }
     },
     "graphContentsToggleButton": {
-      "accessibleName": {
-        "value": "Graph Contents Visibility"
+      "accessibleNameOn": {
+        "value": "Hide Graph Contents"
+      },
+      "accessibleNameOff": {
+        "value": "Show Graph Contents"
       },
       "accessibleHelpText": {
         "value": "Show or hide parabolas and parabolas features in graph area."
