@@ -607,14 +607,6 @@
     },
     "closeParen": {
       "value": "close paren"
-    },
-    "keyboardHelpDialog": {
-      "jumpToNextCurveDescription": {
-        "value": "Jump to next curve with J key."
-      },
-      "moveOffGridDescription": {
-        "value": "Move off grid with K key."
-      }
     }
   }
 }

@@ -291,10 +291,6 @@ type StringsType = {
     'negativeStringProperty': LocalizedStringProperty;
     'openParenStringProperty': LocalizedStringProperty;
     'closeParenStringProperty': LocalizedStringProperty;
-    'keyboardHelpDialog': {
-      'jumpToNextCurveDescriptionStringProperty': LocalizedStringProperty;
-      'moveOffGridDescriptionStringProperty': LocalizedStringProperty;
-    }
   }
 };
 

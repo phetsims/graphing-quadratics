@@ -20,14 +20,10 @@ export default class PointToolShortcutsSection extends KeyboardHelpSection {
     const rows = [
 
       // J, for 'Jump to next curve.'
-      KeyboardHelpSectionRow.fromHotkeyData( JumpToNextCurveListener.HOTKEY_DATA, {
-        pdomLabelStringProperty: GraphingQuadraticsStrings.a11y.keyboardHelpDialog.jumpToNextCurveDescriptionStringProperty
-      } ),
+      KeyboardHelpSectionRow.fromHotkeyData( JumpToNextCurveListener.HOTKEY_DATA ),
 
       // K, for 'Move off grid.'
-      KeyboardHelpSectionRow.fromHotkeyData( MoveOffGraphListener.HOTKEY_DATA, {
-        pdomLabelStringProperty: GraphingQuadraticsStrings.a11y.keyboardHelpDialog.moveOffGridDescriptionStringProperty
-      } )
+      KeyboardHelpSectionRow.fromHotkeyData( MoveOffGraphListener.HOTKEY_DATA )
     ];
 
     super( GraphingQuadraticsStrings.keyboardHelpDialog.pointToolShortcutsStringProperty, rows, {
