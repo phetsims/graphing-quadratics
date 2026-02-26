@@ -8,7 +8,8 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import AccessibleListNode, { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
+import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
 import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';

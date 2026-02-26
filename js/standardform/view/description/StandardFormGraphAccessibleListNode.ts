@@ -7,7 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import graphingQuadratics from '../../../graphingQuadratics.js';
 import GQGraphAccessibleListNode from '../../../common/view/description/GQGraphAccessibleListNode.js';
 import StandardFormModel from '../../model/StandardFormModel.js';
