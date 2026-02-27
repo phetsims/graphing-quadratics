@@ -8,8 +8,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
-import AccessibleListNode from '../../../../../scenery-phet/js/accessibility/AccessibleListNode.js';
+import AccessibleList, { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
@@ -22,8 +21,9 @@ import ReadOnlyProperty from '../../../../../axon/js/ReadOnlyProperty.js';
 import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
 import GQConstants from '../../GQConstants.js';
 import { EquationForm } from '../GQViewProperties.js';
+import Node from '../../../../../scenery/js/nodes/Node.js';
 
-export default class GQGraphAccessibleListNode extends AccessibleListNode {
+export default class GQGraphAccessibleListNode extends Node {
 
   protected constructor( listItems: AccessibleListItem[], graphContentsVisibleProperty: TReadOnlyProperty<boolean> ) {
 
@@ -36,8 +36,11 @@ export default class GQGraphAccessibleListNode extends AccessibleListNode {
       ( ( graphContentsVisible, graphAreaCurrentlyContainsString, contentsOfGraphAreaAreHiddenString ) =>
         graphContentsVisible ? graphAreaCurrentlyContainsString : contentsOfGraphAreaAreHiddenString ) );
 
-    super( listItems, {
-      leadingParagraphStringProperty: leadingParagraphStringProperty
+    super( {
+      accessibleTemplate: AccessibleList.createTemplate( {
+        listItems: listItems,
+        leadingParagraphStringProperty: leadingParagraphStringProperty
+      } )
     } );
   }
 
