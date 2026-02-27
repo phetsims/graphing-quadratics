@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * GQGraphDescriptionNode is the base class for the dynamic description a graph. The description is in bullet list
