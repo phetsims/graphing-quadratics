@@ -13,8 +13,8 @@ import GQGraphNode from '../../common/view/GQGraphNode.js';
 import QuadraticNode from '../../common/view/QuadraticNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
-import ExploreViewProperties from './ExploreViewProperties.js';
 import ExploreGraphAccessibleListNode from './description/ExploreGraphAccessibleListNode.js';
+import ExploreViewProperties from './ExploreViewProperties.js';
 
 export default class ExploreGraphNode extends GQGraphNode {
 
@@ -88,6 +88,8 @@ export default class ExploreGraphNode extends GQGraphNode {
     } );
 
     // Describes what is currently shown on the graph.
+    // This is an old pattern that should not be followed. Setting option accessibleTemplate is preferred.
+    // See https://github.com/phetsims/scenery-phet/issues/973.
     this.addChild( new ExploreGraphAccessibleListNode( model, viewProperties ) );
   }
 }

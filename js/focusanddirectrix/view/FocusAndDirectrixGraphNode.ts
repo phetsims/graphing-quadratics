@@ -11,12 +11,12 @@ import GQGraphNode from '../../common/view/GQGraphNode.js';
 import VertexManipulator from '../../common/view/VertexManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
+import FocusAndDirectrixGraphAccessibleListNode from './description/FocusAndDirectrixGraphAccessibleListNode.js';
 import DirectrixNode from './DirectrixNode.js';
 import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.js';
 import FocusManipulator from './FocusManipulator.js';
 import PointOnParabolaLinesNode from './PointOnParabolaLinesNode.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
-import FocusAndDirectrixGraphAccessibleListNode from './description/FocusAndDirectrixGraphAccessibleListNode.js';
 
 export default class FocusAndDirectrixGraphNode extends GQGraphNode {
 
@@ -83,6 +83,8 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
     } );
 
     // Describes what is currently shown on the graph.
+    // This is an old pattern that should not be followed. Setting option accessibleTemplate is preferred.
+    // See https://github.com/phetsims/scenery-phet/issues/973.
     const accessibleListNode = new FocusAndDirectrixGraphAccessibleListNode( model, viewProperties );
     this.addChild( accessibleListNode );
 

@@ -11,11 +11,11 @@ import AxisOfSymmetryNode from '../../common/view/AxisOfSymmetryNode.js';
 import GQGraphNode from '../../common/view/GQGraphNode.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../model/StandardFormModel.js';
+import StandardFormGraphAccessibleListNode from './description/StandardFormGraphAccessibleListNode.js';
 import NoRealRootsNode from './NoRealRootsNode.js';
 import RootsNode from './RootsNode.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
 import VertexNode from './VertexNode.js';
-import StandardFormGraphAccessibleListNode from './description/StandardFormGraphAccessibleListNode.js';
 
 export default class StandardFormGraphNode extends GQGraphNode {
 
@@ -66,6 +66,8 @@ export default class StandardFormGraphNode extends GQGraphNode {
     } );
 
     // Describes what is currently shown on the graph.
+    // This is an old pattern that should not be followed. Setting option accessibleTemplate is preferred.
+    // See https://github.com/phetsims/scenery-phet/issues/973.
     this.addChild( new StandardFormGraphAccessibleListNode( model, viewProperties ) );
   }
 }
