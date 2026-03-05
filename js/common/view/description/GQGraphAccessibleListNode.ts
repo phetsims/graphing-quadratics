@@ -5,23 +5,29 @@
  * The base class is responsible for parts of the description that are the same for all screens.
  * It also has static methods that create AccessibleListItems that are common to all screens.
  *
+ * NOTE: This is named GQGraphAccessibleListNode because it used to extend AccessibleListNode.
+ * https://github.com/phetsims/scenery-phet/issues/973 eliminated AccessibleListNode from the class hierarchy and
+ * changed this class to extend Node, without renaming this class. So while this does display a list, the class name
+ * is a bit misleading. And rather than adding a Node like this to the scenegraph, the preferred API is to use Node's
+ * accessibleTemplate option to add a list or other HTML template. So do not follow this pattern in new code.
+ *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import AccessibleList, { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
-import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
-import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
-import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
-import graphingQuadratics from '../../../graphingQuadratics.js';
-import Quadratic from '../../model/Quadratic.js';
-import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
-import GQEquationDescriber from './GQEquationDescriber.js';
 import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
 import ReadOnlyProperty from '../../../../../axon/js/ReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
-import GQConstants from '../../GQConstants.js';
-import { EquationForm } from '../GQViewProperties.js';
+import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
+import AccessibleList, { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
+import graphingQuadratics from '../../../graphingQuadratics.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
+import GQConstants from '../../GQConstants.js';
+import Quadratic from '../../model/Quadratic.js';
+import { EquationForm } from '../GQViewProperties.js';
+import GQEquationDescriber from './GQEquationDescriber.js';
 
 export default class GQGraphAccessibleListNode extends Node {
 
