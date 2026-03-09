@@ -1,9 +1,9 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * GQGraphDescriptionNode is the base class for the dynamic description of what is shown on the graph.
- * The base class is responsible for parts of the description that are the same for all screens.
- * It also has static methods that create parts of the description that are common to all screens.
+ * GQGraphDescriptionNode is the base class for the dynamic description a graph. The description is in bullet list
+ * format. The base class is responsible for creating the bullet list from a set of list items. And it provides
+ * static methods for creating list items that are common to all screens.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
