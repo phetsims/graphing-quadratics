@@ -139,7 +139,7 @@ The big chunks of code that implement core description can be found in the `view
 The most important classes are:
 * [GQEquationDescriber](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/description/GQEquationDescriber.ts) describes mathematical equations.
 * [PointToolDescriber](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/description/PointToolDescriber.ts) describes what a point tool is measuring.
-* [GQGraphAccessibleListNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/description/GQGraphAccessibleListNode.ts) and its subclasses (one per screen) describe what is shown in the Graph Area.
+* [GQGraphDescriptionNode](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/description/GQGraphAccessibleListNode.ts) and its subclasses (one per screen) describe what is shown in the Graph Area.
 * [GQScreenSummaryContent](https://github.com/phetsims/graphing-quadratics/blob/main/js/common/view/description/GQScreenSummaryContent.ts) and its subclasses (one per screen) describe the Screen summaries.
 
 Smaller pieces of code related to core description can be found by searching for description-related options

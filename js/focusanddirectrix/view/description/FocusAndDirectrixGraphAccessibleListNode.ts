@@ -7,40 +7,40 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
+import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
+import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
+import GQConstants from '../../../common/GQConstants.js';
+import GQGraphDescriptionNode from '../../../common/view/description/GQGraphDescriptionNode.js';
 import graphingQuadratics from '../../../graphingQuadratics.js';
-import GQGraphAccessibleListNode from '../../../common/view/description/GQGraphAccessibleListNode.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import FocusAndDirectrixModel from '../../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixViewProperties from '../FocusAndDirectrixViewProperties.js';
-import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
-import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
-import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
-import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
-import GQConstants from '../../../common/GQConstants.js';
-import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 
-export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphAccessibleListNode {
+export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphDescriptionNode {
 
   public constructor( model: FocusAndDirectrixModel, viewProperties: FocusAndDirectrixViewProperties ) {
 
     // 'Primary Parabola', optionally followed by standard form equation
-    const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem( model.quadraticProperty,
+    const primaryParabolaItem = GQGraphDescriptionNode.createPrimaryQuadraticItem( model.quadraticProperty,
       viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Saved Parabola', optionally followed by standard form equation
-    const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem( model.savedQuadraticProperty,
+    const savedParabolaItem = GQGraphDescriptionNode.createSavedQuadraticItem( model.savedQuadraticProperty,
       viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Movable vertex', optionally followed by coordinates
-    const movableVertexItem = GQGraphAccessibleListNode.createMovableVertexItem( model.quadraticProperty,
+    const movableVertexItem = GQGraphDescriptionNode.createMovableVertexItem( model.quadraticProperty,
       viewProperties.coordinatesVisibleProperty, viewProperties.vertexVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Movable focus', optionally followed by coordinates
-    const movableFocusItem = GQGraphAccessibleListNode.createMovableFocusItem( model.quadraticProperty,
+    const movableFocusItem = GQGraphDescriptionNode.createMovableFocusItem( model.quadraticProperty,
       viewProperties.coordinatesVisibleProperty, viewProperties.focusVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Directrix', optionally followed by equation.
-    const directrixItem = GQGraphAccessibleListNode.createDirectrixItem( model.quadraticProperty,
+    const directrixItem = GQGraphDescriptionNode.createDirectrixItem( model.quadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.directrixVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Movable point on parabola', optionally followed by coordinates

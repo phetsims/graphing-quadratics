@@ -7,29 +7,29 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
+import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
+import affirm from '../../../../../perennial-alias/js/browser-and-node/affirm.js';
+import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
+import GQConstants from '../../../common/GQConstants.js';
+import GQGraphDescriptionNode from '../../../common/view/description/GQGraphDescriptionNode.js';
 import graphingQuadratics from '../../../graphingQuadratics.js';
-import GQGraphAccessibleListNode from '../../../common/view/description/GQGraphAccessibleListNode.js';
+import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import StandardFormModel from '../../model/StandardFormModel.js';
 import StandardFormViewProperties from '../StandardFormViewProperties.js';
-import DerivedStringProperty from '../../../../../axon/js/DerivedStringProperty.js';
-import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
-import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
-import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
-import GQConstants from '../../../common/GQConstants.js';
-import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
-import affirm from '../../../../../perennial-alias/js/browser-and-node/affirm.js';
 
-export default class StandardFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
+export default class StandardFormGraphAccessibleListNode extends GQGraphDescriptionNode {
 
   public constructor( model: StandardFormModel, viewProperties: StandardFormViewProperties ) {
 
     // 'Primary Parabola', optionally followed by standard form equation
-    const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem( model.quadraticProperty,
+    const primaryParabolaItem = GQGraphDescriptionNode.createPrimaryQuadraticItem( model.quadraticProperty,
       viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Saved Parabola', optionally followed by standard form equation
-    const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem( model.savedQuadraticProperty,
+    const savedParabolaItem = GQGraphDescriptionNode.createSavedQuadraticItem( model.savedQuadraticProperty,
       viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Vertex', optionally followed by coordinates
@@ -66,7 +66,7 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphAccessib
 
     // 'Axis of Symmetry', optionally followed by equation.
     // Note that the axis of symmetry will be undefined when a = 0.
-    const axisOfSymmetryItem = GQGraphAccessibleListNode.createAxisOfSymmetryItem( model.quadraticProperty,
+    const axisOfSymmetryItem = GQGraphDescriptionNode.createAxisOfSymmetryItem( model.quadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'No real roots', or 'Roots' optionally followed by coordinates.

@@ -1,15 +1,9 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * GQGraphAccessibleListNode is the base class for dynamic description (in bullet list format) of what is shown on the graph.
+ * GQGraphDescriptionNode is the base class for the dynamic description of what is shown on the graph.
  * The base class is responsible for parts of the description that are the same for all screens.
- * It also has static methods that create AccessibleListItems that are common to all screens.
- *
- * NOTE: This is named GQGraphAccessibleListNode because it used to extend AccessibleListNode.
- * https://github.com/phetsims/scenery-phet/issues/973 eliminated AccessibleListNode from the class hierarchy and
- * changed this class to extend Node, without renaming this class. So while this does display a list, the class name
- * is a bit misleading. And rather than adding a Node like this to the scenegraph, the preferred API is to use Node's
- * accessibleTemplate option to add a list or other HTML template. So do not follow this pattern in new code.
+ * It also has static methods that create parts of the description that are common to all screens.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -29,7 +23,7 @@ import Quadratic from '../../model/Quadratic.js';
 import { EquationForm } from '../GQViewProperties.js';
 import GQEquationDescriber from './GQEquationDescriber.js';
 
-export default class GQGraphAccessibleListNode extends Node {
+export default class GQGraphDescriptionNode extends Node {
 
   protected constructor( listItems: AccessibleListItem[], graphContentsVisibleProperty: TReadOnlyProperty<boolean> ) {
 
@@ -61,12 +55,12 @@ export default class GQGraphAccessibleListNode extends Node {
 
     return {
       stringProperty: ( equationForm === 'standard' ) ?
-                      GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+                      GQGraphDescriptionNode.createQuadraticStandardFormDescriptionProperty(
                         quadraticProperty,
                         GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
                         GraphingQuadraticsStrings.a11y.primaryParabolaAtEquationStringProperty,
                         equationsVisibleProperty ) :
-                      GQGraphAccessibleListNode.createQuadraticVertexFormDescriptionProperty(
+                      GQGraphDescriptionNode.createQuadraticVertexFormDescriptionProperty(
                         quadraticProperty,
                         GraphingQuadraticsStrings.a11y.primaryParabolaStringProperty,
                         GraphingQuadraticsStrings.a11y.primaryParabolaAtEquationStringProperty,
@@ -86,12 +80,12 @@ export default class GQGraphAccessibleListNode extends Node {
 
     return {
       stringProperty: ( equationForm === 'standard' ) ?
-                      GQGraphAccessibleListNode.createQuadraticStandardFormDescriptionProperty(
+                      GQGraphDescriptionNode.createQuadraticStandardFormDescriptionProperty(
                         savedQuadraticProperty,
                         GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
                         GraphingQuadraticsStrings.a11y.savedParabolaAtEquationStringProperty,
                         equationsVisibleProperty ) :
-                      GQGraphAccessibleListNode.createQuadraticVertexFormDescriptionProperty(
+                      GQGraphDescriptionNode.createQuadraticVertexFormDescriptionProperty(
                         savedQuadraticProperty,
                         GraphingQuadraticsStrings.a11y.savedParabolaStringProperty,
                         GraphingQuadraticsStrings.a11y.savedParabolaAtEquationStringProperty,
@@ -113,7 +107,7 @@ export default class GQGraphAccessibleListNode extends Node {
   ): AccessibleListItem {
 
     return {
-      stringProperty: GQGraphAccessibleListNode.createAxisOfSymmetryDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
+      stringProperty: GQGraphDescriptionNode.createAxisOfSymmetryDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
 
       // Note that the axis of symmetry will be undefined when a = 0.
       visibleProperty: new DerivedProperty( [
@@ -136,7 +130,7 @@ export default class GQGraphAccessibleListNode extends Node {
   ): AccessibleListItem {
 
     return {
-      stringProperty: GQGraphAccessibleListNode.createDirectrixDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
+      stringProperty: GQGraphDescriptionNode.createDirectrixDescriptionProperty( quadraticProperty, equationsVisibleProperty ),
 
       // Note that the directrix will be undefined when a = 0.
       visibleProperty: new DerivedProperty( [
@@ -393,4 +387,4 @@ export default class GQGraphAccessibleListNode extends Node {
   }
 }
 
-graphingQuadratics.register( 'GQGraphAccessibleListNode', GQGraphAccessibleListNode );
+graphingQuadratics.register( 'GQGraphDescriptionNode', GQGraphDescriptionNode );

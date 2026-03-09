@@ -8,30 +8,30 @@
  */
 
 import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
+import GQGraphDescriptionNode from '../../../common/view/description/GQGraphDescriptionNode.js';
 import graphingQuadratics from '../../../graphingQuadratics.js';
-import GQGraphAccessibleListNode from '../../../common/view/description/GQGraphAccessibleListNode.js';
 import VertexFormModel from '../../model/VertexFormModel.js';
 import VertexFormViewProperties from '../VertexFormViewProperties.js';
 
-export default class VertexFormGraphAccessibleListNode extends GQGraphAccessibleListNode {
+export default class VertexFormGraphAccessibleListNode extends GQGraphDescriptionNode {
 
   public constructor( model: VertexFormModel, viewProperties: VertexFormViewProperties ) {
 
     // 'Primary Parabola', optionally followed by standard form equation
-    const primaryParabolaItem = GQGraphAccessibleListNode.createPrimaryQuadraticItem( model.quadraticProperty,
+    const primaryParabolaItem = GQGraphDescriptionNode.createPrimaryQuadraticItem( model.quadraticProperty,
       viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Saved Parabola', optionally followed by standard form equation
-    const savedParabolaItem = GQGraphAccessibleListNode.createSavedQuadraticItem( model.savedQuadraticProperty,
+    const savedParabolaItem = GQGraphDescriptionNode.createSavedQuadraticItem( model.savedQuadraticProperty,
       viewProperties.equationForm, viewProperties.equationsVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Movable vertex', optionally followed by coordinates
-    const movableVertexItem = GQGraphAccessibleListNode.createMovableVertexItem( model.quadraticProperty,
+    const movableVertexItem = GQGraphDescriptionNode.createMovableVertexItem( model.quadraticProperty,
       viewProperties.coordinatesVisibleProperty, viewProperties.vertexVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     // 'Axis of Symmetry', optionally followed by equation.
     // Note that there the axis of symmetry will be undefined when a = 0.
-    const axisOfSymmetryItem = GQGraphAccessibleListNode.createAxisOfSymmetryItem( model.quadraticProperty,
+    const axisOfSymmetryItem = GQGraphDescriptionNode.createAxisOfSymmetryItem( model.quadraticProperty,
       viewProperties.equationsVisibleProperty, viewProperties.axisOfSymmetryVisibleProperty, viewProperties.graphContentsVisibleProperty );
 
     const listItems: AccessibleListItem[] = [
