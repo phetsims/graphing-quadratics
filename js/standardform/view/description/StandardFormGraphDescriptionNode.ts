@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * StandardFormGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on
+ * StandardFormGraphDescriptionNode is the dynamic description (in bullet list format) of what is shown on
  * the graph in the 'Standard Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -20,7 +20,7 @@ import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import StandardFormModel from '../../model/StandardFormModel.js';
 import StandardFormViewProperties from '../StandardFormViewProperties.js';
 
-export default class StandardFormGraphAccessibleListNode extends GQGraphDescriptionNode {
+export default class StandardFormGraphDescriptionNode extends GQGraphDescriptionNode {
 
   public constructor( model: StandardFormModel, viewProperties: StandardFormViewProperties ) {
 
@@ -131,4 +131,4 @@ export default class StandardFormGraphAccessibleListNode extends GQGraphDescript
   }
 }
 
-graphingQuadratics.register( 'StandardFormGraphAccessibleListNode', StandardFormGraphAccessibleListNode );
+graphingQuadratics.register( 'StandardFormGraphDescriptionNode', StandardFormGraphDescriptionNode );

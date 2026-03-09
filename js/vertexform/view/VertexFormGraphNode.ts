@@ -12,7 +12,7 @@ import GQGraphNode from '../../common/view/GQGraphNode.js';
 import VertexManipulator from '../../common/view/VertexManipulator.js';
 import graphingQuadratics from '../../graphingQuadratics.js';
 import VertexFormModel from '../model/VertexFormModel.js';
-import VertexFormGraphAccessibleListNode from './description/VertexFormGraphAccessibleListNode.js';
+import VertexFormGraphDescriptionNode from './description/VertexFormGraphDescriptionNode.js';
 import VertexFormViewProperties from './VertexFormViewProperties.js';
 
 export default class VertexFormGraphNode extends GQGraphNode {
@@ -49,10 +49,10 @@ export default class VertexFormGraphNode extends GQGraphNode {
     // Describes what is currently shown on the graph.
     // This is an old pattern that should not be followed. Setting option accessibleTemplate is preferred.
     // See https://github.com/phetsims/scenery-phet/issues/973.
-    const accessibleListNode = new VertexFormGraphAccessibleListNode( model, viewProperties );
-    this.addChild( accessibleListNode );
+    const descriptionNode = new VertexFormGraphDescriptionNode( model, viewProperties );
+    this.addChild( descriptionNode );
 
-    this.pdomOrder = [ vertexManipulator, accessibleListNode ];
+    this.pdomOrder = [ vertexManipulator, descriptionNode ];
   }
 }
 

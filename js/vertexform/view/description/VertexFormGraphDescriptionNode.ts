@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * VertexFormGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on
+ * VertexFormGraphDescriptionNode is the dynamic description (in bullet list format) of what is shown on
  * the graph in the 'Vertex Form' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -13,7 +13,7 @@ import graphingQuadratics from '../../../graphingQuadratics.js';
 import VertexFormModel from '../../model/VertexFormModel.js';
 import VertexFormViewProperties from '../VertexFormViewProperties.js';
 
-export default class VertexFormGraphAccessibleListNode extends GQGraphDescriptionNode {
+export default class VertexFormGraphDescriptionNode extends GQGraphDescriptionNode {
 
   public constructor( model: VertexFormModel, viewProperties: VertexFormViewProperties ) {
 
@@ -45,4 +45,4 @@ export default class VertexFormGraphAccessibleListNode extends GQGraphDescriptio
   }
 }
 
-graphingQuadratics.register( 'VertexFormGraphAccessibleListNode', VertexFormGraphAccessibleListNode );
+graphingQuadratics.register( 'VertexFormGraphDescriptionNode', VertexFormGraphDescriptionNode );

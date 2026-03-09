@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ExploreGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on
+ * ExploreGraphDescriptionNode is the dynamic description (in bullet list format) of what is shown on
  * the graph in the 'Explore' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -15,7 +15,7 @@ import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import ExploreModel from '../../model/ExploreModel.js';
 import ExploreViewProperties from '../ExploreViewProperties.js';
 
-export default class ExploreGraphAccessibleListNode extends GQGraphDescriptionNode {
+export default class ExploreGraphDescriptionNode extends GQGraphDescriptionNode {
 
   public constructor( model: ExploreModel, viewProperties: ExploreViewProperties ) {
 
@@ -69,4 +69,4 @@ export default class ExploreGraphAccessibleListNode extends GQGraphDescriptionNo
   }
 }
 
-graphingQuadratics.register( 'ExploreGraphAccessibleListNode', ExploreGraphAccessibleListNode );
+graphingQuadratics.register( 'ExploreGraphDescriptionNode', ExploreGraphDescriptionNode );

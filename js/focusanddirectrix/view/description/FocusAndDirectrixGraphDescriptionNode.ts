@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * FocusAndDirectrixGraphAccessibleListNode is the dynamic description (in bullet list format) of what is shown on
+ * FocusAndDirectrixGraphDescriptionNode is the dynamic description (in bullet list format) of what is shown on
  * the graph in the 'Focus & Directrix' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -19,7 +19,7 @@ import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import FocusAndDirectrixModel from '../../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixViewProperties from '../FocusAndDirectrixViewProperties.js';
 
-export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphDescriptionNode {
+export default class FocusAndDirectrixGraphDescriptionNode extends GQGraphDescriptionNode {
 
   public constructor( model: FocusAndDirectrixModel, viewProperties: FocusAndDirectrixViewProperties ) {
 
@@ -78,4 +78,4 @@ export default class FocusAndDirectrixGraphAccessibleListNode extends GQGraphDes
   }
 }
 
-graphingQuadratics.register( 'FocusAndDirectrixGraphAccessibleListNode', FocusAndDirectrixGraphAccessibleListNode );
+graphingQuadratics.register( 'FocusAndDirectrixGraphDescriptionNode', FocusAndDirectrixGraphDescriptionNode );
