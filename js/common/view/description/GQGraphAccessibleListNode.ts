@@ -43,7 +43,7 @@ export default class GQGraphAccessibleListNode extends Node {
         graphContentsVisible ? graphAreaCurrentlyContainsString : contentsOfGraphAreaAreHiddenString ) );
 
     super( {
-      accessibleTemplate: AccessibleList.createTemplate( {
+      accessibleTemplate: AccessibleList.createTemplateProperty( {
         listItems: listItems,
         leadingParagraphStringProperty: leadingParagraphStringProperty
       } )
