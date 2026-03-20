@@ -18,7 +18,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
 export default class PointOnParabolaLinesNode extends Node {
@@ -76,5 +75,3 @@ export default class PointOnParabolaLinesNode extends Node {
       } );
   }
 }
-
-graphingQuadratics.register( 'PointOnParabolaLinesNode', PointOnParabolaLinesNode );

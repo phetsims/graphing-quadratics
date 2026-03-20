@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import graphingQuadratics from '../../../graphingQuadratics.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
@@ -61,5 +60,3 @@ export default class PointToolDescriber {
     return response;
   }
 }
-
-graphingQuadratics.register( 'PointToolDescriber', PointToolDescriber );

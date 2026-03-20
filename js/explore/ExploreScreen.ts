@@ -10,7 +10,6 @@ import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
-import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import ExploreModel from './model/ExploreModel.js';
 import ExploreScreenView from './view/ExploreScreenView.js';
@@ -39,5 +38,3 @@ export default class ExploreScreen extends Screen<ExploreModel, ExploreScreenVie
     );
   }
 }
-
-graphingQuadratics.register( 'ExploreScreen', ExploreScreen );

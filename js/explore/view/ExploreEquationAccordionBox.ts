@@ -9,7 +9,6 @@
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import GQEquationAccordionBox, { GQEquationAccordionBoxOptions } from '../../common/view/GQEquationAccordionBox.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormEquationNode from '../../standardform/view/StandardFormEquationNode.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreInteractiveEquationNode from './ExploreInteractiveEquationNode.js';
@@ -40,5 +39,3 @@ export default class ExploreEquationAccordionBox extends GQEquationAccordionBox 
     super( model, interactiveEquationNode, options );
   }
 }
-
-graphingQuadratics.register( 'ExploreEquationAccordionBox', ExploreEquationAccordionBox );

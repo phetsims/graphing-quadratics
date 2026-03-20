@@ -16,7 +16,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 
 const FONT = GQConstants.INTERACTIVE_EQUATION_FONT;
 const FRACTION_FONT = GQConstants.INTERACTIVE_EQUATION_FRACTION_FONT;
@@ -93,5 +92,3 @@ export default class FocusAndDirectrixEquationNode extends Node {
     } );
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixEquationNode', FocusAndDirectrixEquationNode );

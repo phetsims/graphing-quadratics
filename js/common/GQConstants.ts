@@ -14,7 +14,6 @@ import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import { AccordionBoxOptions } from '../../../sun/js/AccordionBox.js';
 import { NumberPickerOptions } from '../../../sun/js/NumberPicker.js';
 import { PanelOptions } from '../../../sun/js/Panel.js';
-import graphingQuadratics from '../graphingQuadratics.js';
 import GQColors from './GQColors.js';
 import { CreditsData } from '../../../joist/js/CreditsNode.js';
 
@@ -181,5 +180,3 @@ export default class GQConstants {
   public static readonly PICKER_DOC = 'picker for \'{{symbol}}\' value';
   public static readonly SLIDER_DOC = 'slider for \'{{symbol}}\' value';
 }
-
-graphingQuadratics.register( 'GQConstants', GQConstants );

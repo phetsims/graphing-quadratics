@@ -16,7 +16,6 @@ import Circle from '../../../../scenery/js/nodes/Circle.js';
 import Node, { NodeOptions, NodeTranslationOptions } from '../../../../scenery/js/nodes/Node.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
 import CoordinatesNode from '../../common/view/CoordinatesNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 
 // Positions the coordinates relative to the point
 type LayoutCoordinatesFunction = ( coordinatesNode: Node, pointNode: Node ) => void;
@@ -101,5 +100,3 @@ export default class PointNode extends Node {
       ( coordinates, bounds ) => options.layoutCoordinates( coordinatesNode, pointNode ) );
   }
 }
-
-graphingQuadratics.register( 'PointNode', PointNode );

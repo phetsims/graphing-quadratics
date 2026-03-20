@@ -18,7 +18,6 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import PointTool from './PointTool.js';
@@ -171,5 +170,3 @@ export default class GQModel implements TModel {
     }
   }
 }
-
-graphingQuadratics.register( 'GQModel', GQModel );

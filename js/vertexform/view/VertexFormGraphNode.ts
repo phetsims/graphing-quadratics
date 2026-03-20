@@ -10,7 +10,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import AxisOfSymmetryNode from '../../common/view/AxisOfSymmetryNode.js';
 import GQGraphNode from '../../common/view/GQGraphNode.js';
 import VertexManipulator from '../../common/view/VertexManipulator.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import VertexFormModel from '../model/VertexFormModel.js';
 import VertexFormGraphDescriptionNode from './description/VertexFormGraphDescriptionNode.js';
 import VertexFormViewProperties from './VertexFormViewProperties.js';
@@ -55,5 +54,3 @@ export default class VertexFormGraphNode extends GQGraphNode {
     this.pdomOrder = [ vertexManipulator, descriptionNode ];
   }
 }
-
-graphingQuadratics.register( 'VertexFormGraphNode', VertexFormGraphNode );

@@ -13,7 +13,6 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import Line from '../../../../scenery/js/nodes/Line.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQSymbols from '../GQSymbols.js';
@@ -112,5 +111,3 @@ export default class AxisOfSymmetryNode extends Node {
     } );
   }
 }
-
-graphingQuadratics.register( 'AxisOfSymmetryNode', AxisOfSymmetryNode );

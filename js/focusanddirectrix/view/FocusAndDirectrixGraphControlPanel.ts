@@ -15,7 +15,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixViewProperties from './FocusAndDirectrixViewProperties.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
@@ -66,5 +65,3 @@ export default class FocusAndDirectrixGraphControlPanel extends Panel {
     super( contentNode, options );
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixGraphControlPanel', FocusAndDirectrixGraphControlPanel );

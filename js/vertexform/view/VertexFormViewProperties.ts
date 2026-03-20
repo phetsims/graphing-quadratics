@@ -8,7 +8,6 @@
 
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQViewProperties from '../../common/view/GQViewProperties.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Property from '../../../../axon/js/Property.js';
 
@@ -50,5 +49,3 @@ export default class VertexFormViewProperties extends GQViewProperties {
     super.reset();
   }
 }
-
-graphingQuadratics.register( 'VertexFormViewProperties', VertexFormViewProperties );

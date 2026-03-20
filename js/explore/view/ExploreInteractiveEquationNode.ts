@@ -22,7 +22,6 @@ import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
 import QuadraticSlider from '../../common/view/QuadraticSlider.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
@@ -203,5 +202,3 @@ export default class ExploreInteractiveEquationNode extends Node {
       } );
   }
 }
-
-graphingQuadratics.register( 'ExploreInteractiveEquationNode', ExploreInteractiveEquationNode );

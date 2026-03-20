@@ -13,7 +13,6 @@ import Quadratic from '../../common/model/Quadratic.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 import GQConstants from '../../common/GQConstants.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -85,5 +84,3 @@ export default class PointOnParabolaDragListener extends SoundDragListener {
     } );
   }
 }
-
-graphingQuadratics.register( 'PointOnParabolaDragListener', PointOnParabolaDragListener );

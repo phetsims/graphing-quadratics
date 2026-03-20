@@ -10,7 +10,6 @@ import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
-import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import FocusAndDirectrixModel from './model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixScreenView from './view/FocusAndDirectrixScreenView.js';
@@ -39,5 +38,3 @@ export default class FocusAndDirectrixScreen extends Screen<FocusAndDirectrixMod
     );
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixScreen', FocusAndDirectrixScreen );

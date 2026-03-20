@@ -16,7 +16,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import VertexFormViewProperties from './VertexFormViewProperties.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
@@ -61,5 +60,3 @@ export default class VertexFormGraphControlPanel extends Panel {
     super( contentNode, options );
   }
 }
-
-graphingQuadratics.register( 'VertexFormGraphControlPanel', VertexFormGraphControlPanel );

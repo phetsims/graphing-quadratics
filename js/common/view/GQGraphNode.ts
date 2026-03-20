@@ -16,7 +16,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import IndexedNodeIO from '../../../../scenery/js/nodes/IndexedNodeIO.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQSymbols from '../GQSymbols.js';
 import GQModel from '../model/GQModel.js';
@@ -161,5 +160,3 @@ export default class GQGraphNode extends Node {
     } );
   }
 }
-
-graphingQuadratics.register( 'GQGraphNode', GQGraphNode );

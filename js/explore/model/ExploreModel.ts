@@ -11,7 +11,6 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import Quadratic from '../../common/model/Quadratic.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../../standardform/model/StandardFormModel.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
@@ -75,5 +74,3 @@ export default class ExploreModel extends StandardFormModel {
     return curveName;
   }
 }
-
-graphingQuadratics.register( 'ExploreModel', ExploreModel );

@@ -18,7 +18,6 @@ import Line from '../../../../scenery/js/nodes/Line.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path, { PathOptions } from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import Quadratic from '../model/Quadratic.js';
 
@@ -209,5 +208,4 @@ function createQuadraticNode( a: number, b: number, c: number, range: Range, opt
   return new Path( shape, combineOptions<PathOptions>( {}, DEFAULT_PATH_OPTIONS, options ) );
 }
 
-graphingQuadratics.register( 'GQScreenIconFactory', GQScreenIconFactory );
 export default GQScreenIconFactory;

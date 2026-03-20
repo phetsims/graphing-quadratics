@@ -296,6 +296,4 @@ type StringsType = {
 
 const GraphingQuadraticsStrings = getStringModule( 'GRAPHING_QUADRATICS' ) as StringsType;
 
-graphingQuadratics.register( 'GraphingQuadraticsStrings', GraphingQuadraticsStrings );
-
 export default GraphingQuadraticsStrings;

@@ -16,7 +16,6 @@ import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
@@ -140,5 +139,3 @@ export default class VertexManipulator extends GQManipulator {
     }
   }
 }
-
-graphingQuadratics.register( 'VertexManipulator', VertexManipulator );

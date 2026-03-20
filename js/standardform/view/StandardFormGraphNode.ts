@@ -9,7 +9,6 @@
 import Tandem from '../../../../tandem/js/Tandem.js';
 import AxisOfSymmetryNode from '../../common/view/AxisOfSymmetryNode.js';
 import GQGraphNode from '../../common/view/GQGraphNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormGraphDescriptionNode from './description/StandardFormGraphDescriptionNode.js';
 import NoRealRootsNode from './NoRealRootsNode.js';
@@ -71,5 +70,3 @@ export default class StandardFormGraphNode extends GQGraphNode {
     this.addChild( new StandardFormGraphDescriptionNode( model, viewProperties ) );
   }
 }
-
-graphingQuadratics.register( 'StandardFormGraphNode', StandardFormGraphNode );

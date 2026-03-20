@@ -19,7 +19,6 @@ import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 
@@ -106,5 +105,3 @@ export default class NoRealRootsNode extends Node {
       } );
   }
 }
-
-graphingQuadratics.register( 'NoRealRootsNode', NoRealRootsNode );

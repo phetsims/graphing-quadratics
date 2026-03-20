@@ -10,7 +10,6 @@
  */
 
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import VertexManipulator from './VertexManipulator.js';
@@ -64,5 +63,3 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
     } );
   }
 }
-
-graphingQuadratics.register( 'VertexKeyboardDragListener', VertexKeyboardDragListener );

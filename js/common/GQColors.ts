@@ -134,5 +134,3 @@ affirm( uniqueColors( [ GQColors.EXPLORE_INTERACTIVE_CURVE, GQColors.SAVED_CURVE
 affirm( uniqueColors( [ GQColors.STANDARD_FORM_INTERACTIVE_CURVE, GQColors.SAVED_CURVE ] ) );
 affirm( uniqueColors( [ GQColors.VERTEX_FORM_INTERACTIVE_CURVE, GQColors.SAVED_CURVE ] ) );
 affirm( uniqueColors( [ GQColors.FOCUS_AND_DIRECTRIX_INTERACTIVE_CURVE, GQColors.SAVED_CURVE ] ) );
-
-graphingQuadratics.register( 'GQColors', GQColors );

@@ -8,7 +8,6 @@
 
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQScreenView, { GQScreenViewOptions } from '../../common/view/GQScreenView.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreEquationAccordionBox from './ExploreEquationAccordionBox.js';
 import ExploreGraphNode from './ExploreGraphNode.js';
@@ -42,5 +41,3 @@ export default class ExploreScreenView extends GQScreenView {
     );
   }
 }
-
-graphingQuadratics.register( 'ExploreScreenView', ExploreScreenView );

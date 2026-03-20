@@ -20,7 +20,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
@@ -123,5 +122,3 @@ export default class StandardFormInteractiveEquationNode extends Node {
     } );
   }
 }
-
-graphingQuadratics.register( 'StandardFormInteractiveEquationNode', StandardFormInteractiveEquationNode );

@@ -29,7 +29,6 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import { solveQuadraticRootsReal } from '../../../../dot/js/util/solveQuadraticRootsReal.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
@@ -481,5 +480,3 @@ function solveRoots( a: number, b: number, c: number ): Vector2[] | null {
   affirm( roots === null || ( roots.length >= 0 && roots.length <= 2 ), `unexpected roots: ${roots}` );
   return roots;
 }
-
-graphingQuadratics.register( 'Quadratic', Quadratic );

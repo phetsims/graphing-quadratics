@@ -17,7 +17,6 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import PointOnParabolaDragListener from './PointOnParabolaDragListener.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
@@ -121,5 +120,3 @@ export default class PointOnParabolaManipulator extends GQManipulator {
     this.addAccessibleObjectResponse( response );
   }
 }
-
-graphingQuadratics.register( 'PointOnParabolaManipulator', PointOnParabolaManipulator );

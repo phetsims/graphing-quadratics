@@ -12,7 +12,6 @@ import Property from '../../../../axon/js/Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 
 export type EquationForm = 'standard' | 'vertex';
 
@@ -76,5 +75,3 @@ export default class GQViewProperties extends PhetioObject {
     this.equationsVisibleProperty.reset();
   }
 }
-
-graphingQuadratics.register( 'GQViewProperties', GQViewProperties );

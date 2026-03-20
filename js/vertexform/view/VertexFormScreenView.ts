@@ -8,7 +8,6 @@
 
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQScreenView, { GQScreenViewOptions } from '../../common/view/GQScreenView.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import VertexFormModel from '../model/VertexFormModel.js';
 import VertexFormEquationAccordionBox from './VertexFormEquationAccordionBox.js';
 import VertexFormGraphControlPanel from './VertexFormGraphControlPanel.js';
@@ -39,5 +38,3 @@ export default class VertexFormScreenView extends GQScreenView {
     );
   }
 }
-
-graphingQuadratics.register( 'VertexFormScreenView', VertexFormScreenView );

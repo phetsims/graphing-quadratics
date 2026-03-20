@@ -8,7 +8,6 @@
 
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQScreenView, { GQScreenViewOptions } from '../../common/view/GQScreenView.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixEquationAccordionBox from './FocusAndDirectrixEquationAccordionBox.js';
 import FocusAndDirectrixGraphControlPanel from './FocusAndDirectrixGraphControlPanel.js';
@@ -39,5 +38,3 @@ export default class FocusAndDirectrixScreenView extends GQScreenView {
     );
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixScreenView', FocusAndDirectrixScreenView );

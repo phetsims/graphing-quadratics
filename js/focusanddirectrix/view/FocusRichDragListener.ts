@@ -13,7 +13,6 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import Range from '../../../../dot/js/Range.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import SoundRichDragListener from '../../../../scenery-phet/js/SoundRichDragListener.js';
@@ -105,5 +104,3 @@ export default class FocusRichDragListener extends SoundRichDragListener {
     } );
   }
 }
-
-graphingQuadratics.register( 'FocusRichDragListener', FocusRichDragListener );

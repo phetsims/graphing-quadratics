@@ -24,7 +24,6 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
 import Checkbox, { CheckboxOptions } from '../../../../sun/js/Checkbox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
@@ -314,5 +313,3 @@ export default class GQCheckbox extends Checkbox {
     } );
   }
 }
-
-graphingQuadratics.register( 'GQCheckbox', GQCheckbox );

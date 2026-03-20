@@ -13,7 +13,6 @@ import Manipulator, { ManipulatorOptions } from '../../../../graphing-lines/js/c
 import optionize from '../../../../phet-core/js/optionize.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import CoordinatesNode from './CoordinatesNode.js';
 
 // Positions the coordinates relative to the sphere
@@ -86,5 +85,3 @@ export default class GQManipulator extends Manipulator {
       ( coordinates, bounds ) => options.layoutCoordinates( coordinates, coordinatesNode, actualRadius ) );
   }
 }
-
-graphingQuadratics.register( 'GQManipulator', GQManipulator );

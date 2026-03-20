@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import graphingQuadratics from '../../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import { TReadOnlyProperty } from '../../../../../axon/js/TReadOnlyProperty.js';
 import GQScreenSummaryContent from '../../../common/view/description/GQScreenSummaryContent.js';
@@ -23,5 +22,3 @@ export default class ExploreScreenSummaryContent extends GQScreenSummaryContent 
     super( playAreaStringProperty, graphContentsVisibleProperty );
   }
 }
-
-graphingQuadratics.register( 'ExploreScreenSummaryContent', ExploreScreenSummaryContent );

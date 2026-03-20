@@ -9,7 +9,6 @@
 import BasicActionsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/BasicActionsKeyboardHelpSection.js';
 import MoveDraggableItemsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/MoveDraggableItemsKeyboardHelpSection.js';
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
 import PointToolShortcutsSection from '../../common/view/PointToolShortcutsSection.js';
 
@@ -44,5 +43,3 @@ export default class FocusAndDirectrixKeyboardHelpContent extends TwoColumnKeybo
     } );
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixKeyboardHelpContent', FocusAndDirectrixKeyboardHelpContent );

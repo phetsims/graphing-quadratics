@@ -19,7 +19,6 @@ import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.j
 import PhetColorScheme from '../../../../scenery-phet/js/PhetColorScheme.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
@@ -164,5 +163,3 @@ export default class GQScreenView extends ScreenView {
     ];
   }
 }
-
-graphingQuadratics.register( 'GQScreenView', GQScreenView );

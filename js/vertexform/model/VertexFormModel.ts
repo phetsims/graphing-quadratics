@@ -16,7 +16,6 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQModel from '../../common/model/GQModel.js';
 import Quadratic from '../../common/model/Quadratic.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 
 // constants
 const A_RANGE = new RangeWithValue( -6, 6, 1 ); // a coefficient
@@ -90,5 +89,3 @@ export default class VertexFormModel extends GQModel {
     super.reset();
   }
 }
-
-graphingQuadratics.register( 'VertexFormModel', VertexFormModel );

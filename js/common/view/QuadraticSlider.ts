@@ -11,7 +11,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize, { combineOptions } from '../../../../phet-core/js/optionize.js';
 import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQSlider, { GQSliderOptions } from './GQSlider.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import globalKeyStateTracker from '../../../../scenery/js/accessibility/globalKeyStateTracker.js';
@@ -69,5 +68,3 @@ export default class QuadraticSlider extends GQSlider {
     super( symbolStringProperty, coefficientProperty, options );
   }
 }
-
-graphingQuadratics.register( 'QuadraticSlider', QuadraticSlider );

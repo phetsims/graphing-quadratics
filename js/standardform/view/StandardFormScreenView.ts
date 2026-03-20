@@ -8,7 +8,6 @@
 
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQScreenView, { GQScreenViewOptions } from '../../common/view/GQScreenView.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormModel from '../model/StandardFormModel.js';
 import StandardFormEquationAccordionBox from './StandardFormEquationAccordionBox.js';
 import StandardFormGraphControlPanel from './StandardFormGraphControlPanel.js';
@@ -39,5 +38,3 @@ export default class StandardFormScreenView extends GQScreenView {
     );
   }
 }
-
-graphingQuadratics.register( 'StandardFormScreenView', StandardFormScreenView );

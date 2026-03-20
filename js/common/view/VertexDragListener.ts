@@ -9,7 +9,6 @@
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -49,5 +48,3 @@ export default class VertexDragListener extends SoundDragListener {
     } );
   }
 }
-
-graphingQuadratics.register( 'VertexDragListener', VertexDragListener );

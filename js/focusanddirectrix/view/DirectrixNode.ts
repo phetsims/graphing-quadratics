@@ -18,7 +18,6 @@ import GQSymbols from '../../common/GQSymbols.js';
 import Quadratic from '../../common/model/Quadratic.js';
 import GQEquationFactory from '../../common/view/GQEquationFactory.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import GQGraph from '../../common/model/GQGraph.js';
 
@@ -98,5 +97,3 @@ export default class DirectrixNode extends Node {
     } );
   }
 }
-
-graphingQuadratics.register( 'DirectrixNode', DirectrixNode );

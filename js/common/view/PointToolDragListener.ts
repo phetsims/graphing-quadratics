@@ -14,7 +14,6 @@ import GQConstants from '../GQConstants.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import PointToolNode from './PointToolNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraph from '../model/GQGraph.js';
@@ -90,5 +89,3 @@ export default class PointToolDragListener extends SoundDragListener {
     super( options );
   }
 }
-
-graphingQuadratics.register( 'PointToolDragListener', PointToolDragListener );

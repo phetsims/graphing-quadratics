@@ -7,7 +7,6 @@
  */
 
 import Range from '../../../../dot/js/Range.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
 
 export default class GQGraph extends Graph {
@@ -16,5 +15,3 @@ export default class GQGraph extends Graph {
     super( xRange, yRange );
   }
 }
-
-graphingQuadratics.register( 'GQGraph', GQGraph );

@@ -10,7 +10,6 @@
 import DerivedProperty from '../../../../../axon/js/DerivedProperty.js';
 import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import GQGraphDescriptionNode from '../../../common/view/description/GQGraphDescriptionNode.js';
-import graphingQuadratics from '../../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import ExploreModel from '../../model/ExploreModel.js';
 import ExploreViewProperties from '../ExploreViewProperties.js';
@@ -68,5 +67,3 @@ export default class ExploreGraphDescriptionNode extends GQGraphDescriptionNode 
     super( listItems, viewProperties.graphContentsVisibleProperty );
   }
 }
-
-graphingQuadratics.register( 'ExploreGraphDescriptionNode', ExploreGraphDescriptionNode );

@@ -24,7 +24,6 @@ import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
 import LinearSlider from '../../common/view/LinearSlider.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
@@ -224,5 +223,3 @@ export default class FocusAndDirectrixInteractiveEquationNode extends Node {
       } );
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixInteractiveEquationNode', FocusAndDirectrixInteractiveEquationNode );

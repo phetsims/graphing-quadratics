@@ -16,7 +16,6 @@ import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionB
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
 
@@ -79,5 +78,3 @@ export default class QuadraticTermsAccordionBox extends AccordionBox {
     super( contentNode, options );
   }
 }
-
-graphingQuadratics.register( 'QuadraticTermsAccordionBox', QuadraticTermsAccordionBox );

@@ -12,7 +12,6 @@ import BackgroundNode, { BackgroundNodeOptions } from '../../../../scenery-phet/
 import Circle from '../../../../scenery/js/nodes/Circle.js';
 import RichText, { RichTextOptions } from '../../../../scenery/js/nodes/RichText.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 
@@ -62,5 +61,3 @@ export default class GQEquationNode extends BackgroundNode {
     this.equationText.fill = fill;
   }
 }
-
-graphingQuadratics.register( 'GQEquationNode', GQEquationNode );

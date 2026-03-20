@@ -81,5 +81,3 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
     } );
   }
 }
-
-graphingQuadratics.register( 'JumpToNextCurveListener', JumpToNextCurveListener );

@@ -20,7 +20,6 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path, { PathOptions } from '../../../../scenery/js/nodes/Path.js';
 import GQEquationNode from '../../common/view/GQEquationNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import GQSymbols from '../GQSymbols.js';
 import Quadratic from '../model/Quadratic.js';
@@ -267,5 +266,3 @@ export default class QuadraticNode extends Node {
     }
   }
 }
-
-graphingQuadratics.register( 'QuadraticNode', QuadraticNode );

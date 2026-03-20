@@ -16,7 +16,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQCheckbox from '../../common/view/GQCheckbox.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import StandardFormViewProperties from './StandardFormViewProperties.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 
@@ -64,5 +63,3 @@ export default class StandardFormGraphControlPanel extends Panel {
     super( contentNode, options );
   }
 }
-
-graphingQuadratics.register( 'StandardFormGraphControlPanel', StandardFormGraphControlPanel );

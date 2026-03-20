@@ -10,7 +10,6 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQViewProperties from '../../common/view/GQViewProperties.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 
 export default class StandardFormViewProperties extends GQViewProperties {
 
@@ -58,5 +57,3 @@ export default class StandardFormViewProperties extends GQViewProperties {
     super.reset();
   }
 }
-
-graphingQuadratics.register( 'StandardFormViewProperties', StandardFormViewProperties );

@@ -14,7 +14,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import BackgroundNode, { BackgroundNodeOptions } from '../../../../scenery-phet/js/BackgroundNode.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import GQConstants from '../GQConstants.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
@@ -60,5 +59,3 @@ export default class CoordinatesNode extends BackgroundNode {
     super( text, options );
   }
 }
-
-graphingQuadratics.register( 'CoordinatesNode', CoordinatesNode );

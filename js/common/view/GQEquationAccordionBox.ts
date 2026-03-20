@@ -21,7 +21,6 @@ import cameraSolidShape from '../../../../sherpa/js/fontawesome-5/cameraSolidSha
 import AccordionBox, { AccordionBoxOptions } from '../../../../sun/js/AccordionBox.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQColors from '../GQColors.js';
 import GQConstants from '../GQConstants.js';
 import GQModel from '../model/GQModel.js';
@@ -152,5 +151,3 @@ class ButtonGroup extends HBox {
     } );
   }
 }
-
-graphingQuadratics.register( 'GQEquationAccordionBox', GQEquationAccordionBox );

@@ -14,7 +14,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQSymbols from '../../common/GQSymbols.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 
 export default class StandardFormEquationNode extends Node {
 
@@ -43,5 +42,3 @@ export default class StandardFormEquationNode extends Node {
     } );
   }
 }
-
-graphingQuadratics.register( 'StandardFormEquationNode', StandardFormEquationNode );

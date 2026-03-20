@@ -26,7 +26,6 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import TColor from '../../../../scenery/js/util/TColor.js';
 import VSlider, { VSliderOptions } from '../../../../sun/js/VSlider.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
@@ -214,5 +213,3 @@ export default class GQSlider extends Node {
     } );
   }
 }
-
-graphingQuadratics.register( 'GQSlider', GQSlider );

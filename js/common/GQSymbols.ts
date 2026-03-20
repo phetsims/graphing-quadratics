@@ -11,7 +11,6 @@
 
 import DerivedProperty from '../../../axon/js/DerivedProperty.js';
 import MathSymbolFont from '../../../scenery-phet/js/MathSymbolFont.js';
-import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 
 export default class GQSymbols {
@@ -30,5 +29,3 @@ export default class GQSymbols {
   public static readonly xSquaredMarkupStringProperty = new DerivedProperty( [ GQSymbols.xMarkupStringProperty ], x => `${x}<sup>2</sup>` );
   public static readonly yMarkupStringProperty = MathSymbolFont.createDerivedProperty( GraphingQuadraticsStrings.yStringProperty );
 }
-
-graphingQuadratics.register( 'GQSymbols', GQSymbols );

@@ -9,7 +9,6 @@
 
 import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import GQGraphDescriptionNode from '../../../common/view/description/GQGraphDescriptionNode.js';
-import graphingQuadratics from '../../../graphingQuadratics.js';
 import VertexFormModel from '../../model/VertexFormModel.js';
 import VertexFormViewProperties from '../VertexFormViewProperties.js';
 
@@ -44,5 +43,3 @@ export default class VertexFormGraphDescriptionNode extends GQGraphDescriptionNo
     super( listItems, viewProperties.graphContentsVisibleProperty );
   }
 }
-
-graphingQuadratics.register( 'VertexFormGraphDescriptionNode', VertexFormGraphDescriptionNode );

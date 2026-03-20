@@ -7,7 +7,6 @@
  */
 
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -120,5 +119,3 @@ export default class PointOnParabolaKeyboardDragListener extends SoundKeyboardDr
     } );
   }
 }
-
-graphingQuadratics.register( 'PointOnParabolaKeyboardDragListener', PointOnParabolaKeyboardDragListener );

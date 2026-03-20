@@ -9,7 +9,6 @@
 import KeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import KeyboardHelpSectionRow from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import JumpToNextCurveListener from './JumpToNextCurveListener.js';
 import MoveOffGraphListener from './MoveOffGraphListener.js';
 
@@ -32,5 +31,3 @@ export default class PointToolShortcutsSection extends KeyboardHelpSection {
     } );
   }
 }
-
-graphingQuadratics.register( 'PointToolShortcutsSection', PointToolShortcutsSection );

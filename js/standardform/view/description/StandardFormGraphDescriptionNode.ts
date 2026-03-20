@@ -15,7 +15,6 @@ import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import GQConstants from '../../../common/GQConstants.js';
 import GQGraphDescriptionNode from '../../../common/view/description/GQGraphDescriptionNode.js';
-import graphingQuadratics from '../../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import StandardFormModel from '../../model/StandardFormModel.js';
 import StandardFormViewProperties from '../StandardFormViewProperties.js';
@@ -130,5 +129,3 @@ export default class StandardFormGraphDescriptionNode extends GQGraphDescription
     super( listItems, viewProperties.graphContentsVisibleProperty );
   }
 }
-
-graphingQuadratics.register( 'StandardFormGraphDescriptionNode', StandardFormGraphDescriptionNode );

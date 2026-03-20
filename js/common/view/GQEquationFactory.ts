@@ -10,7 +10,6 @@
  */
 
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQConstants from '../GQConstants.js';
 import Quadratic from '../model/Quadratic.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
@@ -168,5 +167,3 @@ export default class GQEquationFactory {
     return `${xString} ${MathSymbols.EQUAL_TO} ${toFixedNumber( axisOfSymmetry, GQConstants.AXIS_OF_SYMMETRY_DECIMALS )}`;
   }
 }
-
-graphingQuadratics.register( 'GQEquationFactory', GQEquationFactory );

@@ -11,7 +11,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import GQConstants from '../../common/GQConstants.js';
 import GQGraphNode from '../../common/view/GQGraphNode.js';
 import QuadraticNode from '../../common/view/QuadraticNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import ExploreModel from '../model/ExploreModel.js';
 import ExploreGraphDescriptionNode from './description/ExploreGraphDescriptionNode.js';
 import ExploreViewProperties from './ExploreViewProperties.js';
@@ -93,5 +92,3 @@ export default class ExploreGraphNode extends GQGraphNode {
     this.addChild( new ExploreGraphDescriptionNode( model, viewProperties ) );
   }
 }
-
-graphingQuadratics.register( 'ExploreGraphNode', ExploreGraphNode );

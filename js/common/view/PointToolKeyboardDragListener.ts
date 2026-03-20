@@ -21,7 +21,6 @@ import PointTool from '../model/PointTool.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import PointToolNode from './PointToolNode.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraph from '../model/GQGraph.js';
 import SoundKeyboardDragListener, { SoundKeyboardDragListenerOptions } from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
@@ -170,5 +169,3 @@ export default class PointToolKeyboardDragListener extends SoundKeyboardDragList
     super( options );
   }
 }
-
-graphingQuadratics.register( 'PointToolKeyboardDragListener', PointToolKeyboardDragListener );

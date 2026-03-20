@@ -9,7 +9,6 @@
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import GQEquationAccordionBox, { GQEquationAccordionBoxOptions } from '../../common/view/GQEquationAccordionBox.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixEquationNode from './FocusAndDirectrixEquationNode.js';
 import FocusAndDirectrixInteractiveEquationNode from './FocusAndDirectrixInteractiveEquationNode.js';
@@ -41,5 +40,3 @@ export default class FocusAndDirectrixEquationAccordionBox extends GQEquationAcc
     super( model, interactiveEquationNode, options );
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixEquationAccordionBox', FocusAndDirectrixEquationAccordionBox );

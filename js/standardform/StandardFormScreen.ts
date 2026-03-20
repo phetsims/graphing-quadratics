@@ -11,7 +11,6 @@ import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import GQColors from '../common/GQColors.js';
 import GQScreenIconFactory from '../common/view/GQScreenIconFactory.js';
-import graphingQuadratics from '../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../GraphingQuadraticsStrings.js';
 import StandardFormModel from './model/StandardFormModel.js';
 import StandardFormScreenView from './view/StandardFormScreenView.js';
@@ -40,5 +39,3 @@ export default class StandardFormScreen extends Screen<StandardFormModel, Standa
     );
   }
 }
-
-graphingQuadratics.register( 'StandardFormScreen', StandardFormScreen );

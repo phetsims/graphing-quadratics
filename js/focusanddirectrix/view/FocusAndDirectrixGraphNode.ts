@@ -9,7 +9,6 @@
 import Tandem from '../../../../tandem/js/Tandem.js';
 import GQGraphNode from '../../common/view/GQGraphNode.js';
 import VertexManipulator from '../../common/view/VertexManipulator.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import FocusAndDirectrixModel from '../model/FocusAndDirectrixModel.js';
 import FocusAndDirectrixGraphDescriptionNode from './description/FocusAndDirectrixGraphDescriptionNode.js';
 import DirectrixNode from './DirectrixNode.js';
@@ -91,5 +90,3 @@ export default class FocusAndDirectrixGraphNode extends GQGraphNode {
     this.pdomOrder = [ vertexManipulator, focusManipulator, pointOnParabolaManipulator, descriptionNode ];
   }
 }
-
-graphingQuadratics.register( 'FocusAndDirectrixGraphNode', FocusAndDirectrixGraphNode );

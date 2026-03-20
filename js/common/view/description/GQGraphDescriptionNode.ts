@@ -16,7 +16,6 @@ import { toFixedNumber } from '../../../../../dot/js/util/toFixedNumber.js';
 import StringUtils from '../../../../../phetcommon/js/util/StringUtils.js';
 import AccessibleList, { AccessibleListItem } from '../../../../../scenery-phet/js/accessibility/AccessibleList.js';
 import Node from '../../../../../scenery/js/nodes/Node.js';
-import graphingQuadratics from '../../../graphingQuadratics.js';
 import GraphingQuadraticsStrings from '../../../GraphingQuadraticsStrings.js';
 import GQConstants from '../../GQConstants.js';
 import Quadratic from '../../model/Quadratic.js';
@@ -386,5 +385,3 @@ export default class GQGraphDescriptionNode extends Node {
       } );
   }
 }
-
-graphingQuadratics.register( 'GQGraphDescriptionNode', GQGraphDescriptionNode );

@@ -39,5 +39,3 @@ export default class MoveOffGraphListener extends KeyboardListener<OneKeyStroke[
     } );
   }
 }
-
-graphingQuadratics.register( 'MoveOffGraphListener', MoveOffGraphListener );

@@ -16,7 +16,6 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import PointNode, { PointNodeOptions } from './PointNode.js';
 import GQGraph from '../../common/model/GQGraph.js';
 
@@ -88,5 +87,3 @@ export default class VertexNode extends PointNode {
     } );
   }
 }
-
-graphingQuadratics.register( 'VertexNode', VertexNode );

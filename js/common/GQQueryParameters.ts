@@ -11,7 +11,6 @@
 
 import logGlobal from '../../../phet-core/js/logGlobal.js';
 import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
-import graphingQuadratics from '../graphingQuadratics.js';
 
 const GQQueryParameters = QueryStringMachine.getAll( {
 
@@ -73,8 +72,6 @@ const GQQueryParameters = QueryStringMachine.getAll( {
     isValidValue: value => ( value > 0 && value <= 200 )
   }
 } );
-
-graphingQuadratics.register( 'GQQueryParameters', GQQueryParameters );
 
 // Log query parameters
 logGlobal( 'phet.chipper.queryParameters' );

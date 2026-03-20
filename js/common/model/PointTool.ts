@@ -19,7 +19,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import GQQueryParameters from '../GQQueryParameters.js';
 import Quadratic from './Quadratic.js';
 import GQGraph from './GQGraph.js';
@@ -132,5 +131,3 @@ export default class PointTool extends PhetioObject {
     this.positionProperty.reset();
   }
 }
-
-graphingQuadratics.register( 'PointTool', PointTool );

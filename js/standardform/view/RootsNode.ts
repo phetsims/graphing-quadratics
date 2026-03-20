@@ -18,7 +18,6 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import GQColors from '../../common/GQColors.js';
 import GQConstants from '../../common/GQConstants.js';
 import Quadratic from '../../common/model/Quadratic.js';
-import graphingQuadratics from '../../graphingQuadratics.js';
 import PointNode, { PointNodeOptions } from './PointNode.js';
 import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import GQGraph from '../../common/model/GQGraph.js';
@@ -171,5 +170,3 @@ export default class RootsNode extends Node {
     } );
   }
 }
-
-graphingQuadratics.register( 'RootsNode', RootsNode );
