@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * VertexFormEquationAccordionBox is the Equation accordion box in the 'Vertex Form' screen.

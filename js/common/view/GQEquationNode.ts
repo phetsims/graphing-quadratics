@@ -1,4 +1,4 @@
-// Copyright 2019-2025, University of Colorado Boulder
+// Copyright 2019-2026, University of Colorado Boulder
 
 /**
  * GQEquationNode puts a Node on a rectangular background, dynamically sized to fit the Node.

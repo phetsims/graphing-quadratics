@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * RootsNode displays the roots of a quadratic as non-interactive points with coordinate labels.

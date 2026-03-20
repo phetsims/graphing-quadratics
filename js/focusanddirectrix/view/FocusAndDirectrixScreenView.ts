@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * FocusAndDirectrixScreenView is the view for the 'Focus and Directrix' screen.

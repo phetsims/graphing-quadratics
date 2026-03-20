@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * VertexFormInteractiveEquationNode displays the interactive equation in vertex form, y = ax^2 + bx + c,

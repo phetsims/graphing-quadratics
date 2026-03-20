@@ -1,4 +1,4 @@
-// Copyright 2014-2025, University of Colorado Boulder
+// Copyright 2014-2026, University of Colorado Boulder
 
 /**
  * GQColors is the set of colors used throughout this project.

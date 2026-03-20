@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * FocusRichDragListener is the drag listener that supports both pointer and keyboard input for changing the

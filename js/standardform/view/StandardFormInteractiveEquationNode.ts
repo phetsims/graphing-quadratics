@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * StandardFormInteractiveEquationNode displays the interactive equation in standard form, y = ax^2 + bx + c,

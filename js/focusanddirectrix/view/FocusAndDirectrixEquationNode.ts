@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * FocusAndDirectrixEquationNode displays the static equation: y = (1/(4p)(x - h)^2 + k

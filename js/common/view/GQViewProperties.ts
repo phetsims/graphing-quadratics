@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * GQViewProperties is a base class that is responsible for a set of view-specific Properties that are common to

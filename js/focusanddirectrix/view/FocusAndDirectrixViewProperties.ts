@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * FocusAndDirectrixViewProperties is the set of view-specific Properties for the 'Focus & Directrix' screen.

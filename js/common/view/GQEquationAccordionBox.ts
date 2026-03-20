@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * GQEquationAccordionBox is the abstract base class for the accordion box that displays the interactive equation

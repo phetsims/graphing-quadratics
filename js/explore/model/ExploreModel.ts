@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * ExploreModel is the model for the 'Explore' screen. It extends the 'Standard Form' model by adding curves for

@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * PointOnParabolaKeyboardDragListener is the drag listener that handles keyboard input for PointOnParabolaManipulator.

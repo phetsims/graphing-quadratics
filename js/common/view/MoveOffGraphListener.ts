@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * MoveOffGraphListener is a keyboard shortcut that moves the point tool off the graph.

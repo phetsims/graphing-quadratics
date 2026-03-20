@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * JumpToNextCurveListener is a keyboard shortcut that jumps the point tool to the closest point on the next curve.

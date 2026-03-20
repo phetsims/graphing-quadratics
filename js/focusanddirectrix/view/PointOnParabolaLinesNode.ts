@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * PointOnParabolaLinesNode displays the dashed lines that connect the 'point on parabola' to the focus and directrix.

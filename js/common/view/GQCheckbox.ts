@@ -1,4 +1,4 @@
-// Copyright 2018-2025, University of Colorado Boulder
+// Copyright 2018-2026, University of Colorado Boulder
 
 /**
  * GQCheckbox is a specialization of Checkbox to meet the "look" and feature needs of this simulation.
