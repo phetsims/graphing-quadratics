@@ -76,6 +76,6 @@ const GQQueryParameters = QueryStringMachine.getAll( {
 // Log query parameters
 logGlobal( 'phet.chipper.queryParameters' );
 logGlobal( 'phet.preloads.phetio.queryParameters' );
-logGlobal( 'phet.graphingQuadratics.GQQueryParameters' );
+phet.log && phet.log( `GQQueryParameters: ${JSON.stringify( GQQueryParameters, null, 2 )}` );
 
 export default GQQueryParameters;
