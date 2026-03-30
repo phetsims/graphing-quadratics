@@ -9,13 +9,13 @@
 
 import Bounds2 from '../../../dot/js/Bounds2.js';
 import Range from '../../../dot/js/Range.js';
+import { CreditsData } from '../../../joist/js/CreditsNode.js';
 import { NumberDisplayOptions } from '../../../scenery-phet/js/NumberDisplay.js';
 import PhetFont from '../../../scenery-phet/js/PhetFont.js';
 import { AccordionBoxOptions } from '../../../sun/js/AccordionBox.js';
 import { NumberPickerOptions } from '../../../sun/js/NumberPicker.js';
 import { PanelOptions } from '../../../sun/js/Panel.js';
 import GQColors from './GQColors.js';
-import { CreditsData } from '../../../joist/js/CreditsNode.js';
 
 const PANEL_CORNER_RADIUS = 5; // corner radius for all panel-like containers
 const LINEAR_SLIDER_KEYBOARD_STEP = 0.5; // Keyboard step for all linear sliders.
@@ -31,7 +31,7 @@ export default class GQConstants {
     softwareDevelopment: 'Chris Malley (PixelZoom, Inc.), Andrea Lin',
     team: 'Catherine Carter, Mike Dubson, Karina K. R. Hensberry, Trish Loeblein, Ariel Paul, Kathy Perkins, Taliesin Smith',
     qualityAssurance: 'Jaspe Arias, Steele Dalton, Jaron Droder, Clifford Hardin, Brooklyn Lash, Emily Miller, ' +
-                      'Matthew Moore, Valentina Pérez, Laura Rea, Jacob Romero, Nancy Salpepi, Ethan Ward, ' +
+                      'Matthew Moore, Valentina P\u00e9rez, Laura Rea, Jacob Romero, Nancy Salpepi, Ethan Ward, ' +
                       'Kathryn Woessner, Kelly Wurtz'
   };
 
