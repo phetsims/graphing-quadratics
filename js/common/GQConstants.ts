@@ -31,7 +31,7 @@ export default class GQConstants {
     softwareDevelopment: 'Chris Malley (PixelZoom, Inc.), Andrea Lin',
     team: 'Catherine Carter, Mike Dubson, Karina K. R. Hensberry, Trish Loeblein, Ariel Paul, Kathy Perkins, Taliesin Smith',
     qualityAssurance: 'Jaspe Arias, Steele Dalton, Jaron Droder, Clifford Hardin, Brooklyn Lash, Emily Miller, ' +
-                      'Matthew Moore, Valentina P\u00e9rez, Laura Rea, Jacob Romero, Nancy Salpepi, Ethan Ward, ' +
+                      'Matthew Moore, Valentina Pérez, Laura Rea, Jacob Romero, Nancy Salpepi, Ethan Ward, ' +
                       'Kathryn Woessner, Kelly Wurtz'
   };
 
