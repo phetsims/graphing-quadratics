@@ -456,8 +456,8 @@ export default class Quadratic {
       directrix: NullableIO( NumberIO ),
       axisOfSymmetry: NullableIO( NumberIO )
     },
-    toStateObject: quadratic => quadratic.toStateObject(),
-    fromStateObject: stateObject => Quadratic.fromStateObject( stateObject )
+    toStateObject: ( quadratic: Quadratic ) => quadratic.toStateObject(),
+    fromStateObject: ( stateObject: QuadraticStateObject ) => Quadratic.fromStateObject( stateObject )
   } );
 }
 
