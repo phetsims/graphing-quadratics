@@ -119,23 +119,38 @@ export default class VertexManipulator extends GQManipulator {
 
     // When this manipulator gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
-      focused && this.doAccessibleObjectResponse();
+      focused && this.describeFocused();
+    } );
+  }
+
+  /**
+   * Adds an accessible object response when the manipulator gets focus.
+   */
+  private describeFocused(): void {
+    this.addAccessibleFocusObjectResponse( this.getVertexDescription() );
+  }
+
+  /**
+   * Adds an accessible object response when the manipulator is moved.
+   */
+  public describeMoved(): void {
+    this.addAccessibleObjectResponse( this.getVertexDescription(), {
+      interruptible: true,
+      alertDelay: 1000
     } );
   }
 
   /**
    * Adds an accessible object response that describes the vertex of the quadratic.
    */
-  public doAccessibleObjectResponse(): void {
+  private getVertexDescription(): string {
     const vertex = this.quadraticProperty.value.vertex;
-    if ( vertex ) {
-      const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
+    affirm( vertex, 'Expected vertex to be defined.' );
+    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.vertexManipulator.accessibleObjectResponseStringProperty, {
 
-        // Use the same formatting and number of decimal places as the visual UI.
-        x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
-        y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
-      } );
-      this.addAccessibleObjectResponse( response );
-    }
+      // Use the same formatting and number of decimal places as the visual UI.
+      x: toFixedNumber( vertex.x, GQConstants.VERTEX_DECIMALS ),
+      y: toFixedNumber( vertex.y, GQConstants.VERTEX_DECIMALS )
+    } );
   }
 }

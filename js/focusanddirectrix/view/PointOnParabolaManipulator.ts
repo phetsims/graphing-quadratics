@@ -10,21 +10,21 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
-import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import GQColors from '../../common/GQColors.js';
-import GQConstants from '../../common/GQConstants.js';
-import Quadratic from '../../common/model/Quadratic.js';
-import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
-import PointOnParabolaDragListener from './PointOnParabolaDragListener.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
-import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
-import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import GQColors from '../../common/GQColors.js';
+import GQConstants from '../../common/GQConstants.js';
 import GQGraph from '../../common/model/GQGraph.js';
+import Quadratic from '../../common/model/Quadratic.js';
+import GQManipulator, { GQManipulatorOptions } from '../../common/view/GQManipulator.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import PointOnParabolaDragListener from './PointOnParabolaDragListener.js';
 import PointOnParabolaKeyboardDragListener from './PointOnParabolaKeyboardDragListener.js';
 
 // constants
@@ -102,21 +102,37 @@ export default class PointOnParabolaManipulator extends GQManipulator {
 
     // When this manipulator gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
-      focused && this.doAccessibleObjectResponse();
+      focused && this.describeFocused();
     } );
   }
 
   /**
-   * Adds an accessible object response that describes the point on the parabola.
+   * Adds an accessible object response when the manipulator gets focus.
    */
-  public doAccessibleObjectResponse(): void {
+  private describeFocused(): void {
+    this.addAccessibleFocusObjectResponse( this.getPointOnParabolaDescription() );
+  }
+
+  /**
+   * Adds an accessible object response when the manipulator is moved.
+   */
+  public describeMoved(): void {
+    this.addAccessibleObjectResponse( this.getPointOnParabolaDescription(), {
+      interruptible: true,
+      alertDelay: 1000
+    } );
+  }
+
+  /**
+   * Gets a description of the point on the parabola.
+   */
+  private getPointOnParabolaDescription(): string {
     const pointOnParabola = this.pointOnParabolaProperty.value;
-    const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleObjectResponseStringProperty, {
+    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.pointOnParabolaManipulator.accessibleObjectResponseStringProperty, {
 
       // Use the same formatting and number of decimal places as the visual UI.
       x: toFixedNumber( pointOnParabola.x, GQConstants.POINT_ON_PARABOLA_DECIMALS ),
       y: toFixedNumber( pointOnParabola.y, GQConstants.POINT_ON_PARABOLA_DECIMALS )
     } );
-    this.addAccessibleObjectResponse( response );
   }
 }

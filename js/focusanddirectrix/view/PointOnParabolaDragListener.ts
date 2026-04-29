@@ -7,16 +7,16 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import Vector2 from '../../../../dot/js/Vector2.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
-import Quadratic from '../../common/model/Quadratic.js';
-import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
-import GQConstants from '../../common/GQConstants.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import Graph from '../../../../graphing-lines/js/common/model/Graph.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import GQConstants from '../../common/GQConstants.js';
+import Quadratic from '../../common/model/Quadratic.js';
 import PointOnParabolaManipulator from './PointOnParabolaManipulator.js';
 
 export default class PointOnParabolaDragListener extends SoundDragListener {
@@ -76,10 +76,8 @@ export default class PointOnParabolaDragListener extends SoundDragListener {
         const y = quadraticProperty.value.solveY( x );
 
         pointOnParabolaProperty.value = new Vector2( x, y );
-
-        // accessibleObjectResponse
-        manipulator.doAccessibleObjectResponse();
       },
+      end: ( event, listener ) => manipulator.describeMoved(),
       tandem: tandem
     } );
   }

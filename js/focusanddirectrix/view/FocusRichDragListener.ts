@@ -96,10 +96,8 @@ export default class FocusRichDragListener extends SoundRichDragListener {
         affirm( p !== 0, 'p=0 is not supported' );
 
         pProperty.value = p;
-
-        // accessibleObjectResponse
-        manipulator.doAccessibleObjectResponse();
       },
+      end: ( event, listener ) => manipulator.describeMoved(),
       tandem: parentTandem
     } );
   }

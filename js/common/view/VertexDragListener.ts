@@ -8,12 +8,12 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import VertexManipulator from './VertexManipulator.js';
 import GQGraph from '../model/GQGraph.js';
+import VertexManipulator from './VertexManipulator.js';
 
 export default class VertexDragListener extends SoundDragListener {
 
@@ -40,10 +40,8 @@ export default class VertexDragListener extends SoundDragListener {
         // We decided that this is OK, and we can live with it.
         hProperty.value = h;
         kProperty.value = k;
-
-        // accessibleObjectResponse
-        manipulator.doAccessibleObjectResponse();
       },
+      end: ( event, listener ) => manipulator.describeMoved(),
       tandem: tandem
     } );
   }

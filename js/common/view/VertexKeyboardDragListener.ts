@@ -55,10 +55,8 @@ export default class VertexKeyboardDragListener extends SoundKeyboardDragListene
         // Set the new values.
         hProperty.value = h;
         kProperty.value = k;
-
-        // accessibleObjectResponse
-        manipulator.doAccessibleObjectResponse();
       },
+      end: ( event, listener ) => manipulator.describeMoved(),
       tandem: tandem
     } );
   }

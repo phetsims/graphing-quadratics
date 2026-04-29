@@ -80,10 +80,10 @@ export default class PointToolDragListener extends SoundDragListener {
 
         // Move the point tool.
         pointTool.positionProperty.value = position;
+      },
 
-        // Describe what the point tool is measuring.
-        pointToolNode.doAccessibleObjectResponse();
-      }
+      // Describe what the point tool is measuring.
+      end: ( event, listener ) => pointToolNode.describeMoved()
     };
 
     super( options );

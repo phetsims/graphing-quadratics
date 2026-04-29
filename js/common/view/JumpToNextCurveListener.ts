@@ -6,16 +6,16 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import graphingQuadratics from '../../graphingQuadratics.js';
-import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
-import type { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
-import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
-import PointToolNode from './PointToolNode.js';
-import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
-import Vector2 from '../../../../dot/js/Vector2.js';
-import Quadratic from '../model/Quadratic.js';
-import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
+import type { OneKeyStroke } from '../../../../scenery/js/input/KeyDescriptor.js';
+import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
+import graphingQuadratics from '../../graphingQuadratics.js';
+import GraphingQuadraticsStrings from '../../GraphingQuadraticsStrings.js';
+import Quadratic from '../model/Quadratic.js';
+import PointToolNode from './PointToolNode.js';
 
 export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStroke[]> {
 
@@ -76,7 +76,7 @@ export default class JumpToNextCurveListener extends KeyboardListener<OneKeyStro
         }
 
         // Describe the tool's position.
-        pointToolNode.doAccessibleObjectResponse();
+        pointToolNode.describeMoved();
       }
     } );
   }

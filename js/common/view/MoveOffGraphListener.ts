@@ -34,7 +34,7 @@ export default class MoveOffGraphListener extends KeyboardListener<OneKeyStroke[
         pointToolNode.pointTool.positionProperty.value = pointToolNode.pointTool.positionProperty.initialValue;
 
         // Describe the tool's new position.
-        pointToolNode.doAccessibleObjectResponse();
+        pointToolNode.describeMoved();
       }
     } );
   }

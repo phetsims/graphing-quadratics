@@ -179,7 +179,7 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
 
     // When this tool gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
-      focused && this.doAccessibleObjectResponse();
+      focused && this.describeFocused();
     } );
 
     // When the point tool snaps to a curve, play a sound. Note that because a new Quadratic instance is created
@@ -204,10 +204,20 @@ export default class PointToolNode extends InteractiveHighlighting( Node ) {
   }
 
   /**
-   * Adds an accessible object response that describes what the point tool is currently measuring.
+   * Adds an accessible object response when the point tool gets focus.
    */
-  public doAccessibleObjectResponse(): void {
-    this.addAccessibleObjectResponse( PointToolDescriber.createObjectResponse( this ) );
+  private describeFocused(): void {
+    this.addAccessibleFocusObjectResponse( PointToolDescriber.createObjectResponse( this ) );
+  }
+
+  /**
+   * Adds an accessible object response when the point tool is moved.
+   */
+  public describeMoved(): void {
+    this.addAccessibleObjectResponse( PointToolDescriber.createObjectResponse( this ), {
+      interruptible: true,
+      alertDelay: 1000
+    } );
   }
 }
 

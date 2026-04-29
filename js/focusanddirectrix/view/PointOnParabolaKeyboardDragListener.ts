@@ -112,10 +112,8 @@ export default class PointOnParabolaKeyboardDragListener extends SoundKeyboardDr
         }
 
         pointOnParabolaProperty.value = new Vector2( x1, y1 );
-
-        // accessibleObjectResponse
-        manipulator.doAccessibleObjectResponse();
-      }
+      },
+      end: ( event, listener ) => manipulator.describeMoved()
     } );
   }
 }

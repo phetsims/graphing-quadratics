@@ -111,23 +111,38 @@ export default class FocusManipulator extends GQManipulator {
 
     // When this manipulator gets focus, describe it.
     this.focusedProperty.lazyLink( focused => {
-      focused && this.doAccessibleObjectResponse();
+      focused && this.describeFocused();
     } );
   }
 
   /**
-   * Adds an accessible object response that describes the focus of the quadratic.
+   * Adds an accessible object response when the manipulator gets focus.
    */
-  public doAccessibleObjectResponse(): void {
-    const focus = this.quadraticProperty.value.focus;
-    if ( focus ) {
-      const response = StringUtils.fillIn( GraphingQuadraticsStrings.a11y.focusManipulator.accessibleObjectResponseStringProperty, {
+  private describeFocused(): void {
+    this.addAccessibleFocusObjectResponse( this.getFocusDescription() );
+  }
 
-        // Use the same formatting and number of decimal places as the visual UI.
-        x: toFixedNumber( focus.x, GQConstants.FOCUS_DECIMALS ),
-        y: toFixedNumber( focus.y, GQConstants.FOCUS_DECIMALS )
-      } );
-      this.addAccessibleObjectResponse( response );
-    }
+  /**
+   * Adds an accessible object response when the manipulator is moved.
+   */
+  public describeMoved(): void {
+    this.addAccessibleObjectResponse( this.getFocusDescription(), {
+      interruptible: true,
+      alertDelay: 1000
+    } );
+  }
+
+  /**
+   * Gets a description of the quadratic's focus.
+   */
+  private getFocusDescription(): string {
+    const focus = this.quadraticProperty.value.focus!;
+    affirm( focus, 'Expected focus to be defined.' );
+    return StringUtils.fillIn( GraphingQuadraticsStrings.a11y.focusManipulator.accessibleObjectResponseStringProperty, {
+
+      // Use the same formatting and number of decimal places as the visual UI.
+      x: toFixedNumber( focus.x, GQConstants.FOCUS_DECIMALS ),
+      y: toFixedNumber( focus.y, GQConstants.FOCUS_DECIMALS )
+    } );
   }
 }

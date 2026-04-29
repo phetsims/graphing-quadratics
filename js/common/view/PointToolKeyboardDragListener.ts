@@ -17,19 +17,19 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import PointTool from '../model/PointTool.js';
-import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
-import PointToolNode from './PointToolNode.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
-import GQGraph from '../model/GQGraph.js';
-import SoundKeyboardDragListener, { SoundKeyboardDragListenerOptions } from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
-import GQQueryParameters from '../GQQueryParameters.js';
-import Vector2 from '../../../../dot/js/Vector2.js';
-import globalKeyStateTracker from '../../../../scenery/js/accessibility/globalKeyStateTracker.js';
-import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
 import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import affirm from '../../../../perennial-alias/js/browser-and-node/affirm.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import SoundKeyboardDragListener, { SoundKeyboardDragListenerOptions } from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
+import globalKeyStateTracker from '../../../../scenery/js/accessibility/globalKeyStateTracker.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import GQConstants from '../GQConstants.js';
+import GQQueryParameters from '../GQQueryParameters.js';
+import GQGraph from '../model/GQGraph.js';
+import PointTool from '../model/PointTool.js';
+import PointToolNode from './PointToolNode.js';
 
 // These constants specify the position delta (dx or dy) each time that drag is called.
 const SNAPPED_KEYBOARD_STEP = 0.1;
@@ -160,10 +160,10 @@ export default class PointToolKeyboardDragListener extends SoundKeyboardDragList
             }
           }
         }
+      },
 
-        // Describe what the point tool is measuring.
-        pointToolNode.doAccessibleObjectResponse();
-      }
+      // Describe what the point tool is measuring.
+      end: ( event, listener ) => pointToolNode.describeMoved()
     };
 
     super( options );
