@@ -26,9 +26,7 @@ export default class StandardFormKeyboardHelpContent extends TwoColumnKeyboardHe
       new MoveDraggableItemsKeyboardHelpSection(),
 
       // Spinner Controls
-      new SpinnerControlsKeyboardHelpSection( {
-        includeSmallerStepsRow: false
-      } )
+      new SpinnerControlsKeyboardHelpSection()
     ];
 
     // Sections in the right column.
